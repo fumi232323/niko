@@ -1,0 +1,4 @@
+Sitemap: https://32imuf.com/sitemapindex.xml
+
+User-Agent: *
+Host: 32imuf.com

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<title>Git の設定まとめ/fuminote</title>
+<link rel="shortcut icon" href="../../assets/icons/favicon.ico">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Griffy">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Vollkorn:400,700">
+<link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/sawarabimincho.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+<link rel="stylesheet" href="../../assets/css/style.css?201905024">
+</head>
+<body>
+    <div class="container">
+      <iframe src="../../tags/"></iframe>
+      <div class="main">
+<div class="article-content">
+  <main class="item item-article item-git"><time class="date" datetime="2018-09-20 00:00:00+09:00">
+      2018-09-20 Thu
+    </time><div class="title">Git の設定まとめ</div>
+    <div class="category">
+      <a href="../../tags/git/">
+          git
+      </a>
+    </div>
+    <div class="text">
+      <div class="section" id="git">
+<h2>Git の設定まとめ</h2>
+<ul>
+<li>
+<p class="first">エディタに Vim に設定する</p>
+<pre class="code console"><a name="rest_code_11235264efeb4942a9207dc0ef0c244d-1"></a><span class="gp">$</span> git config --global core.editor <span class="s1">'vim -c "set fenc=utf-8"'</span>
+</pre>
+</li>
+<li>
+<p class="first">git status で日本語のファイル名をちゃんと出す</p>
+<pre class="code console"><a name="rest_code_d87a21c27cfc4713a35941acfa138b28-1"></a><span class="gp">$</span> git config --global core.quotepath off
+</pre>
+</li>
+<li>
+<p class="first">現在の設定を確認する</p>
+<pre class="code console"><a name="rest_code_96e012b44608477b9f91269d3d45cb73-1"></a><span class="gp">$</span> git config --list
+</pre>
+</li>
+</ul>
+</div>
+    </div>
+  </main>
+</div>
+</div>
+    </div>
+  </body>
+</html>
