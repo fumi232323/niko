@@ -1,0 +1,49 @@
+{% extends "./base.tmpl" %}
+
+{% block main %}
+  <div class="index-content">
+    {% for post in posts %}
+      {% if loop.first %}
+        {% set item_size = 'item-l' %}
+        {% set dog = 'robo.jpg' %}
+      {% elif loop.index is divisibleby(3) %}
+        {% set item_size = 'item-m' %}
+        {% set dog = 'labrador.png' %}
+      {% else %}
+        {% set item_size='' %}
+        {% set dog = 'nachi.jpg' %}
+      {% endif %}
+      <section class="item {{ item_size }} item-{{ post.alltags[0] }}">
+        <a href="{{ post.permalink() }}">
+          <div class="image">
+            <img src="/assets/images/{{ dog }}" alt="犬">
+          </div>
+          <div class="title">{{ post.title() }}</div>
+          <p class="category">
+            {{ post.alltags[0] }}
+          </p>
+          <time class="date" datetime="{{ post.date }}">
+            {{ post.date.strftime('%Y-%m-%d %a') }}
+          </time>
+        </a>
+      </section>
+    {% endfor %}
+  </div>
+  {# CDNからライブラリを読み込み #}
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/masonry/3.3.0/masonry.pkgd.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/3.2.0/imagesloaded.pkgd.js"></script>
+  <script>
+    $('#container').imagesLoaded(function(){
+        // 画像読み込みが完了したら、Masonryする
+        new Masonry(
+          // 親要素のセレクタを指定
+            'body', {
+                itemSelector: '.item',  // ボックス要素のセレクタ
+                columnWidth: 180,       // グリッドの横幅
+                gutter: 4               // 左右のボックスとの間隔。上下の間隔はCSSで指定する必要がある。
+            }
+        )
+    });
+  </script>
+{% endblock main %}

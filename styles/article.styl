@@ -1,0 +1,254 @@
+/* --------------------------------
+ * article
+ * -------------------------------- */
+/* タイトルと本文だけフォントを変更 */
+title-text-fonts = 'Vollkorn', "Sawarabi Mincho", "Hiragino Kaku Gothic ProN", serif
+
+/* article item の大きさを指定 */
+.item-article
+  width 100%        /* びよーんと伸び縮みしたい */
+  margin-left 4px   /* ヘッダーとの隙間をあける */
+  padding 40px      /* ボックス内の余白を普通の item より広くとる */
+
+  @media (max-width: 768px)
+    margin-left 0         /* 縦並びにするので、左横の margin はいらない */
+    word-wrap break-word  /* 幅が狭いので、単語内でも折り返しを許可する */
+    padding 40px 8px
+
+.date{
+  display: block;
+  font-size: 2rem;
+  color: #777777;
+}
+
+.category
+  font-size: 2rem;
+
+  > a
+    display: inline-block
+    padding 6px 10px 6px
+    border-radius 5px
+    color #777777             /* a 要素の中はリンクテキストとして文字色が変わってしまうので、文字色を指定しなおす。 */
+    transition all 0.3s       /* 0.3秒かけてスムーズに変わるように指定 */
+    box-shadow 0 0 8px -1px rgba(0, 0, 0, 0.3)  /* ボックスの周りに影を落とす */
+
+  > a:hover
+    opacity 0.8  /* ハイライトのような効果 */
+    background #777777
+    color #FFFFFF
+
+/* --------------------------------
+ * title
+ * -------------------------------- */
+.title
+  margin 20px 0 20px
+  color #aaaaaa
+  font-size 4rem
+  font-weight bold
+  letter-spacing 1px
+  line-height 1.4
+  font-family title-text-fonts
+
+  @media (max-width: 768px)
+    font-size 3.0rem
+
+.title::before          /* 左横の円 */
+  content ''            /* before擬似要素を表示するために指定 */
+  display inline-block  /* 円の横幅と高さを指定したいので。横並び。 */
+  width 38px
+  height 38px
+  margin-right 8px
+  border-width 3px
+  border-style solid
+  border-radius 50%     /* 50%で円になる */
+  vertical-align -5px   /* 縦方向の位置調整 */
+
+  @media (max-width: 768px)
+    width 30px
+    height 30px
+    vertical-align -4px   /* 縦方向の位置調整 */
+
+/* --------------------------------
+ * article 本文
+ * -------------------------------- */
+.text
+  margin-top 6.6rem
+  line-height 1.9
+  font-size 1.8rem
+  font-family title-text-fonts
+
+  .topic-title
+    display none
+
+  .toc-backref
+    color #333333
+    display block
+
+  h1, h2, h3, h4, h5, h6
+    font-weight 700
+    line-height 1.5
+    margin-top 2.2em
+    margin-bottom 2.4rem
+
+  h1, summary
+    font-size 2.8rem
+    border-bottom 2px dotted #aaaaaa
+    padding-bottom 0.1em
+
+  h2
+    font-size 2.2rem
+    border-bottom 1px solid #aaaaaa
+    padding-bottom 0.1em
+
+  h3
+    font-size 2.0rem
+    border-bottom 1px dotted #aaaaaa
+
+  h4
+    font-size 1.8rem
+
+  ul, ol
+    margin 16px 0
+    padding-left 40px
+
+    li
+      list-style-type disc
+
+      li
+        list-style-type circle
+
+        li
+          list-style-type square
+
+          li
+            list-style-type disc
+
+  .arabic li
+    list-style-type decimal
+
+    li
+      list-style-type disc
+
+  a
+    word-wrap break-word
+
+  a:hover, summary:hover
+    opacity 0.5           /* ハイライトのような効果 */
+    transition all 0.3s   /* 0.3sec かけて変化する */
+
+  .code-block,
+  .literal-block
+    overflow auto          /* スクロールバー: はみ出したら出す */
+    white-space pre-wrap   /* 連続する空白はそのまま残されます。行の折り返しは、改行文字や <br> 要素のあるときか、行ボックスを埋めるのに必要なときに行います。 */
+    margin 1.6rem 0 1.6rem
+    line-height 1.3
+    max-height 400px
+
+  .code-block
+    padding 0 32px
+    font-size 2.0rem
+    background-color #364549
+    color #f8f8f2
+
+  .literal-block
+    padding 1em 32px
+    font-size inherit
+    font-family inherit
+    border-radius 2px
+    background-color #FDF5E6
+    color #777777
+
+  .docutils
+    padding 1px 3px
+    border-radius 2px
+    background-color #FDF5E6
+    color #777777
+
+  cite
+    padding 1px 3px
+    border-radius 2px
+    background-color #ffffdb
+    color: #777777
+
+  .figure img
+    max-width 100%
+
+/* --------------------------------
+ * table の線の色 (共通)
+ * -------------------------------- */
+table-border-color = #bbb
+
+/* --------------------------------
+ * field-list
+ * -------------------------------- */
+  dl
+    display flex
+    flex-wrap wrap
+    border 1px solid table-border-color
+    border-top none
+
+    dt
+      padding 2px 5px
+      flex-basis 30%
+      border-top 1px solid table-border-color
+      font-weight bold
+      background-color #fef4f4
+
+    dd
+      padding 2px 5px
+      flex-basis 70%
+      border-left 1px solid table-border-color
+      border-top 1px solid table-border-color
+
+    dd:hover
+      opacity: 0.7;  /* 不透明度を少し下げ透過させる。すこし光ったように見えるらしい。 */
+      background-color #EFBAA8
+      transition all 0.3s
+
+/* --------------------------------
+ * table
+ * -------------------------------- */
+  table
+    margin-top 2.0rem
+    border 1px solid table-border-color
+
+    caption
+      font-weight bold
+      font-size 1.8rem
+      padding 2px 5px
+
+    th
+      background-color #fef4f4
+
+    th, td
+      border 1px solid table-border-color
+      padding 2px 5px
+
+    tr:hover
+      background-color #EFBAA8
+      transition all 0.3s
+
+    td:hover
+      opacity 0.7  /* 不透明度を少し下げ透過させる。すこし光ったように見えるらしい。 */
+      transition all 0.3s
+      color #FFFFFF
+
+/* --------------------------------
+ * .. note::
+ * -------------------------------- */
+  .admonition
+    background-color #FDF5E6
+    color #6C3A24
+    padding 0.5em 32px
+    border #6C3A24 solid 1px
+    border-radius 4px
+
+    .admonition-title
+      font-weight bold
+      font-size 1.8rem
+
+/* TODO: あといるもの */
+/*
+  - web master 登録?
+  - https://stackoverflow.com/questions/2454577/sphinx-restructuredtext-show-hide-code-snippets
+*/

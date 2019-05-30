@@ -1,0 +1,20 @@
+{% extends "./base.tmpl" %}
+
+{% block main %}
+<div class="article-content">
+  <main class="item item-article item-{{ post.alltags[0] }}">
+    <time class="date" datetime="{{ post.date }}">
+      {{ post.date.strftime('%Y-%m-%d %a') }}
+    </time>
+    <div class="title">{{ post.title() }}</div>
+    <div class="category">
+      <a href="/tags/{{ post.alltags[0] }}/">
+          {{ post.alltags[0] }}
+      </a>
+    </div>
+    <div class="text">
+      {{ post.text() }}
+    </div>
+  </main>
+</div>
+{% endblock main %}

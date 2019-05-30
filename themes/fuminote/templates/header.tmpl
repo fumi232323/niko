@@ -1,0 +1,28 @@
+<header class="item item-header">
+  <h1>
+    <a href="/">
+      <img class="logo" src="/assets/images/inuu.png" alt="犬">
+    </a>
+  </h1>
+  <nav class="nav">
+    <ul>
+      <li class="nav-category"><a href="/">HOME</a></li>
+      {% for post in posts %}
+        {% set tag=post.alltags[0] %}
+        <li class="nav-category">
+          <a href="/tags/{{ tag }}/">{{ tag }}</a>
+          <ul>
+            {% for article in articles %}
+              <li class="nav-article">
+                <a href="{{ article.path() }}">{{ article.title }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        </li>
+      {% endfor %}
+    </ul>
+    {#
+    <iframe src="/tags/"></iframe>
+    #}
+  </nav>
+</header>
