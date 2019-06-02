@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<title>サーバーに ssh 接続しようとしたら、 WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED! と言われた/fuminote</title>
+<link rel="shortcut icon" href="../../assets/icons/favicon.ico">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Griffy">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Vollkorn:400,700">
+<link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/sawarabimincho.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+<link rel="stylesheet" href="../../assets/css/style.css?20190602">
+</head>
+<body>
+    <div class="container">
+      <div class="header"><header class="item item-header"><h1>
+    <a href="../../">
+      <img class="logo" src="../../assets/images/inuu.png" alt="犬"></a>
+  </h1>
+  <nav class="nav"><ul>
+<li class="nav-category"><a href="../../">HOME</a></li>
+    </ul></nav><iframe src="../../tags/" class="tags-frame"></iframe>
+</header></div>
+      <div class="main">
+<div class="article-content">
+  <main class="item item-article item-ssh"><time class="date" datetime="2018-08-05 00:00:00+09:00">
+      2018-08-05 Sun
+    </time><div class="title">サーバーに ssh 接続しようとしたら、 WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED! と言われた</div>
+    <div class="category">
+      <a href="../../tags/ssh/">
+          ssh
+      </a>
+    </div>
+    <div class="text">
+      <div>
+<p>TODO: 残りを整理する。</p>
+<div class="section" id="id1">
+<h2>事象</h2>
+<p>サーバーに ssh 接続しようとしたら、こんなエラーが出た。</p>
+<blockquote>
+<ul>
+<li>
+<p class="first">エラーメッセージ(だいたいこんな感じ)</p>
+<pre class="code bash"><a name="rest_code_0cef40ecd0384500bf721069fd685ab6-1"></a>$ ssh <span class="o">{</span>接続先サーバー<span class="o">}</span>
+<a name="rest_code_0cef40ecd0384500bf721069fd685ab6-2"></a>@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+<a name="rest_code_0cef40ecd0384500bf721069fd685ab6-3"></a>@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
+<a name="rest_code_0cef40ecd0384500bf721069fd685ab6-4"></a>@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+<a name="rest_code_0cef40ecd0384500bf721069fd685ab6-5"></a>IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
+<a name="rest_code_0cef40ecd0384500bf721069fd685ab6-6"></a>Someone could be eavesdropping on you right now <span class="o">(</span>man-in-the-middle attack<span class="o">)</span>!
+<a name="rest_code_0cef40ecd0384500bf721069fd685ab6-7"></a>It is also possible that a host key has just been changed.
+<a name="rest_code_0cef40ecd0384500bf721069fd685ab6-8"></a>The fingerprint <span class="k">for</span> the RSA key sent by the remote host is
+<a name="rest_code_0cef40ecd0384500bf721069fd685ab6-9"></a>SHA256:<span class="o">{</span>ここに fingerprint <span class="o">}</span>.
+<a name="rest_code_0cef40ecd0384500bf721069fd685ab6-10"></a>Please contact your system administrator.
+<a name="rest_code_0cef40ecd0384500bf721069fd685ab6-11"></a>Add correct host key in /Users/fumi23/.ssh/known_hosts to get rid of this message.
+<a name="rest_code_0cef40ecd0384500bf721069fd685ab6-12"></a>Offending RSA key in /Users/fumi23/.ssh/known_hosts:3
+<a name="rest_code_0cef40ecd0384500bf721069fd685ab6-13"></a>RSA host key <span class="k">for</span> <span class="o">{</span>ここに 接続先サーバーの HostName <span class="o">}</span> has changed and you have requested strict checking.
+<a name="rest_code_0cef40ecd0384500bf721069fd685ab6-14"></a>Host key verification failed.
+<a name="rest_code_0cef40ecd0384500bf721069fd685ab6-15"></a>ssh_exchange_identification: Connection closed by remote host
+</pre>
+</li>
+</ul>
+</blockquote>
+</div>
+<div class="section" id="id2">
+<h2>原因</h2>
+<p>チームの方が教えてくれました。 (ありがとうございました。)</p>
+<ul class="simple">
+<li>接続先サーバーの RSA 公開鍵のフィンガープリントが変わっていたため。<ul>
+<li>上記のエラーは、接続先サーバーの RSA 公開鍵のフィンガープリントが変わってますよ、というエラー。</li>
+<li>サーバーの入れ替えなどすると、 RSA 公開鍵のフィンガープリントは変わる。</li>
+<li>
+<cite>エラーメッセージちゃんと読むと、MITM攻撃ありえるから、気を利かしてエラーにしてる感じ</cite> なのだそうです。</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2>解決方法</h2>
+<ol class="arabic">
+<li>
+<p class="first">known_hostsファイルから、接続先サーバーの HostName に属する鍵をすべて取り除く。</p>
+<blockquote>
+<pre class="code bash"><a name="rest_code_3622247762ba471fa1a6de76ec680d88-1"></a>$ ssh-keygen -R <span class="o">{</span>ここに 接続先サーバーの HostName <span class="o">}</span>
+<a name="rest_code_3622247762ba471fa1a6de76ec680d88-2"></a><span class="c1"># Host {ここに 接続先サーバーの HostName } found: line 3</span>
+<a name="rest_code_3622247762ba471fa1a6de76ec680d88-3"></a>/Users/fumi23/.ssh/known_hosts updated.
+<a name="rest_code_3622247762ba471fa1a6de76ec680d88-4"></a>Original contents retained as /Users/fumi23/.ssh/known_hosts.old
+</pre>
+</blockquote>
+</li>
+<li>
+<p class="first">ssh でアクセスし直す。</p>
+</li>
+<li>
+<p class="first">「あなたが接続しようとしているサーバーの fingerprint はこれか？」と尋ねられるので、 <tt class="docutils literal">yes</tt> と答える。</p>
+<blockquote>
+<pre class="code bash"><a name="rest_code_47473648b9904f439868287a2e396f52-1"></a>$ ssh <span class="o">{</span>接続先サーバー<span class="o">}</span>
+<a name="rest_code_47473648b9904f439868287a2e396f52-2"></a>The authenticity of host <span class="s1">'{ここに 接続先サーバーの HostName } ({ここに 接続先サーバーの IPアドレス })'</span> can<span class="s1">'t be established.</span>
+<a name="rest_code_47473648b9904f439868287a2e396f52-3"></a><span class="s1">ECDSA key fingerprint is SHA256:(ここに 新しい fingerprint ).</span>
+<a name="rest_code_47473648b9904f439868287a2e396f52-4"></a><span class="s1">Are you sure you want to continue connecting (yes/no)? yes</span>
+<a name="rest_code_47473648b9904f439868287a2e396f52-5"></a><span class="s1">Warning: Permanently added '</span><span class="o">{</span>ここに 接続先サーバーの HostName <span class="o">}</span>,<span class="o">{</span>ここに 接続先サーバーの IPアドレス <span class="o">}</span><span class="s1">' (ECDSA) to the list of known hosts.</span>
+<a name="rest_code_47473648b9904f439868287a2e396f52-6"></a><span class="s1">The authenticity of host '</span><span class="o">{</span>ここに 接続先サーバーその2の HostName <span class="o">}</span> <span class="o">(</span>&lt;no hostip <span class="k">for</span> proxy command&gt;<span class="o">)</span><span class="s1">' can'</span>t be established.
+<a name="rest_code_47473648b9904f439868287a2e396f52-7"></a>RSA key fingerprint is SHA256:<span class="o">(</span>ここに 新しい fingerprint その2 <span class="o">)</span>.
+<a name="rest_code_47473648b9904f439868287a2e396f52-8"></a>Are you sure you want to <span class="k">continue</span> connecting <span class="o">(</span>yes/no<span class="o">)</span>? yes
+<a name="rest_code_47473648b9904f439868287a2e396f52-9"></a>Warning: Permanently added <span class="s1">'{ここに 接続先サーバーその2の HostName }'</span> <span class="o">(</span>RSA<span class="o">)</span> to the list of known hosts.
+<a name="rest_code_47473648b9904f439868287a2e396f52-10"></a>Last login: Fri Jul <span class="m">13</span> <span class="m">15</span>:43:09 <span class="m">2018</span> from <span class="m">172</span>.31.7.69
+</pre>
+</blockquote>
+</li>
+<li>
+<p class="first">接続できました。</p>
+</li>
+</ol>
+<div class="section" id="fingerprint">
+<h3>fingerprint とは何ですか</h3>
+<ul>
+<li>
+<p class="first">流れとしては、</p>
+<ol class="arabic">
+<li>
+<p class="first">秘密鍵は自分持ってる</p>
+</li>
+<li>
+<p class="first">公開鍵はサーバーに書く</p>
+</li>
+<li>
+<p class="first">ssh 1回目に、「あなたが接続しようとしているサーバー（が持ってるRSA公開鍵の）フィンガープリントこれでいい？」って聞かれる</p>
+</li>
+<li>
+<p class="first">「いいよ」っていうと自分のマシンの  <tt class="docutils literal">known_hosts</tt> に書かれる。</p>
+<blockquote>
+<ul>
+<li>
+<p class="first"><tt class="docutils literal">known_hosts</tt> ファイルに、</p>
+<pre class="code bash"><a name="rest_code_3339b2ccc0274d75871ea4546a2af72f-1"></a>サーバーのHostName 鍵のタイプ 謎の文字列
+</pre>
+<p>の形式で書かれる。</p>
+</li>
+<li>
+<p class="first"><tt class="docutils literal">known_hosts</tt> は覚書きみたいなもの。このサーバーは知ってるひと、伊原に住んでる fumi さんでしょ、合言葉は「おとといきやがれ」。みたいな。</p>
+</li>
+<li>
+<p class="first"><tt class="docutils literal">known_hosts</tt> に書かれる謎の文字列は、公開鍵の文字列と似ているけれど、違う。なんか暗号化とかしてるの？フィンガープリントを。</p>
+</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<ol class="arabic simple" start="5">
+<li>ssh 2回目以降は、 <tt class="docutils literal">known_hosts</tt> に書いておいた覚書きを照会して、知り合いか否かを判定する。</li>
+</ol>
+</blockquote>
+</li>
+</ul>
+<p>TODO: ここから整理中</p>
+<ul class="simple">
+<li>なんのために、フィンガープリントを送ってくるかというと、「あなたが接続しようとしているサーバーはこちらでよろしいですか？」という確認のため。</li>
+<li>公開鍵をそのまま送っちゃうと危険だから、 <tt class="docutils literal">SHA256</tt> (ハッシュ) して、送ってくれる。</li>
+<li>サーバー入れ替えとかすると、フィンガープリントは変わる (とのこと)。</li>
+<li>でも鍵が変わっているわけではない</li>
+<li>
+<tt class="docutils literal">SHA256</tt> はハッシュだから、同じ元値からは必ず同じハッシュ値が生成されるはず</li>
+<li>ということは、単純に公開鍵から生成しているわけではなさそう</li>
+<li>公開鍵 ( +α ) から生成されるんだろう</li>
+<li>送り主のサーバーは公開鍵しか持ってないしな</li>
+<li>でも変えられちゃったら、念のため手元にとっておいた公開鍵に対応するフィンガープリントなのかわからなくなっちゃう・・</li>
+<li>いやたぶん、一番最初、サーバーに公開鍵を置いたばかりのタイミングでは、<cite>$ ssh-keygen -l -f id_rsa_test1.pub</cite> したやつと同じフィンガープリントを
+送りつけてくるんだろう</li>
+<li>試したい・・・</li>
+</ul>
+<p>あ、わかった
+ここだ</p>
+<p><a class="reference external" href="http://www.unixuser.org/~euske/doc/openssh/book/chap3.html">http://www.unixuser.org/~euske/doc/openssh/book/chap3.html</a>
+3.2.3. なりすましを防ぐしくみ</p>
+<p>公開鍵、って言ってるやつは、ふたつに分かれていたんだ、ホスト公開鍵とホスト秘密鍵</p>
+<p>通常はこのようなことが起こらないよう、 クライアントはサーバに接続した瞬間に、まず暗号化された通信を介して そのサーバのホスト鍵 (host key) を確認し、
+それが本当に自分のログインしたいサーバであるかどうか確かめます。
+ホスト鍵は <tt class="docutils literal">ホスト公開鍵</tt> と <tt class="docutils literal">ホスト秘密鍵</tt> に分かれており、 クライアント上には通常 known_hosts と呼ばれるファイルがあり、
+ここには特定の IPアドレス (とホスト名) をもつサーバの <tt class="docutils literal">ホスト公開鍵</tt> が登録されています。
+ホスト秘密鍵はサーバマシン内のディスクに格納されており、 ネットワーク上に持ち出されることはありません。
+クライアントは、まずこの known_hosts ファイル内に登録されているホスト公開鍵と、
+サーバから送られてくるホスト公開鍵を照合し (図 what-is-host-authentication)、
+サーバが実際にこのホスト公開鍵に対応するホスト秘密鍵をもっているかどうか確認します。
+この確認には公開鍵暗号技術が使われており、 サーバは実際のホスト秘密鍵をネットワーク上に送信することなく、
+ホスト秘密鍵の所有を クライアント側に証明できるようになっています (コラム - 公開鍵をつかった認証のしくみ 参照)。</p>
+<p>TODO: あした、↑たしかめよう</p>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>宿題</h2>
+<ul class="simple">
+<li>
+<tt class="docutils literal">中間者攻撃</tt> とは何ですか。</li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h2>参考サイト</h2>
+<ul class="simple">
+<li><a class="reference external" href="https://www.freebsd.org/cgi/man.cgi?query=ssh-keygen&amp;apropos=0&amp;sektion=1&amp;manpath=CentOS+6.5&amp;arch=default&amp;format=html">SSH-KEYGEN(1)</a></li>
+<li><a class="reference external" href="http://note.crohaco.net/2014/public-key-basic-config/">秘密鍵/公開鍵の基本的な設定</a></li>
+<li><a class="reference external" href="http://www.unixuser.org/~euske/doc/openssh/book/chap3.html">第3章 OpenSSH のしくみ</a></li>
+</ul>
+<p>ありがとうございました。</p>
+</div>
+</div>
+    </div>
+  </main>
+</div>
+</div>
+    </div>
+  </body>
+</html>

@@ -1,5 +1,172 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>fuminote (gitについての文書)</title><link>https://32imuf.com/</link><description></description><atom:link href="https://32imuf.com/tags/git.xml" rel="self" type="application/rss+xml"></atom:link><language>ja</language><copyright>Contents © 2019 &lt;a href="mailto:fumi232323fumi2016@gmail.com"&gt;fumi23&lt;/a&gt; </copyright><lastBuildDate>Sat, 01 Jun 2019 16:19:20 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Git のメモ</title><link>https://32imuf.com/git/note/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;p&gt;&lt;/p&gt;
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>fuminote (gitについての文書)</title><link>https://32imuf.com/</link><description></description><atom:link href="https://32imuf.com/tags/git.xml" rel="self" type="application/rss+xml"></atom:link><language>ja</language><copyright>Contents © 2019 &lt;a href="mailto:fumi232323fumi2016@gmail.com"&gt;fumi23&lt;/a&gt; </copyright><lastBuildDate>Sun, 02 Jun 2019 07:25:16 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>git merge</title><link>https://32imuf.com/git/command/merge/</link><dc:creator>fumi23</dc:creator><description>&lt;div class="section" id="id1"&gt;
+&lt;h2&gt;マージする&lt;/h2&gt;
+&lt;p&gt;topic ブランチを acceptance ブランチへマージする。&lt;/p&gt;
+&lt;ol class="arabic"&gt;
+&lt;li&gt;&lt;p class="first"&gt;acceptance にチェックアウトする&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;pre class="code console"&gt;&lt;a name="rest_code_3bce33ad97c14a328506dc25ed3098b6-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; git checkout acceptance
+&lt;/pre&gt;&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;topic をマージします&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;pre class="code console"&gt;&lt;a name="rest_code_4e21734bfb914461a4122fd802718a28-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; git merge topic
+&lt;/pre&gt;&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;コンフリクトしたら、解消して、&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;pre class="code console"&gt;&lt;a name="rest_code_a282a9204c96436aba023d748503b60a-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; git add .
+&lt;a name="rest_code_a282a9204c96436aba023d748503b60a-2"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; git commit -m &lt;span class="s2"&gt;"Merge branch 'topic-branch-name' into acceptance"&lt;/span&gt;
+&lt;/pre&gt;&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;マージに成功したら、強制push&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;pre class="code console"&gt;&lt;a name="rest_code_18ccdcd959954abca6820bbb2a01583a-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; git push -u origin acceptance -f
+&lt;/pre&gt;&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</description><category>git</category><guid>https://32imuf.com/git/command/merge/</guid><pubDate>Thu, 25 Oct 2018 15:00:00 GMT</pubDate></item><item><title>git rebase</title><link>https://32imuf.com/git/command/rebase/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;details&gt;
+  &lt;summary&gt;目次&lt;/summary&gt;&lt;div class="contents topic" id="id1"&gt;
+&lt;p class="topic-title first"&gt;目次&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference internal" href="https://32imuf.com/git/command/rebase/#id2" id="id6"&gt;リベース&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="https://32imuf.com/git/command/rebase/#master" id="id7"&gt;master ブランチにリベースする&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="https://32imuf.com/git/command/rebase/#id3" id="id8"&gt;間違えてリベースして元に戻したい&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="https://32imuf.com/git/command/rebase/#push" id="id9"&gt;push しちゃった場合&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="https://32imuf.com/git/command/rebase/#id4" id="id10"&gt;push してない場合&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="https://32imuf.com/git/command/rebase/#preserve-merges" id="id11"&gt;preserve-merges オプション&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="https://32imuf.com/git/command/rebase/#id5" id="id12"&gt;リファレンス&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/details&gt;&lt;div class="section" id="id2"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/git/command/rebase/#id6"&gt;リベース&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="master"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/git/command/rebase/#id7"&gt;master ブランチにリベースする&lt;/a&gt;&lt;/h3&gt;
+&lt;pre class="code console"&gt;&lt;a name="rest_code_d4f3ea8516db4966b0e3be7243c373c8-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; git rebase master
+&lt;/pre&gt;&lt;p&gt;コンフリクトしたらコンフリクトを解消して、&lt;/p&gt;
+&lt;pre class="code console"&gt;&lt;a name="rest_code_8bba9ba6a36d4092bcd406708d7e5bd9-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; git add .
+&lt;a name="rest_code_8bba9ba6a36d4092bcd406708d7e5bd9-2"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; git rebase --continue
+&lt;/pre&gt;&lt;p&gt;リベースが終わったらフォースプッシュ&lt;/p&gt;
+&lt;pre class="code console"&gt;&lt;a name="rest_code_7d91dda222844265b3eeb6aa205179f1-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; git push -f
+&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="section" id="id3"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/git/command/rebase/#id8"&gt;間違えてリベースして元に戻したい&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="section" id="push"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="https://32imuf.com/git/command/rebase/#id9"&gt;push しちゃった場合&lt;/a&gt;&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;pre class="code console"&gt;&lt;a name="rest_code_af212afce8ad4d1db2557b9f9e3a8c17-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; git reflog
+&lt;a name="rest_code_af212afce8ad4d1db2557b9f9e3a8c17-2"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; git reset --hard HEAD@&lt;span class="o"&gt;{&lt;/span&gt;&lt;span class="m"&gt;6&lt;/span&gt;&lt;span class="o"&gt;}&lt;/span&gt;  &lt;span class="c1"&gt;# 戻りたい番号そのものを書けばよいみたい&lt;/span&gt;
+&lt;a name="rest_code_af212afce8ad4d1db2557b9f9e3a8c17-3"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; git push -f
+&lt;/pre&gt;&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id4"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="https://32imuf.com/git/command/rebase/#id10"&gt;push してない場合&lt;/a&gt;&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p&gt;間違えてリベースしたブランチを origin に戻す&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;pre class="code console"&gt;&lt;a name="rest_code_77bc7d8c40ce42a7bc9ceeb887fe9fc8-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; git checkout -B &amp;lt;branch-you-want-to-restore&amp;gt; origin/&amp;lt;branch-you-want-to-restore&amp;gt;
+&lt;/pre&gt;&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="preserve-merges"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/git/command/rebase/#id11"&gt;preserve-merges オプション&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;分岐してマージしたよ、という履歴みたいなのを保ったまま、リベースしてくれる&lt;/p&gt;
+&lt;pre class="code console"&gt;&lt;a name="rest_code_d81e4f95f4124aec928271acd0ada847-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; git rebase --preserve-merges master
+&lt;/pre&gt;&lt;div class="section" id="id5"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="https://32imuf.com/git/command/rebase/#id12"&gt;リファレンス&lt;/a&gt;&lt;/h4&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://git-scm.com/docs/git-rebase"&gt;https://git-scm.com/docs/git-rebase&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://git-scm.com/book/ja/v2/Git-%E3%81%AE%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E6%A9%9F%E8%83%BD-%E3%83%AA%E3%83%99%E3%83%BC%E3%82%B9"&gt;3.6 Git のブランチ機能 - リベース&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/div&gt;</description><category>git</category><guid>https://32imuf.com/git/command/rebase/</guid><pubDate>Sat, 29 Sep 2018 15:00:00 GMT</pubDate></item><item><title>git rebase -i</title><link>https://32imuf.com/git/command/rebase-i/</link><dc:creator>fumi23</dc:creator><description>&lt;div class="section" id="rebase-i"&gt;
+&lt;h2&gt;rebase -i&lt;/h2&gt;
+&lt;div class="section" id="squash"&gt;
+&lt;h3&gt;squash : 離れたふたつのコミットをまとめる&lt;/h3&gt;
+&lt;ol class="arabic"&gt;
+&lt;li&gt;&lt;p class="first"&gt;くっつけ先のコミット番号を確かめる&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;pre class="code console"&gt;&lt;a name="rest_code_a80a470f119d44d59aa931e94972ade9-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; git log --oneline
+&lt;/pre&gt;&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;コミットが一覧表示されるので、くっつけ先のコミット番号を控え、 &lt;tt class="docutils literal"&gt;:q&lt;/tt&gt; で閉じる&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;rebase を開始する。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;pre class="code console"&gt;&lt;a name="rest_code_dc5671e4ca084f519d49dbb57654d8e9-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; git rebase -i &amp;lt;くっつけ先のコミット番号&amp;gt;
+&lt;/pre&gt;&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;エディターが開き、 3 で指定したコミット番号より後のコミット一覧が表示されるので、くっつけたいほうの pick を一番上に移動する。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;tt class="docutils literal"&gt;pick&lt;/tt&gt; を &lt;tt class="docutils literal"&gt;squash&lt;/tt&gt; に書き換える。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;tt class="docutils literal"&gt;:wq&lt;/tt&gt; で保存して閉じる&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;コミットメッセージを書く用？のエディタが開くので、&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;pre class="literal-block"&gt;
+You are currently rebasing branch 'master' on 'リビジョン番号'.
+&lt;/pre&gt;
+&lt;p&gt;の次の行のコメントを外して、コミットメッセージを書く。&lt;/p&gt;
+&lt;p&gt;(たぶん、その上のほうにあるコミットメッセージも変えたければ編集したほうがよいんだと思う)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;tt class="docutils literal"&gt;:wq&lt;/tt&gt; で保存して閉じる&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;リモートリポジトリにフォースプッシュする。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;pre class="code console"&gt;&lt;a name="rest_code_4adc43ca39b9428cbeb15fb4422fdffb-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; git push -f
+&lt;/pre&gt;&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;div class="section" id="reword"&gt;
+&lt;h3&gt;reword: コミットメッセージを変更する&lt;/h3&gt;
+&lt;ol class="arabic"&gt;
+&lt;li&gt;&lt;p class="first"&gt;コミット一覧を表示し、コミットメッセージを変更したいコミットの一つ前のコミット番号を控える&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;pre class="code console"&gt;&lt;a name="rest_code_8d00052d8d0a49ed81223f5999c23d06-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; git log --oneline
+&lt;/pre&gt;&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;tt class="docutils literal"&gt;:q&lt;/tt&gt; で閉じる&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;rebase を開始する。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;pre class="code console"&gt;&lt;a name="rest_code_47ebbc01dd3541d5b41a201c857962e4-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; git rebase -i &amp;lt;&lt;span class="m"&gt;1&lt;/span&gt; で控えたコミット番号&amp;gt;
+&lt;/pre&gt;&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;エディターが開き、 3 で指定したコミット番号より後のコミット一覧が表示されるので、コミットメッセージを変更したいコミット番号の &lt;tt class="docutils literal"&gt;pick&lt;/tt&gt; を &lt;tt class="docutils literal"&gt;reword&lt;/tt&gt; 書き換える。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;tt class="docutils literal"&gt;:wq&lt;/tt&gt; で保存して閉じる&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;コミットメッセージを書く用？のエディタが開くので、コミットメッセージを変更する。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;tt class="docutils literal"&gt;:wq&lt;/tt&gt; で保存して閉じる&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;リモートリポジトリにフォースプッシュする。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;pre class="code console"&gt;&lt;a name="rest_code_9f35ec7dfcf14d1390d11b8ba7e57d9e-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; git push -f
+&lt;/pre&gt;&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id1"&gt;
+&lt;h3&gt;参考にしたサイト&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p class="first"&gt;これがわかりやすかった&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://www.karakaram.com/git-rebase-i-usage#whats-rebase-i"&gt;https://www.karakaram.com/git-rebase-i-usage#whats-rebase-i&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description><category>git</category><guid>https://32imuf.com/git/command/rebase-i/</guid><pubDate>Sat, 29 Sep 2018 15:00:00 GMT</pubDate></item><item><title>Git のメモ</title><link>https://32imuf.com/git/note/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;p&gt;&lt;/p&gt;
 &lt;details&gt;&lt;summary&gt;目次&lt;/summary&gt;&lt;div class="contents topic" id="id1"&gt;
 &lt;p class="topic-title first"&gt;目次&lt;/p&gt;
 &lt;ul class="simple"&gt;
@@ -60,17 +227,179 @@
 &lt;li&gt;物理的には単なるブランチに過ぎないが、&lt;/li&gt;
 &lt;li&gt;意味的には「本番リリース用のブランチ」、みたいなもの。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/div&gt;&lt;/div&gt;</description><category>git</category><guid>https://32imuf.com/git/note/</guid><pubDate>Sat, 29 Sep 2018 15:00:00 GMT</pubDate></item><item><title>Git の設定まとめ</title><link>https://32imuf.com/git/configuration/</link><dc:creator>fumi23</dc:creator><description>&lt;div class="section" id="git"&gt;
-&lt;h2&gt;Git の設定まとめ&lt;/h2&gt;
+&lt;/div&gt;&lt;/div&gt;</description><category>git</category><guid>https://32imuf.com/git/note/</guid><pubDate>Sat, 29 Sep 2018 15:00:00 GMT</pubDate></item><item><title>Git の設定まとめ</title><link>https://32imuf.com/git/configuration/</link><dc:creator>fumi23</dc:creator><description>&lt;div class="section" id="id1"&gt;
+&lt;h2&gt;いろいろ&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;p class="first"&gt;エディタに Vim に設定する&lt;/p&gt;
-&lt;pre class="code console"&gt;&lt;a name="rest_code_11235264efeb4942a9207dc0ef0c244d-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; git config --global core.editor &lt;span class="s1"&gt;'vim -c "set fenc=utf-8"'&lt;/span&gt;
+&lt;pre class="code console"&gt;&lt;a name="rest_code_ba02b511a610409484723d80c5d049cc-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; git config --global core.editor &lt;span class="s1"&gt;'vim -c "set fenc=utf-8"'&lt;/span&gt;
 &lt;/pre&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p class="first"&gt;git status で日本語のファイル名をちゃんと出す&lt;/p&gt;
-&lt;pre class="code console"&gt;&lt;a name="rest_code_d87a21c27cfc4713a35941acfa138b28-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; git config --global core.quotepath off
+&lt;pre class="code console"&gt;&lt;a name="rest_code_3900953e919748b79f463b3ec6fb13b9-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; git config --global core.quotepath off
 &lt;/pre&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p class="first"&gt;現在の設定を確認する&lt;/p&gt;
-&lt;pre class="code console"&gt;&lt;a name="rest_code_96e012b44608477b9f91269d3d45cb73-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; git config --list
+&lt;pre class="code console"&gt;&lt;a name="rest_code_2e4cf951e8a54514a10f2e7be234b8e8-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; git config --list
 &lt;/pre&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/div&gt;</description><category>git</category><guid>https://32imuf.com/git/configuration/</guid><pubDate>Wed, 19 Sep 2018 15:00:00 GMT</pubDate></item></channel></rss>
+&lt;/div&gt;</description><category>git</category><guid>https://32imuf.com/git/configuration/</guid><pubDate>Wed, 19 Sep 2018 15:00:00 GMT</pubDate></item><item><title>Git のコマンドまとめ</title><link>https://32imuf.com/git/command/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;p&gt;&lt;/p&gt;
+&lt;details&gt;
+  &lt;summary&gt;目次&lt;/summary&gt;&lt;div class="contents topic" id="id1"&gt;
+&lt;p class="topic-title first"&gt;目次&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference internal" href="https://32imuf.com/git/command/#git" id="id7"&gt;Git の絵&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="https://32imuf.com/git/command/#id2" id="id8"&gt;ブランチ操作&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="https://32imuf.com/git/command/#id3" id="id9"&gt;ローカル&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="https://32imuf.com/git/command/#id4" id="id10"&gt;リモート&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="https://32imuf.com/git/command/#git-reset" id="id11"&gt;git reset 使い分け&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="https://32imuf.com/git/command/#id5" id="id12"&gt;コミット&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="https://32imuf.com/git/command/#stash" id="id13"&gt;stash: コミットはせずに変更を退避したい&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="https://32imuf.com/git/command/#git-log" id="id14"&gt;git log&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="https://32imuf.com/git/command/#id6" id="id15"&gt;リセットする&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="https://32imuf.com/git/command/#fetch-pull" id="id16"&gt;fetch と pull&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="https://32imuf.com/git/command/#fetch" id="id17"&gt;fetch&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="https://32imuf.com/git/command/#pull" id="id18"&gt;pull&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/details&gt;&lt;div class="section" id="git"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/git/command/#id7"&gt;Git の絵&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="areas.png" src="https://32imuf.com/git/command/areas.png"&gt;
+&lt;p class="caption"&gt;&lt;a class="reference external" href="https://git-scm.com/book/en/v2/Getting-Started-Git-Basics"&gt;https://git-scm.com/book/en/v2/Getting-Started-Git-Basics&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id2"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/git/command/#id8"&gt;ブランチ操作&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id3"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/git/command/#id9"&gt;ローカル&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p class="first"&gt;新しいブランチを作成して、新しいブランチにチェックアウト&lt;/p&gt;
+&lt;pre class="code console"&gt;&lt;a name="rest_code_bbbafab94e1e4ac98a176ba4d6fc5e75-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; git checkout &amp;lt;元にしたいブランチ&amp;gt;
+&lt;a name="rest_code_bbbafab94e1e4ac98a176ba4d6fc5e75-2"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; git checkout -b &amp;lt;new-branch-name&amp;gt;
+&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;ブランチ名を変更&lt;/p&gt;
+&lt;pre class="code console"&gt;&lt;a name="rest_code_5105a4b2dd594c7eb11ad6a831975544-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; git branch -m &amp;lt;old-branch-name&amp;gt; &amp;lt;new-branch-name&amp;gt;
+&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;ブランチを削除&lt;/p&gt;
+&lt;pre class="code console"&gt;&lt;a name="rest_code_973ef43ca4314b1eb66f14bab1ed13b3-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; git checkout &amp;lt;違うブランチ&amp;gt;
+&lt;a name="rest_code_973ef43ca4314b1eb66f14bab1ed13b3-2"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; git branch -D &amp;lt;branch-you-want-to-delete&amp;gt;
+&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;ブランチを強制チェックアウト（ローカル変更はなくなる）&lt;/p&gt;
+&lt;pre class="code console"&gt;&lt;a name="rest_code_7dd07b9d74ef41eda6906445da5bafed-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; git checkout --force &amp;lt;branch-you-want-to-checkout&amp;gt;
+&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;ブランチをプッシュ（初回）&lt;/p&gt;
+&lt;pre class="code console"&gt;&lt;a name="rest_code_3ea69f7139ac45159ccfa7bd9415a0c9-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; git push -u origin &amp;lt;branch-you-want-to-push&amp;gt;
+&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id4"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/git/command/#id10"&gt;リモート&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p class="first"&gt;リモートブランチをチェックアウト&lt;/p&gt;
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_4b3f72c6bfd143bab7bf40dc9e3a22b7-1"&gt;&lt;/a&gt;$ git checkout -b &amp;lt;branch-you-want-to-checkout&amp;gt; origin/&amp;lt;branch-you-want-to-checkout&amp;gt;
+&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;リモートブランチの一覧を表示&lt;/p&gt;
+&lt;pre class="code console"&gt;&lt;a name="rest_code_3e817e64bb084a85b012a706f9ffe752-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; git branch -a
+&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="git-reset"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/git/command/#id11"&gt;git reset 使い分け&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;ちなみに &lt;tt class="docutils literal"&gt;git reset&lt;/tt&gt; == &lt;tt class="docutils literal"&gt;git reset &lt;span class="pre"&gt;--mixed&lt;/span&gt;&lt;/tt&gt; ですね&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p class="first"&gt;git commit だけ取り消し&lt;/p&gt;
+&lt;pre class="code console"&gt;&lt;a name="rest_code_9176b18c3b854036bfb17c3718a6bedd-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; git reset --soft
+&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;git add と git commit を取り消し、ファイルの変更は保持する&lt;/p&gt;
+&lt;pre class="code console"&gt;&lt;a name="rest_code_017847d94bec417ca9219f478aa2ad40-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; git reset --mixed
+&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;git add と git commit を取り消して、ファイルの変更も削除する&lt;/p&gt;
+&lt;pre class="code console"&gt;&lt;a name="rest_code_807c8c6f18a542edb1dfbe397a068221-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; git reset --hard
+&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;コミットを取り消し（直前のコミットまで戻す。 git commit を取り消し、ファイルの変更は保持する。）&lt;/p&gt;
+&lt;pre class="code console"&gt;&lt;a name="rest_code_f99c61c3006646e68c2da73ff000229b-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; git reset --mixed HEAD^
+&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id5"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/git/command/#id12"&gt;コミット&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p class="first"&gt;コミットをもう一度やりなおす&lt;/p&gt;
+&lt;pre class="code console"&gt;&lt;a name="rest_code_58305677d8424dbe9aa9c8337d987d8a-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; git commit --amend
+&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;コミットメッセージの修正&lt;/p&gt;
+&lt;pre class="code console"&gt;&lt;a name="rest_code_53e8fb341afe45a0b5a898724c9c2da0-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; git commit --amend -m &lt;span class="s2"&gt;"new commit message"&lt;/span&gt;
+&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;いったんコミットした後、 add 忘れに気づいた&lt;/p&gt;
+&lt;pre class="code console"&gt;&lt;a name="rest_code_130a8cddbc9f41d48847093d3d865c9b-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; git add &amp;lt;わすれもの&amp;gt;
+&lt;a name="rest_code_130a8cddbc9f41d48847093d3d865c9b-2"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; git commit --amend
+&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="stash"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/git/command/#id13"&gt;stash: コミットはせずに変更を退避したい&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p class="first"&gt;これがわかりやすい&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://qiita.com/chihiro/items/f373873d5c2dfbd03250"&gt;https://qiita.com/chihiro/items/f373873d5c2dfbd03250&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="git-log"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/git/command/#id14"&gt;git log&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p class="first"&gt;各コミットを 1 行ずつ表示&lt;/p&gt;
+&lt;pre class="code console"&gt;&lt;a name="rest_code_552f5dc6e0e84949bfc79c58cb5c9b27-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; git log --oneline
+&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;master と topic の共通の祖先がわかる&lt;/p&gt;
+&lt;pre class="code console"&gt;&lt;a name="rest_code_dbd9df6f9b9f44828c7c7aacf3fc47b0-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; git log -1 &lt;span class="k"&gt;$(&lt;/span&gt;git merge-base origin/master origin/topic&lt;span class="k"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;見本がたくさん書いてあって良い&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="http://yanor.net/wiki/?Git%2Fgit%20log%2F%E6%9D%A1%E4%BB%B6%E6%8C%87%E5%AE%9A%E3%81%97%E3%81%A6%E3%82%B3%E3%83%9F%E3%83%83%E3%83%88%E3%82%92%E7%B5%9E%E3%82%8A%E8%BE%BC%E3%82%80"&gt;http://yanor.net/wiki/?Git%2Fgit%20log%2F%E6%9D%A1%E4%BB%B6%E6%8C%87%E5%AE%9A%E3%81%97%E3%81%A6%E3%82%B3%E3%83%9F%E3%83%83%E3%83%88%E3%82%92%E7%B5%9E%E3%82%8A%E8%BE%BC%E3%82%80&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id6"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/git/command/#id15"&gt;リセットする&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;履歴を全部消して force push する。&lt;/p&gt;
+&lt;ol class="arabic"&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;tt class="docutils literal"&gt;.git&lt;/tt&gt; を消す&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;force push する&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_348827d6fe68452f95c4961c73773ada-1"&gt;&lt;/a&gt;$ git add *
+&lt;a name="rest_code_348827d6fe68452f95c4961c73773ada-2"&gt;&lt;/a&gt;$ git commit -m &lt;span class="err"&gt;'&lt;/span&gt;initialize
+&lt;a name="rest_code_348827d6fe68452f95c4961c73773ada-3"&gt;&lt;/a&gt;$ git remote add origin &lt;span class="o"&gt;{&lt;/span&gt;URL&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;a name="rest_code_348827d6fe68452f95c4961c73773ada-4"&gt;&lt;/a&gt;$ git push origin master --force
+&lt;/pre&gt;&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;div class="section" id="fetch-pull"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/git/command/#id16"&gt;fetch と pull&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="fetch"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/git/command/#id17"&gt;fetch&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;リモートリポジトリの最新の履歴の取得だけを行う。&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;tt class="docutils literal"&gt;hogehoge&lt;/tt&gt; ブランチをfetchすると、 ローカルの &lt;tt class="docutils literal"&gt;origin/hogehoge&lt;/tt&gt; がリモートの &lt;tt class="docutils literal"&gt;origin/hogehoge&lt;/tt&gt; リポジトリと同期されて最新状態になる。&lt;/li&gt;
+&lt;li&gt;ローカルの &lt;tt class="docutils literal"&gt;hogehoge&lt;/tt&gt; ブランチは、そのまま何にも変更されない。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="pull"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/git/command/#id18"&gt;pull&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;fetch + merge&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;tt class="docutils literal"&gt;hogehoge&lt;/tt&gt; ブランチを pull すると、 ローカルの &lt;tt class="docutils literal"&gt;origin/hogehoge&lt;/tt&gt; も &lt;tt class="docutils literal"&gt;hogehoge&lt;/tt&gt; も両方リモートの &lt;tt class="docutils literal"&gt;origin/hogehoge&lt;/tt&gt; リポジトリの変更とマージされる。&lt;/li&gt;
+&lt;li&gt;内部的には、&lt;ol class="arabic"&gt;
+&lt;li&gt;リモートの &lt;tt class="docutils literal"&gt;origin/hogehoge&lt;/tt&gt; と、ローカルの &lt;tt class="docutils literal"&gt;origin/hogehoge&lt;/tt&gt; とマージ&lt;/li&gt;
+&lt;li&gt;ローカルの &lt;tt class="docutils literal"&gt;origin/hogehoge&lt;/tt&gt; と &lt;tt class="docutils literal"&gt;hogehoge&lt;/tt&gt; をマージ&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;ローカルの &lt;tt class="docutils literal"&gt;hogehoge&lt;/tt&gt; に、自分の変更とリモートの変更と両方入った状態になる。&lt;/li&gt;
+&lt;li&gt;競合があったら自分で解決してコミットする必要がある。&lt;/li&gt;
+&lt;li&gt;通常ローカルで触るのは &lt;tt class="docutils literal"&gt;origin&lt;/tt&gt; がついていない &lt;tt class="docutils literal"&gt;hogehoge&lt;/tt&gt; ブランチ。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/div&gt;</description><category>git</category><guid>https://32imuf.com/git/command/</guid><pubDate>Sun, 09 Sep 2018 15:00:00 GMT</pubDate></item></channel></rss>

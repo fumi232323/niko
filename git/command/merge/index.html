@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<title>git merge/fuminote</title>
+<link rel="shortcut icon" href="../../../assets/icons/favicon.ico">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Griffy">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Vollkorn:400,700">
+<link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/sawarabimincho.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+<link rel="stylesheet" href="../../../assets/css/style.css?20190602">
+</head>
+<body>
+    <div class="container">
+      <div class="header"><header class="item item-header"><h1>
+    <a href="../../../">
+      <img class="logo" src="../../../assets/images/inuu.png" alt="犬"></a>
+  </h1>
+  <nav class="nav"><ul>
+<li class="nav-category"><a href="../../../">HOME</a></li>
+    </ul></nav><iframe src="../../../tags/" class="tags-frame"></iframe>
+</header></div>
+      <div class="main">
+<div class="article-content">
+  <main class="item item-article item-git"><time class="date" datetime="2018-10-26 00:00:00+09:00">
+      2018-10-26 Fri
+    </time><div class="title">git merge</div>
+    <div class="category">
+      <a href="../../../tags/git/">
+          git
+      </a>
+    </div>
+    <div class="text">
+      <div class="section" id="id1">
+<h2>マージする</h2>
+<p>topic ブランチを acceptance ブランチへマージする。</p>
+<ol class="arabic">
+<li>
+<p class="first">acceptance にチェックアウトする</p>
+<blockquote>
+<pre class="code console"><a name="rest_code_3bce33ad97c14a328506dc25ed3098b6-1"></a><span class="gp">$</span> git checkout acceptance
+</pre>
+</blockquote>
+</li>
+<li>
+<p class="first">topic をマージします</p>
+<blockquote>
+<pre class="code console"><a name="rest_code_4e21734bfb914461a4122fd802718a28-1"></a><span class="gp">$</span> git merge topic
+</pre>
+</blockquote>
+</li>
+<li>
+<p class="first">コンフリクトしたら、解消して、</p>
+<blockquote>
+<pre class="code console"><a name="rest_code_a282a9204c96436aba023d748503b60a-1"></a><span class="gp">$</span> git add .
+<a name="rest_code_a282a9204c96436aba023d748503b60a-2"></a><span class="gp">$</span> git commit -m <span class="s2">"Merge branch 'topic-branch-name' into acceptance"</span>
+</pre>
+</blockquote>
+</li>
+<li>
+<p class="first">マージに成功したら、強制push</p>
+<blockquote>
+<pre class="code console"><a name="rest_code_18ccdcd959954abca6820bbb2a01583a-1"></a><span class="gp">$</span> git push -u origin acceptance -f
+</pre>
+</blockquote>
+</li>
+</ol>
+</div>
+    </div>
+  </main>
+</div>
+</div>
+    </div>
+  </body>
+</html>

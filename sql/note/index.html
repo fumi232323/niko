@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<title>SQL のメモ/fuminote</title>
+<link rel="shortcut icon" href="../../assets/icons/favicon.ico">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Griffy">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Vollkorn:400,700">
+<link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/sawarabimincho.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+<link rel="stylesheet" href="../../assets/css/style.css?20190602">
+</head>
+<body>
+    <div class="container">
+      <div class="header"><header class="item item-header"><h1>
+    <a href="../../">
+      <img class="logo" src="../../assets/images/inuu.png" alt="犬"></a>
+  </h1>
+  <nav class="nav"><ul>
+<li class="nav-category"><a href="../../">HOME</a></li>
+    </ul></nav><iframe src="../../tags/" class="tags-frame"></iframe>
+</header></div>
+      <div class="main">
+<div class="article-content">
+  <main class="item item-article item-sql"><time class="date" datetime="2018-11-06 00:00:00+09:00">
+      2018-11-06 Tue
+    </time><div class="title">SQL のメモ</div>
+    <div class="category">
+      <a href="../../tags/sql/">
+          sql
+      </a>
+    </div>
+    <div class="text">
+      <div>
+<div class="section" id="case-null">
+<h2>検索 CASE 式でしか NULL の判定はできない</h2>
+<ul>
+<li>
+<p class="first">検索 CASE 式: NULL 判定できる</p>
+<pre class="code sql"><a name="rest_code_6d08a5127feb44a4813411837bcf59e9-1"></a><span class="k">CASE</span>
+<a name="rest_code_6d08a5127feb44a4813411837bcf59e9-2"></a>  <span class="k">WHEN</span> <span class="n">d</span><span class="p">.</span><span class="n">name</span> <span class="k">IS</span> <span class="k">NULL</span> <span class="k">THEN</span>
+<a name="rest_code_6d08a5127feb44a4813411837bcf59e9-3"></a>    <span class="k">CASE</span> <span class="n">d</span><span class="p">.</span><span class="k">type</span>
+<a name="rest_code_6d08a5127feb44a4813411837bcf59e9-4"></a>      <span class="k">WHEN</span> <span class="s1">'husky'</span> <span class="k">THEN</span> <span class="s1">'risa'</span>
+<a name="rest_code_6d08a5127feb44a4813411837bcf59e9-5"></a>      <span class="k">WHEN</span> <span class="s1">'shiba'</span> <span class="k">THEN</span> <span class="s1">'natsu'</span>
+<a name="rest_code_6d08a5127feb44a4813411837bcf59e9-6"></a>      <span class="k">WHEN</span> <span class="s1">'border collie'</span> <span class="k">THEN</span> <span class="s1">'chon'</span>
+<a name="rest_code_6d08a5127feb44a4813411837bcf59e9-7"></a>      <span class="k">WHEN</span> <span class="s1">'labrador retriever'</span> <span class="k">THEN</span> <span class="s1">'robo'</span>
+<a name="rest_code_6d08a5127feb44a4813411837bcf59e9-8"></a>      <span class="k">ELSE</span> <span class="k">NULL</span>
+<a name="rest_code_6d08a5127feb44a4813411837bcf59e9-9"></a>    <span class="k">END</span>
+<a name="rest_code_6d08a5127feb44a4813411837bcf59e9-10"></a>  <span class="k">ELSE</span> <span class="n">d</span><span class="p">.</span><span class="n">name</span>
+<a name="rest_code_6d08a5127feb44a4813411837bcf59e9-11"></a><span class="k">END</span> <span class="k">AS</span> <span class="n">name</span>
+</pre>
+</li>
+<li>
+<p class="first">簡易 CASE 式: NULL 判定できない</p>
+<pre class="code sql"><a name="rest_code_cf7d4747d81b4058adaa02916d95871d-1"></a><span class="k">CASE</span> <span class="n">d</span><span class="p">.</span><span class="n">name</span>
+<a name="rest_code_cf7d4747d81b4058adaa02916d95871d-2"></a>  <span class="k">WHEN</span> <span class="k">NULL</span> <span class="k">THEN</span>
+<a name="rest_code_cf7d4747d81b4058adaa02916d95871d-3"></a>    <span class="k">CASE</span> <span class="n">d</span><span class="p">.</span><span class="k">type</span>
+<a name="rest_code_cf7d4747d81b4058adaa02916d95871d-4"></a>      <span class="k">WHEN</span> <span class="s1">'husky'</span> <span class="k">THEN</span> <span class="s1">'risa'</span>
+<a name="rest_code_cf7d4747d81b4058adaa02916d95871d-5"></a>      <span class="k">WHEN</span> <span class="s1">'shiba'</span> <span class="k">THEN</span> <span class="s1">'natsu'</span>
+<a name="rest_code_cf7d4747d81b4058adaa02916d95871d-6"></a>      <span class="k">WHEN</span> <span class="s1">'border collie'</span> <span class="k">THEN</span> <span class="s1">'chon'</span>
+<a name="rest_code_cf7d4747d81b4058adaa02916d95871d-7"></a>      <span class="k">WHEN</span> <span class="s1">'labrador retriever'</span> <span class="k">THEN</span> <span class="s1">'robo'</span>
+<a name="rest_code_cf7d4747d81b4058adaa02916d95871d-8"></a>      <span class="k">ELSE</span> <span class="k">NULL</span>
+<a name="rest_code_cf7d4747d81b4058adaa02916d95871d-9"></a>    <span class="k">END</span>
+<a name="rest_code_cf7d4747d81b4058adaa02916d95871d-10"></a>  <span class="k">ELSE</span> <span class="n">d</span><span class="p">.</span><span class="n">name</span>
+<a name="rest_code_cf7d4747d81b4058adaa02916d95871d-11"></a><span class="k">END</span> <span class="k">AS</span> <span class="n">name</span>
+</pre>
+<ul class="simple">
+<li>
+<tt class="docutils literal">d.name</tt> が NULL の場合は、 <tt class="docutils literal">FALSE</tt> と評価されてしまう ( <tt class="docutils literal">ELSE</tt> 句に入ってしまう)</li>
+<li>使いようによっては、<tt class="docutils literal">FALSE</tt> と評価されてしまうことを逆に利用できるかも....</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="count-distinct-case-when">
+<h2>COUNT(DISTINCT CASE WHEN ...)</h2>
+<p>こういう書き方ができる</p>
+<pre class="code sql"><a name="rest_code_269862bf7ae04dd4b26d549a40635706-1"></a><span class="k">COUNT</span><span class="p">(</span>
+<a name="rest_code_269862bf7ae04dd4b26d549a40635706-2"></a>  <span class="k">DISTINCT</span> <span class="k">CASE</span>
+<a name="rest_code_269862bf7ae04dd4b26d549a40635706-3"></a>    <span class="k">WHEN</span> <span class="n">l</span><span class="p">.</span><span class="k">type</span> <span class="o">=</span> <span class="mi">2</span> <span class="k">THEN</span> <span class="n">l</span><span class="p">.</span><span class="n">user_id</span>
+<a name="rest_code_269862bf7ae04dd4b26d549a40635706-4"></a>    <span class="k">ELSE</span> <span class="k">NULL</span>
+<a name="rest_code_269862bf7ae04dd4b26d549a40635706-5"></a>  <span class="k">END</span>
+<a name="rest_code_269862bf7ae04dd4b26d549a40635706-6"></a><span class="p">)</span> <span class="k">as</span> <span class="n">num_unique_users</span><span class="p">,</span>
+</pre>
+</div>
+<div class="section" id="select">
+<h2>SELECT文の評価順序</h2>
+<ul>
+<li>
+<p class="first">これがわかりやすい (いつも見せていただいています、ありがとうございます)</p>
+<p><a class="reference external" href="https://qiita.com/suzukito/items/edcd00e680186f2930a8">https://qiita.com/suzukito/items/edcd00e680186f2930a8</a></p>
+</li>
+</ul>
+</div>
+</div>
+    </div>
+  </main>
+</div>
+</div>
+    </div>
+  </body>
+</html>

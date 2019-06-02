@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<title>Docker Compose で Django/MySQL 環境をつくる/fuminote</title>
+<link rel="shortcut icon" href="../../assets/icons/favicon.ico">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Griffy">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Vollkorn:400,700">
+<link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/sawarabimincho.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+<link rel="stylesheet" href="../../assets/css/style.css?20190602">
+</head>
+<body>
+    <div class="container">
+      <div class="header"><header class="item item-header"><h1>
+    <a href="../../">
+      <img class="logo" src="../../assets/images/inuu.png" alt="犬"></a>
+  </h1>
+  <nav class="nav"><ul>
+<li class="nav-category"><a href="../../">HOME</a></li>
+    </ul></nav><iframe src="../../tags/" class="tags-frame"></iframe>
+</header></div>
+      <div class="main">
+<div class="article-content">
+  <main class="item item-article item-docker"><time class="date" datetime="2019-01-05 00:00:00+09:00">
+      2019-01-05 Sat
+    </time><div class="title">Docker Compose で Django/MySQL 環境をつくる</div>
+    <div class="category">
+      <a href="../../tags/docker/">
+          docker
+      </a>
+    </div>
+    <div class="text">
+      <div>
+<details><summary>目次</summary><div class="contents topic" id="id1">
+<p class="topic-title first">目次</p>
+<ul class="simple">
+<li><a class="reference internal" href="#id2" id="id12">リファレンス・ガイド</a></li>
+<li>
+<a class="reference internal" href="#id3" id="id13">環境構築</a><ul>
+<li><a class="reference internal" href="#id4" id="id14">最初の1回だけ実行</a></li>
+<li><a class="reference internal" href="#id5" id="id15">2回目以降</a></li>
+<li><a class="reference internal" href="#id6" id="id16">設定ファイル</a></li>
+<li><a class="reference internal" href="#id7" id="id17">ディレクトリ構成</a></li>
+</ul>
+</li>
+<li>
+<a class="reference internal" href="#id8" id="id18">使い方メモ</a><ul>
+<li><a class="reference internal" href="#id9" id="id19">イメージビルドからやり直したい</a></li>
+<li><a class="reference internal" href="#volume" id="id20">volume は消さない限り再利用される</a></li>
+<li><a class="reference internal" href="#web" id="id21">web のほうのコンテナだけ再起動したいとき</a></li>
+<li><a class="reference internal" href="#id10" id="id22">web のほうのコンテナに入る</a></li>
+<li><a class="reference internal" href="#mysql" id="id23">mysql のほうのコンテナに入る</a></li>
+<li><a class="reference internal" href="#id11" id="id24">mysql に入る</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#todo" id="id25">TODO</a></li>
+</ul>
+</div>
+</details><div class="section" id="id2">
+<h2><a class="toc-backref" href="#id12">リファレンス・ガイド</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://docs.docker.com/compose/compose-file/">Compose file version 3 reference</a></li>
+<li>
+<a class="reference external" href="https://hub.docker.com/_/mysql/">Docker Hub の MySQL 公式イメージぺージ</a><ul>
+<li>
+<tt class="docutils literal"><span class="pre">docker-compose</span></tt> ファイルの書き方見本とか、 Environment Variables の一覧とかが載っていた</li>
+</ul>
+</li>
+<li>
+<a class="reference external" href="https://dev.mysql.com/doc/refman/8.0/en/">MySQL 8.0 Reference Manual</a><ul>
+<li>MySQL 自体のリファレンス</li>
+<li>
+<a class="reference external" href="https://dev.mysql.com/doc/refman/8.0/en/environment-variables.html">MySQL Program Environment Variables</a> :
+<tt class="docutils literal"><span class="pre">docker-compose</span></tt> ファイルの <tt class="docutils literal">environment</tt> 部分に書けるやつを探すときに使った</li>
+<li>
+<a class="reference external" href="https://dev.mysql.com/doc/refman/8.0/en/server-options.html">Server Command Options</a> :
+<tt class="docutils literal">mysql.cnf</tt> に書けるやつ、 <tt class="docutils literal"><span class="pre">docker-compose</span></tt> ファイルの <tt class="docutils literal">command</tt> 部分に書けるやつを探すときに使った</li>
+<li>
+<a class="reference external" href="https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html">Server System Variables</a> :
+<tt class="docutils literal">mysql.cnf</tt> に書けるやつを探すときに使った</li>
+</ul>
+</li>
+<li>
+<a class="reference external" href="https://pypi.org/project/mysql-connector-python/">PyPI の mysql-connector-python のページ</a><ul>
+<li>MySQL の driver。これが Oracle 純正のものらしい。</li>
+</ul>
+</li>
+<li>
+<a class="reference external" href="https://dev.mysql.com/doc/connector-python/en/">MySQL Connector/Python Developer Guide</a><ul>
+<li>mysql-connector-python のガイドページ。使い方や見本がいろいろ載っている。</li>
+</ul>
+</li>
+<li><a class="reference external" href="https://pypi.org/project/mysqlclient/">PyPI の mysqlclient のページ</a></li>
+<li>
+<a class="reference external" href="https://docs.djangoproject.com/ja/2.1/ref/databases/#mysql-notes">Django で MySQL を使うときは見てねページ</a><ul>
+<li>Django のほうの説明を読んだら、 <tt class="docutils literal">mysqlclient</tt> がおすすめ、かつ、 <cite>Django requires mysqlclient 1.3.7 or later.</cite> と書いてある。</li>
+<li>とりあえず <tt class="docutils literal">mysqlclient</tt> と <tt class="docutils literal"><span class="pre">mysql-connector-python</span></tt> を両方入れてみる。</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2><a class="toc-backref" href="#id13">環境構築</a></h2>
+<div class="section" id="id4">
+<h3><a class="toc-backref" href="#id14">最初の1回だけ実行</a></h3>
+<ol class="arabic">
+<li>
+<p class="first">web・db の docker image をビルド -&gt; web で startproject する。</p>
+<blockquote>
+<pre class="code bash"><a name="rest_code_bc908ecd7e5a495292eeed1c504f196c-1"></a>$ docker-compose --pull<span class="o">=</span><span class="nb">true</span> run web django-admin.py startproject fu .
+</pre>
+<ul class="simple">
+<li>
+<tt class="docutils literal"><span class="pre">--pull=true</span></tt> : FROM に指定したベースイメージがローカルにすでに存在していても、改めて Docker Hub に取得しにいく</li>
+<li>↑今やったら使えなかった。最新イメージを再取得するには、どうすればいいんだろう。</li>
+</ul>
+</blockquote>
+</li>
+<li>
+<p class="first">settings に MySQL の設定を書き足す</p>
+<blockquote>
+<pre class="code python"><a name="rest_code_f6f8c44dfc014fe29be1b634fb04108b-1"></a><span class="n">DATABASES</span> <span class="o">=</span> <span class="p">{</span>
+<a name="rest_code_f6f8c44dfc014fe29be1b634fb04108b-2"></a>    <span class="s1">'default'</span><span class="p">:</span> <span class="p">{</span>
+<a name="rest_code_f6f8c44dfc014fe29be1b634fb04108b-3"></a>        <span class="s1">'ENGINE'</span><span class="p">:</span> <span class="s1">'django.db.backends.mysql'</span><span class="p">,</span>
+<a name="rest_code_f6f8c44dfc014fe29be1b634fb04108b-4"></a>        <span class="s1">'NAME'</span><span class="p">:</span> <span class="s1">'fu'</span><span class="p">,</span>
+<a name="rest_code_f6f8c44dfc014fe29be1b634fb04108b-5"></a>        <span class="s1">'USER'</span><span class="p">:</span> <span class="s1">'fu'</span><span class="p">,</span>
+<a name="rest_code_f6f8c44dfc014fe29be1b634fb04108b-6"></a>        <span class="s1">'PASSWORD'</span><span class="p">:</span> <span class="s1">'fu'</span><span class="p">,</span>
+<a name="rest_code_f6f8c44dfc014fe29be1b634fb04108b-7"></a>        <span class="s1">'HOST'</span><span class="p">:</span> <span class="s1">'db'</span><span class="p">,</span>
+<a name="rest_code_f6f8c44dfc014fe29be1b634fb04108b-8"></a>        <span class="s1">'PORT'</span><span class="p">:</span> <span class="mi">3306</span><span class="p">,</span>
+<a name="rest_code_f6f8c44dfc014fe29be1b634fb04108b-9"></a>    <span class="p">}</span>
+<a name="rest_code_f6f8c44dfc014fe29be1b634fb04108b-10"></a><span class="p">}</span>
+</pre>
+</blockquote>
+</li>
+<li>
+<p class="first">docker-compose up して、 web・db コンテナを起動する</p>
+<blockquote>
+<pre class="code bash"><a name="rest_code_8b754d0925734bae808b8b9229f3e748-1"></a>$ docker-compose up
+</pre>
+</blockquote>
+</li>
+</ol>
+</div>
+<div class="section" id="id5">
+<h3><a class="toc-backref" href="#id15">2回目以降</a></h3>
+<ol class="arabic">
+<li>
+<p class="first">docker-compose up して mysql・web コンテナを起動する。</p>
+<blockquote>
+<pre class="code bash"><a name="rest_code_14763a6e33ee4096abf3cacb0116f14c-1"></a>$ docker-compose up
+</pre>
+</blockquote>
+</li>
+<li>
+<p class="first">安全にシャットダウン。コンテナの停止と削除。</p>
+<blockquote>
+<pre class="code bash"><a name="rest_code_a3400c58e34044a1a5b8f31defa9c2fc-1"></a>$ docker-compose down
+</pre>
+</blockquote>
+</li>
+</ol>
+</div>
+<div class="section" id="id6">
+<span id="config-files"></span><h3><a class="toc-backref" href="#id16">設定ファイル</a></h3>
+<ul>
+<li>
+<p class="first">fu/docker-compose.yml</p>
+<pre class="code yaml"><a name="rest_code_89a746f818fe485b982976e14a375d3f-1"></a><span class="nt">version</span><span class="p">:</span> <span class="s">'3'</span>
+<a name="rest_code_89a746f818fe485b982976e14a375d3f-2"></a>
+<a name="rest_code_89a746f818fe485b982976e14a375d3f-3"></a><span class="nt">services</span><span class="p">:</span>
+<a name="rest_code_89a746f818fe485b982976e14a375d3f-4"></a>  <span class="nt">db</span><span class="p">:</span>
+<a name="rest_code_89a746f818fe485b982976e14a375d3f-5"></a>    <span class="nt">container_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">fu_db</span>
+<a name="rest_code_89a746f818fe485b982976e14a375d3f-6"></a>    <span class="nt">build</span><span class="p">:</span>
+<a name="rest_code_89a746f818fe485b982976e14a375d3f-7"></a>      <span class="nt">context</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">.</span>
+<a name="rest_code_89a746f818fe485b982976e14a375d3f-8"></a>      <span class="nt">dockerfile</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Dockerfile-mysql</span>
+<a name="rest_code_89a746f818fe485b982976e14a375d3f-9"></a>    <span class="nt">restart</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">always</span>
+<a name="rest_code_89a746f818fe485b982976e14a375d3f-10"></a>    <span class="nt">volumes</span><span class="p">:</span>
+<a name="rest_code_89a746f818fe485b982976e14a375d3f-11"></a>      <span class="p p-Indicator">-</span> <span class="s">"db-data:/var/lib/mysql"</span>
+<a name="rest_code_89a746f818fe485b982976e14a375d3f-12"></a>      <span class="c1"># mysql のカスタム設定ファイルもホスト &lt;-&gt; コンテナ間で同期しておく (編集するのに便利だから)</span>
+<a name="rest_code_89a746f818fe485b982976e14a375d3f-13"></a>      <span class="p p-Indicator">-</span> <span class="s">"./mysql/conf.d:/etc/mysql/conf.d"</span>
+<a name="rest_code_89a746f818fe485b982976e14a375d3f-14"></a>    <span class="nt">environment</span><span class="p">:</span>
+<a name="rest_code_89a746f818fe485b982976e14a375d3f-15"></a>      <span class="nt">MYSQL_ROOT_PASSWORD</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">fu</span>
+<a name="rest_code_89a746f818fe485b982976e14a375d3f-16"></a>      <span class="nt">MYSQL_DATABASE</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">fu</span>
+<a name="rest_code_89a746f818fe485b982976e14a375d3f-17"></a>      <span class="nt">MYSQL_USER</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">fu</span>
+<a name="rest_code_89a746f818fe485b982976e14a375d3f-18"></a>      <span class="nt">MYSQL_PASSWORD</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">fu</span>
+<a name="rest_code_89a746f818fe485b982976e14a375d3f-19"></a>
+<a name="rest_code_89a746f818fe485b982976e14a375d3f-20"></a>  <span class="nt">web</span><span class="p">:</span>
+<a name="rest_code_89a746f818fe485b982976e14a375d3f-21"></a>    <span class="nt">container_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">fu_web</span>
+<a name="rest_code_89a746f818fe485b982976e14a375d3f-22"></a>    <span class="nt">build</span><span class="p">:</span>
+<a name="rest_code_89a746f818fe485b982976e14a375d3f-23"></a>      <span class="nt">context</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">.</span>
+<a name="rest_code_89a746f818fe485b982976e14a375d3f-24"></a>      <span class="nt">dockerfile</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Dockerfile-web</span>
+<a name="rest_code_89a746f818fe485b982976e14a375d3f-25"></a>    <span class="nt">command</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python3 manage.py runserver 0.0.0.0:8000 --settings=settings._</span>
+<a name="rest_code_89a746f818fe485b982976e14a375d3f-26"></a>    <span class="nt">volumes</span><span class="p">:</span>
+<a name="rest_code_89a746f818fe485b982976e14a375d3f-27"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">.:/code</span>
+<a name="rest_code_89a746f818fe485b982976e14a375d3f-28"></a>    <span class="nt">ports</span><span class="p">:</span>
+<a name="rest_code_89a746f818fe485b982976e14a375d3f-29"></a>      <span class="p p-Indicator">-</span> <span class="s">"3236:8000"</span>
+<a name="rest_code_89a746f818fe485b982976e14a375d3f-30"></a>    <span class="nt">depends_on</span><span class="p">:</span>
+<a name="rest_code_89a746f818fe485b982976e14a375d3f-31"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">db</span>
+<a name="rest_code_89a746f818fe485b982976e14a375d3f-32"></a>
+<a name="rest_code_89a746f818fe485b982976e14a375d3f-33"></a><span class="nt">volumes</span><span class="p">:</span>
+<a name="rest_code_89a746f818fe485b982976e14a375d3f-34"></a>  <span class="nt">db-data</span><span class="p">:</span>
+</pre>
+</li>
+<li>
+<p class="first">fu/Dockerfile-web</p>
+<pre class="code docker"><a name="rest_code_768c0fe0f4804a1c9c8b579601ad3390-1"></a><span class="k">FROM</span><span class="s"> python:3</span>
+<a name="rest_code_768c0fe0f4804a1c9c8b579601ad3390-2"></a><span class="k">ENV</span> PYTHONUNBUFFERED <span class="m">1</span>
+<a name="rest_code_768c0fe0f4804a1c9c8b579601ad3390-3"></a><span class="k">RUN</span> mkdir /code
+<a name="rest_code_768c0fe0f4804a1c9c8b579601ad3390-4"></a><span class="k">WORKDIR</span><span class="s"> /code</span>
+<a name="rest_code_768c0fe0f4804a1c9c8b579601ad3390-5"></a><span class="k">ADD</span> requirements.txt /code/
+<a name="rest_code_768c0fe0f4804a1c9c8b579601ad3390-6"></a><span class="k">RUN</span> pip install -r requirements.txt
+<a name="rest_code_768c0fe0f4804a1c9c8b579601ad3390-7"></a><span class="k">ADD</span> . /code/
+</pre>
+</li>
+<li>
+<p class="first">fu/Dockerfile-mysql</p>
+<pre class="code docker"><a name="rest_code_879a72a7945249a9a71eaaed828bfc7b-1"></a><span class="k">FROM</span><span class="s"> mysql:latest</span>
+<a name="rest_code_879a72a7945249a9a71eaaed828bfc7b-2"></a><span class="c"># locales をインストールする</span>
+<a name="rest_code_879a72a7945249a9a71eaaed828bfc7b-3"></a><span class="k">RUN</span> apt-get clean <span class="o">&amp;&amp;</span> apt-get update <span class="o">&amp;&amp;</span> apt-get install -y locales locales-all
+<a name="rest_code_879a72a7945249a9a71eaaed828bfc7b-4"></a><span class="c"># locale 定義ファイルをコンパイルする</span>
+<a name="rest_code_879a72a7945249a9a71eaaed828bfc7b-5"></a><span class="k">RUN</span> locale-gen ja_JP.UTF-8
+<a name="rest_code_879a72a7945249a9a71eaaed828bfc7b-6"></a><span class="c"># 日本語を設定する TODO: もしかして LANG だけでいいのかも...?</span>
+<a name="rest_code_879a72a7945249a9a71eaaed828bfc7b-7"></a><span class="k">ENV</span> LANG ja_JP.UTF-8
+<a name="rest_code_879a72a7945249a9a71eaaed828bfc7b-8"></a><span class="k">ENV</span> LANGUAGE ja_JP:en
+<a name="rest_code_879a72a7945249a9a71eaaed828bfc7b-9"></a><span class="k">ENV</span> LC_ALL ja_JP.UTF-8
+<a name="rest_code_879a72a7945249a9a71eaaed828bfc7b-10"></a><span class="c"># タイムゾーンに日本を設定する</span>
+<a name="rest_code_879a72a7945249a9a71eaaed828bfc7b-11"></a><span class="k">RUN</span> ln -sf /usr/share/zoneinfo/Japan /etc/localtime
+</pre>
+</li>
+<li>
+<p class="first">fu/requirements.txt</p>
+<pre class="code python"><a name="rest_code_3f66bb5919594ab28fe59938acc492ae-1"></a><span class="n">Django</span><span class="o">&gt;=</span><span class="mf">1.11</span>
+<a name="rest_code_3f66bb5919594ab28fe59938acc492ae-2"></a><span class="n">mysqlclient</span><span class="o">&gt;=</span><span class="mf">1.3</span><span class="o">.</span><span class="mi">7</span>
+<a name="rest_code_3f66bb5919594ab28fe59938acc492ae-3"></a><span class="n">mysql</span><span class="o">-</span><span class="n">connector</span><span class="o">-</span><span class="n">python</span>
+</pre>
+</li>
+<li>
+<p class="first">fu/mysql/conf.d/mysql.cnf</p>
+<pre class="code cfg"><a name="rest_code_9995336e413d4589a63019fe8de319a0-1"></a><span class="na">[mysqld]  # mysqlサーバーの設定</span>
+<a name="rest_code_9995336e413d4589a63019fe8de319a0-2"></a><span class="na">default-authentication-plugin</span><span class="o">=</span><span class="s">mysql_native_password</span>
+<a name="rest_code_9995336e413d4589a63019fe8de319a0-3"></a><span class="c1"># Collation (文字照合順) の設定: https://mysqlserverteam.com/mysql-8-0-kana-sensitive-collation-for-japanese-ja_jp/</span>
+<a name="rest_code_9995336e413d4589a63019fe8de319a0-4"></a><span class="na">collation-server</span><span class="o">=</span><span class="s">utf8mb4_ja_0900_as_cs_ks</span>
+<a name="rest_code_9995336e413d4589a63019fe8de319a0-5"></a><span class="c1"># サーバー側の文字コードの設定: "Default Value (&gt;= 8.0.1) utf8mb4" だけれどもなんとなく念のため指定</span>
+<a name="rest_code_9995336e413d4589a63019fe8de319a0-6"></a><span class="na">character-set-server</span><span class="o">=</span><span class="s">utf8mb4</span>
+<a name="rest_code_9995336e413d4589a63019fe8de319a0-7"></a><span class="c1"># time_zone の設定: https://dev.mysql.com/doc/refman/8.0/en/server-options.html#option_mysqld_default-time-zone</span>
+<a name="rest_code_9995336e413d4589a63019fe8de319a0-8"></a><span class="na">default-time-zone</span><span class="o">=</span><span class="s">'Asia/Tokyo'</span>
+<a name="rest_code_9995336e413d4589a63019fe8de319a0-9"></a>
+<a name="rest_code_9995336e413d4589a63019fe8de319a0-10"></a><span class="na">[client]  # mysqlクライアントの設定</span>
+<a name="rest_code_9995336e413d4589a63019fe8de319a0-11"></a><span class="c1"># クライアント側の文字コードの設定</span>
+<a name="rest_code_9995336e413d4589a63019fe8de319a0-12"></a><span class="c1"># utf8mb4: A UTF-8 encoding of the Unicode character set using one to four bytes per character.</span>
+<a name="rest_code_9995336e413d4589a63019fe8de319a0-13"></a><span class="na">default-character-set</span><span class="o">=</span><span class="s">utf8mb4</span>
+</pre>
+<ul>
+<li>
+<p class="first">MySQL デフォルトの設定ファイルは <tt class="docutils literal">/etc/mysql/my.cnf</tt> の模様。 MySQL 公式イメージからコンテナを作成すると、初期状態で <tt class="docutils literal">/etc/mysql/my.cnf</tt> 中に</p>
+<pre class="code cfg"><a name="rest_code_fffdee479d8b427785e1971a417acf2a-1"></a><span class="c1"># Custom config should go here</span>
+<a name="rest_code_fffdee479d8b427785e1971a417acf2a-2"></a><span class="na">!includedir /etc/mysql/conf.d/</span>
+</pre>
+<p>と書いてあるので、言に従い自分用設定は <tt class="docutils literal">/etc/mysql/conf.d/</tt> に記述した。</p>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id7">
+<h3><a class="toc-backref" href="#id17">ディレクトリ構成</a></h3>
+<pre class="code shell"><a name="rest_code_9ffd79e227d545aea048b5213194a9b8-1"></a>$ tree fu
+<a name="rest_code_9ffd79e227d545aea048b5213194a9b8-2"></a>
+<a name="rest_code_9ffd79e227d545aea048b5213194a9b8-3"></a>fu
+<a name="rest_code_9ffd79e227d545aea048b5213194a9b8-4"></a>├── Dockerfile-mysql
+<a name="rest_code_9ffd79e227d545aea048b5213194a9b8-5"></a>├── Dockerfile-web
+<a name="rest_code_9ffd79e227d545aea048b5213194a9b8-6"></a>├── docker-compose.yml
+<a name="rest_code_9ffd79e227d545aea048b5213194a9b8-7"></a>├── fu
+<a name="rest_code_9ffd79e227d545aea048b5213194a9b8-8"></a>│   ├── __init__.py
+<a name="rest_code_9ffd79e227d545aea048b5213194a9b8-9"></a>│   ├── urls.py
+<a name="rest_code_9ffd79e227d545aea048b5213194a9b8-10"></a>│   └── wsgi.py
+<a name="rest_code_9ffd79e227d545aea048b5213194a9b8-11"></a>├── manage.py
+<a name="rest_code_9ffd79e227d545aea048b5213194a9b8-12"></a>├── mysql
+<a name="rest_code_9ffd79e227d545aea048b5213194a9b8-13"></a>│   └── conf.d
+<a name="rest_code_9ffd79e227d545aea048b5213194a9b8-14"></a>│       └── mysql.cnf
+<a name="rest_code_9ffd79e227d545aea048b5213194a9b8-15"></a>├── requirements.txt
+<a name="rest_code_9ffd79e227d545aea048b5213194a9b8-16"></a>└── settings
+<a name="rest_code_9ffd79e227d545aea048b5213194a9b8-17"></a>    └── _.py
+</pre>
+</div>
+</div>
+<div class="section" id="id8">
+<h2><a class="toc-backref" href="#id18">使い方メモ</a></h2>
+<div class="section" id="id9">
+<h3><a class="toc-backref" href="#id19">イメージビルドからやり直したい</a></h3>
+<p>こんなときは...</p>
+<ul class="simple">
+<li>requirements.txt にライブラリを書き足したとき</li>
+<li>Dockerfile を更新したとき</li>
+</ul>
+<pre class="code bash"><a name="rest_code_6d8c2c92ad1a4c948eb883656646341a-1"></a>$ docker-compose build
+<a name="rest_code_6d8c2c92ad1a4c948eb883656646341a-2"></a>$ docker-compose up
+</pre>
+<p>もしくは、</p>
+<pre class="code bash"><a name="rest_code_877a39bf452f4cd5a110d885c7e91ed8-1"></a>$ docker-compose up --build
+</pre>
+</div>
+<div class="section" id="volume">
+<h3><a class="toc-backref" href="#id20">volume は消さない限り再利用される</a></h3>
+<pre class="code yaml"><a name="rest_code_b152a9c1442d4cc1b4f56a442d97214c-1"></a><span class="c1"># fu/docker-compose.yml</span>
+<a name="rest_code_b152a9c1442d4cc1b4f56a442d97214c-2"></a>
+<a name="rest_code_b152a9c1442d4cc1b4f56a442d97214c-3"></a><span class="nt">volumes</span><span class="p">:</span>
+<a name="rest_code_b152a9c1442d4cc1b4f56a442d97214c-4"></a>  <span class="nt">db-data</span><span class="p">:</span>
+</pre>
+<pre class="code bash"><a name="rest_code_14b86b69f9b040d39306c35f39918d3c-1"></a>$ docker volume ls
+<a name="rest_code_14b86b69f9b040d39306c35f39918d3c-2"></a>DRIVER              VOLUME NAME
+<a name="rest_code_14b86b69f9b040d39306c35f39918d3c-3"></a><span class="nb">local</span>               fu_db-data  <span class="c1"># こういう名前がついている</span>
+</pre>
+</div>
+<div class="section" id="web">
+<h3><a class="toc-backref" href="#id21">web のほうのコンテナだけ再起動したいとき</a></h3>
+<pre class="code bash"><a name="rest_code_16a27dea2f594ce585968cf0eeafe3cd-1"></a>$ docker container restart fu_web
+</pre>
+</div>
+<div class="section" id="id10">
+<h3><a class="toc-backref" href="#id22">web のほうのコンテナに入る</a></h3>
+<p>VM の中に入るのと同じような気持ち。</p>
+<pre class="code bash"><a name="rest_code_459bf200127e4988a19fa7e17048dbeb-1"></a>$ docker container <span class="nb">exec</span> -it fu_web bash
+<a name="rest_code_459bf200127e4988a19fa7e17048dbeb-2"></a>root@eb1ab9a6dbdb:/code#
+<a name="rest_code_459bf200127e4988a19fa7e17048dbeb-3"></a>
+<a name="rest_code_459bf200127e4988a19fa7e17048dbeb-4"></a><span class="c1"># 現在のロケール設定を確認する</span>
+<a name="rest_code_459bf200127e4988a19fa7e17048dbeb-5"></a>root@eb1ab9a6dbdb:/code# locale
+<a name="rest_code_459bf200127e4988a19fa7e17048dbeb-6"></a><span class="nv">LANG</span><span class="o">=</span>C.UTF-8
+<a name="rest_code_459bf200127e4988a19fa7e17048dbeb-7"></a><span class="nv">LANGUAGE</span><span class="o">=</span>
+<a name="rest_code_459bf200127e4988a19fa7e17048dbeb-8"></a><span class="nv">LC_CTYPE</span><span class="o">=</span><span class="s2">"C.UTF-8"</span>
+<a name="rest_code_459bf200127e4988a19fa7e17048dbeb-9"></a><span class="nv">LC_NUMERIC</span><span class="o">=</span><span class="s2">"C.UTF-8"</span>
+<a name="rest_code_459bf200127e4988a19fa7e17048dbeb-10"></a><span class="nv">LC_TIME</span><span class="o">=</span><span class="s2">"C.UTF-8"</span>
+<a name="rest_code_459bf200127e4988a19fa7e17048dbeb-11"></a><span class="nv">LC_COLLATE</span><span class="o">=</span><span class="s2">"C.UTF-8"</span>
+<a name="rest_code_459bf200127e4988a19fa7e17048dbeb-12"></a><span class="nv">LC_MONETARY</span><span class="o">=</span><span class="s2">"C.UTF-8"</span>
+<a name="rest_code_459bf200127e4988a19fa7e17048dbeb-13"></a><span class="nv">LC_MESSAGES</span><span class="o">=</span><span class="s2">"C.UTF-8"</span>
+<a name="rest_code_459bf200127e4988a19fa7e17048dbeb-14"></a><span class="nv">LC_PAPER</span><span class="o">=</span><span class="s2">"C.UTF-8"</span>
+<a name="rest_code_459bf200127e4988a19fa7e17048dbeb-15"></a><span class="nv">LC_NAME</span><span class="o">=</span><span class="s2">"C.UTF-8"</span>
+<a name="rest_code_459bf200127e4988a19fa7e17048dbeb-16"></a><span class="nv">LC_ADDRESS</span><span class="o">=</span><span class="s2">"C.UTF-8"</span>
+<a name="rest_code_459bf200127e4988a19fa7e17048dbeb-17"></a><span class="nv">LC_TELEPHONE</span><span class="o">=</span><span class="s2">"C.UTF-8"</span>
+<a name="rest_code_459bf200127e4988a19fa7e17048dbeb-18"></a><span class="nv">LC_MEASUREMENT</span><span class="o">=</span><span class="s2">"C.UTF-8"</span>
+<a name="rest_code_459bf200127e4988a19fa7e17048dbeb-19"></a><span class="nv">LC_IDENTIFICATION</span><span class="o">=</span><span class="s2">"C.UTF-8"</span>
+<a name="rest_code_459bf200127e4988a19fa7e17048dbeb-20"></a><span class="nv">LC_ALL</span><span class="o">=</span>
+</pre>
+</div>
+<div class="section" id="mysql">
+<h3><a class="toc-backref" href="#id23">mysql のほうのコンテナに入る</a></h3>
+<pre class="code bash"><a name="rest_code_e1c42d325f724316a937234a2626352f-1"></a><span class="c1"># mysql のコンテナに入る</span>
+<a name="rest_code_e1c42d325f724316a937234a2626352f-2"></a>$ docker container <span class="nb">exec</span> -it fu_db bash
+<a name="rest_code_e1c42d325f724316a937234a2626352f-3"></a>
+<a name="rest_code_e1c42d325f724316a937234a2626352f-4"></a><span class="c1"># 現在のロケール設定を確認する</span>
+<a name="rest_code_e1c42d325f724316a937234a2626352f-5"></a>root@dcc8b4d2cd21:/# locale
+<a name="rest_code_e1c42d325f724316a937234a2626352f-6"></a><span class="nv">LANG</span><span class="o">=</span>ja_JP.UTF-8
+<a name="rest_code_e1c42d325f724316a937234a2626352f-7"></a><span class="nv">LANGUAGE</span><span class="o">=</span>ja_JP:en
+<a name="rest_code_e1c42d325f724316a937234a2626352f-8"></a><span class="nv">LC_CTYPE</span><span class="o">=</span><span class="s2">"ja_JP.UTF-8"</span>
+<a name="rest_code_e1c42d325f724316a937234a2626352f-9"></a><span class="nv">LC_NUMERIC</span><span class="o">=</span><span class="s2">"ja_JP.UTF-8"</span>
+<a name="rest_code_e1c42d325f724316a937234a2626352f-10"></a><span class="nv">LC_TIME</span><span class="o">=</span><span class="s2">"ja_JP.UTF-8"</span>
+<a name="rest_code_e1c42d325f724316a937234a2626352f-11"></a><span class="nv">LC_COLLATE</span><span class="o">=</span><span class="s2">"ja_JP.UTF-8"</span>
+<a name="rest_code_e1c42d325f724316a937234a2626352f-12"></a><span class="nv">LC_MONETARY</span><span class="o">=</span><span class="s2">"ja_JP.UTF-8"</span>
+<a name="rest_code_e1c42d325f724316a937234a2626352f-13"></a><span class="nv">LC_MESSAGES</span><span class="o">=</span><span class="s2">"ja_JP.UTF-8"</span>
+<a name="rest_code_e1c42d325f724316a937234a2626352f-14"></a><span class="nv">LC_PAPER</span><span class="o">=</span><span class="s2">"ja_JP.UTF-8"</span>
+<a name="rest_code_e1c42d325f724316a937234a2626352f-15"></a><span class="nv">LC_NAME</span><span class="o">=</span><span class="s2">"ja_JP.UTF-8"</span>
+<a name="rest_code_e1c42d325f724316a937234a2626352f-16"></a><span class="nv">LC_ADDRESS</span><span class="o">=</span><span class="s2">"ja_JP.UTF-8"</span>
+<a name="rest_code_e1c42d325f724316a937234a2626352f-17"></a><span class="nv">LC_TELEPHONE</span><span class="o">=</span><span class="s2">"ja_JP.UTF-8"</span>
+<a name="rest_code_e1c42d325f724316a937234a2626352f-18"></a><span class="nv">LC_MEASUREMENT</span><span class="o">=</span><span class="s2">"ja_JP.UTF-8"</span>
+<a name="rest_code_e1c42d325f724316a937234a2626352f-19"></a><span class="nv">LC_IDENTIFICATION</span><span class="o">=</span><span class="s2">"ja_JP.UTF-8"</span>
+<a name="rest_code_e1c42d325f724316a937234a2626352f-20"></a><span class="nv">LC_ALL</span><span class="o">=</span>ja_JP.UTF-8
+</pre>
+</div>
+<div class="section" id="id11">
+<h3><a class="toc-backref" href="#id24">mysql に入る</a></h3>
+<pre class="code bash"><a name="rest_code_049d3fd342904133a182285f32057ff1-1"></a><span class="c1"># mysql のコンテナに入る</span>
+<a name="rest_code_049d3fd342904133a182285f32057ff1-2"></a>$ docker container <span class="nb">exec</span> -it fu_db bash
+<a name="rest_code_049d3fd342904133a182285f32057ff1-3"></a>root@6ba1661872de:/#
+<a name="rest_code_049d3fd342904133a182285f32057ff1-4"></a>
+<a name="rest_code_049d3fd342904133a182285f32057ff1-5"></a><span class="c1"># mysql にログインする</span>
+<a name="rest_code_049d3fd342904133a182285f32057ff1-6"></a>$ mysql -h localhost -u fu -p fu
+<a name="rest_code_049d3fd342904133a182285f32057ff1-7"></a>
+<a name="rest_code_049d3fd342904133a182285f32057ff1-8"></a>Enter password: <span class="o">(</span>compose ファイルに定義したパスワード<span class="o">)</span>
+<a name="rest_code_049d3fd342904133a182285f32057ff1-9"></a>
+<a name="rest_code_049d3fd342904133a182285f32057ff1-10"></a><span class="c1"># 現在の Character Sets 設定を表示する</span>
+<a name="rest_code_049d3fd342904133a182285f32057ff1-11"></a>mysql&gt; SHOW VARIABLES LIKE <span class="s2">"char%"</span><span class="p">;</span>
+<a name="rest_code_049d3fd342904133a182285f32057ff1-12"></a>+--------------------------+--------------------------------+
+<a name="rest_code_049d3fd342904133a182285f32057ff1-13"></a><span class="p">|</span> Variable_name            <span class="p">|</span> Value                          <span class="p">|</span>
+<a name="rest_code_049d3fd342904133a182285f32057ff1-14"></a>+--------------------------+--------------------------------+
+<a name="rest_code_049d3fd342904133a182285f32057ff1-15"></a><span class="p">|</span> character_set_client     <span class="p">|</span> utf8mb4                        <span class="p">|</span>
+<a name="rest_code_049d3fd342904133a182285f32057ff1-16"></a><span class="p">|</span> character_set_connection <span class="p">|</span> utf8mb4                        <span class="p">|</span>
+<a name="rest_code_049d3fd342904133a182285f32057ff1-17"></a><span class="p">|</span> character_set_database   <span class="p">|</span> utf8mb4                        <span class="p">|</span>
+<a name="rest_code_049d3fd342904133a182285f32057ff1-18"></a><span class="p">|</span> character_set_filesystem <span class="p">|</span> binary                         <span class="p">|</span>
+<a name="rest_code_049d3fd342904133a182285f32057ff1-19"></a><span class="p">|</span> character_set_results    <span class="p">|</span> utf8mb4                        <span class="p">|</span>
+<a name="rest_code_049d3fd342904133a182285f32057ff1-20"></a><span class="p">|</span> character_set_server     <span class="p">|</span> utf8mb4                        <span class="p">|</span>
+<a name="rest_code_049d3fd342904133a182285f32057ff1-21"></a><span class="p">|</span> character_set_system     <span class="p">|</span> utf8                           <span class="p">|</span>
+<a name="rest_code_049d3fd342904133a182285f32057ff1-22"></a><span class="p">|</span> character_sets_dir       <span class="p">|</span> /usr/share/mysql-8.0/charsets/ <span class="p">|</span>
+<a name="rest_code_049d3fd342904133a182285f32057ff1-23"></a>+--------------------------+--------------------------------+
+<a name="rest_code_049d3fd342904133a182285f32057ff1-24"></a><span class="m">8</span> rows in <span class="nb">set</span> <span class="o">(</span><span class="m">0</span>.01 sec<span class="o">)</span>
+<a name="rest_code_049d3fd342904133a182285f32057ff1-25"></a>
+<a name="rest_code_049d3fd342904133a182285f32057ff1-26"></a><span class="c1"># 現在のタイムゾーン設定を表示する</span>
+<a name="rest_code_049d3fd342904133a182285f32057ff1-27"></a>mysql&gt; SHOW VARIABLES LIKE <span class="s1">'%time_zone%'</span><span class="p">;</span>
+<a name="rest_code_049d3fd342904133a182285f32057ff1-28"></a>+------------------+------------+
+<a name="rest_code_049d3fd342904133a182285f32057ff1-29"></a><span class="p">|</span> Variable_name    <span class="p">|</span> Value      <span class="p">|</span>
+<a name="rest_code_049d3fd342904133a182285f32057ff1-30"></a>+------------------+------------+
+<a name="rest_code_049d3fd342904133a182285f32057ff1-31"></a><span class="p">|</span> system_time_zone <span class="p">|</span> JST        <span class="p">|</span>  <span class="c1"># MySQL が動いているコンテナ (Debian) のシステムタイムゾーン、Dockerfile-mysql で設定した</span>
+<a name="rest_code_049d3fd342904133a182285f32057ff1-32"></a><span class="p">|</span> time_zone        <span class="p">|</span> Asia/Tokyo <span class="p">|</span>  <span class="c1"># mysql.cnf で設定した MySQL サーバー側のタイムゾーン</span>
+<a name="rest_code_049d3fd342904133a182285f32057ff1-33"></a>+------------------+------------+
+<a name="rest_code_049d3fd342904133a182285f32057ff1-34"></a><span class="m">2</span> rows in <span class="nb">set</span> <span class="o">(</span><span class="m">0</span>.01 sec<span class="o">)</span>
+<a name="rest_code_049d3fd342904133a182285f32057ff1-35"></a>
+<a name="rest_code_049d3fd342904133a182285f32057ff1-36"></a>mysql&gt; status
+<a name="rest_code_049d3fd342904133a182285f32057ff1-37"></a>--------------
+<a name="rest_code_049d3fd342904133a182285f32057ff1-38"></a>mysql  Ver <span class="m">8</span>.0.13 <span class="k">for</span> Linux on x86_64 <span class="o">(</span>MySQL Community Server - GPL<span class="o">)</span>
+<a name="rest_code_049d3fd342904133a182285f32057ff1-39"></a>
+<a name="rest_code_049d3fd342904133a182285f32057ff1-40"></a>Connection id:                <span class="m">11</span>
+<a name="rest_code_049d3fd342904133a182285f32057ff1-41"></a>Current database:     fu
+<a name="rest_code_049d3fd342904133a182285f32057ff1-42"></a>Current user:         fu@localhost
+<a name="rest_code_049d3fd342904133a182285f32057ff1-43"></a>SSL:                  Not in use
+<a name="rest_code_049d3fd342904133a182285f32057ff1-44"></a>Current pager:                stdout
+<a name="rest_code_049d3fd342904133a182285f32057ff1-45"></a>Using outfile:                <span class="s1">''</span>
+<a name="rest_code_049d3fd342904133a182285f32057ff1-46"></a>Using delimiter:      <span class="p">;</span>
+<a name="rest_code_049d3fd342904133a182285f32057ff1-47"></a>Server version:               <span class="m">8</span>.0.13 MySQL Community Server - GPL
+<a name="rest_code_049d3fd342904133a182285f32057ff1-48"></a>Protocol version:     <span class="m">10</span>
+<a name="rest_code_049d3fd342904133a182285f32057ff1-49"></a>Connection:           Localhost via UNIX socket
+<a name="rest_code_049d3fd342904133a182285f32057ff1-50"></a>Server characterset:  utf8mb4
+<a name="rest_code_049d3fd342904133a182285f32057ff1-51"></a>Db     characterset:  utf8mb4
+<a name="rest_code_049d3fd342904133a182285f32057ff1-52"></a>Client characterset:  utf8mb4
+<a name="rest_code_049d3fd342904133a182285f32057ff1-53"></a>Conn.  characterset:  utf8mb4
+<a name="rest_code_049d3fd342904133a182285f32057ff1-54"></a>UNIX socket:          /var/run/mysqld/mysqld.sock
+<a name="rest_code_049d3fd342904133a182285f32057ff1-55"></a>Uptime:                       <span class="m">2</span> hours <span class="m">9</span> min <span class="m">49</span> sec
+<a name="rest_code_049d3fd342904133a182285f32057ff1-56"></a>
+<a name="rest_code_049d3fd342904133a182285f32057ff1-57"></a>Threads: <span class="m">3</span>  Questions: <span class="m">40</span>  Slow queries: <span class="m">0</span>  Opens: <span class="m">189</span>  Flush tables: <span class="m">2</span>  Open tables: <span class="m">163</span>  Queries per second avg: <span class="m">0</span>.005
+<a name="rest_code_049d3fd342904133a182285f32057ff1-58"></a>--------------
+</pre>
+</div>
+</div>
+<div class="section" id="todo">
+<h2><a class="toc-backref" href="#id25">TODO</a></h2>
+<p>web コンテナのほうの locale と タイムゾーンは db コンテナと合わせなくて大丈夫なんだろうか...</p>
+</div>
+</div>
+    </div>
+  </main>
+</div>
+</div>
+    </div>
+  </body>
+</html>

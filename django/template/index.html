@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<title>Django: Template/fuminote</title>
+<link rel="shortcut icon" href="../../assets/icons/favicon.ico">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Griffy">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Vollkorn:400,700">
+<link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/sawarabimincho.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+<link rel="stylesheet" href="../../assets/css/style.css?20190602">
+</head>
+<body>
+    <div class="container">
+      <div class="header"><header class="item item-header"><h1>
+    <a href="../../">
+      <img class="logo" src="../../assets/images/inuu.png" alt="犬"></a>
+  </h1>
+  <nav class="nav"><ul>
+<li class="nav-category"><a href="../../">HOME</a></li>
+    </ul></nav><iframe src="../../tags/" class="tags-frame"></iframe>
+</header></div>
+      <div class="main">
+<div class="article-content">
+  <main class="item item-article item-django"><time class="date" datetime="2019-05-06 00:00:00+09:00">
+      2019-05-06 Mon
+    </time><div class="title">Django: Template</div>
+    <div class="category">
+      <a href="../../tags/django/">
+          django
+      </a>
+    </div>
+    <div class="text">
+      <div>
+<details><summary>目次</summary><div class="contents topic" id="id1">
+<p class="topic-title first">目次</p>
+<ul class="simple">
+<li><a class="reference internal" href="#id2" id="id22">リファレンス/書籍</a></li>
+<li><a class="reference internal" href="#id4" id="id23">なるほどめも</a></li>
+<li><a class="reference internal" href="#id5" id="id24">変数表示</a></li>
+<li>
+<a class="reference internal" href="#id6" id="id25">フィルタ</a><ul>
+<li><a class="reference internal" href="#id7" id="id26">デフォルト表示</a></li>
+<li><a class="reference internal" href="#id8" id="id27">文字列長を表示</a></li>
+<li><a class="reference internal" href="#id9" id="id28">エスケープの無効化</a></li>
+<li><a class="reference internal" href="#id10" id="id29">日時フォーマット</a></li>
+<li><a class="reference internal" href="#id11" id="id30">改行タグの変換</a></li>
+<li><a class="reference internal" href="#id12" id="id31">リンク変換</a></li>
+<li><a class="reference internal" href="#id13" id="id32">文字の切り詰め</a></li>
+</ul>
+</li>
+<li>
+<a class="reference internal" href="#id14" id="id33">テンプレートタグ</a><ul>
+<li><a class="reference internal" href="#if" id="id34">if</a></li>
+<li><a class="reference internal" href="#for" id="id35">for</a></li>
+<li><a class="reference internal" href="#id15" id="id36">テンプレートの継承</a></li>
+<li><a class="reference internal" href="#id16" id="id37">外部テンプレートの読み込み</a></li>
+<li><a class="reference internal" href="#url" id="id38">静的ファイルの配信 URL 取得</a></li>
+<li><a class="reference internal" href="#id17" id="id39">url</a></li>
+<li><a class="reference internal" href="#id18" id="id40">自動エスケープ制御</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id19" id="id41">ベーステンプレートを用意しよう</a></li>
+<li><a class="reference internal" href="#id20" id="id42">独自のテンプレートタグとフィルタ</a></li>
+</ul>
+</div>
+</details><div class="section" id="id2">
+<h2><a class="toc-backref" href="#id22">リファレンス/書籍</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://docs.djangoproject.com/ja/2.2/topics/templates/">Django documentation &gt; テンプレート</a></li>
+<li><a class="reference external" href="https://docs.djangoproject.com/ja/2.2/ref/templates/builtins/">Django documentation &gt; 組み込みタグとフィルタ</a></li>
+<li><a class="reference external" href="https://www.amazon.co.jp/dp/B07GK7BWB7/">現場で使える Django の教科書</a></li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h2><a class="toc-backref" href="#id23">なるほどめも</a></h2>
+<ul class="simple">
+<li>変数定義できない</li>
+<li>Python モジュールを直接 import して使うことはできない<ul>
+<li>独自の関数を使うにはテンプレートタグやフィルタを自作する</li>
+</ul>
+</li>
+<li>フィルター: 変数の内容を表示する際の表示形式を変更する</li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h2><a class="toc-backref" href="#id24">変数表示</a></h2>
+<pre class="code django"><a name="rest_code_3eb4ca0e78334c718450456ed3907ccc-1"></a><span class="c">{# __str__() の結果を表示してくれる #}</span><span class="x"></span>
+<a name="rest_code_3eb4ca0e78334c718450456ed3907ccc-2"></a><span class="cp">{{</span> <span class="nv">user</span> <span class="cp">}}</span><span class="x"></span>
+<a name="rest_code_3eb4ca0e78334c718450456ed3907ccc-3"></a>
+<a name="rest_code_3eb4ca0e78334c718450456ed3907ccc-4"></a><span class="c">{# このように書くと #}</span><span class="x"></span>
+<a name="rest_code_3eb4ca0e78334c718450456ed3907ccc-5"></a><span class="cp">{{</span> <span class="nv">user.username</span> <span class="cp">}}</span><span class="x"></span>
+<a name="rest_code_3eb4ca0e78334c718450456ed3907ccc-6"></a><span class="cp">{%</span> <span class="k">comment</span> <span class="s2">"以下の順番に値を取得しようとして、一番先に取得できた値を表示してくれる"</span> <span class="cp">%}</span><span class="x"></span>
+<a name="rest_code_3eb4ca0e78334c718450456ed3907ccc-7"></a><span class="x">  user['username']  # 1. 辞書としての照合</span>
+<a name="rest_code_3eb4ca0e78334c718450456ed3907ccc-8"></a><span class="x">  user.username     # 2. 属性値の照合</span>
+<a name="rest_code_3eb4ca0e78334c718450456ed3907ccc-9"></a><span class="x">  user.username()   # 3. メソッド呼び出し</span>
+<a name="rest_code_3eb4ca0e78334c718450456ed3907ccc-10"></a><span class="x">  user[username]    # 4. リストやタプルの添字指定</span>
+<a name="rest_code_3eb4ca0e78334c718450456ed3907ccc-11"></a><span class="cp">{%</span> <span class="k">endcomment</span> <span class="cp">%}</span><span class="x"></span>
+</pre>
+<ul class="simple">
+<li>テンプレートには「コンテキスト」と呼ばれる変数と値がマッピングされたオブジェクトが渡される<ul>
+<li>コンテキストに含まれるもの<ul>
+<li>ビューから渡された変数</li>
+<li>
+<tt class="docutils literal">settings.py</tt> の <tt class="docutils literal">TEMPLATES.OPTIONS.context_processors</tt> に定義された関数でセットされた変数<ul>
+<li>
+<tt class="docutils literal">request</tt>: リクエストオブジェクト</li>
+<li>
+<tt class="docutils literal">user</tt>: ユーザー</li>
+<li>
+<tt class="docutils literal">perms</tt>: ユーザーのパーミッション</li>
+<li>
+<tt class="docutils literal">messages</tt>: フラッシュメッセージ</li>
+<li>e.t.c...</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>何もしなくも XSS 対策として <tt class="docutils literal">&lt;</tt>, <tt class="docutils literal">&gt;</tt>, <tt class="docutils literal">'</tt>, <tt class="docutils literal">"</tt>, <tt class="docutils literal">&amp;</tt> を自動でエスケープしてくれる</li>
+</ul>
+</div>
+<div class="section" id="id6">
+<h2><a class="toc-backref" href="#id25">フィルタ</a></h2>
+<pre class="code django"><a name="rest_code_14ee2b22f0e3498e9f6202b20e87c223-1"></a><span class="c">{# 変数名の直後に ``|`` (パイプ) を使って繋げる #}</span><span class="x"></span>
+<a name="rest_code_14ee2b22f0e3498e9f6202b20e87c223-2"></a><span class="cp">{{</span> <span class="o">&lt;</span><span class="err">変数名</span><span class="o">&gt;</span><span class="err">|</span><span class="o">&lt;</span><span class="err">フィルタ名</span><span class="o">&gt;</span> <span class="cp">}}</span><span class="x"></span>
+<a name="rest_code_14ee2b22f0e3498e9f6202b20e87c223-3"></a>
+<a name="rest_code_14ee2b22f0e3498e9f6202b20e87c223-4"></a><span class="c">{# フィルタによっては引数もとれる、 ``:`` で繋げる #}</span><span class="x"></span>
+<a name="rest_code_14ee2b22f0e3498e9f6202b20e87c223-5"></a><span class="cp">{{</span> <span class="o">&lt;</span><span class="err">変数名</span><span class="o">&gt;</span><span class="err">|</span><span class="o">&lt;</span><span class="err">フィルタ名</span><span class="o">&gt;</span><span class="s2">:"&lt;引数&gt;"</span> <span class="cp">}}</span><span class="x"></span>
+<a name="rest_code_14ee2b22f0e3498e9f6202b20e87c223-6"></a>
+<a name="rest_code_14ee2b22f0e3498e9f6202b20e87c223-7"></a><span class="c">{# フィルタは ``|`` で連結できる #}</span><span class="x"></span>
+<a name="rest_code_14ee2b22f0e3498e9f6202b20e87c223-8"></a><span class="cp">{{</span> <span class="o">&lt;</span><span class="err">変数名</span><span class="o">&gt;</span><span class="err">|</span><span class="o">&lt;</span><span class="err">フィルタ名</span><span class="m">1</span><span class="o">&gt;</span><span class="s2">:"&lt;引数&gt;"</span><span class="err">|</span><span class="o">&lt;</span><span class="err">フィルタ名</span><span class="m">2</span><span class="o">&gt;</span><span class="s2">:"&lt;引数&gt;"</span> <span class="cp">}}</span><span class="x"></span>
+</pre>
+<div class="section" id="id7">
+<h3><a class="toc-backref" href="#id26">デフォルト表示</a></h3>
+<pre class="code django"><a name="rest_code_43e7c5ddf62640ccace02c317a69db02-1"></a><span class="cp">{{</span> <span class="nv">user.first_name</span><span class="o">|</span><span class="nf">default</span><span class="s2">:""</span> <span class="cp">}}</span><span class="x"> </span><span class="cp">{{</span> <span class="nv">user.first_name</span><span class="o">|</span><span class="nf">default</span><span class="s2">:""</span> <span class="cp">}}</span><span class="x"></span>
+</pre>
+<ul class="simple">
+<li>変数が存在しない場合、あるいは変数の値が <tt class="docutils literal">None</tt>, <tt class="docutils literal">''</tt>, <tt class="docutils literal">0</tt>, <tt class="docutils literal">False</tt>, <tt class="docutils literal">[]</tt> などの場合に指定した文字列を表示する</li>
+</ul>
+</div>
+<div class="section" id="id8">
+<h3><a class="toc-backref" href="#id27">文字列長を表示</a></h3>
+<pre class="code django"><a name="rest_code_25cb42ef481741c79ff74fc12ca0ff18-1"></a><span class="cp">{{</span> <span class="nv">user.username</span><span class="o">|</span><span class="nf">length</span> <span class="cp">}}</span><span class="x"></span>
+</pre>
+</div>
+<div class="section" id="id9">
+<h3><a class="toc-backref" href="#id28">エスケープの無効化</a></h3>
+<pre class="code django"><a name="rest_code_91d0b9e118974d2091c662ee24a253e1-1"></a><span class="cp">{{</span> <span class="nv">book.description</span><span class="o">|</span><span class="nf">safe</span> <span class="cp">}}</span><span class="x"></span>
+</pre>
+<ul class="simple">
+<li>XSS 対策として自動でエスケープしてくれる <tt class="docutils literal">&lt;</tt>, <tt class="docutils literal">&gt;</tt>, <tt class="docutils literal">'</tt>, <tt class="docutils literal">"</tt>, <tt class="docutils literal">&amp;</tt> をエスケープしない</li>
+<li>変数の内容が安全だとわかっている場合のみ利用すること</li>
+</ul>
+</div>
+<div class="section" id="id10">
+<h3><a class="toc-backref" href="#id29">日時フォーマット</a></h3>
+<pre class="code django"><a name="rest_code_0e717e621ce9449a8c4dc9260ef1e65a-1"></a><span class="cp">{{</span> <span class="nv">user.last_login</span><span class="o">|</span><span class="nf">date</span><span class="s2">:"Y-m-d H:i:s"</span> <span class="cp">}}</span><span class="x"></span>
+</pre>
+</div>
+<div class="section" id="id11">
+<h3><a class="toc-backref" href="#id30">改行タグの変換</a></h3>
+<pre class="code django"><a name="rest_code_d5dc67d12a0c46e8a4d3737f72f68dcb-1"></a><span class="cp">{{</span> <span class="nv">book.description</span><span class="o">|</span><span class="nf">linebreaksbr</span> <span class="cp">}}</span><span class="x"></span>
+</pre>
+<ul class="simple">
+<li>
+<tt class="docutils literal">\n</tt> を <tt class="docutils literal">&lt;br&gt;</tt> に変換してくれる</li>
+<li>便利だな...</li>
+</ul>
+</div>
+<div class="section" id="id12">
+<h3><a class="toc-backref" href="#id31">リンク変換</a></h3>
+<pre class="code django"><a name="rest_code_36ee3e7dc7c7459c93b43062c94ac7bb-1"></a><span class="cp">{{</span> <span class="nv">book.description</span><span class="o">|</span><span class="nf">urlize</span> <span class="cp">}}</span><span class="x"></span>
+</pre>
+<ul class="simple">
+<li>URL と メールアドレスの部分だけをアンカータグで囲んでクリック可能なリンクに変換してくれる</li>
+<li>しゅごいな...</li>
+</ul>
+</div>
+<div class="section" id="id13">
+<h3><a class="toc-backref" href="#id32">文字の切り詰め</a></h3>
+<pre class="code django"><a name="rest_code_56f058479baa4a87a5becd7ccad5364f-1"></a><span class="cp">{{</span> <span class="nv">book.description</span><span class="o">|</span><span class="nf">truncatechars_html</span><span class="o">:</span><span class="m">5</span> <span class="cp">}}</span><span class="x"></span>
+</pre>
+<ul class="simple">
+<li>指定した文字数まで切り詰めて <tt class="docutils literal">...</tt> をくっつけてくれる</li>
+<li>HTML タグを考慮して省略後の文字にきちんと閉じタグをつけてくれる</li>
+<li>うええ...</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id14">
+<h2><a class="toc-backref" href="#id33">テンプレートタグ</a></h2>
+<div class="section" id="if">
+<h3><a class="toc-backref" href="#id34">if</a></h3>
+<pre class="code django"><a name="rest_code_460ecefafe674918893a251d0b3048ab-1"></a><span class="cp">{%</span> <span class="k">if</span> <span class="nv">user.is_superuser</span> <span class="cp">%}</span><span class="x"></span>
+<a name="rest_code_460ecefafe674918893a251d0b3048ab-2"></a><span class="x">  システム管理者です。</span>
+<a name="rest_code_460ecefafe674918893a251d0b3048ab-3"></a><span class="cp">{%</span> <span class="k">elif</span> <span class="nv">user.is_staff</span> <span class="cp">%}</span><span class="x"></span>
+<a name="rest_code_460ecefafe674918893a251d0b3048ab-4"></a><span class="x">  スタッフです。</span>
+<a name="rest_code_460ecefafe674918893a251d0b3048ab-5"></a><span class="cp">{%</span> <span class="k">else</span> <span class="cp">%}</span><span class="x"></span>
+<a name="rest_code_460ecefafe674918893a251d0b3048ab-6"></a><span class="x">  一般ユーザーだよ。</span>
+<a name="rest_code_460ecefafe674918893a251d0b3048ab-7"></a><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"></span>
+</pre>
+<pre class="code django"><a name="rest_code_f22d5e3b03b94926a578b73d4a2c6cba-1"></a><span class="c">{# フィルタと組み合わせることもできる #}</span><span class="x"></span>
+<a name="rest_code_f22d5e3b03b94926a578b73d4a2c6cba-2"></a><span class="cp">{%</span> <span class="k">if</span> <span class="nv">user.username</span><span class="o">|</span><span class="nf">length</span> <span class="o">&lt;</span> <span class="m">3</span> <span class="cp">%}</span><span class="x"></span>
+<a name="rest_code_f22d5e3b03b94926a578b73d4a2c6cba-3"></a><span class="x">  ユーザー名が短かすぎます。</span>
+<a name="rest_code_f22d5e3b03b94926a578b73d4a2c6cba-4"></a><span class="cp">{%</span>  <span class="k">endif</span> <span class="cp">%}</span><span class="x"></span>
+</pre>
+</div>
+<div class="section" id="for">
+<h3><a class="toc-backref" href="#id35">for</a></h3>
+<pre class="code django"><a name="rest_code_5b868718fc9e4cf6984817d71448b89e-1"></a><span class="cp">{%</span> <span class="k">for</span> <span class="nv">book</span> <span class="k">in</span> <span class="nv">book_list</span> <span class="cp">%}</span><span class="x"></span>
+<a name="rest_code_5b868718fc9e4cf6984817d71448b89e-2"></a><span class="x">  </span><span class="cp">{{</span> <span class="nv">book.title</span> <span class="cp">}}</span><span class="x"></span>
+<a name="rest_code_5b868718fc9e4cf6984817d71448b89e-3"></a>
+<a name="rest_code_5b868718fc9e4cf6984817d71448b89e-4"></a><span class="x">  </span><span class="c">{# for ループ内で使える変数 #}</span><span class="x"></span>
+<a name="rest_code_5b868718fc9e4cf6984817d71448b89e-5"></a><span class="x">  </span><span class="cp">{{</span> <span class="nb">forloop</span><span class="nv">.counter</span> <span class="cp">}}</span><span class="x">     </span><span class="c">{# 現在のループカウンタ番号 ( 1 から順にカウント ) #}</span><span class="x"></span>
+<a name="rest_code_5b868718fc9e4cf6984817d71448b89e-6"></a><span class="x">  </span><span class="cp">{{</span> <span class="nb">forloop</span><span class="nv">.counter0</span> <span class="cp">}}</span><span class="x">    </span><span class="c">{# 現在のループカウンタ番号 ( 0 から順にカウント ) #}</span><span class="x"></span>
+<a name="rest_code_5b868718fc9e4cf6984817d71448b89e-7"></a><span class="x">  </span><span class="cp">{{</span> <span class="nb">forloop</span><span class="nv">.revcounter</span> <span class="cp">}}</span><span class="x">  </span><span class="c">{# 現在のループカウンタ値 ( 1 から順に、末尾からカウント) #}</span><span class="x"></span>
+<a name="rest_code_5b868718fc9e4cf6984817d71448b89e-8"></a><span class="x">  </span><span class="cp">{{</span> <span class="nb">forloop</span><span class="nv">.revcounter0</span> <span class="cp">}}</span><span class="x"> </span><span class="c">{# 現在のループカウンタ値 ( 0 から順に、末尾からカウント) #}</span><span class="x"></span>
+<a name="rest_code_5b868718fc9e4cf6984817d71448b89e-9"></a><span class="x">  </span><span class="cp">{{</span> <span class="nb">forloop</span><span class="nv">.first</span> <span class="cp">}}</span><span class="x">       </span><span class="c">{# 最初のループであれば True #}</span><span class="x"></span>
+<a name="rest_code_5b868718fc9e4cf6984817d71448b89e-10"></a><span class="x">  </span><span class="cp">{{</span> <span class="nb">forloop</span><span class="nv">.last</span> <span class="cp">}}</span><span class="x">        </span><span class="c">{# 最後のループであれば True #}</span><span class="x"></span>
+<a name="rest_code_5b868718fc9e4cf6984817d71448b89e-11"></a><span class="x">  </span><span class="cp">{{</span> <span class="nb">forloop</span><span class="nv">.parentloop</span> <span class="cp">}}</span><span class="x">  </span><span class="c">{# 入れ子のループであるとき、現在のループを囲んでいる 1 つ上のループを表します。 #}</span><span class="x"></span>
+<a name="rest_code_5b868718fc9e4cf6984817d71448b89e-12"></a>
+<a name="rest_code_5b868718fc9e4cf6984817d71448b89e-13"></a><span class="cp">{%</span>  <span class="k">empty</span> <span class="cp">%}</span><span class="x"></span>
+<a name="rest_code_5b868718fc9e4cf6984817d71448b89e-14"></a><span class="x">  本ない</span>
+<a name="rest_code_5b868718fc9e4cf6984817d71448b89e-15"></a><span class="cp">{%</span>  <span class="k">endfor</span> <span class="cp">%}</span><span class="x"></span>
+</pre>
+</div>
+<div class="section" id="id15">
+<h3><a class="toc-backref" href="#id36">テンプレートの継承</a></h3>
+<ul>
+<li>
+<p class="first">親テンプレート <tt class="docutils literal">parent.html</tt></p>
+<pre class="code django"><a name="rest_code_bdb0e588b24d45e3b67c6c46c69f52e0-1"></a><span class="cp">{%</span> <span class="k">block</span> <span class="nv">sample</span> <span class="cp">%}</span><span class="x">Hello </span><span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span><span class="x"></span>
+</pre>
+</li>
+<li>
+<p class="first">子テンプレート <tt class="docutils literal">child.html</tt></p>
+<pre class="code django"><a name="rest_code_8604addb468541aeb9f2bf74d0f07440-1"></a><span class="cp">{%</span> <span class="k">extends</span> <span class="s2">"parent.html"</span> <span class="cp">%}</span><span class="x"></span>
+<a name="rest_code_8604addb468541aeb9f2bf74d0f07440-2"></a><span class="cp">{%</span> <span class="k">block</span> <span class="nv">sample</span> <span class="cp">%}{{</span> <span class="nb">block</span><span class="nv">.super</span> <span class="o">}</span><span class="nv">World</span><span class="err">!</span> <span class="o">{%</span> <span class="nv">endblock</span> <span class="o">%}</span>
+<a name="rest_code_8604addb468541aeb9f2bf74d0f07440-3"></a><span class="o">{</span><span class="err">#</span> <span class="nb">block</span><span class="nv">.super</span><span class="o">:</span> <span class="err">親テンプレートのブロック内部の値をそのまま保持した変数</span> <span class="err">#</span><span class="o">}</span>
+</pre>
+</li>
+</ul>
+</div>
+<div class="section" id="id16">
+<h3><a class="toc-backref" href="#id37">外部テンプレートの読み込み</a></h3>
+<pre class="code django"><a name="rest_code_7b35e834391f4749b1de9b925d08216e-1"></a><span class="cp">{%</span> <span class="k">include</span> <span class="s2">"_message.html"</span> <span class="cp">%}</span><span class="x"></span>
+</pre>
+<ul class="simple">
+<li>ヘッダーフッターなど部品化したテンプレートを別のテンプレートから読み込む場合など</li>
+</ul>
+</div>
+<div class="section" id="url">
+<h3><a class="toc-backref" href="#id38">静的ファイルの配信 URL 取得</a></h3>
+<pre class="code django"><a name="rest_code_1efd3b73cd0246f592ca2540ae7066fc-1"></a><span class="c">{# 利用する前に機能をロードしておく #}</span><span class="x"></span>
+<a name="rest_code_1efd3b73cd0246f592ca2540ae7066fc-2"></a><span class="cp">{%</span> <span class="k">load</span> <span class="nv">static</span> <span class="cp">%}</span><span class="x"></span>
+<a name="rest_code_1efd3b73cd0246f592ca2540ae7066fc-3"></a><span class="cp">{%</span> <span class="k">static</span> <span class="s2">"images/logo.png"</span> <span class="cp">%}</span><span class="x"></span>
+<a name="rest_code_1efd3b73cd0246f592ca2540ae7066fc-4"></a><span class="cp">{%</span> <span class="k">static</span> <span class="s2">"shop/images/no-image.png"</span> <span class="cp">%}</span><span class="x"></span>
+</pre>
+<ul class="simple">
+<li>静的ファイルの配信 URL を取得するためのタグ</li>
+<li>Django デフォルトで使える組み込みタグではないのでロードが必要</li>
+<li>
+<tt class="docutils literal">extends</tt> している場合、継承元で <tt class="docutils literal">load</tt> していても自身のテンプレートでは有効にならないので、
+つど <tt class="docutils literal">load</tt> する必要がある</li>
+</ul>
+</div>
+<div class="section" id="id17">
+<h3><a class="toc-backref" href="#id39">url</a></h3>
+<pre class="code django"><a name="rest_code_0a633e8467c4439f8c1647bb4730137d-1"></a><span class="c">{# URL 逆引き #}</span><span class="x"></span>
+<a name="rest_code_0a633e8467c4439f8c1647bb4730137d-2"></a><span class="cp">{%</span> <span class="k">url</span> <span class="s2">"index"</span> <span class="cp">%}</span><span class="x"></span>
+<a name="rest_code_0a633e8467c4439f8c1647bb4730137d-3"></a><span class="cp">{%</span> <span class="k">url</span> <span class="s2">"accounts:login"</span> <span class="cp">%}</span><span class="x"></span>
+<a name="rest_code_0a633e8467c4439f8c1647bb4730137d-4"></a><span class="cp">{%</span> <span class="k">url</span> <span class="s2">"shop:detail"</span> <span class="nv">book.id</span> <span class="cp">%}</span><span class="x"></span>
+<a name="rest_code_0a633e8467c4439f8c1647bb4730137d-5"></a><span class="cp">{%</span> <span class="k">url</span> <span class="s2">"shop:detail"</span> <span class="nv">book_id</span><span class="o">=</span><span class="nv">book.id</span> <span class="cp">%}</span><span class="x"></span>
+</pre>
+</div>
+<div class="section" id="id18">
+<h3><a class="toc-backref" href="#id40">自動エスケープ制御</a></h3>
+<pre class="code django"><a name="rest_code_b16634702c3c4b50afb7c24f831b7d04-1"></a><span class="cp">{%</span> <span class="k">autoescape</span> <span class="nv">off</span> <span class="cp">%}</span><span class="x"></span>
+<a name="rest_code_b16634702c3c4b50afb7c24f831b7d04-2"></a><span class="x">  自動エスケープがオフになる範囲</span>
+<a name="rest_code_b16634702c3c4b50afb7c24f831b7d04-3"></a><span class="cp">{%</span> <span class="k">endautoescape</span> <span class="cp">%}</span><span class="x"></span>
+</pre>
+</div>
+</div>
+<div class="section" id="id19">
+<h2><a class="toc-backref" href="#id41">ベーステンプレートを用意しよう</a></h2>
+<ul class="simple">
+<li>現場で使える Django の教科書《基礎編》 P.79 参照のこと<ul>
+<li>どのテンプレートにも書くような共通の内容は base.html テンプレートする</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id20">
+<h2><a class="toc-backref" href="#id42">独自のテンプレートタグとフィルタ</a></h2>
+<p>カスタムタグやカスタムフィルタをつくることができる。</p>
+<ul class="simple">
+<li><a class="reference external" href="https://docs.djangoproject.com/ja/2.2/howto/custom-template-tags/">Django documentation &gt; 独自のテンプレートタグとフィルタ</a></li>
+</ul>
+</div>
+</div>
+    </div>
+  </main>
+</div>
+</div>
+    </div>
+  </body>
+</html>

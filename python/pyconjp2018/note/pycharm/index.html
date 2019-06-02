@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<title>PyConJP 2018 聴講メモ: DjangoではじめるPyCharm実践入門/fuminote</title>
+<link rel="shortcut icon" href="../../../../assets/icons/favicon.ico">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Griffy">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Vollkorn:400,700">
+<link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/sawarabimincho.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+<link rel="stylesheet" href="../../../../assets/css/style.css?20190602">
+</head>
+<body>
+    <div class="container">
+      <div class="header"><header class="item item-header"><h1>
+    <a href="../../../../">
+      <img class="logo" src="../../../../assets/images/inuu.png" alt="犬"></a>
+  </h1>
+  <nav class="nav"><ul>
+<li class="nav-category"><a href="../../../../">HOME</a></li>
+    </ul></nav><iframe src="../../../../tags/" class="tags-frame"></iframe>
+</header></div>
+      <div class="main">
+<div class="article-content">
+  <main class="item item-article item-python"><time class="date" datetime="2018-09-17 00:00:00+09:00">
+      2018-09-17 Mon
+    </time><div class="title">PyConJP 2018 聴講メモ: DjangoではじめるPyCharm実践入門</div>
+    <div class="category">
+      <a href="../../../../tags/python/">
+          python
+      </a>
+    </div>
+    <div class="text">
+      <div>
+<div class="section" id="id1">
+<h2>はじめに</h2>
+<ul class="simple">
+<li>本日の発表資料
+<a class="reference external" href="https://gitpitch.com/kashewnuts/slides?p=20180917pyconjp#/6">https://gitpitch.com/kashewnuts/slides?p=20180917pyconjp#/6</a>
+</li>
+<li>ハッシュタグ
+#pyconjp_7</li>
+</ul>
+</div>
+<div class="section" id="pycharm">
+<h2>PyCharm とは</h2>
+<ul class="simple">
+<li>チェコの会社</li>
+<li>最低要件<ul>
+<li>MacBookPro ぐらいはほしい (かしゅーさん個人的には思う)</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2>できること</h2>
+<ul class="simple">
+<li>コード補完、定義ジャンプがすばらしい</li>
+<li>Web 開発に使うフレームワークをサポートしている</li>
+<li>科学技術計算</li>
+<li>デプロイ、リモート開発</li>
+<li>SQL</li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2>印象</h2>
+<ul class="simple">
+<li>特にほかのツールを探しに行く必要がなくなった (全部あるから) のがうれしい</li>
+<li>構文解析やってくれる、もっと便利な使い方を教えてくれる。 alt + enter</li>
+<li>デバッガーが良い</li>
+<li>セロリーのデバッグもできる、Django のデバッグもできる</li>
+<li>テスト実行中にもブレークポイントはって、デバッグできる</li>
+<li>コンフリクトの解決</li>
+<li>シフト2回で探せる</li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h2>向いてないこと</h2>
+<ul class="simple">
+<li>プラグイン作成は向いてない (Java とかで作るらしい)</li>
+<li>シングルファイルは向いてない</li>
+<li>開いて閉じてとかしてると、そういうのは向いてない。ずっと立ち上げておいて、プロジェクトを切り替える</li>
+</ul>
+</div>
+<div class="section" id="demo">
+<h2>demo</h2>
+<ul class="simple">
+<li>仮想環境をつくってくれる</li>
+<li>Django サポート ON にする *</li>
+<li>HTML のマークでる *</li>
+<li>定義ジャンプ</li>
+<li>条件を自動でサジェスト、アンスコいくつ？とか教えてくれる *</li>
+<li>なみなみ =&gt; alt + enter 自動でいい感じにしてくれる *</li>
+<li>テンプレートの中でもデバッグポイントで止められる</li>
+<li>post の中身を見られる</li>
+<li>aws に ssh 接続して redshift につないだりもできる</li>
+<li>pypi からなんかとるやつも、 GUI でできたりする</li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h2>サポート</h2>
+<ul class="simple">
+<li>Django サポート、モデル間のER図みたいなのとかも出してくれる</li>
+<li>フロントのやつとかも同梱してる</li>
+<li>Django ORM とか SQLA も</li>
+<li>SQL 実行結果をファイルにも出せる</li>
+<li>リファクタリングできる</li>
+<li>コードデプロイもできる</li>
+<li>テストも便利</li>
+<li>フロントエンドのところも充実</li>
+<li>Web開発に必要なものは大抵揃ってる</li>
+</ul>
+</div>
+<div class="section" id="id6">
+<h2>こまったとき</h2>
+<ul class="simple">
+<li>PyCharm が想定してないプラグインとかと競合すると動かないときある</li>
+<li>PyCharm のせいか、別のツールのせいか切り分けしないと何が悪いのかわからない</li>
+<li>再起動したりクリーンインストールとかしても治らないときは、ジェットブレインさんに言う</li>
+</ul>
+</div>
+<div class="section" id="qa">
+<h2>QA</h2>
+<ul class="simple">
+<li>ショートカット便利<ul>
+<li>alt + enter</li>
+<li>shift shift</li>
+<li>find in action</li>
+</ul>
+</li>
+<li>リモート開発</li>
+<li>プラグイン探しに行かなくても全部入っているのがよい</li>
+</ul>
+</div>
+</div>
+    </div>
+  </main>
+</div>
+</div>
+    </div>
+  </body>
+</html>

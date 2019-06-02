@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>fuminote (redshiftについての文書)</title><link>https://32imuf.com/</link><description></description><atom:link href="https://32imuf.com/tags/redshift.xml" rel="self" type="application/rss+xml"></atom:link><language>ja</language><copyright>Contents © 2019 &lt;a href="mailto:fumi232323fumi2016@gmail.com"&gt;fumi23&lt;/a&gt; </copyright><lastBuildDate>Sun, 02 Jun 2019 07:16:37 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Redshift のメモ</title><link>https://32imuf.com/redshift/note/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;div class="section" id="id1"&gt;
+&lt;h2&gt;データ分散&lt;/h2&gt;
+&lt;div class="section" id="diststyle"&gt;
+&lt;h3&gt;DISTSTYLE&lt;/h3&gt;
+&lt;p&gt;テーブル全体のデータ分散スタイルを定義する。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;tt class="docutils literal"&gt;EVEN&lt;/tt&gt; 、 &lt;tt class="docutils literal"&gt;KEY&lt;/tt&gt; 、 &lt;tt class="docutils literal"&gt;ALL&lt;/tt&gt; の3種類ある&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;a class="reference external" href="https://docs.aws.amazon.com/ja_jp/redshift/latest/dg/r_CREATE_TABLE_AS.html"&gt;CREATE TABLE AS&lt;/a&gt;&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+テーブルにどの分散スタイルを選択するかによって、データベースの全体的なパフォーマンスが左右されます。
+&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;a class="reference external" href="https://docs.aws.amazon.com/ja_jp/redshift/latest/dg/c_choosing_dist_sort.html"&gt;分散スタイル&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;a class="reference external" href="https://docs.aws.amazon.com/ja_jp/redshift/latest/dg/c_Distribution_examples.html"&gt;分散の例&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;よく考えて選んだほうが良さそう...&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="distkey"&gt;
+&lt;h3&gt;DISTKEY&lt;/h3&gt;
+&lt;p&gt;分散キーの列名または位置番号を指定する。&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id4"&gt;
+&lt;h2&gt;文字データ型&lt;/h2&gt;
+&lt;div class="section" id="varchar"&gt;
+&lt;h3&gt;マルチバイト文字の VARCHAR&lt;/h3&gt;
+&lt;p&gt;CHAR および VARCHAR のデータ型は、文字単位でなくバイト単位で定義される。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;a class="reference external" href="https://docs.aws.amazon.com/ja_jp/redshift/latest/dg/r_Character_types.html"&gt;文字型&lt;/a&gt;&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+例えば、VARCHAR(12) 列には、シングルバイト文字なら 12 個、2 バイト文字なら 6 個、3 バイト文字なら 4 個、4 バイト文字なら 3 個含めることができます。
+&lt;/pre&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;3バイト文字と4バイト文字の違いがわかってない・・&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="max"&gt;
+&lt;h3&gt;MAX キーワード&lt;/h3&gt;
+&lt;p&gt;CHAR と VARCHAR は、 MAX キーワードを指定できる。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;a class="reference external" href="https://docs.aws.amazon.com/ja_jp/redshift/latest/dg/r_Character_types.html#r_Character_types-storage-and-ranges"&gt;ストレージと範囲&lt;/a&gt;&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+MAX 設定は列幅を定義します。CHAR の場合は 4096 バイトであり、VARCHAR の場合は 65535 となります。
+&lt;/pre&gt;
+&lt;pre class="code sql"&gt;&lt;a name="rest_code_79e732631aaf4e6986a1af0b5cecebf8-1"&gt;&lt;/a&gt;&lt;span class="k"&gt;create&lt;/span&gt; &lt;span class="k"&gt;table&lt;/span&gt; &lt;span class="n"&gt;test&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;col1&lt;/span&gt; &lt;span class="nb"&gt;varchar&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;max&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;
+&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id7"&gt;
+&lt;h2&gt;圧縮&lt;/h2&gt;
+&lt;div class="section" id="id8"&gt;
+&lt;h3&gt;圧縮分析&lt;/h3&gt;
+&lt;p&gt;圧縮分析レポート取得できるコマンドがある。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;a class="reference external" href="https://docs.aws.amazon.com/ja_jp/redshift/latest/dg/r_ANALYZE_COMPRESSION.html"&gt;ANALYZE COMPRESSION&lt;/a&gt;&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+圧縮分析を行い、分析されたテーブルの推奨列エンコードスキームのレポートを生成します。レポートには、列ごとに現在のエンコードと比較したディスク容量の圧縮可能率の推定値が含まれます。
+&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id9"&gt;
+&lt;h3&gt;列圧縮タイプの選択&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p class="first"&gt;テーブルの作成後に変更することはできない&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;ALTER 文で列追加する場合は指定できる&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;圧縮すると、クエリパフォーマンスが向上する&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;a class="reference external" href="https://docs.aws.amazon.com/ja_jp/redshift/latest/dg/t_Compressing_data_on_disk.html"&gt;列圧縮タイプの選択&lt;/a&gt;&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+テーブルの作成後に列の圧縮エンコードを変更することはできません。ALTER TABLE コマンドを使用して列をテーブルに追加する際には、列のエンコードを指定できます。
+&lt;/pre&gt;
+&lt;pre class="literal-block"&gt;
+圧縮は、データの格納時にそのサイズを小さくする列レベルの操作です。圧縮によってストレージスペースが節約され、ストレージから読み込まれるデータのサイズが小さくなり、ディスク I/O の量が減少するので、クエリパフォーマンスが向上します
+&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id11"&gt;
+&lt;h3&gt;圧縮エンコード&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p class="first"&gt;指定しないと自動的に割り当てられる。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;型によっては、CREATE TABLE または ALTER TABLE ステートメントで明示的に指定した方が良さそう。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;a class="reference external" href="https://docs.aws.amazon.com/ja_jp/redshift/latest/dg/c_Compression_encodings.html"&gt;圧縮エンコード&lt;/a&gt;&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+圧縮エンコードは、行がテーブルに追加されるときにデータ値の列に適用される圧縮のタイプを指定します。
+
+CREATE TABLE または ALTER TABLE ステートメントで圧縮が指定されていない場合、Amazon Redshift は以下のように自動的に圧縮エンコードを割り当てます。...
+&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/div&gt;</description><category>redshift</category><guid>https://32imuf.com/redshift/note/</guid><pubDate>Sat, 01 Sep 2018 15:00:00 GMT</pubDate></item></channel></rss>

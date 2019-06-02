@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<title>『Python プロフェッショナル プログラミング 第3版』 読書会のメモ: 第一回/fuminote</title>
+<link rel="shortcut icon" href="../../../assets/icons/favicon.ico">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Griffy">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Vollkorn:400,700">
+<link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/sawarabimincho.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+<link rel="stylesheet" href="../../../assets/css/style.css?20190602">
+</head>
+<body>
+    <div class="container">
+      <div class="header"><header class="item item-header"><h1>
+    <a href="../../../">
+      <img class="logo" src="../../../assets/images/inuu.png" alt="犬"></a>
+  </h1>
+  <nav class="nav"><ul>
+<li class="nav-category"><a href="../../../">HOME</a></li>
+    </ul></nav><iframe src="../../../tags/" class="tags-frame"></iframe>
+</header></div>
+      <div class="main">
+<div class="article-content">
+  <main class="item item-article item-book"><time class="date" datetime="2018-08-29 00:00:00+09:00">
+      2018-08-29 Wed
+    </time><div class="title">『Python プロフェッショナル プログラミング 第3版』 読書会のメモ: 第一回</div>
+    <div class="category">
+      <a href="../../../tags/book/">
+          book
+      </a>
+    </div>
+    <div class="text">
+      <div>
+<div class="section" id="id1">
+<h2>1章</h2>
+<div class="section" id="id2">
+<h3>目的</h3>
+<ul class="simple">
+<li>個人で、Python を使って開発を始めるための準備はこれです。</li>
+<li>Python で開発するための環境構築</li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h3>ポイント</h3>
+<ul class="simple">
+<li>仮想環境</li>
+<li>Python を仕事で使う上で必要な環境について、まずはひととおり、薄く、説明している。</li>
+<li>インストールの仕方、いくつかある</li>
+<li>パッケージ管理ツール</li>
+<li>エディター (社内でも紛糾)</li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h3>気になったこと</h3>
+<ul class="simple">
+<li>Git が増えてる</li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h3>質問と回答</h3>
+<ul class="simple">
+<li>Redhat CentOS<ul>
+<li>保証期間が長いので、有償もある、という理由で使うこともある。</li>
+</ul>
+</li>
+<li>2011年ごろ ubuntu 楽に使える</li>
+<li>サーバー用途で使うことはない</li>
+<li>自動で行う場合もある</li>
+<li>コマンドをうつ、初心者向けなので、大事</li>
+<li>仕事でやるときは、自動化する (ansible)</li>
+<li>BP は多い</li>
+<li>Docker でやることも多い(tell-kさん)</li>
+<li>
+<cite>virtualenv</cite> が公式に取り込まれたのが、 <cite>venv</cite>
+</li>
+<li>
+<cite>pipenv</cite> 公式のおすすめ</li>
+<li>
+<cite>git init</cite> は <cite>readme</cite> のあるところでやるのが多い</li>
+<li>tell-k さんは vim 使い<ul>
+<li>サーバーにはだいたい入ってるだろう</li>
+<li>環境によっては、IDE使えないからねの理由</li>
+</ul>
+</li>
+<li>shimizukawa さんの pycon の資料がよい PyCharm</li>
+<li>VSCord</li>
+<li>秘伝のたれ vagrant ほんとにいいの？いいとは言い切れない。<ul>
+<li>手順をテキストで用意して、おまけで vagrant の自動化</li>
+<li>OS が選べるので、 vagrant 用意しとけば誰でも使えるよみたいな</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id6">
+<h2>2章</h2>
+<div class="section" id="id7">
+<h3>目的</h3>
+<ul class="simple">
+<li>Web アプリケーションのとはどういうものか、仕組みを知る。</li>
+<li>Web アプリケーション開発の流れを把握する。</li>
+<li>Python, フレームワーク を使って、簡単な Web アプリの作り方</li>
+</ul>
+</div>
+<div class="section" id="id8">
+<h3>ポイント</h3>
+<ul class="simple">
+<li>いきなりプログラム書かないよ、どういうものを作るかちゃんか考える</li>
+<li>セキュリティ、Xss<ul>
+<li>初心者やりがち</li>
+</ul>
+</li>
+<li>仮想環境で開発しよう</li>
+<li>フレームワーク</li>
+<li>テンプレートエンジン</li>
+</ul>
+</div>
+<div class="section" id="id9">
+<h3>気になったこと</h3>
+<ul class="simple">
+<li>乗りログになってる！！</li>
+<li>Python, Django (?) での、 web サーバーとアプリケーションサーバーのところがようわからん・・<ul>
+<li>WSGI って・・・？</li>
+<li>プロトコルだったの...</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id10">
+<h3>質問と回答</h3>
+<ul class="simple">
+<li>Python 使う、選ぶ理由<ul>
+<li>オールラウンドの言語</li>
+<li>日本ではなく、世界で一般的に使われている</li>
+<li>たくさんライブラリがある</li>
+<li>今はたまたま数学系のライブラリが今一番豊富なので、当たりの状態</li>
+<li>やってる人が多いと、質問しやすい、勉強会、書籍も豊富</li>
+<li>マルチプロセス、マルチスレッドは大苦手。</li>
+</ul>
+</li>
+<li>Django と Flask の使いわけ<ul>
+<li>Django では少ないページ数に治らない。</li>
+<li>BP では、実案件はほとんど Django を使っている。</li>
+<li>最初は小さくても、そのうち育っていくと可能性があるから。</li>
+<li>手元でちょっとつくってみたいときとかに使う</li>
+<li>シンプルなものをシンプルに作りたい、提供したいときに使う</li>
+<li>大きいものは、Django。オレオレルールを整理して最初から整えられてるのは Django。</li>
+<li>Django は、フルスタック。</li>
+<li>セッション</li>
+<li>Django はいろいろついてる。</li>
+<li>Flask はついてない。プロで、色々自分で選んでくっつけたい場合はよいけど。</li>
+</ul>
+</li>
+<li>フロント系のライブラリ<ul>
+<li>vue.js が多い。なくすとJS、ラッピングしてフルスタック、リアクトも。</li>
+<li>SEO 気にすると。シングルページアプリケーション。</li>
+<li>サーバーサイドレンダリング</li>
+<li>Web のサイトを簡単に</li>
+<li>API サーバーとして Django 使う。 ORM として使う。</li>
+<li>djangorestframework と組み合わせることが多い。</li>
+<li>JQuery はあまり使いたくない。</li>
+<li>画像処理を GO で書き換える。</li>
+<li>パフォーマンスきついとき、 Python + Django だときついときある。</li>
+</ul>
+</li>
+<li>auto pep 8 フォーマット 自動的にフォーマット vim フォーマッティングしてくれるプラグインある。</li>
+</ul>
+</div>
+</div>
+</div>
+    </div>
+  </main>
+</div>
+</div>
+    </div>
+  </body>
+</html>

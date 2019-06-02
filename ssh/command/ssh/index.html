@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<title>ssh のメモ/fuminote</title>
+<link rel="shortcut icon" href="../../../assets/icons/favicon.ico">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Griffy">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Vollkorn:400,700">
+<link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/sawarabimincho.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+<link rel="stylesheet" href="../../../assets/css/style.css?20190602">
+</head>
+<body>
+    <div class="container">
+      <div class="header"><header class="item item-header"><h1>
+    <a href="../../../">
+      <img class="logo" src="../../../assets/images/inuu.png" alt="犬"></a>
+  </h1>
+  <nav class="nav"><ul>
+<li class="nav-category"><a href="../../../">HOME</a></li>
+    </ul></nav><iframe src="../../../tags/" class="tags-frame"></iframe>
+</header></div>
+      <div class="main">
+<div class="article-content">
+  <main class="item item-article item-ssh"><time class="date" datetime="2018-10-14 00:00:00+09:00">
+      2018-10-14 Sun
+    </time><div class="title">ssh のメモ</div>
+    <div class="category">
+      <a href="../../../tags/ssh/">
+          ssh
+      </a>
+    </div>
+    <div class="text">
+      <div>
+<div class="section" id="id1">
+<h2>リファレンス</h2>
+<p>ubuntu のやつ</p>
+<ul class="simple">
+<li><a class="reference external" href="http://manpages.ubuntu.com/manpages/bionic/en/man1/ssh.1.html">ssh</a></li>
+<li><a class="reference external" href="http://manpages.ubuntu.com/manpages/bionic/en/man5/ssh_config.5.html">ssh_config</a></li>
+</ul>
+<p>種類やバージョンが選べるやつ</p>
+<ul class="simple">
+<li><a class="reference external" href="https://www.freebsd.org/cgi/man.cgi?query=ssh&amp;apropos=0&amp;sektion=0&amp;manpath=CentOS+6.5&amp;arch=default&amp;format=html">SSH(1)</a></li>
+<li><a class="reference external" href="https://www.freebsd.org/cgi/man.cgi?query=ssh_config&amp;apropos=0&amp;sektion=0&amp;manpath=CentOS+6.5&amp;arch=default&amp;format=html">SSH_CONFIG(5)</a></li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2>sshとは</h2>
+<p>SecureShell</p>
+<ul class="simple">
+<li>リモートマシンにログインし、リモートマシン上でコマンドを実行できるプログラム</li>
+<li>セキュアでないネットワーク上の、信頼できないホスト間で、セキュアな暗号化通信を提供する</li>
+</ul>
+<div class="section" id="id3">
+<h3>ssh の使い方</h3>
+<ul>
+<li>
+<p class="first">リモートホストに接続する</p>
+<pre class="code console"><a name="rest_code_6311e4df34f64529b49f1f2bcba81fe6-1"></a><span class="gp">$</span> ssh &lt;hostname&gt;
+</pre>
+</li>
+<li>
+<p class="first">秘密鍵を指定して接続する</p>
+<pre class="code console"><a name="rest_code_a8ef1a8a40c949f18ecf050d6de64050-1"></a><span class="gp">$</span> ssh -i &lt;identity_file&gt; &lt;user&gt;@&lt;hostname&gt;
+</pre>
+<ul class="simple">
+<li>
+<tt class="docutils literal"><span class="pre">-i</span> &lt;identity_file&gt;</tt> : 公開鍵認証のためのID（秘密鍵）ファイルを指定する</li>
+<li>identity files は、 ssh config ファイル内でホストごとに指定することもできる</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h3>オプションいろいろ</h3>
+<ul class="simple">
+<li>
+<tt class="docutils literal"><span class="pre">-v</span></tt> : 詳細を表示する<ul>
+<li>Multiple -v options increase the verbosity.  The maximum is 3.</li>
+</ul>
+</li>
+<li>
+<tt class="docutils literal"><span class="pre">-A</span></tt> : ssh-agent 転送を有効にする<ul>
+<li>ssh config ファイル内でホストごとに指定することもできる</li>
+</ul>
+</li>
+<li>オプションで指定できるものは (できないものも) だいたい、 ssh config ファイルでも指定できる。</li>
+</ul>
+</div>
+</div>
+<div class="section" id="ssh-port-forwardings">
+<h2>ssh トンネル (Port forwardings)</h2>
+<p>ローカルに対するアクセスをリモートに受け流す。</p>
+<p>ファイアウォールの中にあって直接接続できない DB1 に、 server1 を介して接続するときに使う。</p>
+<pre class="code console"><a name="rest_code_d33162157aca43b3b14597fb405bf8ac-1"></a><span class="gp">$</span> ssh -fN &lt;踏み台ホスト&gt; -L &lt;ローカルのポート&gt;:&lt;リモートホスト&gt;:&lt;リモートホストのポート&gt;
+</pre>
+<ul class="simple">
+<li>
+<tt class="docutils literal"><span class="pre">-L</span> <span class="pre">[bind_address:]port:host:hostport</span></tt> : ローカルへの通信をリモートにバインドする</li>
+<li>
+<tt class="docutils literal"><span class="pre">-N</span></tt> : Do not execute a remote command.  This is useful for just forwarding ports.</li>
+<li>
+<tt class="docutils literal"><span class="pre">-f</span></tt> : バックグラウンドで実行してね</li>
+</ul>
+<div class="section" id="id5">
+<h3>参考</h3>
+<p><a class="reference external" href="http://note.crohaco.net/2017/ssh-tunnel/#local-forwarding">http://note.crohaco.net/2017/ssh-tunnel/#local-forwarding</a></p>
+</div>
+</div>
+</div>
+    </div>
+  </main>
+</div>
+</div>
+    </div>
+  </body>
+</html>
