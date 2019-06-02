@@ -7,11 +7,11 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <sitemap>
   <loc>https://32imuf.com/atom.xml</loc>
-  <lastmod>2019-06-02T07:28:00Z</lastmod>
+  <lastmod>2019-06-02T07:42:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://32imuf.com/sitemap.xml</loc>
-  <lastmod>2019-06-02T07:28:00Z</lastmod>
+  <lastmod>2019-06-02T07:42:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://32imuf.com/tags/aws.xml</loc>
@@ -55,7 +55,7 @@
  </sitemap>
  <sitemap>
   <loc>https://32imuf.com/tags/pycharm.xml</loc>
-  <lastmod>2019-06-02T07:28:00Z</lastmod>
+  <lastmod>2019-06-02T07:42:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://32imuf.com/tags/python.xml</loc>
