@@ -16,7 +16,8 @@ class CopyShortcodePlugin(ShortcodePlugin):
     def handler(self, src_path, dst_path='.', post=None, **option):
         src = pathlib.Path(post.source_path).parent
         # dst = pathlib.Path('output') / post.folder / post.meta('slug') / dst_path
-        dst = pathlib.Path('output') / post.folder / dst_path
+        # dst = pathlib.Path('output') / post.folder / dst_path
+        dst = pathlib.Path('files/images') / post.folder / dst_path
         for s in src.glob(src_path):
             d = dst / s.name
             if not d.parent.exists():
