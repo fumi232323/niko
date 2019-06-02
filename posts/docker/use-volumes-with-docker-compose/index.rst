@@ -31,7 +31,7 @@
 手順
 ====
 ``web`` のイメージをビルド...するところは、
-:jinja:`{{ content.link_to("../create-django-env-with-docker-compose/index.rst") }}`
+.. jinja:: `{{ content.link_to("../create-django-env-with-docker-compose/index.rst") }}`
 を参照のこと。
 
 
@@ -74,7 +74,7 @@
 
 - 今作った ``volume`` はこの絵↓の真ん中のものである。
 
-  .. figure :: use-volumes.png
+  .. figure:: /images/docker/use-volumes-with-docker-compose/use-volumes.png
 
   https://docs.docker.com/storage/volumes/
 

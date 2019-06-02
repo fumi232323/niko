@@ -68,12 +68,12 @@ http://stylus-lang.com/
 
   - ``File Watchers`` の設定変更は、こちらで行う。
 
-    .. figure :: file-watchers.png
+    .. figure:: /images/html-css/stylus/file-watchers.png
 
 
   - PyCharm 上ではこんな風に見える
 
-    .. figure :: stylus-image.png
+    .. figure:: /images/html-css/stylus/stylus-image.png
 
 - HTML の ``<head></head>`` には、こう書く
 

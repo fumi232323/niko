@@ -22,14 +22,14 @@
 Git の絵
 ========
 
-.. figure:: /images/areas.png
+.. figure:: /images/git/command/areas.png
 
   https://git-scm.com/book/en/v2/Getting-Started-Git-Basics
 
 
-
 ブランチ操作
 ============
+
 
 ローカル
 ---------

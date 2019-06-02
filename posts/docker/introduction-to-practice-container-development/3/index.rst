@@ -976,7 +976,7 @@ visualizer で配置されているコンテナを可視化する
 
 3. http://localhost:9000/
 
-    .. figure :: visualizer.png
+    .. figure:: /images/docker/introduction-to-practice-container-development/3/visualizer.png
 
 
 Stack の削除

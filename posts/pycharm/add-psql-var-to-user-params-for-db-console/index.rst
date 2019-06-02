@@ -22,7 +22,7 @@
 
 2. こう
 
-    .. figure :: user-parameters.png
+    .. figure:: /images/pycharm/add-psql-var-to-user-params-for-db-console/user-parameters.png
 
     - ``In scripts`` を ON にしないと、 Database Console で使用できない
 

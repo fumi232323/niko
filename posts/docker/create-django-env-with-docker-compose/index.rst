@@ -274,7 +274,7 @@ https://docs.docker.com/docker-for-mac/install/
 
     http://localhost:3236/
 
-  .. figure :: hello-django.png
+  .. figure:: /images/docker/create-django-env-with-docker-compose/hello-django.png
 
 
 8. 実行中の コンテナを list する。
