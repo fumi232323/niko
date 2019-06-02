@@ -22,7 +22,7 @@
 Git の絵
 ========
 
-.. figure :: areas.png
+.. figure:: /images/areas.png
 
   https://git-scm.com/book/en/v2/Getting-Started-Git-Basics
 
