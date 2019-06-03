@@ -86,10 +86,6 @@ a:active {
   text-align: center;
   border-color: #2ca9e1;
 }
-.tags-frame {
-  width: 100%;
-  height: 1000px;
-}
 .logo {
   width: 100%;
   height: 100%;
@@ -138,6 +134,14 @@ a:active {
 }
 .nav-article a::after {
   margin: 3px auto 0;
+}
+.tags-frame {
+  width: 100%;
+  height: 1000px;
+}
+.tags-body {
+  background-color: #fff;
+  background-image: none;
 }
 /* --------------------------------
  * category colors
