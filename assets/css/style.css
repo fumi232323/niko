@@ -493,6 +493,7 @@ a:active {
   transition: all 0.3s /* 0.3sec かけて変化する */;
 }
 .article-content .text .code-block,
+.article-content .text .code,
 .article-content .text .literal-block {
   overflow: auto /* スクロールバー: はみ出したら出す */;
   white-space: pre-wrap /* 連続する空白はそのまま残されます。行の折り返しは、改行文字や <br> 要素のあるときか、行ボックスを埋めるのに必要なときに行います。 */;
@@ -500,11 +501,15 @@ a:active {
   line-height: 1.3;
   max-height: 500px;
 }
-.article-content .text .code-block {
+.article-content .text .code-block,
+.article-content .text .code {
   padding: 0 32px;
   font-size: 2rem;
   background-color: #364549;
   color: #f8f8f2;
+}
+.article-content .text .code {
+  padding: 24px 32px;
 }
 .article-content .text .literal-block {
   padding: 1em 32px;
@@ -590,215 +595,353 @@ a:active {
   font-weight: bold;
   font-size: 1.8rem;
 }
-.article-content .highlight .hll {
-  background-color: #49483e;
-}
-.article-content .highlight {
+.article-content .highlight,
+.article-content .code {
   background: #364549;
   color: #f8f8f2;
+/* Comment */
+/* Error */
+/* Keyword */
+/* Literal */
+/* Name */
+/* Operator */
+/* Punctuation */
+/* Comment.Hashbang */
+/* Comment.Multiline */
+/* Comment.Preproc */
+/* Comment.PreprocFile */
+/* Comment.Single */
+/* Comment.Special */
+/* Generic.Deleted */
+/* Generic.Emph */
+/* Generic.Inserted */
+/* Generic.Strong */
+/* Generic.Subheading */
+/* Keyword.Constant */
+/* Keyword.Declaration */
+/* Keyword.Namespace */
+/* Keyword.Pseudo */
+/* Keyword.Reserved */
+/* Keyword.Type */
+/* Literal.Date */
+/* Literal.Number */
+/* Literal.String */
+/* Name.Attribute */
+/* Name.Builtin */
+/* Name.Class */
+/* Name.Constant */
+/* Name.Decorator */
+/* Name.Entity */
+/* Name.Exception */
+/* Name.Function */
+/* Name.Label */
+/* Name.Namespace */
+/* Name.Other */
+/* Name.Property */
+/* Name.Tag */
+/* Name.Variable */
+/* Operator.Word */
+/* Text.Whitespace */
+/* Literal.Number.Bin */
+/* Literal.Number.Float */
+/* Literal.Number.Hex */
+/* Literal.Number.Integer */
+/* Literal.Number.Oct */
+/* Literal.String.Affix */
+/* Literal.String.Backtick */
+/* Literal.String.Char */
+/* Literal.String.Delimiter */
+/* Literal.String.Doc */
+/* Literal.String.Double */
+/* Literal.String.Escape */
+/* Literal.String.Heredoc */
+/* Literal.String.Interpol */
+/* Literal.String.Other */
+/* Literal.String.Regex */
+/* Literal.String.Single */
+/* Literal.String.Symbol */
+/* Name.Builtin.Pseudo */
+/* Name.Function.Magic */
+/* Name.Variable.Class */
+/* Name.Variable.Global */
+/* Name.Variable.Instance */
+/* Name.Variable.Magic */
+/* Literal.Number.Integer.Long */
 }
-.article-content .highlight .c {
+.article-content .highlight .hll,
+.article-content .code .hll {
+  background-color: #49483e;
+}
+.article-content .highlight .c,
+.article-content .code .c {
   color: #75715e;
 }
-.article-content .highlight .err {
+.article-content .highlight .err,
+.article-content .code .err {
   color: #960050;
   background-color: #1e0010;
 }
-.article-content .highlight .k {
+.article-content .highlight .k,
+.article-content .code .k {
   color: #66d9ef;
 }
-.article-content .highlight .l {
+.article-content .highlight .l,
+.article-content .code .l {
   color: #ae81ff;
 }
-.article-content .highlight .n {
+.article-content .highlight .n,
+.article-content .code .n {
   color: #f8f8f2;
 }
-.article-content .highlight .o {
+.article-content .highlight .o,
+.article-content .code .o {
   color: #f92672;
 }
-.article-content .highlight .p {
+.article-content .highlight .p,
+.article-content .code .p {
   color: #f8f8f2;
 }
-.article-content .highlight .ch {
+.article-content .highlight .ch,
+.article-content .code .ch {
   color: #75715e;
 }
-.article-content .highlight .cm {
+.article-content .highlight .cm,
+.article-content .code .cm {
   color: #75715e;
 }
-.article-content .highlight .cp {
+.article-content .highlight .cp,
+.article-content .code .cp {
   color: #75715e;
 }
-.article-content .highlight .cpf {
+.article-content .highlight .cpf,
+.article-content .code .cpf {
   color: #75715e;
 }
-.article-content .highlight .c1 {
+.article-content .highlight .c1,
+.article-content .code .c1 {
   color: #75715e;
 }
-.article-content .highlight .cs {
+.article-content .highlight .cs,
+.article-content .code .cs {
   color: #75715e;
 }
-.article-content .highlight .gd {
+.article-content .highlight .gd,
+.article-content .code .gd {
   color: #f92672;
 }
-.article-content .highlight .ge {
+.article-content .highlight .ge,
+.article-content .code .ge {
   font-style: italic;
 }
-.article-content .highlight .gi {
+.article-content .highlight .gi,
+.article-content .code .gi {
   color: #a6e22e;
 }
-.article-content .highlight .gs {
+.article-content .highlight .gs,
+.article-content .code .gs {
   font-weight: bold;
 }
-.article-content .highlight .gu {
+.article-content .highlight .gu,
+.article-content .code .gu {
   color: #75715e;
 }
-.article-content .highlight .kc {
+.article-content .highlight .kc,
+.article-content .code .kc {
   color: #66d9ef;
 }
-.article-content .highlight .kd {
+.article-content .highlight .kd,
+.article-content .code .kd {
   color: #66d9ef;
 }
-.article-content .highlight .kn {
+.article-content .highlight .kn,
+.article-content .code .kn {
   color: #f92672;
 }
-.article-content .highlight .kp {
+.article-content .highlight .kp,
+.article-content .code .kp {
   color: #66d9ef;
 }
-.article-content .highlight .kr {
+.article-content .highlight .kr,
+.article-content .code .kr {
   color: #66d9ef;
 }
-.article-content .highlight .kt {
+.article-content .highlight .kt,
+.article-content .code .kt {
   color: #66d9ef;
 }
-.article-content .highlight .ld {
+.article-content .highlight .ld,
+.article-content .code .ld {
   color: #e6db74;
 }
-.article-content .highlight .m {
+.article-content .highlight .m,
+.article-content .code .m {
   color: #ae81ff;
 }
-.article-content .highlight .s {
+.article-content .highlight .s,
+.article-content .code .s {
   color: #e6db74;
 }
-.article-content .highlight .na {
+.article-content .highlight .na,
+.article-content .code .na {
   color: #a6e22e;
 }
-.article-content .highlight .nb {
+.article-content .highlight .nb,
+.article-content .code .nb {
   color: #f8f8f2;
 }
-.article-content .highlight .nc {
+.article-content .highlight .nc,
+.article-content .code .nc {
   color: #a6e22e;
 }
-.article-content .highlight .no {
+.article-content .highlight .no,
+.article-content .code .no {
   color: #66d9ef;
 }
-.article-content .highlight .nd {
+.article-content .highlight .nd,
+.article-content .code .nd {
   color: #a6e22e;
 }
-.article-content .highlight .ni {
+.article-content .highlight .ni,
+.article-content .code .ni {
   color: #f8f8f2;
 }
-.article-content .highlight .ne {
+.article-content .highlight .ne,
+.article-content .code .ne {
   color: #a6e22e;
 }
-.article-content .highlight .nf {
+.article-content .highlight .nf,
+.article-content .code .nf {
   color: #a6e22e;
 }
-.article-content .highlight .nl {
+.article-content .highlight .nl,
+.article-content .code .nl {
   color: #f8f8f2;
 }
-.article-content .highlight .nn {
+.article-content .highlight .nn,
+.article-content .code .nn {
   color: #f8f8f2;
 }
-.article-content .highlight .nx {
+.article-content .highlight .nx,
+.article-content .code .nx {
   color: #a6e22e;
 }
-.article-content .highlight .py {
+.article-content .highlight .py,
+.article-content .code .py {
   color: #f8f8f2;
 }
-.article-content .highlight .nt {
+.article-content .highlight .nt,
+.article-content .code .nt {
   color: #f92672;
 }
-.article-content .highlight .nv {
+.article-content .highlight .nv,
+.article-content .code .nv {
   color: #f8f8f2;
 }
-.article-content .highlight .ow {
+.article-content .highlight .ow,
+.article-content .code .ow {
   color: #f92672;
 }
-.article-content .highlight .w {
+.article-content .highlight .w,
+.article-content .code .w {
   color: #f8f8f2;
 }
-.article-content .highlight .mb {
+.article-content .highlight .mb,
+.article-content .code .mb {
   color: #ae81ff;
 }
-.article-content .highlight .mf {
+.article-content .highlight .mf,
+.article-content .code .mf {
   color: #ae81ff;
 }
-.article-content .highlight .mh {
+.article-content .highlight .mh,
+.article-content .code .mh {
   color: #ae81ff;
 }
-.article-content .highlight .mi {
+.article-content .highlight .mi,
+.article-content .code .mi {
   color: #ae81ff;
 }
-.article-content .highlight .mo {
+.article-content .highlight .mo,
+.article-content .code .mo {
   color: #ae81ff;
 }
-.article-content .highlight .sa {
+.article-content .highlight .sa,
+.article-content .code .sa {
   color: #e6db74;
 }
-.article-content .highlight .sb {
+.article-content .highlight .sb,
+.article-content .code .sb {
   color: #e6db74;
 }
-.article-content .highlight .sc {
+.article-content .highlight .sc,
+.article-content .code .sc {
   color: #e6db74;
 }
-.article-content .highlight .dl {
+.article-content .highlight .dl,
+.article-content .code .dl {
   color: #e6db74;
 }
-.article-content .highlight .sd {
+.article-content .highlight .sd,
+.article-content .code .sd {
   color: #e6db74;
 }
-.article-content .highlight .s2 {
+.article-content .highlight .s2,
+.article-content .code .s2 {
   color: #e6db74;
 }
-.article-content .highlight .se {
+.article-content .highlight .se,
+.article-content .code .se {
   color: #ae81ff;
 }
-.article-content .highlight .sh {
+.article-content .highlight .sh,
+.article-content .code .sh {
   color: #e6db74;
 }
-.article-content .highlight .si {
+.article-content .highlight .si,
+.article-content .code .si {
   color: #e6db74;
 }
-.article-content .highlight .sx {
+.article-content .highlight .sx,
+.article-content .code .sx {
   color: #e6db74;
 }
-.article-content .highlight .sr {
+.article-content .highlight .sr,
+.article-content .code .sr {
   color: #e6db74;
 }
-.article-content .highlight .s1 {
+.article-content .highlight .s1,
+.article-content .code .s1 {
   color: #e6db74;
 }
-.article-content .highlight .ss {
+.article-content .highlight .ss,
+.article-content .code .ss {
   color: #e6db74;
 }
-.article-content .highlight .bp {
+.article-content .highlight .bp,
+.article-content .code .bp {
   color: #f8f8f2;
 }
-.article-content .highlight .fm {
+.article-content .highlight .fm,
+.article-content .code .fm {
   color: #a6e22e;
 }
-.article-content .highlight .vc {
+.article-content .highlight .vc,
+.article-content .code .vc {
   color: #f8f8f2;
 }
-.article-content .highlight .vg {
+.article-content .highlight .vg,
+.article-content .code .vg {
   color: #f8f8f2;
 }
-.article-content .highlight .vi {
+.article-content .highlight .vi,
+.article-content .code .vi {
   color: #f8f8f2;
 }
-.article-content .highlight .vm {
+.article-content .highlight .vm,
+.article-content .code .vm {
   color: #f8f8f2;
 }
-.article-content .highlight .il {
+.article-content .highlight .il,
+.article-content .code .il {
   color: #ae81ff;
 }
