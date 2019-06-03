@@ -2,14 +2,16 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Griffy">
-    <link rel="stylesheet" href="/assets/css/style.css?20190602">
+    <link rel="stylesheet" href="/assets/css/style.css?20190603">
   </head>
-  <nav class="nav">
-    <ul>
-      {% for name, link in items %}
-        <li class="nav-category">
-          <a href="{{ link }}" target="_parent">{{ name }}</a>
-        </li>
-      {% endfor %}
-    </ul>
-  </nav>
+  <body class="tags-body">
+    <nav class="nav">
+      <ul>
+        {% for name, link in items %}
+          <li class="nav-category">
+            <a href="{{ link }}" target="_parent">{{ name }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </body>
