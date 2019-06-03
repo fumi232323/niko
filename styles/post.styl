@@ -137,6 +137,7 @@ title-text-fonts = 'Vollkorn', "Sawarabi Mincho", "Hiragino Kaku Gothic ProN", s
     transition all 0.3s   /* 0.3sec かけて変化する */
 
   .code-block,
+  .code,
   .literal-block
     overflow auto          /* スクロールバー: はみ出したら出す */
     white-space pre-wrap   /* 連続する空白はそのまま残されます。行の折り返しは、改行文字や <br> 要素のあるときか、行ボックスを埋めるのに必要なときに行います。 */
@@ -144,11 +145,15 @@ title-text-fonts = 'Vollkorn', "Sawarabi Mincho", "Hiragino Kaku Gothic ProN", s
     line-height 1.3
     max-height 500px
 
-  .code-block
+  .code-block,
+  .code
     padding 0 32px
     font-size 2.0rem
     background-color #364549
     color #f8f8f2
+
+  .code
+    padding 24px 32px
 
   .literal-block
     padding 1em 32px

@@ -1,4 +1,4 @@
-.. title: Docker Compose で Django 環境をつくろう その2
+.. title: Docker Compose で Django/PostgreSQL/MySQL 環境をつくろう
 .. tags: docker
 .. date: 2019-05-01
 .. slug: index
@@ -131,69 +131,7 @@
 
 1. ``Dockerfile-app`` : Django プロジェクトを入れるコンテナ
 
-    .. code-block:: docker
-
-      FROM ubuntu:18.04
-
-      # インストール中に何も尋ねてくるな
-      ENV DEBIAN_FRONTEND=noninteractive
-
-      # Python の環境変数を設定
-      # stdout, stderr のバッファを無効に
-      ENV PYTHONUNBUFFERED 1
-      # ソースモジュールのインポート時に .pyc ファイルを作成しない
-      ENV PYTHONDONTWRITEBYTECODE 1
-
-      # locales をインストールして設定する
-      RUN apt-get clean && apt-get update && apt-get install -y locales && rm -rf /var/lib/apt/lists/* \
-          && localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
-      ENV LANG en_US.UTF-8
-      ENV LANGUAGE en_US:en
-      ENV LC_ALL en_US.UTF-8
-
-      # タイムゾーンに JST を設定
-      RUN ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
-
-      # Python ビルドに必要な deb パッケージのインストール
-      # `libffi-dev`: 3.6 では不要 (?) 、3.7 では必要
-      RUN apt-get clean && apt-get update && apt-get install -y \
-          build-essential \
-          python3-dev \
-          libsqlite3-dev \
-          libreadline6-dev \
-          libgdbm-dev \
-          zlib1g-dev \
-          libbz2-dev \
-          sqlite3 \
-          tk-dev \
-          zip \
-          libssl-dev \
-          libffi-dev \
-          wget \
-       && rm -rf /var/lib/apt/lists/*
-
-      # Python をソースファイルからビルドしてインストール
-      # `make altinstall`: `make install` の代わりに推奨
-      RUN wget https://www.python.org/ftp/python/3.7.3/Python-3.7.3.tgz \
-          && tar xf Python-3.7.3.tgz \
-          && cd Python-3.7.3 \
-          && ./configure --prefix=/opt/python3.7.3 \
-          && make \
-          && make altinstall
-
-      # Python のシンボリックリンクを作成
-      RUN ln -s /opt/python3.7.3/bin/python3.7 /usr/local/bin/python
-
-      # pip のシンボリックリンクを作成
-      RUN ln -s /opt/python3.7.3/bin/pip3.7 /usr/local/bin/pip
-
-      # pip をアップグレード
-      RUN pip install -U pip
-
-      # mysqlclient のインストールに必要なので、インストールしておく
-      RUN apt-get clean && apt-get update && apt-get install -y \
-          default-libmysqlclient-dev \
-       && rm -rf /var/lib/apt/lists/*
+    {{% codeblock fufufu/Dockerfile-app lexer="docker" %}}
 
 
 2. ``Dockerfile-mysql`` : MySQL を入れるコンテナ

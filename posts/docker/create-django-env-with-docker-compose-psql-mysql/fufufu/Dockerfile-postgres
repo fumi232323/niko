@@ -1,0 +1,12 @@
+FROM postgres:latest
+
+## locales をインストールして設定する (postgres の場合は、公式イメージで実行済み)
+## https://github.com/docker-library/postgres/blob/85aadc08c347cd20f199902c4b8b4f736341c3b8/11/Dockerfile
+#RUN apt-get update && apt-get install -y locales && rm -rf /var/lib/apt/lists/* \
+#  && localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
+#ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US:en
+ENV LC_ALL en_US.UTF-8
+
+# タイムゾーンに JST を設定
+RUN ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime

@@ -1,0 +1,50 @@
+version: '3'
+
+services:
+  app:
+    container_name: fufufu_app
+    build:
+      context: .
+      dockerfile: Dockerfile-app
+    volumes:
+      - .:/fufufu
+    working_dir: /fufufu
+    command: bash -c "pip install -r requirements.txt && bash"
+    ports:
+      - "8000:8000"
+    tty: true  # 起動し続ける
+    depends_on:
+      - mysql
+      - postgres
+
+  mysql:
+    container_name: fufufu_mysql
+    build:
+      context: .
+      dockerfile: Dockerfile-mysql
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    restart: always
+    volumes:
+      - "mysql-data:/var/lib/mysql"
+    environment:
+      MYSQL_ROOT_PASSWORD: fufufu
+      MYSQL_DATABASE: fufufu
+      MYSQL_USER: fufufu
+      MYSQL_PASSWORD: fufufu
+
+  postgres:
+    container_name: fufufu_postgres
+    build:
+      context: .
+      dockerfile: Dockerfile-postgres
+    restart: always
+    volumes:
+      - "postgres-data:/var/lib/postgresql/data"
+    environment:
+      POSTGRES_DB: fufufu
+      POSTGRES_USER: fufufu
+      POSTGRES_PASSWORD: fufufu
+
+volumes:
+  mysql-data:
+  postgres-data:

@@ -5,10 +5,11 @@ import pygments.lexers
 import pygments.formatters
 from nikola.plugin_categories import ShortcodePlugin
 
-CODEBLOCK_HTML = '''<div class="code-block {cls}">
-  <div class="code-block-label">{label}</div>
-  {code}
-</div>'''
+# CODEBLOCK_HTML = '''<div class="code-block {cls}">
+#   <div class="code-block-label">{label}</div>
+#   {code}
+# </div>'''
+CODEBLOCK_HTML = '''<div class="code-block {cls}">{code}</div>'''
 
 
 class CodeBlockPlugin(ShortcodePlugin):
