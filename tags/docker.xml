@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>fuminote (dockerについての文書)</title><link>https://32imuf.com/</link><description></description><atom:link href="https://32imuf.com/tags/docker.xml" rel="self" type="application/rss+xml"></atom:link><language>ja</language><copyright>Contents © 2019 &lt;a href="mailto:fumi232323fumi2016@gmail.com"&gt;fumi23&lt;/a&gt; </copyright><lastBuildDate>Mon, 03 Jun 2019 14:41:17 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Docker Compose で Django/PostgreSQL/MySQL 環境をつくろう</title><link>https://32imuf.com/docker/create-django-env-with-docker-compose-psql-mysql/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;details&gt;
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>fuminote (dockerについての文書)</title><link>https://32imuf.com/</link><description></description><atom:link href="https://32imuf.com/tags/docker.xml" rel="self" type="application/rss+xml"></atom:link><language>ja</language><copyright>Contents © 2019 &lt;a href="mailto:fumi232323fumi2016@gmail.com"&gt;fumi23&lt;/a&gt; </copyright><lastBuildDate>Tue, 04 Jun 2019 13:11:39 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Docker Compose で Django/PostgreSQL/MySQL 環境をつくろう</title><link>https://32imuf.com/docker/create-django-env-with-docker-compose-psql-mysql/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;details&gt;
   &lt;summary&gt;目次&lt;/summary&gt;&lt;div class="contents topic" id="id1"&gt;
 &lt;p class="topic-title first"&gt;目次&lt;/p&gt;
 &lt;ul class="simple"&gt;
@@ -58,20 +58,20 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p class="first"&gt;良い見本&lt;/p&gt;
-&lt;pre class="code docker"&gt;&lt;a name="rest_code_360707bdd4114183b50f95324401ba29-1"&gt;&lt;/a&gt;&lt;span class="k"&gt;RUN&lt;/span&gt; apt-get update &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; apt-get install -y &lt;span class="se"&gt;\&lt;/span&gt;
-&lt;a name="rest_code_360707bdd4114183b50f95324401ba29-2"&gt;&lt;/a&gt;    aufs-tools &lt;span class="se"&gt;\&lt;/span&gt;
-&lt;a name="rest_code_360707bdd4114183b50f95324401ba29-3"&gt;&lt;/a&gt;    automake &lt;span class="se"&gt;\&lt;/span&gt;
-&lt;a name="rest_code_360707bdd4114183b50f95324401ba29-4"&gt;&lt;/a&gt;    build-essential &lt;span class="se"&gt;\&lt;/span&gt;
-&lt;a name="rest_code_360707bdd4114183b50f95324401ba29-5"&gt;&lt;/a&gt;    curl &lt;span class="se"&gt;\&lt;/span&gt;
-&lt;a name="rest_code_360707bdd4114183b50f95324401ba29-6"&gt;&lt;/a&gt;    dpkg-sig &lt;span class="se"&gt;\&lt;/span&gt;
-&lt;a name="rest_code_360707bdd4114183b50f95324401ba29-7"&gt;&lt;/a&gt;    libcap-dev &lt;span class="se"&gt;\&lt;/span&gt;
-&lt;a name="rest_code_360707bdd4114183b50f95324401ba29-8"&gt;&lt;/a&gt;    libsqlite3-dev &lt;span class="se"&gt;\&lt;/span&gt;
-&lt;a name="rest_code_360707bdd4114183b50f95324401ba29-9"&gt;&lt;/a&gt;    mercurial &lt;span class="se"&gt;\&lt;/span&gt;
-&lt;a name="rest_code_360707bdd4114183b50f95324401ba29-10"&gt;&lt;/a&gt;    reprepro &lt;span class="se"&gt;\&lt;/span&gt;
-&lt;a name="rest_code_360707bdd4114183b50f95324401ba29-11"&gt;&lt;/a&gt;    ruby1.9.1 &lt;span class="se"&gt;\&lt;/span&gt;
-&lt;a name="rest_code_360707bdd4114183b50f95324401ba29-12"&gt;&lt;/a&gt;    ruby1.9.1-dev &lt;span class="se"&gt;\&lt;/span&gt;
-&lt;a name="rest_code_360707bdd4114183b50f95324401ba29-13"&gt;&lt;/a&gt;    &lt;span class="nv"&gt;s3cmd&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;.1.* &lt;span class="se"&gt;\&lt;/span&gt;
-&lt;a name="rest_code_360707bdd4114183b50f95324401ba29-14"&gt;&lt;/a&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; rm -rf /var/lib/apt/lists/*
+&lt;pre class="code docker"&gt;&lt;a name="rest_code_590568c537c8423da668051bde0aad83-1"&gt;&lt;/a&gt;&lt;span class="k"&gt;RUN&lt;/span&gt; apt-get update &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; apt-get install -y &lt;span class="se"&gt;\&lt;/span&gt;
+&lt;a name="rest_code_590568c537c8423da668051bde0aad83-2"&gt;&lt;/a&gt;    aufs-tools &lt;span class="se"&gt;\&lt;/span&gt;
+&lt;a name="rest_code_590568c537c8423da668051bde0aad83-3"&gt;&lt;/a&gt;    automake &lt;span class="se"&gt;\&lt;/span&gt;
+&lt;a name="rest_code_590568c537c8423da668051bde0aad83-4"&gt;&lt;/a&gt;    build-essential &lt;span class="se"&gt;\&lt;/span&gt;
+&lt;a name="rest_code_590568c537c8423da668051bde0aad83-5"&gt;&lt;/a&gt;    curl &lt;span class="se"&gt;\&lt;/span&gt;
+&lt;a name="rest_code_590568c537c8423da668051bde0aad83-6"&gt;&lt;/a&gt;    dpkg-sig &lt;span class="se"&gt;\&lt;/span&gt;
+&lt;a name="rest_code_590568c537c8423da668051bde0aad83-7"&gt;&lt;/a&gt;    libcap-dev &lt;span class="se"&gt;\&lt;/span&gt;
+&lt;a name="rest_code_590568c537c8423da668051bde0aad83-8"&gt;&lt;/a&gt;    libsqlite3-dev &lt;span class="se"&gt;\&lt;/span&gt;
+&lt;a name="rest_code_590568c537c8423da668051bde0aad83-9"&gt;&lt;/a&gt;    mercurial &lt;span class="se"&gt;\&lt;/span&gt;
+&lt;a name="rest_code_590568c537c8423da668051bde0aad83-10"&gt;&lt;/a&gt;    reprepro &lt;span class="se"&gt;\&lt;/span&gt;
+&lt;a name="rest_code_590568c537c8423da668051bde0aad83-11"&gt;&lt;/a&gt;    ruby1.9.1 &lt;span class="se"&gt;\&lt;/span&gt;
+&lt;a name="rest_code_590568c537c8423da668051bde0aad83-12"&gt;&lt;/a&gt;    ruby1.9.1-dev &lt;span class="se"&gt;\&lt;/span&gt;
+&lt;a name="rest_code_590568c537c8423da668051bde0aad83-13"&gt;&lt;/a&gt;    &lt;span class="nv"&gt;s3cmd&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;.1.* &lt;span class="se"&gt;\&lt;/span&gt;
+&lt;a name="rest_code_590568c537c8423da668051bde0aad83-14"&gt;&lt;/a&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; rm -rf /var/lib/apt/lists/*
 &lt;/pre&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
@@ -84,9 +84,9 @@
 &lt;li&gt;&lt;p class="first"&gt;1行で書くと、イメージを小さくできる ( &lt;tt class="docutils literal"&gt;layers&lt;/tt&gt; がなんのことなのかはよくわからない)&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p class="first"&gt;&lt;cite&gt;The first creates two layers in the image, while the second only creates one.&lt;/cite&gt;&lt;/p&gt;
-&lt;pre class="code docker"&gt;&lt;a name="rest_code_adc729b672214f179da182f7d897cbf8-1"&gt;&lt;/a&gt;&lt;span class="k"&gt;RUN&lt;/span&gt; apt-get -y update
-&lt;a name="rest_code_adc729b672214f179da182f7d897cbf8-2"&gt;&lt;/a&gt;&lt;span class="k"&gt;RUN&lt;/span&gt; apt-get install -y python
-&lt;/pre&gt;&lt;pre class="code docker"&gt;&lt;a name="rest_code_71521894452f4f57be8d275f6eefc145-1"&gt;&lt;/a&gt;&lt;span class="k"&gt;RUN&lt;/span&gt; apt-get -y update &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; apt-get install -y python
+&lt;pre class="code docker"&gt;&lt;a name="rest_code_ad5aa4be14b3457c9f0a6f9ae93aecfd-1"&gt;&lt;/a&gt;&lt;span class="k"&gt;RUN&lt;/span&gt; apt-get -y update
+&lt;a name="rest_code_ad5aa4be14b3457c9f0a6f9ae93aecfd-2"&gt;&lt;/a&gt;&lt;span class="k"&gt;RUN&lt;/span&gt; apt-get install -y python
+&lt;/pre&gt;&lt;pre class="code docker"&gt;&lt;a name="rest_code_539ce1ec02a1469bbb5e3a41ef8cfe77-1"&gt;&lt;/a&gt;&lt;span class="k"&gt;RUN&lt;/span&gt; apt-get -y update &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; apt-get install -y python
 &lt;/pre&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
@@ -125,13 +125,13 @@
 &lt;p&gt;実際には、 PostgreSQL か MySQL かどちらか使うほうのみを生きとする。&lt;/p&gt;
 &lt;div class="section" id="id4"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/create-django-env-with-docker-compose-psql-mysql/#id13"&gt;構成&lt;/a&gt;&lt;/h3&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_ca05465ab1774820980b63d3e50076a3-1"&gt;&lt;/a&gt;$ tree fufufu
-&lt;a name="rest_code_ca05465ab1774820980b63d3e50076a3-2"&gt;&lt;/a&gt;fufufu
-&lt;a name="rest_code_ca05465ab1774820980b63d3e50076a3-3"&gt;&lt;/a&gt;├── Dockerfile-app        &lt;span class="c1"&gt;# 1. Django プロジェクト作るよう Dockerfile&lt;/span&gt;
-&lt;a name="rest_code_ca05465ab1774820980b63d3e50076a3-4"&gt;&lt;/a&gt;├── Dockerfile-mysql      &lt;span class="c1"&gt;# 2. MySQL よう Dockerfile&lt;/span&gt;
-&lt;a name="rest_code_ca05465ab1774820980b63d3e50076a3-5"&gt;&lt;/a&gt;├── Dockerfile-postgres   &lt;span class="c1"&gt;# 3. PostgreSQL よう Dockerfile&lt;/span&gt;
-&lt;a name="rest_code_ca05465ab1774820980b63d3e50076a3-6"&gt;&lt;/a&gt;├── docker-compose.yml    &lt;span class="c1"&gt;# 4. Composeファイル&lt;/span&gt;
-&lt;a name="rest_code_ca05465ab1774820980b63d3e50076a3-7"&gt;&lt;/a&gt;└── requirements.txt      &lt;span class="c1"&gt;# 5. requirements.txt&lt;/span&gt;
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_cc27236ddc0842729704af81841c3d64-1"&gt;&lt;/a&gt;$ tree fufufu
+&lt;a name="rest_code_cc27236ddc0842729704af81841c3d64-2"&gt;&lt;/a&gt;fufufu
+&lt;a name="rest_code_cc27236ddc0842729704af81841c3d64-3"&gt;&lt;/a&gt;├── Dockerfile-app        &lt;span class="c1"&gt;# 1. Django プロジェクト作るよう Dockerfile&lt;/span&gt;
+&lt;a name="rest_code_cc27236ddc0842729704af81841c3d64-4"&gt;&lt;/a&gt;├── Dockerfile-mysql      &lt;span class="c1"&gt;# 2. MySQL よう Dockerfile&lt;/span&gt;
+&lt;a name="rest_code_cc27236ddc0842729704af81841c3d64-5"&gt;&lt;/a&gt;├── Dockerfile-postgres   &lt;span class="c1"&gt;# 3. PostgreSQL よう Dockerfile&lt;/span&gt;
+&lt;a name="rest_code_cc27236ddc0842729704af81841c3d64-6"&gt;&lt;/a&gt;├── docker-compose.yml    &lt;span class="c1"&gt;# 4. Composeファイル&lt;/span&gt;
+&lt;a name="rest_code_cc27236ddc0842729704af81841c3d64-7"&gt;&lt;/a&gt;└── requirements.txt      &lt;span class="c1"&gt;# 5. requirements.txt&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;div class="section" id="id5"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/create-django-env-with-docker-compose-psql-mysql/#id14"&gt;設定ファイル&lt;/a&gt;&lt;/h3&gt;
@@ -205,128 +205,136 @@
 &lt;/li&gt;
 &lt;li&gt;&lt;p class="first"&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;Dockerfile-mysql&lt;/span&gt;&lt;/tt&gt; : MySQL を入れるコンテナ&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;pre class="code docker"&gt;&lt;a name="rest_code_016d7a0da95f4b879d35b8a40b3d1afd-1"&gt;&lt;/a&gt;&lt;span class="k"&gt;FROM&lt;/span&gt;&lt;span class="s"&gt; mysql:latest&lt;/span&gt;
-&lt;a name="rest_code_016d7a0da95f4b879d35b8a40b3d1afd-2"&gt;&lt;/a&gt;
-&lt;a name="rest_code_016d7a0da95f4b879d35b8a40b3d1afd-3"&gt;&lt;/a&gt;&lt;span class="c"&gt;# locales をインストールして設定する&lt;/span&gt;
-&lt;a name="rest_code_016d7a0da95f4b879d35b8a40b3d1afd-4"&gt;&lt;/a&gt;&lt;span class="k"&gt;RUN&lt;/span&gt; apt-get update &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; apt-get install -y locales &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; rm -rf /var/lib/apt/lists/* &lt;span class="se"&gt;\&lt;/span&gt;
-&lt;a name="rest_code_016d7a0da95f4b879d35b8a40b3d1afd-5"&gt;&lt;/a&gt;    &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
-&lt;a name="rest_code_016d7a0da95f4b879d35b8a40b3d1afd-6"&gt;&lt;/a&gt;&lt;span class="k"&gt;ENV&lt;/span&gt; LANG en_US.UTF-8
-&lt;a name="rest_code_016d7a0da95f4b879d35b8a40b3d1afd-7"&gt;&lt;/a&gt;&lt;span class="k"&gt;ENV&lt;/span&gt; LANGUAGE en_US:en
-&lt;a name="rest_code_016d7a0da95f4b879d35b8a40b3d1afd-8"&gt;&lt;/a&gt;&lt;span class="k"&gt;ENV&lt;/span&gt; LC_ALL en_US.UTF-8
-&lt;a name="rest_code_016d7a0da95f4b879d35b8a40b3d1afd-9"&gt;&lt;/a&gt;
-&lt;a name="rest_code_016d7a0da95f4b879d35b8a40b3d1afd-10"&gt;&lt;/a&gt;&lt;span class="c"&gt;# タイムゾーンに JST を設定&lt;/span&gt;
-&lt;a name="rest_code_016d7a0da95f4b879d35b8a40b3d1afd-11"&gt;&lt;/a&gt;&lt;span class="k"&gt;RUN&lt;/span&gt; ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
-&lt;/pre&gt;&lt;/blockquote&gt;
+&lt;p&gt;&lt;/p&gt;&lt;div class="code-block "&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;FROM&lt;/span&gt;&lt;span class="s"&gt; mysql:latest&lt;/span&gt;
+
+&lt;span class="c"&gt;# locales をインストールして設定する&lt;/span&gt;
+&lt;span class="k"&gt;RUN&lt;/span&gt; apt-get update &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; apt-get install -y locales &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; rm -rf /var/lib/apt/lists/* &lt;span class="se"&gt;\&lt;/span&gt;
+    &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
+&lt;span class="k"&gt;ENV&lt;/span&gt; LANG en_US.UTF-8
+&lt;span class="k"&gt;ENV&lt;/span&gt; LANGUAGE en_US:en
+&lt;span class="k"&gt;ENV&lt;/span&gt; LC_ALL en_US.UTF-8
+
+&lt;span class="c"&gt;# タイムゾーンに JST を設定&lt;/span&gt;
+&lt;span class="k"&gt;RUN&lt;/span&gt; ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p class="first"&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;Dockerfile-postgres&lt;/span&gt;&lt;/tt&gt; : PostgreSQL を入れるコンテナ&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;pre class="code docker"&gt;&lt;a name="rest_code_1230e35abbea4a5d935ab553d54a6f88-1"&gt;&lt;/a&gt;&lt;span class="k"&gt;FROM&lt;/span&gt;&lt;span class="s"&gt; postgres:latest&lt;/span&gt;
-&lt;a name="rest_code_1230e35abbea4a5d935ab553d54a6f88-2"&gt;&lt;/a&gt;
-&lt;a name="rest_code_1230e35abbea4a5d935ab553d54a6f88-3"&gt;&lt;/a&gt;&lt;span class="c"&gt;## locales をインストールして設定する (PostgreSQL の場合は、公式イメージで実行済み)&lt;/span&gt;
-&lt;a name="rest_code_1230e35abbea4a5d935ab553d54a6f88-4"&gt;&lt;/a&gt;&lt;span class="c"&gt;## https://github.com/docker-library/postgres/blob/85aadc08c347cd20f199902c4b8b4f736341c3b8/11/Dockerfile&lt;/span&gt;
-&lt;a name="rest_code_1230e35abbea4a5d935ab553d54a6f88-5"&gt;&lt;/a&gt;&lt;span class="c"&gt;#RUN apt-get update &amp;amp;&amp;amp; apt-get install -y locales &amp;amp;&amp;amp; rm -rf /var/lib/apt/lists/* \&lt;/span&gt;
-&lt;a name="rest_code_1230e35abbea4a5d935ab553d54a6f88-6"&gt;&lt;/a&gt;&lt;span class="c"&gt;#  &amp;amp;&amp;amp; localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8&lt;/span&gt;
-&lt;a name="rest_code_1230e35abbea4a5d935ab553d54a6f88-7"&gt;&lt;/a&gt;&lt;span class="c"&gt;#ENV LANG en_US.UTF-8&lt;/span&gt;
-&lt;a name="rest_code_1230e35abbea4a5d935ab553d54a6f88-8"&gt;&lt;/a&gt;&lt;span class="k"&gt;ENV&lt;/span&gt; LANGUAGE en_US:en
-&lt;a name="rest_code_1230e35abbea4a5d935ab553d54a6f88-9"&gt;&lt;/a&gt;&lt;span class="k"&gt;ENV&lt;/span&gt; LC_ALL en_US.UTF-8
-&lt;a name="rest_code_1230e35abbea4a5d935ab553d54a6f88-10"&gt;&lt;/a&gt;
-&lt;a name="rest_code_1230e35abbea4a5d935ab553d54a6f88-11"&gt;&lt;/a&gt;&lt;span class="c"&gt;# タイムゾーンに JST を設定&lt;/span&gt;
-&lt;a name="rest_code_1230e35abbea4a5d935ab553d54a6f88-12"&gt;&lt;/a&gt;&lt;span class="k"&gt;RUN&lt;/span&gt; ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
-&lt;/pre&gt;&lt;/blockquote&gt;
+&lt;p&gt;&lt;/p&gt;&lt;div class="code-block "&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;FROM&lt;/span&gt;&lt;span class="s"&gt; postgres:latest&lt;/span&gt;
+
+&lt;span class="c"&gt;## locales をインストールして設定する (postgres の場合は、公式イメージで実行済み)&lt;/span&gt;
+&lt;span class="c"&gt;## https://github.com/docker-library/postgres/blob/85aadc08c347cd20f199902c4b8b4f736341c3b8/11/Dockerfile&lt;/span&gt;
+&lt;span class="c"&gt;#RUN apt-get update &amp;amp;&amp;amp; apt-get install -y locales &amp;amp;&amp;amp; rm -rf /var/lib/apt/lists/* \&lt;/span&gt;
+&lt;span class="c"&gt;#  &amp;amp;&amp;amp; localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8&lt;/span&gt;
+&lt;span class="c"&gt;#ENV LANG en_US.UTF-8&lt;/span&gt;
+&lt;span class="k"&gt;ENV&lt;/span&gt; LANGUAGE en_US:en
+&lt;span class="k"&gt;ENV&lt;/span&gt; LC_ALL en_US.UTF-8
+
+&lt;span class="c"&gt;# タイムゾーンに JST を設定&lt;/span&gt;
+&lt;span class="k"&gt;RUN&lt;/span&gt; ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p class="first"&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;docker-compose.yml&lt;/span&gt;&lt;/tt&gt; : Composeファイル&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;pre class="code yaml"&gt;&lt;a name="rest_code_055af0c36b1b45028b4a6fca37db9387-1"&gt;&lt;/a&gt;&lt;span class="nt"&gt;version&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;'3'&lt;/span&gt;
-&lt;a name="rest_code_055af0c36b1b45028b4a6fca37db9387-2"&gt;&lt;/a&gt;
-&lt;a name="rest_code_055af0c36b1b45028b4a6fca37db9387-3"&gt;&lt;/a&gt;&lt;span class="nt"&gt;services&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-&lt;a name="rest_code_055af0c36b1b45028b4a6fca37db9387-4"&gt;&lt;/a&gt;  &lt;span class="nt"&gt;app&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-&lt;a name="rest_code_055af0c36b1b45028b4a6fca37db9387-5"&gt;&lt;/a&gt;    &lt;span class="nt"&gt;container_name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;fufufu_app&lt;/span&gt;
-&lt;a name="rest_code_055af0c36b1b45028b4a6fca37db9387-6"&gt;&lt;/a&gt;    &lt;span class="nt"&gt;build&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-&lt;a name="rest_code_055af0c36b1b45028b4a6fca37db9387-7"&gt;&lt;/a&gt;      &lt;span class="nt"&gt;context&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;.&lt;/span&gt;
-&lt;a name="rest_code_055af0c36b1b45028b4a6fca37db9387-8"&gt;&lt;/a&gt;      &lt;span class="nt"&gt;dockerfile&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;Dockerfile-app&lt;/span&gt;
-&lt;a name="rest_code_055af0c36b1b45028b4a6fca37db9387-9"&gt;&lt;/a&gt;    &lt;span class="nt"&gt;volumes&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-&lt;a name="rest_code_055af0c36b1b45028b4a6fca37db9387-10"&gt;&lt;/a&gt;      &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;.:/fufufu&lt;/span&gt;
-&lt;a name="rest_code_055af0c36b1b45028b4a6fca37db9387-11"&gt;&lt;/a&gt;    &lt;span class="nt"&gt;working_dir&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;/fufufu&lt;/span&gt;
-&lt;a name="rest_code_055af0c36b1b45028b4a6fca37db9387-12"&gt;&lt;/a&gt;    &lt;span class="nt"&gt;command&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;bash -c "pip install -r requirements.txt &amp;amp;&amp;amp; bash"&lt;/span&gt;
-&lt;a name="rest_code_055af0c36b1b45028b4a6fca37db9387-13"&gt;&lt;/a&gt;    &lt;span class="nt"&gt;ports&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-&lt;a name="rest_code_055af0c36b1b45028b4a6fca37db9387-14"&gt;&lt;/a&gt;      &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="s"&gt;"8000:8000"&lt;/span&gt;
-&lt;a name="rest_code_055af0c36b1b45028b4a6fca37db9387-15"&gt;&lt;/a&gt;    &lt;span class="nt"&gt;tty&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;true&lt;/span&gt;  &lt;span class="c1"&gt;# 起動し続ける&lt;/span&gt;
-&lt;a name="rest_code_055af0c36b1b45028b4a6fca37db9387-16"&gt;&lt;/a&gt;    &lt;span class="nt"&gt;depends_on&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-&lt;a name="rest_code_055af0c36b1b45028b4a6fca37db9387-17"&gt;&lt;/a&gt;      &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;mysql&lt;/span&gt;
-&lt;a name="rest_code_055af0c36b1b45028b4a6fca37db9387-18"&gt;&lt;/a&gt;      &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;postgres&lt;/span&gt;
-&lt;a name="rest_code_055af0c36b1b45028b4a6fca37db9387-19"&gt;&lt;/a&gt;
-&lt;a name="rest_code_055af0c36b1b45028b4a6fca37db9387-20"&gt;&lt;/a&gt;  &lt;span class="nt"&gt;mysql&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-&lt;a name="rest_code_055af0c36b1b45028b4a6fca37db9387-21"&gt;&lt;/a&gt;    &lt;span class="nt"&gt;container_name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;fufufu_mysql&lt;/span&gt;
-&lt;a name="rest_code_055af0c36b1b45028b4a6fca37db9387-22"&gt;&lt;/a&gt;    &lt;span class="nt"&gt;build&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-&lt;a name="rest_code_055af0c36b1b45028b4a6fca37db9387-23"&gt;&lt;/a&gt;      &lt;span class="nt"&gt;context&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;.&lt;/span&gt;
-&lt;a name="rest_code_055af0c36b1b45028b4a6fca37db9387-24"&gt;&lt;/a&gt;      &lt;span class="nt"&gt;dockerfile&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;Dockerfile-mysql&lt;/span&gt;
-&lt;a name="rest_code_055af0c36b1b45028b4a6fca37db9387-25"&gt;&lt;/a&gt;    &lt;span class="nt"&gt;command&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;--character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci&lt;/span&gt;
-&lt;a name="rest_code_055af0c36b1b45028b4a6fca37db9387-26"&gt;&lt;/a&gt;    &lt;span class="nt"&gt;restart&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;always&lt;/span&gt;
-&lt;a name="rest_code_055af0c36b1b45028b4a6fca37db9387-27"&gt;&lt;/a&gt;    &lt;span class="nt"&gt;volumes&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-&lt;a name="rest_code_055af0c36b1b45028b4a6fca37db9387-28"&gt;&lt;/a&gt;      &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="s"&gt;"mysql-data:/var/lib/mysql"&lt;/span&gt;
-&lt;a name="rest_code_055af0c36b1b45028b4a6fca37db9387-29"&gt;&lt;/a&gt;    &lt;span class="nt"&gt;environment&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-&lt;a name="rest_code_055af0c36b1b45028b4a6fca37db9387-30"&gt;&lt;/a&gt;      &lt;span class="nt"&gt;MYSQL_ROOT_PASSWORD&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;fufufu&lt;/span&gt;
-&lt;a name="rest_code_055af0c36b1b45028b4a6fca37db9387-31"&gt;&lt;/a&gt;      &lt;span class="nt"&gt;MYSQL_DATABASE&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;fufufu&lt;/span&gt;
-&lt;a name="rest_code_055af0c36b1b45028b4a6fca37db9387-32"&gt;&lt;/a&gt;      &lt;span class="nt"&gt;MYSQL_USER&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;fufufu&lt;/span&gt;
-&lt;a name="rest_code_055af0c36b1b45028b4a6fca37db9387-33"&gt;&lt;/a&gt;      &lt;span class="nt"&gt;MYSQL_PASSWORD&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;fufufu&lt;/span&gt;
-&lt;a name="rest_code_055af0c36b1b45028b4a6fca37db9387-34"&gt;&lt;/a&gt;
-&lt;a name="rest_code_055af0c36b1b45028b4a6fca37db9387-35"&gt;&lt;/a&gt;  &lt;span class="nt"&gt;postgres&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-&lt;a name="rest_code_055af0c36b1b45028b4a6fca37db9387-36"&gt;&lt;/a&gt;    &lt;span class="nt"&gt;container_name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;fufufu_postgres&lt;/span&gt;
-&lt;a name="rest_code_055af0c36b1b45028b4a6fca37db9387-37"&gt;&lt;/a&gt;    &lt;span class="nt"&gt;build&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-&lt;a name="rest_code_055af0c36b1b45028b4a6fca37db9387-38"&gt;&lt;/a&gt;      &lt;span class="nt"&gt;context&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;.&lt;/span&gt;
-&lt;a name="rest_code_055af0c36b1b45028b4a6fca37db9387-39"&gt;&lt;/a&gt;      &lt;span class="nt"&gt;dockerfile&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;Dockerfile-postgres&lt;/span&gt;
-&lt;a name="rest_code_055af0c36b1b45028b4a6fca37db9387-40"&gt;&lt;/a&gt;    &lt;span class="nt"&gt;restart&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;always&lt;/span&gt;
-&lt;a name="rest_code_055af0c36b1b45028b4a6fca37db9387-41"&gt;&lt;/a&gt;    &lt;span class="nt"&gt;volumes&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-&lt;a name="rest_code_055af0c36b1b45028b4a6fca37db9387-42"&gt;&lt;/a&gt;      &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="s"&gt;"postgres-data:/var/lib/postgresql/data"&lt;/span&gt;
-&lt;a name="rest_code_055af0c36b1b45028b4a6fca37db9387-43"&gt;&lt;/a&gt;    &lt;span class="nt"&gt;environment&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-&lt;a name="rest_code_055af0c36b1b45028b4a6fca37db9387-44"&gt;&lt;/a&gt;      &lt;span class="nt"&gt;POSTGRES_DB&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;fufufu&lt;/span&gt;
-&lt;a name="rest_code_055af0c36b1b45028b4a6fca37db9387-45"&gt;&lt;/a&gt;      &lt;span class="nt"&gt;POSTGRES_USER&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;fufufu&lt;/span&gt;
-&lt;a name="rest_code_055af0c36b1b45028b4a6fca37db9387-46"&gt;&lt;/a&gt;      &lt;span class="nt"&gt;POSTGRES_PASSWORD&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;fufufu&lt;/span&gt;
-&lt;a name="rest_code_055af0c36b1b45028b4a6fca37db9387-47"&gt;&lt;/a&gt;
-&lt;a name="rest_code_055af0c36b1b45028b4a6fca37db9387-48"&gt;&lt;/a&gt;&lt;span class="nt"&gt;volumes&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-&lt;a name="rest_code_055af0c36b1b45028b4a6fca37db9387-49"&gt;&lt;/a&gt;  &lt;span class="nt"&gt;mysql-data&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-&lt;a name="rest_code_055af0c36b1b45028b4a6fca37db9387-50"&gt;&lt;/a&gt;  &lt;span class="nt"&gt;postgres-data&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-&lt;/pre&gt;&lt;/blockquote&gt;
+&lt;p&gt;&lt;/p&gt;&lt;div class="code-block "&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nt"&gt;version&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;'3'&lt;/span&gt;
+
+&lt;span class="nt"&gt;services&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+  &lt;span class="nt"&gt;app&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="nt"&gt;container_name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;fufufu_app&lt;/span&gt;
+    &lt;span class="nt"&gt;build&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+      &lt;span class="nt"&gt;context&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;.&lt;/span&gt;
+      &lt;span class="nt"&gt;dockerfile&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;Dockerfile-app&lt;/span&gt;
+    &lt;span class="nt"&gt;volumes&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+      &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;.:/fufufu&lt;/span&gt;
+    &lt;span class="nt"&gt;working_dir&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;/fufufu&lt;/span&gt;
+    &lt;span class="nt"&gt;command&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;bash -c "pip install -r requirements.txt &amp;amp;&amp;amp; bash"&lt;/span&gt;
+    &lt;span class="nt"&gt;ports&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+      &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="s"&gt;"8000:8000"&lt;/span&gt;
+    &lt;span class="nt"&gt;tty&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;true&lt;/span&gt;  &lt;span class="c1"&gt;# 起動し続ける&lt;/span&gt;
+    &lt;span class="nt"&gt;depends_on&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+      &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;mysql&lt;/span&gt;
+      &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;postgres&lt;/span&gt;
+
+  &lt;span class="nt"&gt;mysql&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="nt"&gt;container_name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;fufufu_mysql&lt;/span&gt;
+    &lt;span class="nt"&gt;build&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+      &lt;span class="nt"&gt;context&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;.&lt;/span&gt;
+      &lt;span class="nt"&gt;dockerfile&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;Dockerfile-mysql&lt;/span&gt;
+    &lt;span class="nt"&gt;command&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;--character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci&lt;/span&gt;
+    &lt;span class="nt"&gt;restart&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;always&lt;/span&gt;
+    &lt;span class="nt"&gt;volumes&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+      &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="s"&gt;"mysql-data:/var/lib/mysql"&lt;/span&gt;
+    &lt;span class="nt"&gt;environment&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+      &lt;span class="nt"&gt;MYSQL_ROOT_PASSWORD&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;fufufu&lt;/span&gt;
+      &lt;span class="nt"&gt;MYSQL_DATABASE&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;fufufu&lt;/span&gt;
+      &lt;span class="nt"&gt;MYSQL_USER&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;fufufu&lt;/span&gt;
+      &lt;span class="nt"&gt;MYSQL_PASSWORD&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;fufufu&lt;/span&gt;
+
+  &lt;span class="nt"&gt;postgres&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="nt"&gt;container_name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;fufufu_postgres&lt;/span&gt;
+    &lt;span class="nt"&gt;build&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+      &lt;span class="nt"&gt;context&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;.&lt;/span&gt;
+      &lt;span class="nt"&gt;dockerfile&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;Dockerfile-postgres&lt;/span&gt;
+    &lt;span class="nt"&gt;restart&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;always&lt;/span&gt;
+    &lt;span class="nt"&gt;volumes&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+      &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="s"&gt;"postgres-data:/var/lib/postgresql/data"&lt;/span&gt;
+    &lt;span class="nt"&gt;environment&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+      &lt;span class="nt"&gt;POSTGRES_DB&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;fufufu&lt;/span&gt;
+      &lt;span class="nt"&gt;POSTGRES_USER&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;fufufu&lt;/span&gt;
+      &lt;span class="nt"&gt;POSTGRES_PASSWORD&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;fufufu&lt;/span&gt;
+
+&lt;span class="nt"&gt;volumes&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+  &lt;span class="nt"&gt;mysql-data&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+  &lt;span class="nt"&gt;postgres-data&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p class="first"&gt;&lt;tt class="docutils literal"&gt;requirements.txt&lt;/tt&gt; : requirements.txt&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;pre class="code yaml"&gt;&lt;a name="rest_code_d5b39137b4264fc6ba5dec636fd9f3e6-1"&gt;&lt;/a&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;Django&amp;gt;=2.1&lt;/span&gt;
-&lt;a name="rest_code_d5b39137b4264fc6ba5dec636fd9f3e6-2"&gt;&lt;/a&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;mysqlclient&lt;/span&gt;  &lt;span class="c1"&gt;# MySQL のドライバー&lt;/span&gt;
-&lt;a name="rest_code_d5b39137b4264fc6ba5dec636fd9f3e6-3"&gt;&lt;/a&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;psycopg2-binary&lt;/span&gt;  &lt;span class="c1"&gt;# PostgreSQL のドライバー&lt;/span&gt;
-&lt;/pre&gt;&lt;/blockquote&gt;
+&lt;p&gt;&lt;/p&gt;&lt;div class="code-block "&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="na"&gt;Django&amp;gt;&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;2.1&lt;/span&gt;
+&lt;span class="na"&gt;mysqlclient&lt;/span&gt;
+&lt;span class="na"&gt;psycopg2-binary&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id6"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/create-django-env-with-docker-compose-psql-mysql/#id15"&gt;起動&lt;/a&gt;&lt;/h3&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_d455d99a562043d7b9e355d238182ee2-1"&gt;&lt;/a&gt;$ docker-compose up
-&lt;a name="rest_code_d455d99a562043d7b9e355d238182ee2-2"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 再度 image ビルドからやり直したい&lt;/span&gt;
-&lt;a name="rest_code_d455d99a562043d7b9e355d238182ee2-3"&gt;&lt;/a&gt;$ docker-compose up --build
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_5eceb9e9d46f420eb89a44a1e0e3df00-1"&gt;&lt;/a&gt;$ docker-compose up
+&lt;a name="rest_code_5eceb9e9d46f420eb89a44a1e0e3df00-2"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 再度 image ビルドからやり直したい&lt;/span&gt;
+&lt;a name="rest_code_5eceb9e9d46f420eb89a44a1e0e3df00-3"&gt;&lt;/a&gt;$ docker-compose up --build
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id7"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/create-django-env-with-docker-compose-psql-mysql/#id16"&gt;つかいかた&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="section" id="app"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/create-django-env-with-docker-compose-psql-mysql/#id17"&gt;app コンテナ&lt;/a&gt;&lt;/h3&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_ee9e9fe710734ef9bf3a0480c109b522-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# Django プロジェクトのコンテナに入る&lt;/span&gt;
-&lt;a name="rest_code_ee9e9fe710734ef9bf3a0480c109b522-2"&gt;&lt;/a&gt;$ docker container &lt;span class="nb"&gt;exec&lt;/span&gt; -it fufufu_app bash
-&lt;a name="rest_code_ee9e9fe710734ef9bf3a0480c109b522-3"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# Django プロジェクトを作成する&lt;/span&gt;
-&lt;a name="rest_code_ee9e9fe710734ef9bf3a0480c109b522-4"&gt;&lt;/a&gt;$ &lt;span class="nb"&gt;cd&lt;/span&gt; /fufufu
-&lt;a name="rest_code_ee9e9fe710734ef9bf3a0480c109b522-5"&gt;&lt;/a&gt;$ /opt/python3.7.3/lib/python3.7/site-packages/django/bin/django-admin.py startproject config .
-&lt;a name="rest_code_ee9e9fe710734ef9bf3a0480c109b522-6"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# runserver する ( settings.py の ``ALLOWED_HOSTS`` に ``'0.0.0.0'`` を書いておかないと ``DisallowedHost`` になります)&lt;/span&gt;
-&lt;a name="rest_code_ee9e9fe710734ef9bf3a0480c109b522-7"&gt;&lt;/a&gt;$ python manage.py runserver &lt;span class="m"&gt;0&lt;/span&gt;.0.0.0:8000
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_c01c7344029b432fae598a5275510ca6-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# Django プロジェクトのコンテナに入る&lt;/span&gt;
+&lt;a name="rest_code_c01c7344029b432fae598a5275510ca6-2"&gt;&lt;/a&gt;$ docker container &lt;span class="nb"&gt;exec&lt;/span&gt; -it fufufu_app bash
+&lt;a name="rest_code_c01c7344029b432fae598a5275510ca6-3"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# Django プロジェクトを作成する&lt;/span&gt;
+&lt;a name="rest_code_c01c7344029b432fae598a5275510ca6-4"&gt;&lt;/a&gt;$ &lt;span class="nb"&gt;cd&lt;/span&gt; /fufufu
+&lt;a name="rest_code_c01c7344029b432fae598a5275510ca6-5"&gt;&lt;/a&gt;$ /opt/python3.7.3/lib/python3.7/site-packages/django/bin/django-admin.py startproject config .
+&lt;a name="rest_code_c01c7344029b432fae598a5275510ca6-6"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# runserver する ( settings.py の ``ALLOWED_HOSTS`` に ``'0.0.0.0'`` を書いておかないと ``DisallowedHost`` になります)&lt;/span&gt;
+&lt;a name="rest_code_c01c7344029b432fae598a5275510ca6-7"&gt;&lt;/a&gt;$ python manage.py runserver &lt;span class="m"&gt;0&lt;/span&gt;.0.0.0:8000
 &lt;/pre&gt;&lt;/div&gt;
 &lt;div class="section" id="mysql-postgresql"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/create-django-env-with-docker-compose-psql-mysql/#id18"&gt;MySQL, PostgreSQL コンテナ&lt;/a&gt;&lt;/h3&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_c8af2e997bff4a5cb1942898460c6d2b-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# MySQL のコンテナに入る&lt;/span&gt;
-&lt;a name="rest_code_c8af2e997bff4a5cb1942898460c6d2b-2"&gt;&lt;/a&gt;$ docker container &lt;span class="nb"&gt;exec&lt;/span&gt; -it fufufu_mysql bash
-&lt;a name="rest_code_c8af2e997bff4a5cb1942898460c6d2b-3"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# MySQL に入る&lt;/span&gt;
-&lt;a name="rest_code_c8af2e997bff4a5cb1942898460c6d2b-4"&gt;&lt;/a&gt;$ mysql -u fufufu -D fufufu -p
-&lt;a name="rest_code_c8af2e997bff4a5cb1942898460c6d2b-5"&gt;&lt;/a&gt;
-&lt;a name="rest_code_c8af2e997bff4a5cb1942898460c6d2b-6"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# PostgreSQL のコンテナに入る&lt;/span&gt;
-&lt;a name="rest_code_c8af2e997bff4a5cb1942898460c6d2b-7"&gt;&lt;/a&gt;$ docker container &lt;span class="nb"&gt;exec&lt;/span&gt; -it fufufu_postgres bash
-&lt;a name="rest_code_c8af2e997bff4a5cb1942898460c6d2b-8"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# PostgreSQL に入る&lt;/span&gt;
-&lt;a name="rest_code_c8af2e997bff4a5cb1942898460c6d2b-9"&gt;&lt;/a&gt;$ psql -U fufufu fufufu
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_19714d589ae04e5bbfde05a1f2997435-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# MySQL のコンテナに入る&lt;/span&gt;
+&lt;a name="rest_code_19714d589ae04e5bbfde05a1f2997435-2"&gt;&lt;/a&gt;$ docker container &lt;span class="nb"&gt;exec&lt;/span&gt; -it fufufu_mysql bash
+&lt;a name="rest_code_19714d589ae04e5bbfde05a1f2997435-3"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# MySQL に入る&lt;/span&gt;
+&lt;a name="rest_code_19714d589ae04e5bbfde05a1f2997435-4"&gt;&lt;/a&gt;$ mysql -u fufufu -D fufufu -p
+&lt;a name="rest_code_19714d589ae04e5bbfde05a1f2997435-5"&gt;&lt;/a&gt;
+&lt;a name="rest_code_19714d589ae04e5bbfde05a1f2997435-6"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# PostgreSQL のコンテナに入る&lt;/span&gt;
+&lt;a name="rest_code_19714d589ae04e5bbfde05a1f2997435-7"&gt;&lt;/a&gt;$ docker container &lt;span class="nb"&gt;exec&lt;/span&gt; -it fufufu_postgres bash
+&lt;a name="rest_code_19714d589ae04e5bbfde05a1f2997435-8"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# PostgreSQL に入る&lt;/span&gt;
+&lt;a name="rest_code_19714d589ae04e5bbfde05a1f2997435-9"&gt;&lt;/a&gt;$ psql -U fufufu fufufu
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id8"&gt;
