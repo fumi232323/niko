@@ -136,103 +136,22 @@
 
 2. ``Dockerfile-mysql`` : MySQL を入れるコンテナ
 
-    .. code-block:: docker
-
-      FROM mysql:latest
-
-      # locales をインストールして設定する
-      RUN apt-get update && apt-get install -y locales && rm -rf /var/lib/apt/lists/* \
-          && localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
-      ENV LANG en_US.UTF-8
-      ENV LANGUAGE en_US:en
-      ENV LC_ALL en_US.UTF-8
-
-      # タイムゾーンに JST を設定
-      RUN ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
+    {{% codeblock fufufu/Dockerfile-mysql lexer="docker" %}}
 
 
 3. ``Dockerfile-postgres`` : PostgreSQL を入れるコンテナ
 
-    .. code-block:: docker
-
-      FROM postgres:latest
-
-      ## locales をインストールして設定する (PostgreSQL の場合は、公式イメージで実行済み)
-      ## https://github.com/docker-library/postgres/blob/85aadc08c347cd20f199902c4b8b4f736341c3b8/11/Dockerfile
-      #RUN apt-get update && apt-get install -y locales && rm -rf /var/lib/apt/lists/* \
-      #  && localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
-      #ENV LANG en_US.UTF-8
-      ENV LANGUAGE en_US:en
-      ENV LC_ALL en_US.UTF-8
-
-      # タイムゾーンに JST を設定
-      RUN ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
+    {{% codeblock fufufu/Dockerfile-postgres lexer="docker" %}}
 
 
 4. ``docker-compose.yml`` : Composeファイル
 
-    .. code-block:: yaml
-
-      version: '3'
-
-      services:
-        app:
-          container_name: fufufu_app
-          build:
-            context: .
-            dockerfile: Dockerfile-app
-          volumes:
-            - .:/fufufu
-          working_dir: /fufufu
-          command: bash -c "pip install -r requirements.txt && bash"
-          ports:
-            - "8000:8000"
-          tty: true  # 起動し続ける
-          depends_on:
-            - mysql
-            - postgres
-
-        mysql:
-          container_name: fufufu_mysql
-          build:
-            context: .
-            dockerfile: Dockerfile-mysql
-          command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
-          restart: always
-          volumes:
-            - "mysql-data:/var/lib/mysql"
-          environment:
-            MYSQL_ROOT_PASSWORD: fufufu
-            MYSQL_DATABASE: fufufu
-            MYSQL_USER: fufufu
-            MYSQL_PASSWORD: fufufu
-
-        postgres:
-          container_name: fufufu_postgres
-          build:
-            context: .
-            dockerfile: Dockerfile-postgres
-          restart: always
-          volumes:
-            - "postgres-data:/var/lib/postgresql/data"
-          environment:
-            POSTGRES_DB: fufufu
-            POSTGRES_USER: fufufu
-            POSTGRES_PASSWORD: fufufu
-
-      volumes:
-        mysql-data:
-        postgres-data:
+    {{% codeblock fufufu/docker-compose.yml lexer="yaml" %}}
 
 
 5. ``requirements.txt`` : requirements.txt
 
-
-    .. code-block:: yaml
-
-      Django>=2.1
-      mysqlclient  # MySQL のドライバー
-      psycopg2-binary  # PostgreSQL のドライバー
+    {{% codeblock fufufu/requirements.txt lexer="ini" %}}
 
 
 起動
