@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ふみのて (dockerについての文書)</title><link>https://32imuf.com/</link><description></description><atom:link href="https://32imuf.com/tags/docker.xml" rel="self" type="application/rss+xml"></atom:link><language>ja</language><copyright>Contents © 2019 &lt;a href="mailto:fumi232323fumi2016@gmail.com"&gt;fumi23&lt;/a&gt; </copyright><lastBuildDate>Sun, 09 Jun 2019 13:08:17 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Docker Compose で Django/PostgreSQL/MySQL 環境をつくろう</title><link>https://32imuf.com/docker/create-django-env-with-docker-compose-psql-mysql/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;details&gt;
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ふみのて (dockerについての文書)</title><link>https://32imuf.com/</link><description></description><atom:link href="https://32imuf.com/tags/docker.xml" rel="self" type="application/rss+xml"></atom:link><language>ja</language><copyright>Contents © 2019 &lt;a href="mailto:fumi232323fumi2016@gmail.com"&gt;fumi23&lt;/a&gt; </copyright><lastBuildDate>Sun, 09 Jun 2019 14:05:33 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Docker Compose で Django/PostgreSQL/MySQL 環境をつくろう</title><link>https://32imuf.com/docker/create-django-env-with-docker-compose-psql-mysql/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;details&gt;
   &lt;summary&gt;目次&lt;/summary&gt;&lt;div class="contents topic" id="id1"&gt;
 &lt;p class="topic-title first"&gt;目次&lt;/p&gt;
 &lt;ul class="simple"&gt;
@@ -1966,32 +1966,32 @@ fufu_db exited with code &lt;span class="m"&gt;1&lt;/span&gt;
 &lt;div class="section" id="id3"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/use-volumes-with-docker-compose/#id5"&gt;手順&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;tt class="docutils literal"&gt;web&lt;/tt&gt; のイメージをビルド...するところは、
-.. jinja:: &lt;cite&gt;{{ content.link_to("../create-django-env-with-docker-compose/index.rst") }}&lt;/cite&gt;
+&lt;a class="reference external" href="https://32imuf.com/docker/use-volumes-with-docker-compose/docker/create-django-env-with-docker-compose-psql"&gt;Docker Compose で Django/PostgreSQL 環境をつくる&lt;/a&gt;
 を参照のこと。&lt;/p&gt;
 &lt;div class="section" id="volume"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/use-volumes-with-docker-compose/#id6"&gt;1. volume を作成する&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;db-data&lt;/span&gt;&lt;/tt&gt; という名前の volume を作成する。&lt;/p&gt;
-&lt;pre class="code shell"&gt;&lt;a name="rest_code_989bd0f9c2644575b7eeccb3f7dc6ac8-1"&gt;&lt;/a&gt;$ docker volume create db-data
-&lt;a name="rest_code_989bd0f9c2644575b7eeccb3f7dc6ac8-2"&gt;&lt;/a&gt;db-data
+&lt;pre class="code shell"&gt;&lt;a name="rest_code_d1c43c222e1943c9bab532000a524592-1"&gt;&lt;/a&gt;$ docker volume create db-data
+&lt;a name="rest_code_d1c43c222e1943c9bab532000a524592-2"&gt;&lt;/a&gt;db-data
 &lt;/pre&gt;&lt;ul&gt;
 &lt;li&gt;&lt;p class="first"&gt;volumes を一覧表示する。&lt;/p&gt;
-&lt;pre class="code shell"&gt;&lt;a name="rest_code_7a1c2415017d45d695378aba36fb951a-1"&gt;&lt;/a&gt;$ docker volume ls
-&lt;a name="rest_code_7a1c2415017d45d695378aba36fb951a-2"&gt;&lt;/a&gt;DRIVER              VOLUME NAME
-&lt;a name="rest_code_7a1c2415017d45d695378aba36fb951a-3"&gt;&lt;/a&gt;&lt;span class="nb"&gt;local&lt;/span&gt;               db-data
+&lt;pre class="code shell"&gt;&lt;a name="rest_code_07c3e0ddc38e45239627a14a17c850fc-1"&gt;&lt;/a&gt;$ docker volume ls
+&lt;a name="rest_code_07c3e0ddc38e45239627a14a17c850fc-2"&gt;&lt;/a&gt;DRIVER              VOLUME NAME
+&lt;a name="rest_code_07c3e0ddc38e45239627a14a17c850fc-3"&gt;&lt;/a&gt;&lt;span class="nb"&gt;local&lt;/span&gt;               db-data
 &lt;/pre&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p class="first"&gt;volume を調べる。&lt;/p&gt;
-&lt;pre class="code shell"&gt;&lt;a name="rest_code_0a8cacfcfdba4e099e41cb7453f68660-1"&gt;&lt;/a&gt;$ docker volume inspect db-data
-&lt;a name="rest_code_0a8cacfcfdba4e099e41cb7453f68660-2"&gt;&lt;/a&gt;&lt;span class="o"&gt;[&lt;/span&gt;
-&lt;a name="rest_code_0a8cacfcfdba4e099e41cb7453f68660-3"&gt;&lt;/a&gt;    &lt;span class="o"&gt;{&lt;/span&gt;
-&lt;a name="rest_code_0a8cacfcfdba4e099e41cb7453f68660-4"&gt;&lt;/a&gt;        &lt;span class="s2"&gt;"CreatedAt"&lt;/span&gt;: &lt;span class="s2"&gt;"2018-12-02T13:09:48Z"&lt;/span&gt;,
-&lt;a name="rest_code_0a8cacfcfdba4e099e41cb7453f68660-5"&gt;&lt;/a&gt;        &lt;span class="s2"&gt;"Driver"&lt;/span&gt;: &lt;span class="s2"&gt;"local"&lt;/span&gt;,
-&lt;a name="rest_code_0a8cacfcfdba4e099e41cb7453f68660-6"&gt;&lt;/a&gt;        &lt;span class="s2"&gt;"Labels"&lt;/span&gt;: &lt;span class="o"&gt;{}&lt;/span&gt;,
-&lt;a name="rest_code_0a8cacfcfdba4e099e41cb7453f68660-7"&gt;&lt;/a&gt;        &lt;span class="s2"&gt;"Mountpoint"&lt;/span&gt;: &lt;span class="s2"&gt;"/var/lib/docker/volumes/db-data/_data"&lt;/span&gt;,
-&lt;a name="rest_code_0a8cacfcfdba4e099e41cb7453f68660-8"&gt;&lt;/a&gt;        &lt;span class="s2"&gt;"Name"&lt;/span&gt;: &lt;span class="s2"&gt;"db-data"&lt;/span&gt;,
-&lt;a name="rest_code_0a8cacfcfdba4e099e41cb7453f68660-9"&gt;&lt;/a&gt;        &lt;span class="s2"&gt;"Options"&lt;/span&gt;: &lt;span class="o"&gt;{}&lt;/span&gt;,
-&lt;a name="rest_code_0a8cacfcfdba4e099e41cb7453f68660-10"&gt;&lt;/a&gt;        &lt;span class="s2"&gt;"Scope"&lt;/span&gt;: &lt;span class="s2"&gt;"local"&lt;/span&gt;
-&lt;a name="rest_code_0a8cacfcfdba4e099e41cb7453f68660-11"&gt;&lt;/a&gt;    &lt;span class="o"&gt;}&lt;/span&gt;
-&lt;a name="rest_code_0a8cacfcfdba4e099e41cb7453f68660-12"&gt;&lt;/a&gt;&lt;span class="o"&gt;]&lt;/span&gt;
+&lt;pre class="code shell"&gt;&lt;a name="rest_code_3b23bb5664fb4aea98145250e07e7d49-1"&gt;&lt;/a&gt;$ docker volume inspect db-data
+&lt;a name="rest_code_3b23bb5664fb4aea98145250e07e7d49-2"&gt;&lt;/a&gt;&lt;span class="o"&gt;[&lt;/span&gt;
+&lt;a name="rest_code_3b23bb5664fb4aea98145250e07e7d49-3"&gt;&lt;/a&gt;    &lt;span class="o"&gt;{&lt;/span&gt;
+&lt;a name="rest_code_3b23bb5664fb4aea98145250e07e7d49-4"&gt;&lt;/a&gt;        &lt;span class="s2"&gt;"CreatedAt"&lt;/span&gt;: &lt;span class="s2"&gt;"2018-12-02T13:09:48Z"&lt;/span&gt;,
+&lt;a name="rest_code_3b23bb5664fb4aea98145250e07e7d49-5"&gt;&lt;/a&gt;        &lt;span class="s2"&gt;"Driver"&lt;/span&gt;: &lt;span class="s2"&gt;"local"&lt;/span&gt;,
+&lt;a name="rest_code_3b23bb5664fb4aea98145250e07e7d49-6"&gt;&lt;/a&gt;        &lt;span class="s2"&gt;"Labels"&lt;/span&gt;: &lt;span class="o"&gt;{}&lt;/span&gt;,
+&lt;a name="rest_code_3b23bb5664fb4aea98145250e07e7d49-7"&gt;&lt;/a&gt;        &lt;span class="s2"&gt;"Mountpoint"&lt;/span&gt;: &lt;span class="s2"&gt;"/var/lib/docker/volumes/db-data/_data"&lt;/span&gt;,
+&lt;a name="rest_code_3b23bb5664fb4aea98145250e07e7d49-8"&gt;&lt;/a&gt;        &lt;span class="s2"&gt;"Name"&lt;/span&gt;: &lt;span class="s2"&gt;"db-data"&lt;/span&gt;,
+&lt;a name="rest_code_3b23bb5664fb4aea98145250e07e7d49-9"&gt;&lt;/a&gt;        &lt;span class="s2"&gt;"Options"&lt;/span&gt;: &lt;span class="o"&gt;{}&lt;/span&gt;,
+&lt;a name="rest_code_3b23bb5664fb4aea98145250e07e7d49-10"&gt;&lt;/a&gt;        &lt;span class="s2"&gt;"Scope"&lt;/span&gt;: &lt;span class="s2"&gt;"local"&lt;/span&gt;
+&lt;a name="rest_code_3b23bb5664fb4aea98145250e07e7d49-11"&gt;&lt;/a&gt;    &lt;span class="o"&gt;}&lt;/span&gt;
+&lt;a name="rest_code_3b23bb5664fb4aea98145250e07e7d49-12"&gt;&lt;/a&gt;&lt;span class="o"&gt;]&lt;/span&gt;
 &lt;/pre&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p class="first"&gt;今作った &lt;tt class="docutils literal"&gt;volume&lt;/tt&gt; はこの絵↓の真ん中のものである。&lt;/p&gt;
 &lt;div class="figure"&gt;
@@ -2003,39 +2003,41 @@ fufu_db exited with code &lt;span class="m"&gt;1&lt;/span&gt;
 &lt;/div&gt;
 &lt;div class="section" id="docker-compose-yml-volume"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/use-volumes-with-docker-compose/#id7"&gt;2. &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;docker-compose.yml&lt;/span&gt;&lt;/tt&gt; に作成した volume を指定する&lt;/a&gt;&lt;/h3&gt;
-&lt;pre class="code yaml"&gt;&lt;a name="rest_code_c824256e7d9b413a91621853359863c4-1"&gt;&lt;/a&gt;&lt;span class="nt"&gt;version&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;'3'&lt;/span&gt;
-&lt;a name="rest_code_c824256e7d9b413a91621853359863c4-2"&gt;&lt;/a&gt;
-&lt;a name="rest_code_c824256e7d9b413a91621853359863c4-3"&gt;&lt;/a&gt;&lt;span class="nt"&gt;services&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-&lt;a name="rest_code_c824256e7d9b413a91621853359863c4-4"&gt;&lt;/a&gt;  &lt;span class="nt"&gt;db&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-&lt;a name="rest_code_c824256e7d9b413a91621853359863c4-5"&gt;&lt;/a&gt;    &lt;span class="nt"&gt;image&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;postgres:latest&lt;/span&gt;
-&lt;a name="rest_code_c824256e7d9b413a91621853359863c4-6"&gt;&lt;/a&gt;    &lt;span class="nt"&gt;volumes&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-&lt;a name="rest_code_c824256e7d9b413a91621853359863c4-7"&gt;&lt;/a&gt;      &lt;span class="c1"&gt;# コンテナの `/var/lib/postgresql/data` を、volume `db-data` にマウントする。&lt;/span&gt;
-&lt;a name="rest_code_c824256e7d9b413a91621853359863c4-8"&gt;&lt;/a&gt;      &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="s"&gt;"db-data:/var/lib/postgresql/data"&lt;/span&gt;
-&lt;a name="rest_code_c824256e7d9b413a91621853359863c4-9"&gt;&lt;/a&gt;    &lt;span class="c1"&gt;# 環境変数を追加する&lt;/span&gt;
-&lt;a name="rest_code_c824256e7d9b413a91621853359863c4-10"&gt;&lt;/a&gt;    &lt;span class="nt"&gt;environment&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-&lt;a name="rest_code_c824256e7d9b413a91621853359863c4-11"&gt;&lt;/a&gt;      &lt;span class="c1"&gt;# postgres のパスワードを設定する&lt;/span&gt;
-&lt;a name="rest_code_c824256e7d9b413a91621853359863c4-12"&gt;&lt;/a&gt;      &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;POSTGRES_PASSWORD=postgres&lt;/span&gt;
-&lt;a name="rest_code_c824256e7d9b413a91621853359863c4-13"&gt;&lt;/a&gt;  &lt;span class="nt"&gt;web&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-&lt;a name="rest_code_c824256e7d9b413a91621853359863c4-14"&gt;&lt;/a&gt;    &lt;span class="nt"&gt;build&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-&lt;a name="rest_code_c824256e7d9b413a91621853359863c4-15"&gt;&lt;/a&gt;      &lt;span class="nt"&gt;context&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;.&lt;/span&gt;
-&lt;a name="rest_code_c824256e7d9b413a91621853359863c4-16"&gt;&lt;/a&gt;      &lt;span class="nt"&gt;dockerfile&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;Dockerfile-web&lt;/span&gt;
-&lt;a name="rest_code_c824256e7d9b413a91621853359863c4-17"&gt;&lt;/a&gt;    &lt;span class="nt"&gt;command&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;python3 manage.py runserver 0.0.0.0:8000&lt;/span&gt;
-&lt;a name="rest_code_c824256e7d9b413a91621853359863c4-18"&gt;&lt;/a&gt;    &lt;span class="nt"&gt;volumes&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-&lt;a name="rest_code_c824256e7d9b413a91621853359863c4-19"&gt;&lt;/a&gt;      &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;.:/code&lt;/span&gt;
-&lt;a name="rest_code_c824256e7d9b413a91621853359863c4-20"&gt;&lt;/a&gt;    &lt;span class="nt"&gt;ports&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-&lt;a name="rest_code_c824256e7d9b413a91621853359863c4-21"&gt;&lt;/a&gt;      &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="s"&gt;"3236:8000"&lt;/span&gt;
-&lt;a name="rest_code_c824256e7d9b413a91621853359863c4-22"&gt;&lt;/a&gt;    &lt;span class="nt"&gt;depends_on&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-&lt;a name="rest_code_c824256e7d9b413a91621853359863c4-23"&gt;&lt;/a&gt;      &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;db&lt;/span&gt;
-&lt;a name="rest_code_c824256e7d9b413a91621853359863c4-24"&gt;&lt;/a&gt;
-&lt;a name="rest_code_c824256e7d9b413a91621853359863c4-25"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# volumes を定義する&lt;/span&gt;
-&lt;a name="rest_code_c824256e7d9b413a91621853359863c4-26"&gt;&lt;/a&gt;&lt;span class="nt"&gt;volumes&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-&lt;a name="rest_code_c824256e7d9b413a91621853359863c4-27"&gt;&lt;/a&gt;  &lt;span class="c1"&gt;# volume の名前を指定&lt;/span&gt;
-&lt;a name="rest_code_c824256e7d9b413a91621853359863c4-28"&gt;&lt;/a&gt;  &lt;span class="nt"&gt;db-data&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-&lt;a name="rest_code_c824256e7d9b413a91621853359863c4-29"&gt;&lt;/a&gt;    &lt;span class="c1"&gt;# Compose の外ですでに作成済みの volume を指定する場合は ture を設定する。&lt;/span&gt;
-&lt;a name="rest_code_c824256e7d9b413a91621853359863c4-30"&gt;&lt;/a&gt;    &lt;span class="c1"&gt;# そうすると、 docker-compose up 時に Compose は volume を作成しようとしません。&lt;/span&gt;
-&lt;a name="rest_code_c824256e7d9b413a91621853359863c4-31"&gt;&lt;/a&gt;    &lt;span class="c1"&gt;# かつ、指定した volume が存在しないとエラーを raise します。&lt;/span&gt;
-&lt;a name="rest_code_c824256e7d9b413a91621853359863c4-32"&gt;&lt;/a&gt;    &lt;span class="nt"&gt;external&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;true&lt;/span&gt;
-&lt;/pre&gt;&lt;ul class="simple"&gt;
+&lt;p&gt;&lt;/p&gt;&lt;div class="code-block "&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nt"&gt;version&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;'3'&lt;/span&gt;
+
+&lt;span class="nt"&gt;services&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+  &lt;span class="nt"&gt;db&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="nt"&gt;image&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;postgres:latest&lt;/span&gt;
+    &lt;span class="nt"&gt;volumes&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+      &lt;span class="c1"&gt;# コンテナの `/var/lib/postgresql/data` を、volume `db-data` にマウントする。&lt;/span&gt;
+      &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="s"&gt;"db-data:/var/lib/postgresql/data"&lt;/span&gt;
+    &lt;span class="c1"&gt;# 環境変数を追加する&lt;/span&gt;
+    &lt;span class="nt"&gt;environment&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+      &lt;span class="c1"&gt;# postgres のパスワードを設定する&lt;/span&gt;
+      &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;POSTGRES_PASSWORD=postgres&lt;/span&gt;
+  &lt;span class="nt"&gt;web&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="nt"&gt;build&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+      &lt;span class="nt"&gt;context&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;.&lt;/span&gt;
+      &lt;span class="nt"&gt;dockerfile&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;Dockerfile-web&lt;/span&gt;
+    &lt;span class="nt"&gt;command&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;python3 manage.py runserver 0.0.0.0:8000&lt;/span&gt;
+    &lt;span class="nt"&gt;volumes&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+      &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;.:/code&lt;/span&gt;
+    &lt;span class="nt"&gt;ports&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+      &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="s"&gt;"3236:8000"&lt;/span&gt;
+    &lt;span class="nt"&gt;depends_on&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+      &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;db&lt;/span&gt;
+
+&lt;span class="c1"&gt;# volumes を定義する&lt;/span&gt;
+&lt;span class="nt"&gt;volumes&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+  &lt;span class="c1"&gt;# volume の名前を指定&lt;/span&gt;
+  &lt;span class="nt"&gt;db-data&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="c1"&gt;# Compose の外ですでに作成済みの volume を指定する場合は ture を設定する。&lt;/span&gt;
+    &lt;span class="c1"&gt;# そうすると、 docker-compose up 時に Compose は volume を作成しようとしません。&lt;/span&gt;
+    &lt;span class="c1"&gt;# かつ、指定した volume が存在しないとエラーを raise します。&lt;/span&gt;
+    &lt;span class="nt"&gt;external&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;true&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;ul class="simple"&gt;
 &lt;li&gt;&lt;tt class="docutils literal"&gt;external: true&lt;/tt&gt; を書かないと、 &lt;tt class="docutils literal"&gt;$ &lt;span class="pre"&gt;docker-compose&lt;/span&gt; up&lt;/tt&gt; 時に 1. で作った &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;db-data&lt;/span&gt;&lt;/tt&gt; とは別に
 &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;{プロジェクト名}_db-data&lt;/span&gt;&lt;/tt&gt; という感じの名前の volume が作られて、そちらが使われる。&lt;/li&gt;
 &lt;li&gt;それでもまあかまわないけれど。今のところは。&lt;/li&gt;
@@ -2043,84 +2045,84 @@ fufu_db exited with code &lt;span class="m"&gt;1&lt;/span&gt;
 &lt;/div&gt;
 &lt;div class="section" id="settings-py-database"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/use-volumes-with-docker-compose/#id8"&gt;3. &lt;tt class="docutils literal"&gt;settings.py&lt;/tt&gt; に DATABASE を定義する&lt;/a&gt;&lt;/h3&gt;
-&lt;pre class="code python"&gt;&lt;a name="rest_code_022836f816f4479991da0be017862a7e-1"&gt;&lt;/a&gt;&lt;span class="n"&gt;DATABASES&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-&lt;a name="rest_code_022836f816f4479991da0be017862a7e-2"&gt;&lt;/a&gt;    &lt;span class="s1"&gt;'default'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-&lt;a name="rest_code_022836f816f4479991da0be017862a7e-3"&gt;&lt;/a&gt;        &lt;span class="s1"&gt;'ENGINE'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;'django.db.backends.postgresql'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;a name="rest_code_022836f816f4479991da0be017862a7e-4"&gt;&lt;/a&gt;        &lt;span class="s1"&gt;'NAME'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;'postgres'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;a name="rest_code_022836f816f4479991da0be017862a7e-5"&gt;&lt;/a&gt;        &lt;span class="s1"&gt;'USER'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;'postgres'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;a name="rest_code_022836f816f4479991da0be017862a7e-6"&gt;&lt;/a&gt;        &lt;span class="s1"&gt;'PASSWORD'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;'postgres'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;  &lt;span class="c1"&gt;# パスワードを追加した&lt;/span&gt;
-&lt;a name="rest_code_022836f816f4479991da0be017862a7e-7"&gt;&lt;/a&gt;        &lt;span class="s1"&gt;'HOST'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;'db'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;a name="rest_code_022836f816f4479991da0be017862a7e-8"&gt;&lt;/a&gt;        &lt;span class="s1"&gt;'PORT'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;5432&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;a name="rest_code_022836f816f4479991da0be017862a7e-9"&gt;&lt;/a&gt;    &lt;span class="p"&gt;}&lt;/span&gt;
-&lt;a name="rest_code_022836f816f4479991da0be017862a7e-10"&gt;&lt;/a&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;pre class="code python"&gt;&lt;a name="rest_code_421ca854a771400086e5610f99905ed6-1"&gt;&lt;/a&gt;&lt;span class="n"&gt;DATABASES&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;a name="rest_code_421ca854a771400086e5610f99905ed6-2"&gt;&lt;/a&gt;    &lt;span class="s1"&gt;'default'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;a name="rest_code_421ca854a771400086e5610f99905ed6-3"&gt;&lt;/a&gt;        &lt;span class="s1"&gt;'ENGINE'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;'django.db.backends.postgresql'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;a name="rest_code_421ca854a771400086e5610f99905ed6-4"&gt;&lt;/a&gt;        &lt;span class="s1"&gt;'NAME'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;'postgres'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;a name="rest_code_421ca854a771400086e5610f99905ed6-5"&gt;&lt;/a&gt;        &lt;span class="s1"&gt;'USER'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;'postgres'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;a name="rest_code_421ca854a771400086e5610f99905ed6-6"&gt;&lt;/a&gt;        &lt;span class="s1"&gt;'PASSWORD'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;'postgres'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;  &lt;span class="c1"&gt;# パスワードを追加した&lt;/span&gt;
+&lt;a name="rest_code_421ca854a771400086e5610f99905ed6-7"&gt;&lt;/a&gt;        &lt;span class="s1"&gt;'HOST'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;'db'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;a name="rest_code_421ca854a771400086e5610f99905ed6-8"&gt;&lt;/a&gt;        &lt;span class="s1"&gt;'PORT'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;5432&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;a name="rest_code_421ca854a771400086e5610f99905ed6-9"&gt;&lt;/a&gt;    &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;a name="rest_code_421ca854a771400086e5610f99905ed6-10"&gt;&lt;/a&gt;&lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;div class="section" id="docker"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/use-volumes-with-docker-compose/#id9"&gt;4. Docker コンテナを実行する&lt;/a&gt;&lt;/h3&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_2883249c843e49e6a1afb034742206f1-1"&gt;&lt;/a&gt;$ docker-compose up
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_faf822e6d428487f898bc2f4f0d144ba-1"&gt;&lt;/a&gt;$ docker-compose up
 &lt;/pre&gt;&lt;/div&gt;
 &lt;div class="section" id="db"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/use-volumes-with-docker-compose/#id10"&gt;5. DB コンテナのなかに入って、テーブルを作成 &amp;amp; データを挿入する&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;1). &lt;tt class="docutils literal"&gt;db&lt;/tt&gt; コンテナのなかに入る&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_a355cf170fb045a3a5695acd8719847c-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# コンテナをシェル経由で操作する&lt;/span&gt;
-&lt;a name="rest_code_a355cf170fb045a3a5695acd8719847c-2"&gt;&lt;/a&gt;$ docker container &lt;span class="nb"&gt;exec&lt;/span&gt; -it fffff_db_1 sh
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_cfdbe67ceb09465ea8dbad5d002a80bb-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# コンテナをシェル経由で操作する&lt;/span&gt;
+&lt;a name="rest_code_cfdbe67ceb09465ea8dbad5d002a80bb-2"&gt;&lt;/a&gt;$ docker container &lt;span class="nb"&gt;exec&lt;/span&gt; -it fffff_db_1 sh
 &lt;/pre&gt;&lt;/blockquote&gt;
 &lt;p&gt;2). postgres に接続する&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;pre class="code postgres"&gt;&lt;a name="rest_code_7c34fd0184f848fe90a0edbc531d5b8d-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;-- postgres に接続するその１&lt;/span&gt;
-&lt;a name="rest_code_7c34fd0184f848fe90a0edbc531d5b8d-2"&gt;&lt;/a&gt;&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;psql&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;U&lt;/span&gt; &lt;span class="n"&gt;postgres&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;h&lt;/span&gt; &lt;span class="mf"&gt;127.0.0.1&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="mf"&gt;5432&lt;/span&gt; &lt;span class="n"&gt;postgres&lt;/span&gt;
-&lt;a name="rest_code_7c34fd0184f848fe90a0edbc531d5b8d-3"&gt;&lt;/a&gt;&lt;span class="n"&gt;psql&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;11.1&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Debian&lt;/span&gt; &lt;span class="mf"&gt;11.1&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;1.&lt;/span&gt;&lt;span class="n"&gt;pgdg90&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mf"&gt;1&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-&lt;a name="rest_code_7c34fd0184f848fe90a0edbc531d5b8d-4"&gt;&lt;/a&gt;&lt;span class="k"&gt;Type&lt;/span&gt; &lt;span class="s s-Name"&gt;"help"&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;help&lt;/span&gt;&lt;span class="mf"&gt;.&lt;/span&gt;
-&lt;a name="rest_code_7c34fd0184f848fe90a0edbc531d5b8d-5"&gt;&lt;/a&gt;
-&lt;a name="rest_code_7c34fd0184f848fe90a0edbc531d5b8d-6"&gt;&lt;/a&gt;&lt;span class="n"&gt;postgres&lt;/span&gt;&lt;span class="o"&gt;=#&lt;/span&gt;
-&lt;a name="rest_code_7c34fd0184f848fe90a0edbc531d5b8d-7"&gt;&lt;/a&gt;
-&lt;a name="rest_code_7c34fd0184f848fe90a0edbc531d5b8d-8"&gt;&lt;/a&gt;&lt;span class="c1"&gt;-- postgres に接続するその２&lt;/span&gt;
-&lt;a name="rest_code_7c34fd0184f848fe90a0edbc531d5b8d-9"&gt;&lt;/a&gt;&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;psql&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="n"&gt;postgres&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;U&lt;/span&gt;  &lt;span class="n"&gt;postgres&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;W&lt;/span&gt;
-&lt;a name="rest_code_7c34fd0184f848fe90a0edbc531d5b8d-10"&gt;&lt;/a&gt;&lt;span class="k"&gt;Password&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-&lt;a name="rest_code_7c34fd0184f848fe90a0edbc531d5b8d-11"&gt;&lt;/a&gt;&lt;span class="n"&gt;psql&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;11.1&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Debian&lt;/span&gt; &lt;span class="mf"&gt;11.1&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;1.&lt;/span&gt;&lt;span class="n"&gt;pgdg90&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mf"&gt;1&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-&lt;a name="rest_code_7c34fd0184f848fe90a0edbc531d5b8d-12"&gt;&lt;/a&gt;&lt;span class="k"&gt;Type&lt;/span&gt; &lt;span class="s s-Name"&gt;"help"&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;help&lt;/span&gt;&lt;span class="mf"&gt;.&lt;/span&gt;
-&lt;a name="rest_code_7c34fd0184f848fe90a0edbc531d5b8d-13"&gt;&lt;/a&gt;
-&lt;a name="rest_code_7c34fd0184f848fe90a0edbc531d5b8d-14"&gt;&lt;/a&gt;&lt;span class="n"&gt;postgres&lt;/span&gt;&lt;span class="o"&gt;=#&lt;/span&gt;
+&lt;pre class="code postgres"&gt;&lt;a name="rest_code_ca7caac70a26478ca9c652815b299889-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;-- postgres に接続するその１&lt;/span&gt;
+&lt;a name="rest_code_ca7caac70a26478ca9c652815b299889-2"&gt;&lt;/a&gt;&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;psql&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;U&lt;/span&gt; &lt;span class="n"&gt;postgres&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;h&lt;/span&gt; &lt;span class="mf"&gt;127.0.0.1&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="mf"&gt;5432&lt;/span&gt; &lt;span class="n"&gt;postgres&lt;/span&gt;
+&lt;a name="rest_code_ca7caac70a26478ca9c652815b299889-3"&gt;&lt;/a&gt;&lt;span class="n"&gt;psql&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;11.1&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Debian&lt;/span&gt; &lt;span class="mf"&gt;11.1&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;1.&lt;/span&gt;&lt;span class="n"&gt;pgdg90&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mf"&gt;1&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;a name="rest_code_ca7caac70a26478ca9c652815b299889-4"&gt;&lt;/a&gt;&lt;span class="k"&gt;Type&lt;/span&gt; &lt;span class="s s-Name"&gt;"help"&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;help&lt;/span&gt;&lt;span class="mf"&gt;.&lt;/span&gt;
+&lt;a name="rest_code_ca7caac70a26478ca9c652815b299889-5"&gt;&lt;/a&gt;
+&lt;a name="rest_code_ca7caac70a26478ca9c652815b299889-6"&gt;&lt;/a&gt;&lt;span class="n"&gt;postgres&lt;/span&gt;&lt;span class="o"&gt;=#&lt;/span&gt;
+&lt;a name="rest_code_ca7caac70a26478ca9c652815b299889-7"&gt;&lt;/a&gt;
+&lt;a name="rest_code_ca7caac70a26478ca9c652815b299889-8"&gt;&lt;/a&gt;&lt;span class="c1"&gt;-- postgres に接続するその２&lt;/span&gt;
+&lt;a name="rest_code_ca7caac70a26478ca9c652815b299889-9"&gt;&lt;/a&gt;&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;psql&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="n"&gt;postgres&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;U&lt;/span&gt;  &lt;span class="n"&gt;postgres&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;W&lt;/span&gt;
+&lt;a name="rest_code_ca7caac70a26478ca9c652815b299889-10"&gt;&lt;/a&gt;&lt;span class="k"&gt;Password&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;a name="rest_code_ca7caac70a26478ca9c652815b299889-11"&gt;&lt;/a&gt;&lt;span class="n"&gt;psql&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;11.1&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Debian&lt;/span&gt; &lt;span class="mf"&gt;11.1&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;1.&lt;/span&gt;&lt;span class="n"&gt;pgdg90&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mf"&gt;1&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;a name="rest_code_ca7caac70a26478ca9c652815b299889-12"&gt;&lt;/a&gt;&lt;span class="k"&gt;Type&lt;/span&gt; &lt;span class="s s-Name"&gt;"help"&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;help&lt;/span&gt;&lt;span class="mf"&gt;.&lt;/span&gt;
+&lt;a name="rest_code_ca7caac70a26478ca9c652815b299889-13"&gt;&lt;/a&gt;
+&lt;a name="rest_code_ca7caac70a26478ca9c652815b299889-14"&gt;&lt;/a&gt;&lt;span class="n"&gt;postgres&lt;/span&gt;&lt;span class="o"&gt;=#&lt;/span&gt;
 &lt;/pre&gt;&lt;/blockquote&gt;
 &lt;p&gt;3). テーブルを作成し、データを挿入する&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;pre class="code postgres"&gt;&lt;a name="rest_code_c01bffc9fd444f29b1d3c80539498c9c-1"&gt;&lt;/a&gt;&lt;span class="k"&gt;CREATE&lt;/span&gt; &lt;span class="k"&gt;TABLE&lt;/span&gt; &lt;span class="n"&gt;fruits&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
-&lt;a name="rest_code_c01bffc9fd444f29b1d3c80539498c9c-2"&gt;&lt;/a&gt;   &lt;span class="n"&gt;id&lt;/span&gt; &lt;span class="nb"&gt;SERIAL&lt;/span&gt; &lt;span class="k"&gt;PRIMARY&lt;/span&gt; &lt;span class="k"&gt;KEY&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;a name="rest_code_c01bffc9fd444f29b1d3c80539498c9c-3"&gt;&lt;/a&gt;   &lt;span class="k"&gt;name&lt;/span&gt; &lt;span class="nb"&gt;VARCHAR&lt;/span&gt; &lt;span class="k"&gt;NOT&lt;/span&gt; &lt;span class="k"&gt;NULL&lt;/span&gt;
-&lt;a name="rest_code_c01bffc9fd444f29b1d3c80539498c9c-4"&gt;&lt;/a&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-&lt;a name="rest_code_c01bffc9fd444f29b1d3c80539498c9c-5"&gt;&lt;/a&gt;&lt;span class="k"&gt;INSERT&lt;/span&gt; &lt;span class="k"&gt;INTO&lt;/span&gt; &lt;span class="n"&gt;fruits&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;name&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;VALUES&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'orange'&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-&lt;a name="rest_code_c01bffc9fd444f29b1d3c80539498c9c-6"&gt;&lt;/a&gt;&lt;span class="k"&gt;INSERT&lt;/span&gt; &lt;span class="k"&gt;INTO&lt;/span&gt; &lt;span class="n"&gt;fruits&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;id&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="k"&gt;name&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;VALUES&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;DEFAULT&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;'apple'&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-&lt;a name="rest_code_c01bffc9fd444f29b1d3c80539498c9c-7"&gt;&lt;/a&gt;
-&lt;a name="rest_code_c01bffc9fd444f29b1d3c80539498c9c-8"&gt;&lt;/a&gt;&lt;span class="n"&gt;postgres&lt;/span&gt;&lt;span class="o"&gt;=#&lt;/span&gt; &lt;span class="err"&gt;\&lt;/span&gt;&lt;span class="n"&gt;q&lt;/span&gt;
+&lt;pre class="code postgres"&gt;&lt;a name="rest_code_41bdad0578664f6c83917ec24c1bf7fe-1"&gt;&lt;/a&gt;&lt;span class="k"&gt;CREATE&lt;/span&gt; &lt;span class="k"&gt;TABLE&lt;/span&gt; &lt;span class="n"&gt;fruits&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+&lt;a name="rest_code_41bdad0578664f6c83917ec24c1bf7fe-2"&gt;&lt;/a&gt;   &lt;span class="n"&gt;id&lt;/span&gt; &lt;span class="nb"&gt;SERIAL&lt;/span&gt; &lt;span class="k"&gt;PRIMARY&lt;/span&gt; &lt;span class="k"&gt;KEY&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;a name="rest_code_41bdad0578664f6c83917ec24c1bf7fe-3"&gt;&lt;/a&gt;   &lt;span class="k"&gt;name&lt;/span&gt; &lt;span class="nb"&gt;VARCHAR&lt;/span&gt; &lt;span class="k"&gt;NOT&lt;/span&gt; &lt;span class="k"&gt;NULL&lt;/span&gt;
+&lt;a name="rest_code_41bdad0578664f6c83917ec24c1bf7fe-4"&gt;&lt;/a&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;a name="rest_code_41bdad0578664f6c83917ec24c1bf7fe-5"&gt;&lt;/a&gt;&lt;span class="k"&gt;INSERT&lt;/span&gt; &lt;span class="k"&gt;INTO&lt;/span&gt; &lt;span class="n"&gt;fruits&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;name&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;VALUES&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'orange'&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;a name="rest_code_41bdad0578664f6c83917ec24c1bf7fe-6"&gt;&lt;/a&gt;&lt;span class="k"&gt;INSERT&lt;/span&gt; &lt;span class="k"&gt;INTO&lt;/span&gt; &lt;span class="n"&gt;fruits&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;id&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="k"&gt;name&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;VALUES&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;DEFAULT&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;'apple'&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;a name="rest_code_41bdad0578664f6c83917ec24c1bf7fe-7"&gt;&lt;/a&gt;
+&lt;a name="rest_code_41bdad0578664f6c83917ec24c1bf7fe-8"&gt;&lt;/a&gt;&lt;span class="n"&gt;postgres&lt;/span&gt;&lt;span class="o"&gt;=#&lt;/span&gt; &lt;span class="err"&gt;\&lt;/span&gt;&lt;span class="n"&gt;q&lt;/span&gt;
 &lt;/pre&gt;&lt;/blockquote&gt;
 &lt;/div&gt;
 &lt;div class="section" id="shutdown"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/use-volumes-with-docker-compose/#id11"&gt;6. 安全に shutdown する&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;コンテナは停止・削除される。&lt;/p&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_a64324cddfb64da0b41efed98825b96b-1"&gt;&lt;/a&gt;$ docker-compose down
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_0bf906f4f10b49fb9deb4ed8b157c8a0-1"&gt;&lt;/a&gt;$ docker-compose down
 &lt;/pre&gt;&lt;/div&gt;
 &lt;div class="section" id="docker-compose-up"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/use-volumes-with-docker-compose/#id12"&gt;7. 再度 &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;docker-compose&lt;/span&gt; up&lt;/tt&gt; して、先ほど登録したテーブル &amp;amp; データを見てみる&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;先ほど作成したテーブルとデータがありました。&lt;/p&gt;
-&lt;pre class="code console"&gt;&lt;a name="rest_code_dbee4f3e14e9489995e05db421c120c0-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; docker-compose up
-&lt;a name="rest_code_dbee4f3e14e9489995e05db421c120c0-2"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; docker container &lt;span class="nb"&gt;exec&lt;/span&gt; -it fffff_db_1 sh
-&lt;/pre&gt;&lt;pre class="code postgres"&gt;&lt;a name="rest_code_fa183fe2512e41e6a0374064c1ee6654-1"&gt;&lt;/a&gt;&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;psql&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;U&lt;/span&gt; &lt;span class="n"&gt;postgres&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;h&lt;/span&gt; &lt;span class="mf"&gt;127.0.0.1&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="mf"&gt;5432&lt;/span&gt; &lt;span class="n"&gt;postgres&lt;/span&gt;
-&lt;a name="rest_code_fa183fe2512e41e6a0374064c1ee6654-2"&gt;&lt;/a&gt;&lt;span class="n"&gt;psql&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;11.1&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Debian&lt;/span&gt; &lt;span class="mf"&gt;11.1&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;1.&lt;/span&gt;&lt;span class="n"&gt;pgdg90&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mf"&gt;1&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;
-&lt;a name="rest_code_fa183fe2512e41e6a0374064c1ee6654-3"&gt;&lt;/a&gt;&lt;span class="k"&gt;Type&lt;/span&gt; &lt;span class="s s-Name"&gt;"help"&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;help&lt;/span&gt;&lt;span class="mf"&gt;.&lt;/span&gt;
-&lt;a name="rest_code_fa183fe2512e41e6a0374064c1ee6654-4"&gt;&lt;/a&gt;
-&lt;a name="rest_code_fa183fe2512e41e6a0374064c1ee6654-5"&gt;&lt;/a&gt;&lt;span class="n"&gt;postgres&lt;/span&gt;&lt;span class="o"&gt;=#&lt;/span&gt; &lt;span class="err"&gt;\&lt;/span&gt;&lt;span class="n"&gt;dt&lt;/span&gt;
-&lt;a name="rest_code_fa183fe2512e41e6a0374064c1ee6654-6"&gt;&lt;/a&gt;         &lt;span class="n"&gt;List&lt;/span&gt; &lt;span class="k"&gt;of&lt;/span&gt; &lt;span class="n"&gt;relations&lt;/span&gt;
-&lt;a name="rest_code_fa183fe2512e41e6a0374064c1ee6654-7"&gt;&lt;/a&gt; &lt;span class="k"&gt;Schema&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt;  &lt;span class="k"&gt;Name&lt;/span&gt;  &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="k"&gt;Type&lt;/span&gt;  &lt;span class="o"&gt;|&lt;/span&gt;  &lt;span class="k"&gt;Owner&lt;/span&gt;
-&lt;a name="rest_code_fa183fe2512e41e6a0374064c1ee6654-8"&gt;&lt;/a&gt;&lt;span class="c1"&gt;--------+--------+-------+----------&lt;/span&gt;
-&lt;a name="rest_code_fa183fe2512e41e6a0374064c1ee6654-9"&gt;&lt;/a&gt; &lt;span class="n"&gt;public&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;fruits&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="k"&gt;table&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;postgres&lt;/span&gt;
-&lt;a name="rest_code_fa183fe2512e41e6a0374064c1ee6654-10"&gt;&lt;/a&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;1&lt;/span&gt; &lt;span class="k"&gt;row&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;a name="rest_code_fa183fe2512e41e6a0374064c1ee6654-11"&gt;&lt;/a&gt;
-&lt;a name="rest_code_fa183fe2512e41e6a0374064c1ee6654-12"&gt;&lt;/a&gt;&lt;span class="n"&gt;postgres&lt;/span&gt;&lt;span class="o"&gt;=#&lt;/span&gt; &lt;span class="k"&gt;SELECT&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="k"&gt;FROM&lt;/span&gt; &lt;span class="n"&gt;fruits&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;a name="rest_code_fa183fe2512e41e6a0374064c1ee6654-13"&gt;&lt;/a&gt; &lt;span class="n"&gt;id&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt;  &lt;span class="k"&gt;name&lt;/span&gt;
-&lt;a name="rest_code_fa183fe2512e41e6a0374064c1ee6654-14"&gt;&lt;/a&gt;&lt;span class="c1"&gt;----+--------&lt;/span&gt;
-&lt;a name="rest_code_fa183fe2512e41e6a0374064c1ee6654-15"&gt;&lt;/a&gt;  &lt;span class="mf"&gt;1&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;orange&lt;/span&gt;
-&lt;a name="rest_code_fa183fe2512e41e6a0374064c1ee6654-16"&gt;&lt;/a&gt;  &lt;span class="mf"&gt;2&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;apple&lt;/span&gt;
-&lt;a name="rest_code_fa183fe2512e41e6a0374064c1ee6654-17"&gt;&lt;/a&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;2&lt;/span&gt; &lt;span class="k"&gt;rows&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;pre class="code console"&gt;&lt;a name="rest_code_a5727e014de644f29429aa631406df3a-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; docker-compose up
+&lt;a name="rest_code_a5727e014de644f29429aa631406df3a-2"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; docker container &lt;span class="nb"&gt;exec&lt;/span&gt; -it fffff_db_1 sh
+&lt;/pre&gt;&lt;pre class="code postgres"&gt;&lt;a name="rest_code_9873b7b5392f46ee9869459be5465b8e-1"&gt;&lt;/a&gt;&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;psql&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;U&lt;/span&gt; &lt;span class="n"&gt;postgres&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;h&lt;/span&gt; &lt;span class="mf"&gt;127.0.0.1&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="mf"&gt;5432&lt;/span&gt; &lt;span class="n"&gt;postgres&lt;/span&gt;
+&lt;a name="rest_code_9873b7b5392f46ee9869459be5465b8e-2"&gt;&lt;/a&gt;&lt;span class="n"&gt;psql&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;11.1&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Debian&lt;/span&gt; &lt;span class="mf"&gt;11.1&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;1.&lt;/span&gt;&lt;span class="n"&gt;pgdg90&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mf"&gt;1&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;
+&lt;a name="rest_code_9873b7b5392f46ee9869459be5465b8e-3"&gt;&lt;/a&gt;&lt;span class="k"&gt;Type&lt;/span&gt; &lt;span class="s s-Name"&gt;"help"&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;help&lt;/span&gt;&lt;span class="mf"&gt;.&lt;/span&gt;
+&lt;a name="rest_code_9873b7b5392f46ee9869459be5465b8e-4"&gt;&lt;/a&gt;
+&lt;a name="rest_code_9873b7b5392f46ee9869459be5465b8e-5"&gt;&lt;/a&gt;&lt;span class="n"&gt;postgres&lt;/span&gt;&lt;span class="o"&gt;=#&lt;/span&gt; &lt;span class="err"&gt;\&lt;/span&gt;&lt;span class="n"&gt;dt&lt;/span&gt;
+&lt;a name="rest_code_9873b7b5392f46ee9869459be5465b8e-6"&gt;&lt;/a&gt;         &lt;span class="n"&gt;List&lt;/span&gt; &lt;span class="k"&gt;of&lt;/span&gt; &lt;span class="n"&gt;relations&lt;/span&gt;
+&lt;a name="rest_code_9873b7b5392f46ee9869459be5465b8e-7"&gt;&lt;/a&gt; &lt;span class="k"&gt;Schema&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt;  &lt;span class="k"&gt;Name&lt;/span&gt;  &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="k"&gt;Type&lt;/span&gt;  &lt;span class="o"&gt;|&lt;/span&gt;  &lt;span class="k"&gt;Owner&lt;/span&gt;
+&lt;a name="rest_code_9873b7b5392f46ee9869459be5465b8e-8"&gt;&lt;/a&gt;&lt;span class="c1"&gt;--------+--------+-------+----------&lt;/span&gt;
+&lt;a name="rest_code_9873b7b5392f46ee9869459be5465b8e-9"&gt;&lt;/a&gt; &lt;span class="n"&gt;public&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;fruits&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="k"&gt;table&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;postgres&lt;/span&gt;
+&lt;a name="rest_code_9873b7b5392f46ee9869459be5465b8e-10"&gt;&lt;/a&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;1&lt;/span&gt; &lt;span class="k"&gt;row&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_9873b7b5392f46ee9869459be5465b8e-11"&gt;&lt;/a&gt;
+&lt;a name="rest_code_9873b7b5392f46ee9869459be5465b8e-12"&gt;&lt;/a&gt;&lt;span class="n"&gt;postgres&lt;/span&gt;&lt;span class="o"&gt;=#&lt;/span&gt; &lt;span class="k"&gt;SELECT&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="k"&gt;FROM&lt;/span&gt; &lt;span class="n"&gt;fruits&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;a name="rest_code_9873b7b5392f46ee9869459be5465b8e-13"&gt;&lt;/a&gt; &lt;span class="n"&gt;id&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt;  &lt;span class="k"&gt;name&lt;/span&gt;
+&lt;a name="rest_code_9873b7b5392f46ee9869459be5465b8e-14"&gt;&lt;/a&gt;&lt;span class="c1"&gt;----+--------&lt;/span&gt;
+&lt;a name="rest_code_9873b7b5392f46ee9869459be5465b8e-15"&gt;&lt;/a&gt;  &lt;span class="mf"&gt;1&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;orange&lt;/span&gt;
+&lt;a name="rest_code_9873b7b5392f46ee9869459be5465b8e-16"&gt;&lt;/a&gt;  &lt;span class="mf"&gt;2&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;apple&lt;/span&gt;
+&lt;a name="rest_code_9873b7b5392f46ee9869459be5465b8e-17"&gt;&lt;/a&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;2&lt;/span&gt; &lt;span class="k"&gt;rows&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;&lt;/div&gt;</description><category>docker</category><guid>https://32imuf.com/docker/use-volumes-with-docker-compose/</guid><pubDate>Sat, 01 Dec 2018 15:00:00 GMT</pubDate></item><item><title>Docker Compose で Django/PostgreSQL 環境をつくる</title><link>https://32imuf.com/docker/create-django-env-with-docker-compose-psql/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;p&gt;&lt;/p&gt;
 &lt;details&gt;
@@ -2149,230 +2151,240 @@ fufu_db exited with code &lt;span class="m"&gt;1&lt;/span&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id4"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/create-django-env-with-docker-compose-psql/#id8"&gt;インストール&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;&lt;a class="reference external" href="https://docs.docker.com/docker-for-mac/install/"&gt;https://docs.docker.com/docker-for-mac/install/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://docs.docker.com/docker-for-mac/install/"&gt;Install Docker Desktop for Mac&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id5"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/create-django-env-with-docker-compose-psql/#id9"&gt;つくりかた&lt;/a&gt;&lt;/h2&gt;
 &lt;ol class="arabic"&gt;
 &lt;li&gt;&lt;p class="first"&gt;&lt;tt class="docutils literal"&gt;Dockerfile&lt;/tt&gt; を準備する。&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;pre class="code docker"&gt;&lt;a name="rest_code_f08413f3b52247c2a9eeec26cab3221a-1"&gt;&lt;/a&gt;&lt;span class="c"&gt;# ベースイメージ&lt;/span&gt;
-&lt;a name="rest_code_f08413f3b52247c2a9eeec26cab3221a-2"&gt;&lt;/a&gt;&lt;span class="k"&gt;FROM&lt;/span&gt;&lt;span class="s"&gt; python:3&lt;/span&gt;
-&lt;a name="rest_code_f08413f3b52247c2a9eeec26cab3221a-3"&gt;&lt;/a&gt;&lt;span class="c"&gt;# Docker コンテナ内で使える環境変数を指定&lt;/span&gt;
-&lt;a name="rest_code_f08413f3b52247c2a9eeec26cab3221a-4"&gt;&lt;/a&gt;&lt;span class="k"&gt;ENV&lt;/span&gt; PYTHONUNBUFFERED &lt;span class="m"&gt;1&lt;/span&gt;
-&lt;a name="rest_code_f08413f3b52247c2a9eeec26cab3221a-5"&gt;&lt;/a&gt;&lt;span class="c"&gt;# イメージビルド時に mkdir /code する&lt;/span&gt;
-&lt;a name="rest_code_f08413f3b52247c2a9eeec26cab3221a-6"&gt;&lt;/a&gt;&lt;span class="k"&gt;RUN&lt;/span&gt; mkdir /code
-&lt;a name="rest_code_f08413f3b52247c2a9eeec26cab3221a-7"&gt;&lt;/a&gt;&lt;span class="c"&gt;# この後の指令は /code で実行する&lt;/span&gt;
-&lt;a name="rest_code_f08413f3b52247c2a9eeec26cab3221a-8"&gt;&lt;/a&gt;&lt;span class="k"&gt;WORKDIR&lt;/span&gt;&lt;span class="s"&gt; /code&lt;/span&gt;
-&lt;a name="rest_code_f08413f3b52247c2a9eeec26cab3221a-9"&gt;&lt;/a&gt;&lt;span class="c"&gt;# requirements.txt をイメージ内の /code/ ディレクトリにコピーする&lt;/span&gt;
-&lt;a name="rest_code_f08413f3b52247c2a9eeec26cab3221a-10"&gt;&lt;/a&gt;&lt;span class="k"&gt;ADD&lt;/span&gt; requirements.txt /code/
-&lt;a name="rest_code_f08413f3b52247c2a9eeec26cab3221a-11"&gt;&lt;/a&gt;&lt;span class="c"&gt;# イメージビルド時に requirements.txt から pip install する&lt;/span&gt;
-&lt;a name="rest_code_f08413f3b52247c2a9eeec26cab3221a-12"&gt;&lt;/a&gt;&lt;span class="k"&gt;RUN&lt;/span&gt; pip install -r requirements.txt
-&lt;a name="rest_code_f08413f3b52247c2a9eeec26cab3221a-13"&gt;&lt;/a&gt;&lt;span class="c"&gt;# カレントディレクトリ配下を /code 配下にコピーする&lt;/span&gt;
-&lt;a name="rest_code_f08413f3b52247c2a9eeec26cab3221a-14"&gt;&lt;/a&gt;&lt;span class="k"&gt;ADD&lt;/span&gt; . /code/
-&lt;/pre&gt;&lt;/blockquote&gt;
+&lt;p&gt;&lt;/p&gt;&lt;div class="code-block "&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c"&gt;# ベースイメージ&lt;/span&gt;
+&lt;span class="k"&gt;FROM&lt;/span&gt;&lt;span class="s"&gt; python:3&lt;/span&gt;
+&lt;span class="c"&gt;# Docker コンテナ内で使える環境変数を指定&lt;/span&gt;
+&lt;span class="k"&gt;ENV&lt;/span&gt; PYTHONUNBUFFERED &lt;span class="m"&gt;1&lt;/span&gt;
+&lt;span class="c"&gt;# イメージビルド時に mkdir /code する&lt;/span&gt;
+&lt;span class="k"&gt;RUN&lt;/span&gt; mkdir /code
+&lt;span class="c"&gt;# この後の指令は /code で実行する&lt;/span&gt;
+&lt;span class="k"&gt;WORKDIR&lt;/span&gt;&lt;span class="s"&gt; /code&lt;/span&gt;
+&lt;span class="c"&gt;# requirements.txt をイメージ内の /code/ ディレクトリにコピーする&lt;/span&gt;
+&lt;span class="k"&gt;ADD&lt;/span&gt; requirements.txt /code/
+&lt;span class="c"&gt;# イメージビルド時に requirements.txt から pip install する&lt;/span&gt;
+&lt;span class="k"&gt;RUN&lt;/span&gt; pip install -r requirements.txt
+&lt;span class="c"&gt;# カレントディレクトリ配下を /code 配下にコピーする&lt;/span&gt;
+&lt;span class="k"&gt;ADD&lt;/span&gt; . /code/
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p class="first"&gt;&lt;tt class="docutils literal"&gt;requirements.txt&lt;/tt&gt; を準備する。&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;pre class="code python"&gt;&lt;a name="rest_code_e64fae7f4a8942ae95447e176e56473c-1"&gt;&lt;/a&gt;&lt;span class="n"&gt;Django&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;=&lt;/span&gt;&lt;span class="mf"&gt;1.8&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="mf"&gt;2.0&lt;/span&gt;
-&lt;a name="rest_code_e64fae7f4a8942ae95447e176e56473c-2"&gt;&lt;/a&gt;&lt;span class="n"&gt;psycopg2&lt;/span&gt;
-&lt;a name="rest_code_e64fae7f4a8942ae95447e176e56473c-3"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# psycopg2: Python-PostgreSQL Database Adapter https://pypi.org/project/psycopg2/&lt;/span&gt;
-&lt;/pre&gt;&lt;/blockquote&gt;
+&lt;p&gt;&lt;/p&gt;&lt;div class="code-block "&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;Django&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;=&lt;/span&gt;&lt;span class="mf"&gt;1.8&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="mf"&gt;2.0&lt;/span&gt;
+&lt;span class="n"&gt;psycopg2&lt;/span&gt;
+&lt;span class="c1"&gt;# psycopg2: Python-PostgreSQL Database Adapter https://pypi.org/project/psycopg2/&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p class="first"&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;docker-compose.yml&lt;/span&gt;&lt;/tt&gt; を準備する。&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;pre class="code yaml"&gt;&lt;a name="rest_code_67a80acaa6ed4ef596cc2423bea46db7-1"&gt;&lt;/a&gt;&lt;span class="nt"&gt;version&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;'3'&lt;/span&gt;
-&lt;a name="rest_code_67a80acaa6ed4ef596cc2423bea46db7-2"&gt;&lt;/a&gt;
-&lt;a name="rest_code_67a80acaa6ed4ef596cc2423bea46db7-3"&gt;&lt;/a&gt;&lt;span class="nt"&gt;services&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-&lt;a name="rest_code_67a80acaa6ed4ef596cc2423bea46db7-4"&gt;&lt;/a&gt;  &lt;span class="nt"&gt;db&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-&lt;a name="rest_code_67a80acaa6ed4ef596cc2423bea46db7-5"&gt;&lt;/a&gt;    &lt;span class="nt"&gt;image&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;postgres&lt;/span&gt;
-&lt;a name="rest_code_67a80acaa6ed4ef596cc2423bea46db7-6"&gt;&lt;/a&gt;  &lt;span class="nt"&gt;web&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-&lt;a name="rest_code_67a80acaa6ed4ef596cc2423bea46db7-7"&gt;&lt;/a&gt;    &lt;span class="c1"&gt;# Dockerfile が存在するディレクトリの相対パスを指定する&lt;/span&gt;
-&lt;a name="rest_code_67a80acaa6ed4ef596cc2423bea46db7-8"&gt;&lt;/a&gt;    &lt;span class="nt"&gt;build&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;.&lt;/span&gt;
-&lt;a name="rest_code_67a80acaa6ed4ef596cc2423bea46db7-9"&gt;&lt;/a&gt;    &lt;span class="c1"&gt;# コンテナ実行時に実行するコマンド&lt;/span&gt;
-&lt;a name="rest_code_67a80acaa6ed4ef596cc2423bea46db7-10"&gt;&lt;/a&gt;    &lt;span class="nt"&gt;command&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;python3 manage.py runserver 0.0.0.0:8000&lt;/span&gt;
-&lt;a name="rest_code_67a80acaa6ed4ef596cc2423bea46db7-11"&gt;&lt;/a&gt;    &lt;span class="c1"&gt;# コンテナの /code を、ホストのカレントディレクトリにマウントする&lt;/span&gt;
-&lt;a name="rest_code_67a80acaa6ed4ef596cc2423bea46db7-12"&gt;&lt;/a&gt;    &lt;span class="nt"&gt;volumes&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-&lt;a name="rest_code_67a80acaa6ed4ef596cc2423bea46db7-13"&gt;&lt;/a&gt;      &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;.:/code&lt;/span&gt;
-&lt;a name="rest_code_67a80acaa6ed4ef596cc2423bea46db7-14"&gt;&lt;/a&gt;    &lt;span class="c1"&gt;# ポートフォワーディング&lt;/span&gt;
-&lt;a name="rest_code_67a80acaa6ed4ef596cc2423bea46db7-15"&gt;&lt;/a&gt;    &lt;span class="nt"&gt;ports&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-&lt;a name="rest_code_67a80acaa6ed4ef596cc2423bea46db7-16"&gt;&lt;/a&gt;      &lt;span class="c1"&gt;# ホストのポート:コンテナのポート&lt;/span&gt;
-&lt;a name="rest_code_67a80acaa6ed4ef596cc2423bea46db7-17"&gt;&lt;/a&gt;      &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="s"&gt;"3236:8000"&lt;/span&gt;
-&lt;a name="rest_code_67a80acaa6ed4ef596cc2423bea46db7-18"&gt;&lt;/a&gt;    &lt;span class="c1"&gt;# 依存するものをここに書く。docker-compose up 時に、 web の前に db をスタートしてくれる。&lt;/span&gt;
-&lt;a name="rest_code_67a80acaa6ed4ef596cc2423bea46db7-19"&gt;&lt;/a&gt;    &lt;span class="nt"&gt;depends_on&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-&lt;a name="rest_code_67a80acaa6ed4ef596cc2423bea46db7-20"&gt;&lt;/a&gt;      &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;db&lt;/span&gt;
-&lt;/pre&gt;&lt;/blockquote&gt;
+&lt;p&gt;&lt;/p&gt;&lt;div class="code-block "&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nt"&gt;version&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;'3'&lt;/span&gt;
+
+&lt;span class="nt"&gt;services&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+  &lt;span class="nt"&gt;db&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="nt"&gt;image&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;postgres&lt;/span&gt;
+  &lt;span class="nt"&gt;web&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="c1"&gt;# Dockerfile が存在するディレクトリの相対パスを指定する&lt;/span&gt;
+    &lt;span class="nt"&gt;build&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;.&lt;/span&gt;
+    &lt;span class="c1"&gt;# コンテナ実行時に実行するコマンド&lt;/span&gt;
+    &lt;span class="nt"&gt;command&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;python3 manage.py runserver 0.0.0.0:8000&lt;/span&gt;
+    &lt;span class="c1"&gt;# コンテナの /code を、ホストのカレントディレクトリにマウントする&lt;/span&gt;
+    &lt;span class="nt"&gt;volumes&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+      &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;.:/code&lt;/span&gt;
+    &lt;span class="c1"&gt;# ポートフォワーディング&lt;/span&gt;
+    &lt;span class="nt"&gt;ports&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+      &lt;span class="c1"&gt;# ホストのポート:コンテナのポート&lt;/span&gt;
+      &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="s"&gt;"3236:8000"&lt;/span&gt;
+    &lt;span class="c1"&gt;# 依存するものをここに書く。docker-compose up 時に、 web の前に db をスタートしてくれる。&lt;/span&gt;
+    &lt;span class="nt"&gt;depends_on&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+      &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;db&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/blockquote&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p class="first"&gt;Docker イメージをビルドする&lt;/p&gt;
+&lt;li&gt;&lt;p class="first"&gt;startproject する (Docker イメージビルドもされる)&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_43c6f0df097746bba956a7e96ff3d1cf-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# docker-compose.yml に指定したとおり、カレントディレクトリの Dockerfile から `web` のイメージをビルド&lt;/span&gt;
-&lt;a name="rest_code_43c6f0df097746bba956a7e96ff3d1cf-2"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# `web` の中で django-admin.py startproject fff を実行する&lt;/span&gt;
-&lt;a name="rest_code_43c6f0df097746bba956a7e96ff3d1cf-3"&gt;&lt;/a&gt;$ sudo docker-compose run web django-admin.py startproject fff .
-&lt;a name="rest_code_43c6f0df097746bba956a7e96ff3d1cf-4"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# mac のパスワードを入力する&lt;/span&gt;
-&lt;a name="rest_code_43c6f0df097746bba956a7e96ff3d1cf-5"&gt;&lt;/a&gt;Password:
-&lt;a name="rest_code_43c6f0df097746bba956a7e96ff3d1cf-6"&gt;&lt;/a&gt;Creating network &lt;span class="s2"&gt;"fff_default"&lt;/span&gt; with the default driver
-&lt;a name="rest_code_43c6f0df097746bba956a7e96ff3d1cf-7"&gt;&lt;/a&gt;Pulling db &lt;span class="o"&gt;(&lt;/span&gt;postgres:&lt;span class="o"&gt;)&lt;/span&gt;...
-&lt;a name="rest_code_43c6f0df097746bba956a7e96ff3d1cf-8"&gt;&lt;/a&gt;latest: Pulling from library/postgres
-&lt;a name="rest_code_43c6f0df097746bba956a7e96ff3d1cf-9"&gt;&lt;/a&gt;a5a6f2f73cd8: Already exists
-&lt;a name="rest_code_43c6f0df097746bba956a7e96ff3d1cf-10"&gt;&lt;/a&gt;e50fbea8af5a: Pulling fs layer
-&lt;a name="rest_code_43c6f0df097746bba956a7e96ff3d1cf-11"&gt;&lt;/a&gt;73b4855ad326: Pulling fs layer
-&lt;a name="rest_code_43c6f0df097746bba956a7e96ff3d1cf-12"&gt;&lt;/a&gt;39616673f22b: Pulling fs layer
-&lt;a name="rest_code_43c6f0df097746bba956a7e96ff3d1cf-13"&gt;&lt;/a&gt;94e1b79f69ee: Pull &lt;span class="nb"&gt;complete&lt;/span&gt;
-&lt;a name="rest_code_43c6f0df097746bba956a7e96ff3d1cf-14"&gt;&lt;/a&gt;c91e4af2ff8e: Pull &lt;span class="nb"&gt;complete&lt;/span&gt;
-&lt;a name="rest_code_43c6f0df097746bba956a7e96ff3d1cf-15"&gt;&lt;/a&gt;16ba314c612f: Pull &lt;span class="nb"&gt;complete&lt;/span&gt;
-&lt;a name="rest_code_43c6f0df097746bba956a7e96ff3d1cf-16"&gt;&lt;/a&gt;89011a174cee: Pull &lt;span class="nb"&gt;complete&lt;/span&gt;
-&lt;a name="rest_code_43c6f0df097746bba956a7e96ff3d1cf-17"&gt;&lt;/a&gt;d82b02de73e7: Pull &lt;span class="nb"&gt;complete&lt;/span&gt;
-&lt;a name="rest_code_43c6f0df097746bba956a7e96ff3d1cf-18"&gt;&lt;/a&gt;e3026dc5acbe: Pull &lt;span class="nb"&gt;complete&lt;/span&gt;
-&lt;a name="rest_code_43c6f0df097746bba956a7e96ff3d1cf-19"&gt;&lt;/a&gt;225d0988f8bb: Pull &lt;span class="nb"&gt;complete&lt;/span&gt;
-&lt;a name="rest_code_43c6f0df097746bba956a7e96ff3d1cf-20"&gt;&lt;/a&gt;89efa60266d6: Pull &lt;span class="nb"&gt;complete&lt;/span&gt;
-&lt;a name="rest_code_43c6f0df097746bba956a7e96ff3d1cf-21"&gt;&lt;/a&gt;64e6167259ce: Pull &lt;span class="nb"&gt;complete&lt;/span&gt;
-&lt;a name="rest_code_43c6f0df097746bba956a7e96ff3d1cf-22"&gt;&lt;/a&gt;8f44f8f48bbe: Pull &lt;span class="nb"&gt;complete&lt;/span&gt;
-&lt;a name="rest_code_43c6f0df097746bba956a7e96ff3d1cf-23"&gt;&lt;/a&gt;Digest: sha256:40b48cf04185e69c5a9183a986fcbbfd105e5991a70b1980e9a641b53ba5ead7
-&lt;a name="rest_code_43c6f0df097746bba956a7e96ff3d1cf-24"&gt;&lt;/a&gt;Status: Downloaded newer image &lt;span class="k"&gt;for&lt;/span&gt; postgres:latest
-&lt;a name="rest_code_43c6f0df097746bba956a7e96ff3d1cf-25"&gt;&lt;/a&gt;Creating fff_db_1 ... &lt;span class="k"&gt;done&lt;/span&gt;
-&lt;a name="rest_code_43c6f0df097746bba956a7e96ff3d1cf-26"&gt;&lt;/a&gt;Building web
-&lt;a name="rest_code_43c6f0df097746bba956a7e96ff3d1cf-27"&gt;&lt;/a&gt;Step &lt;span class="m"&gt;1&lt;/span&gt;/7 : FROM python:3
-&lt;a name="rest_code_43c6f0df097746bba956a7e96ff3d1cf-28"&gt;&lt;/a&gt;&lt;span class="m"&gt;3&lt;/span&gt;: Pulling from library/python
-&lt;a name="rest_code_43c6f0df097746bba956a7e96ff3d1cf-29"&gt;&lt;/a&gt;54f7e8ac135a: Pull &lt;span class="nb"&gt;complete&lt;/span&gt;
-&lt;a name="rest_code_43c6f0df097746bba956a7e96ff3d1cf-30"&gt;&lt;/a&gt;d6341e30912f: Pull &lt;span class="nb"&gt;complete&lt;/span&gt;
-&lt;a name="rest_code_43c6f0df097746bba956a7e96ff3d1cf-31"&gt;&lt;/a&gt;087a57faf949: Pull &lt;span class="nb"&gt;complete&lt;/span&gt;
-&lt;a name="rest_code_43c6f0df097746bba956a7e96ff3d1cf-32"&gt;&lt;/a&gt;5d71636fb824: Pull &lt;span class="nb"&gt;complete&lt;/span&gt;
-&lt;a name="rest_code_43c6f0df097746bba956a7e96ff3d1cf-33"&gt;&lt;/a&gt;0c1db9598990: Pull &lt;span class="nb"&gt;complete&lt;/span&gt;
-&lt;a name="rest_code_43c6f0df097746bba956a7e96ff3d1cf-34"&gt;&lt;/a&gt;bfb904e99f24: Pull &lt;span class="nb"&gt;complete&lt;/span&gt;
-&lt;a name="rest_code_43c6f0df097746bba956a7e96ff3d1cf-35"&gt;&lt;/a&gt;78a3d3a96a32: Pull &lt;span class="nb"&gt;complete&lt;/span&gt;
-&lt;a name="rest_code_43c6f0df097746bba956a7e96ff3d1cf-36"&gt;&lt;/a&gt;885a0ed92c89: Pull &lt;span class="nb"&gt;complete&lt;/span&gt;
-&lt;a name="rest_code_43c6f0df097746bba956a7e96ff3d1cf-37"&gt;&lt;/a&gt;dd7cc9ace242: Pull &lt;span class="nb"&gt;complete&lt;/span&gt;
-&lt;a name="rest_code_43c6f0df097746bba956a7e96ff3d1cf-38"&gt;&lt;/a&gt;Digest: sha256:3870d35b962a943df72d948580fc66ceaaee1c4fbd205930f32e0f0760eb1077
-&lt;a name="rest_code_43c6f0df097746bba956a7e96ff3d1cf-39"&gt;&lt;/a&gt;Status: Downloaded newer image &lt;span class="k"&gt;for&lt;/span&gt; python:3
-&lt;a name="rest_code_43c6f0df097746bba956a7e96ff3d1cf-40"&gt;&lt;/a&gt; ---&amp;gt; 1e80caffd59e
-&lt;a name="rest_code_43c6f0df097746bba956a7e96ff3d1cf-41"&gt;&lt;/a&gt;Step &lt;span class="m"&gt;2&lt;/span&gt;/7 : ENV PYTHONUNBUFFERED &lt;span class="m"&gt;1&lt;/span&gt;
-&lt;a name="rest_code_43c6f0df097746bba956a7e96ff3d1cf-42"&gt;&lt;/a&gt; ---&amp;gt; Running in 8b36b0f52978
-&lt;a name="rest_code_43c6f0df097746bba956a7e96ff3d1cf-43"&gt;&lt;/a&gt;Removing intermediate container 8b36b0f52978
-&lt;a name="rest_code_43c6f0df097746bba956a7e96ff3d1cf-44"&gt;&lt;/a&gt; ---&amp;gt; d8c31fcb6021
-&lt;a name="rest_code_43c6f0df097746bba956a7e96ff3d1cf-45"&gt;&lt;/a&gt;Step &lt;span class="m"&gt;3&lt;/span&gt;/7 : RUN mkdir /code
-&lt;a name="rest_code_43c6f0df097746bba956a7e96ff3d1cf-46"&gt;&lt;/a&gt; ---&amp;gt; Running in 4f2b5e392870
-&lt;a name="rest_code_43c6f0df097746bba956a7e96ff3d1cf-47"&gt;&lt;/a&gt;Removing intermediate container 4f2b5e392870
-&lt;a name="rest_code_43c6f0df097746bba956a7e96ff3d1cf-48"&gt;&lt;/a&gt; ---&amp;gt; 9c8ee756f336
-&lt;a name="rest_code_43c6f0df097746bba956a7e96ff3d1cf-49"&gt;&lt;/a&gt;Step &lt;span class="m"&gt;4&lt;/span&gt;/7 : WORKDIR /code
-&lt;a name="rest_code_43c6f0df097746bba956a7e96ff3d1cf-50"&gt;&lt;/a&gt; ---&amp;gt; Running in de4383433c19
-&lt;a name="rest_code_43c6f0df097746bba956a7e96ff3d1cf-51"&gt;&lt;/a&gt;Removing intermediate container de4383433c19
-&lt;a name="rest_code_43c6f0df097746bba956a7e96ff3d1cf-52"&gt;&lt;/a&gt; ---&amp;gt; 3641af229774
-&lt;a name="rest_code_43c6f0df097746bba956a7e96ff3d1cf-53"&gt;&lt;/a&gt;Step &lt;span class="m"&gt;5&lt;/span&gt;/7 : ADD requirements.txt /code/
-&lt;a name="rest_code_43c6f0df097746bba956a7e96ff3d1cf-54"&gt;&lt;/a&gt; ---&amp;gt; ef8667808ce1
-&lt;a name="rest_code_43c6f0df097746bba956a7e96ff3d1cf-55"&gt;&lt;/a&gt;Step &lt;span class="m"&gt;6&lt;/span&gt;/7 : RUN pip install -r requirements.txt
-&lt;a name="rest_code_43c6f0df097746bba956a7e96ff3d1cf-56"&gt;&lt;/a&gt; ---&amp;gt; Running in 1da62dd84073
-&lt;a name="rest_code_43c6f0df097746bba956a7e96ff3d1cf-57"&gt;&lt;/a&gt;Collecting Django&amp;lt;&lt;span class="m"&gt;2&lt;/span&gt;.1,&amp;gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;.8 &lt;span class="o"&gt;(&lt;/span&gt;from -r requirements.txt &lt;span class="o"&gt;(&lt;/span&gt;line &lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="o"&gt;))&lt;/span&gt;
-&lt;a name="rest_code_43c6f0df097746bba956a7e96ff3d1cf-58"&gt;&lt;/a&gt;  Downloading https://files.pythonhosted.org/packages/6c/9d/c0feec696b815708354a2fd06ae0f51330a15043822a29bc8be2f185d9fe/Django-2.0.9-py3-none-any.whl &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;7&lt;/span&gt;.1MB&lt;span class="o"&gt;)&lt;/span&gt;
-&lt;a name="rest_code_43c6f0df097746bba956a7e96ff3d1cf-59"&gt;&lt;/a&gt;Collecting psycopg2 &lt;span class="o"&gt;(&lt;/span&gt;from -r requirements.txt &lt;span class="o"&gt;(&lt;/span&gt;line &lt;span class="m"&gt;2&lt;/span&gt;&lt;span class="o"&gt;))&lt;/span&gt;
-&lt;a name="rest_code_43c6f0df097746bba956a7e96ff3d1cf-60"&gt;&lt;/a&gt;  Downloading https://files.pythonhosted.org/packages/90/aa/b033c170c9bd505c7e4d1560f5dbb35ca2a7e928ac03c384f93d0cdaf6a7/psycopg2-2.7.6.1-cp37-cp37m-manylinux1_x86_64.whl &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;.7MB&lt;span class="o"&gt;)&lt;/span&gt;
-&lt;a name="rest_code_43c6f0df097746bba956a7e96ff3d1cf-61"&gt;&lt;/a&gt;Collecting pytz &lt;span class="o"&gt;(&lt;/span&gt;from Django&amp;lt;&lt;span class="m"&gt;2&lt;/span&gt;.1,&amp;gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;.8-&amp;gt;-r requirements.txt &lt;span class="o"&gt;(&lt;/span&gt;line &lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="o"&gt;))&lt;/span&gt;
-&lt;a name="rest_code_43c6f0df097746bba956a7e96ff3d1cf-62"&gt;&lt;/a&gt;  Downloading https://files.pythonhosted.org/packages/f8/0e/2365ddc010afb3d79147f1dd544e5ee24bf4ece58ab99b16fbb465ce6dc0/pytz-2018.7-py2.py3-none-any.whl &lt;span class="o"&gt;(&lt;/span&gt;506kB&lt;span class="o"&gt;)&lt;/span&gt;
-&lt;a name="rest_code_43c6f0df097746bba956a7e96ff3d1cf-63"&gt;&lt;/a&gt;Installing collected packages: pytz, Django, psycopg2
-&lt;a name="rest_code_43c6f0df097746bba956a7e96ff3d1cf-64"&gt;&lt;/a&gt;Successfully installed Django-2.0.9 psycopg2-2.7.6.1 pytz-2018.7
-&lt;a name="rest_code_43c6f0df097746bba956a7e96ff3d1cf-65"&gt;&lt;/a&gt;Removing intermediate container 1da62dd84073
-&lt;a name="rest_code_43c6f0df097746bba956a7e96ff3d1cf-66"&gt;&lt;/a&gt; ---&amp;gt; d0afed5e3cf7
-&lt;a name="rest_code_43c6f0df097746bba956a7e96ff3d1cf-67"&gt;&lt;/a&gt;Step &lt;span class="m"&gt;7&lt;/span&gt;/7 : ADD . /code/
-&lt;a name="rest_code_43c6f0df097746bba956a7e96ff3d1cf-68"&gt;&lt;/a&gt; ---&amp;gt; 5a39d311c84c
-&lt;a name="rest_code_43c6f0df097746bba956a7e96ff3d1cf-69"&gt;&lt;/a&gt;Successfully built 5a39d311c84c
-&lt;a name="rest_code_43c6f0df097746bba956a7e96ff3d1cf-70"&gt;&lt;/a&gt;Successfully tagged fff_web:latest
-&lt;a name="rest_code_43c6f0df097746bba956a7e96ff3d1cf-71"&gt;&lt;/a&gt;WARNING: Image &lt;span class="k"&gt;for&lt;/span&gt; service web was built because it did not already exist. To rebuild this image you must use &lt;span class="sb"&gt;`&lt;/span&gt;docker-compose build&lt;span class="sb"&gt;`&lt;/span&gt; or &lt;span class="sb"&gt;`&lt;/span&gt;docker-compose up --build&lt;span class="sb"&gt;`&lt;/span&gt;.
-&lt;/pre&gt;&lt;/blockquote&gt;
+&lt;p&gt;&lt;/p&gt;&lt;div class="code-block "&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# docker-compose.yml に指定したとおり、カレントディレクトリの Dockerfile から `web` のイメージをビルド&lt;/span&gt;
+&lt;span class="c1"&gt;# `web` の中で django-admin.py startproject fff を実行する&lt;/span&gt;
+$ sudo docker-compose run web django-admin.py startproject fff .
+&lt;span class="c1"&gt;# mac のパスワードを入力する&lt;/span&gt;
+Password:
+Creating network &lt;span class="s2"&gt;"fff_default"&lt;/span&gt; with the default driver
+Pulling db &lt;span class="o"&gt;(&lt;/span&gt;postgres:&lt;span class="o"&gt;)&lt;/span&gt;...
+latest: Pulling from library/postgres
+a5a6f2f73cd8: Already exists
+e50fbea8af5a: Pulling fs layer
+73b4855ad326: Pulling fs layer
+39616673f22b: Pulling fs layer
+94e1b79f69ee: Pull &lt;span class="nb"&gt;complete&lt;/span&gt;
+c91e4af2ff8e: Pull &lt;span class="nb"&gt;complete&lt;/span&gt;
+16ba314c612f: Pull &lt;span class="nb"&gt;complete&lt;/span&gt;
+89011a174cee: Pull &lt;span class="nb"&gt;complete&lt;/span&gt;
+d82b02de73e7: Pull &lt;span class="nb"&gt;complete&lt;/span&gt;
+e3026dc5acbe: Pull &lt;span class="nb"&gt;complete&lt;/span&gt;
+225d0988f8bb: Pull &lt;span class="nb"&gt;complete&lt;/span&gt;
+89efa60266d6: Pull &lt;span class="nb"&gt;complete&lt;/span&gt;
+64e6167259ce: Pull &lt;span class="nb"&gt;complete&lt;/span&gt;
+8f44f8f48bbe: Pull &lt;span class="nb"&gt;complete&lt;/span&gt;
+Digest: sha256:40b48cf04185e69c5a9183a986fcbbfd105e5991a70b1980e9a641b53ba5ead7
+Status: Downloaded newer image &lt;span class="k"&gt;for&lt;/span&gt; postgres:latest
+Creating fff_db_1 ... &lt;span class="k"&gt;done&lt;/span&gt;
+Building web
+Step &lt;span class="m"&gt;1&lt;/span&gt;/7 : FROM python:3
+&lt;span class="m"&gt;3&lt;/span&gt;: Pulling from library/python
+54f7e8ac135a: Pull &lt;span class="nb"&gt;complete&lt;/span&gt;
+d6341e30912f: Pull &lt;span class="nb"&gt;complete&lt;/span&gt;
+087a57faf949: Pull &lt;span class="nb"&gt;complete&lt;/span&gt;
+5d71636fb824: Pull &lt;span class="nb"&gt;complete&lt;/span&gt;
+0c1db9598990: Pull &lt;span class="nb"&gt;complete&lt;/span&gt;
+bfb904e99f24: Pull &lt;span class="nb"&gt;complete&lt;/span&gt;
+78a3d3a96a32: Pull &lt;span class="nb"&gt;complete&lt;/span&gt;
+885a0ed92c89: Pull &lt;span class="nb"&gt;complete&lt;/span&gt;
+dd7cc9ace242: Pull &lt;span class="nb"&gt;complete&lt;/span&gt;
+Digest: sha256:3870d35b962a943df72d948580fc66ceaaee1c4fbd205930f32e0f0760eb1077
+Status: Downloaded newer image &lt;span class="k"&gt;for&lt;/span&gt; python:3
+ ---&amp;gt; 1e80caffd59e
+Step &lt;span class="m"&gt;2&lt;/span&gt;/7 : ENV PYTHONUNBUFFERED &lt;span class="m"&gt;1&lt;/span&gt;
+ ---&amp;gt; Running in 8b36b0f52978
+Removing intermediate container 8b36b0f52978
+ ---&amp;gt; d8c31fcb6021
+Step &lt;span class="m"&gt;3&lt;/span&gt;/7 : RUN mkdir /code
+ ---&amp;gt; Running in 4f2b5e392870
+Removing intermediate container 4f2b5e392870
+ ---&amp;gt; 9c8ee756f336
+Step &lt;span class="m"&gt;4&lt;/span&gt;/7 : WORKDIR /code
+ ---&amp;gt; Running in de4383433c19
+Removing intermediate container de4383433c19
+ ---&amp;gt; 3641af229774
+Step &lt;span class="m"&gt;5&lt;/span&gt;/7 : ADD requirements.txt /code/
+ ---&amp;gt; ef8667808ce1
+Step &lt;span class="m"&gt;6&lt;/span&gt;/7 : RUN pip install -r requirements.txt
+ ---&amp;gt; Running in 1da62dd84073
+Collecting Django&amp;lt;&lt;span class="m"&gt;2&lt;/span&gt;.1,&amp;gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;.8 &lt;span class="o"&gt;(&lt;/span&gt;from -r requirements.txt &lt;span class="o"&gt;(&lt;/span&gt;line &lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="o"&gt;))&lt;/span&gt;
+  Downloading https://files.pythonhosted.org/packages/6c/9d/c0feec696b815708354a2fd06ae0f51330a15043822a29bc8be2f185d9fe/Django-2.0.9-py3-none-any.whl &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;7&lt;/span&gt;.1MB&lt;span class="o"&gt;)&lt;/span&gt;
+Collecting psycopg2 &lt;span class="o"&gt;(&lt;/span&gt;from -r requirements.txt &lt;span class="o"&gt;(&lt;/span&gt;line &lt;span class="m"&gt;2&lt;/span&gt;&lt;span class="o"&gt;))&lt;/span&gt;
+  Downloading https://files.pythonhosted.org/packages/90/aa/b033c170c9bd505c7e4d1560f5dbb35ca2a7e928ac03c384f93d0cdaf6a7/psycopg2-2.7.6.1-cp37-cp37m-manylinux1_x86_64.whl &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;.7MB&lt;span class="o"&gt;)&lt;/span&gt;
+Collecting pytz &lt;span class="o"&gt;(&lt;/span&gt;from Django&amp;lt;&lt;span class="m"&gt;2&lt;/span&gt;.1,&amp;gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;.8-&amp;gt;-r requirements.txt &lt;span class="o"&gt;(&lt;/span&gt;line &lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="o"&gt;))&lt;/span&gt;
+  Downloading https://files.pythonhosted.org/packages/f8/0e/2365ddc010afb3d79147f1dd544e5ee24bf4ece58ab99b16fbb465ce6dc0/pytz-2018.7-py2.py3-none-any.whl &lt;span class="o"&gt;(&lt;/span&gt;506kB&lt;span class="o"&gt;)&lt;/span&gt;
+Installing collected packages: pytz, Django, psycopg2
+Successfully installed Django-2.0.9 psycopg2-2.7.6.1 pytz-2018.7
+Removing intermediate container 1da62dd84073
+ ---&amp;gt; d0afed5e3cf7
+Step &lt;span class="m"&gt;7&lt;/span&gt;/7 : ADD . /code/
+ ---&amp;gt; 5a39d311c84c
+Successfully built 5a39d311c84c
+Successfully tagged fff_web:latest
+WARNING: Image &lt;span class="k"&gt;for&lt;/span&gt; service web was built because it did not already exist. To rebuild this image you must use &lt;span class="sb"&gt;`&lt;/span&gt;docker-compose build&lt;span class="sb"&gt;`&lt;/span&gt; or &lt;span class="sb"&gt;`&lt;/span&gt;docker-compose up --build&lt;span class="sb"&gt;`&lt;/span&gt;.
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p class="first"&gt;&lt;tt class="docutils literal"&gt;settings.py&lt;/tt&gt; に DATABASE を定義する。&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;pre class="code python"&gt;&lt;a name="rest_code_1204f175e48045ad8d49b1c5d2a3f329-1"&gt;&lt;/a&gt;&lt;span class="n"&gt;DATABASES&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-&lt;a name="rest_code_1204f175e48045ad8d49b1c5d2a3f329-2"&gt;&lt;/a&gt;    &lt;span class="s1"&gt;'default'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-&lt;a name="rest_code_1204f175e48045ad8d49b1c5d2a3f329-3"&gt;&lt;/a&gt;        &lt;span class="s1"&gt;'ENGINE'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;'django.db.backends.postgresql'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;a name="rest_code_1204f175e48045ad8d49b1c5d2a3f329-4"&gt;&lt;/a&gt;        &lt;span class="s1"&gt;'NAME'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;'postgres'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;a name="rest_code_1204f175e48045ad8d49b1c5d2a3f329-5"&gt;&lt;/a&gt;        &lt;span class="s1"&gt;'USER'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;'postgres'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;a name="rest_code_1204f175e48045ad8d49b1c5d2a3f329-6"&gt;&lt;/a&gt;        &lt;span class="s1"&gt;'HOST'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;'db'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;a name="rest_code_1204f175e48045ad8d49b1c5d2a3f329-7"&gt;&lt;/a&gt;        &lt;span class="s1"&gt;'PORT'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;5432&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;a name="rest_code_1204f175e48045ad8d49b1c5d2a3f329-8"&gt;&lt;/a&gt;    &lt;span class="p"&gt;}&lt;/span&gt;
-&lt;a name="rest_code_1204f175e48045ad8d49b1c5d2a3f329-9"&gt;&lt;/a&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;pre class="code python"&gt;&lt;a name="rest_code_a872f903c7c443d3b7b294f4f5ee2d7b-1"&gt;&lt;/a&gt;&lt;span class="n"&gt;DATABASES&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;a name="rest_code_a872f903c7c443d3b7b294f4f5ee2d7b-2"&gt;&lt;/a&gt;    &lt;span class="s1"&gt;'default'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;a name="rest_code_a872f903c7c443d3b7b294f4f5ee2d7b-3"&gt;&lt;/a&gt;        &lt;span class="s1"&gt;'ENGINE'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;'django.db.backends.postgresql'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;a name="rest_code_a872f903c7c443d3b7b294f4f5ee2d7b-4"&gt;&lt;/a&gt;        &lt;span class="s1"&gt;'NAME'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;'postgres'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;a name="rest_code_a872f903c7c443d3b7b294f4f5ee2d7b-5"&gt;&lt;/a&gt;        &lt;span class="s1"&gt;'USER'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;'postgres'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;a name="rest_code_a872f903c7c443d3b7b294f4f5ee2d7b-6"&gt;&lt;/a&gt;        &lt;span class="s1"&gt;'HOST'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;'db'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;a name="rest_code_a872f903c7c443d3b7b294f4f5ee2d7b-7"&gt;&lt;/a&gt;        &lt;span class="s1"&gt;'PORT'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;5432&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;a name="rest_code_a872f903c7c443d3b7b294f4f5ee2d7b-8"&gt;&lt;/a&gt;    &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;a name="rest_code_a872f903c7c443d3b7b294f4f5ee2d7b-9"&gt;&lt;/a&gt;&lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p class="first"&gt;Docker コンテナ (db と web) を実行する&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_1e4d0e4d76c644cb9946c5793f25e75a-1"&gt;&lt;/a&gt;$ docker-compose up
-&lt;a name="rest_code_1e4d0e4d76c644cb9946c5793f25e75a-2"&gt;&lt;/a&gt;fff_db_1 is up-to-date
-&lt;a name="rest_code_1e4d0e4d76c644cb9946c5793f25e75a-3"&gt;&lt;/a&gt;Creating fff_web_1 ... &lt;span class="k"&gt;done&lt;/span&gt;
-&lt;a name="rest_code_1e4d0e4d76c644cb9946c5793f25e75a-4"&gt;&lt;/a&gt;Attaching to fff_db_1, fff_web_1
-&lt;a name="rest_code_1e4d0e4d76c644cb9946c5793f25e75a-5"&gt;&lt;/a&gt;db_1   &lt;span class="p"&gt;|&lt;/span&gt; The files belonging to this database system will be owned by user &lt;span class="s2"&gt;"postgres"&lt;/span&gt;.
-&lt;a name="rest_code_1e4d0e4d76c644cb9946c5793f25e75a-6"&gt;&lt;/a&gt;db_1   &lt;span class="p"&gt;|&lt;/span&gt; This user must also own the server process.
-&lt;a name="rest_code_1e4d0e4d76c644cb9946c5793f25e75a-7"&gt;&lt;/a&gt;db_1   &lt;span class="p"&gt;|&lt;/span&gt;
-&lt;a name="rest_code_1e4d0e4d76c644cb9946c5793f25e75a-8"&gt;&lt;/a&gt;db_1   &lt;span class="p"&gt;|&lt;/span&gt; The database cluster will be initialized with locale &lt;span class="s2"&gt;"en_US.utf8"&lt;/span&gt;.
-&lt;a name="rest_code_1e4d0e4d76c644cb9946c5793f25e75a-9"&gt;&lt;/a&gt;db_1   &lt;span class="p"&gt;|&lt;/span&gt; The default database encoding has accordingly been &lt;span class="nb"&gt;set&lt;/span&gt; to &lt;span class="s2"&gt;"UTF8"&lt;/span&gt;.
-&lt;a name="rest_code_1e4d0e4d76c644cb9946c5793f25e75a-10"&gt;&lt;/a&gt;db_1   &lt;span class="p"&gt;|&lt;/span&gt; The default text search configuration will be &lt;span class="nb"&gt;set&lt;/span&gt; to &lt;span class="s2"&gt;"english"&lt;/span&gt;.
-&lt;a name="rest_code_1e4d0e4d76c644cb9946c5793f25e75a-11"&gt;&lt;/a&gt;db_1   &lt;span class="p"&gt;|&lt;/span&gt;
-&lt;a name="rest_code_1e4d0e4d76c644cb9946c5793f25e75a-12"&gt;&lt;/a&gt;db_1   &lt;span class="p"&gt;|&lt;/span&gt; Data page checksums are disabled.
-&lt;a name="rest_code_1e4d0e4d76c644cb9946c5793f25e75a-13"&gt;&lt;/a&gt;db_1   &lt;span class="p"&gt;|&lt;/span&gt;
-&lt;a name="rest_code_1e4d0e4d76c644cb9946c5793f25e75a-14"&gt;&lt;/a&gt;db_1   &lt;span class="p"&gt;|&lt;/span&gt; fixing permissions on existing directory /var/lib/postgresql/data ... ok
-&lt;a name="rest_code_1e4d0e4d76c644cb9946c5793f25e75a-15"&gt;&lt;/a&gt;db_1   &lt;span class="p"&gt;|&lt;/span&gt; creating subdirectories ... ok
-&lt;a name="rest_code_1e4d0e4d76c644cb9946c5793f25e75a-16"&gt;&lt;/a&gt;db_1   &lt;span class="p"&gt;|&lt;/span&gt; selecting default max_connections ... &lt;span class="m"&gt;100&lt;/span&gt;
-&lt;a name="rest_code_1e4d0e4d76c644cb9946c5793f25e75a-17"&gt;&lt;/a&gt;db_1   &lt;span class="p"&gt;|&lt;/span&gt; selecting default shared_buffers ... 128MB
-&lt;a name="rest_code_1e4d0e4d76c644cb9946c5793f25e75a-18"&gt;&lt;/a&gt;db_1   &lt;span class="p"&gt;|&lt;/span&gt; selecting dynamic shared memory implementation ... posix
-&lt;a name="rest_code_1e4d0e4d76c644cb9946c5793f25e75a-19"&gt;&lt;/a&gt;db_1   &lt;span class="p"&gt;|&lt;/span&gt; creating configuration files ... ok
-&lt;a name="rest_code_1e4d0e4d76c644cb9946c5793f25e75a-20"&gt;&lt;/a&gt;db_1   &lt;span class="p"&gt;|&lt;/span&gt; running bootstrap script ... ok
-&lt;a name="rest_code_1e4d0e4d76c644cb9946c5793f25e75a-21"&gt;&lt;/a&gt;db_1   &lt;span class="p"&gt;|&lt;/span&gt; performing post-bootstrap initialization ... ok
-&lt;a name="rest_code_1e4d0e4d76c644cb9946c5793f25e75a-22"&gt;&lt;/a&gt;db_1   &lt;span class="p"&gt;|&lt;/span&gt; syncing data to disk ... ok
-&lt;a name="rest_code_1e4d0e4d76c644cb9946c5793f25e75a-23"&gt;&lt;/a&gt;db_1   &lt;span class="p"&gt;|&lt;/span&gt;
-&lt;a name="rest_code_1e4d0e4d76c644cb9946c5793f25e75a-24"&gt;&lt;/a&gt;db_1   &lt;span class="p"&gt;|&lt;/span&gt; Success. You can now start the database server using:
-&lt;a name="rest_code_1e4d0e4d76c644cb9946c5793f25e75a-25"&gt;&lt;/a&gt;db_1   &lt;span class="p"&gt;|&lt;/span&gt;
-&lt;a name="rest_code_1e4d0e4d76c644cb9946c5793f25e75a-26"&gt;&lt;/a&gt;db_1   &lt;span class="p"&gt;|&lt;/span&gt;
-&lt;a name="rest_code_1e4d0e4d76c644cb9946c5793f25e75a-27"&gt;&lt;/a&gt;db_1   &lt;span class="p"&gt;|&lt;/span&gt; WARNING: enabling &lt;span class="s2"&gt;"trust"&lt;/span&gt; authentication &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="nb"&gt;local&lt;/span&gt; connections
-&lt;a name="rest_code_1e4d0e4d76c644cb9946c5793f25e75a-28"&gt;&lt;/a&gt;db_1   &lt;span class="p"&gt;|&lt;/span&gt; You can change this by editing pg_hba.conf or using the option -A, or
-&lt;a name="rest_code_1e4d0e4d76c644cb9946c5793f25e75a-29"&gt;&lt;/a&gt;db_1   &lt;span class="p"&gt;|&lt;/span&gt; --auth-local and --auth-host, the next &lt;span class="nb"&gt;time&lt;/span&gt; you run initdb.
-&lt;a name="rest_code_1e4d0e4d76c644cb9946c5793f25e75a-30"&gt;&lt;/a&gt;db_1   &lt;span class="p"&gt;|&lt;/span&gt;     pg_ctl -D /var/lib/postgresql/data -l logfile start
-&lt;a name="rest_code_1e4d0e4d76c644cb9946c5793f25e75a-31"&gt;&lt;/a&gt;db_1   &lt;span class="p"&gt;|&lt;/span&gt;
-&lt;a name="rest_code_1e4d0e4d76c644cb9946c5793f25e75a-32"&gt;&lt;/a&gt;db_1   &lt;span class="p"&gt;|&lt;/span&gt; ****************************************************
-&lt;a name="rest_code_1e4d0e4d76c644cb9946c5793f25e75a-33"&gt;&lt;/a&gt;db_1   &lt;span class="p"&gt;|&lt;/span&gt; WARNING: No password has been &lt;span class="nb"&gt;set&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; the database.
-&lt;a name="rest_code_1e4d0e4d76c644cb9946c5793f25e75a-34"&gt;&lt;/a&gt;db_1   &lt;span class="p"&gt;|&lt;/span&gt;          This will allow anyone with access to the
-&lt;a name="rest_code_1e4d0e4d76c644cb9946c5793f25e75a-35"&gt;&lt;/a&gt;db_1   &lt;span class="p"&gt;|&lt;/span&gt;          Postgres port to access your database. In
-&lt;a name="rest_code_1e4d0e4d76c644cb9946c5793f25e75a-36"&gt;&lt;/a&gt;db_1   &lt;span class="p"&gt;|&lt;/span&gt;          Docker&lt;span class="s1"&gt;'s default configuration, this is&lt;/span&gt;
-&lt;a name="rest_code_1e4d0e4d76c644cb9946c5793f25e75a-37"&gt;&lt;/a&gt;&lt;span class="s1"&gt;db_1   |          effectively any other container on the same&lt;/span&gt;
-&lt;a name="rest_code_1e4d0e4d76c644cb9946c5793f25e75a-38"&gt;&lt;/a&gt;&lt;span class="s1"&gt;db_1   |          system.&lt;/span&gt;
-&lt;a name="rest_code_1e4d0e4d76c644cb9946c5793f25e75a-39"&gt;&lt;/a&gt;&lt;span class="s1"&gt;db_1   |&lt;/span&gt;
-&lt;a name="rest_code_1e4d0e4d76c644cb9946c5793f25e75a-40"&gt;&lt;/a&gt;&lt;span class="s1"&gt;db_1   |          Use "-e POSTGRES_PASSWORD=password" to set&lt;/span&gt;
-&lt;a name="rest_code_1e4d0e4d76c644cb9946c5793f25e75a-41"&gt;&lt;/a&gt;&lt;span class="s1"&gt;db_1   |          it in "docker run".&lt;/span&gt;
-&lt;a name="rest_code_1e4d0e4d76c644cb9946c5793f25e75a-42"&gt;&lt;/a&gt;&lt;span class="s1"&gt;db_1   | ****************************************************&lt;/span&gt;
-&lt;a name="rest_code_1e4d0e4d76c644cb9946c5793f25e75a-43"&gt;&lt;/a&gt;&lt;span class="s1"&gt;db_1   | waiting for server to start....2018-11-26 14:35:32.757 UTC [45] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"&lt;/span&gt;
-&lt;a name="rest_code_1e4d0e4d76c644cb9946c5793f25e75a-44"&gt;&lt;/a&gt;&lt;span class="s1"&gt;db_1   | 2018-11-26 14:35:32.772 UTC [46] LOG:  database system was shut down at 2018-11-26 14:35:32 UTC&lt;/span&gt;
-&lt;a name="rest_code_1e4d0e4d76c644cb9946c5793f25e75a-45"&gt;&lt;/a&gt;&lt;span class="s1"&gt;db_1   | 2018-11-26 14:35:32.777 UTC [45] LOG:  database system is ready to accept connections&lt;/span&gt;
-&lt;a name="rest_code_1e4d0e4d76c644cb9946c5793f25e75a-46"&gt;&lt;/a&gt;&lt;span class="s1"&gt;db_1   |  done&lt;/span&gt;
-&lt;a name="rest_code_1e4d0e4d76c644cb9946c5793f25e75a-47"&gt;&lt;/a&gt;&lt;span class="s1"&gt;db_1   | server started&lt;/span&gt;
-&lt;a name="rest_code_1e4d0e4d76c644cb9946c5793f25e75a-48"&gt;&lt;/a&gt;&lt;span class="s1"&gt;db_1   |&lt;/span&gt;
-&lt;a name="rest_code_1e4d0e4d76c644cb9946c5793f25e75a-49"&gt;&lt;/a&gt;&lt;span class="s1"&gt;db_1   | /usr/local/bin/docker-entrypoint.sh: ignoring /docker-entrypoint-initdb.d/*&lt;/span&gt;
-&lt;a name="rest_code_1e4d0e4d76c644cb9946c5793f25e75a-50"&gt;&lt;/a&gt;&lt;span class="s1"&gt;db_1   |&lt;/span&gt;
-&lt;a name="rest_code_1e4d0e4d76c644cb9946c5793f25e75a-51"&gt;&lt;/a&gt;&lt;span class="s1"&gt;db_1   | waiting for server to shut down....2018-11-26 14:35:32.851 UTC [45] LOG:  received fast shutdown request&lt;/span&gt;
-&lt;a name="rest_code_1e4d0e4d76c644cb9946c5793f25e75a-52"&gt;&lt;/a&gt;&lt;span class="s1"&gt;db_1   | 2018-11-26 14:35:32.855 UTC [45] LOG:  aborting any active transactions&lt;/span&gt;
-&lt;a name="rest_code_1e4d0e4d76c644cb9946c5793f25e75a-53"&gt;&lt;/a&gt;&lt;span class="s1"&gt;db_1   | 2018-11-26 14:35:32.858 UTC [45] LOG:  background worker "logical replication launcher" (PID 52) exited with exit code 1&lt;/span&gt;
-&lt;a name="rest_code_1e4d0e4d76c644cb9946c5793f25e75a-54"&gt;&lt;/a&gt;&lt;span class="s1"&gt;db_1   | 2018-11-26 14:35:32.860 UTC [47] LOG:  shutting down&lt;/span&gt;
-&lt;a name="rest_code_1e4d0e4d76c644cb9946c5793f25e75a-55"&gt;&lt;/a&gt;&lt;span class="s1"&gt;db_1   | 2018-11-26 14:35:32.882 UTC [45] LOG:  database system is shut down&lt;/span&gt;
-&lt;a name="rest_code_1e4d0e4d76c644cb9946c5793f25e75a-56"&gt;&lt;/a&gt;&lt;span class="s1"&gt;db_1   |  done&lt;/span&gt;
-&lt;a name="rest_code_1e4d0e4d76c644cb9946c5793f25e75a-57"&gt;&lt;/a&gt;&lt;span class="s1"&gt;db_1   | server stopped&lt;/span&gt;
-&lt;a name="rest_code_1e4d0e4d76c644cb9946c5793f25e75a-58"&gt;&lt;/a&gt;&lt;span class="s1"&gt;db_1   |&lt;/span&gt;
-&lt;a name="rest_code_1e4d0e4d76c644cb9946c5793f25e75a-59"&gt;&lt;/a&gt;&lt;span class="s1"&gt;db_1   | PostgreSQL init process complete; ready for start up.&lt;/span&gt;
-&lt;a name="rest_code_1e4d0e4d76c644cb9946c5793f25e75a-60"&gt;&lt;/a&gt;&lt;span class="s1"&gt;db_1   |&lt;/span&gt;
-&lt;a name="rest_code_1e4d0e4d76c644cb9946c5793f25e75a-61"&gt;&lt;/a&gt;&lt;span class="s1"&gt;db_1   | 2018-11-26 14:35:32.970 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432&lt;/span&gt;
-&lt;a name="rest_code_1e4d0e4d76c644cb9946c5793f25e75a-62"&gt;&lt;/a&gt;&lt;span class="s1"&gt;db_1   | 2018-11-26 14:35:32.972 UTC [1] LOG:  listening on IPv6 address "::", port 5432&lt;/span&gt;
-&lt;a name="rest_code_1e4d0e4d76c644cb9946c5793f25e75a-63"&gt;&lt;/a&gt;&lt;span class="s1"&gt;db_1   | 2018-11-26 14:35:32.977 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"&lt;/span&gt;
-&lt;a name="rest_code_1e4d0e4d76c644cb9946c5793f25e75a-64"&gt;&lt;/a&gt;&lt;span class="s1"&gt;db_1   | 2018-11-26 14:35:32.994 UTC [54] LOG:  database system was shut down at 2018-11-26 14:35:32 UTC&lt;/span&gt;
-&lt;a name="rest_code_1e4d0e4d76c644cb9946c5793f25e75a-65"&gt;&lt;/a&gt;&lt;span class="s1"&gt;db_1   | 2018-11-26 14:35:33.002 UTC [1] LOG:  database system is ready to accept connections&lt;/span&gt;
-&lt;a name="rest_code_1e4d0e4d76c644cb9946c5793f25e75a-66"&gt;&lt;/a&gt;&lt;span class="s1"&gt;web_1  | /usr/local/lib/python3.7/site-packages/psycopg2/__init__.py:144: UserWarning: The psycopg2 wheel package will be renamed from release 2.8; in order to keep installing from binary please use "pip install psycopg2-binary" instead. For details see: &amp;lt;http://initd.org/psycopg/docs/install.html#binary-install-from-pypi&amp;gt;.&lt;/span&gt;
-&lt;a name="rest_code_1e4d0e4d76c644cb9946c5793f25e75a-67"&gt;&lt;/a&gt;&lt;span class="s1"&gt;web_1  |   """)&lt;/span&gt;
-&lt;a name="rest_code_1e4d0e4d76c644cb9946c5793f25e75a-68"&gt;&lt;/a&gt;&lt;span class="s1"&gt;web_1  | /usr/local/lib/python3.7/site-packages/psycopg2/__init__.py:144: UserWarning: The psycopg2 wheel package will be renamed from release 2.8; in order to keep installing from binary please use "pip install psycopg2-binary" instead. For details see: &amp;lt;http://initd.org/psycopg/docs/install.html#binary-install-from-pypi&amp;gt;.&lt;/span&gt;
-&lt;a name="rest_code_1e4d0e4d76c644cb9946c5793f25e75a-69"&gt;&lt;/a&gt;&lt;span class="s1"&gt;web_1  |   """)&lt;/span&gt;
-&lt;a name="rest_code_1e4d0e4d76c644cb9946c5793f25e75a-70"&gt;&lt;/a&gt;&lt;span class="s1"&gt;web_1  | Performing system checks...&lt;/span&gt;
-&lt;a name="rest_code_1e4d0e4d76c644cb9946c5793f25e75a-71"&gt;&lt;/a&gt;&lt;span class="s1"&gt;web_1  |&lt;/span&gt;
-&lt;a name="rest_code_1e4d0e4d76c644cb9946c5793f25e75a-72"&gt;&lt;/a&gt;&lt;span class="s1"&gt;web_1  | System check identified no issues (0 silenced).&lt;/span&gt;
-&lt;a name="rest_code_1e4d0e4d76c644cb9946c5793f25e75a-73"&gt;&lt;/a&gt;&lt;span class="s1"&gt;web_1  |&lt;/span&gt;
-&lt;a name="rest_code_1e4d0e4d76c644cb9946c5793f25e75a-74"&gt;&lt;/a&gt;&lt;span class="s1"&gt;web_1  | You have 14 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): admin, auth, contenttypes, sessions.&lt;/span&gt;
-&lt;a name="rest_code_1e4d0e4d76c644cb9946c5793f25e75a-75"&gt;&lt;/a&gt;&lt;span class="s1"&gt;web_1  | Run '&lt;/span&gt;python manage.py migrate&lt;span class="s1"&gt;' to apply them.&lt;/span&gt;
-&lt;a name="rest_code_1e4d0e4d76c644cb9946c5793f25e75a-76"&gt;&lt;/a&gt;&lt;span class="s1"&gt;web_1  | November 26, 2018 - 14:44:40&lt;/span&gt;
-&lt;a name="rest_code_1e4d0e4d76c644cb9946c5793f25e75a-77"&gt;&lt;/a&gt;&lt;span class="s1"&gt;web_1  | Django version 2.0.9, using settings '&lt;/span&gt;fff.settings&lt;span class="err"&gt;'&lt;/span&gt;
-&lt;a name="rest_code_1e4d0e4d76c644cb9946c5793f25e75a-78"&gt;&lt;/a&gt;web_1  &lt;span class="p"&gt;|&lt;/span&gt; Starting development server at http://0.0.0.0:8000/
-&lt;a name="rest_code_1e4d0e4d76c644cb9946c5793f25e75a-79"&gt;&lt;/a&gt;web_1  &lt;span class="p"&gt;|&lt;/span&gt; Quit the server with CONTROL-C.
-&lt;/pre&gt;&lt;/blockquote&gt;
+&lt;p&gt;&lt;/p&gt;&lt;div class="code-block "&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ docker-compose up
+fff_db_1 is up-to-date
+Creating fff_web_1 ... &lt;span class="k"&gt;done&lt;/span&gt;
+Attaching to fff_db_1, fff_web_1
+db_1   &lt;span class="p"&gt;|&lt;/span&gt; The files belonging to this database system will be owned by user &lt;span class="s2"&gt;"postgres"&lt;/span&gt;.
+db_1   &lt;span class="p"&gt;|&lt;/span&gt; This user must also own the server process.
+db_1   &lt;span class="p"&gt;|&lt;/span&gt;
+db_1   &lt;span class="p"&gt;|&lt;/span&gt; The database cluster will be initialized with locale &lt;span class="s2"&gt;"en_US.utf8"&lt;/span&gt;.
+db_1   &lt;span class="p"&gt;|&lt;/span&gt; The default database encoding has accordingly been &lt;span class="nb"&gt;set&lt;/span&gt; to &lt;span class="s2"&gt;"UTF8"&lt;/span&gt;.
+db_1   &lt;span class="p"&gt;|&lt;/span&gt; The default text search configuration will be &lt;span class="nb"&gt;set&lt;/span&gt; to &lt;span class="s2"&gt;"english"&lt;/span&gt;.
+db_1   &lt;span class="p"&gt;|&lt;/span&gt;
+db_1   &lt;span class="p"&gt;|&lt;/span&gt; Data page checksums are disabled.
+db_1   &lt;span class="p"&gt;|&lt;/span&gt;
+db_1   &lt;span class="p"&gt;|&lt;/span&gt; fixing permissions on existing directory /var/lib/postgresql/data ... ok
+db_1   &lt;span class="p"&gt;|&lt;/span&gt; creating subdirectories ... ok
+db_1   &lt;span class="p"&gt;|&lt;/span&gt; selecting default max_connections ... &lt;span class="m"&gt;100&lt;/span&gt;
+db_1   &lt;span class="p"&gt;|&lt;/span&gt; selecting default shared_buffers ... 128MB
+db_1   &lt;span class="p"&gt;|&lt;/span&gt; selecting dynamic shared memory implementation ... posix
+db_1   &lt;span class="p"&gt;|&lt;/span&gt; creating configuration files ... ok
+db_1   &lt;span class="p"&gt;|&lt;/span&gt; running bootstrap script ... ok
+db_1   &lt;span class="p"&gt;|&lt;/span&gt; performing post-bootstrap initialization ... ok
+db_1   &lt;span class="p"&gt;|&lt;/span&gt; syncing data to disk ... ok
+db_1   &lt;span class="p"&gt;|&lt;/span&gt;
+db_1   &lt;span class="p"&gt;|&lt;/span&gt; Success. You can now start the database server using:
+db_1   &lt;span class="p"&gt;|&lt;/span&gt;
+db_1   &lt;span class="p"&gt;|&lt;/span&gt;
+db_1   &lt;span class="p"&gt;|&lt;/span&gt; WARNING: enabling &lt;span class="s2"&gt;"trust"&lt;/span&gt; authentication &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="nb"&gt;local&lt;/span&gt; connections
+db_1   &lt;span class="p"&gt;|&lt;/span&gt; You can change this by editing pg_hba.conf or using the option -A, or
+db_1   &lt;span class="p"&gt;|&lt;/span&gt; --auth-local and --auth-host, the next &lt;span class="nb"&gt;time&lt;/span&gt; you run initdb.
+db_1   &lt;span class="p"&gt;|&lt;/span&gt;     pg_ctl -D /var/lib/postgresql/data -l logfile start
+db_1   &lt;span class="p"&gt;|&lt;/span&gt;
+db_1   &lt;span class="p"&gt;|&lt;/span&gt; ****************************************************
+db_1   &lt;span class="p"&gt;|&lt;/span&gt; WARNING: No password has been &lt;span class="nb"&gt;set&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; the database.
+db_1   &lt;span class="p"&gt;|&lt;/span&gt;          This will allow anyone with access to the
+db_1   &lt;span class="p"&gt;|&lt;/span&gt;          Postgres port to access your database. In
+db_1   &lt;span class="p"&gt;|&lt;/span&gt;          Docker&lt;span class="s1"&gt;'s default configuration, this is&lt;/span&gt;
+&lt;span class="s1"&gt;db_1   |          effectively any other container on the same&lt;/span&gt;
+&lt;span class="s1"&gt;db_1   |          system.&lt;/span&gt;
+&lt;span class="s1"&gt;db_1   |&lt;/span&gt;
+&lt;span class="s1"&gt;db_1   |          Use "-e POSTGRES_PASSWORD=password" to set&lt;/span&gt;
+&lt;span class="s1"&gt;db_1   |          it in "docker run".&lt;/span&gt;
+&lt;span class="s1"&gt;db_1   | ****************************************************&lt;/span&gt;
+&lt;span class="s1"&gt;db_1   | waiting for server to start....2018-11-26 14:35:32.757 UTC [45] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"&lt;/span&gt;
+&lt;span class="s1"&gt;db_1   | 2018-11-26 14:35:32.772 UTC [46] LOG:  database system was shut down at 2018-11-26 14:35:32 UTC&lt;/span&gt;
+&lt;span class="s1"&gt;db_1   | 2018-11-26 14:35:32.777 UTC [45] LOG:  database system is ready to accept connections&lt;/span&gt;
+&lt;span class="s1"&gt;db_1   |  done&lt;/span&gt;
+&lt;span class="s1"&gt;db_1   | server started&lt;/span&gt;
+&lt;span class="s1"&gt;db_1   |&lt;/span&gt;
+&lt;span class="s1"&gt;db_1   | /usr/local/bin/docker-entrypoint.sh: ignoring /docker-entrypoint-initdb.d/*&lt;/span&gt;
+&lt;span class="s1"&gt;db_1   |&lt;/span&gt;
+&lt;span class="s1"&gt;db_1   | waiting for server to shut down....2018-11-26 14:35:32.851 UTC [45] LOG:  received fast shutdown request&lt;/span&gt;
+&lt;span class="s1"&gt;db_1   | 2018-11-26 14:35:32.855 UTC [45] LOG:  aborting any active transactions&lt;/span&gt;
+&lt;span class="s1"&gt;db_1   | 2018-11-26 14:35:32.858 UTC [45] LOG:  background worker "logical replication launcher" (PID 52) exited with exit code 1&lt;/span&gt;
+&lt;span class="s1"&gt;db_1   | 2018-11-26 14:35:32.860 UTC [47] LOG:  shutting down&lt;/span&gt;
+&lt;span class="s1"&gt;db_1   | 2018-11-26 14:35:32.882 UTC [45] LOG:  database system is shut down&lt;/span&gt;
+&lt;span class="s1"&gt;db_1   |  done&lt;/span&gt;
+&lt;span class="s1"&gt;db_1   | server stopped&lt;/span&gt;
+&lt;span class="s1"&gt;db_1   |&lt;/span&gt;
+&lt;span class="s1"&gt;db_1   | PostgreSQL init process complete; ready for start up.&lt;/span&gt;
+&lt;span class="s1"&gt;db_1   |&lt;/span&gt;
+&lt;span class="s1"&gt;db_1   | 2018-11-26 14:35:32.970 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432&lt;/span&gt;
+&lt;span class="s1"&gt;db_1   | 2018-11-26 14:35:32.972 UTC [1] LOG:  listening on IPv6 address "::", port 5432&lt;/span&gt;
+&lt;span class="s1"&gt;db_1   | 2018-11-26 14:35:32.977 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"&lt;/span&gt;
+&lt;span class="s1"&gt;db_1   | 2018-11-26 14:35:32.994 UTC [54] LOG:  database system was shut down at 2018-11-26 14:35:32 UTC&lt;/span&gt;
+&lt;span class="s1"&gt;db_1   | 2018-11-26 14:35:33.002 UTC [1] LOG:  database system is ready to accept connections&lt;/span&gt;
+&lt;span class="s1"&gt;web_1  | /usr/local/lib/python3.7/site-packages/psycopg2/__init__.py:144: UserWarning: The psycopg2 wheel package will be renamed from release 2.8; in order to keep installing from binary please use "pip install psycopg2-binary" instead. For details see: &amp;lt;http://initd.org/psycopg/docs/install.html#binary-install-from-pypi&amp;gt;.&lt;/span&gt;
+&lt;span class="s1"&gt;web_1  |   """)&lt;/span&gt;
+&lt;span class="s1"&gt;web_1  | /usr/local/lib/python3.7/site-packages/psycopg2/__init__.py:144: UserWarning: The psycopg2 wheel package will be renamed from release 2.8; in order to keep installing from binary please use "pip install psycopg2-binary" instead. For details see: &amp;lt;http://initd.org/psycopg/docs/install.html#binary-install-from-pypi&amp;gt;.&lt;/span&gt;
+&lt;span class="s1"&gt;web_1  |   """)&lt;/span&gt;
+&lt;span class="s1"&gt;web_1  | Performing system checks...&lt;/span&gt;
+&lt;span class="s1"&gt;web_1  |&lt;/span&gt;
+&lt;span class="s1"&gt;web_1  | System check identified no issues (0 silenced).&lt;/span&gt;
+&lt;span class="s1"&gt;web_1  |&lt;/span&gt;
+&lt;span class="s1"&gt;web_1  | You have 14 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): admin, auth, contenttypes, sessions.&lt;/span&gt;
+&lt;span class="s1"&gt;web_1  | Run '&lt;/span&gt;python manage.py migrate&lt;span class="s1"&gt;' to apply them.&lt;/span&gt;
+&lt;span class="s1"&gt;web_1  | November 26, 2018 - 14:44:40&lt;/span&gt;
+&lt;span class="s1"&gt;web_1  | Django version 2.0.9, using settings '&lt;/span&gt;fff.settings&lt;span class="err"&gt;'&lt;/span&gt;
+web_1  &lt;span class="p"&gt;|&lt;/span&gt; Starting development server at http://0.0.0.0:8000/
+web_1  &lt;span class="p"&gt;|&lt;/span&gt; Quit the server with CONTROL-C.
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p class="first"&gt;アクセスする。&lt;/p&gt;
 &lt;blockquote&gt;
@@ -2382,21 +2394,21 @@ fufu_db exited with code &lt;span class="m"&gt;1&lt;/span&gt;
 &lt;/ol&gt;
 &lt;blockquote&gt;
 &lt;div class="figure"&gt;
-&lt;img alt="/images/docker/create-django-env-with-docker-compose/hello-django.png" src="https://32imuf.com/images/docker/create-django-env-with-docker-compose/hello-django.png"&gt;
+&lt;img alt="/images/docker/create-django-env-with-docker-compose-psql/hello-django.png" src="https://32imuf.com/images/docker/create-django-env-with-docker-compose-psql/hello-django.png"&gt;
 &lt;/div&gt;
 &lt;/blockquote&gt;
 &lt;ol class="arabic" start="8"&gt;
 &lt;li&gt;&lt;p class="first"&gt;実行中の コンテナを list する。&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_10706e17b58942d7b842bc06f019d10e-1"&gt;&lt;/a&gt;$ docker ps
-&lt;a name="rest_code_10706e17b58942d7b842bc06f019d10e-2"&gt;&lt;/a&gt;CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                    NAMES
-&lt;a name="rest_code_10706e17b58942d7b842bc06f019d10e-3"&gt;&lt;/a&gt;e95174b2be87        fff_web             &lt;span class="s2"&gt;"python3 manage.py r…"&lt;/span&gt;   &lt;span class="m"&gt;32&lt;/span&gt; minutes ago      Up &lt;span class="m"&gt;32&lt;/span&gt; minutes       &lt;span class="m"&gt;0&lt;/span&gt;.0.0.0:3236-&amp;gt;8000/tcp   fff_web_1
-&lt;a name="rest_code_10706e17b58942d7b842bc06f019d10e-4"&gt;&lt;/a&gt;2994f0092cd4        postgres            &lt;span class="s2"&gt;"docker-entrypoint.s…"&lt;/span&gt;   &lt;span class="m"&gt;41&lt;/span&gt; minutes ago      Up &lt;span class="m"&gt;41&lt;/span&gt; minutes       &lt;span class="m"&gt;5432&lt;/span&gt;/tcp                 fff_db_1
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_2c451ac3b6344a6fa2735a80c83d0785-1"&gt;&lt;/a&gt;$ docker ps
+&lt;a name="rest_code_2c451ac3b6344a6fa2735a80c83d0785-2"&gt;&lt;/a&gt;CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                    NAMES
+&lt;a name="rest_code_2c451ac3b6344a6fa2735a80c83d0785-3"&gt;&lt;/a&gt;e95174b2be87        fff_web             &lt;span class="s2"&gt;"python3 manage.py r…"&lt;/span&gt;   &lt;span class="m"&gt;32&lt;/span&gt; minutes ago      Up &lt;span class="m"&gt;32&lt;/span&gt; minutes       &lt;span class="m"&gt;0&lt;/span&gt;.0.0.0:3236-&amp;gt;8000/tcp   fff_web_1
+&lt;a name="rest_code_2c451ac3b6344a6fa2735a80c83d0785-4"&gt;&lt;/a&gt;2994f0092cd4        postgres            &lt;span class="s2"&gt;"docker-entrypoint.s…"&lt;/span&gt;   &lt;span class="m"&gt;41&lt;/span&gt; minutes ago      Up &lt;span class="m"&gt;41&lt;/span&gt; minutes       &lt;span class="m"&gt;5432&lt;/span&gt;/tcp                 fff_db_1
 &lt;/pre&gt;&lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p class="first"&gt;安全に shutdown する。&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_50a9a3760e8f4016a1ac0d887d88c82d-1"&gt;&lt;/a&gt;$ docker-compose down
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_cef5bbf3959f476ea26bc7d1876fca86-1"&gt;&lt;/a&gt;$ docker-compose down
 &lt;/pre&gt;&lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
