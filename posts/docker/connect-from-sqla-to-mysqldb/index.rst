@@ -57,46 +57,12 @@ MySQL DB をつくる
 
 - Dockerfile-mysql
 
-  .. code-block:: docker
-
-    FROM mysql:5.7.12
-    # `5.7.12` は自分の使いたいイメージのタグ
-    RUN apt-get clean && apt-get update && apt-get install -y locales locales-all vim
-    # ↑のイメージそのままだと vi も vim も入っていなくて不便だったので vim も入れておく
-    RUN locale-gen ja_JP.UTF-8
-    ENV LANG ja_JP.UTF-8
-    ENV LANGUAGE ja_JP:en
-    ENV LC_ALL ja_JP.UTF-8
-    RUN ln -sf /usr/share/zoneinfo/Japan /etc/localtime
+  {{% codeblock mmm/Dockerfile-mysql lexer="docker" %}}
 
 
 - docker-compose.yml
 
-  .. code-block:: yaml
-
-    version: '3'
-
-    services:
-      db:
-        container_name: mmm_db
-        build:
-          context: .
-          dockerfile: Dockerfile-mysql
-        # 文字コードの設定をしておく
-        command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
-        restart: always
-        volumes:
-          - "db-data:/var/lib/mysql"
-        environment:
-          MYSQL_ROOT_PASSWORD: mmm
-          MYSQL_DATABASE: mmm
-          MYSQL_USER: mmm
-          MYSQL_PASSWORD: mmm
-        ports:
-          - "3306:3306"  # 大事。ここを書いておかないと、 compose の外から繋げない。
-
-    volumes:
-      db-data:
+  {{% codeblock mmm/docker-compose.yml lexer="yaml" %}}
 
 
 2. 起動
