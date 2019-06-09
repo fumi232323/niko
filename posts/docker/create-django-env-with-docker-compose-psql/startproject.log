@@ -1,0 +1,71 @@
+# docker-compose.yml に指定したとおり、カレントディレクトリの Dockerfile から `web` のイメージをビルド
+# `web` の中で django-admin.py startproject fff を実行する
+$ sudo docker-compose run web django-admin.py startproject fff .
+# mac のパスワードを入力する
+Password:
+Creating network "fff_default" with the default driver
+Pulling db (postgres:)...
+latest: Pulling from library/postgres
+a5a6f2f73cd8: Already exists
+e50fbea8af5a: Pulling fs layer
+73b4855ad326: Pulling fs layer
+39616673f22b: Pulling fs layer
+94e1b79f69ee: Pull complete
+c91e4af2ff8e: Pull complete
+16ba314c612f: Pull complete
+89011a174cee: Pull complete
+d82b02de73e7: Pull complete
+e3026dc5acbe: Pull complete
+225d0988f8bb: Pull complete
+89efa60266d6: Pull complete
+64e6167259ce: Pull complete
+8f44f8f48bbe: Pull complete
+Digest: sha256:40b48cf04185e69c5a9183a986fcbbfd105e5991a70b1980e9a641b53ba5ead7
+Status: Downloaded newer image for postgres:latest
+Creating fff_db_1 ... done
+Building web
+Step 1/7 : FROM python:3
+3: Pulling from library/python
+54f7e8ac135a: Pull complete
+d6341e30912f: Pull complete
+087a57faf949: Pull complete
+5d71636fb824: Pull complete
+0c1db9598990: Pull complete
+bfb904e99f24: Pull complete
+78a3d3a96a32: Pull complete
+885a0ed92c89: Pull complete
+dd7cc9ace242: Pull complete
+Digest: sha256:3870d35b962a943df72d948580fc66ceaaee1c4fbd205930f32e0f0760eb1077
+Status: Downloaded newer image for python:3
+ ---> 1e80caffd59e
+Step 2/7 : ENV PYTHONUNBUFFERED 1
+ ---> Running in 8b36b0f52978
+Removing intermediate container 8b36b0f52978
+ ---> d8c31fcb6021
+Step 3/7 : RUN mkdir /code
+ ---> Running in 4f2b5e392870
+Removing intermediate container 4f2b5e392870
+ ---> 9c8ee756f336
+Step 4/7 : WORKDIR /code
+ ---> Running in de4383433c19
+Removing intermediate container de4383433c19
+ ---> 3641af229774
+Step 5/7 : ADD requirements.txt /code/
+ ---> ef8667808ce1
+Step 6/7 : RUN pip install -r requirements.txt
+ ---> Running in 1da62dd84073
+Collecting Django<2.1,>=1.8 (from -r requirements.txt (line 1))
+  Downloading https://files.pythonhosted.org/packages/6c/9d/c0feec696b815708354a2fd06ae0f51330a15043822a29bc8be2f185d9fe/Django-2.0.9-py3-none-any.whl (7.1MB)
+Collecting psycopg2 (from -r requirements.txt (line 2))
+  Downloading https://files.pythonhosted.org/packages/90/aa/b033c170c9bd505c7e4d1560f5dbb35ca2a7e928ac03c384f93d0cdaf6a7/psycopg2-2.7.6.1-cp37-cp37m-manylinux1_x86_64.whl (2.7MB)
+Collecting pytz (from Django<2.1,>=1.8->-r requirements.txt (line 1))
+  Downloading https://files.pythonhosted.org/packages/f8/0e/2365ddc010afb3d79147f1dd544e5ee24bf4ece58ab99b16fbb465ce6dc0/pytz-2018.7-py2.py3-none-any.whl (506kB)
+Installing collected packages: pytz, Django, psycopg2
+Successfully installed Django-2.0.9 psycopg2-2.7.6.1 pytz-2018.7
+Removing intermediate container 1da62dd84073
+ ---> d0afed5e3cf7
+Step 7/7 : ADD . /code/
+ ---> 5a39d311c84c
+Successfully built 5a39d311c84c
+Successfully tagged fff_web:latest
+WARNING: Image for service web was built because it did not already exist. To rebuild this image you must use `docker-compose build` or `docker-compose up --build`.

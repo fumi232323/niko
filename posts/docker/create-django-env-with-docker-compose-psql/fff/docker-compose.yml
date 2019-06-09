@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  db:
+    image: postgres
+  web:
+    # Dockerfile が存在するディレクトリの相対パスを指定する
+    build: .
+    # コンテナ実行時に実行するコマンド
+    command: python3 manage.py runserver 0.0.0.0:8000
+    # コンテナの /code を、ホストのカレントディレクトリにマウントする
+    volumes:
+      - .:/code
+    # ポートフォワーディング
+    ports:
+      # ホストのポート:コンテナのポート
+      - "3236:8000"
+    # 依存するものをここに書く。docker-compose up 時に、 web の前に db をスタートしてくれる。
+    depends_on:
+      - db
