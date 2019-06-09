@@ -1,0 +1,145 @@
+# fufu 直下で実行する
+$ docker-compose run web django-admin.py startproject config .
+Building db
+Step 1/7 : FROM mysql:latest
+latest: Pulling from library/mysql
+177e7ef0df69: Pulling fs layer
+cac25352c4c8: Pull complete
+8585afabb40a: Pull complete
+1e4af4996053: Pull complete
+c326522894da: Pull complete
+9020d6b6b171: Pull complete
+55eb37ec6e5f: Pull complete
+37f3f3d72fbd: Pull complete
+03f098d64268: Pull complete
+46a52a54cfe9: Pull complete
+202bc662895d: Pull complete
+46014f07b258: Pull complete
+Digest: sha256:196c04e1944c5e4ea3ab86ae5f78f697cf18ee43865f25e334a6ffb1dbea81e6
+Status: Downloaded newer image for mysql:latest
+ ---> 102816b1ee7d
+Step 2/7 : RUN apt-get clean && apt-get update && apt-get install -y locales locales-all
+ ---> Running in 976810f0d320
+Get:1 http://repo.mysql.com/apt/debian stretch InRelease [19.2 kB]
+Get:5 http://repo.mysql.com/apt/debian stretch/mysql-8.0 amd64 Packages [7186 B]
+Ign:2 http://cdn-fastly.deb.debian.org/debian stretch InRelease
+Get:3 http://security-cdn.debian.org/debian-security stretch/updates InRelease [94.3 kB]
+Get:4 http://cdn-fastly.deb.debian.org/debian stretch-updates InRelease [91.0 kB]
+Get:7 http://security-cdn.debian.org/debian-security stretch/updates/main amd64 Packages [464 kB]
+Get:6 http://cdn-fastly.deb.debian.org/debian stretch Release [118 kB]
+Get:8 http://cdn-fastly.deb.debian.org/debian stretch-updates/main amd64 Packages [5152 B]
+Get:9 http://cdn-fastly.deb.debian.org/debian stretch Release.gpg [2434 B]
+Get:10 http://cdn-fastly.deb.debian.org/debian stretch/main amd64 Packages [7089 kB]
+Fetched 7890 kB in 5s (1505 kB/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following additional packages will be installed:
+  libc-l10n
+The following NEW packages will be installed:
+  libc-l10n locales locales-all
+0 upgraded, 3 newly installed, 0 to remove and 1 not upgraded.
+Need to get 7732 kB of archives.
+After this operation, 144 MB of additional disk space will be used.
+Get:1 http://cdn-fastly.deb.debian.org/debian stretch/main amd64 libc-l10n all 2.24-11+deb9u3 [820 kB]
+Get:2 http://cdn-fastly.deb.debian.org/debian stretch/main amd64 locales all 2.24-11+deb9u3 [3287 kB]
+Get:3 http://cdn-fastly.deb.debian.org/debian stretch/main amd64 locales-all amd64 2.24-11+deb9u3 [3624 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 7732 kB in 3s (2190 kB/s)
+Selecting previously unselected package libc-l10n.
+(Reading database ... 8866 files and directories currently installed.)
+Preparing to unpack .../libc-l10n_2.24-11+deb9u3_all.deb ...
+Unpacking libc-l10n (2.24-11+deb9u3) ...
+Selecting previously unselected package locales.
+Preparing to unpack .../locales_2.24-11+deb9u3_all.deb ...
+Unpacking locales (2.24-11+deb9u3) ...
+Selecting previously unselected package locales-all.
+Preparing to unpack .../locales-all_2.24-11+deb9u3_amd64.deb ...
+Unpacking locales-all (2.24-11+deb9u3) ...
+Setting up libc-l10n (2.24-11+deb9u3) ...
+Setting up locales (2.24-11+deb9u3) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (TERM is not set, so the dialog frontend is not usable.)
+debconf: falling back to frontend: Readline
+Generating locales (this might take a while)...
+Generation complete.
+Setting up locales-all (2.24-11+deb9u3) ...
+Removing intermediate container 976810f0d320
+ ---> a38ea7bd8cf5
+Step 3/7 : RUN locale-gen ja_JP.UTF-8
+ ---> Running in 45929bff7253
+Generating locales (this might take a while)...
+Generation complete.
+Removing intermediate container 45929bff7253
+ ---> 61f34eeb1373
+Step 4/7 : ENV LANG ja_JP.UTF-8
+ ---> Running in 0edd321d2039
+Removing intermediate container 0edd321d2039
+ ---> 9d081db59b9d
+Step 5/7 : ENV LANGUAGE ja_JP:en
+ ---> Running in 3770c59b22a2
+Removing intermediate container 3770c59b22a2
+ ---> d1c0b275dfa6
+Step 6/7 : ENV LC_ALL ja_JP.UTF-8
+ ---> Running in 751e7ba46d23
+Removing intermediate container 751e7ba46d23
+ ---> 8b58a86198fe
+Step 7/7 : RUN ln -sf /usr/share/zoneinfo/Japan /etc/localtime
+ ---> Running in 4ee911d35ca8
+Removing intermediate container 4ee911d35ca8
+ ---> ae9e35a54368
+Successfully built ae9e35a54368
+Successfully tagged fufu_db:latest
+WARNING: Image for service db was built because it did not already exist. To rebuild this image you must use `docker-compose build` or `docker-compose up --build`.
+Starting fufu_db ... done
+Building web
+Step 1/9 : FROM python:3
+ ---> 7c5fd2af3815
+Step 2/9 : ENV PYTHONUNBUFFERED 1
+ ---> Running in 1e7af8a959ba
+Removing intermediate container 1e7af8a959ba
+ ---> 145e89eeda68
+Step 3/9 : RUN mkdir /code
+ ---> Running in 8d0cf8c1af79
+Removing intermediate container 8d0cf8c1af79
+ ---> 50ee8eeb1e91
+Step 4/9 : WORKDIR /code
+ ---> Running in 170815b8e495
+Removing intermediate container 170815b8e495
+ ---> 2bb29d2d6a2d
+Step 5/9 : ADD requirements.txt /code/
+ ---> e7d415a86747
+Step 6/9 : RUN pip install -r requirements.txt
+ ---> Running in aca007d771ea
+Collecting Django>=1.11 (from -r requirements.txt (line 1))
+  Downloading https://files.pythonhosted.org/packages/36/50/078a42b4e9bedb94efd3e0278c0eb71650ed9672cdc91bd5542953bec17f/Django-2.1.5-py3-none-any.whl (7.3MB)
+Collecting mysqlclient>=1.3.7 (from -r requirements.txt (line 2))
+  Downloading https://files.pythonhosted.org/packages/f7/a2/1230ebbb4b91f42ad6b646e59eb8855559817ad5505d81c1ca2b5a216040/mysqlclient-1.3.14.tar.gz (91kB)
+Collecting mysql-connector-python (from -r requirements.txt (line 3))
+  Downloading https://files.pythonhosted.org/packages/83/e3/a8782597a548cbaab0e4a24060ecd44da7058a376c0d62182b1aa9797a13/mysql_connector_python-8.0.13-cp37-cp37m-manylinux1_x86_64.whl (8.2MB)
+Collecting pytz (from Django>=1.11->-r requirements.txt (line 1))
+  Downloading https://files.pythonhosted.org/packages/61/28/1d3920e4d1d50b19bc5d24398a7cd85cc7b9a75a490570d5a30c57622d34/pytz-2018.9-py2.py3-none-any.whl (510kB)
+Collecting protobuf>=3.0.0 (from mysql-connector-python->-r requirements.txt (line 3))
+  Downloading https://files.pythonhosted.org/packages/3a/30/289ead101f94998d88e8961a3548aea29417ae0057be23972483cddebf4f/protobuf-3.6.1-cp37-cp37m-manylinux1_x86_64.whl (1.1MB)
+Requirement already satisfied: setuptools in /usr/local/lib/python3.7/site-packages (from protobuf>=3.0.0->mysql-connector-python->-r requirements.txt (line 3)) (40.6.3)
+Collecting six>=1.9 (from protobuf>=3.0.0->mysql-connector-python->-r requirements.txt (line 3))
+  Downloading https://files.pythonhosted.org/packages/73/fb/00a976f728d0d1fecfe898238ce23f502a721c0ac0ecfedb80e0d88c64e9/six-1.12.0-py2.py3-none-any.whl
+Building wheels for collected packages: mysqlclient
+  Running setup.py bdist_wheel for mysqlclient: started
+  Running setup.py bdist_wheel for mysqlclient: finished with status 'done'
+  Stored in directory: /root/.cache/pip/wheels/6d/7d/cb/181963137c414938d4faac9a57c966fb3a6ef675c25641c41a
+Successfully built mysqlclient
+Installing collected packages: pytz, Django, mysqlclient, six, protobuf, mysql-connector-python
+Successfully installed Django-2.1.5 mysql-connector-python-8.0.13 mysqlclient-1.3.14 protobuf-3.6.1 pytz-2018.9 six-1.12.0
+Removing intermediate container aca007d771ea
+ ---> 950aa5581bf7
+Step 7/9 : ADD . /code/
+ ---> 8d7f1f5cc717
+Step 8/9 : RUN mkdir apps
+ ---> c46748e3db9b
+Step 9/9 : WORKDIR apps
+ ---> c642446504e2
+Successfully built c642446504e2
+Successfully tagged fufu_web:latest
+WARNING: Image for service web was built because it did not already exist. To rebuild this image you must use `docker-compose build` or `docker-compose up --build`.

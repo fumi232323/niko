@@ -1,0 +1,34 @@
+version: '3'
+
+services:
+  db:
+    container_name: fufu_db
+    build:
+      context: .
+      dockerfile: Dockerfile-mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    volumes:
+      - "db-data:/var/lib/mysql"
+      - "./mysql/conf.d:/etc/mysql/conf.d"
+    environment:
+      MYSQL_ROOT_PASSWORD: fufu
+      MYSQL_DATABASE: fufu
+      MYSQL_USER: fufu
+      MYSQL_PASSWORD: fufu
+
+  web:
+    container_name: fufu_web
+    build:
+      context: .
+      dockerfile: Dockerfile-web
+    command: python3 manage.py runserver 0.0.0.0:8000 --settings=settings.local
+    volumes:
+      - .:/code
+    ports:
+      - "3236:8000"
+    depends_on:
+      - db
+
+volumes:
+  db-data:

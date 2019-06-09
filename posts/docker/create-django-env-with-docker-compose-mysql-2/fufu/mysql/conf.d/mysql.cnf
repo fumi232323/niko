@@ -1,0 +1,50 @@
+# Copyright (c) 2015, 2016, Oracle and/or its affiliates. All rights reserved.
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License, version 2.0,
+# as published by the Free Software Foundation.
+#
+# This program is also distributed with certain software (including
+# but not limited to OpenSSL) that is licensed under separate terms,
+# as designated in a particular file or component or in included license
+# documentation.  The authors of MySQL hereby grant you an additional
+# permission to link the program and your derivative works with the
+# separately licensed software that they have included with MySQL.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License, version 2.0, for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301  USA
+
+#
+# The MySQL  Client configuration file.
+#
+# For explanations see
+# http://dev.mysql.com/doc/mysql/en/server-system-variables.html
+
+
+[mysqld]  # *** mysqlサーバーの設定 ***************
+# https://dev.mysql.com/doc/refman/8.0/en/upgrading-from-previous-series.html#upgrade-caching-sha2-password
+# https://dev.mysql.com/doc/refman/8.0/en/upgrading-from-previous-series.html#upgrade-caching-sha2-password-compatible-connectors
+# https://dev.mysql.com/doc/mysqld-version-reference/en/optvar-changes-8-0.html
+# [環境構築メモ ※1 参照のこと]
+default-authentication-plugin=mysql_native_password
+
+# デフォルト状態で /etc/mysql/conf.d/docker.cnf に定義されているやつをコピーしておく
+# もしくは、 docker.cnf として作っておく
+# [環境構築メモ ※2 参照のこと]
+skip-host-cache
+skip-name-resolve
+
+# https://mysqlserverteam.com/mysql-8-0-kana-sensitive-collation-for-japanese-ja_jp/
+collation-server=utf8mb4_ja_0900_as_cs_ks
+character-set-server=utf8mb4
+# https://dev.mysql.com/doc/refman/8.0/en/server-options.html#option_mysqld_default-time-zone
+default-time-zone='Asia/Tokyo'
+
+[client]  # *** mysqlクライアントの設定 ************
+default-character-set=utf8mb4

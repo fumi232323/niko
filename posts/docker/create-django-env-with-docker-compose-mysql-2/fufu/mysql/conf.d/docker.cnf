@@ -1,0 +1,3 @@
+[mysqld]  # *** mysqlサーバーの設定 ***************
+skip-host-cache
+skip-name-resolve

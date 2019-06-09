@@ -1,0 +1,369 @@
+$ docker-compose up
+Creating network "fufu_default" with the default driver
+Creating volume "fufu_db-data" with default driver
+Creating fufu_db ... done
+Creating fufu_web ... done
+Attaching to fufu_db, fufu_web
+db_1   | Initializing database
+db_1   | 2019-01-20T11:55:51.840057Z 0 [Warning] [MY-011070] [Server] 'Disabling symbolic links using --skip-symbolic-links (or equivalent) is the default. Consider not using this option as it' is deprecated and will be removed in a future release.
+db_1   | 2019-01-20T11:55:51.840160Z 0 [System] [MY-013169] [Server] /usr/sbin/mysqld (mysqld 8.0.13) initializing of server in progress as process 31
+
+(中略)
+
+db_1   | 2019-01-20T11:55:53.441764Z 0 [ERROR] [MY-010361] [Server] Fatal error: Illegal or unknown default time zone 'Asia/Tokyo'
+db_1   | 2019-01-20T11:55:53.441886Z 0 [ERROR] [MY-013236] [Server] Newly created data directory /var/lib/mysql/ is unusable. You can safely remove it.
+db_1   | 2019-01-20T11:55:53.441926Z 0 [ERROR] [MY-010119] [Server] Aborting
+db_1   | 2019-01-20T11:55:55.045197Z 0 [System] [MY-010910] [Server] /usr/sbin/mysqld: Shutdown complete (mysqld 8.0.13)  MySQL Community Server - GPL.
+fufu_db exited with code 1
+db_1   | Initializing database
+db_1   | 2019-01-20T11:55:51.840057Z 0 [Warning] [MY-011070] [Server] 'Disabling symbolic links using --skip-symbolic-links (or equivalent) is the default. Consider not using this option as it' is deprecated and will be removed in a future release.
+db_1   | 2019-01-20T11:55:51.840160Z 0 [System] [MY-013169] [Server] /usr/sbin/mysqld (mysqld 8.0.13) initializing of server in progress as process 31
+db_1   | 2019-01-20T11:55:53.441764Z 0 [ERROR] [MY-010361] [Server] Fatal error: Illegal or unknown default time zone 'Asia/Tokyo'
+db_1   | 2019-01-20T11:55:53.441886Z 0 [ERROR] [MY-013236] [Server] Newly created data directory /var/lib/mysql/ is unusable. You can safely remove it.
+db_1   | 2019-01-20T11:55:53.441926Z 0 [ERROR] [MY-010119] [Server] Aborting
+db_1   | 2019-01-20T11:55:55.045197Z 0 [System] [MY-010910] [Server] /usr/sbin/mysqld: Shutdown complete (mysqld 8.0.13)  MySQL Community Server - GPL.
+db_1   | 2019-01-20T11:55:57.680035Z 0 [Warning] [MY-011070] [Server] 'Disabling symbolic links using --skip-symbolic-links (or equivalent) is the default. Consider not using this option as it' is deprecated and will be removed in a future release.
+db_1   | 2019-01-20T11:55:57.680129Z 0 [System] [MY-010116] [Server] /usr/sbin/mysqld (mysqld 8.0.13) starting as process 1
+db_1   | mysqld: Table 'mysql.plugin' doesn't exist
+db_1   | 2019-01-20T11:55:57.942301Z 0 [ERROR] [MY-010735] [Server] Can't open the mysql.plugin table. Please run mysql_upgrade to create it.
+db_1   | 2019-01-20T11:55:58.026899Z 0 [Warning] [MY-010015] [Repl] Gtid table is not ready to be used. Table 'mysql.gtid_executed' cannot be opened.
+db_1   | 2019-01-20T11:55:58.029078Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+db_1   | 2019-01-20T11:55:58.031090Z 0 [Warning] [MY-011810] [Server] Insecure configuration for --pid-file: Location '/var/run/mysqld' in the path is accessible to all OS users. Consider choosing a different directory.
+db_1   | 2019-01-20T11:55:58.031510Z 0 [Warning] [MY-010441] [Server] Failed to open optimizer cost constant tables
+db_1   | 2019-01-20T11:55:58.031827Z 0 [ERROR] [MY-013129] [Server] A message intended for a client cannot be sent there as no client-session is attached. Therefore, we're sending the information to the error-log instead: MY-001146 - Table 'mysql.component' doesn't exist
+db_1   | 2019-01-20T11:55:58.031895Z 0 [Warning] [MY-013129] [Server] A message intended for a client cannot be sent there as no client-session is attached. Therefore, we're sending the information to the error-log instead: MY-003543 - The mysql.component table is missing or has an incorrect definition.
+db_1   | 2019-01-20T11:55:58.032460Z 0 [ERROR] [MY-010326] [Server] Fatal error: Can't open and lock privilege tables: Table 'mysql.user' doesn't exist
+db_1   | 2019-01-20T11:55:58.032548Z 0 [Warning] [MY-010952] [Server] The privilege system failed to initialize correctly. If you have upgraded your server, make sure you're executing mysql_upgrade to correct the issue.
+db_1   | 2019-01-20T11:55:58.032782Z 0 [Warning] [MY-010357] [Server] Can't open and lock time zone table: Table 'mysql.time_zone_leap_second' doesn't exist trying to live without them
+db_1   | 2019-01-20T11:55:58.032832Z 0 [ERROR] [MY-010361] [Server] Fatal error: Illegal or unknown default time zone 'Asia/Tokyo'
+db_1   | 2019-01-20T11:55:58.032975Z 0 [ERROR] [MY-010119] [Server] Aborting
+db_1   | 2019-01-20T11:55:59.851741Z 0 [System] [MY-010910] [Server] /usr/sbin/mysqld: Shutdown complete (mysqld 8.0.13)  MySQL Community Server - GPL.
+db_1   | 2019-01-20T11:56:02.499663Z 0 [Warning] [MY-011070] [Server] 'Disabling symbolic links using --skip-symbolic-links (or equivalent) is the default. Consider not using this option as it' is deprecated and will be removed in a future release.
+db_1   | 2019-01-20T11:56:02.499753Z 0 [System] [MY-010116] [Server] /usr/sbin/mysqld (mysqld 8.0.13) starting as process 1
+db_1   | mysqld: Table 'mysql.plugin' doesn't exist
+db_1   | 2019-01-20T11:56:02.758687Z 0 [ERROR] [MY-010735] [Server] Can't open the mysql.plugin table. Please run mysql_upgrade to create it.
+db_1   | 2019-01-20T11:56:02.841674Z 0 [Warning] [MY-010015] [Repl] Gtid table is not ready to be used. Table 'mysql.gtid_executed' cannot be opened.
+db_1   | 2019-01-20T11:56:02.844213Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+db_1   | 2019-01-20T11:56:02.846178Z 0 [Warning] [MY-011810] [Server] Insecure configuration for --pid-file: Location '/var/run/mysqld' in the path is accessible to all OS users. Consider choosing a different directory.
+db_1   | 2019-01-20T11:56:02.846616Z 0 [Warning] [MY-010441] [Server] Failed to open optimizer cost constant tables
+db_1   | 2019-01-20T11:56:02.846911Z 0 [ERROR] [MY-013129] [Server] A message intended for a client cannot be sent there as no client-session is attached. Therefore, we're sending the information to the error-log instead: MY-001146 - Table 'mysql.component' doesn't exist
+db_1   | 2019-01-20T11:56:02.846948Z 0 [Warning] [MY-013129] [Server] A message intended for a client cannot be sent there as no client-session is attached. Therefore, we're sending the information to the error-log instead: MY-003543 - The mysql.component table is missing or has an incorrect definition.
+db_1   | 2019-01-20T11:56:02.847441Z 0 [ERROR] [MY-010326] [Server] Fatal error: Can't open and lock privilege tables: Table 'mysql.user' doesn't exist
+db_1   | 2019-01-20T11:56:02.847506Z 0 [Warning] [MY-010952] [Server] The privilege system failed to initialize correctly. If you have upgraded your server, make sure you're executing mysql_upgrade to correct the issue.
+db_1   | 2019-01-20T11:56:02.847644Z 0 [Warning] [MY-010357] [Server] Can't open and lock time zone table: Table 'mysql.time_zone_leap_second' doesn't exist trying to live without them
+db_1   | 2019-01-20T11:56:02.847671Z 0 [ERROR] [MY-010361] [Server] Fatal error: Illegal or unknown default time zone 'Asia/Tokyo'
+db_1   | 2019-01-20T11:56:02.847769Z 0 [ERROR] [MY-010119] [Server] Aborting
+db_1   | 2019-01-20T11:56:04.258157Z 0 [System] [MY-010910] [Server] /usr/sbin/mysqld: Shutdown complete (mysqld 8.0.13)  MySQL Community Server - GPL.
+fufu_db exited with code 1
+db_1   | Initializing database
+db_1   | 2019-01-20T11:55:51.840057Z 0 [Warning] [MY-011070] [Server] 'Disabling symbolic links using --skip-symbolic-links (or equivalent) is the default. Consider not using this option as it' is deprecated and will be removed in a future release.
+db_1   | 2019-01-20T11:55:51.840160Z 0 [System] [MY-013169] [Server] /usr/sbin/mysqld (mysqld 8.0.13) initializing of server in progress as process 31
+db_1   | 2019-01-20T11:55:53.441764Z 0 [ERROR] [MY-010361] [Server] Fatal error: Illegal or unknown default time zone 'Asia/Tokyo'
+db_1   | 2019-01-20T11:55:53.441886Z 0 [ERROR] [MY-013236] [Server] Newly created data directory /var/lib/mysql/ is unusable. You can safely remove it.
+db_1   | 2019-01-20T11:55:53.441926Z 0 [ERROR] [MY-010119] [Server] Aborting
+db_1   | 2019-01-20T11:55:55.045197Z 0 [System] [MY-010910] [Server] /usr/sbin/mysqld: Shutdown complete (mysqld 8.0.13)  MySQL Community Server - GPL.
+db_1   | 2019-01-20T11:55:57.680035Z 0 [Warning] [MY-011070] [Server] 'Disabling symbolic links using --skip-symbolic-links (or equivalent) is the default. Consider not using this option as it' is deprecated and will be removed in a future release.
+db_1   | 2019-01-20T11:55:57.680129Z 0 [System] [MY-010116] [Server] /usr/sbin/mysqld (mysqld 8.0.13) starting as process 1
+db_1   | mysqld: Table 'mysql.plugin' doesn't exist
+db_1   | 2019-01-20T11:55:57.942301Z 0 [ERROR] [MY-010735] [Server] Can't open the mysql.plugin table. Please run mysql_upgrade to create it.
+db_1   | 2019-01-20T11:55:58.026899Z 0 [Warning] [MY-010015] [Repl] Gtid table is not ready to be used. Table 'mysql.gtid_executed' cannot be opened.
+db_1   | 2019-01-20T11:55:58.029078Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+db_1   | 2019-01-20T11:55:58.031090Z 0 [Warning] [MY-011810] [Server] Insecure configuration for --pid-file: Location '/var/run/mysqld' in the path is accessible to all OS users. Consider choosing a different directory.
+db_1   | 2019-01-20T11:55:58.031510Z 0 [Warning] [MY-010441] [Server] Failed to open optimizer cost constant tables
+db_1   | 2019-01-20T11:55:58.031827Z 0 [ERROR] [MY-013129] [Server] A message intended for a client cannot be sent there as no client-session is attached. Therefore, we're sending the information to the error-log instead: MY-001146 - Table 'mysql.component' doesn't exist
+db_1   | 2019-01-20T11:55:58.031895Z 0 [Warning] [MY-013129] [Server] A message intended for a client cannot be sent there as no client-session is attached. Therefore, we're sending the information to the error-log instead: MY-003543 - The mysql.component table is missing or has an incorrect definition.
+db_1   | 2019-01-20T11:55:58.032460Z 0 [ERROR] [MY-010326] [Server] Fatal error: Can't open and lock privilege tables: Table 'mysql.user' doesn't exist
+db_1   | 2019-01-20T11:55:58.032548Z 0 [Warning] [MY-010952] [Server] The privilege system failed to initialize correctly. If you have upgraded your server, make sure you're executing mysql_upgrade to correct the issue.
+db_1   | 2019-01-20T11:55:58.032782Z 0 [Warning] [MY-010357] [Server] Can't open and lock time zone table: Table 'mysql.time_zone_leap_second' doesn't exist trying to live without them
+db_1   | 2019-01-20T11:55:58.032832Z 0 [ERROR] [MY-010361] [Server] Fatal error: Illegal or unknown default time zone 'Asia/Tokyo'
+db_1   | 2019-01-20T11:55:58.032975Z 0 [ERROR] [MY-010119] [Server] Aborting
+db_1   | 2019-01-20T11:55:59.851741Z 0 [System] [MY-010910] [Server] /usr/sbin/mysqld: Shutdown complete (mysqld 8.0.13)  MySQL Community Server - GPL.
+db_1   | 2019-01-20T11:56:02.499663Z 0 [Warning] [MY-011070] [Server] 'Disabling symbolic links using --skip-symbolic-links (or equivalent) is the default. Consider not using this option as it' is deprecated and will be removed in a future release.
+db_1   | 2019-01-20T11:56:02.499753Z 0 [System] [MY-010116] [Server] /usr/sbin/mysqld (mysqld 8.0.13) starting as process 1
+db_1   | mysqld: Table 'mysql.plugin' doesn't exist
+db_1   | 2019-01-20T11:56:02.758687Z 0 [ERROR] [MY-010735] [Server] Can't open the mysql.plugin table. Please run mysql_upgrade to create it.
+db_1   | 2019-01-20T11:56:02.841674Z 0 [Warning] [MY-010015] [Repl] Gtid table is not ready to be used. Table 'mysql.gtid_executed' cannot be opened.
+db_1   | 2019-01-20T11:56:02.844213Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+db_1   | 2019-01-20T11:56:02.846178Z 0 [Warning] [MY-011810] [Server] Insecure configuration for --pid-file: Location '/var/run/mysqld' in the path is accessible to all OS users. Consider choosing a different directory.
+db_1   | 2019-01-20T11:56:02.846616Z 0 [Warning] [MY-010441] [Server] Failed to open optimizer cost constant tables
+db_1   | 2019-01-20T11:56:02.846911Z 0 [ERROR] [MY-013129] [Server] A message intended for a client cannot be sent there as no client-session is attached. Therefore, we're sending the information to the error-log instead: MY-001146 - Table 'mysql.component' doesn't exist
+db_1   | 2019-01-20T11:56:02.846948Z 0 [Warning] [MY-013129] [Server] A message intended for a client cannot be sent there as no client-session is attached. Therefore, we're sending the information to the error-log instead: MY-003543 - The mysql.component table is missing or has an incorrect definition.
+db_1   | 2019-01-20T11:56:02.847441Z 0 [ERROR] [MY-010326] [Server] Fatal error: Can't open and lock privilege tables: Table 'mysql.user' doesn't exist
+db_1   | 2019-01-20T11:56:02.847506Z 0 [Warning] [MY-010952] [Server] The privilege system failed to initialize correctly. If you have upgraded your server, make sure you're executing mysql_upgrade to correct the issue.
+db_1   | 2019-01-20T11:56:02.847644Z 0 [Warning] [MY-010357] [Server] Can't open and lock time zone table: Table 'mysql.time_zone_leap_second' doesn't exist trying to live without them
+db_1   | 2019-01-20T11:56:02.847671Z 0 [ERROR] [MY-010361] [Server] Fatal error: Illegal or unknown default time zone 'Asia/Tokyo'
+db_1   | 2019-01-20T11:56:02.847769Z 0 [ERROR] [MY-010119] [Server] Aborting
+db_1   | 2019-01-20T11:56:04.258157Z 0 [System] [MY-010910] [Server] /usr/sbin/mysqld: Shutdown complete (mysqld 8.0.13)  MySQL Community Server - GPL.
+db_1   | 2019-01-20T11:56:06.885337Z 0 [Warning] [MY-011070] [Server] 'Disabling symbolic links using --skip-symbolic-links (or equivalent) is the default. Consider not using this option as it' is deprecated and will be removed in a future release.
+db_1   | 2019-01-20T11:56:06.885434Z 0 [System] [MY-010116] [Server] /usr/sbin/mysqld (mysqld 8.0.13) starting as process 1
+db_1   | mysqld: Table 'mysql.plugin' doesn't exist
+db_1   | 2019-01-20T11:56:07.153069Z 0 [ERROR] [MY-010735] [Server] Can't open the mysql.plugin table. Please run mysql_upgrade to create it.
+db_1   | 2019-01-20T11:56:07.236161Z 0 [Warning] [MY-010015] [Repl] Gtid table is not ready to be used. Table 'mysql.gtid_executed' cannot be opened.
+db_1   | 2019-01-20T11:56:07.238540Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+db_1   | 2019-01-20T11:56:07.240561Z 0 [Warning] [MY-011810] [Server] Insecure configuration for --pid-file: Location '/var/run/mysqld' in the path is accessible to all OS users. Consider choosing a different directory.
+db_1   | 2019-01-20T11:56:07.240967Z 0 [Warning] [MY-010441] [Server] Failed to open optimizer cost constant tables
+db_1   | 2019-01-20T11:56:07.241151Z 0 [ERROR] [MY-013129] [Server] A message intended for a client cannot be sent there as no client-session is attached. Therefore, we're sending the information to the error-log instead: MY-001146 - Table 'mysql.component' doesn't exist
+db_1   | 2019-01-20T11:56:07.241186Z 0 [Warning] [MY-013129] [Server] A message intended for a client cannot be sent there as no client-session is attached. Therefore, we're sending the information to the error-log instead: MY-003543 - The mysql.component table is missing or has an incorrect definition.
+db_1   | 2019-01-20T11:56:07.241673Z 0 [ERROR] [MY-010326] [Server] Fatal error: Can't open and lock privilege tables: Table 'mysql.user' doesn't exist
+db_1   | 2019-01-20T11:56:07.241732Z 0 [Warning] [MY-010952] [Server] The privilege system failed to initialize correctly. If you have upgraded your server, make sure you're executing mysql_upgrade to correct the issue.
+db_1   | 2019-01-20T11:56:07.241871Z 0 [Warning] [MY-010357] [Server] Can't open and lock time zone table: Table 'mysql.time_zone_leap_second' doesn't exist trying to live without them
+db_1   | 2019-01-20T11:56:07.241902Z 0 [ERROR] [MY-010361] [Server] Fatal error: Illegal or unknown default time zone 'Asia/Tokyo'
+db_1   | 2019-01-20T11:56:07.241995Z 0 [ERROR] [MY-010119] [Server] Aborting
+db_1   | 2019-01-20T11:56:09.048029Z 0 [System] [MY-010910] [Server] /usr/sbin/mysqld: Shutdown complete (mysqld 8.0.13)  MySQL Community Server - GPL.
+db_1   | 2019-01-20T11:56:11.651915Z 0 [Warning] [MY-011070] [Server] 'Disabling symbolic links using --skip-symbolic-links (or equivalent) is the default. Consider not using this option as it' is deprecated and will be removed in a future release.
+db_1   | 2019-01-20T11:56:11.652007Z 0 [System] [MY-010116] [Server] /usr/sbin/mysqld (mysqld 8.0.13) starting as process 1
+db_1   | mysqld: Table 'mysql.plugin' doesn't exist
+db_1   | 2019-01-20T11:56:11.912327Z 0 [ERROR] [MY-010735] [Server] Can't open the mysql.plugin table. Please run mysql_upgrade to create it.
+db_1   | 2019-01-20T11:56:11.994607Z 0 [Warning] [MY-010015] [Repl] Gtid table is not ready to be used. Table 'mysql.gtid_executed' cannot be opened.
+db_1   | 2019-01-20T11:56:11.996767Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+db_1   | 2019-01-20T11:56:11.998486Z 0 [Warning] [MY-011810] [Server] Insecure configuration for --pid-file: Location '/var/run/mysqld' in the path is accessible to all OS users. Consider choosing a different directory.
+db_1   | 2019-01-20T11:56:11.998844Z 0 [Warning] [MY-010441] [Server] Failed to open optimizer cost constant tables
+db_1   | 2019-01-20T11:56:11.999016Z 0 [ERROR] [MY-013129] [Server] A message intended for a client cannot be sent there as no client-session is attached. Therefore, we're sending the information to the error-log instead: MY-001146 - Table 'mysql.component' doesn't exist
+db_1   | 2019-01-20T11:56:11.999047Z 0 [Warning] [MY-013129] [Server] A message intended for a client cannot be sent there as no client-session is attached. Therefore, we're sending the information to the error-log instead: MY-003543 - The mysql.component table is missing or has an incorrect definition.
+db_1   | 2019-01-20T11:56:11.999541Z 0 [ERROR] [MY-010326] [Server] Fatal error: Can't open and lock privilege tables: Table 'mysql.user' doesn't exist
+db_1   | 2019-01-20T11:56:11.999601Z 0 [Warning] [MY-010952] [Server] The privilege system failed to initialize correctly. If you have upgraded your server, make sure you're executing mysql_upgrade to correct the issue.
+db_1   | 2019-01-20T11:56:11.999753Z 0 [Warning] [MY-010357] [Server] Can't open and lock time zone table: Table 'mysql.time_zone_leap_second' doesn't exist trying to live without them
+db_1   | 2019-01-20T11:56:11.999778Z 0 [ERROR] [MY-010361] [Server] Fatal error: Illegal or unknown default time zone 'Asia/Tokyo'
+db_1   | 2019-01-20T11:56:11.999874Z 0 [ERROR] [MY-010119] [Server] Aborting
+db_1   | 2019-01-20T11:56:13.815771Z 0 [System] [MY-010910] [Server] /usr/sbin/mysqld: Shutdown complete (mysqld 8.0.13)  MySQL Community Server - GPL.
+fufu_db exited with code 1
+db_1   | Initializing database
+db_1   | 2019-01-20T11:55:51.840057Z 0 [Warning] [MY-011070] [Server] 'Disabling symbolic links using --skip-symbolic-links (or equivalent) is the default. Consider not using this option as it' is deprecated and will be removed in a future release.
+db_1   | 2019-01-20T11:55:51.840160Z 0 [System] [MY-013169] [Server] /usr/sbin/mysqld (mysqld 8.0.13) initializing of server in progress as process 31
+db_1   | 2019-01-20T11:55:53.441764Z 0 [ERROR] [MY-010361] [Server] Fatal error: Illegal or unknown default time zone 'Asia/Tokyo'
+db_1   | 2019-01-20T11:55:53.441886Z 0 [ERROR] [MY-013236] [Server] Newly created data directory /var/lib/mysql/ is unusable. You can safely remove it.
+db_1   | 2019-01-20T11:55:53.441926Z 0 [ERROR] [MY-010119] [Server] Aborting
+db_1   | 2019-01-20T11:55:55.045197Z 0 [System] [MY-010910] [Server] /usr/sbin/mysqld: Shutdown complete (mysqld 8.0.13)  MySQL Community Server - GPL.
+db_1   | 2019-01-20T11:55:57.680035Z 0 [Warning] [MY-011070] [Server] 'Disabling symbolic links using --skip-symbolic-links (or equivalent) is the default. Consider not using this option as it' is deprecated and will be removed in a future release.
+db_1   | 2019-01-20T11:55:57.680129Z 0 [System] [MY-010116] [Server] /usr/sbin/mysqld (mysqld 8.0.13) starting as process 1
+db_1   | mysqld: Table 'mysql.plugin' doesn't exist
+db_1   | 2019-01-20T11:55:57.942301Z 0 [ERROR] [MY-010735] [Server] Can't open the mysql.plugin table. Please run mysql_upgrade to create it.
+db_1   | 2019-01-20T11:55:58.026899Z 0 [Warning] [MY-010015] [Repl] Gtid table is not ready to be used. Table 'mysql.gtid_executed' cannot be opened.
+db_1   | 2019-01-20T11:55:58.029078Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+db_1   | 2019-01-20T11:55:58.031090Z 0 [Warning] [MY-011810] [Server] Insecure configuration for --pid-file: Location '/var/run/mysqld' in the path is accessible to all OS users. Consider choosing a different directory.
+db_1   | 2019-01-20T11:55:58.031510Z 0 [Warning] [MY-010441] [Server] Failed to open optimizer cost constant tables
+db_1   | 2019-01-20T11:55:58.031827Z 0 [ERROR] [MY-013129] [Server] A message intended for a client cannot be sent there as no client-session is attached. Therefore, we're sending the information to the error-log instead: MY-001146 - Table 'mysql.component' doesn't exist
+db_1   | 2019-01-20T11:55:58.031895Z 0 [Warning] [MY-013129] [Server] A message intended for a client cannot be sent there as no client-session is attached. Therefore, we're sending the information to the error-log instead: MY-003543 - The mysql.component table is missing or has an incorrect definition.
+db_1   | 2019-01-20T11:55:58.032460Z 0 [ERROR] [MY-010326] [Server] Fatal error: Can't open and lock privilege tables: Table 'mysql.user' doesn't exist
+db_1   | 2019-01-20T11:55:58.032548Z 0 [Warning] [MY-010952] [Server] The privilege system failed to initialize correctly. If you have upgraded your server, make sure you're executing mysql_upgrade to correct the issue.
+db_1   | 2019-01-20T11:55:58.032782Z 0 [Warning] [MY-010357] [Server] Can't open and lock time zone table: Table 'mysql.time_zone_leap_second' doesn't exist trying to live without them
+db_1   | 2019-01-20T11:55:58.032832Z 0 [ERROR] [MY-010361] [Server] Fatal error: Illegal or unknown default time zone 'Asia/Tokyo'
+db_1   | 2019-01-20T11:55:58.032975Z 0 [ERROR] [MY-010119] [Server] Aborting
+db_1   | 2019-01-20T11:55:59.851741Z 0 [System] [MY-010910] [Server] /usr/sbin/mysqld: Shutdown complete (mysqld 8.0.13)  MySQL Community Server - GPL.
+db_1   | 2019-01-20T11:56:02.499663Z 0 [Warning] [MY-011070] [Server] 'Disabling symbolic links using --skip-symbolic-links (or equivalent) is the default. Consider not using this option as it' is deprecated and will be removed in a future release.
+db_1   | 2019-01-20T11:56:02.499753Z 0 [System] [MY-010116] [Server] /usr/sbin/mysqld (mysqld 8.0.13) starting as process 1
+db_1   | mysqld: Table 'mysql.plugin' doesn't exist
+db_1   | 2019-01-20T11:56:02.758687Z 0 [ERROR] [MY-010735] [Server] Can't open the mysql.plugin table. Please run mysql_upgrade to create it.
+db_1   | 2019-01-20T11:56:02.841674Z 0 [Warning] [MY-010015] [Repl] Gtid table is not ready to be used. Table 'mysql.gtid_executed' cannot be opened.
+db_1   | 2019-01-20T11:56:02.844213Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+db_1   | 2019-01-20T11:56:02.846178Z 0 [Warning] [MY-011810] [Server] Insecure configuration for --pid-file: Location '/var/run/mysqld' in the path is accessible to all OS users. Consider choosing a different directory.
+db_1   | 2019-01-20T11:56:02.846616Z 0 [Warning] [MY-010441] [Server] Failed to open optimizer cost constant tables
+db_1   | 2019-01-20T11:56:02.846911Z 0 [ERROR] [MY-013129] [Server] A message intended for a client cannot be sent there as no client-session is attached. Therefore, we're sending the information to the error-log instead: MY-001146 - Table 'mysql.component' doesn't exist
+db_1   | 2019-01-20T11:56:02.846948Z 0 [Warning] [MY-013129] [Server] A message intended for a client cannot be sent there as no client-session is attached. Therefore, we're sending the information to the error-log instead: MY-003543 - The mysql.component table is missing or has an incorrect definition.
+db_1   | 2019-01-20T11:56:02.847441Z 0 [ERROR] [MY-010326] [Server] Fatal error: Can't open and lock privilege tables: Table 'mysql.user' doesn't exist
+db_1   | 2019-01-20T11:56:02.847506Z 0 [Warning] [MY-010952] [Server] The privilege system failed to initialize correctly. If you have upgraded your server, make sure you're executing mysql_upgrade to correct the issue.
+db_1   | 2019-01-20T11:56:02.847644Z 0 [Warning] [MY-010357] [Server] Can't open and lock time zone table: Table 'mysql.time_zone_leap_second' doesn't exist trying to live without them
+db_1   | 2019-01-20T11:56:02.847671Z 0 [ERROR] [MY-010361] [Server] Fatal error: Illegal or unknown default time zone 'Asia/Tokyo'
+db_1   | 2019-01-20T11:56:02.847769Z 0 [ERROR] [MY-010119] [Server] Aborting
+db_1   | 2019-01-20T11:56:04.258157Z 0 [System] [MY-010910] [Server] /usr/sbin/mysqld: Shutdown complete (mysqld 8.0.13)  MySQL Community Server - GPL.
+db_1   | 2019-01-20T11:56:06.885337Z 0 [Warning] [MY-011070] [Server] 'Disabling symbolic links using --skip-symbolic-links (or equivalent) is the default. Consider not using this option as it' is deprecated and will be removed in a future release.
+db_1   | 2019-01-20T11:56:06.885434Z 0 [System] [MY-010116] [Server] /usr/sbin/mysqld (mysqld 8.0.13) starting as process 1
+db_1   | mysqld: Table 'mysql.plugin' doesn't exist
+db_1   | 2019-01-20T11:56:07.153069Z 0 [ERROR] [MY-010735] [Server] Can't open the mysql.plugin table. Please run mysql_upgrade to create it.
+db_1   | 2019-01-20T11:56:07.236161Z 0 [Warning] [MY-010015] [Repl] Gtid table is not ready to be used. Table 'mysql.gtid_executed' cannot be opened.
+db_1   | 2019-01-20T11:56:07.238540Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+db_1   | 2019-01-20T11:56:07.240561Z 0 [Warning] [MY-011810] [Server] Insecure configuration for --pid-file: Location '/var/run/mysqld' in the path is accessible to all OS users. Consider choosing a different directory.
+db_1   | 2019-01-20T11:56:07.240967Z 0 [Warning] [MY-010441] [Server] Failed to open optimizer cost constant tables
+db_1   | 2019-01-20T11:56:07.241151Z 0 [ERROR] [MY-013129] [Server] A message intended for a client cannot be sent there as no client-session is attached. Therefore, we're sending the information to the error-log instead: MY-001146 - Table 'mysql.component' doesn't exist
+db_1   | 2019-01-20T11:56:07.241186Z 0 [Warning] [MY-013129] [Server] A message intended for a client cannot be sent there as no client-session is attached. Therefore, we're sending the information to the error-log instead: MY-003543 - The mysql.component table is missing or has an incorrect definition.
+db_1   | 2019-01-20T11:56:07.241673Z 0 [ERROR] [MY-010326] [Server] Fatal error: Can't open and lock privilege tables: Table 'mysql.user' doesn't exist
+db_1   | 2019-01-20T11:56:07.241732Z 0 [Warning] [MY-010952] [Server] The privilege system failed to initialize correctly. If you have upgraded your server, make sure you're executing mysql_upgrade to correct the issue.
+db_1   | 2019-01-20T11:56:07.241871Z 0 [Warning] [MY-010357] [Server] Can't open and lock time zone table: Table 'mysql.time_zone_leap_second' doesn't exist trying to live without them
+db_1   | 2019-01-20T11:56:07.241902Z 0 [ERROR] [MY-010361] [Server] Fatal error: Illegal or unknown default time zone 'Asia/Tokyo'
+db_1   | 2019-01-20T11:56:07.241995Z 0 [ERROR] [MY-010119] [Server] Aborting
+db_1   | 2019-01-20T11:56:09.048029Z 0 [System] [MY-010910] [Server] /usr/sbin/mysqld: Shutdown complete (mysqld 8.0.13)  MySQL Community Server - GPL.
+db_1   | 2019-01-20T11:56:11.651915Z 0 [Warning] [MY-011070] [Server] 'Disabling symbolic links using --skip-symbolic-links (or equivalent) is the default. Consider not using this option as it' is deprecated and will be removed in a future release.
+db_1   | 2019-01-20T11:56:11.652007Z 0 [System] [MY-010116] [Server] /usr/sbin/mysqld (mysqld 8.0.13) starting as process 1
+db_1   | mysqld: Table 'mysql.plugin' doesn't exist
+db_1   | 2019-01-20T11:56:11.912327Z 0 [ERROR] [MY-010735] [Server] Can't open the mysql.plugin table. Please run mysql_upgrade to create it.
+db_1   | 2019-01-20T11:56:11.994607Z 0 [Warning] [MY-010015] [Repl] Gtid table is not ready to be used. Table 'mysql.gtid_executed' cannot be opened.
+db_1   | 2019-01-20T11:56:11.996767Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+db_1   | 2019-01-20T11:56:11.998486Z 0 [Warning] [MY-011810] [Server] Insecure configuration for --pid-file: Location '/var/run/mysqld' in the path is accessible to all OS users. Consider choosing a different directory.
+db_1   | 2019-01-20T11:56:11.998844Z 0 [Warning] [MY-010441] [Server] Failed to open optimizer cost constant tables
+db_1   | 2019-01-20T11:56:11.999016Z 0 [ERROR] [MY-013129] [Server] A message intended for a client cannot be sent there as no client-session is attached. Therefore, we're sending the information to the error-log instead: MY-001146 - Table 'mysql.component' doesn't exist
+db_1   | 2019-01-20T11:56:11.999047Z 0 [Warning] [MY-013129] [Server] A message intended for a client cannot be sent there as no client-session is attached. Therefore, we're sending the information to the error-log instead: MY-003543 - The mysql.component table is missing or has an incorrect definition.
+db_1   | 2019-01-20T11:56:11.999541Z 0 [ERROR] [MY-010326] [Server] Fatal error: Can't open and lock privilege tables: Table 'mysql.user' doesn't exist
+db_1   | 2019-01-20T11:56:11.999601Z 0 [Warning] [MY-010952] [Server] The privilege system failed to initialize correctly. If you have upgraded your server, make sure you're executing mysql_upgrade to correct the issue.
+db_1   | 2019-01-20T11:56:11.999753Z 0 [Warning] [MY-010357] [Server] Can't open and lock time zone table: Table 'mysql.time_zone_leap_second' doesn't exist trying to live without them
+db_1   | 2019-01-20T11:56:11.999778Z 0 [ERROR] [MY-010361] [Server] Fatal error: Illegal or unknown default time zone 'Asia/Tokyo'
+db_1   | 2019-01-20T11:56:11.999874Z 0 [ERROR] [MY-010119] [Server] Aborting
+db_1   | 2019-01-20T11:56:13.815771Z 0 [System] [MY-010910] [Server] /usr/sbin/mysqld: Shutdown complete (mysqld 8.0.13)  MySQL Community Server - GPL.
+db_1   | 2019-01-20T11:56:16.554707Z 0 [Warning] [MY-011070] [Server] 'Disabling symbolic links using --skip-symbolic-links (or equivalent) is the default. Consider not using this option as it' is deprecated and will be removed in a future release.
+db_1   | 2019-01-20T11:56:16.554806Z 0 [System] [MY-010116] [Server] /usr/sbin/mysqld (mysqld 8.0.13) starting as process 1
+db_1   | mysqld: Table 'mysql.plugin' doesn't exist
+db_1   | 2019-01-20T11:56:16.812075Z 0 [ERROR] [MY-010735] [Server] Can't open the mysql.plugin table. Please run mysql_upgrade to create it.
+db_1   | 2019-01-20T11:56:16.895053Z 0 [Warning] [MY-010015] [Repl] Gtid table is not ready to be used. Table 'mysql.gtid_executed' cannot be opened.
+db_1   | 2019-01-20T11:56:16.897313Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+db_1   | 2019-01-20T11:56:16.899059Z 0 [Warning] [MY-011810] [Server] Insecure configuration for --pid-file: Location '/var/run/mysqld' in the path is accessible to all OS users. Consider choosing a different directory.
+db_1   | 2019-01-20T11:56:16.899390Z 0 [Warning] [MY-010441] [Server] Failed to open optimizer cost constant tables
+db_1   | 2019-01-20T11:56:16.899657Z 0 [ERROR] [MY-013129] [Server] A message intended for a client cannot be sent there as no client-session is attached. Therefore, we're sending the information to the error-log instead: MY-001146 - Table 'mysql.component' doesn't exist
+db_1   | 2019-01-20T11:56:16.899694Z 0 [Warning] [MY-013129] [Server] A message intended for a client cannot be sent there as no client-session is attached. Therefore, we're sending the information to the error-log instead: MY-003543 - The mysql.component table is missing or has an incorrect definition.
+db_1   | 2019-01-20T11:56:16.900291Z 0 [ERROR] [MY-010326] [Server] Fatal error: Can't open and lock privilege tables: Table 'mysql.user' doesn't exist
+db_1   | 2019-01-20T11:56:16.900354Z 0 [Warning] [MY-010952] [Server] The privilege system failed to initialize correctly. If you have upgraded your server, make sure you're executing mysql_upgrade to correct the issue.
+db_1   | 2019-01-20T11:56:16.900626Z 0 [Warning] [MY-010357] [Server] Can't open and lock time zone table: Table 'mysql.time_zone_leap_second' doesn't exist trying to live without them
+db_1   | 2019-01-20T11:56:16.900654Z 0 [ERROR] [MY-010361] [Server] Fatal error: Illegal or unknown default time zone 'Asia/Tokyo'
+db_1   | 2019-01-20T11:56:16.900826Z 0 [ERROR] [MY-010119] [Server] Aborting
+db_1   | 2019-01-20T11:56:18.720970Z 0 [System] [MY-010910] [Server] /usr/sbin/mysqld: Shutdown complete (mysqld 8.0.13)  MySQL Community Server - GPL.
+db_1   | 2019-01-20T11:56:23.019641Z 0 [Warning] [MY-011070] [Server] 'Disabling symbolic links using --skip-symbolic-links (or equivalent) is the default. Consider not using this option as it' is deprecated and will be removed in a future release.
+db_1   | 2019-01-20T11:56:23.019736Z 0 [System] [MY-010116] [Server] /usr/sbin/mysqld (mysqld 8.0.13) starting as process 1
+db_1   | mysqld: Table 'mysql.plugin' doesn't exist
+db_1   | 2019-01-20T11:56:23.282147Z 0 [ERROR] [MY-010735] [Server] Can't open the mysql.plugin table. Please run mysql_upgrade to create it.
+db_1   | 2019-01-20T11:56:23.310746Z 0 [Warning] [MY-010015] [Repl] Gtid table is not ready to be used. Table 'mysql.gtid_executed' cannot be opened.
+db_1   | 2019-01-20T11:56:23.317461Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+db_1   | 2019-01-20T11:56:23.319319Z 0 [Warning] [MY-011810] [Server] Insecure configuration for --pid-file: Location '/var/run/mysqld' in the path is accessible to all OS users. Consider choosing a different directory.
+db_1   | 2019-01-20T11:56:23.320932Z 0 [Warning] [MY-010441] [Server] Failed to open optimizer cost constant tables
+db_1   | 2019-01-20T11:56:23.321207Z 0 [ERROR] [MY-013129] [Server] A message intended for a client cannot be sent there as no client-session is attached. Therefore, we're sending the information to the error-log instead: MY-001146 - Table 'mysql.component' doesn't exist
+db_1   | 2019-01-20T11:56:23.321237Z 0 [Warning] [MY-013129] [Server] A message intended for a client cannot be sent there as no client-session is attached. Therefore, we're sending the information to the error-log instead: MY-003543 - The mysql.component table is missing or has an incorrect definition.
+db_1   | 2019-01-20T11:56:23.321817Z 0 [ERROR] [MY-010326] [Server] Fatal error: Can't open and lock privilege tables: Table 'mysql.user' doesn't exist
+db_1   | 2019-01-20T11:56:23.321890Z 0 [Warning] [MY-010952] [Server] The privilege system failed to initialize correctly. If you have upgraded your server, make sure you're executing mysql_upgrade to correct the issue.
+db_1   | 2019-01-20T11:56:23.322074Z 0 [Warning] [MY-010357] [Server] Can't open and lock time zone table: Table 'mysql.time_zone_leap_second' doesn't exist trying to live without them
+db_1   | 2019-01-20T11:56:23.322097Z 0 [ERROR] [MY-010361] [Server] Fatal error: Illegal or unknown default time zone 'Asia/Tokyo'
+db_1   | 2019-01-20T11:56:23.322247Z 0 [ERROR] [MY-010119] [Server] Aborting
+db_1   | 2019-01-20T11:56:25.183207Z 0 [System] [MY-010910] [Server] /usr/sbin/mysqld: Shutdown complete (mysqld 8.0.13)  MySQL Community Server - GPL.
+fufu_db exited with code 1
+db_1   | Initializing database
+db_1   | 2019-01-20T11:55:51.840057Z 0 [Warning] [MY-011070] [Server] 'Disabling symbolic links using --skip-symbolic-links (or equivalent) is the default. Consider not using this option as it' is deprecated and will be removed in a future release.
+db_1   | 2019-01-20T11:55:51.840160Z 0 [System] [MY-013169] [Server] /usr/sbin/mysqld (mysqld 8.0.13) initializing of server in progress as process 31
+db_1   | 2019-01-20T11:55:53.441764Z 0 [ERROR] [MY-010361] [Server] Fatal error: Illegal or unknown default time zone 'Asia/Tokyo'
+db_1   | 2019-01-20T11:55:53.441886Z 0 [ERROR] [MY-013236] [Server] Newly created data directory /var/lib/mysql/ is unusable. You can safely remove it.
+db_1   | 2019-01-20T11:55:53.441926Z 0 [ERROR] [MY-010119] [Server] Aborting
+db_1   | 2019-01-20T11:55:55.045197Z 0 [System] [MY-010910] [Server] /usr/sbin/mysqld: Shutdown complete (mysqld 8.0.13)  MySQL Community Server - GPL.
+db_1   | 2019-01-20T11:55:57.680035Z 0 [Warning] [MY-011070] [Server] 'Disabling symbolic links using --skip-symbolic-links (or equivalent) is the default. Consider not using this option as it' is deprecated and will be removed in a future release.
+db_1   | 2019-01-20T11:55:57.680129Z 0 [System] [MY-010116] [Server] /usr/sbin/mysqld (mysqld 8.0.13) starting as process 1
+db_1   | mysqld: Table 'mysql.plugin' doesn't exist
+db_1   | 2019-01-20T11:55:57.942301Z 0 [ERROR] [MY-010735] [Server] Can't open the mysql.plugin table. Please run mysql_upgrade to create it.
+db_1   | 2019-01-20T11:55:58.026899Z 0 [Warning] [MY-010015] [Repl] Gtid table is not ready to be used. Table 'mysql.gtid_executed' cannot be opened.
+db_1   | 2019-01-20T11:55:58.029078Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+db_1   | 2019-01-20T11:55:58.031090Z 0 [Warning] [MY-011810] [Server] Insecure configuration for --pid-file: Location '/var/run/mysqld' in the path is accessible to all OS users. Consider choosing a different directory.
+db_1   | 2019-01-20T11:55:58.031510Z 0 [Warning] [MY-010441] [Server] Failed to open optimizer cost constant tables
+db_1   | 2019-01-20T11:55:58.031827Z 0 [ERROR] [MY-013129] [Server] A message intended for a client cannot be sent there as no client-session is attached. Therefore, we're sending the information to the error-log instead: MY-001146 - Table 'mysql.component' doesn't exist
+db_1   | 2019-01-20T11:55:58.031895Z 0 [Warning] [MY-013129] [Server] A message intended for a client cannot be sent there as no client-session is attached. Therefore, we're sending the information to the error-log instead: MY-003543 - The mysql.component table is missing or has an incorrect definition.
+db_1   | 2019-01-20T11:55:58.032460Z 0 [ERROR] [MY-010326] [Server] Fatal error: Can't open and lock privilege tables: Table 'mysql.user' doesn't exist
+db_1   | 2019-01-20T11:55:58.032548Z 0 [Warning] [MY-010952] [Server] The privilege system failed to initialize correctly. If you have upgraded your server, make sure you're executing mysql_upgrade to correct the issue.
+db_1   | 2019-01-20T11:55:58.032782Z 0 [Warning] [MY-010357] [Server] Can't open and lock time zone table: Table 'mysql.time_zone_leap_second' doesn't exist trying to live without them
+db_1   | 2019-01-20T11:55:58.032832Z 0 [ERROR] [MY-010361] [Server] Fatal error: Illegal or unknown default time zone 'Asia/Tokyo'
+db_1   | 2019-01-20T11:55:58.032975Z 0 [ERROR] [MY-010119] [Server] Aborting
+db_1   | 2019-01-20T11:55:59.851741Z 0 [System] [MY-010910] [Server] /usr/sbin/mysqld: Shutdown complete (mysqld 8.0.13)  MySQL Community Server - GPL.
+db_1   | 2019-01-20T11:56:02.499663Z 0 [Warning] [MY-011070] [Server] 'Disabling symbolic links using --skip-symbolic-links (or equivalent) is the default. Consider not using this option as it' is deprecated and will be removed in a future release.
+db_1   | 2019-01-20T11:56:02.499753Z 0 [System] [MY-010116] [Server] /usr/sbin/mysqld (mysqld 8.0.13) starting as process 1
+db_1   | mysqld: Table 'mysql.plugin' doesn't exist
+db_1   | 2019-01-20T11:56:02.758687Z 0 [ERROR] [MY-010735] [Server] Can't open the mysql.plugin table. Please run mysql_upgrade to create it.
+db_1   | 2019-01-20T11:56:02.841674Z 0 [Warning] [MY-010015] [Repl] Gtid table is not ready to be used. Table 'mysql.gtid_executed' cannot be opened.
+db_1   | 2019-01-20T11:56:02.844213Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+db_1   | 2019-01-20T11:56:02.846178Z 0 [Warning] [MY-011810] [Server] Insecure configuration for --pid-file: Location '/var/run/mysqld' in the path is accessible to all OS users. Consider choosing a different directory.
+db_1   | 2019-01-20T11:56:02.846616Z 0 [Warning] [MY-010441] [Server] Failed to open optimizer cost constant tables
+db_1   | 2019-01-20T11:56:02.846911Z 0 [ERROR] [MY-013129] [Server] A message intended for a client cannot be sent there as no client-session is attached. Therefore, we're sending the information to the error-log instead: MY-001146 - Table 'mysql.component' doesn't exist
+db_1   | 2019-01-20T11:56:02.846948Z 0 [Warning] [MY-013129] [Server] A message intended for a client cannot be sent there as no client-session is attached. Therefore, we're sending the information to the error-log instead: MY-003543 - The mysql.component table is missing or has an incorrect definition.
+db_1   | 2019-01-20T11:56:02.847441Z 0 [ERROR] [MY-010326] [Server] Fatal error: Can't open and lock privilege tables: Table 'mysql.user' doesn't exist
+db_1   | 2019-01-20T11:56:02.847506Z 0 [Warning] [MY-010952] [Server] The privilege system failed to initialize correctly. If you have upgraded your server, make sure you're executing mysql_upgrade to correct the issue.
+db_1   | 2019-01-20T11:56:02.847644Z 0 [Warning] [MY-010357] [Server] Can't open and lock time zone table: Table 'mysql.time_zone_leap_second' doesn't exist trying to live without them
+db_1   | 2019-01-20T11:56:02.847671Z 0 [ERROR] [MY-010361] [Server] Fatal error: Illegal or unknown default time zone 'Asia/Tokyo'
+db_1   | 2019-01-20T11:56:02.847769Z 0 [ERROR] [MY-010119] [Server] Aborting
+db_1   | 2019-01-20T11:56:04.258157Z 0 [System] [MY-010910] [Server] /usr/sbin/mysqld: Shutdown complete (mysqld 8.0.13)  MySQL Community Server - GPL.
+db_1   | 2019-01-20T11:56:06.885337Z 0 [Warning] [MY-011070] [Server] 'Disabling symbolic links using --skip-symbolic-links (or equivalent) is the default. Consider not using this option as it' is deprecated and will be removed in a future release.
+db_1   | 2019-01-20T11:56:06.885434Z 0 [System] [MY-010116] [Server] /usr/sbin/mysqld (mysqld 8.0.13) starting as process 1
+db_1   | mysqld: Table 'mysql.plugin' doesn't exist
+db_1   | 2019-01-20T11:56:07.153069Z 0 [ERROR] [MY-010735] [Server] Can't open the mysql.plugin table. Please run mysql_upgrade to create it.
+db_1   | 2019-01-20T11:56:07.236161Z 0 [Warning] [MY-010015] [Repl] Gtid table is not ready to be used. Table 'mysql.gtid_executed' cannot be opened.
+db_1   | 2019-01-20T11:56:07.238540Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+db_1   | 2019-01-20T11:56:07.240561Z 0 [Warning] [MY-011810] [Server] Insecure configuration for --pid-file: Location '/var/run/mysqld' in the path is accessible to all OS users. Consider choosing a different directory.
+db_1   | 2019-01-20T11:56:07.240967Z 0 [Warning] [MY-010441] [Server] Failed to open optimizer cost constant tables
+db_1   | 2019-01-20T11:56:07.241151Z 0 [ERROR] [MY-013129] [Server] A message intended for a client cannot be sent there as no client-session is attached. Therefore, we're sending the information to the error-log instead: MY-001146 - Table 'mysql.component' doesn't exist
+db_1   | 2019-01-20T11:56:07.241186Z 0 [Warning] [MY-013129] [Server] A message intended for a client cannot be sent there as no client-session is attached. Therefore, we're sending the information to the error-log instead: MY-003543 - The mysql.component table is missing or has an incorrect definition.
+db_1   | 2019-01-20T11:56:07.241673Z 0 [ERROR] [MY-010326] [Server] Fatal error: Can't open and lock privilege tables: Table 'mysql.user' doesn't exist
+db_1   | 2019-01-20T11:56:07.241732Z 0 [Warning] [MY-010952] [Server] The privilege system failed to initialize correctly. If you have upgraded your server, make sure you're executing mysql_upgrade to correct the issue.
+db_1   | 2019-01-20T11:56:07.241871Z 0 [Warning] [MY-010357] [Server] Can't open and lock time zone table: Table 'mysql.time_zone_leap_second' doesn't exist trying to live without them
+db_1   | 2019-01-20T11:56:07.241902Z 0 [ERROR] [MY-010361] [Server] Fatal error: Illegal or unknown default time zone 'Asia/Tokyo'
+db_1   | 2019-01-20T11:56:07.241995Z 0 [ERROR] [MY-010119] [Server] Aborting
+db_1   | 2019-01-20T11:56:09.048029Z 0 [System] [MY-010910] [Server] /usr/sbin/mysqld: Shutdown complete (mysqld 8.0.13)  MySQL Community Server - GPL.
+db_1   | 2019-01-20T11:56:11.651915Z 0 [Warning] [MY-011070] [Server] 'Disabling symbolic links using --skip-symbolic-links (or equivalent) is the default. Consider not using this option as it' is deprecated and will be removed in a future release.
+db_1   | 2019-01-20T11:56:11.652007Z 0 [System] [MY-010116] [Server] /usr/sbin/mysqld (mysqld 8.0.13) starting as process 1
+db_1   | mysqld: Table 'mysql.plugin' doesn't exist
+db_1   | 2019-01-20T11:56:11.912327Z 0 [ERROR] [MY-010735] [Server] Can't open the mysql.plugin table. Please run mysql_upgrade to create it.
+db_1   | 2019-01-20T11:56:11.994607Z 0 [Warning] [MY-010015] [Repl] Gtid table is not ready to be used. Table 'mysql.gtid_executed' cannot be opened.
+db_1   | 2019-01-20T11:56:11.996767Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+db_1   | 2019-01-20T11:56:11.998486Z 0 [Warning] [MY-011810] [Server] Insecure configuration for --pid-file: Location '/var/run/mysqld' in the path is accessible to all OS users. Consider choosing a different directory.
+db_1   | 2019-01-20T11:56:11.998844Z 0 [Warning] [MY-010441] [Server] Failed to open optimizer cost constant tables
+db_1   | 2019-01-20T11:56:11.999016Z 0 [ERROR] [MY-013129] [Server] A message intended for a client cannot be sent there as no client-session is attached. Therefore, we're sending the information to the error-log instead: MY-001146 - Table 'mysql.component' doesn't exist
+db_1   | 2019-01-20T11:56:11.999047Z 0 [Warning] [MY-013129] [Server] A message intended for a client cannot be sent there as no client-session is attached. Therefore, we're sending the information to the error-log instead: MY-003543 - The mysql.component table is missing or has an incorrect definition.
+db_1   | 2019-01-20T11:56:11.999541Z 0 [ERROR] [MY-010326] [Server] Fatal error: Can't open and lock privilege tables: Table 'mysql.user' doesn't exist
+db_1   | 2019-01-20T11:56:11.999601Z 0 [Warning] [MY-010952] [Server] The privilege system failed to initialize correctly. If you have upgraded your server, make sure you're executing mysql_upgrade to correct the issue.
+db_1   | 2019-01-20T11:56:11.999753Z 0 [Warning] [MY-010357] [Server] Can't open and lock time zone table: Table 'mysql.time_zone_leap_second' doesn't exist trying to live without them
+db_1   | 2019-01-20T11:56:11.999778Z 0 [ERROR] [MY-010361] [Server] Fatal error: Illegal or unknown default time zone 'Asia/Tokyo'
+db_1   | 2019-01-20T11:56:11.999874Z 0 [ERROR] [MY-010119] [Server] Aborting
+db_1   | 2019-01-20T11:56:13.815771Z 0 [System] [MY-010910] [Server] /usr/sbin/mysqld: Shutdown complete (mysqld 8.0.13)  MySQL Community Server - GPL.
+db_1   | 2019-01-20T11:56:16.554707Z 0 [Warning] [MY-011070] [Server] 'Disabling symbolic links using --skip-symbolic-links (or equivalent) is the default. Consider not using this option as it' is deprecated and will be removed in a future release.
+db_1   | 2019-01-20T11:56:16.554806Z 0 [System] [MY-010116] [Server] /usr/sbin/mysqld (mysqld 8.0.13) starting as process 1
+db_1   | mysqld: Table 'mysql.plugin' doesn't exist
+db_1   | 2019-01-20T11:56:16.812075Z 0 [ERROR] [MY-010735] [Server] Can't open the mysql.plugin table. Please run mysql_upgrade to create it.
+db_1   | 2019-01-20T11:56:16.895053Z 0 [Warning] [MY-010015] [Repl] Gtid table is not ready to be used. Table 'mysql.gtid_executed' cannot be opened.
+db_1   | 2019-01-20T11:56:16.897313Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+db_1   | 2019-01-20T11:56:16.899059Z 0 [Warning] [MY-011810] [Server] Insecure configuration for --pid-file: Location '/var/run/mysqld' in the path is accessible to all OS users. Consider choosing a different directory.
+db_1   | 2019-01-20T11:56:16.899390Z 0 [Warning] [MY-010441] [Server] Failed to open optimizer cost constant tables
+db_1   | 2019-01-20T11:56:16.899657Z 0 [ERROR] [MY-013129] [Server] A message intended for a client cannot be sent there as no client-session is attached. Therefore, we're sending the information to the error-log instead: MY-001146 - Table 'mysql.component' doesn't exist
+db_1   | 2019-01-20T11:56:16.899694Z 0 [Warning] [MY-013129] [Server] A message intended for a client cannot be sent there as no client-session is attached. Therefore, we're sending the information to the error-log instead: MY-003543 - The mysql.component table is missing or has an incorrect definition.
+db_1   | 2019-01-20T11:56:16.900291Z 0 [ERROR] [MY-010326] [Server] Fatal error: Can't open and lock privilege tables: Table 'mysql.user' doesn't exist
+db_1   | 2019-01-20T11:56:16.900354Z 0 [Warning] [MY-010952] [Server] The privilege system failed to initialize correctly. If you have upgraded your server, make sure you're executing mysql_upgrade to correct the issue.
+db_1   | 2019-01-20T11:56:16.900626Z 0 [Warning] [MY-010357] [Server] Can't open and lock time zone table: Table 'mysql.time_zone_leap_second' doesn't exist trying to live without them
+db_1   | 2019-01-20T11:56:16.900654Z 0 [ERROR] [MY-010361] [Server] Fatal error: Illegal or unknown default time zone 'Asia/Tokyo'
+db_1   | 2019-01-20T11:56:16.900826Z 0 [ERROR] [MY-010119] [Server] Aborting
+db_1   | 2019-01-20T11:56:18.720970Z 0 [System] [MY-010910] [Server] /usr/sbin/mysqld: Shutdown complete (mysqld 8.0.13)  MySQL Community Server - GPL.
+db_1   | 2019-01-20T11:56:23.019641Z 0 [Warning] [MY-011070] [Server] 'Disabling symbolic links using --skip-symbolic-links (or equivalent) is the default. Consider not using this option as it' is deprecated and will be removed in a future release.
+db_1   | 2019-01-20T11:56:23.019736Z 0 [System] [MY-010116] [Server] /usr/sbin/mysqld (mysqld 8.0.13) starting as process 1
+db_1   | mysqld: Table 'mysql.plugin' doesn't exist
+db_1   | 2019-01-20T11:56:23.282147Z 0 [ERROR] [MY-010735] [Server] Can't open the mysql.plugin table. Please run mysql_upgrade to create it.
+db_1   | 2019-01-20T11:56:23.310746Z 0 [Warning] [MY-010015] [Repl] Gtid table is not ready to be used. Table 'mysql.gtid_executed' cannot be opened.
+db_1   | 2019-01-20T11:56:23.317461Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+db_1   | 2019-01-20T11:56:23.319319Z 0 [Warning] [MY-011810] [Server] Insecure configuration for --pid-file: Location '/var/run/mysqld' in the path is accessible to all OS users. Consider choosing a different directory.
+db_1   | 2019-01-20T11:56:23.320932Z 0 [Warning] [MY-010441] [Server] Failed to open optimizer cost constant tables
+db_1   | 2019-01-20T11:56:23.321207Z 0 [ERROR] [MY-013129] [Server] A message intended for a client cannot be sent there as no client-session is attached. Therefore, we're sending the information to the error-log instead: MY-001146 - Table 'mysql.component' doesn't exist
+db_1   | 2019-01-20T11:56:23.321237Z 0 [Warning] [MY-013129] [Server] A message intended for a client cannot be sent there as no client-session is attached. Therefore, we're sending the information to the error-log instead: MY-003543 - The mysql.component table is missing or has an incorrect definition.
+db_1   | 2019-01-20T11:56:23.321817Z 0 [ERROR] [MY-010326] [Server] Fatal error: Can't open and lock privilege tables: Table 'mysql.user' doesn't exist
+db_1   | 2019-01-20T11:56:23.321890Z 0 [Warning] [MY-010952] [Server] The privilege system failed to initialize correctly. If you have upgraded your server, make sure you're executing mysql_upgrade to correct the issue.
+db_1   | 2019-01-20T11:56:23.322074Z 0 [Warning] [MY-010357] [Server] Can't open and lock time zone table: Table 'mysql.time_zone_leap_second' doesn't exist trying to live without them
+db_1   | 2019-01-20T11:56:23.322097Z 0 [ERROR] [MY-010361] [Server] Fatal error: Illegal or unknown default time zone 'Asia/Tokyo'
+db_1   | 2019-01-20T11:56:23.322247Z 0 [ERROR] [MY-010119] [Server] Aborting
+db_1   | 2019-01-20T11:56:25.183207Z 0 [System] [MY-010910] [Server] /usr/sbin/mysqld: Shutdown complete (mysqld 8.0.13)  MySQL Community Server - GPL.
+db_1   | 2019-01-20T11:56:32.657838Z 0 [Warning] [MY-011070] [Server] 'Disabling symbolic links using --skip-symbolic-links (or equivalent) is the default. Consider not using this option as it' is deprecated and will be removed in a future release.
+db_1   | 2019-01-20T11:56:32.657925Z 0 [System] [MY-010116] [Server] /usr/sbin/mysqld (mysqld 8.0.13) starting as process 1
+db_1   | mysqld: Table 'mysql.plugin' doesn't exist
+db_1   | 2019-01-20T11:56:32.919082Z 0 [ERROR] [MY-010735] [Server] Can't open the mysql.plugin table. Please run mysql_upgrade to create it.
+db_1   | 2019-01-20T11:56:33.002849Z 0 [Warning] [MY-010015] [Repl] Gtid table is not ready to be used. Table 'mysql.gtid_executed' cannot be opened.
+db_1   | 2019-01-20T11:56:33.005166Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+db_1   | 2019-01-20T11:56:33.006884Z 0 [Warning] [MY-011810] [Server] Insecure configuration for --pid-file: Location '/var/run/mysqld' in the path is accessible to all OS users. Consider choosing a different directory.
+db_1   | 2019-01-20T11:56:33.007190Z 0 [Warning] [MY-010441] [Server] Failed to open optimizer cost constant tables
+db_1   | 2019-01-20T11:56:33.007365Z 0 [ERROR] [MY-013129] [Server] A message intended for a client cannot be sent there as no client-session is attached. Therefore, we're sending the information to the error-log instead: MY-001146 - Table 'mysql.component' doesn't exist
+db_1   | 2019-01-20T11:56:33.007399Z 0 [Warning] [MY-013129] [Server] A message intended for a client cannot be sent there as no client-session is attached. Therefore, we're sending the information to the error-log instead: MY-003543 - The mysql.component table is missing or has an incorrect definition.
+db_1   | 2019-01-20T11:56:33.007897Z 0 [ERROR] [MY-010326] [Server] Fatal error: Can't open and lock privilege tables: Table 'mysql.user' doesn't exist
+db_1   | 2019-01-20T11:56:33.007959Z 0 [Warning] [MY-010952] [Server] The privilege system failed to initialize correctly. If you have upgraded your server, make sure you're executing mysql_upgrade to correct the issue.
+db_1   | 2019-01-20T11:56:33.008121Z 0 [Warning] [MY-010357] [Server] Can't open and lock time zone table: Table 'mysql.time_zone_leap_second' doesn't exist trying to live without them
+db_1   | 2019-01-20T11:56:33.008148Z 0 [ERROR] [MY-010361] [Server] Fatal error: Illegal or unknown default time zone 'Asia/Tokyo'
+db_1   | 2019-01-20T11:56:33.008248Z 0 [ERROR] [MY-010119] [Server] Aborting
+db_1   | 2019-01-20T11:56:34.819455Z 0 [System] [MY-010910] [Server] /usr/sbin/mysqld: Shutdown complete (mysqld 8.0.13)  MySQL Community Server - GPL.
+db_1   | 2019-01-20T11:56:48.777104Z 0 [Warning] [MY-011070] [Server] 'Disabling symbolic links using --skip-symbolic-links (or equivalent) is the default. Consider not using this option as it' is deprecated and will be removed in a future release.
+db_1   | 2019-01-20T11:56:48.777198Z 0 [System] [MY-010116] [Server] /usr/sbin/mysqld (mysqld 8.0.13) starting as process 1
+db_1   | mysqld: Table 'mysql.plugin' doesn't exist
+db_1   | 2019-01-20T11:56:49.036122Z 0 [ERROR] [MY-010735] [Server] Can't open the mysql.plugin table. Please run mysql_upgrade to create it.
+db_1   | 2019-01-20T11:56:49.117775Z 0 [Warning] [MY-010015] [Repl] Gtid table is not ready to be used. Table 'mysql.gtid_executed' cannot be opened.
+db_1   | 2019-01-20T11:56:49.120188Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+db_1   | 2019-01-20T11:56:49.122183Z 0 [Warning] [MY-011810] [Server] Insecure configuration for --pid-file: Location '/var/run/mysqld' in the path is accessible to all OS users. Consider choosing a different directory.
+db_1   | 2019-01-20T11:56:49.122556Z 0 [Warning] [MY-010441] [Server] Failed to open optimizer cost constant tables
+db_1   | 2019-01-20T11:56:49.122852Z 0 [ERROR] [MY-013129] [Server] A message intended for a client cannot be sent there as no client-session is attached. Therefore, we're sending the information to the error-log instead: MY-001146 - Table 'mysql.component' doesn't exist
+db_1   | 2019-01-20T11:56:49.122890Z 0 [Warning] [MY-013129] [Server] A message intended for a client cannot be sent there as no client-session is attached. Therefore, we're sending the information to the error-log instead: MY-003543 - The mysql.component table is missing or has an incorrect definition.
+db_1   | 2019-01-20T11:56:49.123460Z 0 [ERROR] [MY-010326] [Server] Fatal error: Can't open and lock privilege tables: Table 'mysql.user' doesn't exist
+db_1   | 2019-01-20T11:56:49.123544Z 0 [Warning] [MY-010952] [Server] The privilege system failed to initialize correctly. If you have upgraded your server, make sure you're executing mysql_upgrade to correct the issue.
+db_1   | 2019-01-20T11:56:49.123830Z 0 [Warning] [MY-010357] [Server] Can't open and lock time zone table: Table 'mysql.time_zone_leap_second' doesn't exist trying to live without them
+db_1   | 2019-01-20T11:56:49.123863Z 0 [ERROR] [MY-010361] [Server] Fatal error: Illegal or unknown default time zone 'Asia/Tokyo'
+db_1   | 2019-01-20T11:56:49.124062Z 0 [ERROR] [MY-010119] [Server] Aborting
+db_1   | 2019-01-20T11:56:50.944319Z 0 [System] [MY-010910] [Server] /usr/sbin/mysqld: Shutdown complete (mysqld 8.0.13)  MySQL Community Server - GPL.
+fufu_db exited with code 1
