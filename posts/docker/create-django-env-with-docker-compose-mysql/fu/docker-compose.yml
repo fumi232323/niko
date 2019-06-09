@@ -1,0 +1,34 @@
+version: '3'
+
+services:
+  db:
+    container_name: fu_db
+    build:
+      context: .
+      dockerfile: Dockerfile-mysql
+    restart: always
+    volumes:
+      - "db-data:/var/lib/mysql"
+      # mysql のカスタム設定ファイルもホスト <-> コンテナ間で同期しておく (編集するのに便利だから)
+      - "./mysql/conf.d:/etc/mysql/conf.d"
+    environment:
+      MYSQL_ROOT_PASSWORD: fu
+      MYSQL_DATABASE: fu
+      MYSQL_USER: fu
+      MYSQL_PASSWORD: fu
+
+  web:
+    container_name: fu_web
+    build:
+      context: .
+      dockerfile: Dockerfile-web
+    command: python3 manage.py runserver 0.0.0.0:8000 --settings=settings._
+    volumes:
+      - .:/code
+    ports:
+      - "6560:8000"
+    depends_on:
+      - db
+
+volumes:
+  db-data:

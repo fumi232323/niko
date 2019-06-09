@@ -133,102 +133,30 @@
 
 設定ファイル
 ------------
+
 - fu/docker-compose.yml
 
-  .. code-block:: yaml
-
-    version: '3'
-
-    services:
-      db:
-        container_name: fu_db
-        build:
-          context: .
-          dockerfile: Dockerfile-mysql
-        restart: always
-        volumes:
-          - "db-data:/var/lib/mysql"
-          # mysql のカスタム設定ファイルもホスト <-> コンテナ間で同期しておく (編集するのに便利だから)
-          - "./mysql/conf.d:/etc/mysql/conf.d"
-        environment:
-          MYSQL_ROOT_PASSWORD: fu
-          MYSQL_DATABASE: fu
-          MYSQL_USER: fu
-          MYSQL_PASSWORD: fu
-
-      web:
-        container_name: fu_web
-        build:
-          context: .
-          dockerfile: Dockerfile-web
-        command: python3 manage.py runserver 0.0.0.0:8000 --settings=settings._
-        volumes:
-          - .:/code
-        ports:
-          - "3236:8000"
-        depends_on:
-          - db
-
-    volumes:
-      db-data:
+  {{% codeblock fu/docker-compose.yml lexer="yaml" %}}
 
 
 - fu/Dockerfile-web
 
-  .. code-block:: docker
-
-    FROM python:3
-    ENV PYTHONUNBUFFERED 1
-    RUN mkdir /code
-    WORKDIR /code
-    ADD requirements.txt /code/
-    RUN pip install -r requirements.txt
-    ADD . /code/
+  {{% codeblock fu/Dockerfile-web lexer="docker" %}}
 
 
 - fu/Dockerfile-mysql
 
-  .. code-block:: docker
-
-    FROM mysql:latest
-    # locales をインストールする
-    RUN apt-get clean && apt-get update && apt-get install -y locales locales-all
-    # locale 定義ファイルをコンパイルする
-    RUN locale-gen ja_JP.UTF-8
-    # 日本語を設定する TODO: もしかして LANG だけでいいのかも...?
-    ENV LANG ja_JP.UTF-8
-    ENV LANGUAGE ja_JP:en
-    ENV LC_ALL ja_JP.UTF-8
-    # タイムゾーンに日本を設定する
-    RUN ln -sf /usr/share/zoneinfo/Japan /etc/localtime
+  {{% codeblock fu/Dockerfile-mysql lexer="docker" %}}
 
 
 - fu/requirements.txt
 
-  .. code-block:: python
-
-    Django>=1.11
-    mysqlclient>=1.3.7
-    mysql-connector-python
+  {{% codeblock fu/requirements.txt lexer="python" %}}
 
 
 - fu/mysql/conf.d/mysql.cnf
 
-  .. code-block:: cfg
-
-    [mysqld]  # mysqlサーバーの設定
-    default-authentication-plugin=mysql_native_password
-    # Collation (文字照合順) の設定: https://mysqlserverteam.com/mysql-8-0-kana-sensitive-collation-for-japanese-ja_jp/
-    collation-server=utf8mb4_ja_0900_as_cs_ks
-    # サーバー側の文字コードの設定: "Default Value (>= 8.0.1)	utf8mb4" だけれどもなんとなく念のため指定
-    character-set-server=utf8mb4
-    # time_zone の設定: https://dev.mysql.com/doc/refman/8.0/en/server-options.html#option_mysqld_default-time-zone
-    default-time-zone='Asia/Tokyo'
-
-    [client]  # mysqlクライアントの設定
-    # クライアント側の文字コードの設定
-    # utf8mb4: A UTF-8 encoding of the Unicode character set using one to four bytes per character.
-    default-character-set=utf8mb4
+  {{% codeblock fu/mysql/conf.d/mysql.cnf lexer="cfg" %}}
 
 
   - MySQL デフォルトの設定ファイルは ``/etc/mysql/my.cnf`` の模様。 MySQL 公式イメージからコンテナを作成すると、初期状態で ``/etc/mysql/my.cnf`` 中に
