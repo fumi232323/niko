@@ -31,7 +31,7 @@
 手順
 ====
 ``web`` のイメージをビルド...するところは、
-.. jinja:: `{{ content.link_to("../create-django-env-with-docker-compose/index.rst") }}`
+`Docker Compose で Django/PostgreSQL 環境をつくる <docker/create-django-env-with-docker-compose-psql>`_
 を参照のこと。
 
 
@@ -82,40 +82,7 @@
 2. ``docker-compose.yml`` に作成した volume を指定する
 ------------------------------------------------------
 
-.. code-block:: yaml
-
-  version: '3'
-
-  services:
-    db:
-      image: postgres:latest
-      volumes:
-        # コンテナの `/var/lib/postgresql/data` を、volume `db-data` にマウントする。
-        - "db-data:/var/lib/postgresql/data"
-      # 環境変数を追加する
-      environment:
-        # postgres のパスワードを設定する
-        - POSTGRES_PASSWORD=postgres
-    web:
-      build:
-        context: .
-        dockerfile: Dockerfile-web
-      command: python3 manage.py runserver 0.0.0.0:8000
-      volumes:
-        - .:/code
-      ports:
-        - "3236:8000"
-      depends_on:
-        - db
-
-  # volumes を定義する
-  volumes:
-    # volume の名前を指定
-    db-data:
-      # Compose の外ですでに作成済みの volume を指定する場合は ture を設定する。
-      # そうすると、 docker-compose up 時に Compose は volume を作成しようとしません。
-      # かつ、指定した volume が存在しないとエラーを raise します。
-      external: true
+{{% codeblock fffff/docker-compose.yml lexer="yaml" %}}
 
 
 - ``external: true`` を書かないと、 ``$ docker-compose up`` 時に 1. で作った ``db-data`` とは別に
