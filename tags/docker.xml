@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ふみのて (dockerについての文書)</title><link>https://32imuf.com/</link><description></description><atom:link href="https://32imuf.com/tags/docker.xml" rel="self" type="application/rss+xml"></atom:link><language>ja</language><copyright>Contents © 2019 &lt;a href="mailto:fumi232323fumi2016@gmail.com"&gt;fumi23&lt;/a&gt; </copyright><lastBuildDate>Sun, 09 Jun 2019 14:05:33 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Docker Compose で Django/PostgreSQL/MySQL 環境をつくろう</title><link>https://32imuf.com/docker/create-django-env-with-docker-compose-psql-mysql/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;details&gt;
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ふみのて (dockerについての文書)</title><link>https://32imuf.com/</link><description></description><atom:link href="https://32imuf.com/tags/docker.xml" rel="self" type="application/rss+xml"></atom:link><language>ja</language><copyright>Contents © 2019 &lt;a href="mailto:fumi232323fumi2016@gmail.com"&gt;fumi23&lt;/a&gt; </copyright><lastBuildDate>Mon, 10 Jun 2019 12:42:51 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Docker Compose で Django/PostgreSQL/MySQL 環境をつくろう</title><link>https://32imuf.com/docker/create-django-env-with-docker-compose-psql-mysql/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;details&gt;
   &lt;summary&gt;目次&lt;/summary&gt;&lt;div class="contents topic" id="id1"&gt;
 &lt;p class="topic-title first"&gt;目次&lt;/p&gt;
 &lt;ul class="simple"&gt;
@@ -1966,32 +1966,32 @@ fufu_db exited with code &lt;span class="m"&gt;1&lt;/span&gt;
 &lt;div class="section" id="id3"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/use-volumes-with-docker-compose/#id5"&gt;手順&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;tt class="docutils literal"&gt;web&lt;/tt&gt; のイメージをビルド...するところは、
-&lt;a class="reference external" href="https://32imuf.com/docker/use-volumes-with-docker-compose/docker/create-django-env-with-docker-compose-psql"&gt;Docker Compose で Django/PostgreSQL 環境をつくる&lt;/a&gt;
+&lt;a class="reference external" href="https://32imuf.com/docker/create-django-env-with-docker-compose-psql"&gt;Docker Compose で Django/PostgreSQL 環境をつくる&lt;/a&gt;
 を参照のこと。&lt;/p&gt;
 &lt;div class="section" id="volume"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/use-volumes-with-docker-compose/#id6"&gt;1. volume を作成する&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;db-data&lt;/span&gt;&lt;/tt&gt; という名前の volume を作成する。&lt;/p&gt;
-&lt;pre class="code shell"&gt;&lt;a name="rest_code_d1c43c222e1943c9bab532000a524592-1"&gt;&lt;/a&gt;$ docker volume create db-data
-&lt;a name="rest_code_d1c43c222e1943c9bab532000a524592-2"&gt;&lt;/a&gt;db-data
+&lt;pre class="code shell"&gt;&lt;a name="rest_code_4ff607f68a7e4b3d9eb19b9ccd04ab49-1"&gt;&lt;/a&gt;$ docker volume create db-data
+&lt;a name="rest_code_4ff607f68a7e4b3d9eb19b9ccd04ab49-2"&gt;&lt;/a&gt;db-data
 &lt;/pre&gt;&lt;ul&gt;
 &lt;li&gt;&lt;p class="first"&gt;volumes を一覧表示する。&lt;/p&gt;
-&lt;pre class="code shell"&gt;&lt;a name="rest_code_07c3e0ddc38e45239627a14a17c850fc-1"&gt;&lt;/a&gt;$ docker volume ls
-&lt;a name="rest_code_07c3e0ddc38e45239627a14a17c850fc-2"&gt;&lt;/a&gt;DRIVER              VOLUME NAME
-&lt;a name="rest_code_07c3e0ddc38e45239627a14a17c850fc-3"&gt;&lt;/a&gt;&lt;span class="nb"&gt;local&lt;/span&gt;               db-data
+&lt;pre class="code shell"&gt;&lt;a name="rest_code_b503ead70cd54902a5abe4b5757b1929-1"&gt;&lt;/a&gt;$ docker volume ls
+&lt;a name="rest_code_b503ead70cd54902a5abe4b5757b1929-2"&gt;&lt;/a&gt;DRIVER              VOLUME NAME
+&lt;a name="rest_code_b503ead70cd54902a5abe4b5757b1929-3"&gt;&lt;/a&gt;&lt;span class="nb"&gt;local&lt;/span&gt;               db-data
 &lt;/pre&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p class="first"&gt;volume を調べる。&lt;/p&gt;
-&lt;pre class="code shell"&gt;&lt;a name="rest_code_3b23bb5664fb4aea98145250e07e7d49-1"&gt;&lt;/a&gt;$ docker volume inspect db-data
-&lt;a name="rest_code_3b23bb5664fb4aea98145250e07e7d49-2"&gt;&lt;/a&gt;&lt;span class="o"&gt;[&lt;/span&gt;
-&lt;a name="rest_code_3b23bb5664fb4aea98145250e07e7d49-3"&gt;&lt;/a&gt;    &lt;span class="o"&gt;{&lt;/span&gt;
-&lt;a name="rest_code_3b23bb5664fb4aea98145250e07e7d49-4"&gt;&lt;/a&gt;        &lt;span class="s2"&gt;"CreatedAt"&lt;/span&gt;: &lt;span class="s2"&gt;"2018-12-02T13:09:48Z"&lt;/span&gt;,
-&lt;a name="rest_code_3b23bb5664fb4aea98145250e07e7d49-5"&gt;&lt;/a&gt;        &lt;span class="s2"&gt;"Driver"&lt;/span&gt;: &lt;span class="s2"&gt;"local"&lt;/span&gt;,
-&lt;a name="rest_code_3b23bb5664fb4aea98145250e07e7d49-6"&gt;&lt;/a&gt;        &lt;span class="s2"&gt;"Labels"&lt;/span&gt;: &lt;span class="o"&gt;{}&lt;/span&gt;,
-&lt;a name="rest_code_3b23bb5664fb4aea98145250e07e7d49-7"&gt;&lt;/a&gt;        &lt;span class="s2"&gt;"Mountpoint"&lt;/span&gt;: &lt;span class="s2"&gt;"/var/lib/docker/volumes/db-data/_data"&lt;/span&gt;,
-&lt;a name="rest_code_3b23bb5664fb4aea98145250e07e7d49-8"&gt;&lt;/a&gt;        &lt;span class="s2"&gt;"Name"&lt;/span&gt;: &lt;span class="s2"&gt;"db-data"&lt;/span&gt;,
-&lt;a name="rest_code_3b23bb5664fb4aea98145250e07e7d49-9"&gt;&lt;/a&gt;        &lt;span class="s2"&gt;"Options"&lt;/span&gt;: &lt;span class="o"&gt;{}&lt;/span&gt;,
-&lt;a name="rest_code_3b23bb5664fb4aea98145250e07e7d49-10"&gt;&lt;/a&gt;        &lt;span class="s2"&gt;"Scope"&lt;/span&gt;: &lt;span class="s2"&gt;"local"&lt;/span&gt;
-&lt;a name="rest_code_3b23bb5664fb4aea98145250e07e7d49-11"&gt;&lt;/a&gt;    &lt;span class="o"&gt;}&lt;/span&gt;
-&lt;a name="rest_code_3b23bb5664fb4aea98145250e07e7d49-12"&gt;&lt;/a&gt;&lt;span class="o"&gt;]&lt;/span&gt;
+&lt;pre class="code shell"&gt;&lt;a name="rest_code_5c98f7ffb2c540f18a78fd8ce1d71060-1"&gt;&lt;/a&gt;$ docker volume inspect db-data
+&lt;a name="rest_code_5c98f7ffb2c540f18a78fd8ce1d71060-2"&gt;&lt;/a&gt;&lt;span class="o"&gt;[&lt;/span&gt;
+&lt;a name="rest_code_5c98f7ffb2c540f18a78fd8ce1d71060-3"&gt;&lt;/a&gt;    &lt;span class="o"&gt;{&lt;/span&gt;
+&lt;a name="rest_code_5c98f7ffb2c540f18a78fd8ce1d71060-4"&gt;&lt;/a&gt;        &lt;span class="s2"&gt;"CreatedAt"&lt;/span&gt;: &lt;span class="s2"&gt;"2018-12-02T13:09:48Z"&lt;/span&gt;,
+&lt;a name="rest_code_5c98f7ffb2c540f18a78fd8ce1d71060-5"&gt;&lt;/a&gt;        &lt;span class="s2"&gt;"Driver"&lt;/span&gt;: &lt;span class="s2"&gt;"local"&lt;/span&gt;,
+&lt;a name="rest_code_5c98f7ffb2c540f18a78fd8ce1d71060-6"&gt;&lt;/a&gt;        &lt;span class="s2"&gt;"Labels"&lt;/span&gt;: &lt;span class="o"&gt;{}&lt;/span&gt;,
+&lt;a name="rest_code_5c98f7ffb2c540f18a78fd8ce1d71060-7"&gt;&lt;/a&gt;        &lt;span class="s2"&gt;"Mountpoint"&lt;/span&gt;: &lt;span class="s2"&gt;"/var/lib/docker/volumes/db-data/_data"&lt;/span&gt;,
+&lt;a name="rest_code_5c98f7ffb2c540f18a78fd8ce1d71060-8"&gt;&lt;/a&gt;        &lt;span class="s2"&gt;"Name"&lt;/span&gt;: &lt;span class="s2"&gt;"db-data"&lt;/span&gt;,
+&lt;a name="rest_code_5c98f7ffb2c540f18a78fd8ce1d71060-9"&gt;&lt;/a&gt;        &lt;span class="s2"&gt;"Options"&lt;/span&gt;: &lt;span class="o"&gt;{}&lt;/span&gt;,
+&lt;a name="rest_code_5c98f7ffb2c540f18a78fd8ce1d71060-10"&gt;&lt;/a&gt;        &lt;span class="s2"&gt;"Scope"&lt;/span&gt;: &lt;span class="s2"&gt;"local"&lt;/span&gt;
+&lt;a name="rest_code_5c98f7ffb2c540f18a78fd8ce1d71060-11"&gt;&lt;/a&gt;    &lt;span class="o"&gt;}&lt;/span&gt;
+&lt;a name="rest_code_5c98f7ffb2c540f18a78fd8ce1d71060-12"&gt;&lt;/a&gt;&lt;span class="o"&gt;]&lt;/span&gt;
 &lt;/pre&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p class="first"&gt;今作った &lt;tt class="docutils literal"&gt;volume&lt;/tt&gt; はこの絵↓の真ん中のものである。&lt;/p&gt;
 &lt;div class="figure"&gt;
@@ -2045,84 +2045,84 @@ fufu_db exited with code &lt;span class="m"&gt;1&lt;/span&gt;
 &lt;/div&gt;
 &lt;div class="section" id="settings-py-database"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/use-volumes-with-docker-compose/#id8"&gt;3. &lt;tt class="docutils literal"&gt;settings.py&lt;/tt&gt; に DATABASE を定義する&lt;/a&gt;&lt;/h3&gt;
-&lt;pre class="code python"&gt;&lt;a name="rest_code_421ca854a771400086e5610f99905ed6-1"&gt;&lt;/a&gt;&lt;span class="n"&gt;DATABASES&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-&lt;a name="rest_code_421ca854a771400086e5610f99905ed6-2"&gt;&lt;/a&gt;    &lt;span class="s1"&gt;'default'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-&lt;a name="rest_code_421ca854a771400086e5610f99905ed6-3"&gt;&lt;/a&gt;        &lt;span class="s1"&gt;'ENGINE'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;'django.db.backends.postgresql'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;a name="rest_code_421ca854a771400086e5610f99905ed6-4"&gt;&lt;/a&gt;        &lt;span class="s1"&gt;'NAME'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;'postgres'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;a name="rest_code_421ca854a771400086e5610f99905ed6-5"&gt;&lt;/a&gt;        &lt;span class="s1"&gt;'USER'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;'postgres'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;a name="rest_code_421ca854a771400086e5610f99905ed6-6"&gt;&lt;/a&gt;        &lt;span class="s1"&gt;'PASSWORD'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;'postgres'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;  &lt;span class="c1"&gt;# パスワードを追加した&lt;/span&gt;
-&lt;a name="rest_code_421ca854a771400086e5610f99905ed6-7"&gt;&lt;/a&gt;        &lt;span class="s1"&gt;'HOST'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;'db'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;a name="rest_code_421ca854a771400086e5610f99905ed6-8"&gt;&lt;/a&gt;        &lt;span class="s1"&gt;'PORT'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;5432&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;a name="rest_code_421ca854a771400086e5610f99905ed6-9"&gt;&lt;/a&gt;    &lt;span class="p"&gt;}&lt;/span&gt;
-&lt;a name="rest_code_421ca854a771400086e5610f99905ed6-10"&gt;&lt;/a&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;pre class="code python"&gt;&lt;a name="rest_code_b28d9bf737544f14b48d09ccba8457d4-1"&gt;&lt;/a&gt;&lt;span class="n"&gt;DATABASES&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;a name="rest_code_b28d9bf737544f14b48d09ccba8457d4-2"&gt;&lt;/a&gt;    &lt;span class="s1"&gt;'default'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;a name="rest_code_b28d9bf737544f14b48d09ccba8457d4-3"&gt;&lt;/a&gt;        &lt;span class="s1"&gt;'ENGINE'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;'django.db.backends.postgresql'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;a name="rest_code_b28d9bf737544f14b48d09ccba8457d4-4"&gt;&lt;/a&gt;        &lt;span class="s1"&gt;'NAME'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;'postgres'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;a name="rest_code_b28d9bf737544f14b48d09ccba8457d4-5"&gt;&lt;/a&gt;        &lt;span class="s1"&gt;'USER'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;'postgres'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;a name="rest_code_b28d9bf737544f14b48d09ccba8457d4-6"&gt;&lt;/a&gt;        &lt;span class="s1"&gt;'PASSWORD'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;'postgres'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;  &lt;span class="c1"&gt;# パスワードを追加した&lt;/span&gt;
+&lt;a name="rest_code_b28d9bf737544f14b48d09ccba8457d4-7"&gt;&lt;/a&gt;        &lt;span class="s1"&gt;'HOST'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;'db'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;a name="rest_code_b28d9bf737544f14b48d09ccba8457d4-8"&gt;&lt;/a&gt;        &lt;span class="s1"&gt;'PORT'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;5432&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;a name="rest_code_b28d9bf737544f14b48d09ccba8457d4-9"&gt;&lt;/a&gt;    &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;a name="rest_code_b28d9bf737544f14b48d09ccba8457d4-10"&gt;&lt;/a&gt;&lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;div class="section" id="docker"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/use-volumes-with-docker-compose/#id9"&gt;4. Docker コンテナを実行する&lt;/a&gt;&lt;/h3&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_faf822e6d428487f898bc2f4f0d144ba-1"&gt;&lt;/a&gt;$ docker-compose up
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_e798072060464c5894f6d24da1809969-1"&gt;&lt;/a&gt;$ docker-compose up
 &lt;/pre&gt;&lt;/div&gt;
 &lt;div class="section" id="db"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/use-volumes-with-docker-compose/#id10"&gt;5. DB コンテナのなかに入って、テーブルを作成 &amp;amp; データを挿入する&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;1). &lt;tt class="docutils literal"&gt;db&lt;/tt&gt; コンテナのなかに入る&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_cfdbe67ceb09465ea8dbad5d002a80bb-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# コンテナをシェル経由で操作する&lt;/span&gt;
-&lt;a name="rest_code_cfdbe67ceb09465ea8dbad5d002a80bb-2"&gt;&lt;/a&gt;$ docker container &lt;span class="nb"&gt;exec&lt;/span&gt; -it fffff_db_1 sh
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_8098d4a4cef24553b7ce43af191aec34-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# コンテナをシェル経由で操作する&lt;/span&gt;
+&lt;a name="rest_code_8098d4a4cef24553b7ce43af191aec34-2"&gt;&lt;/a&gt;$ docker container &lt;span class="nb"&gt;exec&lt;/span&gt; -it fffff_db_1 sh
 &lt;/pre&gt;&lt;/blockquote&gt;
 &lt;p&gt;2). postgres に接続する&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;pre class="code postgres"&gt;&lt;a name="rest_code_ca7caac70a26478ca9c652815b299889-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;-- postgres に接続するその１&lt;/span&gt;
-&lt;a name="rest_code_ca7caac70a26478ca9c652815b299889-2"&gt;&lt;/a&gt;&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;psql&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;U&lt;/span&gt; &lt;span class="n"&gt;postgres&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;h&lt;/span&gt; &lt;span class="mf"&gt;127.0.0.1&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="mf"&gt;5432&lt;/span&gt; &lt;span class="n"&gt;postgres&lt;/span&gt;
-&lt;a name="rest_code_ca7caac70a26478ca9c652815b299889-3"&gt;&lt;/a&gt;&lt;span class="n"&gt;psql&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;11.1&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Debian&lt;/span&gt; &lt;span class="mf"&gt;11.1&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;1.&lt;/span&gt;&lt;span class="n"&gt;pgdg90&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mf"&gt;1&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-&lt;a name="rest_code_ca7caac70a26478ca9c652815b299889-4"&gt;&lt;/a&gt;&lt;span class="k"&gt;Type&lt;/span&gt; &lt;span class="s s-Name"&gt;"help"&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;help&lt;/span&gt;&lt;span class="mf"&gt;.&lt;/span&gt;
-&lt;a name="rest_code_ca7caac70a26478ca9c652815b299889-5"&gt;&lt;/a&gt;
-&lt;a name="rest_code_ca7caac70a26478ca9c652815b299889-6"&gt;&lt;/a&gt;&lt;span class="n"&gt;postgres&lt;/span&gt;&lt;span class="o"&gt;=#&lt;/span&gt;
-&lt;a name="rest_code_ca7caac70a26478ca9c652815b299889-7"&gt;&lt;/a&gt;
-&lt;a name="rest_code_ca7caac70a26478ca9c652815b299889-8"&gt;&lt;/a&gt;&lt;span class="c1"&gt;-- postgres に接続するその２&lt;/span&gt;
-&lt;a name="rest_code_ca7caac70a26478ca9c652815b299889-9"&gt;&lt;/a&gt;&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;psql&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="n"&gt;postgres&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;U&lt;/span&gt;  &lt;span class="n"&gt;postgres&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;W&lt;/span&gt;
-&lt;a name="rest_code_ca7caac70a26478ca9c652815b299889-10"&gt;&lt;/a&gt;&lt;span class="k"&gt;Password&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-&lt;a name="rest_code_ca7caac70a26478ca9c652815b299889-11"&gt;&lt;/a&gt;&lt;span class="n"&gt;psql&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;11.1&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Debian&lt;/span&gt; &lt;span class="mf"&gt;11.1&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;1.&lt;/span&gt;&lt;span class="n"&gt;pgdg90&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mf"&gt;1&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-&lt;a name="rest_code_ca7caac70a26478ca9c652815b299889-12"&gt;&lt;/a&gt;&lt;span class="k"&gt;Type&lt;/span&gt; &lt;span class="s s-Name"&gt;"help"&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;help&lt;/span&gt;&lt;span class="mf"&gt;.&lt;/span&gt;
-&lt;a name="rest_code_ca7caac70a26478ca9c652815b299889-13"&gt;&lt;/a&gt;
-&lt;a name="rest_code_ca7caac70a26478ca9c652815b299889-14"&gt;&lt;/a&gt;&lt;span class="n"&gt;postgres&lt;/span&gt;&lt;span class="o"&gt;=#&lt;/span&gt;
+&lt;pre class="code postgres"&gt;&lt;a name="rest_code_a4750cc8e2bb4eb9af51759fd13cca77-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;-- postgres に接続するその１&lt;/span&gt;
+&lt;a name="rest_code_a4750cc8e2bb4eb9af51759fd13cca77-2"&gt;&lt;/a&gt;&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;psql&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;U&lt;/span&gt; &lt;span class="n"&gt;postgres&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;h&lt;/span&gt; &lt;span class="mf"&gt;127.0.0.1&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="mf"&gt;5432&lt;/span&gt; &lt;span class="n"&gt;postgres&lt;/span&gt;
+&lt;a name="rest_code_a4750cc8e2bb4eb9af51759fd13cca77-3"&gt;&lt;/a&gt;&lt;span class="n"&gt;psql&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;11.1&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Debian&lt;/span&gt; &lt;span class="mf"&gt;11.1&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;1.&lt;/span&gt;&lt;span class="n"&gt;pgdg90&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mf"&gt;1&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;a name="rest_code_a4750cc8e2bb4eb9af51759fd13cca77-4"&gt;&lt;/a&gt;&lt;span class="k"&gt;Type&lt;/span&gt; &lt;span class="s s-Name"&gt;"help"&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;help&lt;/span&gt;&lt;span class="mf"&gt;.&lt;/span&gt;
+&lt;a name="rest_code_a4750cc8e2bb4eb9af51759fd13cca77-5"&gt;&lt;/a&gt;
+&lt;a name="rest_code_a4750cc8e2bb4eb9af51759fd13cca77-6"&gt;&lt;/a&gt;&lt;span class="n"&gt;postgres&lt;/span&gt;&lt;span class="o"&gt;=#&lt;/span&gt;
+&lt;a name="rest_code_a4750cc8e2bb4eb9af51759fd13cca77-7"&gt;&lt;/a&gt;
+&lt;a name="rest_code_a4750cc8e2bb4eb9af51759fd13cca77-8"&gt;&lt;/a&gt;&lt;span class="c1"&gt;-- postgres に接続するその２&lt;/span&gt;
+&lt;a name="rest_code_a4750cc8e2bb4eb9af51759fd13cca77-9"&gt;&lt;/a&gt;&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;psql&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="n"&gt;postgres&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;U&lt;/span&gt;  &lt;span class="n"&gt;postgres&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;W&lt;/span&gt;
+&lt;a name="rest_code_a4750cc8e2bb4eb9af51759fd13cca77-10"&gt;&lt;/a&gt;&lt;span class="k"&gt;Password&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;a name="rest_code_a4750cc8e2bb4eb9af51759fd13cca77-11"&gt;&lt;/a&gt;&lt;span class="n"&gt;psql&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;11.1&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Debian&lt;/span&gt; &lt;span class="mf"&gt;11.1&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;1.&lt;/span&gt;&lt;span class="n"&gt;pgdg90&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mf"&gt;1&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;a name="rest_code_a4750cc8e2bb4eb9af51759fd13cca77-12"&gt;&lt;/a&gt;&lt;span class="k"&gt;Type&lt;/span&gt; &lt;span class="s s-Name"&gt;"help"&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;help&lt;/span&gt;&lt;span class="mf"&gt;.&lt;/span&gt;
+&lt;a name="rest_code_a4750cc8e2bb4eb9af51759fd13cca77-13"&gt;&lt;/a&gt;
+&lt;a name="rest_code_a4750cc8e2bb4eb9af51759fd13cca77-14"&gt;&lt;/a&gt;&lt;span class="n"&gt;postgres&lt;/span&gt;&lt;span class="o"&gt;=#&lt;/span&gt;
 &lt;/pre&gt;&lt;/blockquote&gt;
 &lt;p&gt;3). テーブルを作成し、データを挿入する&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;pre class="code postgres"&gt;&lt;a name="rest_code_41bdad0578664f6c83917ec24c1bf7fe-1"&gt;&lt;/a&gt;&lt;span class="k"&gt;CREATE&lt;/span&gt; &lt;span class="k"&gt;TABLE&lt;/span&gt; &lt;span class="n"&gt;fruits&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
-&lt;a name="rest_code_41bdad0578664f6c83917ec24c1bf7fe-2"&gt;&lt;/a&gt;   &lt;span class="n"&gt;id&lt;/span&gt; &lt;span class="nb"&gt;SERIAL&lt;/span&gt; &lt;span class="k"&gt;PRIMARY&lt;/span&gt; &lt;span class="k"&gt;KEY&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;a name="rest_code_41bdad0578664f6c83917ec24c1bf7fe-3"&gt;&lt;/a&gt;   &lt;span class="k"&gt;name&lt;/span&gt; &lt;span class="nb"&gt;VARCHAR&lt;/span&gt; &lt;span class="k"&gt;NOT&lt;/span&gt; &lt;span class="k"&gt;NULL&lt;/span&gt;
-&lt;a name="rest_code_41bdad0578664f6c83917ec24c1bf7fe-4"&gt;&lt;/a&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-&lt;a name="rest_code_41bdad0578664f6c83917ec24c1bf7fe-5"&gt;&lt;/a&gt;&lt;span class="k"&gt;INSERT&lt;/span&gt; &lt;span class="k"&gt;INTO&lt;/span&gt; &lt;span class="n"&gt;fruits&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;name&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;VALUES&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'orange'&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-&lt;a name="rest_code_41bdad0578664f6c83917ec24c1bf7fe-6"&gt;&lt;/a&gt;&lt;span class="k"&gt;INSERT&lt;/span&gt; &lt;span class="k"&gt;INTO&lt;/span&gt; &lt;span class="n"&gt;fruits&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;id&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="k"&gt;name&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;VALUES&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;DEFAULT&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;'apple'&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-&lt;a name="rest_code_41bdad0578664f6c83917ec24c1bf7fe-7"&gt;&lt;/a&gt;
-&lt;a name="rest_code_41bdad0578664f6c83917ec24c1bf7fe-8"&gt;&lt;/a&gt;&lt;span class="n"&gt;postgres&lt;/span&gt;&lt;span class="o"&gt;=#&lt;/span&gt; &lt;span class="err"&gt;\&lt;/span&gt;&lt;span class="n"&gt;q&lt;/span&gt;
+&lt;pre class="code postgres"&gt;&lt;a name="rest_code_07247f4e256643c180da0e49930ffdec-1"&gt;&lt;/a&gt;&lt;span class="k"&gt;CREATE&lt;/span&gt; &lt;span class="k"&gt;TABLE&lt;/span&gt; &lt;span class="n"&gt;fruits&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+&lt;a name="rest_code_07247f4e256643c180da0e49930ffdec-2"&gt;&lt;/a&gt;   &lt;span class="n"&gt;id&lt;/span&gt; &lt;span class="nb"&gt;SERIAL&lt;/span&gt; &lt;span class="k"&gt;PRIMARY&lt;/span&gt; &lt;span class="k"&gt;KEY&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;a name="rest_code_07247f4e256643c180da0e49930ffdec-3"&gt;&lt;/a&gt;   &lt;span class="k"&gt;name&lt;/span&gt; &lt;span class="nb"&gt;VARCHAR&lt;/span&gt; &lt;span class="k"&gt;NOT&lt;/span&gt; &lt;span class="k"&gt;NULL&lt;/span&gt;
+&lt;a name="rest_code_07247f4e256643c180da0e49930ffdec-4"&gt;&lt;/a&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;a name="rest_code_07247f4e256643c180da0e49930ffdec-5"&gt;&lt;/a&gt;&lt;span class="k"&gt;INSERT&lt;/span&gt; &lt;span class="k"&gt;INTO&lt;/span&gt; &lt;span class="n"&gt;fruits&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;name&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;VALUES&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'orange'&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;a name="rest_code_07247f4e256643c180da0e49930ffdec-6"&gt;&lt;/a&gt;&lt;span class="k"&gt;INSERT&lt;/span&gt; &lt;span class="k"&gt;INTO&lt;/span&gt; &lt;span class="n"&gt;fruits&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;id&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="k"&gt;name&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;VALUES&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;DEFAULT&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;'apple'&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;a name="rest_code_07247f4e256643c180da0e49930ffdec-7"&gt;&lt;/a&gt;
+&lt;a name="rest_code_07247f4e256643c180da0e49930ffdec-8"&gt;&lt;/a&gt;&lt;span class="n"&gt;postgres&lt;/span&gt;&lt;span class="o"&gt;=#&lt;/span&gt; &lt;span class="err"&gt;\&lt;/span&gt;&lt;span class="n"&gt;q&lt;/span&gt;
 &lt;/pre&gt;&lt;/blockquote&gt;
 &lt;/div&gt;
 &lt;div class="section" id="shutdown"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/use-volumes-with-docker-compose/#id11"&gt;6. 安全に shutdown する&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;コンテナは停止・削除される。&lt;/p&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_0bf906f4f10b49fb9deb4ed8b157c8a0-1"&gt;&lt;/a&gt;$ docker-compose down
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_906e5cba3ffc4964ababe9013dcaadbe-1"&gt;&lt;/a&gt;$ docker-compose down
 &lt;/pre&gt;&lt;/div&gt;
 &lt;div class="section" id="docker-compose-up"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/use-volumes-with-docker-compose/#id12"&gt;7. 再度 &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;docker-compose&lt;/span&gt; up&lt;/tt&gt; して、先ほど登録したテーブル &amp;amp; データを見てみる&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;先ほど作成したテーブルとデータがありました。&lt;/p&gt;
-&lt;pre class="code console"&gt;&lt;a name="rest_code_a5727e014de644f29429aa631406df3a-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; docker-compose up
-&lt;a name="rest_code_a5727e014de644f29429aa631406df3a-2"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; docker container &lt;span class="nb"&gt;exec&lt;/span&gt; -it fffff_db_1 sh
-&lt;/pre&gt;&lt;pre class="code postgres"&gt;&lt;a name="rest_code_9873b7b5392f46ee9869459be5465b8e-1"&gt;&lt;/a&gt;&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;psql&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;U&lt;/span&gt; &lt;span class="n"&gt;postgres&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;h&lt;/span&gt; &lt;span class="mf"&gt;127.0.0.1&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="mf"&gt;5432&lt;/span&gt; &lt;span class="n"&gt;postgres&lt;/span&gt;
-&lt;a name="rest_code_9873b7b5392f46ee9869459be5465b8e-2"&gt;&lt;/a&gt;&lt;span class="n"&gt;psql&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;11.1&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Debian&lt;/span&gt; &lt;span class="mf"&gt;11.1&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;1.&lt;/span&gt;&lt;span class="n"&gt;pgdg90&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mf"&gt;1&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;
-&lt;a name="rest_code_9873b7b5392f46ee9869459be5465b8e-3"&gt;&lt;/a&gt;&lt;span class="k"&gt;Type&lt;/span&gt; &lt;span class="s s-Name"&gt;"help"&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;help&lt;/span&gt;&lt;span class="mf"&gt;.&lt;/span&gt;
-&lt;a name="rest_code_9873b7b5392f46ee9869459be5465b8e-4"&gt;&lt;/a&gt;
-&lt;a name="rest_code_9873b7b5392f46ee9869459be5465b8e-5"&gt;&lt;/a&gt;&lt;span class="n"&gt;postgres&lt;/span&gt;&lt;span class="o"&gt;=#&lt;/span&gt; &lt;span class="err"&gt;\&lt;/span&gt;&lt;span class="n"&gt;dt&lt;/span&gt;
-&lt;a name="rest_code_9873b7b5392f46ee9869459be5465b8e-6"&gt;&lt;/a&gt;         &lt;span class="n"&gt;List&lt;/span&gt; &lt;span class="k"&gt;of&lt;/span&gt; &lt;span class="n"&gt;relations&lt;/span&gt;
-&lt;a name="rest_code_9873b7b5392f46ee9869459be5465b8e-7"&gt;&lt;/a&gt; &lt;span class="k"&gt;Schema&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt;  &lt;span class="k"&gt;Name&lt;/span&gt;  &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="k"&gt;Type&lt;/span&gt;  &lt;span class="o"&gt;|&lt;/span&gt;  &lt;span class="k"&gt;Owner&lt;/span&gt;
-&lt;a name="rest_code_9873b7b5392f46ee9869459be5465b8e-8"&gt;&lt;/a&gt;&lt;span class="c1"&gt;--------+--------+-------+----------&lt;/span&gt;
-&lt;a name="rest_code_9873b7b5392f46ee9869459be5465b8e-9"&gt;&lt;/a&gt; &lt;span class="n"&gt;public&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;fruits&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="k"&gt;table&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;postgres&lt;/span&gt;
-&lt;a name="rest_code_9873b7b5392f46ee9869459be5465b8e-10"&gt;&lt;/a&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;1&lt;/span&gt; &lt;span class="k"&gt;row&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;a name="rest_code_9873b7b5392f46ee9869459be5465b8e-11"&gt;&lt;/a&gt;
-&lt;a name="rest_code_9873b7b5392f46ee9869459be5465b8e-12"&gt;&lt;/a&gt;&lt;span class="n"&gt;postgres&lt;/span&gt;&lt;span class="o"&gt;=#&lt;/span&gt; &lt;span class="k"&gt;SELECT&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="k"&gt;FROM&lt;/span&gt; &lt;span class="n"&gt;fruits&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;a name="rest_code_9873b7b5392f46ee9869459be5465b8e-13"&gt;&lt;/a&gt; &lt;span class="n"&gt;id&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt;  &lt;span class="k"&gt;name&lt;/span&gt;
-&lt;a name="rest_code_9873b7b5392f46ee9869459be5465b8e-14"&gt;&lt;/a&gt;&lt;span class="c1"&gt;----+--------&lt;/span&gt;
-&lt;a name="rest_code_9873b7b5392f46ee9869459be5465b8e-15"&gt;&lt;/a&gt;  &lt;span class="mf"&gt;1&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;orange&lt;/span&gt;
-&lt;a name="rest_code_9873b7b5392f46ee9869459be5465b8e-16"&gt;&lt;/a&gt;  &lt;span class="mf"&gt;2&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;apple&lt;/span&gt;
-&lt;a name="rest_code_9873b7b5392f46ee9869459be5465b8e-17"&gt;&lt;/a&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;2&lt;/span&gt; &lt;span class="k"&gt;rows&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;pre class="code console"&gt;&lt;a name="rest_code_7d5e3eed4a8f4b8e88442494f897e8fa-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; docker-compose up
+&lt;a name="rest_code_7d5e3eed4a8f4b8e88442494f897e8fa-2"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; docker container &lt;span class="nb"&gt;exec&lt;/span&gt; -it fffff_db_1 sh
+&lt;/pre&gt;&lt;pre class="code postgres"&gt;&lt;a name="rest_code_f05667e5402949af9e12ddd6ee11e7c6-1"&gt;&lt;/a&gt;&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;psql&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;U&lt;/span&gt; &lt;span class="n"&gt;postgres&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;h&lt;/span&gt; &lt;span class="mf"&gt;127.0.0.1&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="mf"&gt;5432&lt;/span&gt; &lt;span class="n"&gt;postgres&lt;/span&gt;
+&lt;a name="rest_code_f05667e5402949af9e12ddd6ee11e7c6-2"&gt;&lt;/a&gt;&lt;span class="n"&gt;psql&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;11.1&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Debian&lt;/span&gt; &lt;span class="mf"&gt;11.1&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;1.&lt;/span&gt;&lt;span class="n"&gt;pgdg90&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mf"&gt;1&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;
+&lt;a name="rest_code_f05667e5402949af9e12ddd6ee11e7c6-3"&gt;&lt;/a&gt;&lt;span class="k"&gt;Type&lt;/span&gt; &lt;span class="s s-Name"&gt;"help"&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;help&lt;/span&gt;&lt;span class="mf"&gt;.&lt;/span&gt;
+&lt;a name="rest_code_f05667e5402949af9e12ddd6ee11e7c6-4"&gt;&lt;/a&gt;
+&lt;a name="rest_code_f05667e5402949af9e12ddd6ee11e7c6-5"&gt;&lt;/a&gt;&lt;span class="n"&gt;postgres&lt;/span&gt;&lt;span class="o"&gt;=#&lt;/span&gt; &lt;span class="err"&gt;\&lt;/span&gt;&lt;span class="n"&gt;dt&lt;/span&gt;
+&lt;a name="rest_code_f05667e5402949af9e12ddd6ee11e7c6-6"&gt;&lt;/a&gt;         &lt;span class="n"&gt;List&lt;/span&gt; &lt;span class="k"&gt;of&lt;/span&gt; &lt;span class="n"&gt;relations&lt;/span&gt;
+&lt;a name="rest_code_f05667e5402949af9e12ddd6ee11e7c6-7"&gt;&lt;/a&gt; &lt;span class="k"&gt;Schema&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt;  &lt;span class="k"&gt;Name&lt;/span&gt;  &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="k"&gt;Type&lt;/span&gt;  &lt;span class="o"&gt;|&lt;/span&gt;  &lt;span class="k"&gt;Owner&lt;/span&gt;
+&lt;a name="rest_code_f05667e5402949af9e12ddd6ee11e7c6-8"&gt;&lt;/a&gt;&lt;span class="c1"&gt;--------+--------+-------+----------&lt;/span&gt;
+&lt;a name="rest_code_f05667e5402949af9e12ddd6ee11e7c6-9"&gt;&lt;/a&gt; &lt;span class="n"&gt;public&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;fruits&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="k"&gt;table&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;postgres&lt;/span&gt;
+&lt;a name="rest_code_f05667e5402949af9e12ddd6ee11e7c6-10"&gt;&lt;/a&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;1&lt;/span&gt; &lt;span class="k"&gt;row&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_f05667e5402949af9e12ddd6ee11e7c6-11"&gt;&lt;/a&gt;
+&lt;a name="rest_code_f05667e5402949af9e12ddd6ee11e7c6-12"&gt;&lt;/a&gt;&lt;span class="n"&gt;postgres&lt;/span&gt;&lt;span class="o"&gt;=#&lt;/span&gt; &lt;span class="k"&gt;SELECT&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="k"&gt;FROM&lt;/span&gt; &lt;span class="n"&gt;fruits&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;a name="rest_code_f05667e5402949af9e12ddd6ee11e7c6-13"&gt;&lt;/a&gt; &lt;span class="n"&gt;id&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt;  &lt;span class="k"&gt;name&lt;/span&gt;
+&lt;a name="rest_code_f05667e5402949af9e12ddd6ee11e7c6-14"&gt;&lt;/a&gt;&lt;span class="c1"&gt;----+--------&lt;/span&gt;
+&lt;a name="rest_code_f05667e5402949af9e12ddd6ee11e7c6-15"&gt;&lt;/a&gt;  &lt;span class="mf"&gt;1&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;orange&lt;/span&gt;
+&lt;a name="rest_code_f05667e5402949af9e12ddd6ee11e7c6-16"&gt;&lt;/a&gt;  &lt;span class="mf"&gt;2&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;apple&lt;/span&gt;
+&lt;a name="rest_code_f05667e5402949af9e12ddd6ee11e7c6-17"&gt;&lt;/a&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;2&lt;/span&gt; &lt;span class="k"&gt;rows&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;&lt;/div&gt;</description><category>docker</category><guid>https://32imuf.com/docker/use-volumes-with-docker-compose/</guid><pubDate>Sat, 01 Dec 2018 15:00:00 GMT</pubDate></item><item><title>Docker Compose で Django/PostgreSQL 環境をつくる</title><link>https://32imuf.com/docker/create-django-env-with-docker-compose-psql/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;p&gt;&lt;/p&gt;
 &lt;details&gt;
