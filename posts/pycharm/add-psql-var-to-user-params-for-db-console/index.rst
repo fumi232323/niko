@@ -5,9 +5,6 @@
 .. status: published
 
 
-{{% copy *.png %}}
-
-
 ガイド
 ======
 - `PyCharm ヘルプ -> ユーザー・パラメーター <https://pleiades.io/help/pycharm/settings-tools-database-user-parameters.html>`_
@@ -22,7 +19,7 @@
 
 2. こう
 
-    .. figure:: /images/pycharm/add-psql-var-to-user-params-for-db-console/user-parameters.png
+    {{% figure user-parameters.png %}}
 
     - ``In scripts`` を ON にしないと、 Database Console で使用できない
 

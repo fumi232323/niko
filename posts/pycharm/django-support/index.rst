@@ -5,8 +5,6 @@
 .. status: published
 
 
-{{% copy *.png %}}
-
 .. raw:: html
 
   <details><summary>目次</summary>
@@ -67,8 +65,8 @@ Template language を設定する
 2. Diagrams -> Show Diagram
 3. Select Diagram Type ポップアップ上で ``Django Model Dependency Diagram`` を選択
 
+    {{% figure SelectDiagramType.png %}}
 
-    .. figure:: /images/pycharm/django-support/SelectDiagramType.png
 
 Tips
 ^^^^^^

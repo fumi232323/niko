@@ -5,9 +5,6 @@
 .. status: published
 
 
-{{% copy *.png %}}
-
-
 リファレンス
 ============
 - PyCharm: https://www.jetbrains.com/help/pycharm/using-file-watchers.html#ws_filewatcher_examples
@@ -23,7 +20,8 @@
     - Arguments: ``--out $FileParentDir$/files/static/css/ $FileName$``
 
 
-      .. figure:: /images/html-css/configure-stylus-output-directory/edit-watcher.png
+      {{% figure edit-watcher.png %}}
+
 
       - ``Insert Macro...`` ボタンを押下すると、指定できるマクロのプレビューが見られるので、好きなものを選ぶと良い。
       - ``--out $FileParentDir$/files/static/css/`` の指定は、 Stylus の Options 指定形式に従うこと。

@@ -5,9 +5,6 @@
 .. status: published
 
 
-
-{{% copy *.png %}}
-
 .. raw:: html
 
   <details><summary>目次</summary>

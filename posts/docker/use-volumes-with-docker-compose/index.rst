@@ -5,8 +5,6 @@
 .. status: published
 
 
-{{% copy *.png %}}
-
 .. raw:: html
 
   <details>
@@ -74,7 +72,7 @@
 
 - 今作った ``volume`` はこの絵↓の真ん中のものである。
 
-  .. figure:: /images/docker/use-volumes-with-docker-compose/use-volumes.png
+  {{% figure use-volumes.png %}}
 
   https://docs.docker.com/storage/volumes/
 

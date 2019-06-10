@@ -5,8 +5,6 @@
 .. status: published
 
 
-{{% copy *.png %}}
-
 .. raw:: html
 
   <details>
@@ -83,7 +81,7 @@
 
     http://localhost:3236/
 
-  .. figure:: /images/docker/create-django-env-with-docker-compose-psql/hello-django.png
+    {{% figure hello-django.png %}}
 
 
 8. 実行中の コンテナを list する。
