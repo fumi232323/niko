@@ -1,0 +1,12 @@
+[Core]
+Name = figure_shortcode
+Module = shortcode
+
+[Nikola]
+PluginCategory = ShortcodePlugin
+
+[Documentation]
+Author = Fumi23
+Version = 0.1
+Website = https://github.com/fumi232323/niko
+Description = load shortcode
