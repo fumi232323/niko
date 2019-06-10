@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ふみのて (pycharmについての文書)</title><link>https://32imuf.com/</link><description></description><atom:link href="https://32imuf.com/tags/pycharm.xml" rel="self" type="application/rss+xml"></atom:link><language>ja</language><copyright>Contents © 2019 &lt;a href="mailto:fumi232323fumi2016@gmail.com"&gt;fumi23&lt;/a&gt; </copyright><lastBuildDate>Sun, 09 Jun 2019 10:24:40 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Pycharm の Django support を使う</title><link>https://32imuf.com/pycharm/django-support/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;p&gt;&lt;/p&gt;
-&lt;details&gt;&lt;summary&gt;目次&lt;/summary&gt;&lt;div class="contents topic" id="id1"&gt;
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ふみのて (pycharmについての文書)</title><link>https://32imuf.com/</link><description></description><atom:link href="https://32imuf.com/tags/pycharm.xml" rel="self" type="application/rss+xml"></atom:link><language>ja</language><copyright>Contents © 2019 &lt;a href="mailto:fumi232323fumi2016@gmail.com"&gt;fumi23&lt;/a&gt; </copyright><lastBuildDate>Mon, 10 Jun 2019 15:10:30 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Pycharm の Django support を使う</title><link>https://32imuf.com/pycharm/django-support/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;details&gt;&lt;summary&gt;目次&lt;/summary&gt;&lt;div class="contents topic" id="id1"&gt;
 &lt;p class="topic-title first"&gt;目次&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;a class="reference internal" href="https://32imuf.com/pycharm/django-support/#id2" id="id11"&gt;ガイド&lt;/a&gt;&lt;/li&gt;
@@ -84,7 +83,7 @@
 &lt;/li&gt;
 &lt;li&gt;&lt;p class="first"&gt;Select Diagram Type ポップアップ上で &lt;tt class="docutils literal"&gt;Django Model Dependency Diagram&lt;/tt&gt; を選択&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;div class="figure"&gt;
+&lt;p&gt;&lt;/p&gt;&lt;div class="figure"&gt;
 &lt;img alt="/images/pycharm/django-support/SelectDiagramType.png" src="https://32imuf.com/images/pycharm/django-support/SelectDiagramType.png"&gt;
 &lt;/div&gt;
 &lt;/blockquote&gt;
@@ -99,8 +98,7 @@
 &lt;li&gt;上下のスクロールはできるが、左右のスクロールがうまくない...&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;/div&gt;</description><category>pycharm</category><guid>https://32imuf.com/pycharm/django-support/</guid><pubDate>Sat, 29 Sep 2018 15:00:00 GMT</pubDate></item><item><title>PyCharm の Database Console で PostgreSQL のプレースホルダー (インタポレーション) を SQL パラメーターとして使えるようにする</title><link>https://32imuf.com/pycharm/add-psql-var-to-user-params-for-db-console/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;p&gt;&lt;/p&gt;
-&lt;div class="section" id="id1"&gt;
+&lt;/div&gt;&lt;/div&gt;</description><category>pycharm</category><guid>https://32imuf.com/pycharm/django-support/</guid><pubDate>Sat, 29 Sep 2018 15:00:00 GMT</pubDate></item><item><title>PyCharm の Database Console で PostgreSQL のプレースホルダー (インタポレーション) を SQL パラメーターとして使えるようにする</title><link>https://32imuf.com/pycharm/add-psql-var-to-user-params-for-db-console/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;div class="section" id="id1"&gt;
 &lt;h2&gt;ガイド&lt;/h2&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;a class="reference external" href="https://pleiades.io/help/pycharm/settings-tools-database-user-parameters.html"&gt;PyCharm ヘルプ -&amp;gt; ユーザー・パラメーター&lt;/a&gt;&lt;/li&gt;
@@ -117,7 +115,7 @@
 &lt;/li&gt;
 &lt;li&gt;&lt;p class="first"&gt;こう&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;div class="figure"&gt;
+&lt;p&gt;&lt;/p&gt;&lt;div class="figure"&gt;
 &lt;img alt="/images/pycharm/add-psql-var-to-user-params-for-db-console/user-parameters.png" src="https://32imuf.com/images/pycharm/add-psql-var-to-user-params-for-db-console/user-parameters.png"&gt;
 &lt;/div&gt;
 &lt;ul class="simple"&gt;

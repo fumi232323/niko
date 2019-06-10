@@ -33,7 +33,6 @@
     </div>
     <div class="text">
       <div>
-<p></p>
 <details><summary>目次</summary><div class="contents topic" id="id1">
 <p class="topic-title first">目次</p>
 <ul class="simple">
@@ -211,15 +210,15 @@ WARNING: Image <span class="k">for</span> service web was built because it did n
 <li>
 <p class="first"><tt class="docutils literal">settings.py</tt> に DATABASE を定義する。</p>
 <blockquote>
-<pre class="code python"><a name="rest_code_a872f903c7c443d3b7b294f4f5ee2d7b-1"></a><span class="n">DATABASES</span> <span class="o">=</span> <span class="p">{</span>
-<a name="rest_code_a872f903c7c443d3b7b294f4f5ee2d7b-2"></a>    <span class="s1">'default'</span><span class="p">:</span> <span class="p">{</span>
-<a name="rest_code_a872f903c7c443d3b7b294f4f5ee2d7b-3"></a>        <span class="s1">'ENGINE'</span><span class="p">:</span> <span class="s1">'django.db.backends.postgresql'</span><span class="p">,</span>
-<a name="rest_code_a872f903c7c443d3b7b294f4f5ee2d7b-4"></a>        <span class="s1">'NAME'</span><span class="p">:</span> <span class="s1">'postgres'</span><span class="p">,</span>
-<a name="rest_code_a872f903c7c443d3b7b294f4f5ee2d7b-5"></a>        <span class="s1">'USER'</span><span class="p">:</span> <span class="s1">'postgres'</span><span class="p">,</span>
-<a name="rest_code_a872f903c7c443d3b7b294f4f5ee2d7b-6"></a>        <span class="s1">'HOST'</span><span class="p">:</span> <span class="s1">'db'</span><span class="p">,</span>
-<a name="rest_code_a872f903c7c443d3b7b294f4f5ee2d7b-7"></a>        <span class="s1">'PORT'</span><span class="p">:</span> <span class="mi">5432</span><span class="p">,</span>
-<a name="rest_code_a872f903c7c443d3b7b294f4f5ee2d7b-8"></a>    <span class="p">}</span>
-<a name="rest_code_a872f903c7c443d3b7b294f4f5ee2d7b-9"></a><span class="p">}</span>
+<pre class="code python"><a name="rest_code_255d58dab12748879b36574b879aab1d-1"></a><span class="n">DATABASES</span> <span class="o">=</span> <span class="p">{</span>
+<a name="rest_code_255d58dab12748879b36574b879aab1d-2"></a>    <span class="s1">'default'</span><span class="p">:</span> <span class="p">{</span>
+<a name="rest_code_255d58dab12748879b36574b879aab1d-3"></a>        <span class="s1">'ENGINE'</span><span class="p">:</span> <span class="s1">'django.db.backends.postgresql'</span><span class="p">,</span>
+<a name="rest_code_255d58dab12748879b36574b879aab1d-4"></a>        <span class="s1">'NAME'</span><span class="p">:</span> <span class="s1">'postgres'</span><span class="p">,</span>
+<a name="rest_code_255d58dab12748879b36574b879aab1d-5"></a>        <span class="s1">'USER'</span><span class="p">:</span> <span class="s1">'postgres'</span><span class="p">,</span>
+<a name="rest_code_255d58dab12748879b36574b879aab1d-6"></a>        <span class="s1">'HOST'</span><span class="p">:</span> <span class="s1">'db'</span><span class="p">,</span>
+<a name="rest_code_255d58dab12748879b36574b879aab1d-7"></a>        <span class="s1">'PORT'</span><span class="p">:</span> <span class="mi">5432</span><span class="p">,</span>
+<a name="rest_code_255d58dab12748879b36574b879aab1d-8"></a>    <span class="p">}</span>
+<a name="rest_code_255d58dab12748879b36574b879aab1d-9"></a><span class="p">}</span>
 </pre>
 </blockquote>
 </li>
@@ -315,29 +314,28 @@ web_1  <span class="p">|</span> Quit the server with CONTROL-C.
 <p class="first">アクセスする。</p>
 <blockquote>
 <p><a class="reference external" href="http://localhost:3236/">http://localhost:3236/</a></p>
-</blockquote>
-</li>
-</ol>
+<p></p>
 <blockquote>
 <div class="figure">
 <img alt="/images/docker/create-django-env-with-docker-compose-psql/hello-django.png" src="../../images/docker/create-django-env-with-docker-compose-psql/hello-django.png">
 </div>
 </blockquote>
-<ol class="arabic" start="8">
+</blockquote>
+</li>
 <li>
 <p class="first">実行中の コンテナを list する。</p>
 <blockquote>
-<pre class="code bash"><a name="rest_code_2c451ac3b6344a6fa2735a80c83d0785-1"></a>$ docker ps
-<a name="rest_code_2c451ac3b6344a6fa2735a80c83d0785-2"></a>CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                    NAMES
-<a name="rest_code_2c451ac3b6344a6fa2735a80c83d0785-3"></a>e95174b2be87        fff_web             <span class="s2">"python3 manage.py r…"</span>   <span class="m">32</span> minutes ago      Up <span class="m">32</span> minutes       <span class="m">0</span>.0.0.0:3236-&gt;8000/tcp   fff_web_1
-<a name="rest_code_2c451ac3b6344a6fa2735a80c83d0785-4"></a>2994f0092cd4        postgres            <span class="s2">"docker-entrypoint.s…"</span>   <span class="m">41</span> minutes ago      Up <span class="m">41</span> minutes       <span class="m">5432</span>/tcp                 fff_db_1
+<pre class="code bash"><a name="rest_code_95ac1cf518d84bbeb921b195ec1d191b-1"></a>$ docker ps
+<a name="rest_code_95ac1cf518d84bbeb921b195ec1d191b-2"></a>CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                    NAMES
+<a name="rest_code_95ac1cf518d84bbeb921b195ec1d191b-3"></a>e95174b2be87        fff_web             <span class="s2">"python3 manage.py r…"</span>   <span class="m">32</span> minutes ago      Up <span class="m">32</span> minutes       <span class="m">0</span>.0.0.0:3236-&gt;8000/tcp   fff_web_1
+<a name="rest_code_95ac1cf518d84bbeb921b195ec1d191b-4"></a>2994f0092cd4        postgres            <span class="s2">"docker-entrypoint.s…"</span>   <span class="m">41</span> minutes ago      Up <span class="m">41</span> minutes       <span class="m">5432</span>/tcp                 fff_db_1
 </pre>
 </blockquote>
 </li>
 <li>
 <p class="first">安全に shutdown する。</p>
 <blockquote>
-<pre class="code bash"><a name="rest_code_cef5bbf3959f476ea26bc7d1876fca86-1"></a>$ docker-compose down
+<pre class="code bash"><a name="rest_code_91e2db527bc54c9d8db3545daf2930d1-1"></a>$ docker-compose down
 </pre>
 </blockquote>
 </li>
