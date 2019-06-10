@@ -31,7 +31,7 @@
 手順
 ====
 ``web`` のイメージをビルド...するところは、
-`Docker Compose で Django/PostgreSQL 環境をつくる <docker/create-django-env-with-docker-compose-psql>`_
+`Docker Compose で Django/PostgreSQL 環境をつくる </docker/create-django-env-with-docker-compose-psql>`__
 を参照のこと。
 
 
