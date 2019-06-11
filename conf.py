@@ -25,7 +25,7 @@ SITE_URL = "https://32imuf.com/"
 # If not set, defaults to SITE_URL
 # BASE_URL = "https://32imuf.com/"
 BLOG_EMAIL = "fumi232323fumi2016@gmail.com"
-BLOG_DESCRIPTION = ""  # (translatable)
+BLOG_DESCRIPTION = "のてのて"  # (translatable)
 
 # Nikola is multilingual!
 #
