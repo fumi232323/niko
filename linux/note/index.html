@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<title>いろいろメモ/ふみのて</title>
+<link rel="shortcut icon" href="../../assets/icons/favicon.ico">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Griffy">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Vollkorn:400,700">
+<link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/sawarabimincho.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+<link rel="stylesheet" href="../../assets/css/style.css?20190611">
+</head>
+<body>
+    <div class="container">
+      <div class="header"><header class="item item-header"><h1>
+    <a href="../../">
+      <img class="logo" src="../../assets/images/inuu.png" alt="犬"></a>
+  </h1>
+  <nav class="nav"><ul>
+<li class="nav-category"><a href="../../">HOME</a></li>
+    </ul></nav><iframe src="../../tags/" class="tags-frame"></iframe>
+</header></div>
+      <div class="main">
+<div class="article-content">
+  <main class="item item-article item-linux"><time class="date" datetime="2019-06-11 00:00:00+09:00">
+      2019-06-11 Tue
+    </time><div class="title">いろいろメモ</div>
+    <div class="category">
+      <a href="../../tags/linux/">
+          linux
+      </a>
+    </div>
+    <div class="text">
+      <div>
+<div class="section" id="id1">
+<h2>メールのログ</h2>
+<p>一般的にメールのログは <cite>/var/log/mail.log</cite> にある
+-- 検証用にローカルVMにpostfixを建てるなどした場合は、localhostの <cite>/var/log/mail.log</cite> にログがある
+- なにかしらのサーバーログを見たい場合はとりあえず (<cite>sudo journalctl</cite>) あたりでみる (<cite>/var/log/syslog</cite> でもok)</p>
+</div>
+<div class="section" id="selinux">
+<h2>SELinux</h2>
+<ul class="simple">
+<li>
+</li>
+<li>ちなみにSELinuxで拒否されたときのログは <cite>/var/log/audit/audit.log</cite> にあるのでみると参考になるかも</li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2>環境変数</h2>
+<div class="section" id="id3">
+<h3>環境変数の一覧を表示する</h3>
+<pre class="code console"><a name="rest_code_0cb36123683046af9ea7e22d84f95909-1"></a><span class="gp">$</span> printenv
+</pre>
+</div>
+<div class="section" id="id4">
+<h3>環境変数を追加する</h3>
+<p>やりかたがわからない</p>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>本体がどこに行ったかわからなくなったとき</h2>
+<pre class="code console"><a name="rest_code_67ee79db4d2f4374b956c6b1a80e0a87-1"></a><span class="gp">$</span> which python
+</pre>
+</div>
+</div>
+    </div>
+  </main>
+</div>
+</div>
+    </div>
+  </body>
+</html>
