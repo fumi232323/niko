@@ -7,7 +7,7 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>https://32imuf.com/</loc>
-  <lastmod>2019-06-09T11:43:00Z</lastmod>
+  <lastmod>2019-06-11T13:25:00Z</lastmod>
  </url>
  <url>
   <loc>https://32imuf.com/2018/</loc>
@@ -31,7 +31,7 @@
  </url>
  <url>
   <loc>https://32imuf.com/archive.html</loc>
-  <lastmod>2019-06-04T13:26:00Z</lastmod>
+  <lastmod>2019-06-11T13:25:00Z</lastmod>
  </url>
  <url>
   <loc>https://32imuf.com/aws/s3-response-error/</loc>
@@ -166,6 +166,10 @@
   <lastmod>2019-06-02T07:16:00Z</lastmod>
  </url>
  <url>
+  <loc>https://32imuf.com/nikola/note/</loc>
+  <lastmod>2019-06-11T13:10:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://32imuf.com/pycharm/add-psql-var-to-user-params-for-db-console/</loc>
   <lastmod>2019-06-02T13:16:00Z</lastmod>
  </url>
@@ -235,7 +239,7 @@
  </url>
  <url>
   <loc>https://32imuf.com/tags/</loc>
-  <lastmod>2019-06-02T07:16:00Z</lastmod>
+  <lastmod>2019-06-11T13:25:00Z</lastmod>
  </url>
  <url>
   <loc>https://32imuf.com/tags/aws/</loc>
@@ -276,6 +280,10 @@
  <url>
   <loc>https://32imuf.com/tags/mysql/</loc>
   <lastmod>2019-06-02T07:16:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://32imuf.com/tags/nikola/</loc>
+  <lastmod>2019-06-11T13:11:00Z</lastmod>
  </url>
  <url>
   <loc>https://32imuf.com/tags/pycharm/</loc>
