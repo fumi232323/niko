@@ -9,14 +9,16 @@
 ====================
 
 * `Nikola <https://getnikola.com/>`_
-* `The Nikola Handbook <https://getnikola.com/handbook.html>`_
-* `Nikola > Getting Started <https://getnikola.com/getting-started.html>`_
-* `Nikola > Template variables <https://getnikola.com/template-variables.html>`_
-* `Nikola > Deploying to GitHub <https://getnikola.com/handbook.html#deploying-to-github>`_
-* `Nikola > Plugins for Nikola <https://plugins.getnikola.com/>`_
-* `Nikola > Extending Nikola <https://getnikola.com/extending.html>`_
-* `Pygments > Available lexers <http://pygments.org/docs/lexers/>`_
-* `くろのて > Nikola を始める話 <http://note.crohaco.net/2018/start-nikola/>`_
+
+  * `The Nikola Handbook <https://getnikola.com/handbook.html>`_
+  * `Getting Started <https://getnikola.com/getting-started.html>`_
+  * `Template variables <https://getnikola.com/template-variables.html>`_
+  * `Deploying to GitHub <https://getnikola.com/handbook.html#deploying-to-github>`_
+  * `Extending Nikola <https://getnikola.com/extending.html>`_
+  * `Plugins for Nikola <https://plugins.getnikola.com/>`_
+
+* `Pygments: Available lexers <http://pygments.org/docs/lexers/>`_
+* `くろのて: Nikola を始める話 <http://note.crohaco.net/2018/start-nikola/>`_
 
 
 コマンド
