@@ -5,11 +5,8 @@ import pygments.lexers
 import pygments.formatters
 from nikola.plugin_categories import ShortcodePlugin
 
-# CODEBLOCK_HTML = '''<div class="code-block {cls}">
-#   <div class="code-block-label">{label}</div>
-#   {code}
-# </div>'''
-CODEBLOCK_HTML = '''<div class="code-block {cls}">{code}</div>'''
+CODEBLOCK_HTML = '<div class="code-block {cls}">{label_html}{code}</div>'
+CODEBLOCK_LABEL_HTML = '<div class="code-block-label">{label}</div>'
 
 
 class CodeBlockPlugin(ShortcodePlugin):
@@ -29,10 +26,16 @@ class CodeBlockPlugin(ShortcodePlugin):
             options.get('lexer', 'text'))
         formatter = pygments.formatters.get_formatter_by_name(
             'html', **build_formatter_options(options))
+
+        label_html = ''
+        if options.get('label'):
+            label_html = CODEBLOCK_LABEL_HTML.format(
+                label=options['label']
+            )
         html = CODEBLOCK_HTML.format(
             cls=options.get('wrapper_classes') or '',
             code=pygments.highlight(code, lexer, formatter),
-            label=options.get('label', filename)
+            label_html=label_html
         )
         return html, [str(path)]
 
