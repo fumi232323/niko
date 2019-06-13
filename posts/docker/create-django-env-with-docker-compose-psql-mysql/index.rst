@@ -131,27 +131,27 @@
 
 1. ``Dockerfile-app`` : Django プロジェクトを入れるコンテナ
 
-    {{% codeblock fufufu/Dockerfile-app lexer="docker" %}}
+    {{% codeblock fufufu/Dockerfile-app label="Dockerfile-app" lexer="docker" %}}
 
 
 2. ``Dockerfile-mysql`` : MySQL を入れるコンテナ
 
-    {{% codeblock fufufu/Dockerfile-mysql lexer="docker" %}}
+    {{% codeblock fufufu/Dockerfile-mysql label="Dockerfile-mysql" lexer="docker" %}}
 
 
 3. ``Dockerfile-postgres`` : PostgreSQL を入れるコンテナ
 
-    {{% codeblock fufufu/Dockerfile-postgres lexer="docker" %}}
+    {{% codeblock fufufu/Dockerfile-postgres label="Dockerfile-postgres" lexer="docker" %}}
 
 
 4. ``docker-compose.yml`` : Composeファイル
 
-    {{% codeblock fufufu/docker-compose.yml lexer="yaml" %}}
+    {{% codeblock fufufu/docker-compose.yml label="docker-compose.yml" lexer="yaml" %}}
 
 
 5. ``requirements.txt`` : requirements.txt
 
-    {{% codeblock fufufu/requirements.txt lexer="ini" %}}
+    {{% codeblock fufufu/requirements.txt label="requirements.txt" lexer="ini" %}}
 
 
 起動

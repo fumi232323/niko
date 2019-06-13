@@ -136,27 +136,27 @@
 
 - fu/docker-compose.yml
 
-  {{% codeblock fu/docker-compose.yml lexer="yaml" %}}
+  {{% codeblock fu/docker-compose.yml label="docker-compose.yml" lexer="yaml" %}}
 
 
 - fu/Dockerfile-web
 
-  {{% codeblock fu/Dockerfile-web lexer="docker" %}}
+  {{% codeblock fu/Dockerfile-web label="Dockerfile-web" lexer="docker" %}}
 
 
 - fu/Dockerfile-mysql
 
-  {{% codeblock fu/Dockerfile-mysql lexer="docker" %}}
+  {{% codeblock fu/Dockerfile-mysql label="Dockerfile-mysql" lexer="docker" %}}
 
 
 - fu/requirements.txt
 
-  {{% codeblock fu/requirements.txt lexer="python" %}}
+  {{% codeblock fu/requirements.txt label="requirements.txt" lexer="python" %}}
 
 
 - fu/mysql/conf.d/mysql.cnf
 
-  {{% codeblock fu/mysql/conf.d/mysql.cnf lexer="cfg" %}}
+  {{% codeblock fu/mysql/conf.d/mysql.cnf label="mysql.cnf" lexer="cfg" %}}
 
 
   - MySQL デフォルトの設定ファイルは ``/etc/mysql/my.cnf`` の模様。 MySQL 公式イメージからコンテナを作成すると、初期状態で ``/etc/mysql/my.cnf`` 中に

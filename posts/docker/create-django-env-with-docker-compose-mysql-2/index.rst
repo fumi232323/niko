@@ -49,21 +49,22 @@
 
 - Dockerfile-web
 
-  {{% codeblock fufu/Dockerfile-web lexer="docker" %}}
+  {{% codeblock fufu/Dockerfile-web label="Dockerfile-web" lexer="docker" %}}
 
 
 - docker-compose.yml
 
-  {{% codeblock fufu/docker-compose.yml lexer="yaml" %}}
+  {{% codeblock fufu/docker-compose.yml label="docker-compose.yml" lexer="yaml" %}}
 
 
 - mysql.cnf
-  {{% codeblock fufu/mysql/conf.d/mysql.cnf lexer="cfg" %}}
+
+  {{% codeblock fufu/mysql/conf.d/mysql.cnf label="mysql.cnf" lexer="cfg" %}}
 
 
 - docker.cnf
 
-  {{% codeblock fufu/mysql/conf.d/docker.cnf lexer="cfg" %}}
+  {{% codeblock fufu/mysql/conf.d/docker.cnf label="docker.cnf" lexer="cfg" %}}
 
 
 - あとの設定ファイルは `Docker Compose で Django/MySQL 環境をつくる </docker/create-django-env-with-docker-compose-mysql>`_ と同じ

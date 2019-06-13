@@ -80,7 +80,7 @@
 2. ``docker-compose.yml`` に作成した volume を指定する
 ------------------------------------------------------
 
-{{% codeblock fffff/docker-compose.yml lexer="yaml" %}}
+{{% codeblock fffff/docker-compose.yml label="docker-compose.yml" lexer="yaml" %}}
 
 
 - ``external: true`` を書かないと、 ``$ docker-compose up`` 時に 1. で作った ``db-data`` とは別に

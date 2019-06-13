@@ -39,17 +39,17 @@
 
 1. ``Dockerfile`` を準備する。
 
-    {{% codeblock fff/Dockerfile lexer="docker" %}}
+    {{% codeblock fff/Dockerfile label="Dockerfile" lexer="docker" %}}
 
 
 2. ``requirements.txt`` を準備する。
 
-    {{% codeblock fff/requirements.txt lexer="python" %}}
+    {{% codeblock fff/requirements.txt label="requirements.txt" lexer="python" %}}
 
 
 3. ``docker-compose.yml`` を準備する。
 
-    {{% codeblock fff/docker-compose.yml lexer="yaml" %}}
+    {{% codeblock fff/docker-compose.yml label="docker-compose.yml" lexer="yaml" %}}
 
 
 4. startproject する (Docker イメージビルドもされる)

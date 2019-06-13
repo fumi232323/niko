@@ -57,12 +57,12 @@ MySQL DB をつくる
 
 - Dockerfile-mysql
 
-  {{% codeblock mmm/Dockerfile-mysql lexer="docker" %}}
+  {{% codeblock mmm/Dockerfile-mysql label="Dockerfile-mysql" lexer="docker" %}}
 
 
 - docker-compose.yml
 
-  {{% codeblock mmm/docker-compose.yml lexer="yaml" %}}
+  {{% codeblock mmm/docker-compose.yml label="docker-compose.yml" lexer="yaml" %}}
 
 
 2. 起動
