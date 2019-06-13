@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Vollkorn:400,700">
 <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/sawarabimincho.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-<link rel="stylesheet" href="../../assets/css/style.css?20190611">
+<link rel="stylesheet" href="../../assets/css/style.css?20190613">
 </head>
 <body>
     <div class="container">
@@ -117,10 +117,10 @@
 <h3><a class="toc-backref" href="#id25">1. 準備</a></h3>
 <div class="section" id="id4">
 <h4><a class="toc-backref" href="#id26">ディレクトリ構成</a></h4>
-<pre class="code shell"><a name="rest_code_3b55338931f84de0897e1a75647311ba-1"></a>$ tree mmm
-<a name="rest_code_3b55338931f84de0897e1a75647311ba-2"></a>mmm
-<a name="rest_code_3b55338931f84de0897e1a75647311ba-3"></a>├── Dockerfile-mysql
-<a name="rest_code_3b55338931f84de0897e1a75647311ba-4"></a>└── docker-compose.yml
+<pre class="code shell"><a name="rest_code_fee8e406f95f40818cec909407f225cf-1"></a>$ tree mmm
+<a name="rest_code_fee8e406f95f40818cec909407f225cf-2"></a>mmm
+<a name="rest_code_fee8e406f95f40818cec909407f225cf-3"></a>├── Dockerfile-mysql
+<a name="rest_code_fee8e406f95f40818cec909407f225cf-4"></a>└── docker-compose.yml
 </pre>
 </div>
 <div class="section" id="id5">
@@ -130,6 +130,7 @@
 <p class="first">Dockerfile-mysql</p>
 <p></p>
 <div class="code-block ">
+<div class="code-block-label">Dockerfile-mysql</div>
 <div class="highlight"><pre><span></span><span class="k">FROM</span><span class="s"> mysql:5.7.12</span>
 <span class="c"># `5.7.12` は自分の使いたいイメージのタグ</span>
 <span class="k">RUN</span> apt-get clean <span class="o">&amp;&amp;</span> apt-get update <span class="o">&amp;&amp;</span> apt-get install -y locales locales-all vim
@@ -146,6 +147,7 @@
 <p class="first">docker-compose.yml</p>
 <p></p>
 <div class="code-block ">
+<div class="code-block-label">docker-compose.yml</div>
 <div class="highlight"><pre><span></span><span class="nt">version</span><span class="p">:</span> <span class="s">'3'</span>
 
 <span class="nt">services</span><span class="p">:</span>
@@ -177,8 +179,8 @@
 </div>
 <div class="section" id="id6">
 <h3><a class="toc-backref" href="#id28">2. 起動</a></h3>
-<pre class="code shell"><a name="rest_code_e65208e7bfcc44a3a04f6a117e9eb6b3-1"></a><span class="c1"># mmm 直下で実行する</span>
-<a name="rest_code_e65208e7bfcc44a3a04f6a117e9eb6b3-2"></a>$ docker-compose up
+<pre class="code shell"><a name="rest_code_23f8afa3369844b49b59be825b40e163-1"></a><span class="c1"># mmm 直下で実行する</span>
+<a name="rest_code_23f8afa3369844b49b59be825b40e163-2"></a>$ docker-compose up
 </pre>
 </div>
 </div>
@@ -188,8 +190,8 @@
 <h3><a class="toc-backref" href="#id30">mysqlclient</a></h3>
 <div class="section" id="id9">
 <h4><a class="toc-backref" href="#id31">接続文字列</a></h4>
-<pre class="code python"><a name="rest_code_7dabff8952f64083ba089120787b59f8-1"></a><span class="n">mysql</span><span class="o">+</span><span class="n">mysqldb</span><span class="p">:</span><span class="o">//</span><span class="n">mmm</span><span class="p">:</span><span class="n">mmm</span><span class="nd">@127.0.0.1</span><span class="p">:</span><span class="mi">3306</span><span class="o">/</span><span class="n">mmm</span><span class="err">?</span><span class="n">charset</span><span class="o">=</span><span class="n">utf8mb4</span>
-<a name="rest_code_7dabff8952f64083ba089120787b59f8-2"></a><span class="c1"># mysql+mysqldb://&lt;user&gt;:&lt;password&gt;@&lt;host&gt;[:&lt;port&gt;]/&lt;dbname&gt;</span>
+<pre class="code python"><a name="rest_code_c5308d5c8627418aaa1f5be9b7f28414-1"></a><span class="n">mysql</span><span class="o">+</span><span class="n">mysqldb</span><span class="p">:</span><span class="o">//</span><span class="n">mmm</span><span class="p">:</span><span class="n">mmm</span><span class="nd">@127.0.0.1</span><span class="p">:</span><span class="mi">3306</span><span class="o">/</span><span class="n">mmm</span><span class="err">?</span><span class="n">charset</span><span class="o">=</span><span class="n">utf8mb4</span>
+<a name="rest_code_c5308d5c8627418aaa1f5be9b7f28414-2"></a><span class="c1"># mysql+mysqldb://&lt;user&gt;:&lt;password&gt;@&lt;host&gt;[:&lt;port&gt;]/&lt;dbname&gt;</span>
 </pre>
 </div>
 <div class="section" id="id10">
@@ -225,7 +227,7 @@
 <li>
 <p class="first">mysqlclient のインストール</p>
 <blockquote>
-<pre class="code bash"><a name="rest_code_ce0ee40c9441440790c4dc7d6c701ec2-1"></a>pip install mysqlclient
+<pre class="code bash"><a name="rest_code_34e4ac852f924a7ca7dd0779ad61d525-1"></a>pip install mysqlclient
 </pre>
 </blockquote>
 </li>
@@ -236,15 +238,15 @@
 <h3><a class="toc-backref" href="#id33">PyMySQL</a></h3>
 <div class="section" id="id12">
 <h4><a class="toc-backref" href="#id34">接続文字列</a></h4>
-<pre class="code python"><a name="rest_code_2026b84c62e14d259e0ace692e6902b5-1"></a><span class="n">mysql</span><span class="o">+</span><span class="n">pymysql</span><span class="p">:</span><span class="o">//</span><span class="n">mmm</span><span class="p">:</span><span class="n">mmm</span><span class="nd">@127.0.0.1</span><span class="p">:</span><span class="mi">3306</span><span class="o">/</span><span class="n">mmm</span><span class="err">?</span><span class="n">charset</span><span class="o">=</span><span class="n">utf8mb4</span>
-<a name="rest_code_2026b84c62e14d259e0ace692e6902b5-2"></a><span class="c1"># mysql+pymysql://&lt;username&gt;:&lt;password&gt;@&lt;host&gt;/&lt;dbname&gt;[?&lt;options&gt;]</span>
+<pre class="code python"><a name="rest_code_09dd4950e9044709bbe5a7d4d69a354c-1"></a><span class="n">mysql</span><span class="o">+</span><span class="n">pymysql</span><span class="p">:</span><span class="o">//</span><span class="n">mmm</span><span class="p">:</span><span class="n">mmm</span><span class="nd">@127.0.0.1</span><span class="p">:</span><span class="mi">3306</span><span class="o">/</span><span class="n">mmm</span><span class="err">?</span><span class="n">charset</span><span class="o">=</span><span class="n">utf8mb4</span>
+<a name="rest_code_09dd4950e9044709bbe5a7d4d69a354c-2"></a><span class="c1"># mysql+pymysql://&lt;username&gt;:&lt;password&gt;@&lt;host&gt;/&lt;dbname&gt;[?&lt;options&gt;]</span>
 </pre>
 </div>
 <div class="section" id="id13">
 <h4><a class="toc-backref" href="#id35">事前準備</a></h4>
 <p>PyMySQL のインストール</p>
 <blockquote>
-<pre class="code bash"><a name="rest_code_168abfa000e0475fbdab6931e285431f-1"></a>pip install PyMySQL
+<pre class="code bash"><a name="rest_code_50f3dd2c6a4e4907b5d56d8aa2f68e96-1"></a>pip install PyMySQL
 </pre>
 </blockquote>
 </div>
@@ -253,15 +255,15 @@
 <h3><a class="toc-backref" href="#id36">mysql-connector-python</a></h3>
 <div class="section" id="id15">
 <h4><a class="toc-backref" href="#id37">接続文字列</a></h4>
-<pre class="code python"><a name="rest_code_4a827a2871884bf889ff124bf3425d0e-1"></a><span class="n">mysql</span><span class="o">+</span><span class="n">mysqlconnector</span><span class="p">:</span><span class="o">//</span><span class="n">mmm</span><span class="p">:</span><span class="n">mmm</span><span class="nd">@127.0.0.1</span><span class="p">:</span><span class="mi">3306</span><span class="o">/</span><span class="n">mmm</span><span class="err">?</span><span class="n">charset</span><span class="o">=</span><span class="n">utf8mb4</span><span class="s2">"</span>
-<a name="rest_code_4a827a2871884bf889ff124bf3425d0e-2"></a><span class="c1"># mysql+mysqlconnector://&lt;user&gt;:&lt;password&gt;@&lt;host&gt;[:&lt;port&gt;]/&lt;dbname&gt;</span>
+<pre class="code python"><a name="rest_code_08b2ea388e4348a78ca0e3b904655086-1"></a><span class="n">mysql</span><span class="o">+</span><span class="n">mysqlconnector</span><span class="p">:</span><span class="o">//</span><span class="n">mmm</span><span class="p">:</span><span class="n">mmm</span><span class="nd">@127.0.0.1</span><span class="p">:</span><span class="mi">3306</span><span class="o">/</span><span class="n">mmm</span><span class="err">?</span><span class="n">charset</span><span class="o">=</span><span class="n">utf8mb4</span><span class="s2">"</span>
+<a name="rest_code_08b2ea388e4348a78ca0e3b904655086-2"></a><span class="c1"># mysql+mysqlconnector://&lt;user&gt;:&lt;password&gt;@&lt;host&gt;[:&lt;port&gt;]/&lt;dbname&gt;</span>
 </pre>
 </div>
 <div class="section" id="id16">
 <h4><a class="toc-backref" href="#id38">事前準備</a></h4>
 <p>mysql-connector-python のインストール</p>
 <blockquote>
-<pre class="code bash"><a name="rest_code_7a0095e70f8a41e7ab62cffa5ae4a538-1"></a>pip install mysql-connector-python
+<pre class="code bash"><a name="rest_code_927015118430433cb75e2f28e5cfb4cb-1"></a>pip install mysql-connector-python
 </pre>
 </blockquote>
 </div>
@@ -354,7 +356,7 @@
 <ul>
 <li>
 <p class="first"><a class="reference external" href="https://dev.mysql.com/doc/refman/5.7/en/communication-errors.html">B.6.2.10 Communication Errors and Aborted Connections</a></p>
-<pre class="code bash"><a name="rest_code_2016d852110f4cf0a0e546e5da26d528-1"></a>db_1  <span class="p">|</span> <span class="m">2019</span>-03-24T06:38:23.691896Z <span class="m">2</span> <span class="o">[</span>Note<span class="o">]</span> Aborted connection <span class="m">2</span> to db: <span class="s1">'mmm'</span> user: <span class="s1">'mmm'</span> host: <span class="s1">'172.27.0.1'</span> <span class="o">(</span>Got an error reading communication packets<span class="o">)</span>
+<pre class="code bash"><a name="rest_code_f19e09edce20467ba19d3d9961c4ab65-1"></a>db_1  <span class="p">|</span> <span class="m">2019</span>-03-24T06:38:23.691896Z <span class="m">2</span> <span class="o">[</span>Note<span class="o">]</span> Aborted connection <span class="m">2</span> to db: <span class="s1">'mmm'</span> user: <span class="s1">'mmm'</span> host: <span class="s1">'172.27.0.1'</span> <span class="o">(</span>Got an error reading communication packets<span class="o">)</span>
 </pre>
 <ul class="simple">
 <li>クライアントの接続方法とか切断方法に何か問題があるらしい</li>

@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Vollkorn:400,700">
 <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/sawarabimincho.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-<link rel="stylesheet" href="../../assets/css/style.css?20190611">
+<link rel="stylesheet" href="../../assets/css/style.css?20190613">
 </head>
 <body>
     <div class="container">
@@ -68,31 +68,31 @@
 <div class="section" id="volume">
 <h3><a class="toc-backref" href="#id6">1. volume を作成する</a></h3>
 <p><tt class="docutils literal"><span class="pre">db-data</span></tt> という名前の volume を作成する。</p>
-<pre class="code shell"><a name="rest_code_4160bf0f5f4045a6a208a04a64e55f18-1"></a>$ docker volume create db-data
-<a name="rest_code_4160bf0f5f4045a6a208a04a64e55f18-2"></a>db-data
+<pre class="code shell"><a name="rest_code_196ff8c8748f4eb9aa86ad6e4ce9a428-1"></a>$ docker volume create db-data
+<a name="rest_code_196ff8c8748f4eb9aa86ad6e4ce9a428-2"></a>db-data
 </pre>
 <ul>
 <li>
 <p class="first">volumes を一覧表示する。</p>
-<pre class="code shell"><a name="rest_code_631448a7fcfd490b8b126108e2f3217e-1"></a>$ docker volume ls
-<a name="rest_code_631448a7fcfd490b8b126108e2f3217e-2"></a>DRIVER              VOLUME NAME
-<a name="rest_code_631448a7fcfd490b8b126108e2f3217e-3"></a><span class="nb">local</span>               db-data
+<pre class="code shell"><a name="rest_code_2c2726e157404504b63a670eac5bb477-1"></a>$ docker volume ls
+<a name="rest_code_2c2726e157404504b63a670eac5bb477-2"></a>DRIVER              VOLUME NAME
+<a name="rest_code_2c2726e157404504b63a670eac5bb477-3"></a><span class="nb">local</span>               db-data
 </pre>
 </li>
 <li>
 <p class="first">volume を調べる。</p>
-<pre class="code shell"><a name="rest_code_07c7ea3485ec4cd58aee8ed868d22b49-1"></a>$ docker volume inspect db-data
-<a name="rest_code_07c7ea3485ec4cd58aee8ed868d22b49-2"></a><span class="o">[</span>
-<a name="rest_code_07c7ea3485ec4cd58aee8ed868d22b49-3"></a>    <span class="o">{</span>
-<a name="rest_code_07c7ea3485ec4cd58aee8ed868d22b49-4"></a>        <span class="s2">"CreatedAt"</span>: <span class="s2">"2018-12-02T13:09:48Z"</span>,
-<a name="rest_code_07c7ea3485ec4cd58aee8ed868d22b49-5"></a>        <span class="s2">"Driver"</span>: <span class="s2">"local"</span>,
-<a name="rest_code_07c7ea3485ec4cd58aee8ed868d22b49-6"></a>        <span class="s2">"Labels"</span>: <span class="o">{}</span>,
-<a name="rest_code_07c7ea3485ec4cd58aee8ed868d22b49-7"></a>        <span class="s2">"Mountpoint"</span>: <span class="s2">"/var/lib/docker/volumes/db-data/_data"</span>,
-<a name="rest_code_07c7ea3485ec4cd58aee8ed868d22b49-8"></a>        <span class="s2">"Name"</span>: <span class="s2">"db-data"</span>,
-<a name="rest_code_07c7ea3485ec4cd58aee8ed868d22b49-9"></a>        <span class="s2">"Options"</span>: <span class="o">{}</span>,
-<a name="rest_code_07c7ea3485ec4cd58aee8ed868d22b49-10"></a>        <span class="s2">"Scope"</span>: <span class="s2">"local"</span>
-<a name="rest_code_07c7ea3485ec4cd58aee8ed868d22b49-11"></a>    <span class="o">}</span>
-<a name="rest_code_07c7ea3485ec4cd58aee8ed868d22b49-12"></a><span class="o">]</span>
+<pre class="code shell"><a name="rest_code_436186797fe14519875fa503b97c8ac1-1"></a>$ docker volume inspect db-data
+<a name="rest_code_436186797fe14519875fa503b97c8ac1-2"></a><span class="o">[</span>
+<a name="rest_code_436186797fe14519875fa503b97c8ac1-3"></a>    <span class="o">{</span>
+<a name="rest_code_436186797fe14519875fa503b97c8ac1-4"></a>        <span class="s2">"CreatedAt"</span>: <span class="s2">"2018-12-02T13:09:48Z"</span>,
+<a name="rest_code_436186797fe14519875fa503b97c8ac1-5"></a>        <span class="s2">"Driver"</span>: <span class="s2">"local"</span>,
+<a name="rest_code_436186797fe14519875fa503b97c8ac1-6"></a>        <span class="s2">"Labels"</span>: <span class="o">{}</span>,
+<a name="rest_code_436186797fe14519875fa503b97c8ac1-7"></a>        <span class="s2">"Mountpoint"</span>: <span class="s2">"/var/lib/docker/volumes/db-data/_data"</span>,
+<a name="rest_code_436186797fe14519875fa503b97c8ac1-8"></a>        <span class="s2">"Name"</span>: <span class="s2">"db-data"</span>,
+<a name="rest_code_436186797fe14519875fa503b97c8ac1-9"></a>        <span class="s2">"Options"</span>: <span class="o">{}</span>,
+<a name="rest_code_436186797fe14519875fa503b97c8ac1-10"></a>        <span class="s2">"Scope"</span>: <span class="s2">"local"</span>
+<a name="rest_code_436186797fe14519875fa503b97c8ac1-11"></a>    <span class="o">}</span>
+<a name="rest_code_436186797fe14519875fa503b97c8ac1-12"></a><span class="o">]</span>
 </pre>
 </li>
 <li>
@@ -109,6 +109,7 @@
 <h3><a class="toc-backref" href="#id7">2. <tt class="docutils literal"><span class="pre">docker-compose.yml</span></tt> に作成した volume を指定する</a></h3>
 <p></p>
 <div class="code-block ">
+<div class="code-block-label">docker-compose.yml</div>
 <div class="highlight"><pre><span></span><span class="nt">version</span><span class="p">:</span> <span class="s">'3'</span>
 
 <span class="nt">services</span><span class="p">:</span>
@@ -152,91 +153,91 @@
 </div>
 <div class="section" id="settings-py-database">
 <h3><a class="toc-backref" href="#id8">3. <tt class="docutils literal">settings.py</tt> に DATABASE を定義する</a></h3>
-<pre class="code python"><a name="rest_code_58eaa0f10c0b45798155e21bd4461048-1"></a><span class="n">DATABASES</span> <span class="o">=</span> <span class="p">{</span>
-<a name="rest_code_58eaa0f10c0b45798155e21bd4461048-2"></a>    <span class="s1">'default'</span><span class="p">:</span> <span class="p">{</span>
-<a name="rest_code_58eaa0f10c0b45798155e21bd4461048-3"></a>        <span class="s1">'ENGINE'</span><span class="p">:</span> <span class="s1">'django.db.backends.postgresql'</span><span class="p">,</span>
-<a name="rest_code_58eaa0f10c0b45798155e21bd4461048-4"></a>        <span class="s1">'NAME'</span><span class="p">:</span> <span class="s1">'postgres'</span><span class="p">,</span>
-<a name="rest_code_58eaa0f10c0b45798155e21bd4461048-5"></a>        <span class="s1">'USER'</span><span class="p">:</span> <span class="s1">'postgres'</span><span class="p">,</span>
-<a name="rest_code_58eaa0f10c0b45798155e21bd4461048-6"></a>        <span class="s1">'PASSWORD'</span><span class="p">:</span> <span class="s1">'postgres'</span><span class="p">,</span>  <span class="c1"># パスワードを追加した</span>
-<a name="rest_code_58eaa0f10c0b45798155e21bd4461048-7"></a>        <span class="s1">'HOST'</span><span class="p">:</span> <span class="s1">'db'</span><span class="p">,</span>
-<a name="rest_code_58eaa0f10c0b45798155e21bd4461048-8"></a>        <span class="s1">'PORT'</span><span class="p">:</span> <span class="mi">5432</span><span class="p">,</span>
-<a name="rest_code_58eaa0f10c0b45798155e21bd4461048-9"></a>    <span class="p">}</span>
-<a name="rest_code_58eaa0f10c0b45798155e21bd4461048-10"></a><span class="p">}</span>
+<pre class="code python"><a name="rest_code_47dae3da91204247acc8cad66f2b638e-1"></a><span class="n">DATABASES</span> <span class="o">=</span> <span class="p">{</span>
+<a name="rest_code_47dae3da91204247acc8cad66f2b638e-2"></a>    <span class="s1">'default'</span><span class="p">:</span> <span class="p">{</span>
+<a name="rest_code_47dae3da91204247acc8cad66f2b638e-3"></a>        <span class="s1">'ENGINE'</span><span class="p">:</span> <span class="s1">'django.db.backends.postgresql'</span><span class="p">,</span>
+<a name="rest_code_47dae3da91204247acc8cad66f2b638e-4"></a>        <span class="s1">'NAME'</span><span class="p">:</span> <span class="s1">'postgres'</span><span class="p">,</span>
+<a name="rest_code_47dae3da91204247acc8cad66f2b638e-5"></a>        <span class="s1">'USER'</span><span class="p">:</span> <span class="s1">'postgres'</span><span class="p">,</span>
+<a name="rest_code_47dae3da91204247acc8cad66f2b638e-6"></a>        <span class="s1">'PASSWORD'</span><span class="p">:</span> <span class="s1">'postgres'</span><span class="p">,</span>  <span class="c1"># パスワードを追加した</span>
+<a name="rest_code_47dae3da91204247acc8cad66f2b638e-7"></a>        <span class="s1">'HOST'</span><span class="p">:</span> <span class="s1">'db'</span><span class="p">,</span>
+<a name="rest_code_47dae3da91204247acc8cad66f2b638e-8"></a>        <span class="s1">'PORT'</span><span class="p">:</span> <span class="mi">5432</span><span class="p">,</span>
+<a name="rest_code_47dae3da91204247acc8cad66f2b638e-9"></a>    <span class="p">}</span>
+<a name="rest_code_47dae3da91204247acc8cad66f2b638e-10"></a><span class="p">}</span>
 </pre>
 </div>
 <div class="section" id="docker">
 <h3><a class="toc-backref" href="#id9">4. Docker コンテナを実行する</a></h3>
-<pre class="code bash"><a name="rest_code_d1150cd930dc4e23ae06f9fdc389afad-1"></a>$ docker-compose up
+<pre class="code bash"><a name="rest_code_284ebfc4b13f4923b875777b9866511a-1"></a>$ docker-compose up
 </pre>
 </div>
 <div class="section" id="db">
 <h3><a class="toc-backref" href="#id10">5. DB コンテナのなかに入って、テーブルを作成 &amp; データを挿入する</a></h3>
 <p>1). <tt class="docutils literal">db</tt> コンテナのなかに入る</p>
 <blockquote>
-<pre class="code bash"><a name="rest_code_e643e718b4374da18afaf997f41da859-1"></a><span class="c1"># コンテナをシェル経由で操作する</span>
-<a name="rest_code_e643e718b4374da18afaf997f41da859-2"></a>$ docker container <span class="nb">exec</span> -it fffff_db_1 sh
+<pre class="code bash"><a name="rest_code_c45e0ecaffc049148cff41ec16d6be78-1"></a><span class="c1"># コンテナをシェル経由で操作する</span>
+<a name="rest_code_c45e0ecaffc049148cff41ec16d6be78-2"></a>$ docker container <span class="nb">exec</span> -it fffff_db_1 sh
 </pre>
 </blockquote>
 <p>2). postgres に接続する</p>
 <blockquote>
-<pre class="code postgres"><a name="rest_code_50c4ae6e3a7f406ebeaa72905a3fdb54-1"></a><span class="c1">-- postgres に接続するその１</span>
-<a name="rest_code_50c4ae6e3a7f406ebeaa72905a3fdb54-2"></a><span class="o">#</span> <span class="n">psql</span> <span class="o">-</span><span class="n">U</span> <span class="n">postgres</span> <span class="o">-</span><span class="n">h</span> <span class="mf">127.0.0.1</span> <span class="o">-</span><span class="n">p</span> <span class="mf">5432</span> <span class="n">postgres</span>
-<a name="rest_code_50c4ae6e3a7f406ebeaa72905a3fdb54-3"></a><span class="n">psql</span> <span class="p">(</span><span class="mf">11.1</span> <span class="p">(</span><span class="n">Debian</span> <span class="mf">11.1</span><span class="o">-</span><span class="mf">1.</span><span class="n">pgdg90</span><span class="o">+</span><span class="mf">1</span><span class="p">))</span>
-<a name="rest_code_50c4ae6e3a7f406ebeaa72905a3fdb54-4"></a><span class="k">Type</span> <span class="s s-Name">"help"</span> <span class="k">for</span> <span class="n">help</span><span class="mf">.</span>
-<a name="rest_code_50c4ae6e3a7f406ebeaa72905a3fdb54-5"></a>
-<a name="rest_code_50c4ae6e3a7f406ebeaa72905a3fdb54-6"></a><span class="n">postgres</span><span class="o">=#</span>
-<a name="rest_code_50c4ae6e3a7f406ebeaa72905a3fdb54-7"></a>
-<a name="rest_code_50c4ae6e3a7f406ebeaa72905a3fdb54-8"></a><span class="c1">-- postgres に接続するその２</span>
-<a name="rest_code_50c4ae6e3a7f406ebeaa72905a3fdb54-9"></a><span class="o">#</span> <span class="n">psql</span> <span class="o">-</span><span class="n">d</span> <span class="n">postgres</span> <span class="o">-</span><span class="n">U</span>  <span class="n">postgres</span> <span class="o">-</span><span class="n">W</span>
-<a name="rest_code_50c4ae6e3a7f406ebeaa72905a3fdb54-10"></a><span class="k">Password</span><span class="p">:</span>
-<a name="rest_code_50c4ae6e3a7f406ebeaa72905a3fdb54-11"></a><span class="n">psql</span> <span class="p">(</span><span class="mf">11.1</span> <span class="p">(</span><span class="n">Debian</span> <span class="mf">11.1</span><span class="o">-</span><span class="mf">1.</span><span class="n">pgdg90</span><span class="o">+</span><span class="mf">1</span><span class="p">))</span>
-<a name="rest_code_50c4ae6e3a7f406ebeaa72905a3fdb54-12"></a><span class="k">Type</span> <span class="s s-Name">"help"</span> <span class="k">for</span> <span class="n">help</span><span class="mf">.</span>
-<a name="rest_code_50c4ae6e3a7f406ebeaa72905a3fdb54-13"></a>
-<a name="rest_code_50c4ae6e3a7f406ebeaa72905a3fdb54-14"></a><span class="n">postgres</span><span class="o">=#</span>
+<pre class="code postgres"><a name="rest_code_4efb6a313d6747e7895121665d1c68a8-1"></a><span class="c1">-- postgres に接続するその１</span>
+<a name="rest_code_4efb6a313d6747e7895121665d1c68a8-2"></a><span class="o">#</span> <span class="n">psql</span> <span class="o">-</span><span class="n">U</span> <span class="n">postgres</span> <span class="o">-</span><span class="n">h</span> <span class="mf">127.0.0.1</span> <span class="o">-</span><span class="n">p</span> <span class="mf">5432</span> <span class="n">postgres</span>
+<a name="rest_code_4efb6a313d6747e7895121665d1c68a8-3"></a><span class="n">psql</span> <span class="p">(</span><span class="mf">11.1</span> <span class="p">(</span><span class="n">Debian</span> <span class="mf">11.1</span><span class="o">-</span><span class="mf">1.</span><span class="n">pgdg90</span><span class="o">+</span><span class="mf">1</span><span class="p">))</span>
+<a name="rest_code_4efb6a313d6747e7895121665d1c68a8-4"></a><span class="k">Type</span> <span class="s s-Name">"help"</span> <span class="k">for</span> <span class="n">help</span><span class="mf">.</span>
+<a name="rest_code_4efb6a313d6747e7895121665d1c68a8-5"></a>
+<a name="rest_code_4efb6a313d6747e7895121665d1c68a8-6"></a><span class="n">postgres</span><span class="o">=#</span>
+<a name="rest_code_4efb6a313d6747e7895121665d1c68a8-7"></a>
+<a name="rest_code_4efb6a313d6747e7895121665d1c68a8-8"></a><span class="c1">-- postgres に接続するその２</span>
+<a name="rest_code_4efb6a313d6747e7895121665d1c68a8-9"></a><span class="o">#</span> <span class="n">psql</span> <span class="o">-</span><span class="n">d</span> <span class="n">postgres</span> <span class="o">-</span><span class="n">U</span>  <span class="n">postgres</span> <span class="o">-</span><span class="n">W</span>
+<a name="rest_code_4efb6a313d6747e7895121665d1c68a8-10"></a><span class="k">Password</span><span class="p">:</span>
+<a name="rest_code_4efb6a313d6747e7895121665d1c68a8-11"></a><span class="n">psql</span> <span class="p">(</span><span class="mf">11.1</span> <span class="p">(</span><span class="n">Debian</span> <span class="mf">11.1</span><span class="o">-</span><span class="mf">1.</span><span class="n">pgdg90</span><span class="o">+</span><span class="mf">1</span><span class="p">))</span>
+<a name="rest_code_4efb6a313d6747e7895121665d1c68a8-12"></a><span class="k">Type</span> <span class="s s-Name">"help"</span> <span class="k">for</span> <span class="n">help</span><span class="mf">.</span>
+<a name="rest_code_4efb6a313d6747e7895121665d1c68a8-13"></a>
+<a name="rest_code_4efb6a313d6747e7895121665d1c68a8-14"></a><span class="n">postgres</span><span class="o">=#</span>
 </pre>
 </blockquote>
 <p>3). テーブルを作成し、データを挿入する</p>
 <blockquote>
-<pre class="code postgres"><a name="rest_code_1dd4f77c17734b708b408ea668ba71ee-1"></a><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">fruits</span><span class="p">(</span>
-<a name="rest_code_1dd4f77c17734b708b408ea668ba71ee-2"></a>   <span class="n">id</span> <span class="nb">SERIAL</span> <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">,</span>
-<a name="rest_code_1dd4f77c17734b708b408ea668ba71ee-3"></a>   <span class="k">name</span> <span class="nb">VARCHAR</span> <span class="k">NOT</span> <span class="k">NULL</span>
-<a name="rest_code_1dd4f77c17734b708b408ea668ba71ee-4"></a><span class="p">);</span>
-<a name="rest_code_1dd4f77c17734b708b408ea668ba71ee-5"></a><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">fruits</span><span class="p">(</span><span class="k">name</span><span class="p">)</span> <span class="k">VALUES</span><span class="p">(</span><span class="s1">'orange'</span><span class="p">);</span>
-<a name="rest_code_1dd4f77c17734b708b408ea668ba71ee-6"></a><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">fruits</span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="k">name</span><span class="p">)</span> <span class="k">VALUES</span><span class="p">(</span><span class="k">DEFAULT</span><span class="p">,</span><span class="s1">'apple'</span><span class="p">);</span>
-<a name="rest_code_1dd4f77c17734b708b408ea668ba71ee-7"></a>
-<a name="rest_code_1dd4f77c17734b708b408ea668ba71ee-8"></a><span class="n">postgres</span><span class="o">=#</span> <span class="err">\</span><span class="n">q</span>
+<pre class="code postgres"><a name="rest_code_cef14c0c177d4235b1155262682d05b8-1"></a><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">fruits</span><span class="p">(</span>
+<a name="rest_code_cef14c0c177d4235b1155262682d05b8-2"></a>   <span class="n">id</span> <span class="nb">SERIAL</span> <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">,</span>
+<a name="rest_code_cef14c0c177d4235b1155262682d05b8-3"></a>   <span class="k">name</span> <span class="nb">VARCHAR</span> <span class="k">NOT</span> <span class="k">NULL</span>
+<a name="rest_code_cef14c0c177d4235b1155262682d05b8-4"></a><span class="p">);</span>
+<a name="rest_code_cef14c0c177d4235b1155262682d05b8-5"></a><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">fruits</span><span class="p">(</span><span class="k">name</span><span class="p">)</span> <span class="k">VALUES</span><span class="p">(</span><span class="s1">'orange'</span><span class="p">);</span>
+<a name="rest_code_cef14c0c177d4235b1155262682d05b8-6"></a><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">fruits</span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="k">name</span><span class="p">)</span> <span class="k">VALUES</span><span class="p">(</span><span class="k">DEFAULT</span><span class="p">,</span><span class="s1">'apple'</span><span class="p">);</span>
+<a name="rest_code_cef14c0c177d4235b1155262682d05b8-7"></a>
+<a name="rest_code_cef14c0c177d4235b1155262682d05b8-8"></a><span class="n">postgres</span><span class="o">=#</span> <span class="err">\</span><span class="n">q</span>
 </pre>
 </blockquote>
 </div>
 <div class="section" id="shutdown">
 <h3><a class="toc-backref" href="#id11">6. 安全に shutdown する</a></h3>
 <p>コンテナは停止・削除される。</p>
-<pre class="code bash"><a name="rest_code_2af5fcb6d5bb4df4ba478b3ad106c9e5-1"></a>$ docker-compose down
+<pre class="code bash"><a name="rest_code_f7053fb34cc1404b9cfbb896dca03796-1"></a>$ docker-compose down
 </pre>
 </div>
 <div class="section" id="docker-compose-up">
 <h3><a class="toc-backref" href="#id12">7. 再度 <tt class="docutils literal"><span class="pre">docker-compose</span> up</tt> して、先ほど登録したテーブル &amp; データを見てみる</a></h3>
 <p>先ほど作成したテーブルとデータがありました。</p>
-<pre class="code console"><a name="rest_code_ced7a049a67b4cbcaa06d8c440699725-1"></a><span class="gp">$</span> docker-compose up
-<a name="rest_code_ced7a049a67b4cbcaa06d8c440699725-2"></a><span class="gp">$</span> docker container <span class="nb">exec</span> -it fffff_db_1 sh
+<pre class="code console"><a name="rest_code_ed01cf677b78451ab989b438d8bd7152-1"></a><span class="gp">$</span> docker-compose up
+<a name="rest_code_ed01cf677b78451ab989b438d8bd7152-2"></a><span class="gp">$</span> docker container <span class="nb">exec</span> -it fffff_db_1 sh
 </pre>
-<pre class="code postgres"><a name="rest_code_3407469a229e4432a4a42afa8e169a8b-1"></a><span class="o">#</span> <span class="n">psql</span> <span class="o">-</span><span class="n">U</span> <span class="n">postgres</span> <span class="o">-</span><span class="n">h</span> <span class="mf">127.0.0.1</span> <span class="o">-</span><span class="n">p</span> <span class="mf">5432</span> <span class="n">postgres</span>
-<a name="rest_code_3407469a229e4432a4a42afa8e169a8b-2"></a><span class="n">psql</span> <span class="p">(</span><span class="mf">11.1</span> <span class="p">(</span><span class="n">Debian</span> <span class="mf">11.1</span><span class="o">-</span><span class="mf">1.</span><span class="n">pgdg90</span><span class="o">+</span><span class="mf">1</span><span class="p">))</span><span class="n">b</span>
-<a name="rest_code_3407469a229e4432a4a42afa8e169a8b-3"></a><span class="k">Type</span> <span class="s s-Name">"help"</span> <span class="k">for</span> <span class="n">help</span><span class="mf">.</span>
-<a name="rest_code_3407469a229e4432a4a42afa8e169a8b-4"></a>
-<a name="rest_code_3407469a229e4432a4a42afa8e169a8b-5"></a><span class="n">postgres</span><span class="o">=#</span> <span class="err">\</span><span class="n">dt</span>
-<a name="rest_code_3407469a229e4432a4a42afa8e169a8b-6"></a>         <span class="n">List</span> <span class="k">of</span> <span class="n">relations</span>
-<a name="rest_code_3407469a229e4432a4a42afa8e169a8b-7"></a> <span class="k">Schema</span> <span class="o">|</span>  <span class="k">Name</span>  <span class="o">|</span> <span class="k">Type</span>  <span class="o">|</span>  <span class="k">Owner</span>
-<a name="rest_code_3407469a229e4432a4a42afa8e169a8b-8"></a><span class="c1">--------+--------+-------+----------</span>
-<a name="rest_code_3407469a229e4432a4a42afa8e169a8b-9"></a> <span class="n">public</span> <span class="o">|</span> <span class="n">fruits</span> <span class="o">|</span> <span class="k">table</span> <span class="o">|</span> <span class="n">postgres</span>
-<a name="rest_code_3407469a229e4432a4a42afa8e169a8b-10"></a><span class="p">(</span><span class="mf">1</span> <span class="k">row</span><span class="p">)</span>
-<a name="rest_code_3407469a229e4432a4a42afa8e169a8b-11"></a>
-<a name="rest_code_3407469a229e4432a4a42afa8e169a8b-12"></a><span class="n">postgres</span><span class="o">=#</span> <span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">fruits</span><span class="p">;</span>
-<a name="rest_code_3407469a229e4432a4a42afa8e169a8b-13"></a> <span class="n">id</span> <span class="o">|</span>  <span class="k">name</span>
-<a name="rest_code_3407469a229e4432a4a42afa8e169a8b-14"></a><span class="c1">----+--------</span>
-<a name="rest_code_3407469a229e4432a4a42afa8e169a8b-15"></a>  <span class="mf">1</span> <span class="o">|</span> <span class="n">orange</span>
-<a name="rest_code_3407469a229e4432a4a42afa8e169a8b-16"></a>  <span class="mf">2</span> <span class="o">|</span> <span class="n">apple</span>
-<a name="rest_code_3407469a229e4432a4a42afa8e169a8b-17"></a><span class="p">(</span><span class="mf">2</span> <span class="k">rows</span><span class="p">)</span>
+<pre class="code postgres"><a name="rest_code_fbad4a9ab3e1449091c6bd2c06124ec3-1"></a><span class="o">#</span> <span class="n">psql</span> <span class="o">-</span><span class="n">U</span> <span class="n">postgres</span> <span class="o">-</span><span class="n">h</span> <span class="mf">127.0.0.1</span> <span class="o">-</span><span class="n">p</span> <span class="mf">5432</span> <span class="n">postgres</span>
+<a name="rest_code_fbad4a9ab3e1449091c6bd2c06124ec3-2"></a><span class="n">psql</span> <span class="p">(</span><span class="mf">11.1</span> <span class="p">(</span><span class="n">Debian</span> <span class="mf">11.1</span><span class="o">-</span><span class="mf">1.</span><span class="n">pgdg90</span><span class="o">+</span><span class="mf">1</span><span class="p">))</span><span class="n">b</span>
+<a name="rest_code_fbad4a9ab3e1449091c6bd2c06124ec3-3"></a><span class="k">Type</span> <span class="s s-Name">"help"</span> <span class="k">for</span> <span class="n">help</span><span class="mf">.</span>
+<a name="rest_code_fbad4a9ab3e1449091c6bd2c06124ec3-4"></a>
+<a name="rest_code_fbad4a9ab3e1449091c6bd2c06124ec3-5"></a><span class="n">postgres</span><span class="o">=#</span> <span class="err">\</span><span class="n">dt</span>
+<a name="rest_code_fbad4a9ab3e1449091c6bd2c06124ec3-6"></a>         <span class="n">List</span> <span class="k">of</span> <span class="n">relations</span>
+<a name="rest_code_fbad4a9ab3e1449091c6bd2c06124ec3-7"></a> <span class="k">Schema</span> <span class="o">|</span>  <span class="k">Name</span>  <span class="o">|</span> <span class="k">Type</span>  <span class="o">|</span>  <span class="k">Owner</span>
+<a name="rest_code_fbad4a9ab3e1449091c6bd2c06124ec3-8"></a><span class="c1">--------+--------+-------+----------</span>
+<a name="rest_code_fbad4a9ab3e1449091c6bd2c06124ec3-9"></a> <span class="n">public</span> <span class="o">|</span> <span class="n">fruits</span> <span class="o">|</span> <span class="k">table</span> <span class="o">|</span> <span class="n">postgres</span>
+<a name="rest_code_fbad4a9ab3e1449091c6bd2c06124ec3-10"></a><span class="p">(</span><span class="mf">1</span> <span class="k">row</span><span class="p">)</span>
+<a name="rest_code_fbad4a9ab3e1449091c6bd2c06124ec3-11"></a>
+<a name="rest_code_fbad4a9ab3e1449091c6bd2c06124ec3-12"></a><span class="n">postgres</span><span class="o">=#</span> <span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">fruits</span><span class="p">;</span>
+<a name="rest_code_fbad4a9ab3e1449091c6bd2c06124ec3-13"></a> <span class="n">id</span> <span class="o">|</span>  <span class="k">name</span>
+<a name="rest_code_fbad4a9ab3e1449091c6bd2c06124ec3-14"></a><span class="c1">----+--------</span>
+<a name="rest_code_fbad4a9ab3e1449091c6bd2c06124ec3-15"></a>  <span class="mf">1</span> <span class="o">|</span> <span class="n">orange</span>
+<a name="rest_code_fbad4a9ab3e1449091c6bd2c06124ec3-16"></a>  <span class="mf">2</span> <span class="o">|</span> <span class="n">apple</span>
+<a name="rest_code_fbad4a9ab3e1449091c6bd2c06124ec3-17"></a><span class="p">(</span><span class="mf">2</span> <span class="k">rows</span><span class="p">)</span>
 </pre>
 </div>
 </div>

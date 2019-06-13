@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Vollkorn:400,700">
 <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/sawarabimincho.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-<link rel="stylesheet" href="../../assets/css/style.css?20190611">
+<link rel="stylesheet" href="../../assets/css/style.css?20190613">
 </head>
 <body>
     <div class="container">
@@ -34,35 +34,156 @@
     <div class="text">
       <div>
 <div class="section" id="id1">
+<h2>ユーザーの一覧を見たい</h2>
+<pre class="code bash"><a name="rest_code_792311030f3644028755b76bbfed0656-1"></a>$ cat /etc/passwd
+</pre>
+<ol class="arabic simple">
+<li>ユーザー名</li>
+<li>暗号化されたパスワード</li>
+<li>ユーザーID</li>
+<li>グループID</li>
+<li>コメント</li>
+<li>ホームディレクトリー</li>
+<li>ログインシェル（ログインした際、最初に起動するシェル）</li>
+</ol>
+</div>
+<div class="section" id="id2">
+<h2>ユーザーグループの一覧を見たい</h2>
+<pre class="code bash"><a name="rest_code_7a4916e5ae3146929e060bd3f38618b9-1"></a>$ cat /etc/group
+</pre>
+<ol class="arabic simple">
+<li>グループ名</li>
+<li>暗号化されたパスワード</li>
+<li>グループID</li>
+<li>サブグループとして所属しているユーザーアカウントのリスト</li>
+</ol>
+</div>
+<div class="section" id="id3">
+<h2>ファイルシステムのディスク容量を表示する</h2>
+<p>$ df -h</p>
+</div>
+<div class="section" id="id4">
+<h2>指定したディレクトリのディスク使用量を表示する</h2>
+<p>$ du -sh /path/to/husky</p>
+</div>
+<div class="section" id="ls-la">
+<h2>ls -la の表示項目</h2>
+<p>ファイルのパーミッション、所有ユーザ、所有グループ、ファイルサイズ、タイムスタンプ、ファイル名</p>
+</div>
+<div class="section" id="selinux">
+<h2>SELinux</h2>
+<p># 有効になってる
+$ sudo getenforce
+Enforcing</p>
+<p># 無効にする
+$ sudo setenforce 0
+$ sudo getenforce
+Permissive</p>
+<ul class="simple">
+<li><a class="reference external" href="https://qiita.com/rikudai/items/884b203f4a72cfb62c02">https://qiita.com/rikudai/items/884b203f4a72cfb62c02</a></li>
+<li>ちなみにSELinuxで拒否されたときのログは <cite>/var/log/audit/audit.log</cite> にあるのでみると参考になるかも</li>
+</ul>
+</div>
+<div class="section" id="devel">
+<h2>devel</h2>
+<p>python-devel と python-dev は何が違うか
+=&gt; RedHet (CentOS) 系と、Debian (Ubuntu) 系</p>
+</div>
+<div class="section" id="root">
+<h2>root ユーザーのなり方</h2>
+<p>$ sudo su -</p>
+</div>
+<div class="section" id="id5">
+<h2>圧縮転送展開</h2>
+<p># 圧縮
+$ ssh remote-host
+$ sudo su -
+$ zip -r /path/to/fumi23/husky.zip /path/to/fumi23/husky
+# ディスク使用量確認
+$ du -h /path/to/fumi23.zip
+# 転送
+$ scp -r -o "ProxyCommand ssh <a class="reference external" href="mailto:fumi23@fumidai">fumi23@fumidai</a> -W %h:%p" <a class="reference external" href="mailto:fumi23@remote-host">fumi23@remote-host</a>:/path/to/fumi23 ~/fumi23
+# 展開
+$ unzip husky.zip</p>
+</div>
+<div class="section" id="gzip">
+<h2>gzip 圧縮・展開</h2>
+<p># 圧縮: 前のはなくなる
+$ gzip husky-dump.sql
+# 展開: 前のはなくなる
+$ gzip -d husky-dump.sql.gz</p>
+</div>
+<div class="section" id="id6">
+<h2>転送 (リモートからローカル)</h2>
+<p>$ scp -r -o "ProxyCommand ssh <a class="reference external" href="mailto:fumi23@fumidai">fumi23@fumidai</a> -W %h:%p" <a class="reference external" href="mailto:fumi23@remote-host">fumi23@remote-host</a>:/path/to/fumi23 ~/fumi23</p>
+</div>
+<div class="section" id="l">
+<h2>-l</h2>
+<p>"-, -l, --login"
+シェルをログインシェルにする。すなわち以下のような取り扱いをする: すべての環境変数を解除する。その上で <cite>TERM'、</cite> HOME'、 <cite>SHELL' を前述 のように設定し、</cite> USER'、 <cite>LOGNAME' （スーパーユーザーであっても）を同 じく前述のように設定する。続いて</cite> PATH' をコンパイル時のデフォルト値に 設定する。ディレクトリを user のホームディレクトリに変更する。シェル名の前に <a href="#id7"><span class="problematic" id="id8">`</span></a>-' を付加し、シェルに ログイン時のスタートアップファイルを読ませる。</p>
+<div class="system-message" id="id7">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">&lt;string&gt;</tt>, line 98); <em><a href="#id8">backlink</a></em></p>
+Inline interpreted text or phrase reference start-string without end-string.</div>
+<ul class="simple">
+<li>su するときにシェルを指定できる</li>
+</ul>
+</div>
+<div class="section" id="id9">
+<h2>よくわからぬ</h2>
+<p>source って同じシェル内でコマンド実行するんですけど、 sudo って別のシェルになるんで、 source した結果が引き継がれないんですよね</p>
+</div>
+<div class="section" id="debconf-utils">
+<h2>debconf-utils</h2>
+<ul class="simple">
+<li>debconf-utils</li>
+</ul>
+</div>
+<div class="section" id="free-top">
+<h2>free や top</h2>
+<p>free や top でリソース状態をみておくといいかも ( 原因はわからない</p>
+</div>
+<div class="section" id="id10">
+<h2>最初に叩くコマンド</h2>
+<p>$ free -m
+$ cat /etc/redhat-release
+$ ls
+$ pwd
+$ ls /home
+$ df -h
+$ yum clean all
+$ yum -y update</p>
+</div>
+<div class="section" id="id11">
+<h2>圧縮とか解凍とか</h2>
+<p># (ローカル環境で) アーカイブと圧縮
+$ tar -cf husky.tar husky
+$ gzip husky.tar
+# husky を解凍
+$ tar -zxvf husky.tar.gz</p>
+</div>
+<div class="section" id="sftp">
+<h2>sftp</h2>
+<p>$ sftp &lt;ユーザー名&gt;@&lt;サーバー名&gt;
+sftp&gt; put husky.tar.gz
+sftp&gt; quit</p>
+<p># 取得する場合は、 get</p>
+</div>
+<div class="section" id="id12">
+<h2>起動とか</h2>
+<p>起動:     $ sudo systemctl start mysqld
+停止:     $ sudo systemctl stop mysqld
+再起動:    $ sudo systemctl restart mysqld
+ステータス表示:        $ systemctl status mysqld</p>
+<p># 起動
+$ sudo service nginx start
+# 起動を確認
+$ sudo service nginx status</p>
+</div>
+<div class="section" id="id13">
 <h2>メールのログ</h2>
 <p>一般的にメールのログは <cite>/var/log/mail.log</cite> にある
 -- 検証用にローカルVMにpostfixを建てるなどした場合は、localhostの <cite>/var/log/mail.log</cite> にログがある
 - なにかしらのサーバーログを見たい場合はとりあえず (<cite>sudo journalctl</cite>) あたりでみる (<cite>/var/log/syslog</cite> でもok)</p>
-</div>
-<div class="section" id="selinux">
-<h2>SELinux</h2>
-<ul class="simple">
-<li>
-</li>
-<li>ちなみにSELinuxで拒否されたときのログは <cite>/var/log/audit/audit.log</cite> にあるのでみると参考になるかも</li>
-</ul>
-</div>
-<div class="section" id="id2">
-<h2>環境変数</h2>
-<div class="section" id="id3">
-<h3>環境変数の一覧を表示する</h3>
-<pre class="code console"><a name="rest_code_0cb36123683046af9ea7e22d84f95909-1"></a><span class="gp">$</span> printenv
-</pre>
-</div>
-<div class="section" id="id4">
-<h3>環境変数を追加する</h3>
-<p>やりかたがわからない</p>
-</div>
-</div>
-<div class="section" id="id5">
-<h2>本体がどこに行ったかわからなくなったとき</h2>
-<pre class="code console"><a name="rest_code_67ee79db4d2f4374b956c6b1a80e0a87-1"></a><span class="gp">$</span> which python
-</pre>
 </div>
 </div>
     </div>
