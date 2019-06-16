@@ -1,5 +1,246 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ふみのて</title><link>https://32imuf.com/</link><description>のてのて</description><atom:link href="https://32imuf.com/atom.xml" rel="self" type="application/rss+xml"></atom:link><language>ja</language><copyright>Contents © 2019 &lt;a href="mailto:fumi232323fumi2016@gmail.com"&gt;fumi23&lt;/a&gt; </copyright><lastBuildDate>Thu, 13 Jun 2019 10:47:54 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Nikola の使い方メモ</title><link>https://32imuf.com/nikola/note/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;div class="section" id="id1"&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ふみのて</title><link>https://32imuf.com/</link><description>のてのて</description><atom:link href="https://32imuf.com/atom.xml" rel="self" type="application/rss+xml"></atom:link><language>ja</language><copyright>Contents © 2019 &lt;a href="mailto:fumi232323fumi2016@gmail.com"&gt;fumi23&lt;/a&gt; </copyright><lastBuildDate>Sun, 16 Jun 2019 10:08:51 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Linux いろいろメモ</title><link>https://32imuf.com/linux/note/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;details&gt;
+  &lt;summary&gt;目次&lt;/summary&gt;&lt;div class="contents topic" id="id1"&gt;
+&lt;p class="topic-title first"&gt;目次&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference internal" href="https://32imuf.com/linux/note/#id2" id="id10"&gt;ユーザー/ユーザーグループを確認したい&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="https://32imuf.com/linux/note/#id3" id="id11"&gt;ディスク容量/使用量を確認したい&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="https://32imuf.com/linux/note/#id4" id="id12"&gt;圧縮・展開&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="https://32imuf.com/linux/note/#id5" id="id13"&gt;転送&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="https://32imuf.com/linux/note/#scp" id="id14"&gt;SCP&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="https://32imuf.com/linux/note/#sftp" id="id15"&gt;SFTP&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="https://32imuf.com/linux/note/#id6" id="id16"&gt;サービスの起動/停止とか&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="https://32imuf.com/linux/note/#ls-l" id="id17"&gt;ls -l&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="https://32imuf.com/linux/note/#su" id="id18"&gt;su&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="https://32imuf.com/linux/note/#sudo" id="id19"&gt;sudo&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="https://32imuf.com/linux/note/#id7" id="id20"&gt;最初に叩くコマンドまとめ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="https://32imuf.com/linux/note/#dev-devel" id="id21"&gt;dev と devel の違い&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="https://32imuf.com/linux/note/#debconf-utils" id="id22"&gt;debconf-utils&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="https://32imuf.com/linux/note/#selinux" id="id23"&gt;SELinux&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="https://32imuf.com/linux/note/#id8" id="id24"&gt;メールのログ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="https://32imuf.com/linux/note/#id9" id="id25"&gt;未整理&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/details&gt;&lt;div class="section" id="id2"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/linux/note/#id10"&gt;ユーザー/ユーザーグループを確認したい&lt;/a&gt;&lt;/h2&gt;
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_3ba65582055f4ff89b877ec93665ad26-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# ユーザーの一覧&lt;/span&gt;
+&lt;a name="rest_code_3ba65582055f4ff89b877ec93665ad26-2"&gt;&lt;/a&gt;$ cat /etc/passwd
+&lt;a name="rest_code_3ba65582055f4ff89b877ec93665ad26-3"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# ユーザー名:暗号化されたパスワード:ユーザーID:グループID:コメント:ホームディレクトリー:ログインシェル（ログインした際、最初に起動するシェル）&lt;/span&gt;
+&lt;a name="rest_code_3ba65582055f4ff89b877ec93665ad26-4"&gt;&lt;/a&gt;fumi23:x:1061:1001::/home/fumi23:/bin/bash
+&lt;a name="rest_code_3ba65582055f4ff89b877ec93665ad26-5"&gt;&lt;/a&gt;
+&lt;a name="rest_code_3ba65582055f4ff89b877ec93665ad26-6"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# ユーザーグループの一覧&lt;/span&gt;
+&lt;a name="rest_code_3ba65582055f4ff89b877ec93665ad26-7"&gt;&lt;/a&gt;$ cat /etc/group
+&lt;a name="rest_code_3ba65582055f4ff89b877ec93665ad26-8"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# グループ名:暗号化されたパスワード:グループID:サブグループとして所属しているユーザーアカウントのリスト&lt;/span&gt;
+&lt;a name="rest_code_3ba65582055f4ff89b877ec93665ad26-9"&gt;&lt;/a&gt;dev:x:1001:
+&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="section" id="id3"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/linux/note/#id11"&gt;ディスク容量/使用量を確認したい&lt;/a&gt;&lt;/h2&gt;
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_8aa1eb0f0dca40abb19d24181a7e76bb-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# ファイルシステムの使用領域と空き領域を表示する&lt;/span&gt;
+&lt;a name="rest_code_8aa1eb0f0dca40abb19d24181a7e76bb-2"&gt;&lt;/a&gt;$ df -h
+&lt;a name="rest_code_8aa1eb0f0dca40abb19d24181a7e76bb-3"&gt;&lt;/a&gt;
+&lt;a name="rest_code_8aa1eb0f0dca40abb19d24181a7e76bb-4"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 指定したディレクトリのディスク使用量を表示する&lt;/span&gt;
+&lt;a name="rest_code_8aa1eb0f0dca40abb19d24181a7e76bb-5"&gt;&lt;/a&gt;$ du -sh /path/to/husky
+&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="section" id="id4"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/linux/note/#id12"&gt;圧縮・展開&lt;/a&gt;&lt;/h2&gt;
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_49be0562e7c34ad79e24e21e1c1ba0be-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 圧縮: 前のはなくなる&lt;/span&gt;
+&lt;a name="rest_code_49be0562e7c34ad79e24e21e1c1ba0be-2"&gt;&lt;/a&gt;$ gzip husky-dump.sql
+&lt;a name="rest_code_49be0562e7c34ad79e24e21e1c1ba0be-3"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 展開: 前のはなくなる&lt;/span&gt;
+&lt;a name="rest_code_49be0562e7c34ad79e24e21e1c1ba0be-4"&gt;&lt;/a&gt;$ gzip -d husky-dump.sql.gz
+&lt;a name="rest_code_49be0562e7c34ad79e24e21e1c1ba0be-5"&gt;&lt;/a&gt;
+&lt;a name="rest_code_49be0562e7c34ad79e24e21e1c1ba0be-6"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# アーカイブと圧縮: 前のはなくならない&lt;/span&gt;
+&lt;a name="rest_code_49be0562e7c34ad79e24e21e1c1ba0be-7"&gt;&lt;/a&gt;$ tar -cf husky.tar husky
+&lt;a name="rest_code_49be0562e7c34ad79e24e21e1c1ba0be-8"&gt;&lt;/a&gt;$ gzip husky.tar
+&lt;a name="rest_code_49be0562e7c34ad79e24e21e1c1ba0be-9"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 展開: 前のはなくならない&lt;/span&gt;
+&lt;a name="rest_code_49be0562e7c34ad79e24e21e1c1ba0be-10"&gt;&lt;/a&gt;$ tar -zxvf husky.tar.gz
+&lt;a name="rest_code_49be0562e7c34ad79e24e21e1c1ba0be-11"&gt;&lt;/a&gt;
+&lt;a name="rest_code_49be0562e7c34ad79e24e21e1c1ba0be-12"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# zip 圧縮&lt;/span&gt;
+&lt;a name="rest_code_49be0562e7c34ad79e24e21e1c1ba0be-13"&gt;&lt;/a&gt;$ zip -r /path/to/husky.zip /path/to/husky
+&lt;a name="rest_code_49be0562e7c34ad79e24e21e1c1ba0be-14"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# zip 展開&lt;/span&gt;
+&lt;a name="rest_code_49be0562e7c34ad79e24e21e1c1ba0be-15"&gt;&lt;/a&gt;$ unzip /path/to/husky.zip
+&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="section" id="id5"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/linux/note/#id13"&gt;転送&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="scp"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/linux/note/#id14"&gt;SCP&lt;/a&gt;&lt;/h3&gt;
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_4afa5af37ffb4d5a9ae36659137cf687-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# サーバー =&amp;gt; ローカル (踏み台サーバーを経由)&lt;/span&gt;
+&lt;a name="rest_code_4afa5af37ffb4d5a9ae36659137cf687-2"&gt;&lt;/a&gt;$ scp -r -o &lt;span class="s2"&gt;"ProxyCommand ssh &amp;lt;ユーザー名&amp;gt;@&amp;lt;踏み台サーバー名&amp;gt; -W %h:%p"&lt;/span&gt; &amp;lt;ユーザー名&amp;gt;@&amp;lt;サーバー名&amp;gt;:&amp;lt;転送元: サーバー上のファイルパス&amp;gt; ~&amp;lt;転送先: ローカルのパス&amp;gt;
+&lt;a name="rest_code_4afa5af37ffb4d5a9ae36659137cf687-3"&gt;&lt;/a&gt;$ scp -r -o &lt;span class="s2"&gt;"ProxyCommand ssh fumi23@fumidai-server -W %h:%p"&lt;/span&gt; fumi23@remote-server:/path/to/fumi23 ~/fumi23
+&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="section" id="sftp"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/linux/note/#id15"&gt;SFTP&lt;/a&gt;&lt;/h3&gt;
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_8cb8809d68ce455eb4b85c5b8c24f481-1"&gt;&lt;/a&gt;$ sftp &amp;lt;ユーザー名&amp;gt;@&amp;lt;サーバー名&amp;gt;
+&lt;a name="rest_code_8cb8809d68ce455eb4b85c5b8c24f481-2"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# ローカル =&amp;gt; サーバー&lt;/span&gt;
+&lt;a name="rest_code_8cb8809d68ce455eb4b85c5b8c24f481-3"&gt;&lt;/a&gt;sftp&amp;gt; put husky.tar.gz
+&lt;a name="rest_code_8cb8809d68ce455eb4b85c5b8c24f481-4"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# サーバー =&amp;gt; ローカル&lt;/span&gt;
+&lt;a name="rest_code_8cb8809d68ce455eb4b85c5b8c24f481-5"&gt;&lt;/a&gt;sftp&amp;gt; get husky.tar.gz
+&lt;a name="rest_code_8cb8809d68ce455eb4b85c5b8c24f481-6"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# sftp をおしまいにする&lt;/span&gt;
+&lt;a name="rest_code_8cb8809d68ce455eb4b85c5b8c24f481-7"&gt;&lt;/a&gt;sftp&amp;gt; quit
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id6"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/linux/note/#id16"&gt;サービスの起動/停止とか&lt;/a&gt;&lt;/h2&gt;
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_ae00ed8733054e4791ae12f7c35ea697-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 起動&lt;/span&gt;
+&lt;a name="rest_code_ae00ed8733054e4791ae12f7c35ea697-2"&gt;&lt;/a&gt;$ sudo systemctl start mysqld
+&lt;a name="rest_code_ae00ed8733054e4791ae12f7c35ea697-3"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 停止&lt;/span&gt;
+&lt;a name="rest_code_ae00ed8733054e4791ae12f7c35ea697-4"&gt;&lt;/a&gt;$ sudo systemctl stop mysqld
+&lt;a name="rest_code_ae00ed8733054e4791ae12f7c35ea697-5"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 再起動&lt;/span&gt;
+&lt;a name="rest_code_ae00ed8733054e4791ae12f7c35ea697-6"&gt;&lt;/a&gt;$ sudo systemctl restart mysqld
+&lt;a name="rest_code_ae00ed8733054e4791ae12f7c35ea697-7"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# ステータス表示&lt;/span&gt;
+&lt;a name="rest_code_ae00ed8733054e4791ae12f7c35ea697-8"&gt;&lt;/a&gt;$ systemctl status mysqld
+&lt;a name="rest_code_ae00ed8733054e4791ae12f7c35ea697-9"&gt;&lt;/a&gt;
+&lt;a name="rest_code_ae00ed8733054e4791ae12f7c35ea697-10"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 起動&lt;/span&gt;
+&lt;a name="rest_code_ae00ed8733054e4791ae12f7c35ea697-11"&gt;&lt;/a&gt;$ sudo service nginx start
+&lt;a name="rest_code_ae00ed8733054e4791ae12f7c35ea697-12"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# ステータス表示&lt;/span&gt;
+&lt;a name="rest_code_ae00ed8733054e4791ae12f7c35ea697-13"&gt;&lt;/a&gt;$ sudo service nginx status
+&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="section" id="ls-l"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/linux/note/#id17"&gt;ls -l&lt;/a&gt;&lt;/h2&gt;
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_4789ef84715740bfbf5b7dd60476b7ca-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# . から始まるファイルも全部表示する&lt;/span&gt;
+&lt;a name="rest_code_4789ef84715740bfbf5b7dd60476b7ca-2"&gt;&lt;/a&gt;$ ls -la
+&lt;a name="rest_code_4789ef84715740bfbf5b7dd60476b7ca-3"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# ファイルのパーミッション、所有ユーザ、所有グループ、ファイルサイズ、タイムスタンプ、ファイル名&lt;/span&gt;
+&lt;a name="rest_code_4789ef84715740bfbf5b7dd60476b7ca-4"&gt;&lt;/a&gt;-rw-------  &lt;span class="m"&gt;1&lt;/span&gt; fumi23 dev   &lt;span class="m"&gt;1047&lt;/span&gt;  5月 &lt;span class="m"&gt;30&lt;/span&gt; &lt;span class="m"&gt;16&lt;/span&gt;:20 .viminfo
+&lt;a name="rest_code_4789ef84715740bfbf5b7dd60476b7ca-5"&gt;&lt;/a&gt;-rwxr-xr-x  &lt;span class="m"&gt;1&lt;/span&gt; root   root &lt;span class="m"&gt;35359&lt;/span&gt;  5月 &lt;span class="m"&gt;30&lt;/span&gt; &lt;span class="m"&gt;12&lt;/span&gt;:15 shiba.dog
+&lt;a name="rest_code_4789ef84715740bfbf5b7dd60476b7ca-6"&gt;&lt;/a&gt;drwxrwxr-x  &lt;span class="m"&gt;2&lt;/span&gt; fumi23 dev   &lt;span class="m"&gt;4096&lt;/span&gt;  4月 &lt;span class="m"&gt;18&lt;/span&gt; &lt;span class="m"&gt;13&lt;/span&gt;:38 husky
+&lt;a name="rest_code_4789ef84715740bfbf5b7dd60476b7ca-7"&gt;&lt;/a&gt;
+&lt;a name="rest_code_4789ef84715740bfbf5b7dd60476b7ca-8"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 更新日の新しい順&lt;/span&gt;
+&lt;a name="rest_code_4789ef84715740bfbf5b7dd60476b7ca-9"&gt;&lt;/a&gt;$ ls -lt
+&lt;a name="rest_code_4789ef84715740bfbf5b7dd60476b7ca-10"&gt;&lt;/a&gt;
+&lt;a name="rest_code_4789ef84715740bfbf5b7dd60476b7ca-11"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 更新日の古い順&lt;/span&gt;
+&lt;a name="rest_code_4789ef84715740bfbf5b7dd60476b7ca-12"&gt;&lt;/a&gt;$ ls -lt
+&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="section" id="su"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/linux/note/#id18"&gt;su&lt;/a&gt;&lt;/h2&gt;
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_5354aa9aea754f52bf399b7f46e20c0c-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# ユーザーを指定しないと root に切り替わる&lt;/span&gt;
+&lt;a name="rest_code_5354aa9aea754f52bf399b7f46e20c0c-2"&gt;&lt;/a&gt;$ sudo su -
+&lt;a name="rest_code_5354aa9aea754f52bf399b7f46e20c0c-3"&gt;&lt;/a&gt;
+&lt;a name="rest_code_5354aa9aea754f52bf399b7f46e20c0c-4"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# ユーザーを  www-data に切り替える&lt;/span&gt;
+&lt;a name="rest_code_5354aa9aea754f52bf399b7f46e20c0c-5"&gt;&lt;/a&gt;$ su -l -s /bin/bash www-data
+&lt;/pre&gt;&lt;table class="docutils field-list" frame="void" rules="none"&gt;
+&lt;col class="field-name"&gt;
+&lt;col class="field-body"&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr class="field"&gt;&lt;th class="field-name"&gt;&lt;tt class="docutils literal"&gt;-&lt;/tt&gt;, &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;-l&lt;/span&gt;&lt;/tt&gt;, &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;--login&lt;/span&gt;&lt;/tt&gt;:&lt;/th&gt;&lt;td class="field-body"&gt;&lt;p class="first"&gt;切り替え後のユーザーの設定を使用する&lt;/p&gt;
+&lt;table class="docutils field-list" frame="void" rules="none"&gt;
+&lt;col class="field-name"&gt;
+&lt;col class="field-body"&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr class="field"&gt;&lt;th class="field-name"&gt;&lt;tt class="docutils literal"&gt;-&lt;/tt&gt; なし:&lt;/th&gt;&lt;td class="field-body"&gt;カレントディレクトリも環境変数も、切り替え前ユーザーのものを引き継ぐ&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class="field"&gt;&lt;th class="field-name"&gt;&lt;tt class="docutils literal"&gt;-&lt;/tt&gt; あり:&lt;/th&gt;&lt;td class="field-body"&gt;カレントディレクトリも環境変数も、切り替え後のユーザーのデフォルトを使用する、切り替え前ユーザーのものは引き継がない&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class="field"&gt;&lt;th class="field-name"&gt;-s:&lt;/th&gt;&lt;td class="field-body"&gt;&lt;p class="first last"&gt;切り替え後のユーザーが使用するシェルを指定できる&lt;/p&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;div class="section" id="sudo"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/linux/note/#id19"&gt;sudo&lt;/a&gt;&lt;/h2&gt;
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_caa3fc41ff45416380a5f64a0eae3c4b-1"&gt;&lt;/a&gt;$ sudo -iH
+&lt;/pre&gt;&lt;table class="docutils field-list" frame="void" rules="none"&gt;
+&lt;col class="field-name"&gt;
+&lt;col class="field-body"&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr class="field"&gt;&lt;th class="field-name"&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;-H&lt;/span&gt;&lt;/tt&gt;:&lt;/th&gt;&lt;td class="field-body"&gt;環境変数「HOME」をrootユーザーのホームディレクトリに変更してコマンドを実行する&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class="field"&gt;&lt;th class="field-name"&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;-i&lt;/span&gt;&lt;/tt&gt;:&lt;/th&gt;&lt;td class="field-body"&gt;rootユーザーのデフォルトのシェルをログインシェルとして実行する。コマンドを指定しなかった場合は対話シェルとなる。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class="field"&gt;&lt;th class="field-name"&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;-u&lt;/span&gt;&lt;/tt&gt;:&lt;/th&gt;&lt;td class="field-body"&gt;コマンドを実行するユーザーを指定する (指定しないと root)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;sudoを実行するには、あらかじめ /etc/sudoers ファイルに権限を与えられるユーザーとコマンドを設定しておく必要がある。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id7"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/linux/note/#id20"&gt;最初に叩くコマンドまとめ&lt;/a&gt;&lt;/h2&gt;
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_f0ba870407e3413293d52251d2f556e4-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# メモリーの使用状況をMバイト単位で表示する&lt;/span&gt;
+&lt;a name="rest_code_f0ba870407e3413293d52251d2f556e4-2"&gt;&lt;/a&gt;$ free -m
+&lt;a name="rest_code_f0ba870407e3413293d52251d2f556e4-3"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# ディストリビューションのバージョンを確認する&lt;/span&gt;
+&lt;a name="rest_code_f0ba870407e3413293d52251d2f556e4-4"&gt;&lt;/a&gt;$ cat /etc/redhat-release
+&lt;a name="rest_code_f0ba870407e3413293d52251d2f556e4-5"&gt;&lt;/a&gt;$ ls
+&lt;a name="rest_code_f0ba870407e3413293d52251d2f556e4-6"&gt;&lt;/a&gt;$ &lt;span class="nb"&gt;pwd&lt;/span&gt;
+&lt;a name="rest_code_f0ba870407e3413293d52251d2f556e4-7"&gt;&lt;/a&gt;$ ls /home
+&lt;a name="rest_code_f0ba870407e3413293d52251d2f556e4-8"&gt;&lt;/a&gt;$ df -h
+&lt;a name="rest_code_f0ba870407e3413293d52251d2f556e4-9"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# パッケージキャッシュの削除&lt;/span&gt;
+&lt;a name="rest_code_f0ba870407e3413293d52251d2f556e4-10"&gt;&lt;/a&gt;$ yum clean all
+&lt;a name="rest_code_f0ba870407e3413293d52251d2f556e4-11"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# パッケージの更新&lt;/span&gt;
+&lt;a name="rest_code_f0ba870407e3413293d52251d2f556e4-12"&gt;&lt;/a&gt;$ yum -y update
+&lt;/pre&gt;&lt;ul class="simple"&gt;
+&lt;li&gt;これがわかりやすかった:&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://linuxfan.info/yum"&gt;「yum」を使ったパッケージ管理まとめ【Red Hat Enterprise Linux・CentOS】&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://uxmilk.jp/13610"&gt;CentOS、UbuntuなどLinux OSのバージョン確認をするコマンド&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="dev-devel"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/linux/note/#id21"&gt;dev と devel の違い&lt;/a&gt;&lt;/h2&gt;
+&lt;table class="docutils field-list" frame="void" rules="none"&gt;
+&lt;col class="field-name"&gt;
+&lt;col class="field-body"&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr class="field"&gt;&lt;th class="field-name"&gt;python-devel:&lt;/th&gt;&lt;td class="field-body"&gt;RedHat (CentOS) 系&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class="field"&gt;&lt;th class="field-name"&gt;python-dev:&lt;/th&gt;&lt;td class="field-body"&gt;Debian (Ubuntu) 系&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;div class="section" id="debconf-utils"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/linux/note/#id22"&gt;debconf-utils&lt;/a&gt;&lt;/h2&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;パッケージインストール中の設定に関する質問への返答を、あらかじめ設定しておける&lt;ul&gt;
+&lt;li&gt;インストール中に質問されなくなる&lt;/li&gt;
+&lt;li&gt;設定しておいた返答が使用される&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;インストールを自動化するときに便利&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="selinux"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/linux/note/#id23"&gt;SELinux&lt;/a&gt;&lt;/h2&gt;
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_e1e1dba6ffca43668b3e851e9a70b832-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 有効になっている&lt;/span&gt;
+&lt;a name="rest_code_e1e1dba6ffca43668b3e851e9a70b832-2"&gt;&lt;/a&gt;$ sudo getenforce
+&lt;a name="rest_code_e1e1dba6ffca43668b3e851e9a70b832-3"&gt;&lt;/a&gt;Enforcing
+&lt;a name="rest_code_e1e1dba6ffca43668b3e851e9a70b832-4"&gt;&lt;/a&gt;
+&lt;a name="rest_code_e1e1dba6ffca43668b3e851e9a70b832-5"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 無効にする&lt;/span&gt;
+&lt;a name="rest_code_e1e1dba6ffca43668b3e851e9a70b832-6"&gt;&lt;/a&gt;$ sudo setenforce &lt;span class="m"&gt;0&lt;/span&gt;
+&lt;a name="rest_code_e1e1dba6ffca43668b3e851e9a70b832-7"&gt;&lt;/a&gt;
+&lt;a name="rest_code_e1e1dba6ffca43668b3e851e9a70b832-8"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 無効になっている&lt;/span&gt;
+&lt;a name="rest_code_e1e1dba6ffca43668b3e851e9a70b832-9"&gt;&lt;/a&gt;$ sudo getenforce
+&lt;a name="rest_code_e1e1dba6ffca43668b3e851e9a70b832-10"&gt;&lt;/a&gt;Permissive
+&lt;/pre&gt;&lt;ul class="simple"&gt;
+&lt;li&gt;SELinux で拒否されたときのログは &lt;tt class="docutils literal"&gt;/var/log/audit/audit.log&lt;/tt&gt; にある&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://qiita.com/rikudai/items/884b203f4a72cfb62c02"&gt;https://qiita.com/rikudai/items/884b203f4a72cfb62c02&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id8"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/linux/note/#id24"&gt;メールのログ&lt;/a&gt;&lt;/h2&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;一般的にメールのログは &lt;tt class="docutils literal"&gt;/var/log/mail.log&lt;/tt&gt; にある&lt;ul&gt;
+&lt;li&gt;検証用にローカルVMにpostfixを建てるなどした場合は、localhostの &lt;tt class="docutils literal"&gt;/var/log/mail.log&lt;/tt&gt; にログがある&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;なにかしらのサーバーログを見たい場合はとりあえず ( &lt;tt class="docutils literal"&gt;sudo journalctl&lt;/tt&gt;) あたりでみる ( &lt;tt class="docutils literal"&gt;/var/log/syslog&lt;/tt&gt; でもok)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id9"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/linux/note/#id25"&gt;未整理&lt;/a&gt;&lt;/h2&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;source って同じシェル内でコマンド実行するんですけど、 sudo って別のシェルになるんで、 source した結果が引き継がれないんですよね&lt;/li&gt;
+&lt;li&gt;top: display Linux tasks&lt;/li&gt;
+&lt;li&gt;これはものすごく便利... (ありがとうございました) : &lt;a class="reference external" href="https://explainshell.com/"&gt;https://explainshell.com/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;&lt;/div&gt;</description><category>linux</category><guid>https://32imuf.com/linux/note/</guid><pubDate>Sat, 15 Jun 2019 15:00:00 GMT</pubDate></item><item><title>Nikola の使い方メモ</title><link>https://32imuf.com/nikola/note/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;div class="section" id="id1"&gt;
 &lt;h2&gt;リファレンス・ガイド&lt;/h2&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;a class="reference external" href="https://getnikola.com/"&gt;Nikola&lt;/a&gt;&lt;ul&gt;
@@ -1652,91 +1893,4 @@ Python 2.7 から、 DeprecationWarning とその子クラスはデフォルト�
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;/div&gt;</description><category>docker</category><guid>https://32imuf.com/docker/create-django-env-with-docker-compose-psql-mysql/</guid><pubDate>Tue, 30 Apr 2019 15:00:00 GMT</pubDate></item><item><title>MySQL のメモ</title><link>https://32imuf.com/mysql/note/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;details&gt;&lt;summary&gt;目次&lt;/summary&gt;&lt;div class="contents topic" id="id1"&gt;
-&lt;p class="topic-title first"&gt;目次&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference internal" href="https://32imuf.com/mysql/note/#id2" id="id8"&gt;リファレンス&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="https://32imuf.com/mysql/note/#id3" id="id9"&gt;ログイン&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="https://32imuf.com/mysql/note/#id4" id="id10"&gt;便利&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="https://32imuf.com/mysql/note/#id5" id="id11"&gt;データベース&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="https://32imuf.com/mysql/note/#id6" id="id12"&gt;テーブル&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="https://32imuf.com/mysql/note/#dump" id="id13"&gt;dump&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="https://32imuf.com/mysql/note/#id7" id="id14"&gt;おぼえがき&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;/details&gt;&lt;div class="section" id="id2"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/mysql/note/#id8"&gt;リファレンス&lt;/a&gt;&lt;/h2&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://dev.mysql.com/doc/refman/8.0/en/"&gt;MySQL 8.0 Reference Manual&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://dev.mysql.com/doc/refman/8.0/en/information-schema.html"&gt;Chapter 25 INFORMATION_SCHEMA Tables&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html"&gt;4.5.4 mysqldump&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://dev.mysql.com/doc/refman/8.0/en/window-functions.html"&gt;12.21 Window Functions&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class="section" id="id3"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/mysql/note/#id9"&gt;ログイン&lt;/a&gt;&lt;/h2&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_f386887a75454364aab0d343bcaf7c0c-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# ログイン&lt;/span&gt;
-&lt;a name="rest_code_f386887a75454364aab0d343bcaf7c0c-2"&gt;&lt;/a&gt;$ mysql -u user_name -D db_mame -p
-&lt;/pre&gt;&lt;/div&gt;
-&lt;div class="section" id="id4"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/mysql/note/#id10"&gt;便利&lt;/a&gt;&lt;/h2&gt;
-&lt;pre class="code mysql"&gt;&lt;a name="rest_code_4a819aabeaa34828803d11bbece1391c-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;-- 拡張表示&lt;/span&gt;
-&lt;a name="rest_code_4a819aabeaa34828803d11bbece1391c-2"&gt;&lt;/a&gt;&lt;span class="k"&gt;SELECT&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="k"&gt;FROM&lt;/span&gt; &lt;span class="n"&gt;users&lt;/span&gt; &lt;span class="k"&gt;WHERE&lt;/span&gt; &lt;span class="n"&gt;login&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'fumi23'&lt;/span&gt;&lt;span class="err"&gt;\&lt;/span&gt;&lt;span class="n"&gt;G&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;div class="section" id="id5"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/mysql/note/#id11"&gt;データベース&lt;/a&gt;&lt;/h2&gt;
-&lt;pre class="code mysql"&gt;&lt;a name="rest_code_b3ea8089dcf445c1b7524f0874d33dd2-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;-- データベース一覧&lt;/span&gt;
-&lt;a name="rest_code_b3ea8089dcf445c1b7524f0874d33dd2-2"&gt;&lt;/a&gt;&lt;span class="k"&gt;SHOW&lt;/span&gt; &lt;span class="k"&gt;DATABASES&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;a name="rest_code_b3ea8089dcf445c1b7524f0874d33dd2-3"&gt;&lt;/a&gt;
-&lt;a name="rest_code_b3ea8089dcf445c1b7524f0874d33dd2-4"&gt;&lt;/a&gt;&lt;span class="c1"&gt;-- データベースの切り替え&lt;/span&gt;
-&lt;a name="rest_code_b3ea8089dcf445c1b7524f0874d33dd2-5"&gt;&lt;/a&gt;&lt;span class="k"&gt;USE&lt;/span&gt; &lt;span class="n"&gt;db_mame&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;/pre&gt;&lt;pre class="code mysql"&gt;&lt;a name="rest_code_58ffeb064b744260b2ab5205a336cf3e-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;-- 現在の Character Sets 設定を表示する&lt;/span&gt;
-&lt;a name="rest_code_58ffeb064b744260b2ab5205a336cf3e-2"&gt;&lt;/a&gt;&lt;span class="k"&gt;SHOW&lt;/span&gt; &lt;span class="n"&gt;VARIABLES&lt;/span&gt; &lt;span class="k"&gt;LIKE&lt;/span&gt; &lt;span class="s2"&gt;"char%"&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;a name="rest_code_58ffeb064b744260b2ab5205a336cf3e-3"&gt;&lt;/a&gt;
-&lt;a name="rest_code_58ffeb064b744260b2ab5205a336cf3e-4"&gt;&lt;/a&gt;&lt;span class="c1"&gt;-- 現在のタイムゾーン設定を表示する&lt;/span&gt;
-&lt;a name="rest_code_58ffeb064b744260b2ab5205a336cf3e-5"&gt;&lt;/a&gt;&lt;span class="k"&gt;SHOW&lt;/span&gt; &lt;span class="n"&gt;VARIABLES&lt;/span&gt; &lt;span class="k"&gt;LIKE&lt;/span&gt; &lt;span class="s1"&gt;'%time_zone%'&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;a name="rest_code_58ffeb064b744260b2ab5205a336cf3e-6"&gt;&lt;/a&gt;
-&lt;a name="rest_code_58ffeb064b744260b2ab5205a336cf3e-7"&gt;&lt;/a&gt;&lt;span class="c1"&gt;-- 現在の状態を表示する&lt;/span&gt;
-&lt;a name="rest_code_58ffeb064b744260b2ab5205a336cf3e-8"&gt;&lt;/a&gt;&lt;span class="n"&gt;STATUS&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;/pre&gt;&lt;pre class="code mysql"&gt;&lt;a name="rest_code_0f81b5c67a494bedb35f6d4a36e21317-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;-- データサイズを確認する&lt;/span&gt;
-&lt;a name="rest_code_0f81b5c67a494bedb35f6d4a36e21317-2"&gt;&lt;/a&gt;&lt;span class="c1"&gt;-- https://dev.mysql.com/doc/refman/8.0/en/tables-table.html&lt;/span&gt;
-&lt;a name="rest_code_0f81b5c67a494bedb35f6d4a36e21317-3"&gt;&lt;/a&gt;&lt;span class="k"&gt;SELECT&lt;/span&gt;
-&lt;a name="rest_code_0f81b5c67a494bedb35f6d4a36e21317-4"&gt;&lt;/a&gt;  &lt;span class="nf"&gt;SUM&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data_length&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="mi"&gt;1024&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="mi"&gt;1024&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="mi"&gt;1024&lt;/span&gt; &lt;span class="k"&gt;AS&lt;/span&gt; &lt;span class="n"&gt;db_size_gb&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;a name="rest_code_0f81b5c67a494bedb35f6d4a36e21317-5"&gt;&lt;/a&gt;  &lt;span class="nf"&gt;SUM&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data_length&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="mi"&gt;1024&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="mi"&gt;1024&lt;/span&gt; &lt;span class="k"&gt;AS&lt;/span&gt; &lt;span class="n"&gt;db_size_mb&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;a name="rest_code_0f81b5c67a494bedb35f6d4a36e21317-6"&gt;&lt;/a&gt;  &lt;span class="nf"&gt;SUM&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data_length&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="mi"&gt;1024&lt;/span&gt; &lt;span class="k"&gt;AS&lt;/span&gt; &lt;span class="n"&gt;db_size_kb&lt;/span&gt;
-&lt;a name="rest_code_0f81b5c67a494bedb35f6d4a36e21317-7"&gt;&lt;/a&gt;&lt;span class="k"&gt;FROM&lt;/span&gt;
-&lt;a name="rest_code_0f81b5c67a494bedb35f6d4a36e21317-8"&gt;&lt;/a&gt;  &lt;span class="n"&gt;information_schema&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="kp"&gt;tables&lt;/span&gt;
-&lt;a name="rest_code_0f81b5c67a494bedb35f6d4a36e21317-9"&gt;&lt;/a&gt;&lt;span class="k"&gt;WHERE&lt;/span&gt;
-&lt;a name="rest_code_0f81b5c67a494bedb35f6d4a36e21317-10"&gt;&lt;/a&gt;  &lt;span class="n"&gt;table_schema&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'mmm'&lt;/span&gt;
-&lt;a name="rest_code_0f81b5c67a494bedb35f6d4a36e21317-11"&gt;&lt;/a&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;div class="section" id="id6"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/mysql/note/#id12"&gt;テーブル&lt;/a&gt;&lt;/h2&gt;
-&lt;pre class="code mysql"&gt;&lt;a name="rest_code_cafd7fd02f914c98afee1ad04fc3bcb4-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;-- テーブル一覧&lt;/span&gt;
-&lt;a name="rest_code_cafd7fd02f914c98afee1ad04fc3bcb4-2"&gt;&lt;/a&gt;&lt;span class="k"&gt;SHOW&lt;/span&gt; &lt;span class="kp"&gt;tables&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;a name="rest_code_cafd7fd02f914c98afee1ad04fc3bcb4-3"&gt;&lt;/a&gt;
-&lt;a name="rest_code_cafd7fd02f914c98afee1ad04fc3bcb4-4"&gt;&lt;/a&gt;&lt;span class="c1"&gt;-- テーブルの列一覧&lt;/span&gt;
-&lt;a name="rest_code_cafd7fd02f914c98afee1ad04fc3bcb4-5"&gt;&lt;/a&gt;&lt;span class="k"&gt;SHOW&lt;/span&gt; &lt;span class="n"&gt;COLUMNS&lt;/span&gt; &lt;span class="k"&gt;FROM&lt;/span&gt; &lt;span class="n"&gt;table_name&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;a name="rest_code_cafd7fd02f914c98afee1ad04fc3bcb4-6"&gt;&lt;/a&gt;
-&lt;a name="rest_code_cafd7fd02f914c98afee1ad04fc3bcb4-7"&gt;&lt;/a&gt;&lt;span class="c1"&gt;-- テーブル定義を確認する&lt;/span&gt;
-&lt;a name="rest_code_cafd7fd02f914c98afee1ad04fc3bcb4-8"&gt;&lt;/a&gt;&lt;span class="k"&gt;DESC&lt;/span&gt; &lt;span class="n"&gt;table_name&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;a name="rest_code_cafd7fd02f914c98afee1ad04fc3bcb4-9"&gt;&lt;/a&gt;&lt;span class="k"&gt;SHOW&lt;/span&gt; &lt;span class="n"&gt;FULL&lt;/span&gt; &lt;span class="n"&gt;COLUMNS&lt;/span&gt; &lt;span class="k"&gt;FROM&lt;/span&gt; &lt;span class="n"&gt;table_name&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;a name="rest_code_cafd7fd02f914c98afee1ad04fc3bcb4-10"&gt;&lt;/a&gt;&lt;span class="k"&gt;SHOW&lt;/span&gt; &lt;span class="k"&gt;CREATE&lt;/span&gt; &lt;span class="k"&gt;TABLE&lt;/span&gt; &lt;span class="n"&gt;table_name&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;div class="section" id="dump"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/mysql/note/#id13"&gt;dump&lt;/a&gt;&lt;/h2&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_8aaabe3d9e3d4dfbb99f76e98616dddc-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# dump を作る&lt;/span&gt;
-&lt;a name="rest_code_8aaabe3d9e3d4dfbb99f76e98616dddc-2"&gt;&lt;/a&gt;$ mysqldump -u root -p db_mame &amp;gt; dump_filename.sql
-&lt;a name="rest_code_8aaabe3d9e3d4dfbb99f76e98616dddc-3"&gt;&lt;/a&gt;
-&lt;a name="rest_code_8aaabe3d9e3d4dfbb99f76e98616dddc-4"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# dump を入れる&lt;/span&gt;
-&lt;a name="rest_code_8aaabe3d9e3d4dfbb99f76e98616dddc-5"&gt;&lt;/a&gt;$ mysql -h localhost -u root -p db_mame &amp;lt; dump_filename.sql
-&lt;/pre&gt;&lt;/div&gt;
-&lt;div class="section" id="id7"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/mysql/note/#id14"&gt;おぼえがき&lt;/a&gt;&lt;/h2&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;Window 関数は 8.0.2 から利用可能&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://mysqlserverteam.com/mysql-8-0-2-introducing-window-functions/"&gt;MySQL 8.0.2: Introducing Window Functions&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;&lt;/div&gt;</description><category>mysql</category><guid>https://32imuf.com/mysql/note/</guid><pubDate>Mon, 29 Apr 2019 15:00:00 GMT</pubDate></item></channel></rss>
+&lt;/div&gt;&lt;/div&gt;</description><category>docker</category><guid>https://32imuf.com/docker/create-django-env-with-docker-compose-psql-mysql/</guid><pubDate>Tue, 30 Apr 2019 15:00:00 GMT</pubDate></item></channel></rss>

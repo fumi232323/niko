@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-<title>いろいろメモ/ふみのて</title>
+<title>Linux いろいろメモ/ふみのて</title>
 <link rel="shortcut icon" href="../../assets/icons/favicon.ico">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Griffy">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Vollkorn:400,700">
 <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/sawarabimincho.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-<link rel="stylesheet" href="../../assets/css/style.css?20190613">
+<link rel="stylesheet" href="../../assets/css/style.css?20190614">
 </head>
 <body>
     <div class="container">
@@ -23,9 +23,9 @@
 </header></div>
       <div class="main">
 <div class="article-content">
-  <main class="item item-article item-linux"><time class="date" datetime="2019-06-11 00:00:00+09:00">
-      2019-06-11 Tue
-    </time><div class="title">いろいろメモ</div>
+  <main class="item item-article item-linux"><time class="date" datetime="2019-06-16 00:00:00+09:00">
+      2019-06-16 Sun
+    </time><div class="title">Linux いろいろメモ</div>
     <div class="category">
       <a href="../../tags/linux/">
           linux
@@ -33,157 +33,285 @@
     </div>
     <div class="text">
       <div>
-<div class="section" id="id1">
-<h2>ユーザーの一覧を見たい</h2>
-<pre class="code bash"><a name="rest_code_792311030f3644028755b76bbfed0656-1"></a>$ cat /etc/passwd
-</pre>
-<ol class="arabic simple">
-<li>ユーザー名</li>
-<li>暗号化されたパスワード</li>
-<li>ユーザーID</li>
-<li>グループID</li>
-<li>コメント</li>
-<li>ホームディレクトリー</li>
-<li>ログインシェル（ログインした際、最初に起動するシェル）</li>
-</ol>
-</div>
-<div class="section" id="id2">
-<h2>ユーザーグループの一覧を見たい</h2>
-<pre class="code bash"><a name="rest_code_7a4916e5ae3146929e060bd3f38618b9-1"></a>$ cat /etc/group
-</pre>
-<ol class="arabic simple">
-<li>グループ名</li>
-<li>暗号化されたパスワード</li>
-<li>グループID</li>
-<li>サブグループとして所属しているユーザーアカウントのリスト</li>
-</ol>
-</div>
-<div class="section" id="id3">
-<h2>ファイルシステムのディスク容量を表示する</h2>
-<p>$ df -h</p>
-</div>
-<div class="section" id="id4">
-<h2>指定したディレクトリのディスク使用量を表示する</h2>
-<p>$ du -sh /path/to/husky</p>
-</div>
-<div class="section" id="ls-la">
-<h2>ls -la の表示項目</h2>
-<p>ファイルのパーミッション、所有ユーザ、所有グループ、ファイルサイズ、タイムスタンプ、ファイル名</p>
-</div>
-<div class="section" id="selinux">
-<h2>SELinux</h2>
-<p># 有効になってる
-$ sudo getenforce
-Enforcing</p>
-<p># 無効にする
-$ sudo setenforce 0
-$ sudo getenforce
-Permissive</p>
+<details><summary>目次</summary><div class="contents topic" id="id1">
+<p class="topic-title first">目次</p>
 <ul class="simple">
-<li><a class="reference external" href="https://qiita.com/rikudai/items/884b203f4a72cfb62c02">https://qiita.com/rikudai/items/884b203f4a72cfb62c02</a></li>
-<li>ちなみにSELinuxで拒否されたときのログは <cite>/var/log/audit/audit.log</cite> にあるのでみると参考になるかも</li>
+<li><a class="reference internal" href="#id2" id="id10">ユーザー/ユーザーグループを確認したい</a></li>
+<li><a class="reference internal" href="#id3" id="id11">ディスク容量/使用量を確認したい</a></li>
+<li><a class="reference internal" href="#id4" id="id12">圧縮・展開</a></li>
+<li>
+<a class="reference internal" href="#id5" id="id13">転送</a><ul>
+<li><a class="reference internal" href="#scp" id="id14">SCP</a></li>
+<li><a class="reference internal" href="#sftp" id="id15">SFTP</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id6" id="id16">サービスの起動/停止とか</a></li>
+<li><a class="reference internal" href="#ls-l" id="id17">ls -l</a></li>
+<li><a class="reference internal" href="#su" id="id18">su</a></li>
+<li><a class="reference internal" href="#sudo" id="id19">sudo</a></li>
+<li><a class="reference internal" href="#id7" id="id20">最初に叩くコマンドまとめ</a></li>
+<li><a class="reference internal" href="#dev-devel" id="id21">dev と devel の違い</a></li>
+<li><a class="reference internal" href="#debconf-utils" id="id22">debconf-utils</a></li>
+<li><a class="reference internal" href="#selinux" id="id23">SELinux</a></li>
+<li><a class="reference internal" href="#id8" id="id24">メールのログ</a></li>
+<li><a class="reference internal" href="#id9" id="id25">未整理</a></li>
 </ul>
 </div>
-<div class="section" id="devel">
-<h2>devel</h2>
-<p>python-devel と python-dev は何が違うか
-=&gt; RedHet (CentOS) 系と、Debian (Ubuntu) 系</p>
+</details><div class="section" id="id2">
+<h2><a class="toc-backref" href="#id10">ユーザー/ユーザーグループを確認したい</a></h2>
+<pre class="code bash"><a name="rest_code_3ba65582055f4ff89b877ec93665ad26-1"></a><span class="c1"># ユーザーの一覧</span>
+<a name="rest_code_3ba65582055f4ff89b877ec93665ad26-2"></a>$ cat /etc/passwd
+<a name="rest_code_3ba65582055f4ff89b877ec93665ad26-3"></a><span class="c1"># ユーザー名:暗号化されたパスワード:ユーザーID:グループID:コメント:ホームディレクトリー:ログインシェル（ログインした際、最初に起動するシェル）</span>
+<a name="rest_code_3ba65582055f4ff89b877ec93665ad26-4"></a>fumi23:x:1061:1001::/home/fumi23:/bin/bash
+<a name="rest_code_3ba65582055f4ff89b877ec93665ad26-5"></a>
+<a name="rest_code_3ba65582055f4ff89b877ec93665ad26-6"></a><span class="c1"># ユーザーグループの一覧</span>
+<a name="rest_code_3ba65582055f4ff89b877ec93665ad26-7"></a>$ cat /etc/group
+<a name="rest_code_3ba65582055f4ff89b877ec93665ad26-8"></a><span class="c1"># グループ名:暗号化されたパスワード:グループID:サブグループとして所属しているユーザーアカウントのリスト</span>
+<a name="rest_code_3ba65582055f4ff89b877ec93665ad26-9"></a>dev:x:1001:
+</pre>
 </div>
-<div class="section" id="root">
-<h2>root ユーザーのなり方</h2>
-<p>$ sudo su -</p>
+<div class="section" id="id3">
+<h2><a class="toc-backref" href="#id11">ディスク容量/使用量を確認したい</a></h2>
+<pre class="code bash"><a name="rest_code_8aa1eb0f0dca40abb19d24181a7e76bb-1"></a><span class="c1"># ファイルシステムの使用領域と空き領域を表示する</span>
+<a name="rest_code_8aa1eb0f0dca40abb19d24181a7e76bb-2"></a>$ df -h
+<a name="rest_code_8aa1eb0f0dca40abb19d24181a7e76bb-3"></a>
+<a name="rest_code_8aa1eb0f0dca40abb19d24181a7e76bb-4"></a><span class="c1"># 指定したディレクトリのディスク使用量を表示する</span>
+<a name="rest_code_8aa1eb0f0dca40abb19d24181a7e76bb-5"></a>$ du -sh /path/to/husky
+</pre>
+</div>
+<div class="section" id="id4">
+<h2><a class="toc-backref" href="#id12">圧縮・展開</a></h2>
+<pre class="code bash"><a name="rest_code_49be0562e7c34ad79e24e21e1c1ba0be-1"></a><span class="c1"># 圧縮: 前のはなくなる</span>
+<a name="rest_code_49be0562e7c34ad79e24e21e1c1ba0be-2"></a>$ gzip husky-dump.sql
+<a name="rest_code_49be0562e7c34ad79e24e21e1c1ba0be-3"></a><span class="c1"># 展開: 前のはなくなる</span>
+<a name="rest_code_49be0562e7c34ad79e24e21e1c1ba0be-4"></a>$ gzip -d husky-dump.sql.gz
+<a name="rest_code_49be0562e7c34ad79e24e21e1c1ba0be-5"></a>
+<a name="rest_code_49be0562e7c34ad79e24e21e1c1ba0be-6"></a><span class="c1"># アーカイブと圧縮: 前のはなくならない</span>
+<a name="rest_code_49be0562e7c34ad79e24e21e1c1ba0be-7"></a>$ tar -cf husky.tar husky
+<a name="rest_code_49be0562e7c34ad79e24e21e1c1ba0be-8"></a>$ gzip husky.tar
+<a name="rest_code_49be0562e7c34ad79e24e21e1c1ba0be-9"></a><span class="c1"># 展開: 前のはなくならない</span>
+<a name="rest_code_49be0562e7c34ad79e24e21e1c1ba0be-10"></a>$ tar -zxvf husky.tar.gz
+<a name="rest_code_49be0562e7c34ad79e24e21e1c1ba0be-11"></a>
+<a name="rest_code_49be0562e7c34ad79e24e21e1c1ba0be-12"></a><span class="c1"># zip 圧縮</span>
+<a name="rest_code_49be0562e7c34ad79e24e21e1c1ba0be-13"></a>$ zip -r /path/to/husky.zip /path/to/husky
+<a name="rest_code_49be0562e7c34ad79e24e21e1c1ba0be-14"></a><span class="c1"># zip 展開</span>
+<a name="rest_code_49be0562e7c34ad79e24e21e1c1ba0be-15"></a>$ unzip /path/to/husky.zip
+</pre>
 </div>
 <div class="section" id="id5">
-<h2>圧縮転送展開</h2>
-<p># 圧縮
-$ ssh remote-host
-$ sudo su -
-$ zip -r /path/to/fumi23/husky.zip /path/to/fumi23/husky
-# ディスク使用量確認
-$ du -h /path/to/fumi23.zip
-# 転送
-$ scp -r -o "ProxyCommand ssh <a class="reference external" href="mailto:fumi23@fumidai">fumi23@fumidai</a> -W %h:%p" <a class="reference external" href="mailto:fumi23@remote-host">fumi23@remote-host</a>:/path/to/fumi23 ~/fumi23
-# 展開
-$ unzip husky.zip</p>
+<h2><a class="toc-backref" href="#id13">転送</a></h2>
+<div class="section" id="scp">
+<h3><a class="toc-backref" href="#id14">SCP</a></h3>
+<pre class="code bash"><a name="rest_code_4afa5af37ffb4d5a9ae36659137cf687-1"></a><span class="c1"># サーバー =&gt; ローカル (踏み台サーバーを経由)</span>
+<a name="rest_code_4afa5af37ffb4d5a9ae36659137cf687-2"></a>$ scp -r -o <span class="s2">"ProxyCommand ssh &lt;ユーザー名&gt;@&lt;踏み台サーバー名&gt; -W %h:%p"</span> &lt;ユーザー名&gt;@&lt;サーバー名&gt;:&lt;転送元: サーバー上のファイルパス&gt; ~&lt;転送先: ローカルのパス&gt;
+<a name="rest_code_4afa5af37ffb4d5a9ae36659137cf687-3"></a>$ scp -r -o <span class="s2">"ProxyCommand ssh fumi23@fumidai-server -W %h:%p"</span> fumi23@remote-server:/path/to/fumi23 ~/fumi23
+</pre>
 </div>
-<div class="section" id="gzip">
-<h2>gzip 圧縮・展開</h2>
-<p># 圧縮: 前のはなくなる
-$ gzip husky-dump.sql
-# 展開: 前のはなくなる
-$ gzip -d husky-dump.sql.gz</p>
+<div class="section" id="sftp">
+<h3><a class="toc-backref" href="#id15">SFTP</a></h3>
+<pre class="code bash"><a name="rest_code_8cb8809d68ce455eb4b85c5b8c24f481-1"></a>$ sftp &lt;ユーザー名&gt;@&lt;サーバー名&gt;
+<a name="rest_code_8cb8809d68ce455eb4b85c5b8c24f481-2"></a><span class="c1"># ローカル =&gt; サーバー</span>
+<a name="rest_code_8cb8809d68ce455eb4b85c5b8c24f481-3"></a>sftp&gt; put husky.tar.gz
+<a name="rest_code_8cb8809d68ce455eb4b85c5b8c24f481-4"></a><span class="c1"># サーバー =&gt; ローカル</span>
+<a name="rest_code_8cb8809d68ce455eb4b85c5b8c24f481-5"></a>sftp&gt; get husky.tar.gz
+<a name="rest_code_8cb8809d68ce455eb4b85c5b8c24f481-6"></a><span class="c1"># sftp をおしまいにする</span>
+<a name="rest_code_8cb8809d68ce455eb4b85c5b8c24f481-7"></a>sftp&gt; quit
+</pre>
+</div>
 </div>
 <div class="section" id="id6">
-<h2>転送 (リモートからローカル)</h2>
-<p>$ scp -r -o "ProxyCommand ssh <a class="reference external" href="mailto:fumi23@fumidai">fumi23@fumidai</a> -W %h:%p" <a class="reference external" href="mailto:fumi23@remote-host">fumi23@remote-host</a>:/path/to/fumi23 ~/fumi23</p>
+<h2><a class="toc-backref" href="#id16">サービスの起動/停止とか</a></h2>
+<pre class="code bash"><a name="rest_code_ae00ed8733054e4791ae12f7c35ea697-1"></a><span class="c1"># 起動</span>
+<a name="rest_code_ae00ed8733054e4791ae12f7c35ea697-2"></a>$ sudo systemctl start mysqld
+<a name="rest_code_ae00ed8733054e4791ae12f7c35ea697-3"></a><span class="c1"># 停止</span>
+<a name="rest_code_ae00ed8733054e4791ae12f7c35ea697-4"></a>$ sudo systemctl stop mysqld
+<a name="rest_code_ae00ed8733054e4791ae12f7c35ea697-5"></a><span class="c1"># 再起動</span>
+<a name="rest_code_ae00ed8733054e4791ae12f7c35ea697-6"></a>$ sudo systemctl restart mysqld
+<a name="rest_code_ae00ed8733054e4791ae12f7c35ea697-7"></a><span class="c1"># ステータス表示</span>
+<a name="rest_code_ae00ed8733054e4791ae12f7c35ea697-8"></a>$ systemctl status mysqld
+<a name="rest_code_ae00ed8733054e4791ae12f7c35ea697-9"></a>
+<a name="rest_code_ae00ed8733054e4791ae12f7c35ea697-10"></a><span class="c1"># 起動</span>
+<a name="rest_code_ae00ed8733054e4791ae12f7c35ea697-11"></a>$ sudo service nginx start
+<a name="rest_code_ae00ed8733054e4791ae12f7c35ea697-12"></a><span class="c1"># ステータス表示</span>
+<a name="rest_code_ae00ed8733054e4791ae12f7c35ea697-13"></a>$ sudo service nginx status
+</pre>
 </div>
-<div class="section" id="l">
-<h2>-l</h2>
-<p>"-, -l, --login"
-シェルをログインシェルにする。すなわち以下のような取り扱いをする: すべての環境変数を解除する。その上で <cite>TERM'、</cite> HOME'、 <cite>SHELL' を前述 のように設定し、</cite> USER'、 <cite>LOGNAME' （スーパーユーザーであっても）を同 じく前述のように設定する。続いて</cite> PATH' をコンパイル時のデフォルト値に 設定する。ディレクトリを user のホームディレクトリに変更する。シェル名の前に <a href="#id7"><span class="problematic" id="id8">`</span></a>-' を付加し、シェルに ログイン時のスタートアップファイルを読ませる。</p>
-<div class="system-message" id="id7">
-<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">&lt;string&gt;</tt>, line 98); <em><a href="#id8">backlink</a></em></p>
-Inline interpreted text or phrase reference start-string without end-string.</div>
+<div class="section" id="ls-l">
+<h2><a class="toc-backref" href="#id17">ls -l</a></h2>
+<pre class="code bash"><a name="rest_code_4789ef84715740bfbf5b7dd60476b7ca-1"></a><span class="c1"># . から始まるファイルも全部表示する</span>
+<a name="rest_code_4789ef84715740bfbf5b7dd60476b7ca-2"></a>$ ls -la
+<a name="rest_code_4789ef84715740bfbf5b7dd60476b7ca-3"></a><span class="c1"># ファイルのパーミッション、所有ユーザ、所有グループ、ファイルサイズ、タイムスタンプ、ファイル名</span>
+<a name="rest_code_4789ef84715740bfbf5b7dd60476b7ca-4"></a>-rw-------  <span class="m">1</span> fumi23 dev   <span class="m">1047</span>  5月 <span class="m">30</span> <span class="m">16</span>:20 .viminfo
+<a name="rest_code_4789ef84715740bfbf5b7dd60476b7ca-5"></a>-rwxr-xr-x  <span class="m">1</span> root   root <span class="m">35359</span>  5月 <span class="m">30</span> <span class="m">12</span>:15 shiba.dog
+<a name="rest_code_4789ef84715740bfbf5b7dd60476b7ca-6"></a>drwxrwxr-x  <span class="m">2</span> fumi23 dev   <span class="m">4096</span>  4月 <span class="m">18</span> <span class="m">13</span>:38 husky
+<a name="rest_code_4789ef84715740bfbf5b7dd60476b7ca-7"></a>
+<a name="rest_code_4789ef84715740bfbf5b7dd60476b7ca-8"></a><span class="c1"># 更新日の新しい順</span>
+<a name="rest_code_4789ef84715740bfbf5b7dd60476b7ca-9"></a>$ ls -lt
+<a name="rest_code_4789ef84715740bfbf5b7dd60476b7ca-10"></a>
+<a name="rest_code_4789ef84715740bfbf5b7dd60476b7ca-11"></a><span class="c1"># 更新日の古い順</span>
+<a name="rest_code_4789ef84715740bfbf5b7dd60476b7ca-12"></a>$ ls -lt
+</pre>
+</div>
+<div class="section" id="su">
+<h2><a class="toc-backref" href="#id18">su</a></h2>
+<pre class="code bash"><a name="rest_code_5354aa9aea754f52bf399b7f46e20c0c-1"></a><span class="c1"># ユーザーを指定しないと root に切り替わる</span>
+<a name="rest_code_5354aa9aea754f52bf399b7f46e20c0c-2"></a>$ sudo su -
+<a name="rest_code_5354aa9aea754f52bf399b7f46e20c0c-3"></a>
+<a name="rest_code_5354aa9aea754f52bf399b7f46e20c0c-4"></a><span class="c1"># ユーザーを  www-data に切り替える</span>
+<a name="rest_code_5354aa9aea754f52bf399b7f46e20c0c-5"></a>$ su -l -s /bin/bash www-data
+</pre>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name">
+<col class="field-body">
+<tbody valign="top">
+<tr class="field">
+<th class="field-name">
+<tt class="docutils literal">-</tt>, <tt class="docutils literal"><span class="pre">-l</span></tt>, <tt class="docutils literal"><span class="pre">--login</span></tt>:</th>
+<td class="field-body">
+<p class="first">切り替え後のユーザーの設定を使用する</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name">
+<col class="field-body">
+<tbody valign="top">
+<tr class="field">
+<th class="field-name">
+<tt class="docutils literal">-</tt> なし:</th>
+<td class="field-body">カレントディレクトリも環境変数も、切り替え前ユーザーのものを引き継ぐ</td>
+</tr>
+<tr class="field">
+<th class="field-name">
+<tt class="docutils literal">-</tt> あり:</th>
+<td class="field-body">カレントディレクトリも環境変数も、切り替え後のユーザーのデフォルトを使用する、切り替え前ユーザーのものは引き継がない</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field">
+<th class="field-name">-s:</th>
+<td class="field-body">
+<p class="first last">切り替え後のユーザーが使用するシェルを指定できる</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="sudo">
+<h2><a class="toc-backref" href="#id19">sudo</a></h2>
+<pre class="code bash"><a name="rest_code_caa3fc41ff45416380a5f64a0eae3c4b-1"></a>$ sudo -iH
+</pre>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name">
+<col class="field-body">
+<tbody valign="top">
+<tr class="field">
+<th class="field-name">
+<tt class="docutils literal"><span class="pre">-H</span></tt>:</th>
+<td class="field-body">環境変数「HOME」をrootユーザーのホームディレクトリに変更してコマンドを実行する</td>
+</tr>
+<tr class="field">
+<th class="field-name">
+<tt class="docutils literal"><span class="pre">-i</span></tt>:</th>
+<td class="field-body">rootユーザーのデフォルトのシェルをログインシェルとして実行する。コマンドを指定しなかった場合は対話シェルとなる。</td>
+</tr>
+<tr class="field">
+<th class="field-name">
+<tt class="docutils literal"><span class="pre">-u</span></tt>:</th>
+<td class="field-body">コマンドを実行するユーザーを指定する (指定しないと root)</td>
+</tr>
+</tbody>
+</table>
 <ul class="simple">
-<li>su するときにシェルを指定できる</li>
+<li>sudoを実行するには、あらかじめ /etc/sudoers ファイルに権限を与えられるユーザーとコマンドを設定しておく必要がある。</li>
+</ul>
+</div>
+<div class="section" id="id7">
+<h2><a class="toc-backref" href="#id20">最初に叩くコマンドまとめ</a></h2>
+<pre class="code bash"><a name="rest_code_f0ba870407e3413293d52251d2f556e4-1"></a><span class="c1"># メモリーの使用状況をMバイト単位で表示する</span>
+<a name="rest_code_f0ba870407e3413293d52251d2f556e4-2"></a>$ free -m
+<a name="rest_code_f0ba870407e3413293d52251d2f556e4-3"></a><span class="c1"># ディストリビューションのバージョンを確認する</span>
+<a name="rest_code_f0ba870407e3413293d52251d2f556e4-4"></a>$ cat /etc/redhat-release
+<a name="rest_code_f0ba870407e3413293d52251d2f556e4-5"></a>$ ls
+<a name="rest_code_f0ba870407e3413293d52251d2f556e4-6"></a>$ <span class="nb">pwd</span>
+<a name="rest_code_f0ba870407e3413293d52251d2f556e4-7"></a>$ ls /home
+<a name="rest_code_f0ba870407e3413293d52251d2f556e4-8"></a>$ df -h
+<a name="rest_code_f0ba870407e3413293d52251d2f556e4-9"></a><span class="c1"># パッケージキャッシュの削除</span>
+<a name="rest_code_f0ba870407e3413293d52251d2f556e4-10"></a>$ yum clean all
+<a name="rest_code_f0ba870407e3413293d52251d2f556e4-11"></a><span class="c1"># パッケージの更新</span>
+<a name="rest_code_f0ba870407e3413293d52251d2f556e4-12"></a>$ yum -y update
+</pre>
+<ul class="simple">
+<li>これがわかりやすかった:<ul>
+<li><a class="reference external" href="https://linuxfan.info/yum">「yum」を使ったパッケージ管理まとめ【Red Hat Enterprise Linux・CentOS】</a></li>
+<li><a class="reference external" href="https://uxmilk.jp/13610">CentOS、UbuntuなどLinux OSのバージョン確認をするコマンド</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="dev-devel">
+<h2><a class="toc-backref" href="#id21">dev と devel の違い</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name">
+<col class="field-body">
+<tbody valign="top">
+<tr class="field">
+<th class="field-name">python-devel:</th>
+<td class="field-body">RedHat (CentOS) 系</td>
+</tr>
+<tr class="field">
+<th class="field-name">python-dev:</th>
+<td class="field-body">Debian (Ubuntu) 系</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="debconf-utils">
+<h2><a class="toc-backref" href="#id22">debconf-utils</a></h2>
+<ul class="simple">
+<li>パッケージインストール中の設定に関する質問への返答を、あらかじめ設定しておける<ul>
+<li>インストール中に質問されなくなる</li>
+<li>設定しておいた返答が使用される</li>
+</ul>
+</li>
+<li>インストールを自動化するときに便利</li>
+</ul>
+</div>
+<div class="section" id="selinux">
+<h2><a class="toc-backref" href="#id23">SELinux</a></h2>
+<pre class="code bash"><a name="rest_code_e1e1dba6ffca43668b3e851e9a70b832-1"></a><span class="c1"># 有効になっている</span>
+<a name="rest_code_e1e1dba6ffca43668b3e851e9a70b832-2"></a>$ sudo getenforce
+<a name="rest_code_e1e1dba6ffca43668b3e851e9a70b832-3"></a>Enforcing
+<a name="rest_code_e1e1dba6ffca43668b3e851e9a70b832-4"></a>
+<a name="rest_code_e1e1dba6ffca43668b3e851e9a70b832-5"></a><span class="c1"># 無効にする</span>
+<a name="rest_code_e1e1dba6ffca43668b3e851e9a70b832-6"></a>$ sudo setenforce <span class="m">0</span>
+<a name="rest_code_e1e1dba6ffca43668b3e851e9a70b832-7"></a>
+<a name="rest_code_e1e1dba6ffca43668b3e851e9a70b832-8"></a><span class="c1"># 無効になっている</span>
+<a name="rest_code_e1e1dba6ffca43668b3e851e9a70b832-9"></a>$ sudo getenforce
+<a name="rest_code_e1e1dba6ffca43668b3e851e9a70b832-10"></a>Permissive
+</pre>
+<ul class="simple">
+<li>SELinux で拒否されたときのログは <tt class="docutils literal">/var/log/audit/audit.log</tt> にある</li>
+<li><a class="reference external" href="https://qiita.com/rikudai/items/884b203f4a72cfb62c02">https://qiita.com/rikudai/items/884b203f4a72cfb62c02</a></li>
+</ul>
+</div>
+<div class="section" id="id8">
+<h2><a class="toc-backref" href="#id24">メールのログ</a></h2>
+<ul class="simple">
+<li>一般的にメールのログは <tt class="docutils literal">/var/log/mail.log</tt> にある<ul>
+<li>検証用にローカルVMにpostfixを建てるなどした場合は、localhostの <tt class="docutils literal">/var/log/mail.log</tt> にログがある</li>
+</ul>
+</li>
+<li>なにかしらのサーバーログを見たい場合はとりあえず ( <tt class="docutils literal">sudo journalctl</tt>) あたりでみる ( <tt class="docutils literal">/var/log/syslog</tt> でもok)</li>
 </ul>
 </div>
 <div class="section" id="id9">
-<h2>よくわからぬ</h2>
-<p>source って同じシェル内でコマンド実行するんですけど、 sudo って別のシェルになるんで、 source した結果が引き継がれないんですよね</p>
-</div>
-<div class="section" id="debconf-utils">
-<h2>debconf-utils</h2>
+<h2><a class="toc-backref" href="#id25">未整理</a></h2>
 <ul class="simple">
-<li>debconf-utils</li>
+<li>source って同じシェル内でコマンド実行するんですけど、 sudo って別のシェルになるんで、 source した結果が引き継がれないんですよね</li>
+<li>top: display Linux tasks</li>
+<li>これはものすごく便利... (ありがとうございました) : <a class="reference external" href="https://explainshell.com/">https://explainshell.com/</a>
+</li>
 </ul>
-</div>
-<div class="section" id="free-top">
-<h2>free や top</h2>
-<p>free や top でリソース状態をみておくといいかも ( 原因はわからない</p>
-</div>
-<div class="section" id="id10">
-<h2>最初に叩くコマンド</h2>
-<p>$ free -m
-$ cat /etc/redhat-release
-$ ls
-$ pwd
-$ ls /home
-$ df -h
-$ yum clean all
-$ yum -y update</p>
-</div>
-<div class="section" id="id11">
-<h2>圧縮とか解凍とか</h2>
-<p># (ローカル環境で) アーカイブと圧縮
-$ tar -cf husky.tar husky
-$ gzip husky.tar
-# husky を解凍
-$ tar -zxvf husky.tar.gz</p>
-</div>
-<div class="section" id="sftp">
-<h2>sftp</h2>
-<p>$ sftp &lt;ユーザー名&gt;@&lt;サーバー名&gt;
-sftp&gt; put husky.tar.gz
-sftp&gt; quit</p>
-<p># 取得する場合は、 get</p>
-</div>
-<div class="section" id="id12">
-<h2>起動とか</h2>
-<p>起動:     $ sudo systemctl start mysqld
-停止:     $ sudo systemctl stop mysqld
-再起動:    $ sudo systemctl restart mysqld
-ステータス表示:        $ systemctl status mysqld</p>
-<p># 起動
-$ sudo service nginx start
-# 起動を確認
-$ sudo service nginx status</p>
-</div>
-<div class="section" id="id13">
-<h2>メールのログ</h2>
-<p>一般的にメールのログは <cite>/var/log/mail.log</cite> にある
--- 検証用にローカルVMにpostfixを建てるなどした場合は、localhostの <cite>/var/log/mail.log</cite> にログがある
-- なにかしらのサーバーログを見たい場合はとりあえず (<cite>sudo journalctl</cite>) あたりでみる (<cite>/var/log/syslog</cite> でもok)</p>
 </div>
 </div>
     </div>
