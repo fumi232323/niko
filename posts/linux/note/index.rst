@@ -75,7 +75,7 @@ SCP
 .. code-block:: bash
 
   # サーバー => ローカル (踏み台サーバーを経由)
-  $ scp -r -o "ProxyCommand ssh <ユーザー名>@<踏み台サーバー名> -W %h:%p" <ユーザー名>@<サーバー名>:<転送元: サーバー上のファイルパス> ~<転送先: ローカルのパス>
+  $ scp -r -o "ProxyCommand ssh <ユーザー名>@<踏み台サーバー名> -W %h:%p" <ユーザー名>@<サーバー名>:<転送元: サーバー上のファイルパス> <転送先: ローカルのパス>
   $ scp -r -o "ProxyCommand ssh fumi23@fumidai-server -W %h:%p" fumi23@remote-server:/path/to/fumi23 ~/fumi23
 
 SFTP
@@ -128,7 +128,7 @@ ls -l
   $ ls -lt
 
   # 更新日の古い順
-  $ ls -lt
+  $ ls -ltr
 
 
 su
@@ -235,7 +235,7 @@ SELinux
 
   * 検証用にローカルVMにpostfixを建てるなどした場合は、localhostの ``/var/log/mail.log`` にログがある
 
-* なにかしらのサーバーログを見たい場合はとりあえず ( ``sudo journalctl``) あたりでみる ( ``/var/log/syslog`` でもok)
+* なにかしらのサーバーログを見たい場合はとりあえず ( ``sudo journalctl`` ) あたりでみる ( ``/var/log/syslog`` でもok)
 
 
 未整理
