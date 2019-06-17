@@ -57,106 +57,106 @@
 </div>
 </details><div class="section" id="id2">
 <h2><a class="toc-backref" href="#id10">ユーザー/ユーザーグループを確認したい</a></h2>
-<pre class="code bash"><a name="rest_code_3ba65582055f4ff89b877ec93665ad26-1"></a><span class="c1"># ユーザーの一覧</span>
-<a name="rest_code_3ba65582055f4ff89b877ec93665ad26-2"></a>$ cat /etc/passwd
-<a name="rest_code_3ba65582055f4ff89b877ec93665ad26-3"></a><span class="c1"># ユーザー名:暗号化されたパスワード:ユーザーID:グループID:コメント:ホームディレクトリー:ログインシェル（ログインした際、最初に起動するシェル）</span>
-<a name="rest_code_3ba65582055f4ff89b877ec93665ad26-4"></a>fumi23:x:1061:1001::/home/fumi23:/bin/bash
-<a name="rest_code_3ba65582055f4ff89b877ec93665ad26-5"></a>
-<a name="rest_code_3ba65582055f4ff89b877ec93665ad26-6"></a><span class="c1"># ユーザーグループの一覧</span>
-<a name="rest_code_3ba65582055f4ff89b877ec93665ad26-7"></a>$ cat /etc/group
-<a name="rest_code_3ba65582055f4ff89b877ec93665ad26-8"></a><span class="c1"># グループ名:暗号化されたパスワード:グループID:サブグループとして所属しているユーザーアカウントのリスト</span>
-<a name="rest_code_3ba65582055f4ff89b877ec93665ad26-9"></a>dev:x:1001:
+<pre class="code bash"><a name="rest_code_f963b97168014c1ca2fb86f4087df4a9-1"></a><span class="c1"># ユーザーの一覧</span>
+<a name="rest_code_f963b97168014c1ca2fb86f4087df4a9-2"></a>$ cat /etc/passwd
+<a name="rest_code_f963b97168014c1ca2fb86f4087df4a9-3"></a><span class="c1"># ユーザー名:暗号化されたパスワード:ユーザーID:グループID:コメント:ホームディレクトリー:ログインシェル（ログインした際、最初に起動するシェル）</span>
+<a name="rest_code_f963b97168014c1ca2fb86f4087df4a9-4"></a>fumi23:x:1061:1001::/home/fumi23:/bin/bash
+<a name="rest_code_f963b97168014c1ca2fb86f4087df4a9-5"></a>
+<a name="rest_code_f963b97168014c1ca2fb86f4087df4a9-6"></a><span class="c1"># ユーザーグループの一覧</span>
+<a name="rest_code_f963b97168014c1ca2fb86f4087df4a9-7"></a>$ cat /etc/group
+<a name="rest_code_f963b97168014c1ca2fb86f4087df4a9-8"></a><span class="c1"># グループ名:暗号化されたパスワード:グループID:サブグループとして所属しているユーザーアカウントのリスト</span>
+<a name="rest_code_f963b97168014c1ca2fb86f4087df4a9-9"></a>dev:x:1001:
 </pre>
 </div>
 <div class="section" id="id3">
 <h2><a class="toc-backref" href="#id11">ディスク容量/使用量を確認したい</a></h2>
-<pre class="code bash"><a name="rest_code_8aa1eb0f0dca40abb19d24181a7e76bb-1"></a><span class="c1"># ファイルシステムの使用領域と空き領域を表示する</span>
-<a name="rest_code_8aa1eb0f0dca40abb19d24181a7e76bb-2"></a>$ df -h
-<a name="rest_code_8aa1eb0f0dca40abb19d24181a7e76bb-3"></a>
-<a name="rest_code_8aa1eb0f0dca40abb19d24181a7e76bb-4"></a><span class="c1"># 指定したディレクトリのディスク使用量を表示する</span>
-<a name="rest_code_8aa1eb0f0dca40abb19d24181a7e76bb-5"></a>$ du -sh /path/to/husky
+<pre class="code bash"><a name="rest_code_f3f694c453cb47eb8fe3f0635fd159d1-1"></a><span class="c1"># ファイルシステムの使用領域と空き領域を表示する</span>
+<a name="rest_code_f3f694c453cb47eb8fe3f0635fd159d1-2"></a>$ df -h
+<a name="rest_code_f3f694c453cb47eb8fe3f0635fd159d1-3"></a>
+<a name="rest_code_f3f694c453cb47eb8fe3f0635fd159d1-4"></a><span class="c1"># 指定したディレクトリのディスク使用量を表示する</span>
+<a name="rest_code_f3f694c453cb47eb8fe3f0635fd159d1-5"></a>$ du -sh /path/to/husky
 </pre>
 </div>
 <div class="section" id="id4">
 <h2><a class="toc-backref" href="#id12">圧縮・展開</a></h2>
-<pre class="code bash"><a name="rest_code_49be0562e7c34ad79e24e21e1c1ba0be-1"></a><span class="c1"># 圧縮: 前のはなくなる</span>
-<a name="rest_code_49be0562e7c34ad79e24e21e1c1ba0be-2"></a>$ gzip husky-dump.sql
-<a name="rest_code_49be0562e7c34ad79e24e21e1c1ba0be-3"></a><span class="c1"># 展開: 前のはなくなる</span>
-<a name="rest_code_49be0562e7c34ad79e24e21e1c1ba0be-4"></a>$ gzip -d husky-dump.sql.gz
-<a name="rest_code_49be0562e7c34ad79e24e21e1c1ba0be-5"></a>
-<a name="rest_code_49be0562e7c34ad79e24e21e1c1ba0be-6"></a><span class="c1"># アーカイブと圧縮: 前のはなくならない</span>
-<a name="rest_code_49be0562e7c34ad79e24e21e1c1ba0be-7"></a>$ tar -cf husky.tar husky
-<a name="rest_code_49be0562e7c34ad79e24e21e1c1ba0be-8"></a>$ gzip husky.tar
-<a name="rest_code_49be0562e7c34ad79e24e21e1c1ba0be-9"></a><span class="c1"># 展開: 前のはなくならない</span>
-<a name="rest_code_49be0562e7c34ad79e24e21e1c1ba0be-10"></a>$ tar -zxvf husky.tar.gz
-<a name="rest_code_49be0562e7c34ad79e24e21e1c1ba0be-11"></a>
-<a name="rest_code_49be0562e7c34ad79e24e21e1c1ba0be-12"></a><span class="c1"># zip 圧縮</span>
-<a name="rest_code_49be0562e7c34ad79e24e21e1c1ba0be-13"></a>$ zip -r /path/to/husky.zip /path/to/husky
-<a name="rest_code_49be0562e7c34ad79e24e21e1c1ba0be-14"></a><span class="c1"># zip 展開</span>
-<a name="rest_code_49be0562e7c34ad79e24e21e1c1ba0be-15"></a>$ unzip /path/to/husky.zip
+<pre class="code bash"><a name="rest_code_325f1c98e0db455d9ec592f19da9797b-1"></a><span class="c1"># 圧縮: 前のはなくなる</span>
+<a name="rest_code_325f1c98e0db455d9ec592f19da9797b-2"></a>$ gzip husky-dump.sql
+<a name="rest_code_325f1c98e0db455d9ec592f19da9797b-3"></a><span class="c1"># 展開: 前のはなくなる</span>
+<a name="rest_code_325f1c98e0db455d9ec592f19da9797b-4"></a>$ gzip -d husky-dump.sql.gz
+<a name="rest_code_325f1c98e0db455d9ec592f19da9797b-5"></a>
+<a name="rest_code_325f1c98e0db455d9ec592f19da9797b-6"></a><span class="c1"># アーカイブと圧縮: 前のはなくならない</span>
+<a name="rest_code_325f1c98e0db455d9ec592f19da9797b-7"></a>$ tar -cf husky.tar husky
+<a name="rest_code_325f1c98e0db455d9ec592f19da9797b-8"></a>$ gzip husky.tar
+<a name="rest_code_325f1c98e0db455d9ec592f19da9797b-9"></a><span class="c1"># 展開: 前のはなくならない</span>
+<a name="rest_code_325f1c98e0db455d9ec592f19da9797b-10"></a>$ tar -zxvf husky.tar.gz
+<a name="rest_code_325f1c98e0db455d9ec592f19da9797b-11"></a>
+<a name="rest_code_325f1c98e0db455d9ec592f19da9797b-12"></a><span class="c1"># zip 圧縮</span>
+<a name="rest_code_325f1c98e0db455d9ec592f19da9797b-13"></a>$ zip -r /path/to/husky.zip /path/to/husky
+<a name="rest_code_325f1c98e0db455d9ec592f19da9797b-14"></a><span class="c1"># zip 展開</span>
+<a name="rest_code_325f1c98e0db455d9ec592f19da9797b-15"></a>$ unzip /path/to/husky.zip
 </pre>
 </div>
 <div class="section" id="id5">
 <h2><a class="toc-backref" href="#id13">転送</a></h2>
 <div class="section" id="scp">
 <h3><a class="toc-backref" href="#id14">SCP</a></h3>
-<pre class="code bash"><a name="rest_code_4afa5af37ffb4d5a9ae36659137cf687-1"></a><span class="c1"># サーバー =&gt; ローカル (踏み台サーバーを経由)</span>
-<a name="rest_code_4afa5af37ffb4d5a9ae36659137cf687-2"></a>$ scp -r -o <span class="s2">"ProxyCommand ssh &lt;ユーザー名&gt;@&lt;踏み台サーバー名&gt; -W %h:%p"</span> &lt;ユーザー名&gt;@&lt;サーバー名&gt;:&lt;転送元: サーバー上のファイルパス&gt; ~&lt;転送先: ローカルのパス&gt;
-<a name="rest_code_4afa5af37ffb4d5a9ae36659137cf687-3"></a>$ scp -r -o <span class="s2">"ProxyCommand ssh fumi23@fumidai-server -W %h:%p"</span> fumi23@remote-server:/path/to/fumi23 ~/fumi23
+<pre class="code bash"><a name="rest_code_07df93d56b0d42ddba6d557b3433e39c-1"></a><span class="c1"># サーバー =&gt; ローカル (踏み台サーバーを経由)</span>
+<a name="rest_code_07df93d56b0d42ddba6d557b3433e39c-2"></a>$ scp -r -o <span class="s2">"ProxyCommand ssh &lt;ユーザー名&gt;@&lt;踏み台サーバー名&gt; -W %h:%p"</span> &lt;ユーザー名&gt;@&lt;サーバー名&gt;:&lt;転送元: サーバー上のファイルパス&gt; &lt;転送先: ローカルのパス&gt;
+<a name="rest_code_07df93d56b0d42ddba6d557b3433e39c-3"></a>$ scp -r -o <span class="s2">"ProxyCommand ssh fumi23@fumidai-server -W %h:%p"</span> fumi23@remote-server:/path/to/fumi23 ~/fumi23
 </pre>
 </div>
 <div class="section" id="sftp">
 <h3><a class="toc-backref" href="#id15">SFTP</a></h3>
-<pre class="code bash"><a name="rest_code_8cb8809d68ce455eb4b85c5b8c24f481-1"></a>$ sftp &lt;ユーザー名&gt;@&lt;サーバー名&gt;
-<a name="rest_code_8cb8809d68ce455eb4b85c5b8c24f481-2"></a><span class="c1"># ローカル =&gt; サーバー</span>
-<a name="rest_code_8cb8809d68ce455eb4b85c5b8c24f481-3"></a>sftp&gt; put husky.tar.gz
-<a name="rest_code_8cb8809d68ce455eb4b85c5b8c24f481-4"></a><span class="c1"># サーバー =&gt; ローカル</span>
-<a name="rest_code_8cb8809d68ce455eb4b85c5b8c24f481-5"></a>sftp&gt; get husky.tar.gz
-<a name="rest_code_8cb8809d68ce455eb4b85c5b8c24f481-6"></a><span class="c1"># sftp をおしまいにする</span>
-<a name="rest_code_8cb8809d68ce455eb4b85c5b8c24f481-7"></a>sftp&gt; quit
+<pre class="code bash"><a name="rest_code_a98be25a70854359b491143b6f42999c-1"></a>$ sftp &lt;ユーザー名&gt;@&lt;サーバー名&gt;
+<a name="rest_code_a98be25a70854359b491143b6f42999c-2"></a><span class="c1"># ローカル =&gt; サーバー</span>
+<a name="rest_code_a98be25a70854359b491143b6f42999c-3"></a>sftp&gt; put husky.tar.gz
+<a name="rest_code_a98be25a70854359b491143b6f42999c-4"></a><span class="c1"># サーバー =&gt; ローカル</span>
+<a name="rest_code_a98be25a70854359b491143b6f42999c-5"></a>sftp&gt; get husky.tar.gz
+<a name="rest_code_a98be25a70854359b491143b6f42999c-6"></a><span class="c1"># sftp をおしまいにする</span>
+<a name="rest_code_a98be25a70854359b491143b6f42999c-7"></a>sftp&gt; quit
 </pre>
 </div>
 </div>
 <div class="section" id="id6">
 <h2><a class="toc-backref" href="#id16">サービスの起動/停止とか</a></h2>
-<pre class="code bash"><a name="rest_code_ae00ed8733054e4791ae12f7c35ea697-1"></a><span class="c1"># 起動</span>
-<a name="rest_code_ae00ed8733054e4791ae12f7c35ea697-2"></a>$ sudo systemctl start mysqld
-<a name="rest_code_ae00ed8733054e4791ae12f7c35ea697-3"></a><span class="c1"># 停止</span>
-<a name="rest_code_ae00ed8733054e4791ae12f7c35ea697-4"></a>$ sudo systemctl stop mysqld
-<a name="rest_code_ae00ed8733054e4791ae12f7c35ea697-5"></a><span class="c1"># 再起動</span>
-<a name="rest_code_ae00ed8733054e4791ae12f7c35ea697-6"></a>$ sudo systemctl restart mysqld
-<a name="rest_code_ae00ed8733054e4791ae12f7c35ea697-7"></a><span class="c1"># ステータス表示</span>
-<a name="rest_code_ae00ed8733054e4791ae12f7c35ea697-8"></a>$ systemctl status mysqld
-<a name="rest_code_ae00ed8733054e4791ae12f7c35ea697-9"></a>
-<a name="rest_code_ae00ed8733054e4791ae12f7c35ea697-10"></a><span class="c1"># 起動</span>
-<a name="rest_code_ae00ed8733054e4791ae12f7c35ea697-11"></a>$ sudo service nginx start
-<a name="rest_code_ae00ed8733054e4791ae12f7c35ea697-12"></a><span class="c1"># ステータス表示</span>
-<a name="rest_code_ae00ed8733054e4791ae12f7c35ea697-13"></a>$ sudo service nginx status
+<pre class="code bash"><a name="rest_code_9ba237e93e5b4e8bbe1cf441950145cb-1"></a><span class="c1"># 起動</span>
+<a name="rest_code_9ba237e93e5b4e8bbe1cf441950145cb-2"></a>$ sudo systemctl start mysqld
+<a name="rest_code_9ba237e93e5b4e8bbe1cf441950145cb-3"></a><span class="c1"># 停止</span>
+<a name="rest_code_9ba237e93e5b4e8bbe1cf441950145cb-4"></a>$ sudo systemctl stop mysqld
+<a name="rest_code_9ba237e93e5b4e8bbe1cf441950145cb-5"></a><span class="c1"># 再起動</span>
+<a name="rest_code_9ba237e93e5b4e8bbe1cf441950145cb-6"></a>$ sudo systemctl restart mysqld
+<a name="rest_code_9ba237e93e5b4e8bbe1cf441950145cb-7"></a><span class="c1"># ステータス表示</span>
+<a name="rest_code_9ba237e93e5b4e8bbe1cf441950145cb-8"></a>$ systemctl status mysqld
+<a name="rest_code_9ba237e93e5b4e8bbe1cf441950145cb-9"></a>
+<a name="rest_code_9ba237e93e5b4e8bbe1cf441950145cb-10"></a><span class="c1"># 起動</span>
+<a name="rest_code_9ba237e93e5b4e8bbe1cf441950145cb-11"></a>$ sudo service nginx start
+<a name="rest_code_9ba237e93e5b4e8bbe1cf441950145cb-12"></a><span class="c1"># ステータス表示</span>
+<a name="rest_code_9ba237e93e5b4e8bbe1cf441950145cb-13"></a>$ sudo service nginx status
 </pre>
 </div>
 <div class="section" id="ls-l">
 <h2><a class="toc-backref" href="#id17">ls -l</a></h2>
-<pre class="code bash"><a name="rest_code_4789ef84715740bfbf5b7dd60476b7ca-1"></a><span class="c1"># . から始まるファイルも全部表示する</span>
-<a name="rest_code_4789ef84715740bfbf5b7dd60476b7ca-2"></a>$ ls -la
-<a name="rest_code_4789ef84715740bfbf5b7dd60476b7ca-3"></a><span class="c1"># ファイルのパーミッション、所有ユーザ、所有グループ、ファイルサイズ、タイムスタンプ、ファイル名</span>
-<a name="rest_code_4789ef84715740bfbf5b7dd60476b7ca-4"></a>-rw-------  <span class="m">1</span> fumi23 dev   <span class="m">1047</span>  5月 <span class="m">30</span> <span class="m">16</span>:20 .viminfo
-<a name="rest_code_4789ef84715740bfbf5b7dd60476b7ca-5"></a>-rwxr-xr-x  <span class="m">1</span> root   root <span class="m">35359</span>  5月 <span class="m">30</span> <span class="m">12</span>:15 shiba.dog
-<a name="rest_code_4789ef84715740bfbf5b7dd60476b7ca-6"></a>drwxrwxr-x  <span class="m">2</span> fumi23 dev   <span class="m">4096</span>  4月 <span class="m">18</span> <span class="m">13</span>:38 husky
-<a name="rest_code_4789ef84715740bfbf5b7dd60476b7ca-7"></a>
-<a name="rest_code_4789ef84715740bfbf5b7dd60476b7ca-8"></a><span class="c1"># 更新日の新しい順</span>
-<a name="rest_code_4789ef84715740bfbf5b7dd60476b7ca-9"></a>$ ls -lt
-<a name="rest_code_4789ef84715740bfbf5b7dd60476b7ca-10"></a>
-<a name="rest_code_4789ef84715740bfbf5b7dd60476b7ca-11"></a><span class="c1"># 更新日の古い順</span>
-<a name="rest_code_4789ef84715740bfbf5b7dd60476b7ca-12"></a>$ ls -lt
+<pre class="code bash"><a name="rest_code_c435345602f548cf8eea65038b65f945-1"></a><span class="c1"># . から始まるファイルも全部表示する</span>
+<a name="rest_code_c435345602f548cf8eea65038b65f945-2"></a>$ ls -la
+<a name="rest_code_c435345602f548cf8eea65038b65f945-3"></a><span class="c1"># ファイルのパーミッション、所有ユーザ、所有グループ、ファイルサイズ、タイムスタンプ、ファイル名</span>
+<a name="rest_code_c435345602f548cf8eea65038b65f945-4"></a>-rw-------  <span class="m">1</span> fumi23 dev   <span class="m">1047</span>  5月 <span class="m">30</span> <span class="m">16</span>:20 .viminfo
+<a name="rest_code_c435345602f548cf8eea65038b65f945-5"></a>-rwxr-xr-x  <span class="m">1</span> root   root <span class="m">35359</span>  5月 <span class="m">30</span> <span class="m">12</span>:15 shiba.dog
+<a name="rest_code_c435345602f548cf8eea65038b65f945-6"></a>drwxrwxr-x  <span class="m">2</span> fumi23 dev   <span class="m">4096</span>  4月 <span class="m">18</span> <span class="m">13</span>:38 husky
+<a name="rest_code_c435345602f548cf8eea65038b65f945-7"></a>
+<a name="rest_code_c435345602f548cf8eea65038b65f945-8"></a><span class="c1"># 更新日の新しい順</span>
+<a name="rest_code_c435345602f548cf8eea65038b65f945-9"></a>$ ls -lt
+<a name="rest_code_c435345602f548cf8eea65038b65f945-10"></a>
+<a name="rest_code_c435345602f548cf8eea65038b65f945-11"></a><span class="c1"># 更新日の古い順</span>
+<a name="rest_code_c435345602f548cf8eea65038b65f945-12"></a>$ ls -ltr
 </pre>
 </div>
 <div class="section" id="su">
 <h2><a class="toc-backref" href="#id18">su</a></h2>
-<pre class="code bash"><a name="rest_code_5354aa9aea754f52bf399b7f46e20c0c-1"></a><span class="c1"># ユーザーを指定しないと root に切り替わる</span>
-<a name="rest_code_5354aa9aea754f52bf399b7f46e20c0c-2"></a>$ sudo su -
-<a name="rest_code_5354aa9aea754f52bf399b7f46e20c0c-3"></a>
-<a name="rest_code_5354aa9aea754f52bf399b7f46e20c0c-4"></a><span class="c1"># ユーザーを  www-data に切り替える</span>
-<a name="rest_code_5354aa9aea754f52bf399b7f46e20c0c-5"></a>$ su -l -s /bin/bash www-data
+<pre class="code bash"><a name="rest_code_3639751537f849be83a5feecdaaa4747-1"></a><span class="c1"># ユーザーを指定しないと root に切り替わる</span>
+<a name="rest_code_3639751537f849be83a5feecdaaa4747-2"></a>$ sudo su -
+<a name="rest_code_3639751537f849be83a5feecdaaa4747-3"></a>
+<a name="rest_code_3639751537f849be83a5feecdaaa4747-4"></a><span class="c1"># ユーザーを  www-data に切り替える</span>
+<a name="rest_code_3639751537f849be83a5feecdaaa4747-5"></a>$ su -l -s /bin/bash www-data
 </pre>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name">
@@ -196,7 +196,7 @@
 </div>
 <div class="section" id="sudo">
 <h2><a class="toc-backref" href="#id19">sudo</a></h2>
-<pre class="code bash"><a name="rest_code_caa3fc41ff45416380a5f64a0eae3c4b-1"></a>$ sudo -iH
+<pre class="code bash"><a name="rest_code_7c7b6916c0c64f49800431854098ffaf-1"></a>$ sudo -iH
 </pre>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name">
@@ -225,18 +225,18 @@
 </div>
 <div class="section" id="id7">
 <h2><a class="toc-backref" href="#id20">最初に叩くコマンドまとめ</a></h2>
-<pre class="code bash"><a name="rest_code_f0ba870407e3413293d52251d2f556e4-1"></a><span class="c1"># メモリーの使用状況をMバイト単位で表示する</span>
-<a name="rest_code_f0ba870407e3413293d52251d2f556e4-2"></a>$ free -m
-<a name="rest_code_f0ba870407e3413293d52251d2f556e4-3"></a><span class="c1"># ディストリビューションのバージョンを確認する</span>
-<a name="rest_code_f0ba870407e3413293d52251d2f556e4-4"></a>$ cat /etc/redhat-release
-<a name="rest_code_f0ba870407e3413293d52251d2f556e4-5"></a>$ ls
-<a name="rest_code_f0ba870407e3413293d52251d2f556e4-6"></a>$ <span class="nb">pwd</span>
-<a name="rest_code_f0ba870407e3413293d52251d2f556e4-7"></a>$ ls /home
-<a name="rest_code_f0ba870407e3413293d52251d2f556e4-8"></a>$ df -h
-<a name="rest_code_f0ba870407e3413293d52251d2f556e4-9"></a><span class="c1"># パッケージキャッシュの削除</span>
-<a name="rest_code_f0ba870407e3413293d52251d2f556e4-10"></a>$ yum clean all
-<a name="rest_code_f0ba870407e3413293d52251d2f556e4-11"></a><span class="c1"># パッケージの更新</span>
-<a name="rest_code_f0ba870407e3413293d52251d2f556e4-12"></a>$ yum -y update
+<pre class="code bash"><a name="rest_code_65f7941647914b21999a04c8ae18f7d7-1"></a><span class="c1"># メモリーの使用状況をMバイト単位で表示する</span>
+<a name="rest_code_65f7941647914b21999a04c8ae18f7d7-2"></a>$ free -m
+<a name="rest_code_65f7941647914b21999a04c8ae18f7d7-3"></a><span class="c1"># ディストリビューションのバージョンを確認する</span>
+<a name="rest_code_65f7941647914b21999a04c8ae18f7d7-4"></a>$ cat /etc/redhat-release
+<a name="rest_code_65f7941647914b21999a04c8ae18f7d7-5"></a>$ ls
+<a name="rest_code_65f7941647914b21999a04c8ae18f7d7-6"></a>$ <span class="nb">pwd</span>
+<a name="rest_code_65f7941647914b21999a04c8ae18f7d7-7"></a>$ ls /home
+<a name="rest_code_65f7941647914b21999a04c8ae18f7d7-8"></a>$ df -h
+<a name="rest_code_65f7941647914b21999a04c8ae18f7d7-9"></a><span class="c1"># パッケージキャッシュの削除</span>
+<a name="rest_code_65f7941647914b21999a04c8ae18f7d7-10"></a>$ yum clean all
+<a name="rest_code_65f7941647914b21999a04c8ae18f7d7-11"></a><span class="c1"># パッケージの更新</span>
+<a name="rest_code_65f7941647914b21999a04c8ae18f7d7-12"></a>$ yum -y update
 </pre>
 <ul class="simple">
 <li>これがわかりやすかった:<ul>
@@ -276,16 +276,16 @@
 </div>
 <div class="section" id="selinux">
 <h2><a class="toc-backref" href="#id23">SELinux</a></h2>
-<pre class="code bash"><a name="rest_code_e1e1dba6ffca43668b3e851e9a70b832-1"></a><span class="c1"># 有効になっている</span>
-<a name="rest_code_e1e1dba6ffca43668b3e851e9a70b832-2"></a>$ sudo getenforce
-<a name="rest_code_e1e1dba6ffca43668b3e851e9a70b832-3"></a>Enforcing
-<a name="rest_code_e1e1dba6ffca43668b3e851e9a70b832-4"></a>
-<a name="rest_code_e1e1dba6ffca43668b3e851e9a70b832-5"></a><span class="c1"># 無効にする</span>
-<a name="rest_code_e1e1dba6ffca43668b3e851e9a70b832-6"></a>$ sudo setenforce <span class="m">0</span>
-<a name="rest_code_e1e1dba6ffca43668b3e851e9a70b832-7"></a>
-<a name="rest_code_e1e1dba6ffca43668b3e851e9a70b832-8"></a><span class="c1"># 無効になっている</span>
-<a name="rest_code_e1e1dba6ffca43668b3e851e9a70b832-9"></a>$ sudo getenforce
-<a name="rest_code_e1e1dba6ffca43668b3e851e9a70b832-10"></a>Permissive
+<pre class="code bash"><a name="rest_code_d4fa77b73f2e46dcbd097ef3f22d0e8f-1"></a><span class="c1"># 有効になっている</span>
+<a name="rest_code_d4fa77b73f2e46dcbd097ef3f22d0e8f-2"></a>$ sudo getenforce
+<a name="rest_code_d4fa77b73f2e46dcbd097ef3f22d0e8f-3"></a>Enforcing
+<a name="rest_code_d4fa77b73f2e46dcbd097ef3f22d0e8f-4"></a>
+<a name="rest_code_d4fa77b73f2e46dcbd097ef3f22d0e8f-5"></a><span class="c1"># 無効にする</span>
+<a name="rest_code_d4fa77b73f2e46dcbd097ef3f22d0e8f-6"></a>$ sudo setenforce <span class="m">0</span>
+<a name="rest_code_d4fa77b73f2e46dcbd097ef3f22d0e8f-7"></a>
+<a name="rest_code_d4fa77b73f2e46dcbd097ef3f22d0e8f-8"></a><span class="c1"># 無効になっている</span>
+<a name="rest_code_d4fa77b73f2e46dcbd097ef3f22d0e8f-9"></a>$ sudo getenforce
+<a name="rest_code_d4fa77b73f2e46dcbd097ef3f22d0e8f-10"></a>Permissive
 </pre>
 <ul class="simple">
 <li>SELinux で拒否されたときのログは <tt class="docutils literal">/var/log/audit/audit.log</tt> にある</li>
@@ -299,7 +299,7 @@
 <li>検証用にローカルVMにpostfixを建てるなどした場合は、localhostの <tt class="docutils literal">/var/log/mail.log</tt> にログがある</li>
 </ul>
 </li>
-<li>なにかしらのサーバーログを見たい場合はとりあえず ( <tt class="docutils literal">sudo journalctl</tt>) あたりでみる ( <tt class="docutils literal">/var/log/syslog</tt> でもok)</li>
+<li>なにかしらのサーバーログを見たい場合はとりあえず ( <tt class="docutils literal">sudo journalctl</tt> ) あたりでみる ( <tt class="docutils literal">/var/log/syslog</tt> でもok)</li>
 </ul>
 </div>
 <div class="section" id="id9">
