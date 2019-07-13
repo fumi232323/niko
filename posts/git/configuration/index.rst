@@ -8,6 +8,25 @@
 いろいろ
 ========
 
+- git の config ファイル
+
+  * ~/.gitconfig
+
+- コミットメッセージのテンプレートを設定できるファイル
+
+  * ~/.stCommitMsg
+
+- グローバル (たぶん Mac のユーザー単位) に gitignore したいものを書けるファイル
+
+  * ~/.gitignore_global
+  * ~/.gitconfig に以下を記述
+
+    .. code-block:: ini
+
+      [core]
+        excludesfile = /path/to/userhome/.gitignore_global
+
+
 - エディタに Vim に設定する
 
   .. code-block:: console
