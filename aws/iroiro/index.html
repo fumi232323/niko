@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<title>ほんとうにめも/ふみのて</title>
+<link rel="shortcut icon" href="../../assets/icons/favicon.ico">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Griffy">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Vollkorn:400,700">
+<link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/sawarabimincho.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+<link rel="stylesheet" href="../../assets/css/style.css?20190615">
+</head>
+<body>
+    <div class="container">
+      <div class="header"><header class="item item-header"><h1>
+    <a href="../../">
+      <img class="logo" src="../../assets/images/inuu.png" alt="犬"></a>
+  </h1>
+  <iframe src="../../tags/" class="tags"></iframe>
+</header></div>
+      <div class="main">
+<div class="article-content">
+  <main class="item item-article item-aws"><time class="date" datetime="2019-06-27 00:00:00+09:00">
+      2019-06-27 Thu
+    </time><div class="title">ほんとうにめも</div>
+    <div class="category">
+      <a href="../../tags/aws/">
+          aws
+      </a>
+    </div>
+    <div class="text">
+      <div>
+<div class="section" id="cfn">
+<h2>CFn</h2>
+<div class="section" id="id1">
+<h3>ガイド</h3>
+<ul class="simple">
+<li><a class="reference external" href="https://aws.amazon.com/jp/cloudformation/">https://aws.amazon.com/jp/cloudformation/</a></li>
+<li><a class="reference external" href="https://aws.amazon.com/jp/cloudformation/features/">https://aws.amazon.com/jp/cloudformation/features/</a></li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h3>めもめも</h3>
+<ul>
+<li>
+<p class="first"><tt class="docutils literal">AWS CloudFormation</tt> のことらしい</p>
+<ul class="simple">
+<li>略語だったのか... 略すの....</li>
+<li>
+<cite>クラウド環境内のすべてのインフラストラクチャリソースを記述してプロビジョニングするための共通言語を提供します</cite> ふむ</li>
+<li>
+<cite>AWS CloudFormation は追加料金なしでご利用いただけます</cite> タダらしい</li>
+</ul>
+</li>
+<li>
+<p class="first">利点</p>
+<ul class="simple">
+<li><cite>インフラストラクチャ全体をテキストファイルでモデル化できます</cite></li>
+<li>モデル化したテキストファイルのことを <tt class="docutils literal">テンプレート</tt> というらしい<ul>
+<li>サンプルテンプレートを使ったり、独自のテンプレートを作ったりできるらしい</li>
+<li>JSON/YAML で書くらしい</li>
+</ul>
+</li>
+<li>
+<cite>このテンプレートは、インフラストラクチャにおける真の単一ソースとなります。</cite> ふむう</li>
+</ul>
+</li>
+<li>
+<p class="first">自動化とデプロイ</p>
+<ul class="simple">
+<li><cite>AWS CloudFormation では、安全で繰り返し可能な方法でリソースがプロビジョニングされるため、手作業やカスタムスクリプト作成を必要とせずにインフラストラクチャとアプリケーションの構築と再構築が可能になります。</cite></li>
+<li>
+<cite>エラーが検出された場合は変更が自動的にロールバックされます。</cite> なぬ、しゅごいな....</li>
+<li>CloudWatch アラームを指定できるんだって</li>
+<li>
+<cite>AWS リソース、およびアプリケーションを実行するために必要な関連するすべての依存関係やランタイムパラメータを記述できる</cite> んですって</li>
+<li>
+<tt class="docutils literal">スタック</tt> というキーワードが登場、それなにおいしいの??</li>
+</ul>
+</li>
+<li>
+<p class="first">単なるコード</p>
+<ul class="simple">
+<li>
+<cite>インフラストラクチャをコード化することで、インフラストラクチャを単なるコードとして扱えるようになります。</cite> ほうほう</li>
+</ul>
+</li>
+<li>
+<p class="first">わたしの理解</p>
+<ul class="simple">
+<li>Ansible の AWS よう、みたいなイメージだろうか....</li>
+<li>
+<tt class="docutils literal">スタック</tt> なに.....</li>
+</ul>
+</li>
+<li>
+<p class="first"><a class="reference external" href="https://tech.bitbank.cc/cfn-vpc/">https://tech.bitbank.cc/cfn-vpc/</a></p>
+<ul>
+<li>
+<p class="first"><cite>Infrastructure as Codeってやつですね。</cite> とのこと。ほーう。</p>
+</li>
+<li>
+<p class="first"><cite>AWSで利用するEC2やVPCなどのインフラをコードでビルドできるわけです。</cite> ほうほうー</p>
+</li>
+<li>
+<p class="first">はー、わかりやすい説明ありがとうございます.....</p>
+<blockquote>
+<ul class="simple">
+<li>バージョン管理が可能になり</li>
+<li>冪等性を担保したデプロイが可能になる</li>
+</ul>
+</blockquote>
+</li>
+<li>
+<p class="first">あああ、ありがとうございます....</p>
+<ul class="simple">
+<li>テンプレートを元にして、AWSのCloudFormation上にスタックというものができあがります。</li>
+<li>スタックはリソース(EC2とかVPCなど)の変更点を1まとめにしたものです。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="vpc">
+<h2>VPC</h2>
+<div class="section" id="id3">
+<h3>ガイド</h3>
+<ul class="simple">
+<li><a class="reference external" href="https://aws.amazon.com/jp/vpc/">https://aws.amazon.com/jp/vpc/</a></li>
+<li><a class="reference external" href="https://docs.aws.amazon.com/ja_jp/vpc/latest/userguide/what-is-amazon-vpc.html">https://docs.aws.amazon.com/ja_jp/vpc/latest/userguide/what-is-amazon-vpc.html</a></li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h3>めもめも</h3>
+<ul class="simple">
+<li>
+<tt class="docutils literal">Amazon Virtual Private Cloud (Amazon VPC)</tt> というやつがあって<ul>
+<li>閉じたクラウドの仮装ネットワークなのみたいなこと言ってるよ...</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+    </div>
+  </main>
+</div>
+</div>
+    </div>
+  </body>
+</html>

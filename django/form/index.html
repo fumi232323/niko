@@ -34,24 +34,109 @@
 <details><summary>目次</summary><div class="contents topic" id="id1">
 <p class="topic-title first">目次</p>
 <ul class="simple">
-<li><a class="reference internal" href="#id2" id="id5">書籍/リファレンス</a></li>
+<li><a class="reference internal" href="#id2" id="id8">書籍/リファレンス</a></li>
 <li>
-<a class="reference internal" href="#id3" id="id6">こんなのある</a><ul>
-<li><a class="reference internal" href="#id4" id="id7">インラインフォームセット</a></li>
+<a class="reference internal" href="#form" id="id9">Form</a><ul>
+<li><a class="reference internal" href="#id3" id="id10">役割</a></li>
+<li><a class="reference internal" href="#id4" id="id11">入力フィールド</a></li>
+<li><a class="reference internal" href="#id5" id="id12">バリデーションの順番</a></li>
+<li><a class="reference internal" href="#clean" id="id13">clean</a></li>
+</ul>
+</li>
+<li>
+<a class="reference internal" href="#id6" id="id14">こんなのある</a><ul>
+<li><a class="reference internal" href="#id7" id="id15">インラインフォームセット</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </details><div class="section" id="id2">
-<h2><a class="toc-backref" href="#id5">書籍/リファレンス</a></h2>
+<h2><a class="toc-backref" href="#id8">書籍/リファレンス</a></h2>
 <ul class="simple">
 <li>TBD</li>
 </ul>
 </div>
+<div class="section" id="form">
+<h2><a class="toc-backref" href="#id9">Form</a></h2>
 <div class="section" id="id3">
-<h2><a class="toc-backref" href="#id6">こんなのある</a></h2>
+<h3><a class="toc-backref" href="#id10">役割</a></h3>
+<ul class="simple">
+<li>入力データの保持</li>
+<li>バリデーション<ul>
+<li>OK の場合: <tt class="docutils literal">cleaned_data</tt> (辞書) に入る、型変換してくれる</li>
+<li>NG の場合: エラーメッセージ (list)</li>
+</ul>
+</li>
+</ul>
+</div>
 <div class="section" id="id4">
-<h3><a class="toc-backref" href="#id7">インラインフォームセット</a></h3>
+<h3><a class="toc-backref" href="#id11">入力フィールド</a></h3>
+<pre class="code python"><a name="rest_code_04671a70dc2b4e318e8bed34923c943b-1"></a><span class="kn">from</span> <span class="nn">django</span> <span class="kn">import</span> <span class="n">forms</span>
+<a name="rest_code_04671a70dc2b4e318e8bed34923c943b-2"></a>
+<a name="rest_code_04671a70dc2b4e318e8bed34923c943b-3"></a><span class="k">class</span> <span class="nc">LoginForm</span><span class="p">(</span><span class="n">forms</span><span class="o">.</span><span class="n">Form</span><span class="p">):</span>
+<a name="rest_code_04671a70dc2b4e318e8bed34923c943b-4"></a>    <span class="c1"># この変数名が画面の入力フィールドの name 属性になる</span>
+<a name="rest_code_04671a70dc2b4e318e8bed34923c943b-5"></a>    <span class="n">password</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span>  <span class="c1"># django.forms.fields.Field クラスのサブクラスを指定</span>
+<a name="rest_code_04671a70dc2b4e318e8bed34923c943b-6"></a>        <span class="c1"># widget でどんな部品で画面に表示するか指定できる。 Field ごとにデフォルトもある。</span>
+<a name="rest_code_04671a70dc2b4e318e8bed34923c943b-7"></a>        <span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">PasswordInput</span><span class="p">(</span><span class="n">render_value</span><span class="o">=</span><span class="bp">True</span><span class="p">),</span>
+<a name="rest_code_04671a70dc2b4e318e8bed34923c943b-8"></a>        <span class="c1"># そのほかにも、いろいろ指定できる。指定できるものは Field により異なる。</span>
+<a name="rest_code_04671a70dc2b4e318e8bed34923c943b-9"></a>        <span class="n">label</span><span class="o">=</span><span class="s1">'パスワード'</span><span class="p">,</span>
+<a name="rest_code_04671a70dc2b4e318e8bed34923c943b-10"></a>        <span class="n">strip</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+<a name="rest_code_04671a70dc2b4e318e8bed34923c943b-11"></a>    <span class="p">)</span>
+</pre>
+</div>
+<div class="section" id="id5">
+<h3><a class="toc-backref" href="#id12">バリデーションの順番</a></h3>
+<p>入り口: <tt class="docutils literal">is_valid()</tt></p>
+<ol class="arabic">
+<li>
+<p class="first"><tt class="docutils literal">Form.フィールド</tt> に定義されたバリデーション: 文字種チェックなど ※フォームクラスに定義した順にやられる</p>
+<blockquote>
+<ul class="simple">
+<li>一. to_python(): フィールドに自作クラスを使うとか</li>
+<li>二. validate(): フィールドに自作クラスを使うとか</li>
+<li>三. run_validators(): フィールドの validators 属性に何か入れてるとき</li>
+</ul>
+</blockquote>
+</li>
+<li>
+<p class="first"><tt class="docutils literal"><span class="pre">Form.clean_&lt;フィールド名&gt;()</span></tt>: 単項目、妥当性チェック ※フォームクラスに定義した順にやられる</p>
+</li>
+<li>
+<p class="first"><tt class="docutils literal">Form.clean()</tt>: 複数項目、相関チェック、データベースとの整合性チェック</p>
+</li>
+</ol>
+</div>
+<div class="section" id="clean">
+<h3><a class="toc-backref" href="#id13">clean</a></h3>
+<pre class="code python"><a name="rest_code_57365df409634b5db63a9ca850923fe6-1"></a><span class="kn">from</span> <span class="nn">django</span> <span class="kn">import</span> <span class="n">forms</span>
+<a name="rest_code_57365df409634b5db63a9ca850923fe6-2"></a>
+<a name="rest_code_57365df409634b5db63a9ca850923fe6-3"></a><span class="k">class</span> <span class="nc">LoginForm</span><span class="p">(</span><span class="n">forms</span><span class="o">.</span><span class="n">Form</span><span class="p">):</span>
+<a name="rest_code_57365df409634b5db63a9ca850923fe6-4"></a>    <span class="n">username</span> <span class="o">=</span> <span class="n">UsernameField</span><span class="p">(</span>
+<a name="rest_code_57365df409634b5db63a9ca850923fe6-5"></a>        <span class="n">label</span><span class="o">=</span><span class="s1">'ユーザー名'</span><span class="p">,</span>
+<a name="rest_code_57365df409634b5db63a9ca850923fe6-6"></a>        <span class="n">max_length</span><span class="o">=</span><span class="mi">255</span><span class="p">,</span>
+<a name="rest_code_57365df409634b5db63a9ca850923fe6-7"></a>    <span class="p">)</span>
+<a name="rest_code_57365df409634b5db63a9ca850923fe6-8"></a>
+<a name="rest_code_57365df409634b5db63a9ca850923fe6-9"></a>    <span class="c1"># ``clean_&lt;フィールド名&gt;`` というメソッド名にする</span>
+<a name="rest_code_57365df409634b5db63a9ca850923fe6-10"></a>    <span class="k">def</span> <span class="nf">clean_username</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a name="rest_code_57365df409634b5db63a9ca850923fe6-11"></a>        <span class="c1"># 入力値は cleaned_data から取得する</span>
+<a name="rest_code_57365df409634b5db63a9ca850923fe6-12"></a>        <span class="n">username</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cleaned_data</span><span class="p">[</span><span class="s1">'username'</span><span class="p">]</span>
+<a name="rest_code_57365df409634b5db63a9ca850923fe6-13"></a>        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">username</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+<a name="rest_code_57365df409634b5db63a9ca850923fe6-14"></a>            <span class="c1"># バリデーション NG の場合</span>
+<a name="rest_code_57365df409634b5db63a9ca850923fe6-15"></a>            <span class="k">raise</span> <span class="n">forms</span><span class="o">.</span><span class="n">ValidationError</span><span class="p">(</span>
+<a name="rest_code_57365df409634b5db63a9ca850923fe6-16"></a>                <span class="c1"># ValidationError を raise すると Form 内部の変数にエラーメッセージを追加できる</span>
+<a name="rest_code_57365df409634b5db63a9ca850923fe6-17"></a>                <span class="c1"># ValidationError には↓のように、メッセージを設定できる</span>
+<a name="rest_code_57365df409634b5db63a9ca850923fe6-18"></a>                <span class="s1">'</span><span class="si">%(min_length)s</span><span class="s1"> 文字以上で入力してください'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s1">'min_length'</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
+<a name="rest_code_57365df409634b5db63a9ca850923fe6-19"></a>            <span class="p">)</span>
+<a name="rest_code_57365df409634b5db63a9ca850923fe6-20"></a>        <span class="c1"># cleaned_data に値を再セットする</span>
+<a name="rest_code_57365df409634b5db63a9ca850923fe6-21"></a>        <span class="c1"># ``return 値`` しないと値が消えてしまう</span>
+<a name="rest_code_57365df409634b5db63a9ca850923fe6-22"></a>        <span class="k">return</span> <span class="n">username</span>
+</pre>
+</div>
+</div>
+<div class="section" id="id6">
+<h2><a class="toc-backref" href="#id14">こんなのある</a></h2>
+<div class="section" id="id7">
+<h3><a class="toc-backref" href="#id15">インラインフォームセット</a></h3>
 <p>使い方はよくわかっていない</p>
 <ul class="simple">
 <li><a class="reference external" href="https://docs.djangoproject.com/ja/1.11/topics/forms/modelforms/#inline-formsets">https://docs.djangoproject.com/ja/1.11/topics/forms/modelforms/#inline-formsets</a></li>

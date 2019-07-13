@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ふみのて</title><link>https://32imuf.com/</link><description>のてのて</description><atom:link href="https://32imuf.com/atom.xml" rel="self" type="application/rss+xml"></atom:link><language>ja</language><copyright>Contents © 2019 &lt;a href="mailto:fumi232323fumi2016@gmail.com"&gt;fumi23&lt;/a&gt; </copyright><lastBuildDate>Tue, 18 Jun 2019 13:24:22 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Django なんでもメモ</title><link>https://32imuf.com/django/note/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;details&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ふみのて</title><link>https://32imuf.com/</link><description>のてのて</description><atom:link href="https://32imuf.com/atom.xml" rel="self" type="application/rss+xml"></atom:link><language>ja</language><copyright>Contents © 2019 &lt;a href="mailto:fumi232323fumi2016@gmail.com"&gt;fumi23&lt;/a&gt; </copyright><lastBuildDate>Sat, 13 Jul 2019 13:03:13 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Django なんでもメモ</title><link>https://32imuf.com/django/note/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;details&gt;
   &lt;summary&gt;目次&lt;/summary&gt;&lt;div class="contents topic" id="id1"&gt;
 &lt;p class="topic-title first"&gt;目次&lt;/p&gt;
 &lt;ul class="simple"&gt;
@@ -454,34 +454,7 @@ In an HttpRequest object, the GET and POST attributes are instances of django.ht
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;a class="reference external" href="https://docs.djangoproject.com/en/2.2/topics/testing/advanced/#django.test.RequestFactory"&gt;Django documentation &amp;gt; Advanced testing topics &amp;gt; RequestFactory&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/div&gt;&lt;/div&gt;</description><category>django</category><guid>https://32imuf.com/django/test/</guid><pubDate>Mon, 20 May 2019 15:00:00 GMT</pubDate></item><item><title>Django: Form</title><link>https://32imuf.com/django/form/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;details&gt;
-  &lt;summary&gt;目次&lt;/summary&gt;&lt;div class="contents topic" id="id1"&gt;
-&lt;p class="topic-title first"&gt;目次&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference internal" href="https://32imuf.com/django/form/#id2" id="id5"&gt;書籍/リファレンス&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="https://32imuf.com/django/form/#id3" id="id6"&gt;こんなのある&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="https://32imuf.com/django/form/#id4" id="id7"&gt;インラインフォームセット&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;/details&gt;&lt;div class="section" id="id2"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/django/form/#id5"&gt;書籍/リファレンス&lt;/a&gt;&lt;/h2&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;TBD&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class="section" id="id3"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/django/form/#id6"&gt;こんなのある&lt;/a&gt;&lt;/h2&gt;
-&lt;div class="section" id="id4"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/django/form/#id7"&gt;インラインフォームセット&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;使い方はよくわかっていない&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://docs.djangoproject.com/ja/1.11/topics/forms/modelforms/#inline-formsets"&gt;https://docs.djangoproject.com/ja/1.11/topics/forms/modelforms/#inline-formsets&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://docs.djangoproject.com/ja/1.11/ref/forms/models/#inlineformset-factory"&gt;https://docs.djangoproject.com/ja/1.11/ref/forms/models/#inlineformset-factory&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;/div&gt;</description><category>django</category><guid>https://32imuf.com/django/form/</guid><pubDate>Sat, 11 May 2019 15:00:00 GMT</pubDate></item><item><title>Django: django-admin.py, manage.py</title><link>https://32imuf.com/django/manage/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;details&gt;
+&lt;/div&gt;&lt;/div&gt;</description><category>django</category><guid>https://32imuf.com/django/test/</guid><pubDate>Mon, 20 May 2019 15:00:00 GMT</pubDate></item><item><title>Django: django-admin.py, manage.py</title><link>https://32imuf.com/django/manage/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;details&gt;
   &lt;summary&gt;目次&lt;/summary&gt;&lt;div class="contents topic" id="id1"&gt;
 &lt;p class="topic-title first"&gt;目次&lt;/p&gt;
 &lt;ul class="simple"&gt;
@@ -1696,4 +1669,374 @@ Python 2.7 から、 DeprecationWarning とその子クラスはデフォルト�
 &lt;a name="rest_code_070c0e01f8b344a29ce4c3a8a92a19a6-9"&gt;&lt;/a&gt;    &lt;span class="c1"&gt;# 403 エラー画面を表示する場合は次のコメントアウトを外す&lt;/span&gt;
 &lt;a name="rest_code_070c0e01f8b344a29ce4c3a8a92a19a6-10"&gt;&lt;/a&gt;    &lt;span class="c1"&gt;# raise_exception = True&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;&lt;/div&gt;</description><category>django</category><guid>https://32imuf.com/django/view/</guid><pubDate>Sat, 04 May 2019 15:00:00 GMT</pubDate></item></channel></rss>
+&lt;/div&gt;&lt;/div&gt;</description><category>django</category><guid>https://32imuf.com/django/view/</guid><pubDate>Sat, 04 May 2019 15:00:00 GMT</pubDate></item><item><title>Docker Compose で Django/PostgreSQL/MySQL 環境をつくろう</title><link>https://32imuf.com/docker/create-django-env-with-docker-compose-psql-mysql/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;details&gt;
+  &lt;summary&gt;目次&lt;/summary&gt;&lt;div class="contents topic" id="id1"&gt;
+&lt;p class="topic-title first"&gt;目次&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference internal" href="https://32imuf.com/docker/create-django-env-with-docker-compose-psql-mysql/#id2" id="id11"&gt;リファレンス・参考サイト書籍&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="https://32imuf.com/docker/create-django-env-with-docker-compose-psql-mysql/#id3" id="id12"&gt;つくりかた&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="https://32imuf.com/docker/create-django-env-with-docker-compose-psql-mysql/#id4" id="id13"&gt;構成&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="https://32imuf.com/docker/create-django-env-with-docker-compose-psql-mysql/#id5" id="id14"&gt;設定ファイル&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="https://32imuf.com/docker/create-django-env-with-docker-compose-psql-mysql/#id6" id="id15"&gt;起動&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="https://32imuf.com/docker/create-django-env-with-docker-compose-psql-mysql/#id7" id="id16"&gt;つかいかた&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="https://32imuf.com/docker/create-django-env-with-docker-compose-psql-mysql/#app" id="id17"&gt;app コンテナ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="https://32imuf.com/docker/create-django-env-with-docker-compose-psql-mysql/#mysql-postgresql" id="id18"&gt;MySQL, PostgreSQL コンテナ&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="https://32imuf.com/docker/create-django-env-with-docker-compose-psql-mysql/#id8" id="id19"&gt;感想&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="https://32imuf.com/docker/create-django-env-with-docker-compose-psql-mysql/#id9" id="id20"&gt;その他&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="https://32imuf.com/docker/create-django-env-with-docker-compose-psql-mysql/#id10" id="id21"&gt;Python 公式イメージのルーツ&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="https://32imuf.com/docker/create-django-env-with-docker-compose-psql-mysql/#docker-hub" id="id22"&gt;Docker Hub&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/details&gt;&lt;div class="section" id="id2"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/create-django-env-with-docker-compose-psql-mysql/#id11"&gt;リファレンス・参考サイト書籍&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;ありがとうございました&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p class="first"&gt;Python プロフェッショナルプログラミング第３版 &amp;gt; 01-01 Python のセットアップ&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;a class="reference external" href="https://hub.docker.com/_/ubuntu"&gt;ubuntu Docker Official Images&lt;/a&gt;&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;tt class="docutils literal"&gt;en_US.utf8&lt;/tt&gt; を &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;apt-get&lt;/span&gt;&lt;/tt&gt; するくだりを参考にした&lt;ul&gt;
+&lt;li&gt;Ubuntu イメージにはデフォルトで &lt;tt class="docutils literal"&gt;C&lt;/tt&gt;, &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;C.UTF-8&lt;/span&gt;&lt;/tt&gt;, and &lt;tt class="docutils literal"&gt;POSIX&lt;/tt&gt; locales が含まれている、これで UTF-8 locale を使うほとんどのひとには十分なはずだけれども、&lt;/li&gt;
+&lt;li&gt;足りない場合は、&lt;tt class="docutils literal"&gt;locales&lt;/tt&gt; package からインストールしてね&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;a class="reference external" href="https://docs.docker.com/develop/develop-images/dockerfile_best-practices/"&gt;Best practices for writing Dockerfiles&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;tt class="docutils literal"&gt;RUN&lt;/tt&gt; で &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;apt-get&lt;/span&gt;&lt;/tt&gt; するときはこうすると良さそう&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;apt-get&lt;/span&gt; upgrade&lt;/tt&gt; , &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;dist-upgrade&lt;/span&gt;&lt;/tt&gt; するのは避けよう&lt;/li&gt;
+&lt;li&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;apt-get&lt;/span&gt; update &amp;amp;&amp;amp; &lt;span class="pre"&gt;apt-get&lt;/span&gt; install &lt;span class="pre"&gt;-y&lt;/span&gt;&lt;/tt&gt; はセットでやろう&lt;ul&gt;
+&lt;li&gt;こうすると、 latest package versions が install できる&lt;/li&gt;
+&lt;li&gt;このテクニックは、 &lt;tt class="docutils literal"&gt;cache busting&lt;/tt&gt; として知られているらしい&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;packages はアルファベット順に並べる&lt;ul&gt;
+&lt;li&gt;重複に気づけるし、後から足したり減らしたりするのが容易になるから&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;最後に &lt;tt class="docutils literal"&gt;rm &lt;span class="pre"&gt;-rf&lt;/span&gt; /var/lib/apt/lists/*&lt;/tt&gt; して apt キャッシュを clean up すると、 image size を減らせる&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;良い見本&lt;/p&gt;
+&lt;pre class="code docker"&gt;&lt;a name="rest_code_a21ee3407b2e4372b67c29bab3af0bb1-1"&gt;&lt;/a&gt;&lt;span class="k"&gt;RUN&lt;/span&gt; apt-get update &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; apt-get install -y &lt;span class="se"&gt;\&lt;/span&gt;
+&lt;a name="rest_code_a21ee3407b2e4372b67c29bab3af0bb1-2"&gt;&lt;/a&gt;    aufs-tools &lt;span class="se"&gt;\&lt;/span&gt;
+&lt;a name="rest_code_a21ee3407b2e4372b67c29bab3af0bb1-3"&gt;&lt;/a&gt;    automake &lt;span class="se"&gt;\&lt;/span&gt;
+&lt;a name="rest_code_a21ee3407b2e4372b67c29bab3af0bb1-4"&gt;&lt;/a&gt;    build-essential &lt;span class="se"&gt;\&lt;/span&gt;
+&lt;a name="rest_code_a21ee3407b2e4372b67c29bab3af0bb1-5"&gt;&lt;/a&gt;    curl &lt;span class="se"&gt;\&lt;/span&gt;
+&lt;a name="rest_code_a21ee3407b2e4372b67c29bab3af0bb1-6"&gt;&lt;/a&gt;    dpkg-sig &lt;span class="se"&gt;\&lt;/span&gt;
+&lt;a name="rest_code_a21ee3407b2e4372b67c29bab3af0bb1-7"&gt;&lt;/a&gt;    libcap-dev &lt;span class="se"&gt;\&lt;/span&gt;
+&lt;a name="rest_code_a21ee3407b2e4372b67c29bab3af0bb1-8"&gt;&lt;/a&gt;    libsqlite3-dev &lt;span class="se"&gt;\&lt;/span&gt;
+&lt;a name="rest_code_a21ee3407b2e4372b67c29bab3af0bb1-9"&gt;&lt;/a&gt;    mercurial &lt;span class="se"&gt;\&lt;/span&gt;
+&lt;a name="rest_code_a21ee3407b2e4372b67c29bab3af0bb1-10"&gt;&lt;/a&gt;    reprepro &lt;span class="se"&gt;\&lt;/span&gt;
+&lt;a name="rest_code_a21ee3407b2e4372b67c29bab3af0bb1-11"&gt;&lt;/a&gt;    ruby1.9.1 &lt;span class="se"&gt;\&lt;/span&gt;
+&lt;a name="rest_code_a21ee3407b2e4372b67c29bab3af0bb1-12"&gt;&lt;/a&gt;    ruby1.9.1-dev &lt;span class="se"&gt;\&lt;/span&gt;
+&lt;a name="rest_code_a21ee3407b2e4372b67c29bab3af0bb1-13"&gt;&lt;/a&gt;    &lt;span class="nv"&gt;s3cmd&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;.1.* &lt;span class="se"&gt;\&lt;/span&gt;
+&lt;a name="rest_code_a21ee3407b2e4372b67c29bab3af0bb1-14"&gt;&lt;/a&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; rm -rf /var/lib/apt/lists/*
+&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;a class="reference external" href="https://docs.docker.com/develop/dev-best-practices/"&gt;Docker development best practices&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;tt class="docutils literal"&gt;RUN&lt;/tt&gt; で &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;apt-get&lt;/span&gt;&lt;/tt&gt; するときはこうすると良さそう&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p class="first"&gt;2行で書くより、1行で書く&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;1行で書くと、イメージを小さくできる ( &lt;tt class="docutils literal"&gt;layers&lt;/tt&gt; がなんのことなのかはよくわからない)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;cite&gt;The first creates two layers in the image, while the second only creates one.&lt;/cite&gt;&lt;/p&gt;
+&lt;pre class="code docker"&gt;&lt;a name="rest_code_a4e338a05d3e46a7ab57d0f8fde8a619-1"&gt;&lt;/a&gt;&lt;span class="k"&gt;RUN&lt;/span&gt; apt-get -y update
+&lt;a name="rest_code_a4e338a05d3e46a7ab57d0f8fde8a619-2"&gt;&lt;/a&gt;&lt;span class="k"&gt;RUN&lt;/span&gt; apt-get install -y python
+&lt;/pre&gt;&lt;pre class="code docker"&gt;&lt;a name="rest_code_f6f0cc77fa0c429c850380ceefade8d2-1"&gt;&lt;/a&gt;&lt;span class="k"&gt;RUN&lt;/span&gt; apt-get -y update &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; apt-get install -y python
+&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;a class="reference external" href="https://github.com/righ/djample/"&gt;くろのて勉強会 &amp;gt; DRF勉強会 (全6回) &amp;gt; djample&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;現場で使える Django の教科書 &amp;gt; D: Docker でラクラク開発&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;a class="reference external" href="https://qiita.com/yagince/items/deba267f789604643bab"&gt;Docker Ubuntu18.04でtzdataをinstallするときにtimezoneの選択をしないでinstallする&lt;/a&gt;&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;途中で何も尋ねてほしくないときは、 &lt;tt class="docutils literal"&gt;ENV DEBIAN_FRONTEND=noninteractive&lt;/tt&gt; すると良さそう&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;a class="reference external" href="https://stackoverflow.com/questions/27022373/python3-importerror-no-module-named-ctypes-when-using-value-from-module-mul/48045929"&gt;ModuleNotFoundError: No module named '_ctypes' の解決方法&lt;/a&gt;&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;事前に &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;libffi-dev&lt;/span&gt;&lt;/tt&gt; パッケージのインストールが必要&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;a class="reference external" href="https://www.t3a.jp/blog/infrastructure/set-timezone/"&gt;[Linux]タイムゾーン(Timezone)をUTCから日本標準時(JST)に変更する&lt;/a&gt;&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;シンボリックリンクを張り替える&lt;/li&gt;
+&lt;li&gt;&lt;tt class="docutils literal"&gt;ln &lt;span class="pre"&gt;-sf&lt;/span&gt; /usr/share/zoneinfo/Asia/Tokyo /etc/localtime&lt;/tt&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;a class="reference external" href="https://docs.python.org/ja/3/using/unix.html#building-python"&gt;2.2. Python のビルド&lt;/a&gt;&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;tt class="docutils literal"&gt;make install&lt;/tt&gt; の代わりに &lt;tt class="docutils literal"&gt;make altinstall&lt;/tt&gt; 推奨&lt;/li&gt;
+&lt;li&gt;&lt;cite&gt;警告 make install は python3 バイナリを上書きまたはリンクを破壊してしまうかもしれません。そのため、make install の代わりに exec_prefix/bin/pythonversion のみインストールする make altinstall が推奨されています。&lt;/cite&gt; だそうです。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id3"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/create-django-env-with-docker-compose-psql-mysql/#id12"&gt;つくりかた&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;実際には、 PostgreSQL か MySQL かどちらか使うほうのみを生きとする。&lt;/p&gt;
+&lt;div class="section" id="id4"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/create-django-env-with-docker-compose-psql-mysql/#id13"&gt;構成&lt;/a&gt;&lt;/h3&gt;
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_7b5a5ab025094634a2b9cbfc428faf0e-1"&gt;&lt;/a&gt;$ tree fufufu
+&lt;a name="rest_code_7b5a5ab025094634a2b9cbfc428faf0e-2"&gt;&lt;/a&gt;fufufu
+&lt;a name="rest_code_7b5a5ab025094634a2b9cbfc428faf0e-3"&gt;&lt;/a&gt;├── Dockerfile-app        &lt;span class="c1"&gt;# 1. Django プロジェクト作るよう Dockerfile&lt;/span&gt;
+&lt;a name="rest_code_7b5a5ab025094634a2b9cbfc428faf0e-4"&gt;&lt;/a&gt;├── Dockerfile-mysql      &lt;span class="c1"&gt;# 2. MySQL よう Dockerfile&lt;/span&gt;
+&lt;a name="rest_code_7b5a5ab025094634a2b9cbfc428faf0e-5"&gt;&lt;/a&gt;├── Dockerfile-postgres   &lt;span class="c1"&gt;# 3. PostgreSQL よう Dockerfile&lt;/span&gt;
+&lt;a name="rest_code_7b5a5ab025094634a2b9cbfc428faf0e-6"&gt;&lt;/a&gt;├── docker-compose.yml    &lt;span class="c1"&gt;# 4. Composeファイル&lt;/span&gt;
+&lt;a name="rest_code_7b5a5ab025094634a2b9cbfc428faf0e-7"&gt;&lt;/a&gt;└── requirements.txt      &lt;span class="c1"&gt;# 5. requirements.txt&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="section" id="id5"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/create-django-env-with-docker-compose-psql-mysql/#id14"&gt;設定ファイル&lt;/a&gt;&lt;/h3&gt;
+&lt;ol class="arabic"&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;Dockerfile-app&lt;/span&gt;&lt;/tt&gt; : Django プロジェクトを入れるコンテナ&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;/p&gt;&lt;div class="code-block "&gt;&lt;div class="code-block-label"&gt;Dockerfile-app&lt;/div&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;FROM&lt;/span&gt;&lt;span class="s"&gt; ubuntu:18.04&lt;/span&gt;
+
+&lt;span class="c"&gt;# インストール中に何も尋ねてくるな&lt;/span&gt;
+&lt;span class="k"&gt;ENV&lt;/span&gt; &lt;span class="nv"&gt;DEBIAN_FRONTEND&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;noninteractive
+
+&lt;span class="c"&gt;# Python の環境変数を設定&lt;/span&gt;
+&lt;span class="c"&gt;# stdout, stderr のバッファを無効に&lt;/span&gt;
+&lt;span class="k"&gt;ENV&lt;/span&gt; PYTHONUNBUFFERED &lt;span class="m"&gt;1&lt;/span&gt;
+&lt;span class="c"&gt;# ソースモジュールのインポート時に .pyc ファイルを作成しない&lt;/span&gt;
+&lt;span class="k"&gt;ENV&lt;/span&gt; PYTHONDONTWRITEBYTECODE &lt;span class="m"&gt;1&lt;/span&gt;
+
+&lt;span class="c"&gt;# locales をインストールして設定する&lt;/span&gt;
+&lt;span class="k"&gt;RUN&lt;/span&gt; apt-get clean &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; apt-get update &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; apt-get install -y locales &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; rm -rf /var/lib/apt/lists/* &lt;span class="se"&gt;\&lt;/span&gt;
+    &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
+&lt;span class="k"&gt;ENV&lt;/span&gt; LANG en_US.UTF-8
+&lt;span class="k"&gt;ENV&lt;/span&gt; LANGUAGE en_US:en
+&lt;span class="k"&gt;ENV&lt;/span&gt; LC_ALL en_US.UTF-8
+
+&lt;span class="c"&gt;# タイムゾーンに JST を設定&lt;/span&gt;
+&lt;span class="k"&gt;RUN&lt;/span&gt; ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
+
+&lt;span class="c"&gt;# Python ビルドに必要な deb パッケージのインストール&lt;/span&gt;
+&lt;span class="c"&gt;# `libffi-dev`: 3.6 では不要 (?) 、3.7 では必要&lt;/span&gt;
+&lt;span class="k"&gt;RUN&lt;/span&gt; apt-get clean &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; apt-get update &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; apt-get install -y &lt;span class="se"&gt;\&lt;/span&gt;
+    build-essential &lt;span class="se"&gt;\&lt;/span&gt;
+    python3-dev &lt;span class="se"&gt;\&lt;/span&gt;
+    libsqlite3-dev &lt;span class="se"&gt;\&lt;/span&gt;
+    libreadline6-dev &lt;span class="se"&gt;\&lt;/span&gt;
+    libgdbm-dev &lt;span class="se"&gt;\&lt;/span&gt;
+    zlib1g-dev &lt;span class="se"&gt;\&lt;/span&gt;
+    libbz2-dev &lt;span class="se"&gt;\&lt;/span&gt;
+    sqlite3 &lt;span class="se"&gt;\&lt;/span&gt;
+    tk-dev &lt;span class="se"&gt;\&lt;/span&gt;
+    zip &lt;span class="se"&gt;\&lt;/span&gt;
+    libssl-dev &lt;span class="se"&gt;\&lt;/span&gt;
+    libffi-dev &lt;span class="se"&gt;\&lt;/span&gt;
+    wget &lt;span class="se"&gt;\&lt;/span&gt;
+ &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; rm -rf /var/lib/apt/lists/*
+
+&lt;span class="c"&gt;# Python をソースファイルからビルドしてインストール&lt;/span&gt;
+&lt;span class="c"&gt;# `make altinstall`: `make install` の代わりに推奨&lt;/span&gt;
+&lt;span class="k"&gt;RUN&lt;/span&gt; wget https://www.python.org/ftp/python/3.7.3/Python-3.7.3.tgz &lt;span class="se"&gt;\&lt;/span&gt;
+    &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; tar xf Python-3.7.3.tgz &lt;span class="se"&gt;\&lt;/span&gt;
+    &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nb"&gt;cd&lt;/span&gt; Python-3.7.3 &lt;span class="se"&gt;\&lt;/span&gt;
+    &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; ./configure --prefix&lt;span class="o"&gt;=&lt;/span&gt;/opt/python3.7.3 &lt;span class="se"&gt;\&lt;/span&gt;
+    &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; make &lt;span class="se"&gt;\&lt;/span&gt;
+    &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; make altinstall
+
+&lt;span class="c"&gt;# Python のシンボリックリンクを作成&lt;/span&gt;
+&lt;span class="k"&gt;RUN&lt;/span&gt; ln -s /opt/python3.7.3/bin/python3.7 /usr/local/bin/python
+
+&lt;span class="c"&gt;# pip のシンボリックリンクを作成&lt;/span&gt;
+&lt;span class="k"&gt;RUN&lt;/span&gt; ln -s /opt/python3.7.3/bin/pip3.7 /usr/local/bin/pip
+
+&lt;span class="c"&gt;# pip をアップグレード&lt;/span&gt;
+&lt;span class="k"&gt;RUN&lt;/span&gt; pip install -U pip
+
+&lt;span class="c"&gt;# mysqlclient のインストールに必要なので、インストールしておく&lt;/span&gt;
+&lt;span class="k"&gt;RUN&lt;/span&gt; apt-get clean &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; apt-get update &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; apt-get install -y &lt;span class="se"&gt;\&lt;/span&gt;
+    default-libmysqlclient-dev &lt;span class="se"&gt;\&lt;/span&gt;
+ &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; rm -rf /var/lib/apt/lists/*
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;Dockerfile-mysql&lt;/span&gt;&lt;/tt&gt; : MySQL を入れるコンテナ&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;/p&gt;&lt;div class="code-block "&gt;&lt;div class="code-block-label"&gt;Dockerfile-mysql&lt;/div&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;FROM&lt;/span&gt;&lt;span class="s"&gt; mysql:latest&lt;/span&gt;
+
+&lt;span class="c"&gt;# locales をインストールして設定する&lt;/span&gt;
+&lt;span class="k"&gt;RUN&lt;/span&gt; apt-get update &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; apt-get install -y locales &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; rm -rf /var/lib/apt/lists/* &lt;span class="se"&gt;\&lt;/span&gt;
+    &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
+&lt;span class="k"&gt;ENV&lt;/span&gt; LANG en_US.UTF-8
+&lt;span class="k"&gt;ENV&lt;/span&gt; LANGUAGE en_US:en
+&lt;span class="k"&gt;ENV&lt;/span&gt; LC_ALL en_US.UTF-8
+
+&lt;span class="c"&gt;# タイムゾーンに JST を設定&lt;/span&gt;
+&lt;span class="k"&gt;RUN&lt;/span&gt; ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;Dockerfile-postgres&lt;/span&gt;&lt;/tt&gt; : PostgreSQL を入れるコンテナ&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;/p&gt;&lt;div class="code-block "&gt;&lt;div class="code-block-label"&gt;Dockerfile-postgres&lt;/div&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;FROM&lt;/span&gt;&lt;span class="s"&gt; postgres:latest&lt;/span&gt;
+
+&lt;span class="c"&gt;## locales をインストールして設定する (postgres の場合は、公式イメージで実行済み)&lt;/span&gt;
+&lt;span class="c"&gt;## https://github.com/docker-library/postgres/blob/85aadc08c347cd20f199902c4b8b4f736341c3b8/11/Dockerfile&lt;/span&gt;
+&lt;span class="c"&gt;#RUN apt-get update &amp;amp;&amp;amp; apt-get install -y locales &amp;amp;&amp;amp; rm -rf /var/lib/apt/lists/* \&lt;/span&gt;
+&lt;span class="c"&gt;#  &amp;amp;&amp;amp; localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8&lt;/span&gt;
+&lt;span class="c"&gt;#ENV LANG en_US.UTF-8&lt;/span&gt;
+&lt;span class="k"&gt;ENV&lt;/span&gt; LANGUAGE en_US:en
+&lt;span class="k"&gt;ENV&lt;/span&gt; LC_ALL en_US.UTF-8
+
+&lt;span class="c"&gt;# タイムゾーンに JST を設定&lt;/span&gt;
+&lt;span class="k"&gt;RUN&lt;/span&gt; ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;docker-compose.yml&lt;/span&gt;&lt;/tt&gt; : Composeファイル&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;/p&gt;&lt;div class="code-block "&gt;&lt;div class="code-block-label"&gt;docker-compose.yml&lt;/div&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nt"&gt;version&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;'3'&lt;/span&gt;
+
+&lt;span class="nt"&gt;services&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+  &lt;span class="nt"&gt;app&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="nt"&gt;container_name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;fufufu_app&lt;/span&gt;
+    &lt;span class="nt"&gt;build&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+      &lt;span class="nt"&gt;context&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;.&lt;/span&gt;
+      &lt;span class="nt"&gt;dockerfile&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;Dockerfile-app&lt;/span&gt;
+    &lt;span class="nt"&gt;volumes&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+      &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;.:/fufufu&lt;/span&gt;
+    &lt;span class="nt"&gt;working_dir&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;/fufufu&lt;/span&gt;
+    &lt;span class="nt"&gt;command&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;bash -c "pip install -r requirements.txt &amp;amp;&amp;amp; bash"&lt;/span&gt;
+    &lt;span class="nt"&gt;ports&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+      &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="s"&gt;"8000:8000"&lt;/span&gt;
+    &lt;span class="nt"&gt;tty&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;true&lt;/span&gt;  &lt;span class="c1"&gt;# 起動し続ける&lt;/span&gt;
+    &lt;span class="nt"&gt;depends_on&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+      &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;mysql&lt;/span&gt;
+      &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;postgres&lt;/span&gt;
+
+  &lt;span class="nt"&gt;mysql&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="nt"&gt;container_name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;fufufu_mysql&lt;/span&gt;
+    &lt;span class="nt"&gt;build&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+      &lt;span class="nt"&gt;context&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;.&lt;/span&gt;
+      &lt;span class="nt"&gt;dockerfile&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;Dockerfile-mysql&lt;/span&gt;
+    &lt;span class="nt"&gt;command&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;--character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci&lt;/span&gt;
+    &lt;span class="nt"&gt;restart&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;always&lt;/span&gt;
+    &lt;span class="nt"&gt;volumes&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+      &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="s"&gt;"mysql-data:/var/lib/mysql"&lt;/span&gt;
+    &lt;span class="nt"&gt;environment&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+      &lt;span class="nt"&gt;MYSQL_ROOT_PASSWORD&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;fufufu&lt;/span&gt;
+      &lt;span class="nt"&gt;MYSQL_DATABASE&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;fufufu&lt;/span&gt;
+      &lt;span class="nt"&gt;MYSQL_USER&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;fufufu&lt;/span&gt;
+      &lt;span class="nt"&gt;MYSQL_PASSWORD&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;fufufu&lt;/span&gt;
+
+  &lt;span class="nt"&gt;postgres&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="nt"&gt;container_name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;fufufu_postgres&lt;/span&gt;
+    &lt;span class="nt"&gt;build&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+      &lt;span class="nt"&gt;context&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;.&lt;/span&gt;
+      &lt;span class="nt"&gt;dockerfile&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;Dockerfile-postgres&lt;/span&gt;
+    &lt;span class="nt"&gt;restart&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;always&lt;/span&gt;
+    &lt;span class="nt"&gt;volumes&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+      &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="s"&gt;"postgres-data:/var/lib/postgresql/data"&lt;/span&gt;
+    &lt;span class="nt"&gt;environment&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+      &lt;span class="nt"&gt;POSTGRES_DB&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;fufufu&lt;/span&gt;
+      &lt;span class="nt"&gt;POSTGRES_USER&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;fufufu&lt;/span&gt;
+      &lt;span class="nt"&gt;POSTGRES_PASSWORD&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;fufufu&lt;/span&gt;
+
+&lt;span class="nt"&gt;volumes&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+  &lt;span class="nt"&gt;mysql-data&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+  &lt;span class="nt"&gt;postgres-data&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;tt class="docutils literal"&gt;requirements.txt&lt;/tt&gt; : requirements.txt&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;/p&gt;&lt;div class="code-block "&gt;&lt;div class="code-block-label"&gt;requirements.txt&lt;/div&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="na"&gt;Django&amp;gt;&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;2.1&lt;/span&gt;
+&lt;span class="na"&gt;mysqlclient&lt;/span&gt;
+&lt;span class="na"&gt;psycopg2-binary&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id6"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/create-django-env-with-docker-compose-psql-mysql/#id15"&gt;起動&lt;/a&gt;&lt;/h3&gt;
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_da0804eacb9f4e0f8f3d3e34db125654-1"&gt;&lt;/a&gt;$ docker-compose up
+&lt;a name="rest_code_da0804eacb9f4e0f8f3d3e34db125654-2"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 再度 image ビルドからやり直したい&lt;/span&gt;
+&lt;a name="rest_code_da0804eacb9f4e0f8f3d3e34db125654-3"&gt;&lt;/a&gt;$ docker-compose up --build
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id7"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/create-django-env-with-docker-compose-psql-mysql/#id16"&gt;つかいかた&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="app"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/create-django-env-with-docker-compose-psql-mysql/#id17"&gt;app コンテナ&lt;/a&gt;&lt;/h3&gt;
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_8b6fafe70fd142559147ef36120504e2-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# Django プロジェクトのコンテナに入る&lt;/span&gt;
+&lt;a name="rest_code_8b6fafe70fd142559147ef36120504e2-2"&gt;&lt;/a&gt;$ docker container &lt;span class="nb"&gt;exec&lt;/span&gt; -it fufufu_app bash
+&lt;a name="rest_code_8b6fafe70fd142559147ef36120504e2-3"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# Django プロジェクトを作成する&lt;/span&gt;
+&lt;a name="rest_code_8b6fafe70fd142559147ef36120504e2-4"&gt;&lt;/a&gt;$ &lt;span class="nb"&gt;cd&lt;/span&gt; /fufufu
+&lt;a name="rest_code_8b6fafe70fd142559147ef36120504e2-5"&gt;&lt;/a&gt;$ /opt/python3.7.3/lib/python3.7/site-packages/django/bin/django-admin.py startproject config .
+&lt;a name="rest_code_8b6fafe70fd142559147ef36120504e2-6"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# runserver する ( settings.py の ``ALLOWED_HOSTS`` に ``'0.0.0.0'`` を書いておかないと ``DisallowedHost`` になります)&lt;/span&gt;
+&lt;a name="rest_code_8b6fafe70fd142559147ef36120504e2-7"&gt;&lt;/a&gt;$ python manage.py runserver &lt;span class="m"&gt;0&lt;/span&gt;.0.0.0:8000
+&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="section" id="mysql-postgresql"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/create-django-env-with-docker-compose-psql-mysql/#id18"&gt;MySQL, PostgreSQL コンテナ&lt;/a&gt;&lt;/h3&gt;
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_86a8c9aa37f649909256435ab25550f8-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# MySQL のコンテナに入る&lt;/span&gt;
+&lt;a name="rest_code_86a8c9aa37f649909256435ab25550f8-2"&gt;&lt;/a&gt;$ docker container &lt;span class="nb"&gt;exec&lt;/span&gt; -it fufufu_mysql bash
+&lt;a name="rest_code_86a8c9aa37f649909256435ab25550f8-3"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# MySQL に入る&lt;/span&gt;
+&lt;a name="rest_code_86a8c9aa37f649909256435ab25550f8-4"&gt;&lt;/a&gt;$ mysql -u fufufu -D fufufu -p
+&lt;a name="rest_code_86a8c9aa37f649909256435ab25550f8-5"&gt;&lt;/a&gt;
+&lt;a name="rest_code_86a8c9aa37f649909256435ab25550f8-6"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# PostgreSQL のコンテナに入る&lt;/span&gt;
+&lt;a name="rest_code_86a8c9aa37f649909256435ab25550f8-7"&gt;&lt;/a&gt;$ docker container &lt;span class="nb"&gt;exec&lt;/span&gt; -it fufufu_postgres bash
+&lt;a name="rest_code_86a8c9aa37f649909256435ab25550f8-8"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# PostgreSQL に入る&lt;/span&gt;
+&lt;a name="rest_code_86a8c9aa37f649909256435ab25550f8-9"&gt;&lt;/a&gt;$ psql -U fufufu fufufu
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id8"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/create-django-env-with-docker-compose-psql-mysql/#id19"&gt;感想&lt;/a&gt;&lt;/h2&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;tt class="docutils literal"&gt;Python をソースファイルからビルドしてインストール&lt;/tt&gt; するのは時間がかかる&lt;/li&gt;
+&lt;li&gt;Django プロジェクトを作成するのに、venv を作らず、&lt;ul&gt;
+&lt;li&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;/opt/python3.7.3/lib/python3.7/site-packages/django/bin/django-admin.py&lt;/span&gt; startproject config .&lt;/tt&gt; じゃなくて、 &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;django-admin.py&lt;/span&gt; startproject config .&lt;/tt&gt; できる方法ないのだろうか...&lt;/li&gt;
+&lt;li&gt;手動で &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;/opt/python3.7.3/lib/python3.7/site-packages/django/bin/&lt;/span&gt;&lt;/tt&gt; に PATH を通せばできるけどそうじゃなくて自動でやってくれないのかな...&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id9"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/create-django-env-with-docker-compose-psql-mysql/#id20"&gt;その他&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id10"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/create-django-env-with-docker-compose-psql-mysql/#id21"&gt;Python 公式イメージのルーツ&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;python:latest, python:3 =&amp;gt; buildpack-deps:stretch =&amp;gt; debian:stretch&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;ubuntu は Debian-based ということだけれど、 Debian と ubuntu はどんな風に違うんだろうなあ&lt;/li&gt;
+&lt;li&gt;MySQL, PostgreSQL の公式イメージも Debian (debian:stretch-slim) だった&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="section" id="docker-hub"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/create-django-env-with-docker-compose-psql-mysql/#id22"&gt;Docker Hub&lt;/a&gt;&lt;/h4&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://hub.docker.com/_/python"&gt;python Docker Official Images&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://hub.docker.com/_/buildpack-deps"&gt;buildpack-deps Docker Official Images&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;cite&gt;A collection of common build dependencies used for installing various modules, e.g., gems.&lt;/cite&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://hub.docker.com/_/debian"&gt;Debian Docker Official Images&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/div&gt;</description><category>docker</category><guid>https://32imuf.com/docker/create-django-env-with-docker-compose-psql-mysql/</guid><pubDate>Tue, 30 Apr 2019 15:00:00 GMT</pubDate></item></channel></rss>
