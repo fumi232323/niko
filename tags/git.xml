@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ふみのて (gitについての文書)</title><link>https://32imuf.com/</link><description></description><atom:link href="https://32imuf.com/tags/git.xml" rel="self" type="application/rss+xml"></atom:link><language>ja</language><copyright>Contents © 2019 &lt;a href="mailto:fumi232323fumi2016@gmail.com"&gt;fumi23&lt;/a&gt; </copyright><lastBuildDate>Sat, 13 Jul 2019 12:58:41 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>git merge</title><link>https://32imuf.com/git/command/merge/</link><dc:creator>fumi23</dc:creator><description>&lt;div class="section" id="id1"&gt;
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ふみのて (gitについての文書)</title><link>https://32imuf.com/</link><description></description><atom:link href="https://32imuf.com/tags/git.xml" rel="self" type="application/rss+xml"></atom:link><language>ja</language><copyright>Contents © 2019 &lt;a href="mailto:fumi232323fumi2016@gmail.com"&gt;fumi23&lt;/a&gt; </copyright><lastBuildDate>Sat, 13 Jul 2019 13:25:16 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>git merge</title><link>https://32imuf.com/git/command/merge/</link><dc:creator>fumi23</dc:creator><description>&lt;div class="section" id="id1"&gt;
 &lt;h2&gt;マージする&lt;/h2&gt;
 &lt;p&gt;topic ブランチを acceptance ブランチへマージする。&lt;/p&gt;
 &lt;ol class="arabic"&gt;
@@ -229,14 +229,34 @@ You are currently rebasing branch 'master' on 'リビジョン番号'.
 &lt;/div&gt;&lt;/div&gt;</description><category>git</category><guid>https://32imuf.com/git/note/</guid><pubDate>Sat, 29 Sep 2018 15:00:00 GMT</pubDate></item><item><title>Git の設定まとめ</title><link>https://32imuf.com/git/configuration/</link><dc:creator>fumi23</dc:creator><description>&lt;div class="section" id="id1"&gt;
 &lt;h2&gt;いろいろ&lt;/h2&gt;
 &lt;ul&gt;
+&lt;li&gt;&lt;p class="first"&gt;git の config ファイル&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;~/.gitconfig&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;コミットメッセージのテンプレートを設定できるファイル&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;~/.stCommitMsg&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;グローバル (たぶん Mac のユーザー単位) に gitignore したいものを書けるファイル&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p class="first"&gt;~/.gitignore_global&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;~/.gitconfig に以下を記述&lt;/p&gt;
+&lt;pre class="code ini"&gt;&lt;a name="rest_code_c150daac70724a03aa59c5c2ef765d55-1"&gt;&lt;/a&gt;&lt;span class="k"&gt;[core]&lt;/span&gt;
+&lt;a name="rest_code_c150daac70724a03aa59c5c2ef765d55-2"&gt;&lt;/a&gt;  &lt;span class="na"&gt;excludesfile&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;/path/to/userhome/.gitignore_global&lt;/span&gt;
+&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;li&gt;&lt;p class="first"&gt;エディタに Vim に設定する&lt;/p&gt;
-&lt;pre class="code console"&gt;&lt;a name="rest_code_ba02b511a610409484723d80c5d049cc-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; git config --global core.editor &lt;span class="s1"&gt;'vim -c "set fenc=utf-8"'&lt;/span&gt;
+&lt;pre class="code console"&gt;&lt;a name="rest_code_0b84543fa70c480f8ce4e2d025469583-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; git config --global core.editor &lt;span class="s1"&gt;'vim -c "set fenc=utf-8"'&lt;/span&gt;
 &lt;/pre&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p class="first"&gt;git status で日本語のファイル名をちゃんと出す&lt;/p&gt;
-&lt;pre class="code console"&gt;&lt;a name="rest_code_3900953e919748b79f463b3ec6fb13b9-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; git config --global core.quotepath off
+&lt;pre class="code console"&gt;&lt;a name="rest_code_2f3f00769e3648b9a9ae59b58543d44d-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; git config --global core.quotepath off
 &lt;/pre&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p class="first"&gt;現在の設定を確認する&lt;/p&gt;
-&lt;pre class="code console"&gt;&lt;a name="rest_code_2e4cf951e8a54514a10f2e7be234b8e8-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; git config --list
+&lt;pre class="code console"&gt;&lt;a name="rest_code_ea41d1c806db4cef8a4ad847dac5b3e7-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; git config --list
 &lt;/pre&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;</description><category>git</category><guid>https://32imuf.com/git/configuration/</guid><pubDate>Wed, 19 Sep 2018 15:00:00 GMT</pubDate></item><item><title>Git のコマンドまとめ</title><link>https://32imuf.com/git/command/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;details&gt;
