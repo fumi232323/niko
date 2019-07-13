@@ -139,8 +139,14 @@ git reset 使い分け
 
   .. code-block:: console
 
-      $ git add <わすれもの>
-      $ git commit --amend
+    $ git add <わすれもの>
+    $ git commit --amend
+
+- 空コミット
+
+  .. code-block:: console
+
+    $ git commit --allow-empty -m "commit message"
 
 
 stash: コミットはせずに変更を退避したい
