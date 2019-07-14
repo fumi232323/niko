@@ -11,7 +11,11 @@
         {% set dog = 'labrador.png' %}
       {% else %}
         {% set item_size='' %}
-        {% set dog = 'nachi.jpg' %}
+        {% if loop.index is divisibleby(2) %}
+          {% set dog = 'robobo.png' %}
+        {% else %}
+          {% set dog = 'nachi.jpg' %}
+        {% endif %}
       {% endif %}
       <section class="item {{ item_size }} item-{{ post.alltags[0] }}">
         <a href="{{ post.permalink() }}">
