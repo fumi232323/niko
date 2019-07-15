@@ -100,18 +100,18 @@
 <h2><a class="toc-backref" href="#id14">よく使う Django 管理コマンド</a></h2>
 <div class="section" id="id4">
 <h3><a class="toc-backref" href="#id15">プロジェクト作成</a></h3>
-<pre class="code bash"><a name="rest_code_4c26cede36d54066a8ce7d9614018a2b-1"></a><span class="c1"># プロジェクトのディレクトリに移動する</span>
-<a name="rest_code_4c26cede36d54066a8ce7d9614018a2b-2"></a>$ <span class="nb">cd</span> project_dir
-<a name="rest_code_4c26cede36d54066a8ce7d9614018a2b-3"></a><span class="c1"># django-admin.py startproject &lt;設定ディレクトリ名&gt; &lt;つくる場所&gt;</span>
-<a name="rest_code_4c26cede36d54066a8ce7d9614018a2b-4"></a>$ django-admin.py startproject config .
+<pre class="code bash"><a name="rest_code_9b638bcdddfb436ab5a516f6fc537ce9-1"></a><span class="c1"># プロジェクトのディレクトリに移動する</span>
+<a name="rest_code_9b638bcdddfb436ab5a516f6fc537ce9-2"></a>$ <span class="nb">cd</span> project_dir
+<a name="rest_code_9b638bcdddfb436ab5a516f6fc537ce9-3"></a><span class="c1"># django-admin.py startproject &lt;設定ディレクトリ名&gt; &lt;つくる場所&gt;</span>
+<a name="rest_code_9b638bcdddfb436ab5a516f6fc537ce9-4"></a>$ django-admin.py startproject config .
 </pre>
 </div>
 <div class="section" id="id5">
 <h3><a class="toc-backref" href="#id16">アプリケーション作成</a></h3>
-<pre class="code bash"><a name="rest_code_2826ac6aba274f0489d5a0405198c0d7-1"></a><span class="c1"># プロジェクトのディレクトリに移動する</span>
-<a name="rest_code_2826ac6aba274f0489d5a0405198c0d7-2"></a>$ <span class="nb">cd</span> project_dir
-<a name="rest_code_2826ac6aba274f0489d5a0405198c0d7-3"></a><span class="c1"># python manage.py startapp &lt;アプリケーション名&gt;</span>
-<a name="rest_code_2826ac6aba274f0489d5a0405198c0d7-4"></a>$ python manage.py startapp account
+<pre class="code bash"><a name="rest_code_2d2e12e33e4542b99d7ccaad70e6d518-1"></a><span class="c1"># プロジェクトのディレクトリに移動する</span>
+<a name="rest_code_2d2e12e33e4542b99d7ccaad70e6d518-2"></a>$ <span class="nb">cd</span> project_dir
+<a name="rest_code_2d2e12e33e4542b99d7ccaad70e6d518-3"></a><span class="c1"># python manage.py startapp &lt;アプリケーション名&gt;</span>
+<a name="rest_code_2d2e12e33e4542b99d7ccaad70e6d518-4"></a>$ python manage.py startapp account
 </pre>
 <ul class="simple">
 <li>作成後、 settings.py &gt; <tt class="docutils literal">INSTALLED_APPS</tt> に手動でアプリケーションを追加する</li>
@@ -119,25 +119,25 @@
 </div>
 <div class="section" id="id6">
 <h3><a class="toc-backref" href="#id17">マイグレーション</a></h3>
-<pre class="code bash"><a name="rest_code_0a9b94a3376948c4809479208f9c6a88-1"></a><span class="c1"># マイグレーションファイルを作成する</span>
-<a name="rest_code_0a9b94a3376948c4809479208f9c6a88-2"></a><span class="c1"># python manage.py makemigrations [&lt;アプリケーション名&gt;]</span>
-<a name="rest_code_0a9b94a3376948c4809479208f9c6a88-3"></a>$ python manage.py makemigrations account
-<a name="rest_code_0a9b94a3376948c4809479208f9c6a88-4"></a>
-<a name="rest_code_0a9b94a3376948c4809479208f9c6a88-5"></a><span class="c1"># マイグレーションを実行する</span>
-<a name="rest_code_0a9b94a3376948c4809479208f9c6a88-6"></a><span class="c1"># python manage.py migrate [&lt;アプリケーション名&gt;]</span>
-<a name="rest_code_0a9b94a3376948c4809479208f9c6a88-7"></a>$ python manage.py migrate account
+<pre class="code bash"><a name="rest_code_d8f97f965ac04bca8109bcfd29ba6fa6-1"></a><span class="c1"># マイグレーションファイルを作成する</span>
+<a name="rest_code_d8f97f965ac04bca8109bcfd29ba6fa6-2"></a><span class="c1"># python manage.py makemigrations [&lt;アプリケーション名&gt;]</span>
+<a name="rest_code_d8f97f965ac04bca8109bcfd29ba6fa6-3"></a>$ python manage.py makemigrations account
+<a name="rest_code_d8f97f965ac04bca8109bcfd29ba6fa6-4"></a>
+<a name="rest_code_d8f97f965ac04bca8109bcfd29ba6fa6-5"></a><span class="c1"># マイグレーションを実行する</span>
+<a name="rest_code_d8f97f965ac04bca8109bcfd29ba6fa6-6"></a><span class="c1"># python manage.py migrate [&lt;アプリケーション名&gt;]</span>
+<a name="rest_code_d8f97f965ac04bca8109bcfd29ba6fa6-7"></a>$ python manage.py migrate account
 </pre>
 </div>
 <div class="section" id="id7">
 <h3><a class="toc-backref" href="#id18">スーバーユーザー作成</a></h3>
-<pre class="code bash"><a name="rest_code_acff5d52dd4a41f78e9490c1afa2b65a-1"></a>$ python manage.py cratesuperuser
+<pre class="code bash"><a name="rest_code_9db2ea2d8d67439aa016f2b60dd8584f-1"></a>$ python manage.py createsuperuser
 </pre>
 </div>
 <div class="section" id="runserver">
 <h3><a class="toc-backref" href="#id19">runserver</a></h3>
-<pre class="code bash"><a name="rest_code_501c039de6b6427587cef41863a910c6-1"></a><span class="c1"># 開発用の Web サーバーを起動する</span>
-<a name="rest_code_501c039de6b6427587cef41863a910c6-2"></a><span class="c1"># python manage.py runserver [&lt;IPアドレス&gt;:&lt;ポート番号&gt;]</span>
-<a name="rest_code_501c039de6b6427587cef41863a910c6-3"></a>$ python manage.py runserver <span class="m">0</span>.0.0.0:8000
+<pre class="code bash"><a name="rest_code_a3adc276f80a4015a4b710b7f2265e19-1"></a><span class="c1"># 開発用の Web サーバーを起動する</span>
+<a name="rest_code_a3adc276f80a4015a4b710b7f2265e19-2"></a><span class="c1"># python manage.py runserver [&lt;IPアドレス&gt;:&lt;ポート番号&gt;]</span>
+<a name="rest_code_a3adc276f80a4015a4b710b7f2265e19-3"></a>$ python manage.py runserver <span class="m">0</span>.0.0.0:8000
 </pre>
 <ul class="simple">
 <li>IPアドレスとポート番号を省略すると <tt class="docutils literal">127.0.0.1:8000</tt> で起動する</li>
@@ -146,33 +146,33 @@
 </div>
 <div class="section" id="id8">
 <h3><a class="toc-backref" href="#id20">インタラクティブモードで実行する</a></h3>
-<pre class="code bash"><a name="rest_code_8ef835ce9fc84421999bf6c219234a28-1"></a><span class="c1"># こうとか</span>
-<a name="rest_code_8ef835ce9fc84421999bf6c219234a28-2"></a>$ python manage.py shell
-<a name="rest_code_8ef835ce9fc84421999bf6c219234a28-3"></a><span class="c1"># こうとか</span>
-<a name="rest_code_8ef835ce9fc84421999bf6c219234a28-4"></a>$ <span class="nv">DJANGO_SETTINGS_MODULE</span><span class="o">=</span>settings._ python manage.py shell
-<a name="rest_code_8ef835ce9fc84421999bf6c219234a28-5"></a><span class="c1"># こう</span>
-<a name="rest_code_8ef835ce9fc84421999bf6c219234a28-6"></a>$ python manage.py shell --settings<span class="o">=</span>settings._
+<pre class="code bash"><a name="rest_code_0a94a9994f4d4328a439a9ee372b0cbd-1"></a><span class="c1"># こうとか</span>
+<a name="rest_code_0a94a9994f4d4328a439a9ee372b0cbd-2"></a>$ python manage.py shell
+<a name="rest_code_0a94a9994f4d4328a439a9ee372b0cbd-3"></a><span class="c1"># こうとか</span>
+<a name="rest_code_0a94a9994f4d4328a439a9ee372b0cbd-4"></a>$ <span class="nv">DJANGO_SETTINGS_MODULE</span><span class="o">=</span>settings._ python manage.py shell
+<a name="rest_code_0a94a9994f4d4328a439a9ee372b0cbd-5"></a><span class="c1"># こう</span>
+<a name="rest_code_0a94a9994f4d4328a439a9ee372b0cbd-6"></a>$ python manage.py shell --settings<span class="o">=</span>settings._
 </pre>
 <div class="section" id="id9">
 <h4><a class="toc-backref" href="#id21">使用例</a></h4>
-<pre class="code python"><a name="rest_code_94b7ca0e18c841b3a1bdc5c52e77de89-1"></a><span class="err">$</span> <span class="n">python</span> <span class="n">manage</span><span class="o">.</span><span class="n">py</span> <span class="n">shell</span> <span class="o">--</span><span class="n">settings</span><span class="o">=</span><span class="n">settings</span><span class="o">.</span><span class="n">_</span>
-<a name="rest_code_94b7ca0e18c841b3a1bdc5c52e77de89-2"></a><span class="n">Python</span> <span class="mf">2.7</span><span class="o">.</span><span class="mi">7</span> <span class="p">(</span><span class="n">default</span><span class="p">,</span> <span class="n">Dec</span> <span class="mi">11</span> <span class="mi">2017</span><span class="p">,</span> <span class="mi">18</span><span class="p">:</span><span class="mi">45</span><span class="p">:</span><span class="mi">38</span><span class="p">)</span>
-<a name="rest_code_94b7ca0e18c841b3a1bdc5c52e77de89-3"></a><span class="p">[</span><span class="n">GCC</span> <span class="mf">4.4</span><span class="o">.</span><span class="mi">7</span> <span class="mi">20120313</span> <span class="p">(</span><span class="n">Red</span> <span class="n">Hat</span> <span class="mf">4.4</span><span class="o">.</span><span class="mi">7</span><span class="o">-</span><span class="mi">18</span><span class="p">)]</span> <span class="n">on</span> <span class="n">linux2</span>
-<a name="rest_code_94b7ca0e18c841b3a1bdc5c52e77de89-4"></a><span class="n">Type</span> <span class="s2">"help"</span><span class="p">,</span> <span class="s2">"copyright"</span><span class="p">,</span> <span class="s2">"credits"</span> <span class="ow">or</span> <span class="s2">"license"</span> <span class="k">for</span> <span class="n">more</span> <span class="n">information</span><span class="o">.</span>
-<a name="rest_code_94b7ca0e18c841b3a1bdc5c52e77de89-5"></a><span class="p">(</span><span class="n">InteractiveConsole</span><span class="p">)</span>
-<a name="rest_code_94b7ca0e18c841b3a1bdc5c52e77de89-6"></a><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">myapp.models</span> <span class="kn">import</span> <span class="n">Entry</span>
-<a name="rest_code_94b7ca0e18c841b3a1bdc5c52e77de89-7"></a><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">django.db.models</span> <span class="kn">import</span> <span class="n">Q</span>
-<a name="rest_code_94b7ca0e18c841b3a1bdc5c52e77de89-8"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">target_entry_id</span> <span class="o">=</span> <span class="bp">None</span>
-<a name="rest_code_94b7ca0e18c841b3a1bdc5c52e77de89-9"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">Entry</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span>
-<a name="rest_code_94b7ca0e18c841b3a1bdc5c52e77de89-10"></a><span class="o">...</span>     <span class="n">Q</span><span class="p">(</span><span class="n">expiration_year_month__gte</span><span class="o">=</span><span class="n">target_entry_id</span><span class="p">)</span> <span class="o">|</span>
-<a name="rest_code_94b7ca0e18c841b3a1bdc5c52e77de89-11"></a><span class="o">...</span>     <span class="n">Q</span><span class="p">(</span><span class="n">expiration_year_month__isnull</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-<a name="rest_code_94b7ca0e18c841b3a1bdc5c52e77de89-12"></a><span class="o">...</span> <span class="p">)</span>
+<pre class="code python"><a name="rest_code_8e0ff8459edf4164ac907efb81888cb8-1"></a><span class="err">$</span> <span class="n">python</span> <span class="n">manage</span><span class="o">.</span><span class="n">py</span> <span class="n">shell</span> <span class="o">--</span><span class="n">settings</span><span class="o">=</span><span class="n">settings</span><span class="o">.</span><span class="n">_</span>
+<a name="rest_code_8e0ff8459edf4164ac907efb81888cb8-2"></a><span class="n">Python</span> <span class="mf">2.7</span><span class="o">.</span><span class="mi">7</span> <span class="p">(</span><span class="n">default</span><span class="p">,</span> <span class="n">Dec</span> <span class="mi">11</span> <span class="mi">2017</span><span class="p">,</span> <span class="mi">18</span><span class="p">:</span><span class="mi">45</span><span class="p">:</span><span class="mi">38</span><span class="p">)</span>
+<a name="rest_code_8e0ff8459edf4164ac907efb81888cb8-3"></a><span class="p">[</span><span class="n">GCC</span> <span class="mf">4.4</span><span class="o">.</span><span class="mi">7</span> <span class="mi">20120313</span> <span class="p">(</span><span class="n">Red</span> <span class="n">Hat</span> <span class="mf">4.4</span><span class="o">.</span><span class="mi">7</span><span class="o">-</span><span class="mi">18</span><span class="p">)]</span> <span class="n">on</span> <span class="n">linux2</span>
+<a name="rest_code_8e0ff8459edf4164ac907efb81888cb8-4"></a><span class="n">Type</span> <span class="s2">"help"</span><span class="p">,</span> <span class="s2">"copyright"</span><span class="p">,</span> <span class="s2">"credits"</span> <span class="ow">or</span> <span class="s2">"license"</span> <span class="k">for</span> <span class="n">more</span> <span class="n">information</span><span class="o">.</span>
+<a name="rest_code_8e0ff8459edf4164ac907efb81888cb8-5"></a><span class="p">(</span><span class="n">InteractiveConsole</span><span class="p">)</span>
+<a name="rest_code_8e0ff8459edf4164ac907efb81888cb8-6"></a><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">myapp.models</span> <span class="kn">import</span> <span class="n">Entry</span>
+<a name="rest_code_8e0ff8459edf4164ac907efb81888cb8-7"></a><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">django.db.models</span> <span class="kn">import</span> <span class="n">Q</span>
+<a name="rest_code_8e0ff8459edf4164ac907efb81888cb8-8"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">target_entry_id</span> <span class="o">=</span> <span class="bp">None</span>
+<a name="rest_code_8e0ff8459edf4164ac907efb81888cb8-9"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">Entry</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span>
+<a name="rest_code_8e0ff8459edf4164ac907efb81888cb8-10"></a><span class="o">...</span>     <span class="n">Q</span><span class="p">(</span><span class="n">expiration_year_month__gte</span><span class="o">=</span><span class="n">target_entry_id</span><span class="p">)</span> <span class="o">|</span>
+<a name="rest_code_8e0ff8459edf4164ac907efb81888cb8-11"></a><span class="o">...</span>     <span class="n">Q</span><span class="p">(</span><span class="n">expiration_year_month__isnull</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<a name="rest_code_8e0ff8459edf4164ac907efb81888cb8-12"></a><span class="o">...</span> <span class="p">)</span>
 </pre>
 </div>
 </div>
 <div class="section" id="django-dbdb">
 <h3><a class="toc-backref" href="#id22">Django の DBシェルでローカルDBにつなぐ</a></h3>
-<pre class="code console"><a name="rest_code_5ab04742368d4000bef3caedbd9b31fe-1"></a><span class="gp">$</span> python manage.py dbshell --settings<span class="o">=</span>settings.local
+<pre class="code console"><a name="rest_code_84d01efbf748473ba5d3d16923263fb2-1"></a><span class="gp">$</span> python manage.py dbshell --settings<span class="o">=</span>settings.local
 </pre>
 </div>
 </div>
@@ -185,7 +185,7 @@
 <div class="section" id="python2">
 <h3><a class="toc-backref" href="#id24">使用例 (python2)</a></h3>
 <blockquote>
-<pre class="code bash"><a name="rest_code_3ecb031e47c54465af3f3a4d133c890c-1"></a>$ <span class="nv">DJANGO_SETTINGS_MODULE</span><span class="o">=</span>settings.local python -Wd manage.py check
+<pre class="code bash"><a name="rest_code_8e7005e5cc1c4279a0ecbd370a2224ec-1"></a>$ <span class="nv">DJANGO_SETTINGS_MODULE</span><span class="o">=</span>settings.local python -Wd manage.py check
 </pre>
 <ul>
 <li>
