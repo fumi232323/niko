@@ -88,7 +88,7 @@ manage.py
 
 .. code-block:: bash
 
-  $ python manage.py cratesuperuser
+  $ python manage.py createsuperuser
 
 
 runserver
