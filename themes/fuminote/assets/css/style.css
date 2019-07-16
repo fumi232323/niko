@@ -137,7 +137,7 @@ a:active {
 }
 .tags {
   width: 100%;
-  height: 1000px;
+  height: 1100px;
 }
 .tags-body {
   background-color: #fff;
@@ -241,6 +241,10 @@ a:active {
 .item-linux,
 .item-linux .title::before {
   border-color: #70b062;
+}
+.item-django-rest-framework,
+.item-django-rest-framework .title::before {
+  border-color: #c8d85b;
 }
 /* --------------------------------
  * index page only
