@@ -7,7 +7,7 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>https://32imuf.com/</loc>
-  <lastmod>2019-06-13T10:51:00Z</lastmod>
+  <lastmod>2019-07-16T13:24:00Z</lastmod>
  </url>
  <url>
   <loc>https://32imuf.com/2018/</loc>
@@ -31,7 +31,7 @@
  </url>
  <url>
   <loc>https://32imuf.com/archive.html</loc>
-  <lastmod>2019-07-14T13:57:00Z</lastmod>
+  <lastmod>2019-07-16T14:25:00Z</lastmod>
  </url>
  <url>
   <loc>https://32imuf.com/aws/s3-response-error/</loc>
@@ -243,7 +243,7 @@
  </url>
  <url>
   <loc>https://32imuf.com/tags/</loc>
-  <lastmod>2019-06-14T12:47:00Z</lastmod>
+  <lastmod>2019-07-16T13:24:00Z</lastmod>
  </url>
  <url>
   <loc>https://32imuf.com/tags/aws/</loc>
@@ -256,6 +256,10 @@
  <url>
   <loc>https://32imuf.com/tags/css/</loc>
   <lastmod>2019-06-02T07:16:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://32imuf.com/tags/django-rest-framework/</loc>
+  <lastmod>2019-07-16T13:24:00Z</lastmod>
  </url>
  <url>
   <loc>https://32imuf.com/tags/django/</loc>
