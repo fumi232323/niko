@@ -1,7 +1,7 @@
 .. title: Django なんでもメモ
 .. tags: django
 .. date: 2019-06-18
-.. updated: 2019-06-18
+.. updated: 2019-10-06
 .. slug: index
 .. status: published
 
@@ -24,6 +24,7 @@ Time zones
 リファレンス
 --------------
 * https://docs.djangoproject.com/ja/2.2/topics/i18n/timezones/
+* https://docs.djangoproject.com/ja/2.2/ref/utils/#module-django.utils.timezone
 
 
 タイムゾーンサポート
@@ -54,18 +55,64 @@ naive と aware
 :テンプレート: レンダリングする際に aware な datetime オブジェクトをカレントタイムゾーンに変換する
 
 
-現在日時の取得方法
--------------------
+現在日時の取得
+--------------
+
+* タイムゾーンサポートが有効
 
   .. code-block:: python
 
-    # タイムゾーンサポートが有効
-    from django.utils import timezone
-    now = timezone.now()
+    # USE_TZ = True
+    # TIME_ZONE = 'Asia/Tokyo'
 
-    # タイムゾーンサポートが無効
-    import datetime
-    now = datetime.datetime.now()
+    >>> from django.utils import timezone
+    >>> import datetime
+    >>> import pytz
+
+    >>> timezone.now()
+    datetime.datetime(2019, 10, 6, 9, 23, 19, 903697, tzinfo=<UTC>)
+
+    >>> datetime.datetime.now()
+    datetime.datetime(2019, 10, 6, 18, 23, 41, 152275)
+
+    >>> timezone.make_aware(datetime.datetime.now())
+    datetime.datetime(2019, 10, 6, 18, 23, 56, 39144, tzinfo=<DstTzInfo 'Asia/Tokyo' JST+9:00:00 STD>)
+
+    >>> timezone.localtime(timezone.now())
+    datetime.datetime(2019, 10, 6, 18, 24, 13, 36991, tzinfo=<DstTzInfo 'Asia/Tokyo' JST+9:00:00 STD>)
+
+    >>> datetime.datetime.now(tz=pytz.timezone('Asia/Tokyo'))
+    datetime.datetime(2019, 10, 6, 18, 24, 16, 258210, tzinfo=<DstTzInfo 'Asia/Tokyo' JST+9:00:00 STD>)
+
+
+* タイムゾーンサポートが無効
+
+  .. code-block:: python
+
+    # USE_TZ = False
+
+    >>> from django.utils import timezone
+    >>> import datetime
+    >>> import
+
+    >>> timezone.now()
+    datetime.datetime(2019, 10, 6, 18, 28, 34, 147660)
+
+    >>> datetime.datetime.now()
+    datetime.datetime(2019, 10, 6, 18, 28, 41, 569008)
+
+    >>> timezone.make_aware(datetime.datetime.now())
+    datetime.datetime(2019, 10, 6, 18, 28, 54, 973598, tzinfo=<DstTzInfo 'Asia/Tokyo' JST+9:00:00 STD>)
+
+    >>> timezone.localtime(timezone.now())
+    Traceback (most recent call last):
+      File "<console>", line 1, in <module>
+      File "/var/www/usonar/.tox/py37/lib/python3.7/site-packages/django/utils/timezone.py", line 207, in localtime
+        raise ValueError("localtime() cannot be applied to a naive datetime")
+    ValueError: localtime() cannot be applied to a naive datetime
+
+    >>> datetime.datetime.now(tz=pytz.timezone('Asia/Tokyo'))
+    datetime.datetime(2019, 10, 6, 18, 29, 5, 566142, tzinfo=<DstTzInfo 'Asia/Tokyo' JST+9:00:00 STD>)
 
 
 デフォルトタイムゾーンとカレントタイムゾーン
@@ -81,6 +128,34 @@ naive な日時をデータベースに保存しようとすると、Django は�
 
   RuntimeWarning: DateTimeField ModelName.field_name received a naive
   datetime (2012-01-01 00:00:00) while time zone support is active.
+
+
+S3 アップロード
+================
+
+体感だけど、パターン1 のほうが速いような感じがした
+
+.. code-block:: python
+
+  # settings.py
+  DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+.. code-block:: python
+
+  # upload.py
+  from django.core.files.base import ContentFile
+  from django.core.files.storage import default_storage
+
+  # パターン1
+  file_path = default_storage.save(file_path, ContentFile(file_data))
+
+  # パターン2
+  with default_storage.open(file_path, 'w') as f:
+      file_size = f.write(file_data)
+
+* https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html
+* https://docs.djangoproject.com/en/2.2/ref/files/storage/#the-storage-class
+* https://docs.djangoproject.com/en/2.2/topics/files/#storage-objects
 
 
 マイグレーションを間違えたときのリカバリ方法
