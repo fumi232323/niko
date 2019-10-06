@@ -1,6 +1,6 @@
 .. title: Django: django-admin.py, manage.py
 .. tags: django
-.. date: 2019-05-06
+.. date: 2019-10-06
 .. slug: index
 .. status: published
 
@@ -78,9 +78,24 @@ manage.py
   # python manage.py makemigrations [<アプリケーション名>]
   $ python manage.py makemigrations account
 
+  # 作成される予定のマイグレーションを表示する。実際のマイグレーションファイルは作成されない。
+  $ python manage.py makemigrations --dry-run
+
   # マイグレーションを実行する
   # python manage.py migrate [<アプリケーション名>]
   $ python manage.py migrate account
+
+  # マイグレートするデータベースを指定する。デフォルトは default 。
+  $ python manage.py migrate --database <DATABASE>
+  $ python manage.py migrate --database hey
+
+  # 適用済みとして django_migrations にレコードは INSERT されるけれど、データベーススキーマを変更するために実際にSQLを実行することはありません。
+  $ python manage.py migrate --fake
+
+くろのて
+^^^^^^^^
+* https://note.crohaco.net/2018/django-migration/
+* https://note.crohaco.net/2018/django-migration-case-study/
 
 
 スーバーユーザー作成
