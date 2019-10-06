@@ -1,26 +1,88 @@
-.. title: ほんとうにめも
+.. title: AWS のいろいろなサービス
 .. tags: aws
 .. date: 2019-06-27
+.. updated: 2019-10-06
 .. slug: index
 .. status: draft
 
 
-CFn
-===
+ECS (Amazon Elastic Container Service)
+========================================
+Amazon Elastic Container Service (Amazon ECS) は、Amazon EC2 インスタンスのクラスターで Docker コンテナの実行、停止、管理を簡単に行うことのできる、高度にスケーラブルで高速なコンテナ管理サービスです。Amazon Elastic Container Service (Amazon ECS) は、Amazon EC2 インスタンスのクラスターで Docker コンテナの実行、停止、管理を簡単に行うことのできる、高度にスケーラブルで高速なコンテナ管理サービスです。
 
-ガイド
-------
-* https://aws.amazon.com/jp/cloudformation/
-* https://aws.amazon.com/jp/cloudformation/features/
+* コンテナオーケストレーションサービス
 
+リファレンス/ガイド
+-------------------
+* https://docs.aws.amazon.com/ecs/index.html
+
+* クラスター
+  * サービス:
+    * タスク定義
+        * 起動するとタスクになる
+        * タスク定義は、タスクに含まれるコンテナの数、それらが使用するリソース、それらが一緒にリンクされる方法、および使用するホストポートなど、アプリケーションのコンテナ情報を指定します。詳細はこちら
+
+* Fargate:
+  * 起動タイプって書いてある
+  * AWS FargateとECSの違いは？: https://qiita.com/ABCompany1/items/5f3fcea04052415dc875
+  * Fargate を使用した Amazon ECS の使用開始: https://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/ECS_GetStarted_Fargate.html
+  * くろのて: Django を ECS(Fargate) に手動デプロイしたログ:
+
+* やってみた
+
+  * Docker/Kubernetes 実践コンテナ開発入門 > B.3 AWS Fargate を用いた ECS でのコンテナオーケストレーション
+  * クラスターつくると、全部セットでできあがるのすごいな
+
+
+ECR (Amazon Elastic Container Registry)
+========================================
+コンテナイメージを簡単に保存、管理、デプロイ
+
+リファレンス/ガイド
+-------------------
+* https://aws.amazon.com/jp/ecr/
+
+
+ALB (Application Load Balancer)
+================================
+Elastic Load Balancing は、EC2 インスタンスなどの複数のターゲット間で、アプリケーションの着信トラフィックを自動的に分散します。
+登録されているターゲットの状態をモニタリングし、正常なターゲットのみにトラフィックをルーティングします。
+Elastic Load Balancing は、Application Load Balancer、Network Load Balancer、Classic Load Balancer の 3 つのタイプのロードバランサーをサポートします。
+
+リファレンス/ガイド
+-------------------
+https://docs.aws.amazon.com/ja_jp/elasticloadbalancing/latest/application/introduction.html
+
+
+VPC (Amazon Virtual Private Cloud)
+==================================
+ユーザーが定義した仮想ネットワーク内で AWS リソースの起動が可能な、アマゾン ウェブ サービス (AWS) クラウドのローカルで隔離されたセクションのプロビジョニング。
+
+リファレンス/ガイド
+-------------------
+* https://aws.amazon.com/jp/vpc/
+* https://docs.aws.amazon.com/ja_jp/vpc/latest/userguide/what-is-amazon-vpc.html
 
 めもめも
 ---------
-* ``AWS CloudFormation`` のことらしい
+* 閉じたクラウドの仮装ネットワークなのみたいなこと言ってるよ...
 
-  * 略語だったのか... 略すの....
-  * `クラウド環境内のすべてのインフラストラクチャリソースを記述してプロビジョニングするための共通言語を提供します` ふむ
-  * `AWS CloudFormation は追加料金なしでご利用いただけます` タダらしい
+CFn (AWS CloudFormation)
+===========================
+すべてのクラウドインフラストラクチャリソースのモデル化とプロビジョニング
+
+リファレンス/ガイド
+-------------------
+* https://aws.amazon.com/jp/cloudformation/
+* https://aws.amazon.com/jp/cloudformation/features/
+
+めも
+----
+* テンプレート
+* スタック
+
+* クラウド環境内のすべてのインフラストラクチャリソースを記述してプロビジョニングするための共通言語を提供します
+* AWS CloudFormation は追加料金なしでご利用いただけます
 
 * 利点
 
@@ -34,7 +96,8 @@ CFn
 
 * 自動化とデプロイ
 
-  * `AWS CloudFormation では、安全で繰り返し可能な方法でリソースがプロビジョニングされるため、手作業やカスタムスクリプト作成を必要とせずにインフラストラクチャとアプリケーションの構築と再構築が可能になります。`
+  * `AWS CloudFormation では、安全で繰り返し可能な方法でリソースがプロビジョニングされるため、
+    手作業やカスタムスクリプト作成を必要とせずにインフラストラクチャとアプリケーションの構築と再構築が可能になります。`
   * `エラーが検出された場合は変更が自動的にロールバックされます。` なぬ、しゅごいな....
   *  CloudWatch アラームを指定できるんだって
   * `AWS リソース、およびアプリケーションを実行するために必要な関連するすべての依存関係やランタイムパラメータを記述できる` んですって
@@ -54,30 +117,36 @@ CFn
 
   * `Infrastructure as Codeってやつですね。` とのこと。ほーう。
   * `AWSで利用するEC2やVPCなどのインフラをコードでビルドできるわけです。` ほうほうー
-  * はー、わかりやすい説明ありがとうございます.....
-
-      * バージョン管理が可能になり
-      * 冪等性を担保したデプロイが可能になる
-
-  * あああ、ありがとうございます....
-
-    * テンプレートを元にして、AWSのCloudFormation上にスタックというものができあがります。
-    * スタックはリソース(EC2とかVPCなど)の変更点を1まとめにしたものです。
+  * バージョン管理が可能になり
+  * 冪等性を担保したデプロイが可能になる
+  * テンプレートを元にして、AWSのCloudFormation上にスタックというものができあがります。
+  * スタックはリソース(EC2とかVPCなど)の変更点を1まとめにしたものです。
 
 
-VPC
-====
+EKS (Amazon Elastic Kubernetes Service)
+========================================
+可用性が高く、スケーラブルで安全な Kubernetes サービス
 
-ガイド
-------
+* AWS のマネージド Kubernetes サービス
 
-* https://aws.amazon.com/jp/vpc/
-* https://docs.aws.amazon.com/ja_jp/vpc/latest/userguide/what-is-amazon-vpc.html
+リファレンス/ガイド
+-------------------
+https://aws.amazon.com/jp/eks/
+
+AWS Lambda
+============
+AWS Lambda はサーバーをプロビジョニングしたり管理する必要なくコードを実行できるコンピューティングサービスです。
+
+リファレンス/ガイド
+-------------------
+https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/welcome.html
 
 
-めもめも
----------
+RDS (Amazon Relational Database Service)
+==========================================
+クラウド上のリレーショナルデータベースのセットアップ、オペレーション、スケールを数回のクリックで実現
 
-* ``Amazon Virtual Private Cloud (Amazon VPC)`` というやつがあって
-
-  * 閉じたクラウドの仮装ネットワークなのみたいなこと言ってるよ...
+* AWS のいろいろなサービスについて知りたいなあ
+  * 全体を俯瞰して
+  * こんなんあるんだなあと、ちょっとした使い方使い道を知りたい
+  * いざ使うとなったら詳しく調べて使えるように

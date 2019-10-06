@@ -1,6 +1,6 @@
 .. title: pip
 .. tags: python
-.. date: 2019-10-06
+.. date: 2019-10-05
 .. slug: index
 .. status: published
 

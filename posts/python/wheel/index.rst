@@ -46,45 +46,48 @@ wheel
 
 wheel の作り方
 --------------
-* PyPI で sdist で配布されているパッケージを wheel 形式のパッケージに変換してローカルに保存する。
 
-  .. code-block:: bash
+PyPI で sdist で配布されているパッケージを wheel 形式のパッケージに変換してローカルに保存する
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    # wheelhouse ディレクトリに wheel 形式パッケージを作成する
-    $ pip wheel markupsafe -w wheelhouse
+.. code-block:: bash
 
-  - ``wheelhouse`` ディレクトリがなくても、 ``-w wheelhouse`` を指定すると勝手に作ってくれる
-  - wheel 形式のパッケージの保存ディレクトリ名は何でもよいが、慣習的に ``wheelhouse`` という名前を使う
+  # wheelhouse ディレクトリに wheel 形式パッケージを作成する
+  $ pip wheel markupsafe -w wheelhouse
 
-
-* ``setuptools`` ベースのプロジェクトから wheel を作成する
-
-  .. code-block:: bash
-
-    $ python setup.py bdist_wheel
-
-  * Python のパッケージングには setup スクリプトが必要 (PyPro3 P.66)
-
-    * setup.py というファイル名で用意する (Python の仕様で決められている)
-    * setup.py には Python パッケージ情報 (メタデータ: パッケージ名やバージョン, 依存パッケージなど) を書く
-
-  * setuptools は pip が使える環境には必ずインストールされているライブラリ
-
-    * 一般的には setuptools が提供する機能拡張された setup 関数を使う
-
-    .. code-block:: python
-
-      # 詳しくは PyPro P.70 を見よ
-      from setuptools import find_packages, setup
+- ``wheelhouse`` ディレクトリがなくても、 ``-w wheelhouse`` を指定すると勝手に作ってくれる
+- wheel 形式のパッケージの保存ディレクトリ名は何でもよいが、慣習的に ``wheelhouse`` という名前を使う
 
 
-      setup(
-          name="hey",
-          version='1.2.3',
-          packages=find_packages(),
-          include_package_data=True,
-          install_requires=['Django>=2.1'],
-      )
+setuptools ベースのプロジェクトから wheel を作成する
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: bash
+
+  $ python setup.py bdist_wheel
+
+* Python のパッケージングには setup スクリプトが必要 (PyPro3 P.66)
+
+  * setup.py というファイル名で用意する (Python の仕様で決められている)
+  * setup.py には Python パッケージ情報 (メタデータ: パッケージ名やバージョン, 依存パッケージなど) を書く
+
+* setuptools は pip が使える環境には必ずインストールされているライブラリ
+
+  * 一般的には setuptools が提供する機能拡張された setup 関数を使う
+
+  .. code-block:: python
+
+    # 詳しくは PyPro P.70 を見よ
+    from setuptools import find_packages, setup
+
+
+    setup(
+        name="hey",
+        version='1.2.3',
+        packages=find_packages(),
+        include_package_data=True,
+        install_requires=['Django>=2.1'],
+    )
 
 
 ガイド/リファレンス

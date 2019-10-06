@@ -1,6 +1,6 @@
 .. title: Django: django-admin.py, manage.py
 .. tags: django
-.. date: 2019-10-06
+.. date: 2019-10-05
 .. slug: index
 .. status: published
 
