@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-<title>ほんとうにめも/ふみのて</title>
+<title>AWS のいろいろなサービス/ふみのて</title>
 <link rel="shortcut icon" href="../../assets/icons/favicon.ico">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Griffy">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Vollkorn:400,700">
@@ -23,7 +23,7 @@
 <div class="article-content">
   <main class="item item-article item-aws"><time class="date" datetime="2019-06-27 00:00:00+09:00">
       2019-06-27 Thu
-    </time><div class="title">ほんとうにめも</div>
+    </time><div class="title">AWS のいろいろなサービス</div>
     <div class="category">
       <a href="../../tags/aws/">
           aws
@@ -31,31 +31,109 @@
     </div>
     <div class="text">
       <div>
-<div class="section" id="cfn">
-<h2>CFn</h2>
+<div class="section" id="ecs-amazon-elastic-container-service">
+<h2>ECS (Amazon Elastic Container Service)</h2>
+<p>Amazon Elastic Container Service (Amazon ECS) は、Amazon EC2 インスタンスのクラスターで Docker コンテナの実行、停止、管理を簡単に行うことのできる、高度にスケーラブルで高速なコンテナ管理サービスです。Amazon Elastic Container Service (Amazon ECS) は、Amazon EC2 インスタンスのクラスターで Docker コンテナの実行、停止、管理を簡単に行うことのできる、高度にスケーラブルで高速なコンテナ管理サービスです。</p>
+<ul class="simple">
+<li>コンテナオーケストレーションサービス</li>
+</ul>
 <div class="section" id="id1">
-<h3>ガイド</h3>
+<h3>リファレンス/ガイド</h3>
+<ul>
+<li>
+<p class="first"><a class="reference external" href="https://docs.aws.amazon.com/ecs/index.html">https://docs.aws.amazon.com/ecs/index.html</a></p>
+</li>
+<li>
+<p class="first">クラスター
+* サービス:</p>
+<div class="system-message">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">&lt;string&gt;</tt>, line 14)</p>
+<p>Unexpected indentation.</p>
+</div>
+<blockquote>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>タスク定義</dt>
+<dd><ul class="first last">
+<li>起動するとタスクになる</li>
+<li>タスク定義は、タスクに含まれるコンテナの数、それらが使用するリソース、それらが一緒にリンクされる方法、および使用するホストポートなど、アプリケーションのコンテナ情報を指定します。詳細はこちら</li>
+</ul></dd>
+</dl></li>
+</ul>
+</blockquote>
+</li>
+<li>
+<p class="first">Fargate:
+* 起動タイプって書いてある
+* AWS FargateとECSの違いは？: <a class="reference external" href="https://qiita.com/ABCompany1/items/5f3fcea04052415dc875">https://qiita.com/ABCompany1/items/5f3fcea04052415dc875</a>
+* Fargate を使用した Amazon ECS の使用開始: <a class="reference external" href="https://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/ECS_GetStarted_Fargate.html">https://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/ECS_GetStarted_Fargate.html</a>
+* くろのて: Django を ECS(Fargate) に手動デプロイしたログ:</p>
+</li>
+<li>
+<p class="first">やってみた</p>
+<ul class="simple">
+<li>Docker/Kubernetes 実践コンテナ開発入門 &gt; B.3 AWS Fargate を用いた ECS でのコンテナオーケストレーション</li>
+<li>クラスターつくると、全部セットでできあがるのすごいな</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="ecr-amazon-elastic-container-registry">
+<h2>ECR (Amazon Elastic Container Registry)</h2>
+<p>コンテナイメージを簡単に保存、管理、デプロイ</p>
+<div class="section" id="id2">
+<h3>リファレンス/ガイド</h3>
+<ul class="simple">
+<li><a class="reference external" href="https://aws.amazon.com/jp/ecr/">https://aws.amazon.com/jp/ecr/</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="alb-application-load-balancer">
+<h2>ALB (Application Load Balancer)</h2>
+<p>Elastic Load Balancing は、EC2 インスタンスなどの複数のターゲット間で、アプリケーションの着信トラフィックを自動的に分散します。
+登録されているターゲットの状態をモニタリングし、正常なターゲットのみにトラフィックをルーティングします。
+Elastic Load Balancing は、Application Load Balancer、Network Load Balancer、Classic Load Balancer の 3 つのタイプのロードバランサーをサポートします。</p>
+<div class="section" id="id3">
+<h3>リファレンス/ガイド</h3>
+<p><a class="reference external" href="https://docs.aws.amazon.com/ja_jp/elasticloadbalancing/latest/application/introduction.html">https://docs.aws.amazon.com/ja_jp/elasticloadbalancing/latest/application/introduction.html</a></p>
+</div>
+</div>
+<div class="section" id="vpc-amazon-virtual-private-cloud">
+<h2>VPC (Amazon Virtual Private Cloud)</h2>
+<p>ユーザーが定義した仮想ネットワーク内で AWS リソースの起動が可能な、アマゾン ウェブ サービス (AWS) クラウドのローカルで隔離されたセクションのプロビジョニング。</p>
+<div class="section" id="id4">
+<h3>リファレンス/ガイド</h3>
+<ul class="simple">
+<li><a class="reference external" href="https://aws.amazon.com/jp/vpc/">https://aws.amazon.com/jp/vpc/</a></li>
+<li><a class="reference external" href="https://docs.aws.amazon.com/ja_jp/vpc/latest/userguide/what-is-amazon-vpc.html">https://docs.aws.amazon.com/ja_jp/vpc/latest/userguide/what-is-amazon-vpc.html</a></li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h3>めもめも</h3>
+<ul class="simple">
+<li>閉じたクラウドの仮装ネットワークなのみたいなこと言ってるよ...</li>
+</ul>
+</div>
+</div>
+<div class="section" id="cfn-aws-cloudformation">
+<h2>CFn (AWS CloudFormation)</h2>
+<p>すべてのクラウドインフラストラクチャリソースのモデル化とプロビジョニング</p>
+<div class="section" id="id6">
+<h3>リファレンス/ガイド</h3>
 <ul class="simple">
 <li><a class="reference external" href="https://aws.amazon.com/jp/cloudformation/">https://aws.amazon.com/jp/cloudformation/</a></li>
 <li><a class="reference external" href="https://aws.amazon.com/jp/cloudformation/features/">https://aws.amazon.com/jp/cloudformation/features/</a></li>
 </ul>
 </div>
-<div class="section" id="id2">
-<h3>めもめも</h3>
-<ul>
-<li>
-<p class="first"><tt class="docutils literal">AWS CloudFormation</tt> のことらしい</p>
+<div class="section" id="id7">
+<h3>めも</h3>
 <ul class="simple">
-<li>略語だったのか... 略すの....</li>
-<li>
-<cite>クラウド環境内のすべてのインフラストラクチャリソースを記述してプロビジョニングするための共通言語を提供します</cite> ふむ</li>
-<li>
-<cite>AWS CloudFormation は追加料金なしでご利用いただけます</cite> タダらしい</li>
-</ul>
-</li>
-<li>
-<p class="first">利点</p>
-<ul class="simple">
+<li>テンプレート</li>
+<li>スタック</li>
+<li>クラウド環境内のすべてのインフラストラクチャリソースを記述してプロビジョニングするための共通言語を提供します</li>
+<li>AWS CloudFormation は追加料金なしでご利用いただけます</li>
+<li>利点<ul>
 <li><cite>インフラストラクチャ全体をテキストファイルでモデル化できます</cite></li>
 <li>モデル化したテキストファイルのことを <tt class="docutils literal">テンプレート</tt> というらしい<ul>
 <li>サンプルテンプレートを使ったり、独自のテンプレートを作ったりできるらしい</li>
@@ -66,10 +144,9 @@
 <cite>このテンプレートは、インフラストラクチャにおける真の単一ソースとなります。</cite> ふむう</li>
 </ul>
 </li>
-<li>
-<p class="first">自動化とデプロイ</p>
-<ul class="simple">
-<li><cite>AWS CloudFormation では、安全で繰り返し可能な方法でリソースがプロビジョニングされるため、手作業やカスタムスクリプト作成を必要とせずにインフラストラクチャとアプリケーションの構築と再構築が可能になります。</cite></li>
+<li>自動化とデプロイ<ul>
+<li><cite>AWS CloudFormation では、安全で繰り返し可能な方法でリソースがプロビジョニングされるため、
+手作業やカスタムスクリプト作成を必要とせずにインフラストラクチャとアプリケーションの構築と再構築が可能になります。</cite></li>
 <li>
 <cite>エラーが検出された場合は変更が自動的にロールバックされます。</cite> なぬ、しゅごいな....</li>
 <li>CloudWatch アラームを指定できるんだって</li>
@@ -79,70 +156,60 @@
 <tt class="docutils literal">スタック</tt> というキーワードが登場、それなにおいしいの??</li>
 </ul>
 </li>
-<li>
-<p class="first">単なるコード</p>
-<ul class="simple">
+<li>単なるコード<ul>
 <li>
 <cite>インフラストラクチャをコード化することで、インフラストラクチャを単なるコードとして扱えるようになります。</cite> ほうほう</li>
 </ul>
 </li>
-<li>
-<p class="first">わたしの理解</p>
-<ul class="simple">
+<li>わたしの理解<ul>
 <li>Ansible の AWS よう、みたいなイメージだろうか....</li>
 <li>
 <tt class="docutils literal">スタック</tt> なに.....</li>
 </ul>
 </li>
 <li>
-<p class="first"><a class="reference external" href="https://tech.bitbank.cc/cfn-vpc/">https://tech.bitbank.cc/cfn-vpc/</a></p>
-<ul>
+<a class="reference external" href="https://tech.bitbank.cc/cfn-vpc/">https://tech.bitbank.cc/cfn-vpc/</a><ul>
 <li>
-<p class="first"><cite>Infrastructure as Codeってやつですね。</cite> とのこと。ほーう。</p>
-</li>
+<cite>Infrastructure as Codeってやつですね。</cite> とのこと。ほーう。</li>
 <li>
-<p class="first"><cite>AWSで利用するEC2やVPCなどのインフラをコードでビルドできるわけです。</cite> ほうほうー</p>
-</li>
-<li>
-<p class="first">はー、わかりやすい説明ありがとうございます.....</p>
-<blockquote>
-<ul class="simple">
+<cite>AWSで利用するEC2やVPCなどのインフラをコードでビルドできるわけです。</cite> ほうほうー</li>
 <li>バージョン管理が可能になり</li>
 <li>冪等性を担保したデプロイが可能になる</li>
-</ul>
-</blockquote>
-</li>
-<li>
-<p class="first">あああ、ありがとうございます....</p>
-<ul class="simple">
 <li>テンプレートを元にして、AWSのCloudFormation上にスタックというものができあがります。</li>
 <li>スタックはリソース(EC2とかVPCなど)の変更点を1まとめにしたものです。</li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
 </div>
 </div>
-<div class="section" id="vpc">
-<h2>VPC</h2>
-<div class="section" id="id3">
-<h3>ガイド</h3>
+<div class="section" id="eks-amazon-elastic-kubernetes-service">
+<h2>EKS (Amazon Elastic Kubernetes Service)</h2>
+<p>可用性が高く、スケーラブルで安全な Kubernetes サービス</p>
 <ul class="simple">
-<li><a class="reference external" href="https://aws.amazon.com/jp/vpc/">https://aws.amazon.com/jp/vpc/</a></li>
-<li><a class="reference external" href="https://docs.aws.amazon.com/ja_jp/vpc/latest/userguide/what-is-amazon-vpc.html">https://docs.aws.amazon.com/ja_jp/vpc/latest/userguide/what-is-amazon-vpc.html</a></li>
+<li>AWS のマネージド Kubernetes サービス</li>
 </ul>
+<div class="section" id="id8">
+<h3>リファレンス/ガイド</h3>
+<p><a class="reference external" href="https://aws.amazon.com/jp/eks/">https://aws.amazon.com/jp/eks/</a></p>
 </div>
-<div class="section" id="id4">
-<h3>めもめも</h3>
+</div>
+<div class="section" id="aws-lambda">
+<h2>AWS Lambda</h2>
+<p>AWS Lambda はサーバーをプロビジョニングしたり管理する必要なくコードを実行できるコンピューティングサービスです。</p>
+<div class="section" id="id9">
+<h3>リファレンス/ガイド</h3>
+<p><a class="reference external" href="https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/welcome.html">https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/welcome.html</a></p>
+</div>
+</div>
+<div class="section" id="rds-amazon-relational-database-service">
+<h2>RDS (Amazon Relational Database Service)</h2>
+<p>クラウド上のリレーショナルデータベースのセットアップ、オペレーション、スケールを数回のクリックで実現</p>
 <ul class="simple">
-<li>
-<tt class="docutils literal">Amazon Virtual Private Cloud (Amazon VPC)</tt> というやつがあって<ul>
-<li>閉じたクラウドの仮装ネットワークなのみたいなこと言ってるよ...</li>
+<li>AWS のいろいろなサービスについて知りたいなあ
+* 全体を俯瞰して
+* こんなんあるんだなあと、ちょっとした使い方使い道を知りたい
+* いざ使うとなったら詳しく調べて使えるように</li>
 </ul>
-</li>
-</ul>
-</div>
 </div>
 </div>
     </div>

@@ -21,8 +21,8 @@
 </header></div>
       <div class="main">
 <div class="article-content">
-  <main class="item item-article item-django"><time class="date" datetime="2019-05-06 00:00:00+09:00">
-      2019-05-06 Mon
+  <main class="item item-article item-django"><time class="date" datetime="2019-10-05 00:00:00+09:00">
+      2019-10-05 Sat
     </time><div class="title">Django: django-admin.py, manage.py</div>
     <div class="category">
       <a href="../../tags/django/">
@@ -34,51 +34,55 @@
 <details><summary>目次</summary><div class="contents topic" id="id1">
 <p class="topic-title first">目次</p>
 <ul class="simple">
-<li><a class="reference internal" href="#id2" id="id10">書籍/リファレンス</a></li>
+<li><a class="reference internal" href="#id2" id="id11">書籍/リファレンス</a></li>
 <li>
-<a class="reference internal" href="#django-admin-manage-py" id="id11">django-admin と manage.py の違い</a><ul>
-<li><a class="reference internal" href="#django-admin-py-django-admin" id="id12">django-admin.py, django-admin</a></li>
-<li><a class="reference internal" href="#manage-py" id="id13">manage.py</a></li>
+<a class="reference internal" href="#django-admin-manage-py" id="id12">django-admin と manage.py の違い</a><ul>
+<li><a class="reference internal" href="#django-admin-py-django-admin" id="id13">django-admin.py, django-admin</a></li>
+<li><a class="reference internal" href="#manage-py" id="id14">manage.py</a></li>
 </ul>
 </li>
 <li>
-<a class="reference internal" href="#id3" id="id14">よく使う Django 管理コマンド</a><ul>
-<li><a class="reference internal" href="#id4" id="id15">プロジェクト作成</a></li>
-<li><a class="reference internal" href="#id5" id="id16">アプリケーション作成</a></li>
-<li><a class="reference internal" href="#id6" id="id17">マイグレーション</a></li>
-<li><a class="reference internal" href="#id7" id="id18">スーバーユーザー作成</a></li>
-<li><a class="reference internal" href="#runserver" id="id19">runserver</a></li>
+<a class="reference internal" href="#id3" id="id15">よく使う Django 管理コマンド</a><ul>
+<li><a class="reference internal" href="#id4" id="id16">プロジェクト作成</a></li>
+<li><a class="reference internal" href="#id5" id="id17">アプリケーション作成</a></li>
 <li>
-<a class="reference internal" href="#id8" id="id20">インタラクティブモードで実行する</a><ul>
-<li><a class="reference internal" href="#id9" id="id21">使用例</a></li>
+<a class="reference internal" href="#id6" id="id18">マイグレーション</a><ul>
+<li><a class="reference internal" href="#id7" id="id19">くろのて</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#django-dbdb" id="id22">Django の DBシェルでローカルDBにつなぐ</a></li>
+<li><a class="reference internal" href="#id8" id="id20">スーバーユーザー作成</a></li>
+<li><a class="reference internal" href="#runserver" id="id21">runserver</a></li>
+<li>
+<a class="reference internal" href="#id9" id="id22">インタラクティブモードで実行する</a><ul>
+<li><a class="reference internal" href="#id10" id="id23">使用例</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#django-dbdb" id="id24">Django の DBシェルでローカルDBにつなぐ</a></li>
 </ul>
 </li>
 <li>
-<a class="reference internal" href="#system-check-framework-django" id="id23">System check framework を使って、Django プロジェクトの一般的な問題を検査する</a><ul>
-<li><a class="reference internal" href="#python2" id="id24">使用例 (python2)</a></li>
+<a class="reference internal" href="#system-check-framework-django" id="id25">System check framework を使って、Django プロジェクトの一般的な問題を検査する</a><ul>
+<li><a class="reference internal" href="#python2" id="id26">使用例 (python2)</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </details><div class="section" id="id2">
-<h2><a class="toc-backref" href="#id10">書籍/リファレンス</a></h2>
+<h2><a class="toc-backref" href="#id11">書籍/リファレンス</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://docs.djangoproject.com/ja/2.2/ref/django-admin/">Django documentation &gt; django-admin と manage.py</a></li>
 <li><a class="reference external" href="https://www.amazon.co.jp/dp/B07GK7BWB7/">現場で使える Django の教科書</a></li>
 </ul>
 </div>
 <div class="section" id="django-admin-manage-py">
-<h2><a class="toc-backref" href="#id11">django-admin と manage.py の違い</a></h2>
+<h2><a class="toc-backref" href="#id12">django-admin と manage.py の違い</a></h2>
 <ul class="simple">
 <li>通常、単体の Django プロジェクトを用いる場合、 <tt class="docutils literal"><span class="pre">django-admin</span></tt> よりも <tt class="docutils literal">manage.py</tt> の方が簡単に利用できる</li>
 <li>
 <tt class="docutils literal"><span class="pre">django-admin</span></tt>, <tt class="docutils literal">manage.py</tt>, <tt class="docutils literal">python <span class="pre">-m</span> django</tt> はすべて同じことができる ( <tt class="docutils literal">startproject</tt> 後は)</li>
 </ul>
 <div class="section" id="django-admin-py-django-admin">
-<h3><a class="toc-backref" href="#id12">django-admin.py, django-admin</a></h3>
+<h3><a class="toc-backref" href="#id13">django-admin.py, django-admin</a></h3>
 <ul class="simple">
 <li>インストールすると使えるようになる</li>
 <li>基本的にどこからでも利用できる</li>
@@ -88,7 +92,7 @@
 </ul>
 </div>
 <div class="section" id="manage-py">
-<h3><a class="toc-backref" href="#id13">manage.py</a></h3>
+<h3><a class="toc-backref" href="#id14">manage.py</a></h3>
 <ul class="simple">
 <li>
 <tt class="docutils literal">startproject</tt> でプロジェクトを作成すると自動で作成される</li>
@@ -97,95 +101,112 @@
 </div>
 </div>
 <div class="section" id="id3">
-<h2><a class="toc-backref" href="#id14">よく使う Django 管理コマンド</a></h2>
+<h2><a class="toc-backref" href="#id15">よく使う Django 管理コマンド</a></h2>
 <div class="section" id="id4">
-<h3><a class="toc-backref" href="#id15">プロジェクト作成</a></h3>
-<pre class="code bash"><a name="rest_code_9b638bcdddfb436ab5a516f6fc537ce9-1"></a><span class="c1"># プロジェクトのディレクトリに移動する</span>
-<a name="rest_code_9b638bcdddfb436ab5a516f6fc537ce9-2"></a>$ <span class="nb">cd</span> project_dir
-<a name="rest_code_9b638bcdddfb436ab5a516f6fc537ce9-3"></a><span class="c1"># django-admin.py startproject &lt;設定ディレクトリ名&gt; &lt;つくる場所&gt;</span>
-<a name="rest_code_9b638bcdddfb436ab5a516f6fc537ce9-4"></a>$ django-admin.py startproject config .
+<h3><a class="toc-backref" href="#id16">プロジェクト作成</a></h3>
+<pre class="code bash"><a name="rest_code_aad893d0142d49c08bb542f9ce61a77f-1"></a><span class="c1"># プロジェクトのディレクトリに移動する</span>
+<a name="rest_code_aad893d0142d49c08bb542f9ce61a77f-2"></a>$ <span class="nb">cd</span> project_dir
+<a name="rest_code_aad893d0142d49c08bb542f9ce61a77f-3"></a><span class="c1"># django-admin.py startproject &lt;設定ディレクトリ名&gt; &lt;つくる場所&gt;</span>
+<a name="rest_code_aad893d0142d49c08bb542f9ce61a77f-4"></a>$ django-admin.py startproject config .
 </pre>
 </div>
 <div class="section" id="id5">
-<h3><a class="toc-backref" href="#id16">アプリケーション作成</a></h3>
-<pre class="code bash"><a name="rest_code_2d2e12e33e4542b99d7ccaad70e6d518-1"></a><span class="c1"># プロジェクトのディレクトリに移動する</span>
-<a name="rest_code_2d2e12e33e4542b99d7ccaad70e6d518-2"></a>$ <span class="nb">cd</span> project_dir
-<a name="rest_code_2d2e12e33e4542b99d7ccaad70e6d518-3"></a><span class="c1"># python manage.py startapp &lt;アプリケーション名&gt;</span>
-<a name="rest_code_2d2e12e33e4542b99d7ccaad70e6d518-4"></a>$ python manage.py startapp account
+<h3><a class="toc-backref" href="#id17">アプリケーション作成</a></h3>
+<pre class="code bash"><a name="rest_code_807996b4b9974336aab983ec2baf641b-1"></a><span class="c1"># プロジェクトのディレクトリに移動する</span>
+<a name="rest_code_807996b4b9974336aab983ec2baf641b-2"></a>$ <span class="nb">cd</span> project_dir
+<a name="rest_code_807996b4b9974336aab983ec2baf641b-3"></a><span class="c1"># python manage.py startapp &lt;アプリケーション名&gt;</span>
+<a name="rest_code_807996b4b9974336aab983ec2baf641b-4"></a>$ python manage.py startapp account
 </pre>
 <ul class="simple">
 <li>作成後、 settings.py &gt; <tt class="docutils literal">INSTALLED_APPS</tt> に手動でアプリケーションを追加する</li>
 </ul>
 </div>
 <div class="section" id="id6">
-<h3><a class="toc-backref" href="#id17">マイグレーション</a></h3>
-<pre class="code bash"><a name="rest_code_d8f97f965ac04bca8109bcfd29ba6fa6-1"></a><span class="c1"># マイグレーションファイルを作成する</span>
-<a name="rest_code_d8f97f965ac04bca8109bcfd29ba6fa6-2"></a><span class="c1"># python manage.py makemigrations [&lt;アプリケーション名&gt;]</span>
-<a name="rest_code_d8f97f965ac04bca8109bcfd29ba6fa6-3"></a>$ python manage.py makemigrations account
-<a name="rest_code_d8f97f965ac04bca8109bcfd29ba6fa6-4"></a>
-<a name="rest_code_d8f97f965ac04bca8109bcfd29ba6fa6-5"></a><span class="c1"># マイグレーションを実行する</span>
-<a name="rest_code_d8f97f965ac04bca8109bcfd29ba6fa6-6"></a><span class="c1"># python manage.py migrate [&lt;アプリケーション名&gt;]</span>
-<a name="rest_code_d8f97f965ac04bca8109bcfd29ba6fa6-7"></a>$ python manage.py migrate account
+<h3><a class="toc-backref" href="#id18">マイグレーション</a></h3>
+<pre class="code bash"><a name="rest_code_529615a02ccd4628874f7c985ac4f08a-1"></a><span class="c1"># マイグレーションファイルを作成する</span>
+<a name="rest_code_529615a02ccd4628874f7c985ac4f08a-2"></a><span class="c1"># python manage.py makemigrations [&lt;アプリケーション名&gt;]</span>
+<a name="rest_code_529615a02ccd4628874f7c985ac4f08a-3"></a>$ python manage.py makemigrations account
+<a name="rest_code_529615a02ccd4628874f7c985ac4f08a-4"></a>
+<a name="rest_code_529615a02ccd4628874f7c985ac4f08a-5"></a><span class="c1"># 作成される予定のマイグレーションを表示する。実際のマイグレーションファイルは作成されない。</span>
+<a name="rest_code_529615a02ccd4628874f7c985ac4f08a-6"></a>$ python manage.py makemigrations --dry-run
+<a name="rest_code_529615a02ccd4628874f7c985ac4f08a-7"></a>
+<a name="rest_code_529615a02ccd4628874f7c985ac4f08a-8"></a><span class="c1"># マイグレーションを実行する</span>
+<a name="rest_code_529615a02ccd4628874f7c985ac4f08a-9"></a><span class="c1"># python manage.py migrate [&lt;アプリケーション名&gt;]</span>
+<a name="rest_code_529615a02ccd4628874f7c985ac4f08a-10"></a>$ python manage.py migrate account
+<a name="rest_code_529615a02ccd4628874f7c985ac4f08a-11"></a>
+<a name="rest_code_529615a02ccd4628874f7c985ac4f08a-12"></a><span class="c1"># マイグレートするデータベースを指定する。デフォルトは default 。</span>
+<a name="rest_code_529615a02ccd4628874f7c985ac4f08a-13"></a>$ python manage.py migrate --database &lt;DATABASE&gt;
+<a name="rest_code_529615a02ccd4628874f7c985ac4f08a-14"></a>$ python manage.py migrate --database hey
+<a name="rest_code_529615a02ccd4628874f7c985ac4f08a-15"></a>
+<a name="rest_code_529615a02ccd4628874f7c985ac4f08a-16"></a><span class="c1"># 適用済みとして django_migrations にレコードは INSERT されるけれど、データベーススキーマを変更するために実際にSQLを実行することはありません。</span>
+<a name="rest_code_529615a02ccd4628874f7c985ac4f08a-17"></a>$ python manage.py migrate --fake
 </pre>
-</div>
 <div class="section" id="id7">
-<h3><a class="toc-backref" href="#id18">スーバーユーザー作成</a></h3>
-<pre class="code bash"><a name="rest_code_9db2ea2d8d67439aa016f2b60dd8584f-1"></a>$ python manage.py createsuperuser
+<h4><a class="toc-backref" href="#id19">くろのて</a></h4>
+<ul class="simple">
+<li><a class="reference external" href="https://note.crohaco.net/2018/django-migration/">https://note.crohaco.net/2018/django-migration/</a></li>
+<li><a class="reference external" href="https://note.crohaco.net/2018/django-migration-case-study/">https://note.crohaco.net/2018/django-migration-case-study/</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id8">
+<h3><a class="toc-backref" href="#id20">スーバーユーザー作成</a></h3>
+<pre class="code bash"><a name="rest_code_231fe4e7754f4564a169204bd202c8df-1"></a>$ python manage.py createsuperuser
 </pre>
 </div>
 <div class="section" id="runserver">
-<h3><a class="toc-backref" href="#id19">runserver</a></h3>
-<pre class="code bash"><a name="rest_code_a3adc276f80a4015a4b710b7f2265e19-1"></a><span class="c1"># 開発用の Web サーバーを起動する</span>
-<a name="rest_code_a3adc276f80a4015a4b710b7f2265e19-2"></a><span class="c1"># python manage.py runserver [&lt;IPアドレス&gt;:&lt;ポート番号&gt;]</span>
-<a name="rest_code_a3adc276f80a4015a4b710b7f2265e19-3"></a>$ python manage.py runserver <span class="m">0</span>.0.0.0:8000
+<h3><a class="toc-backref" href="#id21">runserver</a></h3>
+<pre class="code bash"><a name="rest_code_d186b5d9b6f7486984b9b1f5e1cad123-1"></a><span class="c1"># 開発用の Web サーバーを起動する</span>
+<a name="rest_code_d186b5d9b6f7486984b9b1f5e1cad123-2"></a><span class="c1"># python manage.py runserver [&lt;IPアドレス&gt;:&lt;ポート番号&gt;]</span>
+<a name="rest_code_d186b5d9b6f7486984b9b1f5e1cad123-3"></a>$ python manage.py runserver <span class="m">0</span>.0.0.0:8000
 </pre>
 <ul class="simple">
 <li>IPアドレスとポート番号を省略すると <tt class="docutils literal">127.0.0.1:8000</tt> で起動する</li>
 <li>Docker 上で runserver =&gt; ホストOSのブラウザから <tt class="docutils literal">127.0.0.1:8000</tt> に接続できないときは、 <tt class="docutils literal">0.0.0.0:8000</tt> で起動してみる</li>
 </ul>
 </div>
-<div class="section" id="id8">
-<h3><a class="toc-backref" href="#id20">インタラクティブモードで実行する</a></h3>
-<pre class="code bash"><a name="rest_code_0a94a9994f4d4328a439a9ee372b0cbd-1"></a><span class="c1"># こうとか</span>
-<a name="rest_code_0a94a9994f4d4328a439a9ee372b0cbd-2"></a>$ python manage.py shell
-<a name="rest_code_0a94a9994f4d4328a439a9ee372b0cbd-3"></a><span class="c1"># こうとか</span>
-<a name="rest_code_0a94a9994f4d4328a439a9ee372b0cbd-4"></a>$ <span class="nv">DJANGO_SETTINGS_MODULE</span><span class="o">=</span>settings._ python manage.py shell
-<a name="rest_code_0a94a9994f4d4328a439a9ee372b0cbd-5"></a><span class="c1"># こう</span>
-<a name="rest_code_0a94a9994f4d4328a439a9ee372b0cbd-6"></a>$ python manage.py shell --settings<span class="o">=</span>settings._
-</pre>
 <div class="section" id="id9">
-<h4><a class="toc-backref" href="#id21">使用例</a></h4>
-<pre class="code python"><a name="rest_code_8e0ff8459edf4164ac907efb81888cb8-1"></a><span class="err">$</span> <span class="n">python</span> <span class="n">manage</span><span class="o">.</span><span class="n">py</span> <span class="n">shell</span> <span class="o">--</span><span class="n">settings</span><span class="o">=</span><span class="n">settings</span><span class="o">.</span><span class="n">_</span>
-<a name="rest_code_8e0ff8459edf4164ac907efb81888cb8-2"></a><span class="n">Python</span> <span class="mf">2.7</span><span class="o">.</span><span class="mi">7</span> <span class="p">(</span><span class="n">default</span><span class="p">,</span> <span class="n">Dec</span> <span class="mi">11</span> <span class="mi">2017</span><span class="p">,</span> <span class="mi">18</span><span class="p">:</span><span class="mi">45</span><span class="p">:</span><span class="mi">38</span><span class="p">)</span>
-<a name="rest_code_8e0ff8459edf4164ac907efb81888cb8-3"></a><span class="p">[</span><span class="n">GCC</span> <span class="mf">4.4</span><span class="o">.</span><span class="mi">7</span> <span class="mi">20120313</span> <span class="p">(</span><span class="n">Red</span> <span class="n">Hat</span> <span class="mf">4.4</span><span class="o">.</span><span class="mi">7</span><span class="o">-</span><span class="mi">18</span><span class="p">)]</span> <span class="n">on</span> <span class="n">linux2</span>
-<a name="rest_code_8e0ff8459edf4164ac907efb81888cb8-4"></a><span class="n">Type</span> <span class="s2">"help"</span><span class="p">,</span> <span class="s2">"copyright"</span><span class="p">,</span> <span class="s2">"credits"</span> <span class="ow">or</span> <span class="s2">"license"</span> <span class="k">for</span> <span class="n">more</span> <span class="n">information</span><span class="o">.</span>
-<a name="rest_code_8e0ff8459edf4164ac907efb81888cb8-5"></a><span class="p">(</span><span class="n">InteractiveConsole</span><span class="p">)</span>
-<a name="rest_code_8e0ff8459edf4164ac907efb81888cb8-6"></a><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">myapp.models</span> <span class="kn">import</span> <span class="n">Entry</span>
-<a name="rest_code_8e0ff8459edf4164ac907efb81888cb8-7"></a><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">django.db.models</span> <span class="kn">import</span> <span class="n">Q</span>
-<a name="rest_code_8e0ff8459edf4164ac907efb81888cb8-8"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">target_entry_id</span> <span class="o">=</span> <span class="bp">None</span>
-<a name="rest_code_8e0ff8459edf4164ac907efb81888cb8-9"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">Entry</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span>
-<a name="rest_code_8e0ff8459edf4164ac907efb81888cb8-10"></a><span class="o">...</span>     <span class="n">Q</span><span class="p">(</span><span class="n">expiration_year_month__gte</span><span class="o">=</span><span class="n">target_entry_id</span><span class="p">)</span> <span class="o">|</span>
-<a name="rest_code_8e0ff8459edf4164ac907efb81888cb8-11"></a><span class="o">...</span>     <span class="n">Q</span><span class="p">(</span><span class="n">expiration_year_month__isnull</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-<a name="rest_code_8e0ff8459edf4164ac907efb81888cb8-12"></a><span class="o">...</span> <span class="p">)</span>
+<h3><a class="toc-backref" href="#id22">インタラクティブモードで実行する</a></h3>
+<pre class="code bash"><a name="rest_code_1ed7df47b2f24bb5b8299986b7598f0d-1"></a><span class="c1"># こうとか</span>
+<a name="rest_code_1ed7df47b2f24bb5b8299986b7598f0d-2"></a>$ python manage.py shell
+<a name="rest_code_1ed7df47b2f24bb5b8299986b7598f0d-3"></a><span class="c1"># こうとか</span>
+<a name="rest_code_1ed7df47b2f24bb5b8299986b7598f0d-4"></a>$ <span class="nv">DJANGO_SETTINGS_MODULE</span><span class="o">=</span>settings._ python manage.py shell
+<a name="rest_code_1ed7df47b2f24bb5b8299986b7598f0d-5"></a><span class="c1"># こう</span>
+<a name="rest_code_1ed7df47b2f24bb5b8299986b7598f0d-6"></a>$ python manage.py shell --settings<span class="o">=</span>settings._
+</pre>
+<div class="section" id="id10">
+<h4><a class="toc-backref" href="#id23">使用例</a></h4>
+<pre class="code python"><a name="rest_code_0008ed6c680848568e4b9bea443538e8-1"></a><span class="err">$</span> <span class="n">python</span> <span class="n">manage</span><span class="o">.</span><span class="n">py</span> <span class="n">shell</span> <span class="o">--</span><span class="n">settings</span><span class="o">=</span><span class="n">settings</span><span class="o">.</span><span class="n">_</span>
+<a name="rest_code_0008ed6c680848568e4b9bea443538e8-2"></a><span class="n">Python</span> <span class="mf">2.7</span><span class="o">.</span><span class="mi">7</span> <span class="p">(</span><span class="n">default</span><span class="p">,</span> <span class="n">Dec</span> <span class="mi">11</span> <span class="mi">2017</span><span class="p">,</span> <span class="mi">18</span><span class="p">:</span><span class="mi">45</span><span class="p">:</span><span class="mi">38</span><span class="p">)</span>
+<a name="rest_code_0008ed6c680848568e4b9bea443538e8-3"></a><span class="p">[</span><span class="n">GCC</span> <span class="mf">4.4</span><span class="o">.</span><span class="mi">7</span> <span class="mi">20120313</span> <span class="p">(</span><span class="n">Red</span> <span class="n">Hat</span> <span class="mf">4.4</span><span class="o">.</span><span class="mi">7</span><span class="o">-</span><span class="mi">18</span><span class="p">)]</span> <span class="n">on</span> <span class="n">linux2</span>
+<a name="rest_code_0008ed6c680848568e4b9bea443538e8-4"></a><span class="n">Type</span> <span class="s2">"help"</span><span class="p">,</span> <span class="s2">"copyright"</span><span class="p">,</span> <span class="s2">"credits"</span> <span class="ow">or</span> <span class="s2">"license"</span> <span class="k">for</span> <span class="n">more</span> <span class="n">information</span><span class="o">.</span>
+<a name="rest_code_0008ed6c680848568e4b9bea443538e8-5"></a><span class="p">(</span><span class="n">InteractiveConsole</span><span class="p">)</span>
+<a name="rest_code_0008ed6c680848568e4b9bea443538e8-6"></a><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">myapp.models</span> <span class="kn">import</span> <span class="n">Entry</span>
+<a name="rest_code_0008ed6c680848568e4b9bea443538e8-7"></a><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">django.db.models</span> <span class="kn">import</span> <span class="n">Q</span>
+<a name="rest_code_0008ed6c680848568e4b9bea443538e8-8"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">target_entry_id</span> <span class="o">=</span> <span class="bp">None</span>
+<a name="rest_code_0008ed6c680848568e4b9bea443538e8-9"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">Entry</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span>
+<a name="rest_code_0008ed6c680848568e4b9bea443538e8-10"></a><span class="o">...</span>     <span class="n">Q</span><span class="p">(</span><span class="n">expiration_year_month__gte</span><span class="o">=</span><span class="n">target_entry_id</span><span class="p">)</span> <span class="o">|</span>
+<a name="rest_code_0008ed6c680848568e4b9bea443538e8-11"></a><span class="o">...</span>     <span class="n">Q</span><span class="p">(</span><span class="n">expiration_year_month__isnull</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<a name="rest_code_0008ed6c680848568e4b9bea443538e8-12"></a><span class="o">...</span> <span class="p">)</span>
 </pre>
 </div>
 </div>
 <div class="section" id="django-dbdb">
-<h3><a class="toc-backref" href="#id22">Django の DBシェルでローカルDBにつなぐ</a></h3>
-<pre class="code console"><a name="rest_code_84d01efbf748473ba5d3d16923263fb2-1"></a><span class="gp">$</span> python manage.py dbshell --settings<span class="o">=</span>settings.local
+<h3><a class="toc-backref" href="#id24">Django の DBシェルでローカルDBにつなぐ</a></h3>
+<pre class="code console"><a name="rest_code_7a05ce4c9c014ccfa0e2987723c57f52-1"></a><span class="gp">$</span> python manage.py dbshell --settings<span class="o">=</span>settings.local
 </pre>
 </div>
 </div>
 <div class="section" id="system-check-framework-django">
-<h2><a class="toc-backref" href="#id23">System check framework を使って、Django プロジェクトの一般的な問題を検査する</a></h2>
+<h2><a class="toc-backref" href="#id25">System check framework を使って、Django プロジェクトの一般的な問題を検査する</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://docs.djangoproject.com/ja/2.2/ref/django-admin/#check">Django documentation &gt; django-admin と manage.py &gt; Available commands &gt; check</a></li>
 <li><a class="reference external" href="https://docs.djangoproject.com/ja/2.2/ref/checks/#system-check-framework">Django documentation &gt; System check framework</a></li>
 </ul>
 <div class="section" id="python2">
-<h3><a class="toc-backref" href="#id24">使用例 (python2)</a></h3>
+<h3><a class="toc-backref" href="#id26">使用例 (python2)</a></h3>
 <blockquote>
-<pre class="code bash"><a name="rest_code_8e7005e5cc1c4279a0ecbd370a2224ec-1"></a>$ <span class="nv">DJANGO_SETTINGS_MODULE</span><span class="o">=</span>settings.local python -Wd manage.py check
+<pre class="code bash"><a name="rest_code_01201451849a49da99beaf6612f342b1-1"></a>$ <span class="nv">DJANGO_SETTINGS_MODULE</span><span class="o">=</span>settings.local python -Wd manage.py check
 </pre>
 <ul>
 <li>

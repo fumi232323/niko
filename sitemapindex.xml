@@ -7,11 +7,11 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <sitemap>
   <loc>https://32imuf.com/atom.xml</loc>
-  <lastmod>2019-07-16T14:25:00Z</lastmod>
+  <lastmod>2019-10-06T13:41:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://32imuf.com/sitemap.xml</loc>
-  <lastmod>2019-07-16T14:25:00Z</lastmod>
+  <lastmod>2019-10-06T13:41:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://32imuf.com/tags/aws.xml</loc>
@@ -26,12 +26,16 @@
   <lastmod>2019-06-10T15:10:00Z</lastmod>
  </sitemap>
  <sitemap>
+  <loc>https://32imuf.com/tags/database.xml</loc>
+  <lastmod>2019-10-06T04:58:00Z</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>https://32imuf.com/tags/django-rest-framework.xml</loc>
-  <lastmod>2019-07-16T14:07:00Z</lastmod>
+  <lastmod>2019-10-06T05:57:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://32imuf.com/tags/django.xml</loc>
-  <lastmod>2019-07-15T14:03:00Z</lastmod>
+  <lastmod>2019-10-06T13:34:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://32imuf.com/tags/docker.xml</loc>
@@ -59,7 +63,7 @@
  </sitemap>
  <sitemap>
   <loc>https://32imuf.com/tags/mysql.xml</loc>
-  <lastmod>2019-06-09T10:24:00Z</lastmod>
+  <lastmod>2019-10-06T04:58:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://32imuf.com/tags/nikola.xml</loc>
@@ -71,11 +75,11 @@
  </sitemap>
  <sitemap>
   <loc>https://32imuf.com/tags/python.xml</loc>
-  <lastmod>2019-06-09T10:24:00Z</lastmod>
+  <lastmod>2019-10-06T13:38:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://32imuf.com/tags/redshift.xml</loc>
-  <lastmod>2019-06-09T10:24:00Z</lastmod>
+  <lastmod>2019-10-06T04:52:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://32imuf.com/tags/sample.xml</loc>
@@ -83,7 +87,7 @@
  </sitemap>
  <sitemap>
   <loc>https://32imuf.com/tags/sql.xml</loc>
-  <lastmod>2019-06-09T10:24:00Z</lastmod>
+  <lastmod>2019-10-06T13:41:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://32imuf.com/tags/sqlalchemy.xml</loc>
@@ -95,7 +99,7 @@
  </sitemap>
  <sitemap>
   <loc>https://32imuf.com/tags/test.xml</loc>
-  <lastmod>2019-06-09T10:24:00Z</lastmod>
+  <lastmod>2019-10-06T06:39:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://32imuf.com/tags/vagrant.xml</loc>
