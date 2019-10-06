@@ -1,5 +1,5 @@
 .. title: MySQL のメモ
-.. tags: mysql
+.. tags: mysql, database
 .. date: 2019-04-30
 .. slug: index
 .. status: published
@@ -114,3 +114,14 @@ dump
 - Window 関数は 8.0.2 から利用可能
 
   - `MySQL 8.0.2: Introducing Window Functions <https://mysqlserverteam.com/mysql-8-0-2-introducing-window-functions/>`_
+
+* MySQL 8.0.4 からデフォルトの認証 plugin のデフォルト値が mysql_native_password から caching_sha2_password へ変更になった
+
+  - `default-authentication-plugin=mysql_native_password について </docker/create-django-env-with-docker-compose-mysql-2/#default-authentication-plugin-mysql-native-password>`_
+
+* Database Character Set and Collation
+
+  * https://dev.mysql.com/doc/refman/5.7/en/charset-database.html
+
+    * CREATE TABLE 時、指定しないとデータベースの Character Set と Collation が使われる
+    * LOAD DATA 時、指定しないとデータベースの Character Set と Collation が使われる
