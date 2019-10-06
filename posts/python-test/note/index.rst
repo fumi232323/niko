@@ -52,6 +52,35 @@ https://docs.pytest.org/en/latest/fixture.html
 
   Test functions can receive fixture objects by naming them as an input argument. For each argument name, a fixture function with that name provides the fixture object. Fixture functions are registered by marking them with @pytest.fixture.
 
+Temporary directories and files
+--------------------------------
+http://doc.pytest.org/en/latest/tmpdir.html#the-tmpdir-fixture
+
+* 一時ディレクトリやファイルの fixture がある
+* こんな感じで使う、便利
+
+.. code-block:: python
+
+  # settings fixture 経由で storage の path を pytest の tempdir fixture の path に置き換える
+  def test_csv(self, target, settings, tmpdir):  # <- settings fixture と tmpdir fixture を受け取る
+      settings.MEDIA_ROOT = tmpdir               # ダウンロードファイル出力先を置換
+
+      # ...
+      # これで、ファイルのパスがとれる
+      p = tmpdir.join(output_file_path)          # <- output_file_path はファイル名とか
+
+
+pytest-django
+===============
+https://pytest-django.readthedocs.io/en/latest/index.html
+
+* pytest-django is a plugin for pytest that provides a set of useful tools for testing Django applications and projects.
+* Django アプリとプロジェクトのテストに便利な pytest のプラグイン
+
+settings の fixture がある
+---------------------------
+https://pytest-django.readthedocs.io/en/latest/helpers.html#settings
+
 
 testfixtures
 ============
