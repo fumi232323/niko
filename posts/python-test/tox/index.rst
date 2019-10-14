@@ -64,6 +64,7 @@ tox.ini
   # pytest-pythonpath の項を参照のこと。
   python_paths = apps tests
 
+  # https://pytest-django.readthedocs.io/en/latest/managing_python_path.html#managing-the-python-path-explicitly
   django_find_project = false
   DJANGO_SETTINGS_MODULE = settings.test
 
