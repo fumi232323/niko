@@ -1,6 +1,7 @@
 .. title: Django REST framework のメモ
 .. tags: django-rest-framework
 .. date: 2019-07-16
+.. updated: 2019-10-13
 .. slug: index
 .. status: published
 
@@ -25,8 +26,95 @@
 * `Django REST Frameworkを使って爆速でAPIを実装する <https://qiita.com/kimihiro_n/items/86e0a9e619720e57ecd8>`_
 
 
-メモ
-=====
+Serializers
+===========
+
+シリアライズとデシリアライズ
+-----------------------------
+
+* デシリアライズ (入って来るほう)
+
+  .. code-block:: python
+
+    serializer.is_valid()
+    serializer.validated_data
+
+* シリアライズ (出て行くほう)
+
+  .. code-block:: python
+
+    serializer = CommentSerializer(comment)
+    serializer.data
+
+
+Serializer fields の required 挙動まとめ
+----------------------------------------
+https://www.django-rest-framework.org/api-guide/fields/#required
+
+* デフォルトは ``required=True``
+
+deserialize 時
+^^^^^^^^^^^^^^
+
+``required=True``:
+
+* キーなしは当然エラー
+* キーがないとだめ
+
+``required=False``:
+
+* キーなしは OK
+* キーあると、 ``None`` はエラー (必須エラー)
+* キーある、かつ、 Datetime フィールドとか int フィールドだと ``''`` はエラー (たぶん型違いエラー)
+
+
+serialize 時
+^^^^^^^^^^^^^^
+
+``required=False``:
+
+* シリアライザに項目は渡すが中身が ``None`` (or ``''`` とか) の場合 => キーはあるが中身は ``None``
+
+  .. code-block:: python
+
+    {'updatedAt': None, 'entries': []}  # updatedAt = None で渡した
+
+* シリアライザに項目ごと渡さない場合 => キーが消える
+
+  .. code-block:: python
+
+    {'entries': []}  # updatedAt を渡さなかったので、キーがない
+
+
+ModelSerializer メモ
+--------------------
+
+.. code-block:: python
+
+  class EntrySerializer(serializers.ModelSerializer):
+      """エントリー"""
+      class Meta:
+          model = Entry
+          # 除外したいフィールド
+          exclude = ['author']
+          # 読み取り専用指定 https://www.django-rest-framework.org/api-guide/serializers/#specifying-read-only-fields
+          # AutoField はデフォルトで読み取り専用
+          read_only_fields = [
+              'created_at',
+              'created_by',
+              'created_by_id',
+              'updated_at',
+              'updated_by',
+              'updated_by_id',
+          ]
+          extra_kwargs = {
+              # モデル上は必須フィールドだけれど、シリアライザでは Not必須にしたい場合は、required を上書きする
+              'display_order': {'required': False}
+          }
+
+
+ちょっと動かしたい
+==================
 
 コマンドでアクセスする場合
 ----------------------------
@@ -34,7 +122,7 @@
 .. code-block:: bash
 
   # curl の場合
-  $ curl -H 'Accept: application/json; indent=4' -u <username>:<password> http://127.0.0.1:8989/users/
+  $ curl -H 'Accept: application/json; indent=4' -u <username>:<password> http://127.0.0.1:xxxx/users/
 
   # HTTPie の場合
   # https://httpie.org/doc
@@ -47,7 +135,7 @@ Browsable API
 
 
 Browsable API で HTML form タブが出せる
-------------------------------------------
+----------------------------------------
 
 .. list-table::
   :widths: auto
@@ -65,6 +153,9 @@ Browsable API で HTML form タブが出せる
 * see: https://stackoverflow.com/questions/14616489/django-rest-framework-autogenerate-form-in-browsable-api
 
 
+便利なライブラリ
+================
+
 Django REST Framework JSON CamelCase
 -------------------------------------
 https://pypi.org/project/djangorestframework-camel-case/
@@ -75,6 +166,7 @@ https://pypi.org/project/djangorestframework-camel-case/
 
 django-cors-headers
 --------------------
+https://pypi.org/project/django-cors-headers/
 
 `django-cors-headers <https://github.com/ottoyiu/django-cors-headers>`_
 
@@ -98,6 +190,9 @@ CORS
   * `くろのて > CORS とか Preflight とかよくわかんないよな <http://note.crohaco.net/2019/http-cors-preflight/>`_
 
 
+Requests/Responses
+===================
+
 DRF の Request
 ----------------
 
@@ -120,11 +215,17 @@ DRF の Response
       * レスポンスが単一のコンテンツタイプに固定されていない
 
 
+Routers
+=======
+
 Router
 ------
 * Router で登録できるのは ViewSet だけ
 * DefaultRouter: Router のルート画面にアクセスしたときに API のリンク一覧を見せてくれる
 
+
+Views
+=======
 
 API ビュー
 ------------
