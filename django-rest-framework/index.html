@@ -34,29 +34,57 @@
 <details><summary>目次</summary><div class="contents topic" id="id1">
 <p class="topic-title first">目次</p>
 <ul class="simple">
-<li><a class="reference internal" href="#id2" id="id6">ガイド/リファレンスなど</a></li>
+<li><a class="reference internal" href="#id2" id="id8">ガイド/リファレンスなど</a></li>
 <li>
-<a class="reference internal" href="#id3" id="id7">メモ</a><ul>
-<li><a class="reference internal" href="#id4" id="id8">コマンドでアクセスする場合</a></li>
-<li><a class="reference internal" href="#browsable-api" id="id9">Browsable API</a></li>
-<li><a class="reference internal" href="#browsable-api-html-form" id="id10">Browsable API で HTML form タブが出せる</a></li>
-<li><a class="reference internal" href="#django-rest-framework-json-camelcase" id="id11">Django REST Framework JSON CamelCase</a></li>
+<a class="reference internal" href="#serializers" id="id9">Serializers</a><ul>
+<li><a class="reference internal" href="#id3" id="id10">シリアライズとデシリアライズ</a></li>
 <li>
-<a class="reference internal" href="#django-cors-headers" id="id12">django-cors-headers</a><ul>
-<li><a class="reference internal" href="#cors" id="id13">CORS</a></li>
+<a class="reference internal" href="#serializer-fields-required" id="id11">Serializer fields の required 挙動まとめ</a><ul>
+<li><a class="reference internal" href="#deserialize" id="id12">deserialize 時</a></li>
+<li><a class="reference internal" href="#serialize" id="id13">serialize 時</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#drf-request" id="id14">DRF の Request</a></li>
-<li><a class="reference internal" href="#drf-response" id="id15">DRF の Response</a></li>
-<li><a class="reference internal" href="#router" id="id16">Router</a></li>
-<li><a class="reference internal" href="#api" id="id17">API ビュー</a></li>
-<li><a class="reference internal" href="#apiview" id="id18">クラスベース (APIView) で記述するのがおすすめ</a></li>
+<li><a class="reference internal" href="#modelserializer" id="id14">ModelSerializer メモ</a></li>
+</ul>
+</li>
+<li>
+<a class="reference internal" href="#id4" id="id15">ちょっと動かしたい</a><ul>
+<li><a class="reference internal" href="#id5" id="id16">コマンドでアクセスする場合</a></li>
+<li><a class="reference internal" href="#browsable-api" id="id17">Browsable API</a></li>
+<li><a class="reference internal" href="#browsable-api-html-form" id="id18">Browsable API で HTML form タブが出せる</a></li>
+</ul>
+</li>
+<li>
+<a class="reference internal" href="#id6" id="id19">便利なライブラリ</a><ul>
+<li><a class="reference internal" href="#django-rest-framework-json-camelcase" id="id20">Django REST Framework JSON CamelCase</a></li>
+<li>
+<a class="reference internal" href="#django-cors-headers" id="id21">django-cors-headers</a><ul>
+<li><a class="reference internal" href="#cors" id="id22">CORS</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<a class="reference internal" href="#requests-responses" id="id23">Requests/Responses</a><ul>
+<li><a class="reference internal" href="#drf-request" id="id24">DRF の Request</a></li>
+<li><a class="reference internal" href="#drf-response" id="id25">DRF の Response</a></li>
+</ul>
+</li>
+<li>
+<a class="reference internal" href="#routers" id="id26">Routers</a><ul>
+<li><a class="reference internal" href="#router" id="id27">Router</a></li>
+</ul>
+</li>
+<li>
+<a class="reference internal" href="#views" id="id28">Views</a><ul>
+<li><a class="reference internal" href="#api" id="id29">API ビュー</a></li>
+<li><a class="reference internal" href="#apiview" id="id30">クラスベース (APIView) で記述するのがおすすめ</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </details><div class="section" id="id2">
-<h2><a class="toc-backref" href="#id6">ガイド/リファレンスなど</a></h2>
+<h2><a class="toc-backref" href="#id8">ガイド/リファレンスなど</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://www.django-rest-framework.org/">Django REST framework</a></li>
 <li><a class="reference external" href="http://note.crohaco.net/2018/django-rest-framework-view/">くろのて &gt; [Django REST Framework] View の使い方をまとめてみた</a></li>
@@ -64,26 +92,108 @@
 <li><a class="reference external" href="https://qiita.com/kimihiro_n/items/86e0a9e619720e57ecd8">Django REST Frameworkを使って爆速でAPIを実装する</a></li>
 </ul>
 </div>
+<div class="section" id="serializers">
+<h2><a class="toc-backref" href="#id9">Serializers</a></h2>
 <div class="section" id="id3">
-<h2><a class="toc-backref" href="#id7">メモ</a></h2>
+<h3><a class="toc-backref" href="#id10">シリアライズとデシリアライズ</a></h3>
+<ul>
+<li>
+<p class="first">デシリアライズ (入って来るほう)</p>
+<pre class="code python"><a name="rest_code_30c2a62a5f8441f5b29ff027ae32d08d-1"></a><span class="n">serializer</span><span class="o">.</span><span class="n">is_valid</span><span class="p">()</span>
+<a name="rest_code_30c2a62a5f8441f5b29ff027ae32d08d-2"></a><span class="n">serializer</span><span class="o">.</span><span class="n">validated_data</span>
+</pre>
+</li>
+<li>
+<p class="first">シリアライズ (出て行くほう)</p>
+<pre class="code python"><a name="rest_code_629ebedc236646678695c0396fa2a6e0-1"></a><span class="n">serializer</span> <span class="o">=</span> <span class="n">CommentSerializer</span><span class="p">(</span><span class="n">comment</span><span class="p">)</span>
+<a name="rest_code_629ebedc236646678695c0396fa2a6e0-2"></a><span class="n">serializer</span><span class="o">.</span><span class="n">data</span>
+</pre>
+</li>
+</ul>
+</div>
+<div class="section" id="serializer-fields-required">
+<h3><a class="toc-backref" href="#id11">Serializer fields の required 挙動まとめ</a></h3>
+<p><a class="reference external" href="https://www.django-rest-framework.org/api-guide/fields/#required">https://www.django-rest-framework.org/api-guide/fields/#required</a></p>
+<ul class="simple">
+<li>デフォルトは <tt class="docutils literal">required=True</tt>
+</li>
+</ul>
+<div class="section" id="deserialize">
+<h4><a class="toc-backref" href="#id12">deserialize 時</a></h4>
+<p><tt class="docutils literal">required=True</tt>:</p>
+<ul class="simple">
+<li>キーなしは当然エラー</li>
+<li>キーがないとだめ</li>
+</ul>
+<p><tt class="docutils literal">required=False</tt>:</p>
+<ul class="simple">
+<li>キーなしは OK</li>
+<li>キーあると、 <tt class="docutils literal">None</tt> はエラー (必須エラー)</li>
+<li>キーある、かつ、 Datetime フィールドとか int フィールドだと <tt class="docutils literal">''</tt> はエラー (たぶん型違いエラー)</li>
+</ul>
+</div>
+<div class="section" id="serialize">
+<h4><a class="toc-backref" href="#id13">serialize 時</a></h4>
+<p><tt class="docutils literal">required=False</tt>:</p>
+<ul>
+<li>
+<p class="first">シリアライザに項目は渡すが中身が <tt class="docutils literal">None</tt> (or <tt class="docutils literal">''</tt> とか) の場合 =&gt; キーはあるが中身は <tt class="docutils literal">None</tt></p>
+<pre class="code python"><a name="rest_code_f5dd5e7f42dc4705b579c38d0bfb8c95-1"></a><span class="p">{</span><span class="s1">'updatedAt'</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span> <span class="s1">'entries'</span><span class="p">:</span> <span class="p">[]}</span>  <span class="c1"># updatedAt = None で渡した</span>
+</pre>
+</li>
+<li>
+<p class="first">シリアライザに項目ごと渡さない場合 =&gt; キーが消える</p>
+<pre class="code python"><a name="rest_code_59ee106700ef46ecb275cc4de51c4da4-1"></a><span class="p">{</span><span class="s1">'entries'</span><span class="p">:</span> <span class="p">[]}</span>  <span class="c1"># updatedAt を渡さなかったので、キーがない</span>
+</pre>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="modelserializer">
+<h3><a class="toc-backref" href="#id14">ModelSerializer メモ</a></h3>
+<pre class="code python"><a name="rest_code_f3b6b8df44d4414bbdb3538dc9cf82a2-1"></a><span class="k">class</span> <span class="nc">EntrySerializer</span><span class="p">(</span><span class="n">serializers</span><span class="o">.</span><span class="n">ModelSerializer</span><span class="p">):</span>
+<a name="rest_code_f3b6b8df44d4414bbdb3538dc9cf82a2-2"></a>    <span class="sd">"""エントリー"""</span>
+<a name="rest_code_f3b6b8df44d4414bbdb3538dc9cf82a2-3"></a>    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+<a name="rest_code_f3b6b8df44d4414bbdb3538dc9cf82a2-4"></a>        <span class="n">model</span> <span class="o">=</span> <span class="n">Entry</span>
+<a name="rest_code_f3b6b8df44d4414bbdb3538dc9cf82a2-5"></a>        <span class="c1"># 除外したいフィールド</span>
+<a name="rest_code_f3b6b8df44d4414bbdb3538dc9cf82a2-6"></a>        <span class="n">exclude</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'author'</span><span class="p">]</span>
+<a name="rest_code_f3b6b8df44d4414bbdb3538dc9cf82a2-7"></a>        <span class="c1"># 読み取り専用指定 https://www.django-rest-framework.org/api-guide/serializers/#specifying-read-only-fields</span>
+<a name="rest_code_f3b6b8df44d4414bbdb3538dc9cf82a2-8"></a>        <span class="c1"># AutoField はデフォルトで読み取り専用</span>
+<a name="rest_code_f3b6b8df44d4414bbdb3538dc9cf82a2-9"></a>        <span class="n">read_only_fields</span> <span class="o">=</span> <span class="p">[</span>
+<a name="rest_code_f3b6b8df44d4414bbdb3538dc9cf82a2-10"></a>            <span class="s1">'created_at'</span><span class="p">,</span>
+<a name="rest_code_f3b6b8df44d4414bbdb3538dc9cf82a2-11"></a>            <span class="s1">'created_by'</span><span class="p">,</span>
+<a name="rest_code_f3b6b8df44d4414bbdb3538dc9cf82a2-12"></a>            <span class="s1">'created_by_id'</span><span class="p">,</span>
+<a name="rest_code_f3b6b8df44d4414bbdb3538dc9cf82a2-13"></a>            <span class="s1">'updated_at'</span><span class="p">,</span>
+<a name="rest_code_f3b6b8df44d4414bbdb3538dc9cf82a2-14"></a>            <span class="s1">'updated_by'</span><span class="p">,</span>
+<a name="rest_code_f3b6b8df44d4414bbdb3538dc9cf82a2-15"></a>            <span class="s1">'updated_by_id'</span><span class="p">,</span>
+<a name="rest_code_f3b6b8df44d4414bbdb3538dc9cf82a2-16"></a>        <span class="p">]</span>
+<a name="rest_code_f3b6b8df44d4414bbdb3538dc9cf82a2-17"></a>        <span class="n">extra_kwargs</span> <span class="o">=</span> <span class="p">{</span>
+<a name="rest_code_f3b6b8df44d4414bbdb3538dc9cf82a2-18"></a>            <span class="c1"># モデル上は必須フィールドだけれど、シリアライザでは Not必須にしたい場合は、required を上書きする</span>
+<a name="rest_code_f3b6b8df44d4414bbdb3538dc9cf82a2-19"></a>            <span class="s1">'display_order'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'required'</span><span class="p">:</span> <span class="bp">False</span><span class="p">}</span>
+<a name="rest_code_f3b6b8df44d4414bbdb3538dc9cf82a2-20"></a>        <span class="p">}</span>
+</pre>
+</div>
+</div>
 <div class="section" id="id4">
-<h3><a class="toc-backref" href="#id8">コマンドでアクセスする場合</a></h3>
-<pre class="code bash"><a name="rest_code_4bd646bd30424e58a930624688bc54cc-1"></a><span class="c1"># curl の場合</span>
-<a name="rest_code_4bd646bd30424e58a930624688bc54cc-2"></a>$ curl -H <span class="s1">'Accept: application/json; indent=4'</span> -u &lt;username&gt;:&lt;password&gt; http://127.0.0.1:8989/users/
-<a name="rest_code_4bd646bd30424e58a930624688bc54cc-3"></a>
-<a name="rest_code_4bd646bd30424e58a930624688bc54cc-4"></a><span class="c1"># HTTPie の場合</span>
-<a name="rest_code_4bd646bd30424e58a930624688bc54cc-5"></a><span class="c1"># https://httpie.org/doc</span>
-<a name="rest_code_4bd646bd30424e58a930624688bc54cc-6"></a>$ http -a &lt;username&gt;:&lt;password&gt; http://127.0.0.1:8989/users/
+<h2><a class="toc-backref" href="#id15">ちょっと動かしたい</a></h2>
+<div class="section" id="id5">
+<h3><a class="toc-backref" href="#id16">コマンドでアクセスする場合</a></h3>
+<pre class="code bash"><a name="rest_code_1124db33ad294052887a35c4ba8abee3-1"></a><span class="c1"># curl の場合</span>
+<a name="rest_code_1124db33ad294052887a35c4ba8abee3-2"></a>$ curl -H <span class="s1">'Accept: application/json; indent=4'</span> -u &lt;username&gt;:&lt;password&gt; http://127.0.0.1:xxxx/users/
+<a name="rest_code_1124db33ad294052887a35c4ba8abee3-3"></a>
+<a name="rest_code_1124db33ad294052887a35c4ba8abee3-4"></a><span class="c1"># HTTPie の場合</span>
+<a name="rest_code_1124db33ad294052887a35c4ba8abee3-5"></a><span class="c1"># https://httpie.org/doc</span>
+<a name="rest_code_1124db33ad294052887a35c4ba8abee3-6"></a>$ http -a &lt;username&gt;:&lt;password&gt; http://127.0.0.1:8989/users/
 </pre>
 </div>
 <div class="section" id="browsable-api">
-<h3><a class="toc-backref" href="#id9">Browsable API</a></h3>
+<h3><a class="toc-backref" href="#id17">Browsable API</a></h3>
 <ul class="simple">
 <li>rest_framework.response.Response を返すと Browsable API で見られるようだ!</li>
 </ul>
 </div>
 <div class="section" id="browsable-api-html-form">
-<h3><a class="toc-backref" href="#id10">Browsable API で HTML form タブが出せる</a></h3>
+<h3><a class="toc-backref" href="#id18">Browsable API で HTML form タブが出せる</a></h3>
 <table border="1" class="colwidths-auto docutils"><tbody valign="top">
 <tr>
 <th class="stub">viewsets.ModelViewSet</th>
@@ -109,8 +219,11 @@
 </li>
 </ul>
 </div>
+</div>
+<div class="section" id="id6">
+<h2><a class="toc-backref" href="#id19">便利なライブラリ</a></h2>
 <div class="section" id="django-rest-framework-json-camelcase">
-<h3><a class="toc-backref" href="#id11">Django REST Framework JSON CamelCase</a></h3>
+<h3><a class="toc-backref" href="#id20">Django REST Framework JSON CamelCase</a></h3>
 <p><a class="reference external" href="https://pypi.org/project/djangorestframework-camel-case/">https://pypi.org/project/djangorestframework-camel-case/</a></p>
 <ul class="simple">
 <li>Camel case JSON support for Django REST framework.</li>
@@ -118,7 +231,8 @@
 </ul>
 </div>
 <div class="section" id="django-cors-headers">
-<h3><a class="toc-backref" href="#id12">django-cors-headers</a></h3>
+<h3><a class="toc-backref" href="#id21">django-cors-headers</a></h3>
+<p><a class="reference external" href="https://pypi.org/project/django-cors-headers/">https://pypi.org/project/django-cors-headers/</a></p>
 <p><a class="reference external" href="https://github.com/ottoyiu/django-cors-headers">django-cors-headers</a></p>
 <ul class="simple">
 <li>A Django App that adds Cross-Origin Resource Sharing (CORS) headers to responses. This allows in-browser requests to your Django application from other origins.</li>
@@ -131,7 +245,7 @@
 </li>
 </ul>
 <div class="section" id="cors">
-<h4><a class="toc-backref" href="#id13">CORS</a></h4>
+<h4><a class="toc-backref" href="#id22">CORS</a></h4>
 <p>オリジン間リソース共有 (Cross-Origin Resource Sharing)</p>
 <ul class="simple">
 <li>くわしくはここを見よ<ul>
@@ -143,8 +257,11 @@
 </ul>
 </div>
 </div>
+</div>
+<div class="section" id="requests-responses">
+<h2><a class="toc-backref" href="#id23">Requests/Responses</a></h2>
 <div class="section" id="drf-request">
-<h3><a class="toc-backref" href="#id14">DRF の Request</a></h3>
+<h3><a class="toc-backref" href="#id24">DRF の Request</a></h3>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name">
 <col class="field-body">
@@ -168,7 +285,7 @@
 </table>
 </div>
 <div class="section" id="drf-response">
-<h3><a class="toc-backref" href="#id15">DRF の Response</a></h3>
+<h3><a class="toc-backref" href="#id25">DRF の Response</a></h3>
 <table border="1" class="colwidths-auto docutils"><tbody valign="top"><tr>
 <th class="stub">return Response(data)</th>
 <td>
@@ -180,15 +297,21 @@
 </td>
 </tr></tbody></table>
 </div>
+</div>
+<div class="section" id="routers">
+<h2><a class="toc-backref" href="#id26">Routers</a></h2>
 <div class="section" id="router">
-<h3><a class="toc-backref" href="#id16">Router</a></h3>
+<h3><a class="toc-backref" href="#id27">Router</a></h3>
 <ul class="simple">
 <li>Router で登録できるのは ViewSet だけ</li>
 <li>DefaultRouter: Router のルート画面にアクセスしたときに API のリンク一覧を見せてくれる</li>
 </ul>
 </div>
+</div>
+<div class="section" id="views">
+<h2><a class="toc-backref" href="#id28">Views</a></h2>
 <div class="section" id="api">
-<h3><a class="toc-backref" href="#id17">API ビュー</a></h3>
+<h3><a class="toc-backref" href="#id29">API ビュー</a></h3>
 <p>RESTフレームワークには、APIビューを書くために使用できる2つのラッパーがあります。</p>
 <ul class="simple">
 <li>
@@ -198,7 +321,7 @@
 </ul>
 </div>
 <div class="section" id="apiview">
-<h3><a class="toc-backref" href="#id18">クラスベース (APIView) で記述するのがおすすめ</a></h3>
+<h3><a class="toc-backref" href="#id30">クラスベース (APIView) で記述するのがおすすめ</a></h3>
 <ul class="simple">
 <li>特定のモデルに紐付かないような処理は クラスベースで記述するのがおすすめと言えるでしょう。 (くろのて)<ul>
 <li>クエリが複雑すぎて queryset じゃ処理しきれないとかで SQLAlchemy で処理した結果を返したい という場合などに APIView を使っています。 (くろのて)</li>

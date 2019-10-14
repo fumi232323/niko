@@ -31,7 +31,7 @@
  </url>
  <url>
   <loc>https://32imuf.com/archive.html</loc>
-  <lastmod>2019-10-06T13:41:00Z</lastmod>
+  <lastmod>2019-10-14T08:08:00Z</lastmod>
  </url>
  <url>
   <loc>https://32imuf.com/aws/s3-response-error/</loc>
@@ -196,6 +196,10 @@
  <url>
   <loc>https://32imuf.com/pycharm/django-support/</loc>
   <lastmod>2019-06-02T07:42:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://32imuf.com/pycharm/tox-support/</loc>
+  <lastmod>2019-10-14T08:39:00Z</lastmod>
  </url>
  <url>
   <loc>https://32imuf.com/pycharm/useful-menu-and-shortcuts/</loc>
