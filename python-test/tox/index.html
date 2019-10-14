@@ -64,118 +64,119 @@
 </div>
 <div class="section" id="id3">
 <h2><a class="toc-backref" href="#id9">インストール</a></h2>
-<pre class="code console"><a name="rest_code_7addb7e6de6a477384ae2595d7d8d811-1"></a><span class="gp">$</span> pip install tox
+<pre class="code console"><a name="rest_code_a3e2c0d194684375ac9ec48608fb8b3a-1"></a><span class="gp">$</span> pip install tox
 </pre>
 </div>
 <div class="section" id="tox-ini">
 <h2><a class="toc-backref" href="#id10">tox.ini</a></h2>
 <p>テスト実行環境の設定を記述するファイル</p>
-<pre class="code ini"><a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-1"></a><span class="k">[tox]</span>
-<a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-2"></a><span class="c1"># envlist: テスト環境の一覧。それぞれ別々の環境が用意される。</span>
-<a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-3"></a><span class="c1"># py27: インストールされている python2.7 コマンドを探し出して、 Python2.7 の virtualenv を作成してくれる。</span>
-<a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-4"></a><span class="na">envlist</span> <span class="o">=</span> <span class="s">flake8,typecheck,py27</span>
-<a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-5"></a>
-<a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-6"></a><span class="c1"># setup.py がなくても実行可能にする。 setup.py がない場合は、 requirements.txt などで依存ライブラリを管理する。</span>
-<a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-7"></a><span class="na">skipsdist</span> <span class="o">=</span> <span class="s">True</span>
-<a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-8"></a>
-<a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-9"></a><span class="k">[pytest]</span>
-<a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-10"></a><span class="na">addopts</span> <span class="o">=</span> <span class="s">--durations=10</span>
-<a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-11"></a>
-<a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-12"></a><span class="c1"># 実行対象を指定する。この場合は、 tests ディレクトリ配下。</span>
-<a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-13"></a><span class="na">testpaths</span> <span class="o">=</span> <span class="s">tests</span>
-<a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-14"></a>
-<a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-15"></a><span class="c1"># pytest-pythonpath の項を参照のこと。</span>
-<a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-16"></a><span class="na">python_paths</span> <span class="o">=</span> <span class="s">apps tests</span>
-<a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-17"></a>
-<a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-18"></a><span class="na">django_find_project</span> <span class="o">=</span> <span class="s">false</span>
-<a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-19"></a><span class="na">DJANGO_SETTINGS_MODULE</span> <span class="o">=</span> <span class="s">settings.test</span>
-<a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-20"></a>
-<a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-21"></a><span class="c1"># [testenv]: テスト環境の設定。</span>
-<a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-22"></a><span class="c1"># `[testenv:flake8]` のように環境の名前が指定されている場合は、そちらの指定が優先される。</span>
-<a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-23"></a><span class="c1"># 環境の名前に合う設定がない場合は、 `[testenv]` セクションの汎用的な設定が利用される。</span>
-<a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-24"></a><span class="k">[testenv]</span>
-<a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-25"></a>
-<a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-26"></a><span class="c1"># 環境にインストールするライブラリを指定する。</span>
-<a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-27"></a><span class="c1"># この部分は pip に直接渡されるため、ライブラリではなく requirements.txt の指定も可能。</span>
-<a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-28"></a><span class="c1"># `-r` と `requirements_dev.txt` の間にスペースを入れるとエラーになるので注意。</span>
-<a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-29"></a><span class="na">deps</span> <span class="o">=</span> <span class="s">-rrequirements_dev.txt</span>
-<a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-30"></a>
-<a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-31"></a><span class="c1"># 環境変数を固定したい場合はここに書く</span>
-<a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-32"></a><span class="na">setenv</span> <span class="o">=</span><span class="s"></span>
-<a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-33"></a><span class="s">    PYTHONDONTWRITEBYTECODE = 1</span>
-<a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-34"></a>
-<a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-35"></a><span class="c1"># 実行するコマンド: py.test, 実行対象: tox コマンド実行時に引数として渡されたディレクトリ配下</span>
-<a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-36"></a><span class="c1"># `{posargs}` と書くと、 tox コマンド実行時に引数を渡すことができる</span>
-<a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-37"></a><span class="na">commands</span> <span class="o">=</span> <span class="s">py.test {posargs}</span>
-<a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-38"></a>
-<a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-39"></a><span class="c1"># typecheck はこちらのテスト環境設定が優先される</span>
-<a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-40"></a><span class="k">[testenv:typecheck]</span>
-<a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-41"></a><span class="c1"># typecheck 用の環境にインストールするライブラリを指定する。</span>
-<a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-42"></a><span class="na">deps</span> <span class="o">=</span><span class="s"></span>
-<a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-43"></a><span class="s">    mypy</span>
-<a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-44"></a><span class="s">    mypy-extensions</span>
-<a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-45"></a>
-<a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-46"></a><span class="c1"># typecheck 用の virtualenv は python3 で作る</span>
-<a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-47"></a><span class="c1"># https://tox.readthedocs.io/en/latest/config.html#conf-basepython</span>
-<a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-48"></a><span class="na">basepython</span> <span class="o">=</span> <span class="s">python3</span>
-<a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-49"></a>
-<a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-50"></a><span class="c1"># 実行するコマンド: mypy, 実行対象: app ディレクトリ配下</span>
-<a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-51"></a><span class="na">commands</span> <span class="o">=</span> <span class="s">mypy apps</span>
-<a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-52"></a>
-<a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-53"></a><span class="c1"># flake8 はこちらのテスト環境設定が優先される</span>
-<a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-54"></a><span class="k">[testenv:flake8]</span>
-<a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-55"></a><span class="na">deps</span> <span class="o">=</span><span class="s"></span>
-<a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-56"></a><span class="s">    flake8&gt;=3.6.0</span>
-<a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-57"></a><span class="s">    flake8-blind-except</span>
-<a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-58"></a><span class="s">    flake8-docstrings&lt;1.1.0</span>
-<a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-59"></a><span class="s">    flake8-import-order</span>
-<a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-60"></a><span class="s">    pydocstyle&lt;2.0.0</span>
-<a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-61"></a><span class="s">    mccabe</span>
-<a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-62"></a><span class="s">    radon</span>
-<a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-63"></a>
-<a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-64"></a><span class="c1"># https://docs.python.org/ja/3/using/cmdline.html#envvar-PYTHONDONTWRITEBYTECODE (よくわからない)</span>
-<a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-65"></a><span class="na">setenv</span> <span class="o">=</span><span class="s"></span>
-<a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-66"></a><span class="s">    PYTHONDONTWRITEBYTECODE = 1</span>
-<a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-67"></a>
-<a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-68"></a><span class="c1"># 実行するコマンド: flake8, 実行対象: app ディレクトリ配下</span>
-<a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-69"></a><span class="na">commands</span> <span class="o">=</span> <span class="s">flake8 apps</span>
-<a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-70"></a>
-<a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-71"></a><span class="k">[flake8]</span>
-<a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-72"></a><span class="c1"># 実行対象外リスト。除外するディレクトリを列記する。</span>
-<a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-73"></a><span class="c1"># `[testenv:flake8]` セクションに `app` 配下を実行対象とする、と書いてあるので、 `app` の中の `migrations,urls.py,manage.py,settings` 配下は対象外、の意。</span>
-<a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-74"></a><span class="na">exclude</span> <span class="o">=</span> <span class="s">migrations,urls.py,manage.py,settings</span>
-<a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-75"></a>
-<a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-76"></a><span class="na">max-line-length</span> <span class="o">=</span> <span class="s">120</span>
-<a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-77"></a><span class="na">max-complexity</span> <span class="o">=</span> <span class="s">10</span>
-<a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-78"></a><span class="na">radon-max-cc</span> <span class="o">=</span> <span class="s">10</span>
-<a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-79"></a><span class="na">import-order-style</span> <span class="o">=</span> <span class="s">google</span>
-<a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-80"></a>
-<a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-81"></a><span class="c1"># flake8 警告を抑止するリスト。詳しくは shihmizukawa さんの scrapbox ↓ を参照のこと。</span>
-<a name="rest_code_1d17f218006b4172bd80bbeb7be239e6-82"></a><span class="na">extend-ignore</span> <span class="o">=</span> <span class="s">C901,D100,D101,D102,D103,D104,D105,D200,D202,D203,D204,D205,D208,D209,D210,D300,D301,D302,D400,D401,D402,D403,E741,I100,I101,R701</span>
+<pre class="code ini"><a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-1"></a><span class="k">[tox]</span>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-2"></a><span class="c1"># envlist: テスト環境の一覧。それぞれ別々の環境が用意される。</span>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-3"></a><span class="c1"># py27: インストールされている python2.7 コマンドを探し出して、 Python2.7 の virtualenv を作成してくれる。</span>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-4"></a><span class="na">envlist</span> <span class="o">=</span> <span class="s">flake8,typecheck,py27</span>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-5"></a>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-6"></a><span class="c1"># setup.py がなくても実行可能にする。 setup.py がない場合は、 requirements.txt などで依存ライブラリを管理する。</span>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-7"></a><span class="na">skipsdist</span> <span class="o">=</span> <span class="s">True</span>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-8"></a>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-9"></a><span class="k">[pytest]</span>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-10"></a><span class="na">addopts</span> <span class="o">=</span> <span class="s">--durations=10</span>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-11"></a>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-12"></a><span class="c1"># 実行対象を指定する。この場合は、 tests ディレクトリ配下。</span>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-13"></a><span class="na">testpaths</span> <span class="o">=</span> <span class="s">tests</span>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-14"></a>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-15"></a><span class="c1"># pytest-pythonpath の項を参照のこと。</span>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-16"></a><span class="na">python_paths</span> <span class="o">=</span> <span class="s">apps tests</span>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-17"></a>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-18"></a><span class="c1"># https://pytest-django.readthedocs.io/en/latest/managing_python_path.html#managing-the-python-path-explicitly</span>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-19"></a><span class="na">django_find_project</span> <span class="o">=</span> <span class="s">false</span>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-20"></a><span class="na">DJANGO_SETTINGS_MODULE</span> <span class="o">=</span> <span class="s">settings.test</span>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-21"></a>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-22"></a><span class="c1"># [testenv]: テスト環境の設定。</span>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-23"></a><span class="c1"># `[testenv:flake8]` のように環境の名前が指定されている場合は、そちらの指定が優先される。</span>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-24"></a><span class="c1"># 環境の名前に合う設定がない場合は、 `[testenv]` セクションの汎用的な設定が利用される。</span>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-25"></a><span class="k">[testenv]</span>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-26"></a>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-27"></a><span class="c1"># 環境にインストールするライブラリを指定する。</span>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-28"></a><span class="c1"># この部分は pip に直接渡されるため、ライブラリではなく requirements.txt の指定も可能。</span>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-29"></a><span class="c1"># `-r` と `requirements_dev.txt` の間にスペースを入れるとエラーになるので注意。</span>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-30"></a><span class="na">deps</span> <span class="o">=</span> <span class="s">-rrequirements_dev.txt</span>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-31"></a>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-32"></a><span class="c1"># 環境変数を固定したい場合はここに書く</span>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-33"></a><span class="na">setenv</span> <span class="o">=</span><span class="s"></span>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-34"></a><span class="s">    PYTHONDONTWRITEBYTECODE = 1</span>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-35"></a>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-36"></a><span class="c1"># 実行するコマンド: py.test, 実行対象: tox コマンド実行時に引数として渡されたディレクトリ配下</span>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-37"></a><span class="c1"># `{posargs}` と書くと、 tox コマンド実行時に引数を渡すことができる</span>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-38"></a><span class="na">commands</span> <span class="o">=</span> <span class="s">py.test {posargs}</span>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-39"></a>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-40"></a><span class="c1"># typecheck はこちらのテスト環境設定が優先される</span>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-41"></a><span class="k">[testenv:typecheck]</span>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-42"></a><span class="c1"># typecheck 用の環境にインストールするライブラリを指定する。</span>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-43"></a><span class="na">deps</span> <span class="o">=</span><span class="s"></span>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-44"></a><span class="s">    mypy</span>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-45"></a><span class="s">    mypy-extensions</span>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-46"></a>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-47"></a><span class="c1"># typecheck 用の virtualenv は python3 で作る</span>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-48"></a><span class="c1"># https://tox.readthedocs.io/en/latest/config.html#conf-basepython</span>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-49"></a><span class="na">basepython</span> <span class="o">=</span> <span class="s">python3</span>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-50"></a>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-51"></a><span class="c1"># 実行するコマンド: mypy, 実行対象: app ディレクトリ配下</span>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-52"></a><span class="na">commands</span> <span class="o">=</span> <span class="s">mypy apps</span>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-53"></a>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-54"></a><span class="c1"># flake8 はこちらのテスト環境設定が優先される</span>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-55"></a><span class="k">[testenv:flake8]</span>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-56"></a><span class="na">deps</span> <span class="o">=</span><span class="s"></span>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-57"></a><span class="s">    flake8&gt;=3.6.0</span>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-58"></a><span class="s">    flake8-blind-except</span>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-59"></a><span class="s">    flake8-docstrings&lt;1.1.0</span>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-60"></a><span class="s">    flake8-import-order</span>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-61"></a><span class="s">    pydocstyle&lt;2.0.0</span>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-62"></a><span class="s">    mccabe</span>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-63"></a><span class="s">    radon</span>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-64"></a>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-65"></a><span class="c1"># https://docs.python.org/ja/3/using/cmdline.html#envvar-PYTHONDONTWRITEBYTECODE (よくわからない)</span>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-66"></a><span class="na">setenv</span> <span class="o">=</span><span class="s"></span>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-67"></a><span class="s">    PYTHONDONTWRITEBYTECODE = 1</span>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-68"></a>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-69"></a><span class="c1"># 実行するコマンド: flake8, 実行対象: app ディレクトリ配下</span>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-70"></a><span class="na">commands</span> <span class="o">=</span> <span class="s">flake8 apps</span>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-71"></a>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-72"></a><span class="k">[flake8]</span>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-73"></a><span class="c1"># 実行対象外リスト。除外するディレクトリを列記する。</span>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-74"></a><span class="c1"># `[testenv:flake8]` セクションに `app` 配下を実行対象とする、と書いてあるので、 `app` の中の `migrations,urls.py,manage.py,settings` 配下は対象外、の意。</span>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-75"></a><span class="na">exclude</span> <span class="o">=</span> <span class="s">migrations,urls.py,manage.py,settings</span>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-76"></a>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-77"></a><span class="na">max-line-length</span> <span class="o">=</span> <span class="s">120</span>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-78"></a><span class="na">max-complexity</span> <span class="o">=</span> <span class="s">10</span>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-79"></a><span class="na">radon-max-cc</span> <span class="o">=</span> <span class="s">10</span>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-80"></a><span class="na">import-order-style</span> <span class="o">=</span> <span class="s">google</span>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-81"></a>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-82"></a><span class="c1"># flake8 警告を抑止するリスト。詳しくは shihmizukawa さんの scrapbox ↓ を参照のこと。</span>
+<a name="rest_code_5cc52103eb4448aeacbd22e95f620c36-83"></a><span class="na">extend-ignore</span> <span class="o">=</span> <span class="s">C901,D100,D101,D102,D103,D104,D105,D200,D202,D203,D204,D205,D208,D209,D210,D300,D301,D302,D400,D401,D402,D403,E741,I100,I101,R701</span>
 </pre>
 </div>
 <div class="section" id="id4">
 <h2><a class="toc-backref" href="#id11">実行</a></h2>
 <p>全部実行する。 tox.ini ファイルのあるディレクトリで実行する!!</p>
-<pre class="code console"><a name="rest_code_ed8fd10a477a40a482dfd5d809844418-1"></a><span class="gp">$</span> tox
+<pre class="code console"><a name="rest_code_a31543f4f4cd49a8be11821d7612be15-1"></a><span class="gp">$</span> tox
 </pre>
 <p><tt class="docutils literal"><span class="pre">-e</span></tt> オプションを指定すると、指定した環境のテストのみが実行できる。</p>
-<pre class="code bash"><a name="rest_code_6764172ab41247088be1825927cfbed7-1"></a><span class="c1"># pytest だけ</span>
-<a name="rest_code_6764172ab41247088be1825927cfbed7-2"></a>$ tox -e py27
-<a name="rest_code_6764172ab41247088be1825927cfbed7-3"></a><span class="c1"># pytest だけ, tests/test_target 配下だけ</span>
-<a name="rest_code_6764172ab41247088be1825927cfbed7-4"></a>$ tox -e py27 tests/test_target
-<a name="rest_code_6764172ab41247088be1825927cfbed7-5"></a><span class="c1"># flake8 だけ</span>
-<a name="rest_code_6764172ab41247088be1825927cfbed7-6"></a>$ tox -e flake8
-<a name="rest_code_6764172ab41247088be1825927cfbed7-7"></a><span class="c1"># flake8 と typecheck</span>
-<a name="rest_code_6764172ab41247088be1825927cfbed7-8"></a>$ tox -e flake8, typecheck
+<pre class="code bash"><a name="rest_code_9b1b598f334e425eb1c6b176b7124b21-1"></a><span class="c1"># pytest だけ</span>
+<a name="rest_code_9b1b598f334e425eb1c6b176b7124b21-2"></a>$ tox -e py27
+<a name="rest_code_9b1b598f334e425eb1c6b176b7124b21-3"></a><span class="c1"># pytest だけ, tests/test_target 配下だけ</span>
+<a name="rest_code_9b1b598f334e425eb1c6b176b7124b21-4"></a>$ tox -e py27 tests/test_target
+<a name="rest_code_9b1b598f334e425eb1c6b176b7124b21-5"></a><span class="c1"># flake8 だけ</span>
+<a name="rest_code_9b1b598f334e425eb1c6b176b7124b21-6"></a>$ tox -e flake8
+<a name="rest_code_9b1b598f334e425eb1c6b176b7124b21-7"></a><span class="c1"># flake8 と typecheck</span>
+<a name="rest_code_9b1b598f334e425eb1c6b176b7124b21-8"></a>$ tox -e flake8, typecheck
 </pre>
 <p>tox ではなく、テストコマンドにオプションを渡したい場合は、 <tt class="docutils literal"><span class="pre">--</span></tt> のあとにオプションを指定する。</p>
-<pre class="code console"><a name="rest_code_c27ff8f69f2b4538a08ac39764b21cd8-1"></a><span class="gp">$</span> tox -e py27 -- -vv tests/test_target
+<pre class="code console"><a name="rest_code_54b724523ba24b5ea6de627d01b3a510-1"></a><span class="gp">$</span> tox -e py27 -- -vv tests/test_target
 </pre>
 </div>
 <div class="section" id="id5">
 <h2><a class="toc-backref" href="#id12">テスト用仮想環境の再作成</a></h2>
-<pre class="code console"><a name="rest_code_dcc0ea0536db4ad4a48b6696796d575e-1"></a><span class="gp">$</span> tox -r
+<pre class="code console"><a name="rest_code_0a9a4f59d38f41be9b08ab652fdeaea8-1"></a><span class="gp">$</span> tox -r
 </pre>
 <ul class="simple">
 <li>tox.ini から参照している requirements.txt の中身を変更したあとは、明示的にテスト用仮想環境を再作成する必要がある。<ul>
