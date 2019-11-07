@@ -21,12 +21,12 @@
 </header></div>
       <div class="main">
 <div class="article-content">
-  <main class="item item-article item-test"><time class="date" datetime="2018-11-08 00:00:00+09:00">
+  <main class="item item-article item-python-test"><time class="date" datetime="2018-11-08 00:00:00+09:00">
       2018-11-08 Thu
     </time><div class="title">Python テストのメモ</div>
     <div class="category">
-      <a href="../../tags/test/">
-          test
+      <a href="../../tags/python-test/">
+          python-test
       </a>
     </div>
     <div class="text">
@@ -79,11 +79,11 @@
 </li>
 <li>
 <p class="first">例外のインスタンスは、 <tt class="docutils literal">value</tt> フィールドに入っている</p>
-<pre class="code python"><a name="rest_code_8e835ef233264af7839c2061d21f2fbb-1"></a><span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span><span class="n">ListFileError</span><span class="p">)</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-<a name="rest_code_8e835ef233264af7839c2061d21f2fbb-2"></a>    <span class="n">target</span><span class="p">(</span><span class="n">list_file</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">'201803'</span><span class="p">)</span>
-<a name="rest_code_8e835ef233264af7839c2061d21f2fbb-3"></a>
-<a name="rest_code_8e835ef233264af7839c2061d21f2fbb-4"></a><span class="c1"># assert</span>
-<a name="rest_code_8e835ef233264af7839c2061d21f2fbb-5"></a><span class="k">assert</span> <span class="n">e</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">line</span> <span class="o">==</span> <span class="mi">2</span>
+<pre class="code python"><a name="rest_code_9b2a2d197def4cc8a83e31237d36fd40-1"></a><span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span><span class="n">ListFileError</span><span class="p">)</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<a name="rest_code_9b2a2d197def4cc8a83e31237d36fd40-2"></a>    <span class="n">target</span><span class="p">(</span><span class="n">list_file</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">'201803'</span><span class="p">)</span>
+<a name="rest_code_9b2a2d197def4cc8a83e31237d36fd40-3"></a>
+<a name="rest_code_9b2a2d197def4cc8a83e31237d36fd40-4"></a><span class="c1"># assert</span>
+<a name="rest_code_9b2a2d197def4cc8a83e31237d36fd40-5"></a><span class="k">assert</span> <span class="n">e</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">line</span> <span class="o">==</span> <span class="mi">2</span>
 </pre>
 </li>
 </ul>
@@ -106,13 +106,13 @@ Test functions can receive fixture objects by naming them as an input argument. 
 <li>一時ディレクトリやファイルの fixture がある</li>
 <li>こんな感じで使う、便利</li>
 </ul>
-<pre class="code python"><a name="rest_code_9aa3959ec83340e9a60a6d6b3ac7bc75-1"></a><span class="c1"># settings fixture 経由で storage の path を pytest の tempdir fixture の path に置き換える</span>
-<a name="rest_code_9aa3959ec83340e9a60a6d6b3ac7bc75-2"></a><span class="k">def</span> <span class="nf">test_csv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">settings</span><span class="p">,</span> <span class="n">tmpdir</span><span class="p">):</span>  <span class="c1"># &lt;- settings fixture と tmpdir fixture を受け取る</span>
-<a name="rest_code_9aa3959ec83340e9a60a6d6b3ac7bc75-3"></a>    <span class="n">settings</span><span class="o">.</span><span class="n">MEDIA_ROOT</span> <span class="o">=</span> <span class="n">tmpdir</span>               <span class="c1"># ダウンロードファイル出力先を置換</span>
-<a name="rest_code_9aa3959ec83340e9a60a6d6b3ac7bc75-4"></a>
-<a name="rest_code_9aa3959ec83340e9a60a6d6b3ac7bc75-5"></a>    <span class="c1"># ...</span>
-<a name="rest_code_9aa3959ec83340e9a60a6d6b3ac7bc75-6"></a>    <span class="c1"># これで、ファイルのパスがとれる</span>
-<a name="rest_code_9aa3959ec83340e9a60a6d6b3ac7bc75-7"></a>    <span class="n">p</span> <span class="o">=</span> <span class="n">tmpdir</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_file_path</span><span class="p">)</span>          <span class="c1"># &lt;- output_file_path はファイル名とか</span>
+<pre class="code python"><a name="rest_code_08291d1acb4a4f3fadf84698eb0716cc-1"></a><span class="c1"># settings fixture 経由で storage の path を pytest の tempdir fixture の path に置き換える</span>
+<a name="rest_code_08291d1acb4a4f3fadf84698eb0716cc-2"></a><span class="k">def</span> <span class="nf">test_csv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">settings</span><span class="p">,</span> <span class="n">tmpdir</span><span class="p">):</span>  <span class="c1"># &lt;- settings fixture と tmpdir fixture を受け取る</span>
+<a name="rest_code_08291d1acb4a4f3fadf84698eb0716cc-3"></a>    <span class="n">settings</span><span class="o">.</span><span class="n">MEDIA_ROOT</span> <span class="o">=</span> <span class="n">tmpdir</span>               <span class="c1"># ダウンロードファイル出力先を置換</span>
+<a name="rest_code_08291d1acb4a4f3fadf84698eb0716cc-4"></a>
+<a name="rest_code_08291d1acb4a4f3fadf84698eb0716cc-5"></a>    <span class="c1"># ...</span>
+<a name="rest_code_08291d1acb4a4f3fadf84698eb0716cc-6"></a>    <span class="c1"># これで、ファイルのパスがとれる</span>
+<a name="rest_code_08291d1acb4a4f3fadf84698eb0716cc-7"></a>    <span class="n">p</span> <span class="o">=</span> <span class="n">tmpdir</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_file_path</span><span class="p">)</span>          <span class="c1"># &lt;- output_file_path はファイル名とか</span>
 </pre>
 </div>
 </div>
@@ -158,9 +158,9 @@ Test functions can receive fixture objects by naming them as an input argument. 
 <h2><a class="toc-backref" href="#id19">あれこれ</a></h2>
 <div class="section" id="a">
 <h3><a class="toc-backref" href="#id20">3a スタイル</a></h3>
-<pre class="code python"><a name="rest_code_f9565aa9e0b14519858a4180e19c5c20-1"></a><span class="c1"># arrange</span>
-<a name="rest_code_f9565aa9e0b14519858a4180e19c5c20-2"></a><span class="c1"># act</span>
-<a name="rest_code_f9565aa9e0b14519858a4180e19c5c20-3"></a><span class="c1"># assert</span>
+<pre class="code python"><a name="rest_code_49fe2223abc044bc86015cb184fb2cce-1"></a><span class="c1"># arrange</span>
+<a name="rest_code_49fe2223abc044bc86015cb184fb2cce-2"></a><span class="c1"># act</span>
+<a name="rest_code_49fe2223abc044bc86015cb184fb2cce-3"></a><span class="c1"># assert</span>
 </pre>
 <p><a class="reference external" href="http://wiki.c2.com/?arrangeactassert">http://wiki.c2.com/?arrangeactassert</a> (つながらない)</p>
 </div>

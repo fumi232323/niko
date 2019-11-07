@@ -34,57 +34,52 @@
 <details><summary>目次</summary><div class="contents topic" id="id1">
 <p class="topic-title first">目次</p>
 <ul class="simple">
-<li><a class="reference internal" href="#id2" id="id27">リファレンス</a></li>
+<li><a class="reference internal" href="#id2" id="id24">リファレンス</a></li>
 <li>
-<a class="reference internal" href="#http" id="id28">ローカルに HTTP サーバーを立てる</a><ul>
-<li><a class="reference internal" href="#id6" id="id29">リファレンス</a></li>
+<a class="reference internal" href="#id6" id="id25">いろいろ</a><ul>
+<li><a class="reference internal" href="#http" id="id26">ローカルに HTTP サーバーを立てる</a></li>
+<li><a class="reference internal" href="#id7" id="id27">ユーザー定義例外</a></li>
+<li>
+<a class="reference internal" href="#interface" id="id28">interface 使いたい</a><ul>
+<li><a class="reference internal" href="#id9" id="id29">抽象基底クラス</a></li>
+<li><a class="reference internal" href="#protocol" id="id30">Protocol</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#defaultdict" id="id31">defaultdict</a></li>
+<li><a class="reference internal" href="#id12" id="id32">どんどん足してくやつ</a></li>
+<li><a class="reference internal" href="#stringio-seek-0" id="id33">StringIO().seek(0)</a></li>
+<li><a class="reference internal" href="#yield-dict-zip-columns-data" id="id34">yield dict(zip(columns, data))</a></li>
+<li><a class="reference internal" href="#id13" id="id35">シーケンスのアンパッキング</a></li>
+<li><a class="reference internal" href="#if-name-main" id="id36">if __name__ == "__main__"</a></li>
+<li><a class="reference internal" href="#id15" id="id37">組み込み型と名前が被った場合</a></li>
 </ul>
 </li>
 <li>
-<a class="reference internal" href="#id7" id="id30">ユーザー定義例外</a><ul>
-<li><a class="reference internal" href="#id8" id="id31">リファレンス</a></li>
+<a class="reference internal" href="#id16" id="id38">組み込み関数</a><ul>
+<li><a class="reference internal" href="#isinstance-object-classinfo" id="id39">isinstance(object, classinfo)</a></li>
+<li><a class="reference internal" href="#all-iterable" id="id40">all(iterable)</a></li>
+<li><a class="reference internal" href="#sorted-iterable-key-none-reverse-false" id="id41"><tt class="docutils literal">sorted(iterable, *, key=None, reverse=False)</tt></a></li>
+<li><a class="reference internal" href="#property" id="id42">@property</a></li>
 </ul>
 </li>
 <li>
-<a class="reference internal" href="#re-matchobject-groupdict" id="id32">re.MatchObject.groupdict</a><ul>
-<li><a class="reference internal" href="#id10" id="id33">リファレンス</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id11" id="id34">どんどん足してくやつ</a></li>
-<li><a class="reference internal" href="#coding-utf-8" id="id35">coding: utf-8</a></li>
-<li><a class="reference internal" href="#yield-dict-zip-columns-data" id="id36">yield dict(zip(columns, data))</a></li>
-<li><a class="reference internal" href="#defaultdict" id="id37">defaultdict</a></li>
-<li><a class="reference internal" href="#id14" id="id38">組み込み型と名前が被った場合</a></li>
-<li>
-<a class="reference internal" href="#sorted" id="id39">sorted</a><ul>
-<li><a class="reference internal" href="#id15" id="id40">リファレンス</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#all" id="id41">all()</a></li>
-<li>
-<a class="reference internal" href="#property" id="id42">@property</a><ul>
-<li><a class="reference internal" href="#id17" id="id43">リファレンス</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id18" id="id44">シーケンスのアンパッキング</a></li>
-<li><a class="reference internal" href="#stringio-seek-0" id="id45">StringIO().seek(0)</a></li>
-<li><a class="reference internal" href="#if-name-main" id="id46">if __name__ == "__main__"</a></li>
-<li>
-<a class="reference internal" href="#unicode-str" id="id47">unicode と str</a><ul>
-<li><a class="reference internal" href="#id20" id="id48">リファレンス</a></li>
+<a class="reference internal" href="#id18" id="id43">正規表現</a><ul>
+<li><a class="reference internal" href="#id19" id="id44">バックスラッシュ感染症</a></li>
+<li><a class="reference internal" href="#id21" id="id45">正規表現のグループ化機能</a></li>
+<li><a class="reference internal" href="#re-matchobject-groupdict" id="id46">re.MatchObject.groupdict</a></li>
+<li><a class="reference internal" href="#id23" id="id47">長い正規表現を記述する方法</a></li>
 </ul>
 </li>
 <li>
-<a class="reference internal" href="#id21" id="id49">バックスラッシュ感染症</a><ul>
-<li><a class="reference internal" href="#id22" id="id50">リファレンス</a></li>
+<a class="reference internal" href="#python2" id="id48">Python2</a><ul>
+<li><a class="reference internal" href="#unicode-str" id="id49">unicode と str</a></li>
+<li><a class="reference internal" href="#coding-utf-8" id="id50">coding: utf-8</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id24" id="id51">正規表現のグループ化機能</a></li>
-<li><a class="reference internal" href="#id26" id="id52">長い正規表現を記述する方法</a></li>
 </ul>
 </div>
 </details><div class="section" id="id2">
-<h2><a class="toc-backref" href="#id27">リファレンス</a></h2>
+<h2><a class="toc-backref" href="#id24">リファレンス</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://docs.python.org/ja/3/genindex.html">頭文字別索引:</a></li>
 <li><a class="reference external" href="https://docs.python.org/ja/3/py-modindex.html">Pythonモジュール索引</a></li>
@@ -92,70 +87,303 @@
 <li><a class="reference external" href="https://docs.python.org/ja/3/library/index.html">Python 標準ライブラリ</a></li>
 </ul>
 </div>
-<div class="section" id="http">
-<h2><a class="toc-backref" href="#id28">ローカルに HTTP サーバーを立てる</a></h2>
-<pre class="code python"><a name="rest_code_f424904617264dbd984fff1f48e430a7-1"></a><span class="c1"># ポートを指定 (現在のディレクトリのファイルを提供)</span>
-<a name="rest_code_f424904617264dbd984fff1f48e430a7-2"></a><span class="err">$</span> <span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">http</span><span class="o">.</span><span class="n">server</span> <span class="mi">8000</span>
-<a name="rest_code_f424904617264dbd984fff1f48e430a7-3"></a><span class="c1"># バインドするアドレスを指定 (現在のディレクトリのファイルを提供)</span>
-<a name="rest_code_f424904617264dbd984fff1f48e430a7-4"></a><span class="err">$</span> <span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">http</span><span class="o">.</span><span class="n">server</span> <span class="mi">8000</span> <span class="o">--</span><span class="n">bind</span> <span class="mf">127.0</span><span class="o">.</span><span class="mf">0.1</span>
-<a name="rest_code_f424904617264dbd984fff1f48e430a7-5"></a><span class="c1"># ファイルを提供するディレクトリを指定</span>
-<a name="rest_code_f424904617264dbd984fff1f48e430a7-6"></a><span class="err">$</span> <span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">http</span><span class="o">.</span><span class="n">server</span> <span class="o">--</span><span class="n">directory</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span>
-</pre>
 <div class="section" id="id6">
-<h3><a class="toc-backref" href="#id29">リファレンス</a></h3>
+<h2><a class="toc-backref" href="#id25">いろいろ</a></h2>
+<div class="section" id="http">
+<h3><a class="toc-backref" href="#id26">ローカルに HTTP サーバーを立てる</a></h3>
 <p><a class="reference external" href="https://docs.python.org/ja/3/library/http.server.html">http.server --- HTTP サーバ</a></p>
-</div>
+<pre class="code python"><a name="rest_code_7435273c5904431c9f6eac734fccb116-1"></a><span class="c1"># ポートを指定 (現在のディレクトリのファイルを提供)</span>
+<a name="rest_code_7435273c5904431c9f6eac734fccb116-2"></a><span class="err">$</span> <span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">http</span><span class="o">.</span><span class="n">server</span> <span class="mi">8000</span>
+<a name="rest_code_7435273c5904431c9f6eac734fccb116-3"></a><span class="c1"># バインドするアドレスを指定 (現在のディレクトリのファイルを提供)</span>
+<a name="rest_code_7435273c5904431c9f6eac734fccb116-4"></a><span class="err">$</span> <span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">http</span><span class="o">.</span><span class="n">server</span> <span class="mi">8000</span> <span class="o">--</span><span class="n">bind</span> <span class="mf">127.0</span><span class="o">.</span><span class="mf">0.1</span>
+<a name="rest_code_7435273c5904431c9f6eac734fccb116-5"></a><span class="c1"># ファイルを提供するディレクトリを指定</span>
+<a name="rest_code_7435273c5904431c9f6eac734fccb116-6"></a><span class="err">$</span> <span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">http</span><span class="o">.</span><span class="n">server</span> <span class="o">--</span><span class="n">directory</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span>
+</pre>
 </div>
 <div class="section" id="id7">
-<h2><a class="toc-backref" href="#id30">ユーザー定義例外</a></h2>
+<h3><a class="toc-backref" href="#id27">ユーザー定義例外</a></h3>
+<p><a class="reference external" href="https://docs.python.org/ja/3.7/tutorial/errors.html#user-defined-exceptions">8.5. ユーザー定義例外</a></p>
+<ul class="simple">
+<li>Exception クラスを、直接または間接的に継承する<ul>
+<li>
+<a class="reference external" href="https://docs.python.org/ja/3/library/exceptions.html#BaseException">BaseException</a> : 全ての組み込み例外の基底クラスです。ユーザ定義の例外に直接継承されることは意図されていません (継承には Exception を使ってください)。</li>
+</ul>
+</li>
+<li>大抵は、いくつかの属性だけを提供し、例外が発生したときにハンドラがエラーに関する情報を取り出せるようにする程度にとどめる</li>
+<li>だいたいは、標準の例外の名前付けと同様に、 "Error" で終わる名前で定義する</li>
+<li>複数の別個の例外を送出するようなモジュールを作成する際には、そのモジュールで定義されている例外の基底クラスを作成するのが一般的なプラクティス</li>
+</ul>
+</div>
+<div class="section" id="interface">
+<h3><a class="toc-backref" href="#id28">interface 使いたい</a></h3>
+<div class="section" id="id9">
+<h4><a class="toc-backref" href="#id29">抽象基底クラス</a></h4>
+<ul class="simple">
+<li>抽象基底クラス: <a class="reference external" href="https://docs.python.org/ja/3/library/abc.html">https://docs.python.org/ja/3/library/abc.html</a>
+</li>
+<li>collections.abc: <a class="reference external" href="https://docs.python.org/ja/3/library/collections.abc.html#module-collections.abc">https://docs.python.org/ja/3/library/collections.abc.html#module-collections.abc</a><ul>
+<li>
+<tt class="docutils literal">Container</tt> とか <tt class="docutils literal">Iterable</tt> とか <tt class="docutils literal">Hashable</tt> とか...</li>
+</ul>
+</li>
+<li>abstract base class: <a class="reference external" href="https://docs.python.org/ja/3/glossary.html#term-abstract-base-class">https://docs.python.org/ja/3/glossary.html#term-abstract-base-class</a>
+</li>
+<li>エキスパートPythonプログラミング改訂2版:<ul>
+<li>P.478: インターフェース</li>
+<li>P.483: 関数アノテーションや抽象基底クラスを使用する</li>
+<li>P.490: collections.abc を使用する</li>
+</ul>
+</li>
+</ul>
+<pre class="code python"><a name="rest_code_77924bd036df47bcbc5500bce06ea828-1"></a><span class="kn">from</span> <span class="nn">abc</span> <span class="kn">import</span> <span class="n">ABCMeta</span><span class="p">,</span> <span class="n">abstractmethod</span>
+<a name="rest_code_77924bd036df47bcbc5500bce06ea828-2"></a>
+<a name="rest_code_77924bd036df47bcbc5500bce06ea828-3"></a>
+<a name="rest_code_77924bd036df47bcbc5500bce06ea828-4"></a><span class="k">class</span> <span class="nc">Pushable</span><span class="p">(</span><span class="n">metaclass</span><span class="o">=</span><span class="n">ABCMeta</span><span class="p">):</span>
+<a name="rest_code_77924bd036df47bcbc5500bce06ea828-5"></a>    <span class="nd">@abstractmethod</span>
+<a name="rest_code_77924bd036df47bcbc5500bce06ea828-6"></a>    <span class="k">def</span> <span class="nf">push</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<a name="rest_code_77924bd036df47bcbc5500bce06ea828-7"></a>        <span class="sd">"""何でも push"""</span>
+<a name="rest_code_77924bd036df47bcbc5500bce06ea828-8"></a>
+<a name="rest_code_77924bd036df47bcbc5500bce06ea828-9"></a>    <span class="nd">@classmethod</span>
+<a name="rest_code_77924bd036df47bcbc5500bce06ea828-10"></a>    <span class="k">def</span> <span class="nf">__subclasshook__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">subclass</span><span class="p">):</span>
+<a name="rest_code_77924bd036df47bcbc5500bce06ea828-11"></a>        <span class="c1"># これを実装しておくと、暗黙的にインターフェイスを実装しているインスタンスも</span>
+<a name="rest_code_77924bd036df47bcbc5500bce06ea828-12"></a>        <span class="c1"># インターフェイスのインスタンスだと確認できる</span>
+<a name="rest_code_77924bd036df47bcbc5500bce06ea828-13"></a>        <span class="k">if</span> <span class="bp">cls</span> <span class="ow">is</span> <span class="n">Pushable</span><span class="p">:</span>
+<a name="rest_code_77924bd036df47bcbc5500bce06ea828-14"></a>            <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="s1">'push'</span> <span class="ow">in</span> <span class="n">B</span><span class="o">.</span><span class="vm">__dict__</span> <span class="k">for</span> <span class="n">B</span> <span class="ow">in</span> <span class="n">subclass</span><span class="o">.</span><span class="vm">__mro__</span><span class="p">):</span>
+<a name="rest_code_77924bd036df47bcbc5500bce06ea828-15"></a>                <span class="k">return</span> <span class="bp">True</span>
+<a name="rest_code_77924bd036df47bcbc5500bce06ea828-16"></a>        <span class="k">return</span> <span class="bp">NotImplemented</span>
+<a name="rest_code_77924bd036df47bcbc5500bce06ea828-17"></a>
+<a name="rest_code_77924bd036df47bcbc5500bce06ea828-18"></a>
+<a name="rest_code_77924bd036df47bcbc5500bce06ea828-19"></a><span class="k">class</span> <span class="nc">HeyPushable</span><span class="p">(</span><span class="n">Pushable</span><span class="p">):</span>
+<a name="rest_code_77924bd036df47bcbc5500bce06ea828-20"></a>    <span class="k">def</span> <span class="nf">push</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<a name="rest_code_77924bd036df47bcbc5500bce06ea828-21"></a>        <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">'Hey {x} push.'</span><span class="p">)</span>
+<a name="rest_code_77924bd036df47bcbc5500bce06ea828-22"></a>
+<a name="rest_code_77924bd036df47bcbc5500bce06ea828-23"></a>
+<a name="rest_code_77924bd036df47bcbc5500bce06ea828-24"></a><span class="k">class</span> <span class="nc">HoyPushable</span><span class="p">(</span><span class="n">Pushable</span><span class="p">):</span>
+<a name="rest_code_77924bd036df47bcbc5500bce06ea828-25"></a>    <span class="k">def</span> <span class="nf">pull</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<a name="rest_code_77924bd036df47bcbc5500bce06ea828-26"></a>        <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">'Hoy {x} pull.'</span><span class="p">)</span>
+<a name="rest_code_77924bd036df47bcbc5500bce06ea828-27"></a>
+<a name="rest_code_77924bd036df47bcbc5500bce06ea828-28"></a>
+<a name="rest_code_77924bd036df47bcbc5500bce06ea828-29"></a><span class="k">class</span> <span class="nc">PoyPushable</span><span class="p">:</span>
+<a name="rest_code_77924bd036df47bcbc5500bce06ea828-30"></a>    <span class="k">def</span> <span class="nf">push</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<a name="rest_code_77924bd036df47bcbc5500bce06ea828-31"></a>        <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">'Poy {x} push.'</span><span class="p">)</span>
+<a name="rest_code_77924bd036df47bcbc5500bce06ea828-32"></a>
+<a name="rest_code_77924bd036df47bcbc5500bce06ea828-33"></a>
+<a name="rest_code_77924bd036df47bcbc5500bce06ea828-34"></a><span class="k">class</span> <span class="nc">NyaPushable</span><span class="p">:</span>
+<a name="rest_code_77924bd036df47bcbc5500bce06ea828-35"></a>    <span class="k">def</span> <span class="nf">pull</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<a name="rest_code_77924bd036df47bcbc5500bce06ea828-36"></a>        <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">'Nya {x} pull.'</span><span class="p">)</span>
+<a name="rest_code_77924bd036df47bcbc5500bce06ea828-37"></a>
+<a name="rest_code_77924bd036df47bcbc5500bce06ea828-38"></a>
+<a name="rest_code_77924bd036df47bcbc5500bce06ea828-39"></a><span class="k">class</span> <span class="nc">HeyHeyPushable</span><span class="p">(</span><span class="n">Pushable</span><span class="p">):</span>
+<a name="rest_code_77924bd036df47bcbc5500bce06ea828-40"></a>    <span class="k">def</span> <span class="nf">push</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<a name="rest_code_77924bd036df47bcbc5500bce06ea828-41"></a>        <span class="c1"># 引数違いも互換性ありとみなされる</span>
+<a name="rest_code_77924bd036df47bcbc5500bce06ea828-42"></a>        <span class="c1"># (PyCharm では警告出る)</span>
+<a name="rest_code_77924bd036df47bcbc5500bce06ea828-43"></a>        <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">'Hey hey {x}, {y} push.'</span><span class="p">)</span>
+</pre>
+<pre class="code python"><a name="rest_code_e706f0be8af741fb952b8bfa125f8f50-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">hey</span> <span class="o">=</span> <span class="n">HeyPushable</span><span class="p">()</span>
+<a name="rest_code_e706f0be8af741fb952b8bfa125f8f50-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">hey</span><span class="p">,</span> <span class="n">Pushable</span><span class="p">)</span>
+<a name="rest_code_e706f0be8af741fb952b8bfa125f8f50-3"></a><span class="bp">True</span>
+<a name="rest_code_e706f0be8af741fb952b8bfa125f8f50-4"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">hey</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="s1">'husky'</span><span class="p">)</span>
+<a name="rest_code_e706f0be8af741fb952b8bfa125f8f50-5"></a><span class="n">Hey</span> <span class="n">husky</span> <span class="n">push</span><span class="o">.</span>
+<a name="rest_code_e706f0be8af741fb952b8bfa125f8f50-6"></a>
+<a name="rest_code_e706f0be8af741fb952b8bfa125f8f50-7"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">hoy</span> <span class="o">=</span> <span class="n">HoyPushable</span><span class="p">()</span>
+<a name="rest_code_e706f0be8af741fb952b8bfa125f8f50-8"></a><span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+<a name="rest_code_e706f0be8af741fb952b8bfa125f8f50-9"></a>  <span class="n">File</span> <span class="s2">"&lt;console&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<a name="rest_code_e706f0be8af741fb952b8bfa125f8f50-10"></a><span class="ne">TypeError</span><span class="p">:</span> <span class="n">Can</span><span class="s1">'t instantiate abstract class HoyPushable with abstract methods push</span>
+<a name="rest_code_e706f0be8af741fb952b8bfa125f8f50-11"></a>
+<a name="rest_code_e706f0be8af741fb952b8bfa125f8f50-12"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">poy</span> <span class="o">=</span> <span class="n">PoyPushable</span><span class="p">()</span>
+<a name="rest_code_e706f0be8af741fb952b8bfa125f8f50-13"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">poy</span><span class="p">,</span> <span class="n">Pushable</span><span class="p">)</span>
+<a name="rest_code_e706f0be8af741fb952b8bfa125f8f50-14"></a><span class="bp">True</span>
+<a name="rest_code_e706f0be8af741fb952b8bfa125f8f50-15"></a>
+<a name="rest_code_e706f0be8af741fb952b8bfa125f8f50-16"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">nya</span> <span class="o">=</span> <span class="n">NyaPushable</span><span class="p">()</span>
+<a name="rest_code_e706f0be8af741fb952b8bfa125f8f50-17"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">nya</span><span class="p">,</span> <span class="n">Pushable</span><span class="p">)</span>
+<a name="rest_code_e706f0be8af741fb952b8bfa125f8f50-18"></a><span class="bp">False</span>
+<a name="rest_code_e706f0be8af741fb952b8bfa125f8f50-19"></a>
+<a name="rest_code_e706f0be8af741fb952b8bfa125f8f50-20"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">heyhey</span> <span class="o">=</span> <span class="n">HeyHeyPushable</span><span class="p">()</span>
+<a name="rest_code_e706f0be8af741fb952b8bfa125f8f50-21"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">heyhey</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="s1">'husky'</span><span class="p">,</span> <span class="s1">'shiba'</span><span class="p">)</span>
+<a name="rest_code_e706f0be8af741fb952b8bfa125f8f50-22"></a><span class="n">Hey</span> <span class="n">hey</span> <span class="n">husky</span><span class="p">,</span> <span class="n">shiba</span> <span class="n">push</span><span class="o">.</span>
+</pre>
+</div>
+<div class="section" id="protocol">
+<h4><a class="toc-backref" href="#id30">Protocol</a></h4>
+<ul class="simple">
+<li>Simple user-defined protocols: <a class="reference external" href="https://mypy.readthedocs.io/en/latest/protocols.html#simple-user-defined-protocols">https://mypy.readthedocs.io/en/latest/protocols.html#simple-user-defined-protocols</a>
+</li>
+<li>class typing.Protocol: <a class="reference external" href="https://docs.python.org/ja/3/library/typing.html#typing.Protocol">https://docs.python.org/ja/3/library/typing.html#typing.Protocol</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="defaultdict">
+<h3><a class="toc-backref" href="#id31">defaultdict</a></h3>
+<p>リストの初期化が不要になる！</p>
+<ul class="simple">
+<li><a class="reference external" href="https://docs.python.org/ja/3/library/collections.html#defaultdict-objects">defaultdict オブジェクト</a></li>
+<li><a class="reference external" href="https://docs.python.org/ja/3/library/collections.html#defaultdict-examples">defaultdict の使用例</a></li>
+</ul>
+</div>
+<div class="section" id="id12">
+<h3><a class="toc-backref" href="#id32">どんどん足してくやつ</a></h3>
+<p><a class="reference external" href="https://docs.python.org/ja/3/library/functools.html#functools.reduce">functools.reduce</a></p>
+</div>
+<div class="section" id="stringio-seek-0">
+<h3><a class="toc-backref" href="#id33">StringIO().seek(0)</a></h3>
+<p><a class="reference external" href="https://docs.python.org/ja/3/library/io.html#io.IOBase.seek">https://docs.python.org/ja/3/library/io.html#io.IOBase.seek</a></p>
+<ul class="simple">
+<li>先頭にもどす、 (カーソルを先頭に戻すみたいなイメージ)</li>
+</ul>
+</div>
+<div class="section" id="yield-dict-zip-columns-data">
+<h3><a class="toc-backref" href="#id34">yield dict(zip(columns, data))</a></h3>
+<pre class="code python"><a name="rest_code_eb34367c0b6742d1951e57c737edfa28-1"></a><span class="c1"># これは、</span>
+<a name="rest_code_eb34367c0b6742d1951e57c737edfa28-2"></a><span class="k">for</span> <span class="n">column</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">columns</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+<a name="rest_code_eb34367c0b6742d1951e57c737edfa28-3"></a>    <span class="n">row_dict</span><span class="p">[</span><span class="n">column</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+<a name="rest_code_eb34367c0b6742d1951e57c737edfa28-4"></a>    <span class="k">yield</span> <span class="n">row_dict</span>
+<a name="rest_code_eb34367c0b6742d1951e57c737edfa28-5"></a>
+<a name="rest_code_eb34367c0b6742d1951e57c737edfa28-6"></a><span class="c1"># こう書ける。</span>
+<a name="rest_code_eb34367c0b6742d1951e57c737edfa28-7"></a><span class="k">yield</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">columns</span><span class="p">,</span> <span class="n">data</span><span class="p">))</span>
+</pre>
+<ul class="simple">
+<li>
+<tt class="docutils literal">zip</tt> はタプルのイテレータを返す -&gt; タプルから辞書を作れる</li>
+<li><tt class="docutils literal">dict(iterable, **kwarg)</tt></li>
+<li>
+<a class="reference external" href="https://docs.python.org/ja/3/library/stdtypes.html#dict">https://docs.python.org/ja/3/library/stdtypes.html#dict</a><ul>
+<li>それ以外の場合、位置引数は iterable オブジェクトでなければなりません。iterable のそれぞれの要素自身は、ちょうど 2 個のオブジェクトを持つイテラブルでなければなりません。それぞれの要素の最初のオブジェクトは新しい辞書のキーになり、2 番目のオブジェクトはそれに対応する値になります。同一のキーが 2 回以上現れた場合は、そのキーの最後の値が新しい辞書での対応する値になります。</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id13">
+<h3><a class="toc-backref" href="#id35">シーケンスのアンパッキング</a></h3>
+<p><a class="reference external" href="https://docs.python.org/ja/3/tutorial/datastructures.html#tuples-and-sequences">タプルとシーケンス</a></p>
+</div>
+<div class="section" id="if-name-main">
+<h3><a class="toc-backref" href="#id36">if __name__ == "__main__"</a></h3>
+<p><a class="reference external" href="http://blog.pyq.jp/entry/Python_kaiketsu_180207">http://blog.pyq.jp/entry/Python_kaiketsu_180207</a></p>
+<ul class="simple">
+<li>Pythonでは、インポートされたファイルの中身は実行される</li>
+</ul>
+</div>
+<div class="section" id="id15">
+<h3><a class="toc-backref" href="#id37">組み込み型と名前が被った場合</a></h3>
+<p><tt class="docutils literal">in</tt> や <tt class="docutils literal">int</tt> など、キーワード・組み込み型と同じ名前を変数名にしたい場合は、末尾に <tt class="docutils literal">_</tt> を付ける。</p>
+</div>
+</div>
+<div class="section" id="id16">
+<h2><a class="toc-backref" href="#id38">組み込み関数</a></h2>
+<div class="section" id="isinstance-object-classinfo">
+<h3><a class="toc-backref" href="#id39">isinstance(object, classinfo)</a></h3>
+<p><a class="reference external" href="https://docs.python.org/ja/3/library/functions.html#isinstance">https://docs.python.org/ja/3/library/functions.html#isinstance</a></p>
+<ul class="simple">
+<li>継承を考慮してくれる</li>
+<li>classinfo には複数指定できる (タプルで)</li>
+</ul>
+</div>
+<div class="section" id="all-iterable">
+<h3><a class="toc-backref" href="#id40">all(iterable)</a></h3>
+<p><a class="reference external" href="https://docs.python.org/ja/3/library/functions.html#all">all(iterable)</a></p>
+<ul class="simple">
+<li>iterable の全ての要素が真ならば (もしくは iterable が空ならば) True を返す。</li>
+</ul>
+</div>
+<div class="section" id="sorted-iterable-key-none-reverse-false">
+<h3><a class="toc-backref" href="#id41"><tt class="docutils literal">sorted(iterable, *, key=None, reverse=False)</tt></a></h3>
+<p><a class="reference external" href="https://docs.python.org/ja/3/library/functions.html#sorted">sorted</a></p>
+<ul class="simple">
+<li>
+<a class="reference external" href="https://docs.python.org/ja/3/library/stdtypes.html#tuples">タプル型 (tuple)</a> : <tt class="docutils literal">タプルはイミュータブルなシーケンス</tt> なので、 ソートできる。</li>
+</ul>
+<pre class="code python"><a name="rest_code_5106632bdccb45ffa92907a7f6271d33-1"></a><span class="c1"># これは、</span>
+<a name="rest_code_5106632bdccb45ffa92907a7f6271d33-2"></a><span class="n">summary_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">summary_dict</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+<a name="rest_code_5106632bdccb45ffa92907a7f6271d33-3"></a><span class="n">summary_list</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s1">'sort_key'</span><span class="p">])</span>
+<a name="rest_code_5106632bdccb45ffa92907a7f6271d33-4"></a>
+<a name="rest_code_5106632bdccb45ffa92907a7f6271d33-5"></a><span class="c1"># ``sorted`` という関数を使って以下のように書ける。</span>
+<a name="rest_code_5106632bdccb45ffa92907a7f6271d33-6"></a><span class="n">summary_list</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">summary_dict</span><span class="o">.</span><span class="n">values</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s1">'sort_key'</span><span class="p">])</span>
+<a name="rest_code_5106632bdccb45ffa92907a7f6271d33-7"></a>
+<a name="rest_code_5106632bdccb45ffa92907a7f6271d33-8"></a>
+<a name="rest_code_5106632bdccb45ffa92907a7f6271d33-9"></a><span class="c1"># さらに、for文をこんなふうに書くと ``summary_list`` を作る工程が不要。</span>
+<a name="rest_code_5106632bdccb45ffa92907a7f6271d33-10"></a><span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">summary</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">summary_dict</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
+<a name="rest_code_5106632bdccb45ffa92907a7f6271d33-11"></a>    <span class="c1"># ....</span>
+</pre>
+</div>
+<div class="section" id="property">
+<h3><a class="toc-backref" href="#id42">@property</a></h3>
+<p><a class="reference external" href="https://docs.python.org/ja/3/library/functions.html#property">https://docs.python.org/ja/3/library/functions.html#property</a></p>
 <ul>
 <li>
-<p class="first">Exception クラスを、直接または間接的に継承する</p>
-<ul>
+<p class="first"><tt class="docutils literal">@property</tt> デコレータ を付けると、プロパティのように呼び出せる。</p>
+</li>
 <li>
-<p class="first"><a class="reference external" href="https://docs.python.org/ja/3/library/exceptions.html#BaseException">https://docs.python.org/ja/3/library/exceptions.html#BaseException</a></p>
-<pre class="literal-block">
-全ての組み込み例外の基底クラスです。ユーザ定義の例外に直接継承されることは意図されていません (継承には Exception を使ってください)。
+<p class="first">同じ名前のまま 読み出し専用属性の <tt class="docutils literal">getter</tt> にしてくれる</p>
+<pre class="code python"><a name="rest_code_b603f9af76214e63a392ab232326ad20-1"></a><span class="c1"># 付けるとき</span>
+<a name="rest_code_b603f9af76214e63a392ab232326ad20-2"></a><span class="err">@</span> <span class="nb">property</span>
+<a name="rest_code_b603f9af76214e63a392ab232326ad20-3"></a><span class="k">def</span> <span class="nf">husky</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a name="rest_code_b603f9af76214e63a392ab232326ad20-4"></a>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">access_datetime</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">'%Y/%m/</span><span class="si">%d</span><span class="s1"> %H'</span><span class="p">)</span>
+</pre>
+<pre class="code python"><a name="rest_code_0014f2c903a94d98b501b7736c05f71a-1"></a><span class="c1"># 呼び出すとき</span>
+<a name="rest_code_0014f2c903a94d98b501b7736c05f71a-2"></a><span class="n">xxx</span><span class="o">.</span><span class="n">husky</span>
 </pre>
 </li>
 </ul>
-</li>
-<li>
-<p class="first">大抵は、いくつかの属性だけを提供し、例外が発生したときにハンドラがエラーに関する情報を取り出せるようにする程度にとどめる</p>
-</li>
-<li>
-<p class="first">だいたいは、標準の例外の名前付けと同様に、 "Error" で終わる名前で定義する</p>
-</li>
-<li>
-<p class="first">複数の別個の例外を送出するようなモジュールを作成する際には、そのモジュールで定義されている例外の基底クラスを作成するのが一般的なプラクティス</p>
-</li>
-</ul>
-<div class="section" id="id8">
-<h3><a class="toc-backref" href="#id31">リファレンス</a></h3>
-<p><a class="reference external" href="https://docs.python.org/ja/3.7/tutorial/errors.html#user-defined-exceptions">8.5. ユーザー定義例外</a></p>
 </div>
+</div>
+<div class="section" id="id18">
+<h2><a class="toc-backref" href="#id43">正規表現</a></h2>
+<div class="section" id="id19">
+<h3><a class="toc-backref" href="#id44">バックスラッシュ感染症</a></h3>
+<p><a class="reference external" href="https://docs.python.org/ja/3.7/howto/regex.html#the-backslash-plague">バックスラッシュ感染症</a></p>
+<pre class="code python"><a name="rest_code_a134051dbd554578bb2f3386637ae39e-1"></a><span class="c1"># こんなふうに書く</span>
+<a name="rest_code_a134051dbd554578bb2f3386637ae39e-2"></a><span class="sa">r</span><span class="s2">"ab*"</span>
+</pre>
+<ul class="simple">
+<li>
+<tt class="docutils literal">r</tt> を文字列リテラルの先頭に書くことでバックスラッシュは特別扱いされなくなる</li>
+<li>多くの場合 Python コードの中の正規表現はこの raw string 記法を使って書かれる</li>
+</ul>
+</div>
+<div class="section" id="id21">
+<h3><a class="toc-backref" href="#id45">正規表現のグループ化機能</a></h3>
+<p><a class="reference external" href="https://docs.python.org/ja/3.7/howto/regex.html#non-capturing-and-named-groups">取り出さないグループと名前つきグループ</a></p>
 </div>
 <div class="section" id="re-matchobject-groupdict">
-<h2><a class="toc-backref" href="#id32">re.MatchObject.groupdict</a></h2>
+<h3><a class="toc-backref" href="#id46">re.MatchObject.groupdict</a></h3>
+<p><a class="reference external" href="https://docs.python.org/ja/3/library/re.html#re.Match.groupdictgroupdict">https://docs.python.org/ja/3/library/re.html#re.Match.groupdictgroupdict</a></p>
 <ul class="simple">
 <li>マッチの、すべての 名前つきの サブグループを含む、サブグループ名でキー付けされた辞書を返す</li>
 <li>リファレンスのサンプルコードを見ると一目瞭然なので、そちらを見てください</li>
 </ul>
-<div class="section" id="id10">
-<h3><a class="toc-backref" href="#id33">リファレンス</a></h3>
-<p><a class="reference external" href="https://docs.python.org/ja/2.7/library/re.html#re.MatchObject.groupdict">https://docs.python.org/ja/2.7/library/re.html#re.MatchObject.groupdict</a></p>
 </div>
-</div>
-<div class="section" id="id11">
-<h2><a class="toc-backref" href="#id34">どんどん足してくやつ</a></h2>
+<div class="section" id="id23">
+<h3><a class="toc-backref" href="#id47">長い正規表現を記述する方法</a></h3>
 <ul class="simple">
-<li><a class="reference external" href="https://docs.python.org/ja/3/library/functools.html#functools.reduce">functools.reduce</a></li>
+<li>カンマ区切り無しで文字列リテラルを複数に分ける: <a class="reference external" href="http://docs.python-guide.org/en/latest/writing/style/#line-continuations">http://docs.python-guide.org/en/latest/writing/style/#line-continuations</a>
+</li>
+<li>re.VERBOSE オプションを使う: <a class="reference external" href="https://docs.python.org/ja/3/library/re.html#re.VERBOSE">https://docs.python.org/ja/3/library/re.html#re.VERBOSE</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="python2">
+<h2><a class="toc-backref" href="#id48">Python2</a></h2>
+<div class="section" id="unicode-str">
+<h3><a class="toc-backref" href="#id49">unicode と str</a></h3>
+<p><a class="reference external" href="https://docs.python.org/ja/2.7/tutorial/introduction.html#unicode-strings">3.1.3. Unicode 文字列</a></p>
+<pre class="code python"><a name="rest_code_ffcc85e9069545c7b4b9fd5481ca04f5-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="c1"># -*- coding: utf-8 -*-</span>
+<a name="rest_code_ffcc85e9069545c7b4b9fd5481ca04f5-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="s1">'ふみ'</span> <span class="o">==</span> <span class="sa">u</span><span class="s1">'ふみ'</span>
+<a name="rest_code_ffcc85e9069545c7b4b9fd5481ca04f5-3"></a><span class="bp">False</span>
+<a name="rest_code_ffcc85e9069545c7b4b9fd5481ca04f5-4"></a><span class="o">&gt;&gt;&gt;</span> <span class="s1">'fumi23'</span> <span class="o">==</span> <span class="sa">u</span><span class="s1">'fumi23'</span>
+<a name="rest_code_ffcc85e9069545c7b4b9fd5481ca04f5-5"></a><span class="bp">True</span>
+<a name="rest_code_ffcc85e9069545c7b4b9fd5481ca04f5-6"></a><span class="o">&gt;&gt;&gt;</span>
+</pre>
+<ul class="simple">
+<li>python2 の場合、マルチバイトを含むと <tt class="docutils literal">u</tt> の有無で違うオブジェクトとして判定される。</li>
+<li>python2の文字には <tt class="docutils literal">unicode</tt> と <tt class="docutils literal">str</tt> がある。 ascii 文字しか含まない場合は 同じ値と判断されるけど基本的に別物として考えたほうがいい。</li>
 </ul>
 </div>
 <div class="section" id="coding-utf-8">
-<h2><a class="toc-backref" href="#id35">coding: utf-8</a></h2>
+<h3><a class="toc-backref" href="#id50">coding: utf-8</a></h3>
 <p>ソースコードの文字エンコーディングを指定する</p>
-<pre class="code python"><a name="rest_code_3ed395f99a964378b18e43b01c0cd6e1-1"></a><span class="c1"># -*- coding: utf-8 -*-</span>
+<pre class="code python"><a name="rest_code_de2a6d8b5d254ac090ffb1d3e4d4ecc1-1"></a><span class="c1"># -*- coding: utf-8 -*-</span>
 </pre>
 <ul class="simple">
 <li>ファイルの先頭に記述する</li>
@@ -163,167 +391,6 @@
 <li>Python3 環境では不要</li>
 </ul>
 </div>
-<div class="section" id="yield-dict-zip-columns-data">
-<h2><a class="toc-backref" href="#id36">yield dict(zip(columns, data))</a></h2>
-<p>これは、</p>
-<pre class="code python"><a name="rest_code_05182536daf14d0f8f01a574d2b1e7c1-1"></a><span class="k">for</span> <span class="n">column</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">columns</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
-<a name="rest_code_05182536daf14d0f8f01a574d2b1e7c1-2"></a>    <span class="n">row_dict</span><span class="p">[</span><span class="n">column</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
-<a name="rest_code_05182536daf14d0f8f01a574d2b1e7c1-3"></a>    <span class="k">yield</span> <span class="n">row_dict</span>
-</pre>
-<p>こう書ける。</p>
-<pre class="code python"><a name="rest_code_a182196372444049a482569c5e70d05f-1"></a><span class="k">yield</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">columns</span><span class="p">,</span> <span class="n">data</span><span class="p">))</span>
-</pre>
-<ul>
-<li>
-<p class="first"><tt class="docutils literal">zip</tt> はタプルのイテレータを返す -&gt; タプルから辞書を作れる</p>
-</li>
-<li>
-<p class="first"><tt class="docutils literal">dict(iterable, **kwarg)</tt></p>
-</li>
-<li>
-<p class="first"><a class="reference external" href="https://docs.python.org/ja/3/library/stdtypes.html#dict">https://docs.python.org/ja/3/library/stdtypes.html#dict</a></p>
-<pre class="literal-block">
-それ以外の場合、位置引数は iterable オブジェクトでなければなりません。iterable のそれぞれの要素自身は、ちょうど 2 個のオブジェクトを持つイテラブルでなければなりません。それぞれの要素の最初のオブジェクトは新しい辞書のキーになり、2 番目のオブジェクトはそれに対応する値になります。同一のキーが 2 回以上現れた場合は、そのキーの最後の値が新しい辞書での対応する値になります。
-</pre>
-</li>
-</ul>
-</div>
-<div class="section" id="defaultdict">
-<h2><a class="toc-backref" href="#id37">defaultdict</a></h2>
-<p>リストの初期化が不要になる！</p>
-<ul class="simple">
-<li><a class="reference external" href="https://docs.python.org/ja/3/library/collections.html#defaultdict-objects">defaultdict オブジェクト</a></li>
-<li><a class="reference external" href="https://docs.python.org/ja/3/library/collections.html#defaultdict-examples">defaultdict の使用例</a></li>
-</ul>
-</div>
-<div class="section" id="id14">
-<h2><a class="toc-backref" href="#id38">組み込み型と名前が被った場合</a></h2>
-<p><tt class="docutils literal">in</tt> や <tt class="docutils literal">int</tt> など、キーワード・組み込み型と同じ名前を変数名にしたい場合は、末尾に <tt class="docutils literal">_</tt> を付ける。</p>
-</div>
-<div class="section" id="sorted">
-<h2><a class="toc-backref" href="#id39">sorted</a></h2>
-<p>これは、</p>
-<pre class="code python"><a name="rest_code_6855065c14f3446cbe6ed2f43d5ef674-1"></a><span class="n">summary_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">summary_dict</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
-<a name="rest_code_6855065c14f3446cbe6ed2f43d5ef674-2"></a><span class="n">summary_list</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s1">'sort_key'</span><span class="p">])</span>
-</pre>
-<p><tt class="docutils literal">sorted</tt> という関数を使って以下のように書ける。</p>
-<pre class="code python"><a name="rest_code_fad0fecd1d474760af25d6bd7e7b3810-1"></a><span class="n">summary_list</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">summary_dict</span><span class="o">.</span><span class="n">values</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s1">'sort_key'</span><span class="p">])</span>
-</pre>
-<p>さらに、for文をこんなふうに書くと <tt class="docutils literal">summary_list</tt> を作る工程が不要。</p>
-<pre class="code python"><a name="rest_code_651a8c5a2c124482a59bae9502c24672-1"></a><span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">summary</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">summary_dict</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
-<a name="rest_code_651a8c5a2c124482a59bae9502c24672-2"></a>    <span class="o">....</span>
-</pre>
-<div class="section" id="id15">
-<h3><a class="toc-backref" href="#id40">リファレンス</a></h3>
-<p><cite>タプルはイミュータブルなシーケンス</cite> なので、 ソートできる。</p>
-<ul class="simple">
-<li><a class="reference external" href="https://docs.python.org/ja/3/library/functions.html#sorted">sorted</a></li>
-<li><a class="reference external" href="https://docs.python.org/ja/3/library/stdtypes.html#tuples">タプル型 (tuple)</a></li>
-</ul>
-</div>
-</div>
-<div class="section" id="all">
-<h2><a class="toc-backref" href="#id41">all()</a></h2>
-<p><a class="reference external" href="https://docs.python.org/ja/3/library/functions.html#all">all(iterable)</a></p>
-<ul class="simple">
-<li>iterable の全ての要素が真ならば (もしくは iterable が空ならば) True を返す。</li>
-</ul>
-</div>
-<div class="section" id="property">
-<h2><a class="toc-backref" href="#id42">@property</a></h2>
-<p><tt class="docutils literal">@property</tt> デコレータ を付けると、プロパティのように呼び出せる。</p>
-<ul>
-<li>
-<p class="first">付け方</p>
-<pre class="code python"><a name="rest_code_ff8afc7b63284bcfb44a1580c08a4baf-1"></a><span class="err">@</span> <span class="nb">property</span>
-<a name="rest_code_ff8afc7b63284bcfb44a1580c08a4baf-2"></a><span class="k">def</span> <span class="nf">access_datehour</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a name="rest_code_ff8afc7b63284bcfb44a1580c08a4baf-3"></a>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">access_datetime</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">'%Y/%m/</span><span class="si">%d</span><span class="s1"> %H'</span><span class="p">)</span>
-</pre>
-</li>
-<li>
-<p class="first">呼び出すとき</p>
-<pre class="code python"><a name="rest_code_f07f6be6caa4476aa049dbaa00daafce-1"></a><span class="n">xxx</span><span class="o">.</span><span class="n">access_datehour</span>
-</pre>
-</li>
-</ul>
-<div class="section" id="id17">
-<h3><a class="toc-backref" href="#id43">リファレンス</a></h3>
-<p><a class="reference external" href="https://docs.python.org/ja/3/library/functions.html#property">https://docs.python.org/ja/3/library/functions.html#property</a></p>
-<ul class="simple">
-<li>同じ名前のまま 読み出し専用属性の <tt class="docutils literal">getter</tt> にしてくれる</li>
-</ul>
-</div>
-</div>
-<div class="section" id="id18">
-<h2><a class="toc-backref" href="#id44">シーケンスのアンパッキング</a></h2>
-<p><a class="reference external" href="https://docs.python.org/ja/3/tutorial/datastructures.html#tuples-and-sequences">タプルとシーケンス</a></p>
-</div>
-<div class="section" id="stringio-seek-0">
-<h2><a class="toc-backref" href="#id45">StringIO().seek(0)</a></h2>
-<p><a class="reference external" href="https://docs.python.org/ja/3/library/io.html#io.IOBase.seek">https://docs.python.org/ja/3/library/io.html#io.IOBase.seek</a></p>
-<ul class="simple">
-<li>先頭にもどす、 (カーソルを先頭に戻すみたいなイメージ)</li>
-</ul>
-</div>
-<div class="section" id="if-name-main">
-<h2><a class="toc-backref" href="#id46">if __name__ == "__main__"</a></h2>
-<p><a class="reference external" href="http://blog.pyq.jp/entry/Python_kaiketsu_180207">http://blog.pyq.jp/entry/Python_kaiketsu_180207</a></p>
-<ul class="simple">
-<li>Pythonでは、インポートされたファイルの中身は実行される</li>
-</ul>
-</div>
-<div class="section" id="unicode-str">
-<h2><a class="toc-backref" href="#id47">unicode と str</a></h2>
-<pre class="code python"><a name="rest_code_f74f6f36c55140199e5bc29e54adc12a-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="c1"># -*- coding: utf-8 -*-</span>
-<a name="rest_code_f74f6f36c55140199e5bc29e54adc12a-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="s1">'ふみ'</span> <span class="o">==</span> <span class="sa">u</span><span class="s1">'ふみ'</span>
-<a name="rest_code_f74f6f36c55140199e5bc29e54adc12a-3"></a><span class="bp">False</span>
-<a name="rest_code_f74f6f36c55140199e5bc29e54adc12a-4"></a><span class="o">&gt;&gt;&gt;</span> <span class="s1">'fumi23'</span> <span class="o">==</span> <span class="sa">u</span><span class="s1">'fumi23'</span>
-<a name="rest_code_f74f6f36c55140199e5bc29e54adc12a-5"></a><span class="bp">True</span>
-<a name="rest_code_f74f6f36c55140199e5bc29e54adc12a-6"></a><span class="o">&gt;&gt;&gt;</span>
-</pre>
-<ul class="simple">
-<li>python2 の場合、マルチバイトを含むと <tt class="docutils literal">u</tt> の有無で違うオブジェクトとして判定される。</li>
-<li>python2の文字には <tt class="docutils literal">unicode</tt> と <tt class="docutils literal">str</tt> がある。 ascii 文字しか含まない場合は 同じ値と判断されるけど基本的に別物として考えたほうがいい。</li>
-</ul>
-<div class="section" id="id20">
-<h3><a class="toc-backref" href="#id48">リファレンス</a></h3>
-<p><a class="reference external" href="https://docs.python.org/ja/2.7/tutorial/introduction.html#unicode-strings">3.1.3. Unicode 文字列</a></p>
-</div>
-</div>
-<div class="section" id="id21">
-<h2><a class="toc-backref" href="#id49">バックスラッシュ感染症</a></h2>
-<p>こんなふうに書く</p>
-<pre class="code python"><a name="rest_code_7b97f865cefc415188f37d9378b86dc9-1"></a><span class="sa">r</span><span class="s2">"ab*"</span>
-</pre>
-<div class="section" id="id22">
-<h3><a class="toc-backref" href="#id50">リファレンス</a></h3>
-<p><a class="reference external" href="https://docs.python.org/ja/3.7/howto/regex.html#the-backslash-plague">バックスラッシュ感染症</a></p>
-<ul class="simple">
-<li>
-<tt class="docutils literal">r</tt> を文字列リテラルの先頭に書くことでバックスラッシュは特別扱いされなくなる</li>
-<li>多くの場合 Python コードの中の正規表現はこの raw string 記法を使って書かれる</li>
-</ul>
-</div>
-</div>
-<div class="section" id="id24">
-<h2><a class="toc-backref" href="#id51">正規表現のグループ化機能</a></h2>
-<p>このあたりから</p>
-<ul class="simple">
-<li><a class="reference external" href="https://docs.python.org/ja/3.7/howto/regex.html#non-capturing-and-named-groups">取り出さないグループと名前つきグループ</a></li>
-</ul>
-</div>
-<div class="section" id="id26">
-<h2><a class="toc-backref" href="#id52">長い正規表現を記述する方法</a></h2>
-<ul class="simple">
-<li>カンマ区切り無しで文字列リテラルを複数に分ける<ul>
-<li><a class="reference external" href="http://docs.python-guide.org/en/latest/writing/style/#line-continuations">http://docs.python-guide.org/en/latest/writing/style/#line-continuations</a></li>
-</ul>
-</li>
-<li>re.VERBOSE オプションを使う<ul>
-<li><a class="reference external" href="https://docs.python.org/ja/3/library/re.html#re.VERBOSE">https://docs.python.org/ja/3/library/re.html#re.VERBOSE</a></li>
-</ul>
-</li>
-</ul>
 </div>
 </div>
     </div>

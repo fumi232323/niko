@@ -223,8 +223,8 @@ a:active {
 .item-docker .title::before {
   border-color: #edef9c;
 }
-.item-test,
-.item-test .title::before {
+.item-python-test,
+.item-python-test .title::before {
   border-color: #dd9b9d;
 }
 .item-sqlalchemy,
@@ -516,9 +516,10 @@ a:active {
 }
 .article-content .text .code-block,
 .article-content .text .code {
-  font-size: 2rem;
+  font-size: 1.8rem;
   background-color: #364549;
   color: #f8f8f2;
+  font-family: ricty;
 }
 .article-content .text .code-block {
   position: relative;
