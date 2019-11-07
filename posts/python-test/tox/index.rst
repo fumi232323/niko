@@ -1,5 +1,5 @@
 .. title: tox
-.. tags: test
+.. tags: python-test
 .. date: 2018-11-17
 .. slug: index
 .. status: published

@@ -44,7 +44,7 @@
       * 例) ``Remote Python 3.7.3 Docker Compose (app at [/Users/fumi23/docker-work/fufufu/docker-compose.yml])``
 
     * Workinng directory: なしでもローカルpathでもリモートpathでも動いた
-    * Path mapping: 設定してもしなくても動いた
+    * Path mapping: 設定してもしなくても動いた => 設定したほうが良さそう
 
 {{% figure RunDebugConfigTox.png %}}
 

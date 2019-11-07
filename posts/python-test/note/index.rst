@@ -1,5 +1,5 @@
 .. title: Python テストのメモ
-.. tags: test
+.. tags: python-test
 .. date: 2018-11-08
 .. slug: index
 .. status: published
