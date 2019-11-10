@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<title>AWS Lambda/ふみのて</title>
+<link rel="shortcut icon" href="../../assets/icons/favicon.ico">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Griffy">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Vollkorn:400,700">
+<link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/sawarabimincho.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+<link rel="stylesheet" href="../../assets/css/style.css?20191110">
+</head>
+<body>
+    <div class="container">
+      <div class="header"><header class="item item-header"><h1>
+    <a href="../../">
+      <img class="logo" src="../../assets/images/inuu.png" alt="犬"></a>
+  </h1>
+  <iframe src="../../tags/" class="tags"></iframe>
+</header></div>
+      <div class="main">
+<div class="article-content">
+  <main class="item item-article item-aws"><time class="date" datetime="2019-11-10 00:00:00+09:00">
+      2019-11-10 Sun
+    </time><div class="title">AWS Lambda</div>
+    <div class="category">
+      <a href="../../tags/aws/">
+          aws
+      </a>
+    </div>
+    <div class="text">
+      <div>
+<div class="section" id="aws-lambda">
+<h2>AWS Lambda</h2>
+<p>AWS Lambda はサーバーをプロビジョニングしたり管理する必要なくコードを実行できるコンピューティングサービスです。</p>
+<ul class="simple">
+<li><p>AWS Lambda 開始方法: <a class="reference external" href="https://aws.amazon.com/jp/lambda/getting-started/">https://aws.amazon.com/jp/lambda/getting-started/</a></p></li>
+<li>
+<p>AWS Lambda 料金: <a class="reference external" href="https://aws.amazon.com/jp/lambda/pricing/">https://aws.amazon.com/jp/lambda/pricing/</a></p>
+<ul>
+<li>
+<p>データ転送</p>
+<ul>
+<li><p>Lambda 関数が実行されたリージョン外からの AWS Lambda 関数に対する、または Lambda 関数からのデータの転送は、 EC2 データ転送料金が課金される</p></li>
+<li><p>同じ AWS リージョン内における Amazon S3、Amazon Glacier、Amazon DynamoDB、Amazon SES、Amazon SQS、Amazon Kinesis、Amazon ECR、Amazon SNS、または Amazon SimpleDB と AWS Lambda 関数の間でのデータ転送は無料</p></li>
+<li><p>AWS Lambda 関数での VPC または VPC ピアリングの使用には、追加料金が発生する</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>AWS Lambda ドキュメント: <a class="reference external" href="https://docs.aws.amazon.com/ja_jp/lambda/">https://docs.aws.amazon.com/ja_jp/lambda/</a></p>
+<ul>
+<li>
+<p>AWS Lambda 開発者ガイド: <a class="reference external" href="https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/welcome.html">https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/welcome.html</a></p>
+<ul>
+<li><p>AWS Lambda とは: <a class="reference external" href="https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/welcome.html">https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/welcome.html</a></p></li>
+<li><p>AWS Lambda の制限: <a class="reference external" href="https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/limits.html">https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/limits.html</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>チュートリアル: Amazon S3 で AWS Lambda を使用する: <a class="reference external" href="https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/with-s3-example.html">https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/with-s3-example.html</a></p>
+<ul>
+<li><p>サンプル Amazon S3 関数コード: <a class="reference external" href="https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/with-s3-example-deployment-pkg.html#with-s3-example-deployment-pkg-python">https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/with-s3-example-deployment-pkg.html#with-s3-example-deployment-pkg-python</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="aws-sam">
+<h2>AWS SAM</h2>
+<ul>
+<li>
+<p>AWSサーバーレスアプリケーションモデル（AWS SAM）とは何ですか？: <a class="reference external" href="https://docs.aws.amazon.com/ja_jp/serverless-application-model/latest/developerguide/what-is-sam.html">https://docs.aws.amazon.com/ja_jp/serverless-application-model/latest/developerguide/what-is-sam.html</a></p>
+<ul class="simple">
+<li>
+<p>AWS SAMを使用するといろいろ良いことがある</p>
+<ul>
+<li><p>すべての関連リソースを単一のバージョン管理されたエンティティとして一緒にデプロイできる</p></li>
+<li><p>AWS SAMはAWS CloudFormationの拡張機能であるため、AWS CloudFormationの信頼できるデプロイ機能を利用できる</p></li>
+<li><p>インフラストラクチャを構成として定義およびデプロイできる</p></li>
+<li><p>数行の設定で、CodeDeployを使用して安全なデプロイを有効にし、AWS X-Rayを使用してトレースを有効にできる</p></li>
+<li>
+<p>AWS SAMテンプレートで定義されたサーバーレスアプリケーションをローカルで構築、テスト、およびデバッグできる</p>
+<ul>
+<li><p><a class="reference external" href="https://docs.aws.amazon.com/toolkit-for-jetbrains/latest/userguide/">https://docs.aws.amazon.com/toolkit-for-jetbrains/latest/userguide/</a></p></li>
+</ul>
+</li>
+<li>
+<p>Deep integration with development tools</p>
+<ul>
+<li><p>AWS Serverless Application Repository</p></li>
+<li><p>CodeBuild, CodeDeploy, and CodePipeline</p></li>
+<li><p>AWS CodeStar</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>macOSにAWS SAM CLIをインストールする: <a class="reference external" href="https://docs.aws.amazon.com/ja_jp/serverless-application-model/latest/developerguide/serverless-sam-cli-install-mac.html">https://docs.aws.amazon.com/ja_jp/serverless-application-model/latest/developerguide/serverless-sam-cli-install-mac.html</a></p></li>
+<li>
+<p>チュートリアル: Hello Worldアプリケーションのデプロイ: <a class="reference external" href="https://docs.aws.amazon.com/ja_jp/serverless-application-model/latest/developerguide/serverless-getting-started-hello-world.html">https://docs.aws.amazon.com/ja_jp/serverless-application-model/latest/developerguide/serverless-getting-started-hello-world.html</a></p>
+<pre class="code bash"><a name="rest_code_00d2e31cbeb94516af7b5536f9486c2c-1"></a><span class="c1"># Make sure that the Region for this bucket aligns with where you deploy</span>
+<a name="rest_code_00d2e31cbeb94516af7b5536f9486c2c-2"></a><span class="c1"># aws s3 mb s3://bucketname --region region  # Example regions: us-east-1, ap-east-1, eu-central-1, sa-east-1</span>
+<a name="rest_code_00d2e31cbeb94516af7b5536f9486c2c-3"></a>$ aws s3 mb s3://fumi23-sam-repo --region ap-northeast-1
+<a name="rest_code_00d2e31cbeb94516af7b5536f9486c2c-4"></a>
+<a name="rest_code_00d2e31cbeb94516af7b5536f9486c2c-5"></a><span class="c1"># Step 1 - Download a sample application</span>
+<a name="rest_code_00d2e31cbeb94516af7b5536f9486c2c-6"></a>$ sam init --runtime python3.7 --dependency-manager pip --app-template hello-world --name sam-app
+<a name="rest_code_00d2e31cbeb94516af7b5536f9486c2c-7"></a>
+<a name="rest_code_00d2e31cbeb94516af7b5536f9486c2c-8"></a><span class="c1"># Step 2 - Build your application</span>
+<a name="rest_code_00d2e31cbeb94516af7b5536f9486c2c-9"></a>$ <span class="nb">cd</span> sam-app
+<a name="rest_code_00d2e31cbeb94516af7b5536f9486c2c-10"></a>$ sam build
+<a name="rest_code_00d2e31cbeb94516af7b5536f9486c2c-11"></a>
+<a name="rest_code_00d2e31cbeb94516af7b5536f9486c2c-12"></a><span class="c1"># Step 3 - Package your application</span>
+<a name="rest_code_00d2e31cbeb94516af7b5536f9486c2c-13"></a><span class="c1"># sam package --output-template packaged.yaml --s3-bucket bucketname</span>
+<a name="rest_code_00d2e31cbeb94516af7b5536f9486c2c-14"></a>$ sam package --output-template-file packaged.yaml --s3-bucket fumi23-sam-repo
+<a name="rest_code_00d2e31cbeb94516af7b5536f9486c2c-15"></a>
+<a name="rest_code_00d2e31cbeb94516af7b5536f9486c2c-16"></a><span class="c1"># Step 4 - Deploy your application</span>
+<a name="rest_code_00d2e31cbeb94516af7b5536f9486c2c-17"></a><span class="c1"># sam deploy --template-file packaged.yaml --region us-west-2 --capabilities CAPABILITY_IAM --stack-name aws-sam-getting-started</span>
+<a name="rest_code_00d2e31cbeb94516af7b5536f9486c2c-18"></a>$ sam deploy --template-file packaged.yaml --region ap-northeast-1 --capabilities CAPABILITY_IAM --stack-name aws-sam-getting-started
+<a name="rest_code_00d2e31cbeb94516af7b5536f9486c2c-19"></a>
+<a name="rest_code_00d2e31cbeb94516af7b5536f9486c2c-20"></a><span class="c1"># ステップ5: AWSクラウドでアプリケーションをテストする</span>
+<a name="rest_code_00d2e31cbeb94516af7b5536f9486c2c-21"></a>$ aws cloudformation describe-stacks --stack-name aws-sam-getting-started --region ap-northeast-1 --query <span class="s2">"Stacks[].Outputs"</span>
+<a name="rest_code_00d2e31cbeb94516af7b5536f9486c2c-22"></a>$ curl https://06eju0fof6.execute-api.ap-northeast-1.amazonaws.com/Prod/hello/
+<a name="rest_code_00d2e31cbeb94516af7b5536f9486c2c-23"></a>
+<a name="rest_code_00d2e31cbeb94516af7b5536f9486c2c-24"></a><span class="c1"># ステップ6: アプリケーションをローカルでテストする（オプション）</span>
+<a name="rest_code_00d2e31cbeb94516af7b5536f9486c2c-25"></a>$ sam <span class="nb">local</span> start-api
+<a name="rest_code_00d2e31cbeb94516af7b5536f9486c2c-26"></a>$ curl http://127.0.0.1:3000/hello
+</pre>
+<ul class="simple">
+<li><p>「Lambda &gt; アプリケーション」 に <code class="docutils literal"><span class="pre">aws-sam-getting-started</span></code> アプリケーションができあがる</p></li>
+<li><p>「CloudFormation &gt; スタック」 に <code class="docutils literal"><span class="pre">aws-sam-getting-started</span></code> スタックができあがる</p></li>
+<li><p>「Amazon S3/fumi23-sam-repo」 に何かができあがる =&gt; これはスタックを削除しても消えない</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="aws-serverless-application-repository">
+<h2>AWS Serverless Application Repository</h2>
+<p><a class="reference external" href="https://aws.amazon.com/jp/serverless/serverlessrepo/">https://aws.amazon.com/jp/serverless/serverlessrepo/</a></p>
+<ul class="simple">
+<li><p>Serverless Application Repository の使用に追加料金はかかりません。デプロイするアプリケーションで使用する AWS リソースに対してのみ料金をお支払いいただきます。</p></li>
+</ul>
+</div>
+<div class="section" id="serverless-framework">
+<h2>serverless framework</h2>
+<p><a class="reference external" href="https://serverless.com/">https://serverless.com/</a></p>
+<ul class="simple">
+<li>
+<p>The complete solution for building &amp; operating serverless applications</p>
+<ul>
+<li><p>サーバーレスアプリケーション構築/運用のためのフレームワーク</p></li>
+<li><p>AWS Lambda、Azure Functions、Google CloudFunctions などに対応</p></li>
+</ul>
+</li>
+<li><p>Serverless Frameworkの使い方まとめ: <a class="reference external" href="https://qiita.com/horike37/items/b295a91908fcfd4033a2">https://qiita.com/horike37/items/b295a91908fcfd4033a2</a></p></li>
+<li>
+<p>Serverless Frameworkを使ってAWSでお手軽APIを作ってみよう: <a class="reference external" href="https://developer.cybozu.io/hc/ja/articles/360020409231-Serverless-Framework%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6AWS%E3%81%A7%E3%81%8A%E6%89%8B%E8%BB%BDAPI%E3%82%92%E4%BD%9C%E3%81%A3%E3%81%A6%E3%81%BF%E3%82%88%E3%81%86">https://developer.cybozu.io/hc/ja/articles/360020409231-Serverless-Framework%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6AWS%E3%81%A7%E3%81%8A%E6%89%8B%E8%BB%BDAPI%E3%82%92%E4%BD%9C%E3%81%A3%E3%81%A6%E3%81%BF%E3%82%88%E3%81%86</a></p>
+<ul>
+<li><p>「やってみるとわかるのですが、複数のLambda関数やAPIを開発する場合に都度、LambdaやAPI Gatewayの設定を手作業で行うのはわりと面倒くさい」らしい</p></li>
+<li><p>サーバーレスなアーキテクチャをかんたんに作成できるオープンソースのフレームワーク</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+    </div>
+  </main>
+</div>
+</div>
+    </div>
+  </body>
+</html>

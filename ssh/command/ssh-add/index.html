@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Vollkorn:400,700">
 <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/sawarabimincho.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-<link rel="stylesheet" href="../../../assets/css/style.css?20190615">
+<link rel="stylesheet" href="../../../assets/css/style.css?20191110">
 </head>
 <body>
     <div class="container">
@@ -35,57 +35,55 @@
 <h2>リファレンス</h2>
 <p>ubuntu のやつ</p>
 <ul class="simple">
-<li><a class="reference external" href="http://manpages.ubuntu.com/manpages/bionic/en/man1/ssh-add.1.html">ssh-add</a></li>
-<li><a class="reference external" href="http://manpages.ubuntu.com/manpages/bionic/en/man1/ssh-agent.1.html">ssh-agent</a></li>
+<li><p><a class="reference external" href="http://manpages.ubuntu.com/manpages/bionic/en/man1/ssh-add.1.html">ssh-add</a></p></li>
+<li><p><a class="reference external" href="http://manpages.ubuntu.com/manpages/bionic/en/man1/ssh-agent.1.html">ssh-agent</a></p></li>
 </ul>
 <p>種類やバージョンが選べるやつ</p>
 <ul class="simple">
-<li><a class="reference external" href="https://www.freebsd.org/cgi/man.cgi?query=ssh-add&amp;apropos=0&amp;sektion=0&amp;manpath=CentOS+6.5&amp;arch=default&amp;format=html">SSH-ADD(1)</a></li>
+<li><p><a class="reference external" href="https://www.freebsd.org/cgi/man.cgi?query=ssh-add&amp;apropos=0&amp;sektion=0&amp;manpath=CentOS+6.5&amp;arch=default&amp;format=html">SSH-ADD(1)</a></p></li>
 </ul>
 </div>
 <div class="section" id="id2">
 <h2>ssh-agent</h2>
 <p>公開鍵認証で使われる認証鍵を保持する</p>
 <ul class="simple">
-<li>sshで使う認証鍵を複数登録しておける</li>
-<li>登録するのは秘密鍵</li>
-<li>公開鍵はSSHAgentには登録できないし、登録する性質のものではない。</li>
-<li>鍵に対してさらに鍵(パスフレーズ)を掛けることができるが、ssh接続するたびにパスフレーズを聞かれる。 agent に登録しておくと、つど聞かれずに済む。</li>
+<li><p>sshで使う認証鍵を複数登録しておける</p></li>
+<li><p>登録するのは秘密鍵</p></li>
+<li><p>公開鍵はSSHAgentには登録できないし、登録する性質のものではない。</p></li>
+<li><p>鍵に対してさらに鍵(パスフレーズ)を掛けることができるが、ssh接続するたびにパスフレーズを聞かれる。 agent に登録しておくと、つど聞かれずに済む。</p></li>
 </ul>
 <div class="section" id="id3">
 <h3>ssh-add の使い方</h3>
 <ul>
 <li>
-<p class="first">ssh-agent に秘密鍵を登録する</p>
-<pre class="code console"><a name="rest_code_e86bc39d15614eafa75bef7dc1ec6c3a-1"></a><span class="gp">$</span> ssh-add ~/.ssh/id_rsa
-<a name="rest_code_e86bc39d15614eafa75bef7dc1ec6c3a-2"></a><span class="gp">$</span> ssh-add &lt;秘密鍵のパス&gt;
+<p>ssh-agent に秘密鍵を登録する</p>
+<pre class="code console"><a name="rest_code_d7d4f3cd6ade498daa8a7459c8cd1b01-1"></a><span class="gp">$</span> ssh-add ~/.ssh/id_rsa
+<a name="rest_code_d7d4f3cd6ade498daa8a7459c8cd1b01-2"></a><span class="gp">$</span> ssh-add &lt;秘密鍵のパス&gt;
 </pre>
 </li>
 <li>
-<p class="first">ssh-agent に登録されている鍵を一覧表示する</p>
-<pre class="code console"><a name="rest_code_a0497efd730f4cc2ab62000dd1b66180-1"></a><span class="gp">$</span> ssh-add -l
+<p>ssh-agent に登録されている鍵を一覧表示する</p>
+<pre class="code console"><a name="rest_code_f66a0db2cdb74fe7b4b229d211856611-1"></a><span class="gp">$</span> ssh-add -l
 </pre>
 </li>
 <li>
-<p class="first">ssh-agent に登録されている鍵をすべて削除する</p>
-<pre class="code console"><a name="rest_code_43a32b8f1b0a40f5beb7f157c5bc7bed-1"></a><span class="gp">$</span> ssh-add -D
+<p>ssh-agent に登録されている鍵をすべて削除する</p>
+<pre class="code console"><a name="rest_code_cb378f80cb4e41e0bf12e0fd58522903-1"></a><span class="gp">$</span> ssh-add -D
 </pre>
 </li>
 <li>
-<p class="first">ssh-agent 登録されている鍵から、指定した鍵を削除する</p>
-<pre class="code console"><a name="rest_code_66b566ade4234d8488e2b5f4266bd393-1"></a><span class="gp">$</span> ssh-add -d &lt;削除したい秘密鍵のパス&gt;
+<p>ssh-agent 登録されている鍵から、指定した鍵を削除する</p>
+<pre class="code console"><a name="rest_code_0368ec5c391247ed85ba8bcb6a1b5fa7-1"></a><span class="gp">$</span> ssh-add -d &lt;削除したい秘密鍵のパス&gt;
 </pre>
 </li>
 <li>
-<p class="first">ssh-agent のキーチェーンに秘密鍵を登録する</p>
-<pre class="code console"><a name="rest_code_f599f67fb15641858ff7957327e35298-1"></a><span class="gp">$</span> ssh-add -K &lt;秘密鍵のパス&gt;
+<p>ssh-agent のキーチェーンに秘密鍵を登録する</p>
+<pre class="code console"><a name="rest_code_3b478ddf32d84828a1483e106b1eff21-1"></a><span class="gp">$</span> ssh-add -K &lt;秘密鍵のパス&gt;
 </pre>
 <ul class="simple">
-<li>
-<tt class="docutils literal"><span class="pre">-K</span></tt> をつけると電源を落としても消えない。</li>
-<li>利便性は上がるが、セキュリティ度は下がる。</li>
-<li>
-<tt class="docutils literal"><span class="pre">-K</span></tt> をつけないと、電源を落としたら消えるので、セキュリティ的に良い。</li>
+<li><p><code class="docutils literal"><span class="pre">-K</span></code> をつけると電源を落としても消えない。</p></li>
+<li><p>利便性は上がるが、セキュリティ度は下がる。</p></li>
+<li><p><code class="docutils literal"><span class="pre">-K</span></code> をつけないと、電源を落としたら消えるので、セキュリティ的に良い。</p></li>
 </ul>
 </li>
 </ul>

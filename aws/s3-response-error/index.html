@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Vollkorn:400,700">
 <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/sawarabimincho.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-<link rel="stylesheet" href="../../assets/css/style.css?20190615">
+<link rel="stylesheet" href="../../assets/css/style.css?20191110">
 </head>
 <body>
     <div class="container">
@@ -33,36 +33,36 @@
       <div>
 <div class="section" id="id1">
 <h2>何が起こったか</h2>
-<p><tt class="docutils literal">storages.backends.s3boto.S3BotoStorage</tt> というのを使って、 AWS S3 にアクセスしようとしたら、こんなエラーが出た。</p>
+<p><code class="docutils literal">storages.backends.s3boto.S3BotoStorage</code> というのを使って、 AWS S3 にアクセスしようとしたら、こんなエラーが出た。</p>
 <blockquote>
 <ul>
 <li>
-<p class="first">エラーメッセージ</p>
-<pre class="code shell"><a name="rest_code_1816e2a7dc964836a21f69fbac3eac84-1"></a>S3ResponseError: S3ResponseError: <span class="m">403</span> Forbidden
-<a name="rest_code_1816e2a7dc964836a21f69fbac3eac84-2"></a>&lt;?xml <span class="nv">version</span><span class="o">=</span><span class="s2">"1.0"</span> <span class="nv">encoding</span><span class="o">=</span><span class="s2">"UTF-8"</span>?&gt;
-<a name="rest_code_1816e2a7dc964836a21f69fbac3eac84-3"></a>&lt;Error&gt;
-<a name="rest_code_1816e2a7dc964836a21f69fbac3eac84-4"></a>  &lt;Code&gt;RequestTimeTooSkewed&lt;/Code&gt;
-<a name="rest_code_1816e2a7dc964836a21f69fbac3eac84-5"></a>  &lt;Message&gt;The difference between the request <span class="nb">time</span> and the current <span class="nb">time</span> is too large.&lt;/Message&gt;
-<a name="rest_code_1816e2a7dc964836a21f69fbac3eac84-6"></a>  &lt;RequestTime&gt;Tue, <span class="m">31</span> Jul <span class="m">2018</span> <span class="m">07</span>:40:44 GMT&lt;/RequestTime&gt;
-<a name="rest_code_1816e2a7dc964836a21f69fbac3eac84-7"></a>  &lt;ServerTime&gt;2018-07-31T07:58:01Z&lt;/ServerTime&gt;
-<a name="rest_code_1816e2a7dc964836a21f69fbac3eac84-8"></a>  &lt;MaxAllowedSkewMilliseconds&gt;900000&lt;/MaxAllowedSkewMilliseconds&gt;
-<a name="rest_code_1816e2a7dc964836a21f69fbac3eac84-9"></a>  &lt;RequestId&gt;428DE174AE9C91AA&lt;/RequestId&gt;
-<a name="rest_code_1816e2a7dc964836a21f69fbac3eac84-10"></a>  &lt;HostId&gt;VOjhVVVSgfq6rfE6Eh9pWr0+7bJGV9+4/sXeTeNnTVFi7JYAH5ZArd2NEP/hsgpgyJkMm/fNeCM<span class="o">=</span>&lt;/HostId&gt;
-<a name="rest_code_1816e2a7dc964836a21f69fbac3eac84-11"></a>&lt;/Error&gt;
+<p>エラーメッセージ</p>
+<pre class="code shell"><a name="rest_code_fb24f4ae292d4e688ad2f3a4d5ee7753-1"></a>S3ResponseError: S3ResponseError: <span class="m">403</span> Forbidden
+<a name="rest_code_fb24f4ae292d4e688ad2f3a4d5ee7753-2"></a>&lt;?xml <span class="nv">version</span><span class="o">=</span><span class="s2">"1.0"</span> <span class="nv">encoding</span><span class="o">=</span><span class="s2">"UTF-8"</span>?&gt;
+<a name="rest_code_fb24f4ae292d4e688ad2f3a4d5ee7753-3"></a>&lt;Error&gt;
+<a name="rest_code_fb24f4ae292d4e688ad2f3a4d5ee7753-4"></a>  &lt;Code&gt;RequestTimeTooSkewed&lt;/Code&gt;
+<a name="rest_code_fb24f4ae292d4e688ad2f3a4d5ee7753-5"></a>  &lt;Message&gt;The difference between the request <span class="nb">time</span> and the current <span class="nb">time</span> is too large.&lt;/Message&gt;
+<a name="rest_code_fb24f4ae292d4e688ad2f3a4d5ee7753-6"></a>  &lt;RequestTime&gt;Tue, <span class="m">31</span> Jul <span class="m">2018</span> <span class="m">07</span>:40:44 GMT&lt;/RequestTime&gt;
+<a name="rest_code_fb24f4ae292d4e688ad2f3a4d5ee7753-7"></a>  &lt;ServerTime&gt;2018-07-31T07:58:01Z&lt;/ServerTime&gt;
+<a name="rest_code_fb24f4ae292d4e688ad2f3a4d5ee7753-8"></a>  &lt;MaxAllowedSkewMilliseconds&gt;900000&lt;/MaxAllowedSkewMilliseconds&gt;
+<a name="rest_code_fb24f4ae292d4e688ad2f3a4d5ee7753-9"></a>  &lt;RequestId&gt;428DE174AE9C91AA&lt;/RequestId&gt;
+<a name="rest_code_fb24f4ae292d4e688ad2f3a4d5ee7753-10"></a>  &lt;HostId&gt;VOjhVVVSgfq6rfE6Eh9pWr0+7bJGV9+4/sXeTeNnTVFi7JYAH5ZArd2NEP/hsgpgyJkMm/fNeCM<span class="o">=</span>&lt;/HostId&gt;
+<a name="rest_code_fb24f4ae292d4e688ad2f3a4d5ee7753-11"></a>&lt;/Error&gt;
 </pre>
 </li>
 </ul>
 </blockquote>
-<p><cite>403 Forbidden</cite> と言っているし、以前はふつうにアクセスできたので、きっと <tt class="docutils literal">settings.py</tt> の設定が変になっちゃってるのだろうと疑った。ものすごく疑った。</p>
+<p><cite>403 Forbidden</cite> と言っているし、以前はふつうにアクセスできたので、きっと <code class="docutils literal">settings.py</code> の設定が変になっちゃってるのだろうと疑った。ものすごく疑った。</p>
 <blockquote>
 <ul>
 <li>
-<p class="first">settings.py</p>
-<pre class="code python"><a name="rest_code_a1f0564c6f354092afe477107084e508-1"></a><span class="n">MY_BUCKET_NAME</span> <span class="o">=</span> <span class="s1">'my_bucket_name'</span>
-<a name="rest_code_a1f0564c6f354092afe477107084e508-2"></a><span class="n">DEFAULT_FILE_STORAGE</span> <span class="o">=</span> <span class="s1">'storages.backends.s3boto.S3BotoStorage'</span>
-<a name="rest_code_a1f0564c6f354092afe477107084e508-3"></a><span class="n">AWS_STORAGE_BUCKET_NAME</span> <span class="o">=</span> <span class="n">MY_BUCKET_NAME</span>
-<a name="rest_code_a1f0564c6f354092afe477107084e508-4"></a><span class="n">AWS_ACCESS_KEY_ID</span> <span class="o">=</span> <span class="s1">'ひみつ'</span>
-<a name="rest_code_a1f0564c6f354092afe477107084e508-5"></a><span class="n">AWS_SECRET_ACCESS_KEY</span> <span class="o">=</span> <span class="s1">'ひみつ'</span>
+<p>settings.py</p>
+<pre class="code python"><a name="rest_code_1879811b51044fbd9448b3bee3068cf1-1"></a><span class="n">MY_BUCKET_NAME</span> <span class="o">=</span> <span class="s1">'my_bucket_name'</span>
+<a name="rest_code_1879811b51044fbd9448b3bee3068cf1-2"></a><span class="n">DEFAULT_FILE_STORAGE</span> <span class="o">=</span> <span class="s1">'storages.backends.s3boto.S3BotoStorage'</span>
+<a name="rest_code_1879811b51044fbd9448b3bee3068cf1-3"></a><span class="n">AWS_STORAGE_BUCKET_NAME</span> <span class="o">=</span> <span class="n">MY_BUCKET_NAME</span>
+<a name="rest_code_1879811b51044fbd9448b3bee3068cf1-4"></a><span class="n">AWS_ACCESS_KEY_ID</span> <span class="o">=</span> <span class="s1">'ひみつ'</span>
+<a name="rest_code_1879811b51044fbd9448b3bee3068cf1-5"></a><span class="n">AWS_SECRET_ACCESS_KEY</span> <span class="o">=</span> <span class="s1">'ひみつ'</span>
 </pre>
 </li>
 </ul>
@@ -74,48 +74,49 @@
 <p>ここ↓（秒とかはてきとう）</p>
 <ul>
 <li>
-<p class="first">エラーメッセージ</p>
-<pre class="code shell"><a name="rest_code_2bcdc4e83e914fceb7b083cf72f3aaa7-1"></a>&lt;Message&gt;The difference between the request <span class="nb">time</span> and the current <span class="nb">time</span> is too large.&lt;/Message&gt;
-<a name="rest_code_2bcdc4e83e914fceb7b083cf72f3aaa7-2"></a>&lt;RequestTime&gt;Tue, <span class="m">31</span> Jul <span class="m">2018</span> <span class="m">07</span>:40:00 GMT&lt;/RequestTime&gt;
-<a name="rest_code_2bcdc4e83e914fceb7b083cf72f3aaa7-3"></a>&lt;ServerTime&gt;2018-07-31T07:58:01Z&lt;/ServerTime&gt;
+<p>エラーメッセージ</p>
+<pre class="code shell"><a name="rest_code_9779bd2147ea44dfa5b45c09e4ecb7e9-1"></a>&lt;Message&gt;The difference between the request <span class="nb">time</span> and the current <span class="nb">time</span> is too large.&lt;/Message&gt;
+<a name="rest_code_9779bd2147ea44dfa5b45c09e4ecb7e9-2"></a>&lt;RequestTime&gt;Tue, <span class="m">31</span> Jul <span class="m">2018</span> <span class="m">07</span>:40:00 GMT&lt;/RequestTime&gt;
+<a name="rest_code_9779bd2147ea44dfa5b45c09e4ecb7e9-3"></a>&lt;ServerTime&gt;2018-07-31T07:58:01Z&lt;/ServerTime&gt;
 </pre>
 </li>
 <li>
-<p class="first">ゲストOSの日時</p>
-<pre class="code shell"><a name="rest_code_009c3a3b6d4b484cbda0dece01eea38a-1"></a><span class="o">(</span>venv<span class="o">)</span> <span class="o">[</span>vagrant@localhost fumi23<span class="o">]</span>$ date
-<a name="rest_code_009c3a3b6d4b484cbda0dece01eea38a-2"></a>Tue Jul <span class="m">31</span> <span class="m">16</span>:40:00 JST <span class="m">2018</span>
+<p>ゲストOSの日時</p>
+<pre class="code shell"><a name="rest_code_915095c22d2d46fa977850979a50862c-1"></a><span class="o">(</span>venv<span class="o">)</span> <span class="o">[</span>vagrant@localhost fumi23<span class="o">]</span>$ date
+<a name="rest_code_915095c22d2d46fa977850979a50862c-2"></a>Tue Jul <span class="m">31</span> <span class="m">16</span>:40:00 JST <span class="m">2018</span>
 </pre>
 </li>
 <li>
-<p class="first">ホストOSの日時</p>
-<pre class="code shell"><a name="rest_code_314ca0745ff54d918485041f02240dc3-1"></a>host-machine:~ fumi23$ date
-<a name="rest_code_314ca0745ff54d918485041f02240dc3-2"></a>2018年 7月 31日 火曜日 16時58分00秒 JST
+<p>ホストOSの日時</p>
+<pre class="code shell"><a name="rest_code_cd6c627e594a42eb9da0f34803743adc-1"></a>host-machine:~ fumi23$ date
+<a name="rest_code_cd6c627e594a42eb9da0f34803743adc-2"></a>2018年 7月 31日 火曜日 16時58分00秒 JST
 </pre>
 </li>
 </ul>
 </div>
 <div class="section" id="id3">
 <h2>時刻のなおしかた</h2>
-<pre class="code shell"><a name="rest_code_d85920a405d6433fb5ce8ed962dbef5b-1"></a><span class="o">(</span>venv<span class="o">)</span> <span class="o">[</span>vagrant@localhost fumi23<span class="o">]</span>$ sudo date -s <span class="s2">"07/31 17:02 2018"</span>
-<a name="rest_code_d85920a405d6433fb5ce8ed962dbef5b-2"></a>Tue Jul <span class="m">31</span> <span class="m">17</span>:02:00 JST <span class="m">2018</span>
+<pre class="code shell"><a name="rest_code_c27b637da9cc442abec318d5a53d48fe-1"></a><span class="o">(</span>venv<span class="o">)</span> <span class="o">[</span>vagrant@localhost fumi23<span class="o">]</span>$ sudo date -s <span class="s2">"07/31 17:02 2018"</span>
+<a name="rest_code_c27b637da9cc442abec318d5a53d48fe-2"></a>Tue Jul <span class="m">31</span> <span class="m">17</span>:02:00 JST <span class="m">2018</span>
 </pre>
 </div>
 <div class="section" id="id4">
 <h2>わかったこと</h2>
 <p>時刻がずれ過ぎているひとも出禁！( <cite>403 Forbidden</cite> )</p>
 <ul class="simple">
-<li>常日頃からまわりの人に「エラーメッセージをよく読みましょう」と言ってもらっているし、自分でも「エラーをよく見るエラーをよく見る・・・」と散々唱えているのに、ちっとも見られていなかった。落ち込んだ。</li>
-<li>エラーメッセージが xml 形式で戻ってきたら、おおちゃくせずに整形してみようと思った。見やすくすると、大事なことも見逃しにくくなるかも。</li>
-<li>そういえば、ローカルVMから、3月はアクセスできていたけど、4月の中旬くらいからアクセスできなくなってた気がするので、そのタイミングで時刻ずれが先方の許容値を超えてたのかもしれない。</li>
+<li><p>常日頃からまわりの人に「エラーメッセージをよく読みましょう」と言ってもらっているし、自分でも「エラーをよく見るエラーをよく見る・・・」と散々唱えているのに、ちっとも見られていなかった。落ち込んだ。</p></li>
+<li><p>エラーメッセージが xml 形式で戻ってきたら、おおちゃくせずに整形してみようと思った。見やすくすると、大事なことも見逃しにくくなるかも。</p></li>
+<li><p>そういえば、ローカルVMから、3月はアクセスできていたけど、4月の中旬くらいからアクセスできなくなってた気がするので、そのタイミングで時刻ずれが先方の許容値を超えてたのかもしれない。</p></li>
 </ul>
 </div>
 <div class="section" id="id5">
 <h2>宿題</h2>
 <ul class="simple">
+<li><p><code class="docutils literal">storages.backends.s3boto.S3BotoStorage</code> が何かあんまりわかっていない。</p></li>
 <li>
-<tt class="docutils literal">storages.backends.s3boto.S3BotoStorage</tt> が何かあんまりわかっていない。</li>
-<li>ホストマシンとゲストマシンの時刻の自動同期設定ができるらしい。調べて設定しよう。<ul>
-<li><a class="reference external" href="https://pc-karuma.net/virtualbox-install-guest-additions/">https://pc-karuma.net/virtualbox-install-guest-additions/</a></li>
+<p>ホストマシンとゲストマシンの時刻の自動同期設定ができるらしい。調べて設定しよう。</p>
+<ul>
+<li><p><a class="reference external" href="https://pc-karuma.net/virtualbox-install-guest-additions/">https://pc-karuma.net/virtualbox-install-guest-additions/</a></p></li>
 </ul>
 </li>
 </ul>

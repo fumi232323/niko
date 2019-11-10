@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Vollkorn:400,700">
 <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/sawarabimincho.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-<link rel="stylesheet" href="../../assets/css/style.css?20190615">
+<link rel="stylesheet" href="../../assets/css/style.css?20191110">
 </head>
 <body>
     <div class="container">
@@ -34,24 +34,24 @@
 <details><summary>目次</summary><div class="contents topic" id="id1">
 <p class="topic-title first">目次</p>
 <ul class="simple">
-<li><a class="reference internal" href="#id2" id="id6">ガイド</a></li>
-<li><a class="reference internal" href="#id3" id="id7">リファレンス</a></li>
-<li><a class="reference internal" href="#id4" id="id8">インストール</a></li>
-<li><a class="reference internal" href="#id5" id="id9">つくりかた</a></li>
+<li><p><a class="reference internal" href="#id2" id="id6">ガイド</a></p></li>
+<li><p><a class="reference internal" href="#id3" id="id7">リファレンス</a></p></li>
+<li><p><a class="reference internal" href="#id4" id="id8">インストール</a></p></li>
+<li><p><a class="reference internal" href="#id5" id="id9">つくりかた</a></p></li>
 </ul>
 </div>
 </details><div class="section" id="id2">
 <h2><a class="toc-backref" href="#id6">ガイド</a></h2>
 <ul class="simple">
-<li><a class="reference external" href="https://docs.docker.com/compose/django/">Quickstart: Compose and Django</a></li>
+<li><p><a class="reference external" href="https://docs.docker.com/compose/django/">Quickstart: Compose and Django</a></p></li>
 </ul>
 </div>
 <div class="section" id="id3">
 <h2><a class="toc-backref" href="#id7">リファレンス</a></h2>
 <ul class="simple">
-<li><a class="reference external" href="https://docs.docker.com/engine/reference/builder/">Dockerfile reference</a></li>
-<li><a class="reference external" href="https://docs.docker.com/compose/compose-file/">Compose file version 3 reference</a></li>
-<li><a class="reference external" href="https://docs.docker.com/compose/reference/run/">https://docs.docker.com/compose/reference/run/</a></li>
+<li><p><a class="reference external" href="https://docs.docker.com/engine/reference/builder/">Dockerfile reference</a></p></li>
+<li><p><a class="reference external" href="https://docs.docker.com/compose/compose-file/">Compose file version 3 reference</a></p></li>
+<li><p><a class="reference external" href="https://docs.docker.com/compose/reference/run/">https://docs.docker.com/compose/reference/run/</a></p></li>
 </ul>
 </div>
 <div class="section" id="id4">
@@ -62,7 +62,7 @@
 <h2><a class="toc-backref" href="#id9">つくりかた</a></h2>
 <ol class="arabic">
 <li>
-<p class="first"><tt class="docutils literal">Dockerfile</tt> を準備する。</p>
+<p><code class="docutils literal">Dockerfile</code> を準備する。</p>
 <blockquote>
 <p></p>
 <div class="code-block ">
@@ -86,7 +86,7 @@
 </blockquote>
 </li>
 <li>
-<p class="first"><tt class="docutils literal">requirements.txt</tt> を準備する。</p>
+<p><code class="docutils literal">requirements.txt</code> を準備する。</p>
 <blockquote>
 <p></p>
 <div class="code-block ">
@@ -99,7 +99,7 @@
 </blockquote>
 </li>
 <li>
-<p class="first"><tt class="docutils literal"><span class="pre">docker-compose.yml</span></tt> を準備する。</p>
+<p><code class="docutils literal"><span class="pre">docker-compose.yml</span></code> を準備する。</p>
 <blockquote>
 <p></p>
 <div class="code-block ">
@@ -129,7 +129,7 @@
 </blockquote>
 </li>
 <li>
-<p class="first">startproject する (Docker イメージビルドもされる)</p>
+<p>startproject する (Docker イメージビルドもされる)</p>
 <blockquote>
 <p></p>
 <div class="code-block ">
@@ -209,22 +209,22 @@ WARNING: Image <span class="k">for</span> service web was built because it did n
 </blockquote>
 </li>
 <li>
-<p class="first"><tt class="docutils literal">settings.py</tt> に DATABASE を定義する。</p>
+<p><code class="docutils literal">settings.py</code> に DATABASE を定義する。</p>
 <blockquote>
-<pre class="code python"><a name="rest_code_fdd9faa280fa4080a97e093f93e4af47-1"></a><span class="n">DATABASES</span> <span class="o">=</span> <span class="p">{</span>
-<a name="rest_code_fdd9faa280fa4080a97e093f93e4af47-2"></a>    <span class="s1">'default'</span><span class="p">:</span> <span class="p">{</span>
-<a name="rest_code_fdd9faa280fa4080a97e093f93e4af47-3"></a>        <span class="s1">'ENGINE'</span><span class="p">:</span> <span class="s1">'django.db.backends.postgresql'</span><span class="p">,</span>
-<a name="rest_code_fdd9faa280fa4080a97e093f93e4af47-4"></a>        <span class="s1">'NAME'</span><span class="p">:</span> <span class="s1">'postgres'</span><span class="p">,</span>
-<a name="rest_code_fdd9faa280fa4080a97e093f93e4af47-5"></a>        <span class="s1">'USER'</span><span class="p">:</span> <span class="s1">'postgres'</span><span class="p">,</span>
-<a name="rest_code_fdd9faa280fa4080a97e093f93e4af47-6"></a>        <span class="s1">'HOST'</span><span class="p">:</span> <span class="s1">'db'</span><span class="p">,</span>
-<a name="rest_code_fdd9faa280fa4080a97e093f93e4af47-7"></a>        <span class="s1">'PORT'</span><span class="p">:</span> <span class="mi">5432</span><span class="p">,</span>
-<a name="rest_code_fdd9faa280fa4080a97e093f93e4af47-8"></a>    <span class="p">}</span>
-<a name="rest_code_fdd9faa280fa4080a97e093f93e4af47-9"></a><span class="p">}</span>
+<pre class="code python"><a name="rest_code_1a78368137d14ee1812d3bf0c81652ae-1"></a><span class="n">DATABASES</span> <span class="o">=</span> <span class="p">{</span>
+<a name="rest_code_1a78368137d14ee1812d3bf0c81652ae-2"></a>    <span class="s1">'default'</span><span class="p">:</span> <span class="p">{</span>
+<a name="rest_code_1a78368137d14ee1812d3bf0c81652ae-3"></a>        <span class="s1">'ENGINE'</span><span class="p">:</span> <span class="s1">'django.db.backends.postgresql'</span><span class="p">,</span>
+<a name="rest_code_1a78368137d14ee1812d3bf0c81652ae-4"></a>        <span class="s1">'NAME'</span><span class="p">:</span> <span class="s1">'postgres'</span><span class="p">,</span>
+<a name="rest_code_1a78368137d14ee1812d3bf0c81652ae-5"></a>        <span class="s1">'USER'</span><span class="p">:</span> <span class="s1">'postgres'</span><span class="p">,</span>
+<a name="rest_code_1a78368137d14ee1812d3bf0c81652ae-6"></a>        <span class="s1">'HOST'</span><span class="p">:</span> <span class="s1">'db'</span><span class="p">,</span>
+<a name="rest_code_1a78368137d14ee1812d3bf0c81652ae-7"></a>        <span class="s1">'PORT'</span><span class="p">:</span> <span class="mi">5432</span><span class="p">,</span>
+<a name="rest_code_1a78368137d14ee1812d3bf0c81652ae-8"></a>    <span class="p">}</span>
+<a name="rest_code_1a78368137d14ee1812d3bf0c81652ae-9"></a><span class="p">}</span>
 </pre>
 </blockquote>
 </li>
 <li>
-<p class="first">Docker コンテナ (db と web) を実行する</p>
+<p>Docker コンテナ (db と web) を実行する</p>
 <blockquote>
 <p></p>
 <div class="code-block ">
@@ -312,7 +312,7 @@ web_1  <span class="p">|</span> Quit the server with CONTROL-C.
 </blockquote>
 </li>
 <li>
-<p class="first">アクセスする。</p>
+<p>アクセスする。</p>
 <blockquote>
 <p><a class="reference external" href="http://localhost:3236/">http://localhost:3236/</a></p>
 <p></p>
@@ -322,19 +322,19 @@ web_1  <span class="p">|</span> Quit the server with CONTROL-C.
 </blockquote>
 </li>
 <li>
-<p class="first">実行中の コンテナを list する。</p>
+<p>実行中の コンテナを list する。</p>
 <blockquote>
-<pre class="code bash"><a name="rest_code_cf1fb6e567744a90b7e1b6f4449b7331-1"></a>$ docker ps
-<a name="rest_code_cf1fb6e567744a90b7e1b6f4449b7331-2"></a>CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                    NAMES
-<a name="rest_code_cf1fb6e567744a90b7e1b6f4449b7331-3"></a>e95174b2be87        fff_web             <span class="s2">"python3 manage.py r…"</span>   <span class="m">32</span> minutes ago      Up <span class="m">32</span> minutes       <span class="m">0</span>.0.0.0:3236-&gt;8000/tcp   fff_web_1
-<a name="rest_code_cf1fb6e567744a90b7e1b6f4449b7331-4"></a>2994f0092cd4        postgres            <span class="s2">"docker-entrypoint.s…"</span>   <span class="m">41</span> minutes ago      Up <span class="m">41</span> minutes       <span class="m">5432</span>/tcp                 fff_db_1
+<pre class="code bash"><a name="rest_code_488f737c44a24e3cbf5ffe8365d2b83a-1"></a>$ docker ps
+<a name="rest_code_488f737c44a24e3cbf5ffe8365d2b83a-2"></a>CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                    NAMES
+<a name="rest_code_488f737c44a24e3cbf5ffe8365d2b83a-3"></a>e95174b2be87        fff_web             <span class="s2">"python3 manage.py r…"</span>   <span class="m">32</span> minutes ago      Up <span class="m">32</span> minutes       <span class="m">0</span>.0.0.0:3236-&gt;8000/tcp   fff_web_1
+<a name="rest_code_488f737c44a24e3cbf5ffe8365d2b83a-4"></a>2994f0092cd4        postgres            <span class="s2">"docker-entrypoint.s…"</span>   <span class="m">41</span> minutes ago      Up <span class="m">41</span> minutes       <span class="m">5432</span>/tcp                 fff_db_1
 </pre>
 </blockquote>
 </li>
 <li>
-<p class="first">安全に shutdown する。</p>
+<p>安全に shutdown する。</p>
 <blockquote>
-<pre class="code bash"><a name="rest_code_cd150ab79d974725a42a8bb7be02ca9e-1"></a>$ docker-compose down
+<pre class="code bash"><a name="rest_code_bc758e24d553468eae35c3ad59ca4713-1"></a>$ docker-compose down
 </pre>
 </blockquote>
 </li>

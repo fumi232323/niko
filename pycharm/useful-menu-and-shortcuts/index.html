@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Vollkorn:400,700">
 <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/sawarabimincho.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-<link rel="stylesheet" href="../../assets/css/style.css?20190615">
+<link rel="stylesheet" href="../../assets/css/style.css?20191110">
 </head>
 <body>
     <div class="container">
@@ -34,16 +34,18 @@
 <details><summary>目次</summary><div class="contents topic" id="id1">
 <p class="topic-title first">目次</p>
 <ul class="simple">
-<li><a class="reference internal" href="#id2" id="id5">ガイド</a></li>
-<li><a class="reference internal" href="#id3" id="id6">ショートカット</a></li>
+<li><p><a class="reference internal" href="#id2" id="id5">ガイド</a></p></li>
+<li><p><a class="reference internal" href="#id3" id="id6">ショートカット</a></p></li>
 <li>
-<a class="reference internal" href="#id4" id="id7">便利メニュー</a><ul>
-<li><a class="reference internal" href="#github" id="id8">GitHub</a></li>
+<p><a class="reference internal" href="#id4" id="id7">便利メニュー</a></p>
+<ul>
+<li><p><a class="reference internal" href="#github" id="id8">GitHub</a></p></li>
 <li>
-<a class="reference internal" href="#git" id="id9">Git</a><ul>
-<li><a class="reference internal" href="#merge" id="id10">merge</a></li>
-<li><a class="reference internal" href="#rebase" id="id11">rebase</a></li>
-<li><a class="reference internal" href="#stash" id="id12">stash</a></li>
+<p><a class="reference internal" href="#git" id="id9">Git</a></p>
+<ul>
+<li><p><a class="reference internal" href="#merge" id="id10">merge</a></p></li>
+<li><p><a class="reference internal" href="#rebase" id="id11">rebase</a></p></li>
+<li><p><a class="reference internal" href="#stash" id="id12">stash</a></p></li>
 </ul>
 </li>
 </ul>
@@ -53,114 +55,78 @@
 </details><div class="section" id="id2">
 <h2><a class="toc-backref" href="#id5">ガイド</a></h2>
 <ul class="simple">
-<li><a class="reference external" href="https://pleiades.io/help/pycharm/">PyCharm ヘルプ</a></li>
-<li><a class="reference external" href="https://www.jetbrains.com/help/pycharm/meet-pycharm.html">PyCharm Help</a></li>
+<li><p><a class="reference external" href="https://pleiades.io/help/pycharm/">PyCharm ヘルプ</a></p></li>
+<li><p><a class="reference external" href="https://www.jetbrains.com/help/pycharm/meet-pycharm.html">PyCharm Help</a></p></li>
 </ul>
 </div>
 <div class="section" id="id3">
 <h2><a class="toc-backref" href="#id6">ショートカット</a></h2>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name">
-<col class="field-body">
-<tbody valign="top">
-<tr class="field">
-<th class="field-name">Find in Path:</th>
-<td class="field-body">
-<p class="first"><tt class="docutils literal">command + Shift + F</tt></p>
-</td>
-</tr>
-<tr class="field">
-<th class="field-name">ファイル名でファイルを探す:</th>
-<td class="field-body">
-<p class="first"><tt class="docutils literal">command + Shift + O</tt></p>
-</td>
-</tr>
-<tr class="field"><th class="field-name" colspan="2">Search Everywhere (クイック検索):</th></tr>
-<tr class="field">
-<td> </td>
-<td class="field-body">
-<p class="first"><tt class="docutils literal">shift shift</tt></p>
-</td>
-</tr>
-<tr class="field">
-<th class="field-name">行コメント:</th>
-<td class="field-body">
-<p class="first"><tt class="docutils literal">command + /</tt></p>
-</td>
-</tr>
-<tr class="field">
-<th class="field-name">ブロックコメント:</th>
-<td class="field-body">
-<p class="first"><tt class="docutils literal">command + option + /</tt></p>
-</td>
-</tr>
-<tr class="field">
-<th class="field-name">ファイルの先頭へジャンプ:</th>
-<td class="field-body">
-<p class="first"><tt class="docutils literal">command + fn + ←</tt></p>
-</td>
-</tr>
-<tr class="field"><th class="field-name" colspan="2">Preferences (設定/環境設定) ダイアログを開く:</th></tr>
-<tr class="field">
-<td> </td>
-<td class="field-body">
-<p class="first"><tt class="docutils literal">command + ,</tt></p>
-</td>
-</tr>
-<tr class="field">
-<th class="field-name">定義ジャンプ:</th>
-<td class="field-body">
-<p class="first"><tt class="docutils literal">command + b</tt></p>
-</td>
-</tr>
-<tr class="field">
-<th class="field-name">定義ジャンプから戻る:</th>
-<td class="field-body">
-<p class="first"><tt class="docutils literal">command + [</tt></p>
-</td>
-</tr>
-<tr class="field">
-<th class="field-name">利用箇所を検索:</th>
-<td class="field-body"><ul class="first simple">
-<li>関数の定義（defの行）にカーソル合わせて <tt class="docutils literal">Find Usages</tt>
-</li>
-<li><tt class="docutils literal">option + fn + F7</tt></li>
-</ul></td>
-</tr>
-<tr class="field"><th class="field-name" colspan="2">もっと良いやり方を教えてくれる:</th></tr>
-<tr class="field">
-<td> </td>
-<td class="field-body">
-<p class="first"><tt class="docutils literal">option + enter</tt></p>
-</td>
-</tr>
-<tr class="field">
-<th class="field-name">アクションを探す:</th>
-<td class="field-body">
-<p class="first"><tt class="docutils literal">command + shift + A</tt></p>
-</td>
-</tr>
-<tr class="field">
-<th class="field-name">コードの補完:</th>
-<td class="field-body">
-<p class="first"><tt class="docutils literal">control + space</tt></p>
-</td>
-</tr>
-<tr class="field">
-<th class="field-name">コードの自動整形:</th>
-<td class="field-body">
-<p class="first last"><tt class="docutils literal">command + option + L</tt></p>
-</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt>Find in Path</dt>
+<dd>
+<p><code class="docutils literal">command + Shift + F</code></p>
+</dd>
+<dt>ファイル名でファイルを探す</dt>
+<dd>
+<p><code class="docutils literal">command + Shift + O</code></p>
+</dd>
+<dt>Search Everywhere (クイック検索)</dt>
+<dd>
+<p><code class="docutils literal">shift shift</code></p>
+</dd>
+<dt>行コメント</dt>
+<dd>
+<p><code class="docutils literal">command + /</code></p>
+</dd>
+<dt>ブロックコメント</dt>
+<dd>
+<p><code class="docutils literal">command + option + /</code></p>
+</dd>
+<dt>ファイルの先頭へジャンプ</dt>
+<dd>
+<p><code class="docutils literal">command + fn + ←</code></p>
+</dd>
+<dt>Preferences (設定/環境設定) ダイアログを開く</dt>
+<dd>
+<p><code class="docutils literal">command + ,</code></p>
+</dd>
+<dt>定義ジャンプ</dt>
+<dd>
+<p><code class="docutils literal">command + b</code></p>
+</dd>
+<dt>定義ジャンプから戻る</dt>
+<dd>
+<p><code class="docutils literal">command + [</code></p>
+</dd>
+<dt>利用箇所を検索</dt>
+<dd><ul class="simple">
+<li><p>関数の定義（defの行）にカーソル合わせて <code class="docutils literal">Find Usages</code></p></li>
+<li><p><code class="docutils literal">option + fn + F7</code></p></li>
+</ul></dd>
+<dt>もっと良いやり方を教えてくれる</dt>
+<dd>
+<p><code class="docutils literal">option + enter</code></p>
+</dd>
+<dt>アクションを探す</dt>
+<dd>
+<p><code class="docutils literal">command + shift + A</code></p>
+</dd>
+<dt>コードの補完</dt>
+<dd>
+<p><code class="docutils literal">control + space</code></p>
+</dd>
+<dt>コードの自動整形</dt>
+<dd>
+<p><code class="docutils literal">command + option + L</code></p>
+</dd>
+</dl>
 </div>
 <div class="section" id="id4">
 <h2><a class="toc-backref" href="#id7">便利メニュー</a></h2>
 <div class="section" id="github">
 <h3><a class="toc-backref" href="#id8">GitHub</a></h3>
 <ul class="simple">
-<li>GitHub で開く: コード中の開きたい箇所で右クリック -&gt; Open on GitHub</li>
+<li><p>GitHub で開く: コード中の開きたい箇所で右クリック -&gt; Open on GitHub</p></li>
 </ul>
 </div>
 <div class="section" id="git">
@@ -168,32 +134,18 @@
 <div class="section" id="merge">
 <h4><a class="toc-backref" href="#id10">merge</a></h4>
 <ol class="arabic">
+<li><p>acceptance ブランチをチェックアウトした状態で、</p></li>
+<li><p>VCS -&gt; Git -&gt; Merge Changes</p></li>
+<li><p>merge したいブランチに <code class="docutils literal">ON</code></p></li>
+<li><p>コミットメッセージ は、(書かないと) デフォルトで <cite>Merge branch 'topic-branch-name' into acceptance</cite> になる。</p></li>
+<li><p>(コンフリクトしたら) <code class="docutils literal">Merge</code> ボタン押下</p></li>
+<li><p>エディターが開くので、conflicts を解消する</p></li>
+<li><p><code class="docutils literal">Apply</code> ボタン押下</p></li>
 <li>
-<p class="first">acceptance ブランチをチェックアウトした状態で、</p>
-</li>
-<li>
-<p class="first">VCS -&gt; Git -&gt; Merge Changes</p>
-</li>
-<li>
-<p class="first">merge したいブランチに <tt class="docutils literal">ON</tt></p>
-</li>
-<li>
-<p class="first">コミットメッセージ は、(書かないと) デフォルトで <cite>Merge branch 'topic-branch-name' into acceptance</cite> になる。</p>
-</li>
-<li>
-<p class="first">(コンフリクトしたら) <tt class="docutils literal">Merge</tt> ボタン押下</p>
-</li>
-<li>
-<p class="first">エディターが開くので、conflicts を解消する</p>
-</li>
-<li>
-<p class="first"><tt class="docutils literal">Apply</tt> ボタン押下</p>
-</li>
-<li>
-<p class="first"><tt class="docutils literal">add</tt> と <tt class="docutils literal">commit</tt> は自分でやる</p>
+<p><code class="docutils literal">add</code> と <code class="docutils literal">commit</code> は自分でやる</p>
 <blockquote>
-<pre class="code console"><a name="rest_code_55142b063e3b40d29b98becdff796d5e-1"></a><span class="gp">$</span> git add .
-<a name="rest_code_55142b063e3b40d29b98becdff796d5e-2"></a><span class="gp">$</span> git commit -m <span class="s2">"Merge branch 'topic-branch-name' into acceptance"</span>
+<pre class="code console"><a name="rest_code_6b42d4296f434210b3502c9794f5fe7c-1"></a><span class="gp">$</span> git add .
+<a name="rest_code_6b42d4296f434210b3502c9794f5fe7c-2"></a><span class="gp">$</span> git commit -m <span class="s2">"Merge branch 'topic-branch-name' into acceptance"</span>
 </pre>
 </blockquote>
 </li>
@@ -202,57 +154,43 @@
 <div class="section" id="rebase">
 <h4><a class="toc-backref" href="#id11">rebase</a></h4>
 <ol class="arabic">
+<li><p>rebase したいブランチをチェックアウトした状態で、</p></li>
 <li>
-<p class="first">rebase したいブランチをチェックアウトした状態で、</p>
-</li>
-<li>
-<p class="first">VCS -&gt; Git -&gt; Rebase</p>
+<p>VCS -&gt; Git -&gt; Rebase</p>
 <blockquote>
 <ul class="simple">
-<li>Onto: <tt class="docutils literal">master</tt>
-</li>
-<li>From: <tt class="docutils literal">空欄</tt>
-</li>
-<li>
-<tt class="docutils literal">Rebase</tt> ボタン</li>
+<li><p>Onto: <code class="docutils literal">master</code></p></li>
+<li><p>From: <code class="docutils literal">空欄</code></p></li>
+<li><p><code class="docutils literal">Rebase</code> ボタン</p></li>
 </ul>
 </blockquote>
 </li>
+<li><p><code class="docutils literal">Start Rebasing</code> ボタン押下</p></li>
+<li><p>(コンフリクトしたら) <code class="docutils literal">Merge</code> ボタン押下</p></li>
+<li><p>エディターが開くので、conflicts を解消する</p></li>
+<li><p><code class="docutils literal">Apply</code> ボタン押下</p></li>
 <li>
-<p class="first"><tt class="docutils literal">Start Rebasing</tt> ボタン押下</p>
-</li>
-<li>
-<p class="first">(コンフリクトしたら) <tt class="docutils literal">Merge</tt> ボタン押下</p>
-</li>
-<li>
-<p class="first">エディターが開くので、conflicts を解消する</p>
-</li>
-<li>
-<p class="first"><tt class="docutils literal">Apply</tt> ボタン押下</p>
-</li>
-<li>
-<p class="first">Additional Rebase Input ダイアログが開く</p>
+<p>Additional Rebase Input ダイアログが開く</p>
 <blockquote>
 <ul class="simple">
-<li>コミットコメントは変更できる</li>
-<li>
-<tt class="docutils literal">Resume Rebasing</tt> ボタン押下 ( <tt class="docutils literal">git rebase <span class="pre">--continue</span></tt> 的なやつなんだろう)</li>
+<li><p>コミットコメントは変更できる</p></li>
+<li><p><code class="docutils literal">Resume Rebasing</code> ボタン押下 ( <code class="docutils literal">git rebase <span class="pre">--continue</span></code> 的なやつなんだろう)</p></li>
 </ul>
 </blockquote>
 </li>
-<li>
-<p class="first">rebase 成功したら、画面右下に <cite>Rebase Successful</cite> ポップアップが出現する。</p>
-</li>
+<li><p>rebase 成功したら、画面右下に <cite>Rebase Successful</cite> ポップアップが出現する。</p></li>
 </ol>
 </div>
 <div class="section" id="stash">
 <h4><a class="toc-backref" href="#id12">stash</a></h4>
 <ul class="simple">
-<li>Stash する: VCS -&gt; Git -&gt; Stash Changes</li>
-<li>UnStash する: VCS -&gt; Git -&gt; UnStash Changes<ul>
-<li>stash の一覧が見られる</li>
-<li>どんな stash だったか view できる</li>
-<li>とても使い勝手がよい</li>
+<li><p>Stash する: VCS -&gt; Git -&gt; Stash Changes</p></li>
+<li>
+<p>UnStash する: VCS -&gt; Git -&gt; UnStash Changes</p>
+<ul>
+<li><p>stash の一覧が見られる</p></li>
+<li><p>どんな stash だったか view できる</p></li>
+<li><p>とても使い勝手がよい</p></li>
 </ul>
 </li>
 </ul>

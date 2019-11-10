@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ふみのて (blogについての文書)</title><link>https://32imuf.com/</link><description></description><atom:link href="https://32imuf.com/tags/blog.xml" rel="self" type="application/rss+xml"></atom:link><language>ja</language><copyright>Contents © 2019 &lt;a href="mailto:fumi232323fumi2016@gmail.com"&gt;fumi23&lt;/a&gt; </copyright><lastBuildDate>Sun, 09 Jun 2019 10:24:40 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>ブログを書くときの注意点</title><link>https://32imuf.com/blog/rules/</link><dc:creator>fumi23</dc:creator><description>&lt;div class="section" id="id1"&gt;
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ふみのて (blogについての文書)</title><link>https://32imuf.com/</link><description></description><atom:link href="https://32imuf.com/tags/blog.xml" rel="self" type="application/rss+xml"></atom:link><language>ja</language><copyright>Contents © 2019 &lt;a href="mailto:fumi232323fumi2016@gmail.com"&gt;fumi23&lt;/a&gt; </copyright><lastBuildDate>Sun, 10 Nov 2019 13:51:11 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>ブログを書くときの注意点</title><link>https://32imuf.com/blog/rules/</link><dc:creator>fumi23</dc:creator><description>&lt;div class="section" id="id1"&gt;
 &lt;h2&gt;注意点&lt;/h2&gt;
 &lt;div class="section" id="id2"&gt;
 &lt;h3&gt;他人の名前はどこまで出して良いものでしょうか？&lt;/h3&gt;
 &lt;ul class="simple"&gt;
-&lt;li&gt;場合による。Twitterで名前出してる人はだいたい大丈夫&lt;/li&gt;
-&lt;li&gt;人と会った話とかは、気をつける（その人はこっそり参加かもしれない）&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;場合による。Twitterで名前出してる人はだいたい大丈夫&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;人と会った話とかは、気をつける（その人はこっそり参加かもしれない）&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id3"&gt;
 &lt;h3&gt;本(紙) の文章の引用はどこまで大丈夫？&lt;/h3&gt;
 &lt;ul class="simple"&gt;
-&lt;li&gt;引用の範疇なら大丈夫。&lt;/li&gt;
-&lt;li&gt;引用の範疇とは、引用の前後でその内容に言及している場合。単にコピペするのはNG。&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://ja.wikipedia.org/wiki/%E5%BC%95%E7%94%A8#%E8%A6%81%E4%BB%B6"&gt;引用の要件 (wikipedia)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;引用の範疇なら大丈夫。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;引用の範疇とは、引用の前後でその内容に言及している場合。単にコピペするのはNG。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://ja.wikipedia.org/wiki/%E5%BC%95%E7%94%A8#%E8%A6%81%E4%BB%B6"&gt;引用の要件 (wikipedia)&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id4"&gt;
 &lt;h3&gt;他者様のブログからの引用は本人に断る必要がありますか？&lt;/h3&gt;
 &lt;ul class="simple"&gt;
-&lt;li&gt;不要。「引用の範疇」に準ずる。&lt;/li&gt;
-&lt;li&gt;引用した上で、参考にしたありがとう、と感謝を伝えると喜ばれるかもしれない。&lt;/li&gt;
-&lt;li&gt;ときどき「無断引用禁止」って書いてるサイトもあるけど、意味は無い。無用なトラブルを避けるために、そういうサイトには近づかないほうがいい。&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;不要。「引用の範疇」に準ずる。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;引用した上で、参考にしたありがとう、と感謝を伝えると喜ばれるかもしれない。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;ときどき「無断引用禁止」って書いてるサイトもあるけど、意味は無い。無用なトラブルを避けるために、そういうサイトには近づかないほうがいい。&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;/div&gt;</description><category>blog</category><guid>https://32imuf.com/blog/rules/</guid><pubDate>Sat, 22 Sep 2018 15:00:00 GMT</pubDate></item></channel></rss>

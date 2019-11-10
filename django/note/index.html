@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Vollkorn:400,700">
 <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/sawarabimincho.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-<link rel="stylesheet" href="../../assets/css/style.css?20190615">
+<link rel="stylesheet" href="../../assets/css/style.css?20191110">
 </head>
 <body>
     <div class="container">
@@ -35,27 +35,30 @@
 <p class="topic-title first">目次</p>
 <ul class="simple">
 <li>
-<a class="reference internal" href="#time-zones" id="id11">Time zones</a><ul>
-<li><a class="reference internal" href="#id2" id="id12">リファレンス</a></li>
-<li><a class="reference internal" href="#id3" id="id13">タイムゾーンサポート</a></li>
-<li><a class="reference internal" href="#naive-aware" id="id14">naive と aware</a></li>
-<li><a class="reference internal" href="#django" id="id15">タイムゾーンサポートが有効なときの Django の日時の取り扱い方</a></li>
-<li><a class="reference internal" href="#id4" id="id16">現在日時の取得</a></li>
-<li><a class="reference internal" href="#id5" id="id17">デフォルトタイムゾーンとカレントタイムゾーン</a></li>
-<li><a class="reference internal" href="#naive-django" id="id18">naive な日時をデータベースに保存しようとすると、Django は警告を出す</a></li>
+<p><a class="reference internal" href="#time-zones" id="id11">Time zones</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id2" id="id12">リファレンス</a></p></li>
+<li><p><a class="reference internal" href="#id3" id="id13">タイムゾーンサポート</a></p></li>
+<li><p><a class="reference internal" href="#naive-aware" id="id14">naive と aware</a></p></li>
+<li><p><a class="reference internal" href="#django" id="id15">タイムゾーンサポートが有効なときの Django の日時の取り扱い方</a></p></li>
+<li><p><a class="reference internal" href="#id4" id="id16">現在日時の取得</a></p></li>
+<li><p><a class="reference internal" href="#id5" id="id17">デフォルトタイムゾーンとカレントタイムゾーン</a></p></li>
+<li><p><a class="reference internal" href="#naive-django" id="id18">naive な日時をデータベースに保存しようとすると、Django は警告を出す</a></p></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#s3" id="id19">S3 アップロード</a></li>
-<li><a class="reference internal" href="#id6" id="id20">マイグレーションを間違えたときのリカバリ方法</a></li>
+<li><p><a class="reference internal" href="#s3" id="id19">S3 アップロード</a></p></li>
+<li><p><a class="reference internal" href="#id6" id="id20">マイグレーションを間違えたときのリカバリ方法</a></p></li>
 <li>
-<a class="reference internal" href="#id7" id="id21">こんなのある</a><ul>
-<li><a class="reference internal" href="#multivaluedict" id="id22">MultiValueDict</a></li>
-<li><a class="reference internal" href="#querydict" id="id23">QueryDict オブジェクト</a></li>
+<p><a class="reference internal" href="#id7" id="id21">こんなのある</a></p>
+<ul>
+<li><p><a class="reference internal" href="#multivaluedict" id="id22">MultiValueDict</a></p></li>
+<li><p><a class="reference internal" href="#querydict" id="id23">QueryDict オブジェクト</a></p></li>
 </ul>
 </li>
 <li>
-<a class="reference internal" href="#id9" id="id24">便利さん</a><ul>
-<li><a class="reference internal" href="#id10" id="id25">django に便利コマンド追加してくれるさん</a></li>
+<p><a class="reference internal" href="#id9" id="id24">便利さん</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id10" id="id25">django に便利コマンド追加してくれるさん</a></p></li>
 </ul>
 </li>
 </ul>
@@ -65,113 +68,108 @@
 <div class="section" id="id2">
 <h3><a class="toc-backref" href="#id12">リファレンス</a></h3>
 <ul class="simple">
-<li><a class="reference external" href="https://docs.djangoproject.com/ja/2.2/topics/i18n/timezones/">https://docs.djangoproject.com/ja/2.2/topics/i18n/timezones/</a></li>
-<li><a class="reference external" href="https://docs.djangoproject.com/ja/2.2/ref/utils/#module-django.utils.timezone">https://docs.djangoproject.com/ja/2.2/ref/utils/#module-django.utils.timezone</a></li>
+<li><p><a class="reference external" href="https://docs.djangoproject.com/ja/2.2/topics/i18n/timezones/">https://docs.djangoproject.com/ja/2.2/topics/i18n/timezones/</a></p></li>
+<li><p><a class="reference external" href="https://docs.djangoproject.com/ja/2.2/ref/utils/#module-django.utils.timezone">https://docs.djangoproject.com/ja/2.2/ref/utils/#module-django.utils.timezone</a></p></li>
 </ul>
 </div>
 <div class="section" id="id3">
 <h3><a class="toc-backref" href="#id13">タイムゾーンサポート</a></h3>
 <ul class="simple">
 <li>
-<tt class="docutils literal">settings.py</tt> で設定する<ul>
-<li>
-<tt class="docutils literal">USE_TZ = True</tt>: タイムゾーンサポートが有効</li>
-<li>
-<tt class="docutils literal">USE_TZ = False</tt>: タイムゾーンサポートが無効 (default)</li>
+<p><code class="docutils literal">settings.py</code> で設定する</p>
+<ul>
+<li><p><code class="docutils literal">USE_TZ = True</code>: タイムゾーンサポートが有効</p></li>
+<li><p><code class="docutils literal">USE_TZ = False</code>: タイムゾーンサポートが無効 (default)</p></li>
 </ul>
 </li>
-<li>
-<tt class="docutils literal"><span class="pre">django-admin</span> startproject</tt> によって生成されるデフォルトの <tt class="docutils literal">settings.py</tt> ファイル は、 <tt class="docutils literal">USE_TZ = True</tt>
-</li>
-<li>タイムゾーンのサポートは <tt class="docutils literal">pytz</tt> を使用する。Django をインストールしたときに一緒にインストールされている。</li>
+<li><p><code class="docutils literal"><span class="pre">django-admin</span> startproject</code> によって生成されるデフォルトの <code class="docutils literal">settings.py</code> ファイル は、 <code class="docutils literal">USE_TZ = True</code></p></li>
+<li><p>タイムゾーンのサポートは <code class="docutils literal">pytz</code> を使用する。Django をインストールしたときに一緒にインストールされている。</p></li>
 </ul>
 </div>
 <div class="section" id="naive-aware">
 <h3><a class="toc-backref" href="#id14">naive と aware</a></h3>
 <ul class="simple">
-<li>aware: タイムゾーンあり<ul>
-<li>Python の <tt class="docutils literal">datetime.datetime</tt> のオブジェクトには、タイムゾーン情報を保持するために使える tzinfo 属性があり、これは <tt class="docutils literal">datetime.tzinfo</tt> のサブクラスのインスタンスで表されます。</li>
-<li>この属性がセットされオフセットを示すとき、datetime オブジェクトは aware となります。それ以外の場合は naive となります。</li>
+<li>
+<p>aware: タイムゾーンあり</p>
+<ul>
+<li><p>Python の <code class="docutils literal">datetime.datetime</code> のオブジェクトには、タイムゾーン情報を保持するために使える tzinfo 属性があり、これは <code class="docutils literal">datetime.tzinfo</code> のサブクラスのインスタンスで表されます。</p></li>
+<li><p>この属性がセットされオフセットを示すとき、datetime オブジェクトは aware となります。それ以外の場合は naive となります。</p></li>
 </ul>
 </li>
-<li>naive: タイムゾーンなし</li>
+<li><p>naive: タイムゾーンなし</p></li>
 </ul>
 </div>
 <div class="section" id="django">
 <h3><a class="toc-backref" href="#id15">タイムゾーンサポートが有効なときの Django の日時の取り扱い方</a></h3>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name">
-<col class="field-body">
-<tbody valign="top">
-<tr class="field">
-<th class="field-name">データベース:</th>
-<td class="field-body">内部的に aware なタイムゾーンオブジェクトを使用して、 UTC で保持</td>
-</tr>
-<tr class="field">
-<th class="field-name">フォーム:</th>
-<td class="field-body">入力された日時をカレントタイムゾーンで変換し、 cleaned_data 内で aware な datetime オブジェクトを返す</td>
-</tr>
-<tr class="field">
-<th class="field-name">テンプレート:</th>
-<td class="field-body">レンダリングする際に aware な datetime オブジェクトをカレントタイムゾーンに変換する</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt>データベース</dt>
+<dd>
+<p>内部的に aware なタイムゾーンオブジェクトを使用して、 UTC で保持</p>
+</dd>
+<dt>フォーム</dt>
+<dd>
+<p>入力された日時をカレントタイムゾーンで変換し、 cleaned_data 内で aware な datetime オブジェクトを返す</p>
+</dd>
+<dt>テンプレート</dt>
+<dd>
+<p>レンダリングする際に aware な datetime オブジェクトをカレントタイムゾーンに変換する</p>
+</dd>
+</dl>
 </div>
 <div class="section" id="id4">
 <h3><a class="toc-backref" href="#id16">現在日時の取得</a></h3>
 <ul>
 <li>
-<p class="first">タイムゾーンサポートが有効</p>
-<pre class="code python"><a name="rest_code_599ec290f5e347cebb429d2d30b48a51-1"></a><span class="c1"># USE_TZ = True</span>
-<a name="rest_code_599ec290f5e347cebb429d2d30b48a51-2"></a><span class="c1"># TIME_ZONE = 'Asia/Tokyo'</span>
-<a name="rest_code_599ec290f5e347cebb429d2d30b48a51-3"></a>
-<a name="rest_code_599ec290f5e347cebb429d2d30b48a51-4"></a><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">django.utils</span> <span class="kn">import</span> <span class="n">timezone</span>
-<a name="rest_code_599ec290f5e347cebb429d2d30b48a51-5"></a><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">datetime</span>
-<a name="rest_code_599ec290f5e347cebb429d2d30b48a51-6"></a><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">pytz</span>
-<a name="rest_code_599ec290f5e347cebb429d2d30b48a51-7"></a>
-<a name="rest_code_599ec290f5e347cebb429d2d30b48a51-8"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">timezone</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
-<a name="rest_code_599ec290f5e347cebb429d2d30b48a51-9"></a><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2019</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">903697</span><span class="p">,</span> <span class="n">tzinfo</span><span class="o">=&lt;</span><span class="n">UTC</span><span class="o">&gt;</span><span class="p">)</span>
-<a name="rest_code_599ec290f5e347cebb429d2d30b48a51-10"></a>
-<a name="rest_code_599ec290f5e347cebb429d2d30b48a51-11"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
-<a name="rest_code_599ec290f5e347cebb429d2d30b48a51-12"></a><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2019</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mi">152275</span><span class="p">)</span>
-<a name="rest_code_599ec290f5e347cebb429d2d30b48a51-13"></a>
-<a name="rest_code_599ec290f5e347cebb429d2d30b48a51-14"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">timezone</span><span class="o">.</span><span class="n">make_aware</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
-<a name="rest_code_599ec290f5e347cebb429d2d30b48a51-15"></a><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2019</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">56</span><span class="p">,</span> <span class="mi">39144</span><span class="p">,</span> <span class="n">tzinfo</span><span class="o">=&lt;</span><span class="n">DstTzInfo</span> <span class="s1">'Asia/Tokyo'</span> <span class="n">JST</span><span class="o">+</span><span class="mi">9</span><span class="p">:</span><span class="mo">00</span><span class="p">:</span><span class="mo">00</span> <span class="n">STD</span><span class="o">&gt;</span><span class="p">)</span>
-<a name="rest_code_599ec290f5e347cebb429d2d30b48a51-16"></a>
-<a name="rest_code_599ec290f5e347cebb429d2d30b48a51-17"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">timezone</span><span class="o">.</span><span class="n">localtime</span><span class="p">(</span><span class="n">timezone</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
-<a name="rest_code_599ec290f5e347cebb429d2d30b48a51-18"></a><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2019</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">36991</span><span class="p">,</span> <span class="n">tzinfo</span><span class="o">=&lt;</span><span class="n">DstTzInfo</span> <span class="s1">'Asia/Tokyo'</span> <span class="n">JST</span><span class="o">+</span><span class="mi">9</span><span class="p">:</span><span class="mo">00</span><span class="p">:</span><span class="mo">00</span> <span class="n">STD</span><span class="o">&gt;</span><span class="p">)</span>
-<a name="rest_code_599ec290f5e347cebb429d2d30b48a51-19"></a>
-<a name="rest_code_599ec290f5e347cebb429d2d30b48a51-20"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(</span><span class="n">tz</span><span class="o">=</span><span class="n">pytz</span><span class="o">.</span><span class="n">timezone</span><span class="p">(</span><span class="s1">'Asia/Tokyo'</span><span class="p">))</span>
-<a name="rest_code_599ec290f5e347cebb429d2d30b48a51-21"></a><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2019</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">258210</span><span class="p">,</span> <span class="n">tzinfo</span><span class="o">=&lt;</span><span class="n">DstTzInfo</span> <span class="s1">'Asia/Tokyo'</span> <span class="n">JST</span><span class="o">+</span><span class="mi">9</span><span class="p">:</span><span class="mo">00</span><span class="p">:</span><span class="mo">00</span> <span class="n">STD</span><span class="o">&gt;</span><span class="p">)</span>
+<p>タイムゾーンサポートが有効</p>
+<pre class="code python"><a name="rest_code_4675274a05fd4abdb00280f8dd903f2b-1"></a><span class="c1"># USE_TZ = True</span>
+<a name="rest_code_4675274a05fd4abdb00280f8dd903f2b-2"></a><span class="c1"># TIME_ZONE = 'Asia/Tokyo'</span>
+<a name="rest_code_4675274a05fd4abdb00280f8dd903f2b-3"></a>
+<a name="rest_code_4675274a05fd4abdb00280f8dd903f2b-4"></a><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">django.utils</span> <span class="kn">import</span> <span class="n">timezone</span>
+<a name="rest_code_4675274a05fd4abdb00280f8dd903f2b-5"></a><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">datetime</span>
+<a name="rest_code_4675274a05fd4abdb00280f8dd903f2b-6"></a><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">pytz</span>
+<a name="rest_code_4675274a05fd4abdb00280f8dd903f2b-7"></a>
+<a name="rest_code_4675274a05fd4abdb00280f8dd903f2b-8"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">timezone</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+<a name="rest_code_4675274a05fd4abdb00280f8dd903f2b-9"></a><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2019</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">903697</span><span class="p">,</span> <span class="n">tzinfo</span><span class="o">=&lt;</span><span class="n">UTC</span><span class="o">&gt;</span><span class="p">)</span>
+<a name="rest_code_4675274a05fd4abdb00280f8dd903f2b-10"></a>
+<a name="rest_code_4675274a05fd4abdb00280f8dd903f2b-11"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+<a name="rest_code_4675274a05fd4abdb00280f8dd903f2b-12"></a><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2019</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mi">152275</span><span class="p">)</span>
+<a name="rest_code_4675274a05fd4abdb00280f8dd903f2b-13"></a>
+<a name="rest_code_4675274a05fd4abdb00280f8dd903f2b-14"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">timezone</span><span class="o">.</span><span class="n">make_aware</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
+<a name="rest_code_4675274a05fd4abdb00280f8dd903f2b-15"></a><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2019</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">56</span><span class="p">,</span> <span class="mi">39144</span><span class="p">,</span> <span class="n">tzinfo</span><span class="o">=&lt;</span><span class="n">DstTzInfo</span> <span class="s1">'Asia/Tokyo'</span> <span class="n">JST</span><span class="o">+</span><span class="mi">9</span><span class="p">:</span><span class="mo">00</span><span class="p">:</span><span class="mo">00</span> <span class="n">STD</span><span class="o">&gt;</span><span class="p">)</span>
+<a name="rest_code_4675274a05fd4abdb00280f8dd903f2b-16"></a>
+<a name="rest_code_4675274a05fd4abdb00280f8dd903f2b-17"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">timezone</span><span class="o">.</span><span class="n">localtime</span><span class="p">(</span><span class="n">timezone</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
+<a name="rest_code_4675274a05fd4abdb00280f8dd903f2b-18"></a><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2019</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">36991</span><span class="p">,</span> <span class="n">tzinfo</span><span class="o">=&lt;</span><span class="n">DstTzInfo</span> <span class="s1">'Asia/Tokyo'</span> <span class="n">JST</span><span class="o">+</span><span class="mi">9</span><span class="p">:</span><span class="mo">00</span><span class="p">:</span><span class="mo">00</span> <span class="n">STD</span><span class="o">&gt;</span><span class="p">)</span>
+<a name="rest_code_4675274a05fd4abdb00280f8dd903f2b-19"></a>
+<a name="rest_code_4675274a05fd4abdb00280f8dd903f2b-20"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(</span><span class="n">tz</span><span class="o">=</span><span class="n">pytz</span><span class="o">.</span><span class="n">timezone</span><span class="p">(</span><span class="s1">'Asia/Tokyo'</span><span class="p">))</span>
+<a name="rest_code_4675274a05fd4abdb00280f8dd903f2b-21"></a><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2019</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">258210</span><span class="p">,</span> <span class="n">tzinfo</span><span class="o">=&lt;</span><span class="n">DstTzInfo</span> <span class="s1">'Asia/Tokyo'</span> <span class="n">JST</span><span class="o">+</span><span class="mi">9</span><span class="p">:</span><span class="mo">00</span><span class="p">:</span><span class="mo">00</span> <span class="n">STD</span><span class="o">&gt;</span><span class="p">)</span>
 </pre>
 </li>
 <li>
-<p class="first">タイムゾーンサポートが無効</p>
-<pre class="code python"><a name="rest_code_1627ad9cd7d943b4916904bfdfb05f20-1"></a><span class="c1"># USE_TZ = False</span>
-<a name="rest_code_1627ad9cd7d943b4916904bfdfb05f20-2"></a>
-<a name="rest_code_1627ad9cd7d943b4916904bfdfb05f20-3"></a><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">django.utils</span> <span class="kn">import</span> <span class="n">timezone</span>
-<a name="rest_code_1627ad9cd7d943b4916904bfdfb05f20-4"></a><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">datetime</span>
-<a name="rest_code_1627ad9cd7d943b4916904bfdfb05f20-5"></a><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span>
-<a name="rest_code_1627ad9cd7d943b4916904bfdfb05f20-6"></a>
-<a name="rest_code_1627ad9cd7d943b4916904bfdfb05f20-7"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">timezone</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
-<a name="rest_code_1627ad9cd7d943b4916904bfdfb05f20-8"></a><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2019</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">147660</span><span class="p">)</span>
-<a name="rest_code_1627ad9cd7d943b4916904bfdfb05f20-9"></a>
-<a name="rest_code_1627ad9cd7d943b4916904bfdfb05f20-10"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
-<a name="rest_code_1627ad9cd7d943b4916904bfdfb05f20-11"></a><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2019</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mi">569008</span><span class="p">)</span>
-<a name="rest_code_1627ad9cd7d943b4916904bfdfb05f20-12"></a>
-<a name="rest_code_1627ad9cd7d943b4916904bfdfb05f20-13"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">timezone</span><span class="o">.</span><span class="n">make_aware</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
-<a name="rest_code_1627ad9cd7d943b4916904bfdfb05f20-14"></a><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2019</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">54</span><span class="p">,</span> <span class="mi">973598</span><span class="p">,</span> <span class="n">tzinfo</span><span class="o">=&lt;</span><span class="n">DstTzInfo</span> <span class="s1">'Asia/Tokyo'</span> <span class="n">JST</span><span class="o">+</span><span class="mi">9</span><span class="p">:</span><span class="mo">00</span><span class="p">:</span><span class="mo">00</span> <span class="n">STD</span><span class="o">&gt;</span><span class="p">)</span>
-<a name="rest_code_1627ad9cd7d943b4916904bfdfb05f20-15"></a>
-<a name="rest_code_1627ad9cd7d943b4916904bfdfb05f20-16"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">timezone</span><span class="o">.</span><span class="n">localtime</span><span class="p">(</span><span class="n">timezone</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
-<a name="rest_code_1627ad9cd7d943b4916904bfdfb05f20-17"></a><span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
-<a name="rest_code_1627ad9cd7d943b4916904bfdfb05f20-18"></a>  <span class="n">File</span> <span class="s2">"&lt;console&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<a name="rest_code_1627ad9cd7d943b4916904bfdfb05f20-19"></a>  <span class="n">File</span> <span class="s2">"/var/www/usonar/.tox/py37/lib/python3.7/site-packages/django/utils/timezone.py"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">207</span><span class="p">,</span> <span class="ow">in</span> <span class="n">localtime</span>
-<a name="rest_code_1627ad9cd7d943b4916904bfdfb05f20-20"></a>    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"localtime() cannot be applied to a naive datetime"</span><span class="p">)</span>
-<a name="rest_code_1627ad9cd7d943b4916904bfdfb05f20-21"></a><span class="ne">ValueError</span><span class="p">:</span> <span class="n">localtime</span><span class="p">()</span> <span class="n">cannot</span> <span class="n">be</span> <span class="n">applied</span> <span class="n">to</span> <span class="n">a</span> <span class="n">naive</span> <span class="n">datetime</span>
-<a name="rest_code_1627ad9cd7d943b4916904bfdfb05f20-22"></a>
-<a name="rest_code_1627ad9cd7d943b4916904bfdfb05f20-23"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(</span><span class="n">tz</span><span class="o">=</span><span class="n">pytz</span><span class="o">.</span><span class="n">timezone</span><span class="p">(</span><span class="s1">'Asia/Tokyo'</span><span class="p">))</span>
-<a name="rest_code_1627ad9cd7d943b4916904bfdfb05f20-24"></a><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2019</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">566142</span><span class="p">,</span> <span class="n">tzinfo</span><span class="o">=&lt;</span><span class="n">DstTzInfo</span> <span class="s1">'Asia/Tokyo'</span> <span class="n">JST</span><span class="o">+</span><span class="mi">9</span><span class="p">:</span><span class="mo">00</span><span class="p">:</span><span class="mo">00</span> <span class="n">STD</span><span class="o">&gt;</span><span class="p">)</span>
+<p>タイムゾーンサポートが無効</p>
+<pre class="code python"><a name="rest_code_f266f67c0d764788bb36ccaec886685d-1"></a><span class="c1"># USE_TZ = False</span>
+<a name="rest_code_f266f67c0d764788bb36ccaec886685d-2"></a>
+<a name="rest_code_f266f67c0d764788bb36ccaec886685d-3"></a><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">django.utils</span> <span class="kn">import</span> <span class="n">timezone</span>
+<a name="rest_code_f266f67c0d764788bb36ccaec886685d-4"></a><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">datetime</span>
+<a name="rest_code_f266f67c0d764788bb36ccaec886685d-5"></a><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span>
+<a name="rest_code_f266f67c0d764788bb36ccaec886685d-6"></a>
+<a name="rest_code_f266f67c0d764788bb36ccaec886685d-7"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">timezone</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+<a name="rest_code_f266f67c0d764788bb36ccaec886685d-8"></a><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2019</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">147660</span><span class="p">)</span>
+<a name="rest_code_f266f67c0d764788bb36ccaec886685d-9"></a>
+<a name="rest_code_f266f67c0d764788bb36ccaec886685d-10"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+<a name="rest_code_f266f67c0d764788bb36ccaec886685d-11"></a><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2019</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mi">569008</span><span class="p">)</span>
+<a name="rest_code_f266f67c0d764788bb36ccaec886685d-12"></a>
+<a name="rest_code_f266f67c0d764788bb36ccaec886685d-13"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">timezone</span><span class="o">.</span><span class="n">make_aware</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
+<a name="rest_code_f266f67c0d764788bb36ccaec886685d-14"></a><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2019</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">54</span><span class="p">,</span> <span class="mi">973598</span><span class="p">,</span> <span class="n">tzinfo</span><span class="o">=&lt;</span><span class="n">DstTzInfo</span> <span class="s1">'Asia/Tokyo'</span> <span class="n">JST</span><span class="o">+</span><span class="mi">9</span><span class="p">:</span><span class="mo">00</span><span class="p">:</span><span class="mo">00</span> <span class="n">STD</span><span class="o">&gt;</span><span class="p">)</span>
+<a name="rest_code_f266f67c0d764788bb36ccaec886685d-15"></a>
+<a name="rest_code_f266f67c0d764788bb36ccaec886685d-16"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">timezone</span><span class="o">.</span><span class="n">localtime</span><span class="p">(</span><span class="n">timezone</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
+<a name="rest_code_f266f67c0d764788bb36ccaec886685d-17"></a><span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+<a name="rest_code_f266f67c0d764788bb36ccaec886685d-18"></a>  <span class="n">File</span> <span class="s2">"&lt;console&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<a name="rest_code_f266f67c0d764788bb36ccaec886685d-19"></a>  <span class="n">File</span> <span class="s2">"/var/www/usonar/.tox/py37/lib/python3.7/site-packages/django/utils/timezone.py"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">207</span><span class="p">,</span> <span class="ow">in</span> <span class="n">localtime</span>
+<a name="rest_code_f266f67c0d764788bb36ccaec886685d-20"></a>    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"localtime() cannot be applied to a naive datetime"</span><span class="p">)</span>
+<a name="rest_code_f266f67c0d764788bb36ccaec886685d-21"></a><span class="ne">ValueError</span><span class="p">:</span> <span class="n">localtime</span><span class="p">()</span> <span class="n">cannot</span> <span class="n">be</span> <span class="n">applied</span> <span class="n">to</span> <span class="n">a</span> <span class="n">naive</span> <span class="n">datetime</span>
+<a name="rest_code_f266f67c0d764788bb36ccaec886685d-22"></a>
+<a name="rest_code_f266f67c0d764788bb36ccaec886685d-23"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(</span><span class="n">tz</span><span class="o">=</span><span class="n">pytz</span><span class="o">.</span><span class="n">timezone</span><span class="p">(</span><span class="s1">'Asia/Tokyo'</span><span class="p">))</span>
+<a name="rest_code_f266f67c0d764788bb36ccaec886685d-24"></a><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2019</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">566142</span><span class="p">,</span> <span class="n">tzinfo</span><span class="o">=&lt;</span><span class="n">DstTzInfo</span> <span class="s1">'Asia/Tokyo'</span> <span class="n">JST</span><span class="o">+</span><span class="mi">9</span><span class="p">:</span><span class="mo">00</span><span class="p">:</span><span class="mo">00</span> <span class="n">STD</span><span class="o">&gt;</span><span class="p">)</span>
 </pre>
 </li>
 </ul>
@@ -179,74 +177,72 @@
 <div class="section" id="id5">
 <h3><a class="toc-backref" href="#id17">デフォルトタイムゾーンとカレントタイムゾーン</a></h3>
 <ul class="simple">
-<li>デフォルトタイムゾーン: <tt class="docutils literal">settings.TIME_ZONE</tt> に定義されたタイムゾーン</li>
-<li>カレントタイムゾーン: レンダリングに使われるタイムゾーン</li>
+<li><p>デフォルトタイムゾーン: <code class="docutils literal">settings.TIME_ZONE</code> に定義されたタイムゾーン</p></li>
+<li><p>カレントタイムゾーン: レンダリングに使われるタイムゾーン</p></li>
 </ul>
 </div>
 <div class="section" id="naive-django">
 <h3><a class="toc-backref" href="#id18">naive な日時をデータベースに保存しようとすると、Django は警告を出す</a></h3>
-<pre class="code python"><a name="rest_code_ba21fecac8f64d489e124383f11e8c08-1"></a><span class="ne">RuntimeWarning</span><span class="p">:</span> <span class="n">DateTimeField</span> <span class="n">ModelName</span><span class="o">.</span><span class="n">field_name</span> <span class="n">received</span> <span class="n">a</span> <span class="n">naive</span>
-<a name="rest_code_ba21fecac8f64d489e124383f11e8c08-2"></a><span class="n">datetime</span> <span class="p">(</span><span class="mi">2012</span><span class="o">-</span><span class="mo">01</span><span class="o">-</span><span class="mo">01</span> <span class="mo">00</span><span class="p">:</span><span class="mo">00</span><span class="p">:</span><span class="mo">00</span><span class="p">)</span> <span class="k">while</span> <span class="n">time</span> <span class="n">zone</span> <span class="n">support</span> <span class="ow">is</span> <span class="n">active</span><span class="o">.</span>
+<pre class="code python"><a name="rest_code_82c64cfcbcfd409d9ceae02a4080ac65-1"></a><span class="ne">RuntimeWarning</span><span class="p">:</span> <span class="n">DateTimeField</span> <span class="n">ModelName</span><span class="o">.</span><span class="n">field_name</span> <span class="n">received</span> <span class="n">a</span> <span class="n">naive</span>
+<a name="rest_code_82c64cfcbcfd409d9ceae02a4080ac65-2"></a><span class="n">datetime</span> <span class="p">(</span><span class="mi">2012</span><span class="o">-</span><span class="mo">01</span><span class="o">-</span><span class="mo">01</span> <span class="mo">00</span><span class="p">:</span><span class="mo">00</span><span class="p">:</span><span class="mo">00</span><span class="p">)</span> <span class="k">while</span> <span class="n">time</span> <span class="n">zone</span> <span class="n">support</span> <span class="ow">is</span> <span class="n">active</span><span class="o">.</span>
 </pre>
 </div>
 </div>
 <div class="section" id="s3">
 <h2><a class="toc-backref" href="#id19">S3 アップロード</a></h2>
 <p>体感だけど、パターン1 のほうが速いような感じがした</p>
-<pre class="code python"><a name="rest_code_f6fc5b7f9cd545cc8f968eebdfaca9f5-1"></a><span class="c1"># settings.py</span>
-<a name="rest_code_f6fc5b7f9cd545cc8f968eebdfaca9f5-2"></a><span class="n">DEFAULT_FILE_STORAGE</span> <span class="o">=</span> <span class="s1">'storages.backends.s3boto3.S3Boto3Storage'</span>
+<pre class="code python"><a name="rest_code_3951311449c442e2bb6337edc87bd94c-1"></a><span class="c1"># settings.py</span>
+<a name="rest_code_3951311449c442e2bb6337edc87bd94c-2"></a><span class="n">DEFAULT_FILE_STORAGE</span> <span class="o">=</span> <span class="s1">'storages.backends.s3boto3.S3Boto3Storage'</span>
 </pre>
-<pre class="code python"><a name="rest_code_cd0c3010cfe24f328f4e3aef6abd4eff-1"></a><span class="c1"># upload.py</span>
-<a name="rest_code_cd0c3010cfe24f328f4e3aef6abd4eff-2"></a><span class="kn">from</span> <span class="nn">django.core.files.base</span> <span class="kn">import</span> <span class="n">ContentFile</span>
-<a name="rest_code_cd0c3010cfe24f328f4e3aef6abd4eff-3"></a><span class="kn">from</span> <span class="nn">django.core.files.storage</span> <span class="kn">import</span> <span class="n">default_storage</span>
-<a name="rest_code_cd0c3010cfe24f328f4e3aef6abd4eff-4"></a>
-<a name="rest_code_cd0c3010cfe24f328f4e3aef6abd4eff-5"></a><span class="c1"># パターン1</span>
-<a name="rest_code_cd0c3010cfe24f328f4e3aef6abd4eff-6"></a><span class="n">file_path</span> <span class="o">=</span> <span class="n">default_storage</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">ContentFile</span><span class="p">(</span><span class="n">file_data</span><span class="p">))</span>
-<a name="rest_code_cd0c3010cfe24f328f4e3aef6abd4eff-7"></a>
-<a name="rest_code_cd0c3010cfe24f328f4e3aef6abd4eff-8"></a><span class="c1"># パターン2</span>
-<a name="rest_code_cd0c3010cfe24f328f4e3aef6abd4eff-9"></a><span class="k">with</span> <span class="n">default_storage</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-<a name="rest_code_cd0c3010cfe24f328f4e3aef6abd4eff-10"></a>    <span class="n">file_size</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">file_data</span><span class="p">)</span>
+<pre class="code python"><a name="rest_code_0181dde83fdb4812a964336832386f0d-1"></a><span class="c1"># upload.py</span>
+<a name="rest_code_0181dde83fdb4812a964336832386f0d-2"></a><span class="kn">from</span> <span class="nn">django.core.files.base</span> <span class="kn">import</span> <span class="n">ContentFile</span>
+<a name="rest_code_0181dde83fdb4812a964336832386f0d-3"></a><span class="kn">from</span> <span class="nn">django.core.files.storage</span> <span class="kn">import</span> <span class="n">default_storage</span>
+<a name="rest_code_0181dde83fdb4812a964336832386f0d-4"></a>
+<a name="rest_code_0181dde83fdb4812a964336832386f0d-5"></a><span class="c1"># パターン1</span>
+<a name="rest_code_0181dde83fdb4812a964336832386f0d-6"></a><span class="n">file_path</span> <span class="o">=</span> <span class="n">default_storage</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">ContentFile</span><span class="p">(</span><span class="n">file_data</span><span class="p">))</span>
+<a name="rest_code_0181dde83fdb4812a964336832386f0d-7"></a>
+<a name="rest_code_0181dde83fdb4812a964336832386f0d-8"></a><span class="c1"># パターン2</span>
+<a name="rest_code_0181dde83fdb4812a964336832386f0d-9"></a><span class="k">with</span> <span class="n">default_storage</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<a name="rest_code_0181dde83fdb4812a964336832386f0d-10"></a>    <span class="n">file_size</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">file_data</span><span class="p">)</span>
 </pre>
 <ul class="simple">
-<li><a class="reference external" href="https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html">https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html</a></li>
-<li><a class="reference external" href="https://docs.djangoproject.com/en/2.2/ref/files/storage/#the-storage-class">https://docs.djangoproject.com/en/2.2/ref/files/storage/#the-storage-class</a></li>
-<li><a class="reference external" href="https://docs.djangoproject.com/en/2.2/topics/files/#storage-objects">https://docs.djangoproject.com/en/2.2/topics/files/#storage-objects</a></li>
+<li><p><a class="reference external" href="https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html">https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html</a></p></li>
+<li><p><a class="reference external" href="https://docs.djangoproject.com/en/2.2/ref/files/storage/#the-storage-class">https://docs.djangoproject.com/en/2.2/ref/files/storage/#the-storage-class</a></p></li>
+<li><p><a class="reference external" href="https://docs.djangoproject.com/en/2.2/topics/files/#storage-objects">https://docs.djangoproject.com/en/2.2/topics/files/#storage-objects</a></p></li>
 </ul>
 </div>
 <div class="section" id="id6">
 <h2><a class="toc-backref" href="#id20">マイグレーションを間違えたときのリカバリ方法</a></h2>
 <ol class="arabic">
 <li>
-<p class="first">DjangoのDBシェルでローカルDBにつなぐ</p>
+<p>DjangoのDBシェルでローカルDBにつなぐ</p>
 <blockquote>
-<pre class="code console"><a name="rest_code_3ebae78add714e06aad4d722b980ec39-1"></a><span class="gp">$</span> python manage.py dbshell --settings<span class="o">=</span>settings.local
+<pre class="code console"><a name="rest_code_943afed9fff24ccda2fecf3698a659b6-1"></a><span class="gp">$</span> python manage.py dbshell --settings<span class="o">=</span>settings.local
 </pre>
 </blockquote>
 </li>
 <li>
-<p class="first">django_migrations テーブルから該当アプリのレコードを削除する</p>
+<p>django_migrations テーブルから該当アプリのレコードを削除する</p>
 <blockquote>
-<pre class="code sql"><a name="rest_code_994909e869a143778a678aafb03042db-1"></a><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">django_migrations</span> <span class="k">WHERE</span> <span class="n">app</span> <span class="k">like</span> <span class="s1">'%{application_name}%'</span><span class="p">;</span>
-<a name="rest_code_994909e869a143778a678aafb03042db-2"></a><span class="k">DELETE</span> <span class="k">FROM</span> <span class="n">django_migrations</span> <span class="k">WHERE</span> <span class="n">id</span><span class="o">=</span><span class="err">{該当の</span><span class="n">ID</span><span class="err">}</span><span class="p">;</span>
+<pre class="code sql"><a name="rest_code_7653f013206049f3b82560d56d429895-1"></a><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">django_migrations</span> <span class="k">WHERE</span> <span class="n">app</span> <span class="k">like</span> <span class="s1">'%{application_name}%'</span><span class="p">;</span>
+<a name="rest_code_7653f013206049f3b82560d56d429895-2"></a><span class="k">DELETE</span> <span class="k">FROM</span> <span class="n">django_migrations</span> <span class="k">WHERE</span> <span class="n">id</span><span class="o">=</span><span class="err">{該当の</span><span class="n">ID</span><span class="err">}</span><span class="p">;</span>
 </pre>
 </blockquote>
 </li>
 <li>
-<p class="first">該当テーブルやカラムも DROP する</p>
+<p>該当テーブルやカラムも DROP する</p>
 <blockquote>
-<pre class="code sql"><a name="rest_code_3b64e8e1f3d544a69ea14faa15edb0cb-1"></a><span class="k">DROP</span> <span class="k">TABLE</span> <span class="err">{</span><span class="k">table_name</span><span class="err">}</span><span class="p">;</span>
-<a name="rest_code_3b64e8e1f3d544a69ea14faa15edb0cb-2"></a><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="err">{</span><span class="k">table_name</span><span class="err">}</span> <span class="k">DROP</span> <span class="k">COLUMN</span> <span class="err">{</span><span class="k">column_name</span><span class="err">}</span><span class="p">;</span>
+<pre class="code sql"><a name="rest_code_80c4bdf5f5cc4791be38f227334a52fc-1"></a><span class="k">DROP</span> <span class="k">TABLE</span> <span class="err">{</span><span class="k">table_name</span><span class="err">}</span><span class="p">;</span>
+<a name="rest_code_80c4bdf5f5cc4791be38f227334a52fc-2"></a><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="err">{</span><span class="k">table_name</span><span class="err">}</span> <span class="k">DROP</span> <span class="k">COLUMN</span> <span class="err">{</span><span class="k">column_name</span><span class="err">}</span><span class="p">;</span>
 </pre>
 </blockquote>
 </li>
+<li><p>該当のマイグレーションファイルも削除しておく</p></li>
 <li>
-<p class="first">該当のマイグレーションファイルも削除しておく</p>
-</li>
-<li>
-<p class="first">もう一回最初からマイグレーションする</p>
+<p>もう一回最初からマイグレーションする</p>
 <blockquote>
-<pre class="code console"><a name="rest_code_3fbbda6c03434acea1ff2938cef0f520-1"></a><span class="gp">$</span> python manage.py makemigrations <span class="o">{</span>application_name<span class="o">}</span> --settings<span class="o">=</span>settings.local
-<a name="rest_code_3fbbda6c03434acea1ff2938cef0f520-2"></a><span class="gp">$</span> python manage.py migrate <span class="o">{</span>application_name<span class="o">}</span> --settings<span class="o">=</span>settings.local
+<pre class="code console"><a name="rest_code_af39cfee122344749cd8e93dc4fbeed3-1"></a><span class="gp">$</span> python manage.py makemigrations <span class="o">{</span>application_name<span class="o">}</span> --settings<span class="o">=</span>settings.local
+<a name="rest_code_af39cfee122344749cd8e93dc4fbeed3-2"></a><span class="gp">$</span> python manage.py migrate <span class="o">{</span>application_name<span class="o">}</span> --settings<span class="o">=</span>settings.local
 </pre>
 </blockquote>
 </li>
@@ -259,22 +255,20 @@
 <p>なにがうれしいのかさっぱりわからない =&gt; <cite>MultiValueDict を継承してる QueryDict とか見るとユースケースはなんとなく想像つくと思います</cite> と教えて頂いた。</p>
 <ul>
 <li>
-<p class="first"><a class="reference external" href="https://docs.djangoproject.com/ja/2.1/_modules/django/utils/datastructures/">https://docs.djangoproject.com/ja/2.1/_modules/django/utils/datastructures/</a></p>
-<pre class="literal-block">
-A subclass of dictionary customized to handle multiple values for the same key.
-</pre>
+<p><a class="reference external" href="https://docs.djangoproject.com/ja/2.1/_modules/django/utils/datastructures/">https://docs.djangoproject.com/ja/2.1/_modules/django/utils/datastructures/</a></p>
+<pre class="literal-block">A subclass of dictionary customized to handle multiple values for the same key.</pre>
 </li>
 <li>
-<p class="first">よく見たら、こういうところが便利だと思った ↓</p>
-<pre class="code python"><a name="rest_code_6c0266257c6c42fc927aaac9dd6ffb94-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">django.utils.datastructures</span> <span class="kn">import</span> <span class="n">MultiValueDict</span>
-<a name="rest_code_6c0266257c6c42fc927aaac9dd6ffb94-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">d</span> <span class="o">=</span> <span class="n">MultiValueDict</span><span class="p">({</span><span class="s1">'name'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'Adrian'</span><span class="p">,</span> <span class="s1">'Simon'</span><span class="p">],</span> <span class="s1">'position'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'Developer'</span><span class="p">]})</span>
-<a name="rest_code_6c0266257c6c42fc927aaac9dd6ffb94-3"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">d</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">'name'</span><span class="p">:</span> <span class="s1">'Momo'</span><span class="p">})</span>
-<a name="rest_code_6c0266257c6c42fc927aaac9dd6ffb94-4"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">d</span>
-<a name="rest_code_6c0266257c6c42fc927aaac9dd6ffb94-5"></a><span class="o">&lt;</span><span class="n">MultiValueDict</span><span class="p">:</span> <span class="p">{</span><span class="s1">'position'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'Developer'</span><span class="p">],</span> <span class="s1">'name'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'Adrian'</span><span class="p">,</span> <span class="s1">'Simon'</span><span class="p">,</span> <span class="s1">'Momo'</span><span class="p">]}</span><span class="o">&gt;</span>
-<a name="rest_code_6c0266257c6c42fc927aaac9dd6ffb94-6"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">dd</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'name'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'Adrian'</span><span class="p">,</span> <span class="s1">'Simon'</span><span class="p">],</span> <span class="s1">'position'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'Developer'</span><span class="p">]}</span>
-<a name="rest_code_6c0266257c6c42fc927aaac9dd6ffb94-7"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">dd</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">'name'</span><span class="p">:</span> <span class="s1">'Momo'</span><span class="p">})</span>
-<a name="rest_code_6c0266257c6c42fc927aaac9dd6ffb94-8"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">dd</span>
-<a name="rest_code_6c0266257c6c42fc927aaac9dd6ffb94-9"></a><span class="p">{</span><span class="s1">'position'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'Developer'</span><span class="p">],</span> <span class="s1">'name'</span><span class="p">:</span> <span class="s1">'Momo'</span><span class="p">}</span>
+<p>よく見たら、こういうところが便利だと思った ↓</p>
+<pre class="code python"><a name="rest_code_35d155f9c59d42e8a65d8cc2df3def55-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">django.utils.datastructures</span> <span class="kn">import</span> <span class="n">MultiValueDict</span>
+<a name="rest_code_35d155f9c59d42e8a65d8cc2df3def55-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">d</span> <span class="o">=</span> <span class="n">MultiValueDict</span><span class="p">({</span><span class="s1">'name'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'Adrian'</span><span class="p">,</span> <span class="s1">'Simon'</span><span class="p">],</span> <span class="s1">'position'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'Developer'</span><span class="p">]})</span>
+<a name="rest_code_35d155f9c59d42e8a65d8cc2df3def55-3"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">d</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">'name'</span><span class="p">:</span> <span class="s1">'Momo'</span><span class="p">})</span>
+<a name="rest_code_35d155f9c59d42e8a65d8cc2df3def55-4"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">d</span>
+<a name="rest_code_35d155f9c59d42e8a65d8cc2df3def55-5"></a><span class="o">&lt;</span><span class="n">MultiValueDict</span><span class="p">:</span> <span class="p">{</span><span class="s1">'position'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'Developer'</span><span class="p">],</span> <span class="s1">'name'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'Adrian'</span><span class="p">,</span> <span class="s1">'Simon'</span><span class="p">,</span> <span class="s1">'Momo'</span><span class="p">]}</span><span class="o">&gt;</span>
+<a name="rest_code_35d155f9c59d42e8a65d8cc2df3def55-6"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">dd</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'name'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'Adrian'</span><span class="p">,</span> <span class="s1">'Simon'</span><span class="p">],</span> <span class="s1">'position'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'Developer'</span><span class="p">]}</span>
+<a name="rest_code_35d155f9c59d42e8a65d8cc2df3def55-7"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">dd</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">'name'</span><span class="p">:</span> <span class="s1">'Momo'</span><span class="p">})</span>
+<a name="rest_code_35d155f9c59d42e8a65d8cc2df3def55-8"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">dd</span>
+<a name="rest_code_35d155f9c59d42e8a65d8cc2df3def55-9"></a><span class="p">{</span><span class="s1">'position'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'Developer'</span><span class="p">],</span> <span class="s1">'name'</span><span class="p">:</span> <span class="s1">'Momo'</span><span class="p">}</span>
 </pre>
 </li>
 </ul>
@@ -285,10 +279,8 @@ A subclass of dictionary customized to handle multiple values for the same key.
 <blockquote>
 <ul>
 <li>
-<p class="first"><a class="reference external" href="https://docs.djangoproject.com/ja/2.1/ref/request-response/#querydict-objects">QueryDict オブジェクト</a></p>
-<pre class="literal-block">
-In an HttpRequest object, the GET and POST attributes are instances of django.http.QueryDict, a dictionary-like class customized to deal with multiple values for the same key. This is necessary because some HTML form elements, notably &lt;select multiple&gt;, pass multiple values for the same key.
-</pre>
+<p><a class="reference external" href="https://docs.djangoproject.com/ja/2.1/ref/request-response/#querydict-objects">QueryDict オブジェクト</a></p>
+<pre class="literal-block">In an HttpRequest object, the GET and POST attributes are instances of django.http.QueryDict, a dictionary-like class customized to deal with multiple values for the same key. This is necessary because some HTML form elements, notably &lt;select multiple&gt;, pass multiple values for the same key.</pre>
 </li>
 </ul>
 </blockquote>
@@ -299,7 +291,7 @@ In an HttpRequest object, the GET and POST attributes are instances of django.ht
 <div class="section" id="id10">
 <h3><a class="toc-backref" href="#id25">django に便利コマンド追加してくれるさん</a></h3>
 <ul class="simple">
-<li><a class="reference external" href="https://django-extensions.readthedocs.io/en/latest/">django-extensions</a></li>
+<li><p><a class="reference external" href="https://django-extensions.readthedocs.io/en/latest/">django-extensions</a></p></li>
 </ul>
 </div>
 </div>

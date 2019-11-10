@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Vollkorn:400,700">
 <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/sawarabimincho.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-<link rel="stylesheet" href="../../assets/css/style.css?20190615">
+<link rel="stylesheet" href="../../assets/css/style.css?20191110">
 </head>
 <body>
     <div class="container">
@@ -34,64 +34,54 @@
 <div class="section" id="id1">
 <h2>ガイド</h2>
 <ul class="simple">
-<li><a class="reference external" href="https://pleiades.io/help/pycharm/">PyCharm ヘルプ</a></li>
+<li><p><a class="reference external" href="https://pleiades.io/help/pycharm/">PyCharm ヘルプ</a></p></li>
 </ul>
 </div>
 <div class="section" id="id2">
 <h2>手順</h2>
 <ol class="arabic">
+<li><p>View -&gt; Tool Windows -&gt; Database で、スパナのボタン押下</p></li>
+<li><p>Data Sources and Drivers ダイアログで、 <code class="docutils literal">+</code> ボタン押下</p></li>
+<li><p><code class="docutils literal">Amazon Redshift</code> を選択</p></li>
 <li>
-<p class="first">View -&gt; Tool Windows -&gt; Database で、スパナのボタン押下</p>
-</li>
-<li>
-<p class="first">Data Sources and Drivers ダイアログで、 <tt class="docutils literal">+</tt> ボタン押下</p>
-</li>
-<li>
-<p class="first"><tt class="docutils literal">Amazon Redshift</tt> を選択</p>
-</li>
-<li>
-<p class="first">General タブ</p>
+<p>General タブ</p>
 <blockquote>
 <ul class="simple">
-<li>Name: 任意の名前</li>
-<li>Comment: 任意のコメント</li>
-<li>User: 接続先 DB のユーザー名</li>
-<li>Password: 接続先 DB のユーザーのパスワード</li>
-<li>URL: AWS コンソール -&gt; Redshift ダッシュボード -&gt; クラスターメニュー -&gt; 接続したいクラスター -&gt; クラスターデータベースのプロパティ -&gt; JDBC URL に記載の URL<ul>
-<li>末尾は接続先 DB 名 ( <tt class="docutils literal">port番号/</tt> のあと)</li>
+<li><p>Name: 任意の名前</p></li>
+<li><p>Comment: 任意のコメント</p></li>
+<li><p>User: 接続先 DB のユーザー名</p></li>
+<li><p>Password: 接続先 DB のユーザーのパスワード</p></li>
+<li>
+<p>URL: AWS コンソール -&gt; Redshift ダッシュボード -&gt; クラスターメニュー -&gt; 接続したいクラスター -&gt; クラスターデータベースのプロパティ -&gt; JDBC URL に記載の URL</p>
+<ul>
+<li><p>末尾は接続先 DB 名 ( <code class="docutils literal">port番号/</code> のあと)</p></li>
 </ul>
 </li>
-<li>URL の右横のプルダウン: <tt class="docutils literal">URL only</tt>
-</li>
-<li>Driver: <tt class="docutils literal">Amazon Redshift</tt>
-</li>
+<li><p>URL の右横のプルダウン: <code class="docutils literal">URL only</code></p></li>
+<li><p>Driver: <code class="docutils literal">Amazon Redshift</code></p></li>
 </ul>
 </blockquote>
 </li>
 <li>
-<p class="first">SSH/SSL タブ</p>
+<p>SSH/SSL タブ</p>
 <blockquote>
 <ul class="simple">
-<li>Use SSH tunnel: <tt class="docutils literal">ON</tt>
-</li>
-<li>Proxy host: gateway (HostName)</li>
-<li>Port: <tt class="docutils literal">22</tt> (SSH接続時のPort番号)</li>
-<li>Proxy user: gateway のユーザー名</li>
-<li>Auth type: <tt class="docutils literal">OpenSSH config and authentication agent</tt>
-</li>
+<li><p>Use SSH tunnel: <code class="docutils literal">ON</code></p></li>
+<li><p>Proxy host: gateway (HostName)</p></li>
+<li><p>Port: <code class="docutils literal">22</code> (SSH接続時のPort番号)</p></li>
+<li><p>Proxy user: gateway のユーザー名</p></li>
+<li><p>Auth type: <code class="docutils literal">OpenSSH config and authentication agent</code></p></li>
 </ul>
 </blockquote>
 </li>
-<li>
-<p class="first">Test Connection してみる</p>
-</li>
+<li><p>Test Connection してみる</p></li>
 </ol>
 </div>
 <div class="section" id="url">
 <h2>参考URL</h2>
 <ul class="simple">
-<li><a class="reference external" href="https://pleiades.io/help/pycharm/connecting-to-a-database.html#amazon_redshift">データベースへの接続 -&gt; Amazon Redshift</a></li>
-<li><a class="reference external" href="https://pleiades.io/help/pycharm/connecting-to-a-database.html#connect_via_ssh">データベースへの接続 -&gt; SSHによる接続</a></li>
+<li><p><a class="reference external" href="https://pleiades.io/help/pycharm/connecting-to-a-database.html#amazon_redshift">データベースへの接続 -&gt; Amazon Redshift</a></p></li>
+<li><p><a class="reference external" href="https://pleiades.io/help/pycharm/connecting-to-a-database.html#connect_via_ssh">データベースへの接続 -&gt; SSHによる接続</a></p></li>
 </ul>
 </div>
 </div>

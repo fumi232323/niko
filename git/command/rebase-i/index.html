@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Vollkorn:400,700">
 <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/sawarabimincho.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-<link rel="stylesheet" href="../../../assets/css/style.css?20190615">
+<link rel="stylesheet" href="../../../assets/css/style.css?20191110">
 </head>
 <body>
     <div class="container">
@@ -36,48 +36,36 @@
 <h3>squash : 離れたふたつのコミットをまとめる</h3>
 <ol class="arabic">
 <li>
-<p class="first">くっつけ先のコミット番号を確かめる</p>
+<p>くっつけ先のコミット番号を確かめる</p>
 <blockquote>
-<pre class="code console"><a name="rest_code_a80a470f119d44d59aa931e94972ade9-1"></a><span class="gp">$</span> git log --oneline
+<pre class="code console"><a name="rest_code_8edb84803c614409bf33ebb0b69604d3-1"></a><span class="gp">$</span> git log --oneline
 </pre>
 </blockquote>
 </li>
+<li><p>コミットが一覧表示されるので、くっつけ先のコミット番号を控え、 <code class="docutils literal">:q</code> で閉じる</p></li>
 <li>
-<p class="first">コミットが一覧表示されるので、くっつけ先のコミット番号を控え、 <tt class="docutils literal">:q</tt> で閉じる</p>
-</li>
-<li>
-<p class="first">rebase を開始する。</p>
+<p>rebase を開始する。</p>
 <blockquote>
-<pre class="code console"><a name="rest_code_dc5671e4ca084f519d49dbb57654d8e9-1"></a><span class="gp">$</span> git rebase -i &lt;くっつけ先のコミット番号&gt;
+<pre class="code console"><a name="rest_code_e0e0e49fa27d475f918818a4c3c3f90b-1"></a><span class="gp">$</span> git rebase -i &lt;くっつけ先のコミット番号&gt;
 </pre>
 </blockquote>
 </li>
+<li><p>エディターが開き、 3 で指定したコミット番号より後のコミット一覧が表示されるので、くっつけたいほうの pick を一番上に移動する。</p></li>
+<li><p><code class="docutils literal">pick</code> を <code class="docutils literal">squash</code> に書き換える。</p></li>
+<li><p><code class="docutils literal">:wq</code> で保存して閉じる</p></li>
 <li>
-<p class="first">エディターが開き、 3 で指定したコミット番号より後のコミット一覧が表示されるので、くっつけたいほうの pick を一番上に移動する。</p>
-</li>
-<li>
-<p class="first"><tt class="docutils literal">pick</tt> を <tt class="docutils literal">squash</tt> に書き換える。</p>
-</li>
-<li>
-<p class="first"><tt class="docutils literal">:wq</tt> で保存して閉じる</p>
-</li>
-<li>
-<p class="first">コミットメッセージを書く用？のエディタが開くので、</p>
+<p>コミットメッセージを書く用？のエディタが開くので、</p>
 <blockquote>
-<pre class="literal-block">
-You are currently rebasing branch 'master' on 'リビジョン番号'.
-</pre>
+<pre class="literal-block">You are currently rebasing branch 'master' on 'リビジョン番号'.</pre>
 <p>の次の行のコメントを外して、コミットメッセージを書く。</p>
 <p>(たぶん、その上のほうにあるコミットメッセージも変えたければ編集したほうがよいんだと思う)</p>
 </blockquote>
 </li>
+<li><p><code class="docutils literal">:wq</code> で保存して閉じる</p></li>
 <li>
-<p class="first"><tt class="docutils literal">:wq</tt> で保存して閉じる</p>
-</li>
-<li>
-<p class="first">リモートリポジトリにフォースプッシュする。</p>
+<p>リモートリポジトリにフォースプッシュする。</p>
 <blockquote>
-<pre class="code console"><a name="rest_code_4adc43ca39b9428cbeb15fb4422fdffb-1"></a><span class="gp">$</span> git push -f
+<pre class="code console"><a name="rest_code_b3eeee3327c04e5db6b3763271bba249-1"></a><span class="gp">$</span> git push -f
 </pre>
 </blockquote>
 </li>
@@ -87,38 +75,28 @@ You are currently rebasing branch 'master' on 'リビジョン番号'.
 <h3>reword: コミットメッセージを変更する</h3>
 <ol class="arabic">
 <li>
-<p class="first">コミット一覧を表示し、コミットメッセージを変更したいコミットの一つ前のコミット番号を控える</p>
+<p>コミット一覧を表示し、コミットメッセージを変更したいコミットの一つ前のコミット番号を控える</p>
 <blockquote>
-<pre class="code console"><a name="rest_code_8d00052d8d0a49ed81223f5999c23d06-1"></a><span class="gp">$</span> git log --oneline
+<pre class="code console"><a name="rest_code_ddc6ccb9363f4533b468d222c6e4fccd-1"></a><span class="gp">$</span> git log --oneline
 </pre>
 </blockquote>
 </li>
+<li><p><code class="docutils literal">:q</code> で閉じる</p></li>
 <li>
-<p class="first"><tt class="docutils literal">:q</tt> で閉じる</p>
-</li>
-<li>
-<p class="first">rebase を開始する。</p>
+<p>rebase を開始する。</p>
 <blockquote>
-<pre class="code console"><a name="rest_code_47ebbc01dd3541d5b41a201c857962e4-1"></a><span class="gp">$</span> git rebase -i &lt;<span class="m">1</span> で控えたコミット番号&gt;
+<pre class="code console"><a name="rest_code_457a1372472b439fbc05fe90591ad8e4-1"></a><span class="gp">$</span> git rebase -i &lt;<span class="m">1</span> で控えたコミット番号&gt;
 </pre>
 </blockquote>
 </li>
+<li><p>エディターが開き、 3 で指定したコミット番号より後のコミット一覧が表示されるので、コミットメッセージを変更したいコミット番号の <code class="docutils literal">pick</code> を <code class="docutils literal">reword</code> 書き換える。</p></li>
+<li><p><code class="docutils literal">:wq</code> で保存して閉じる</p></li>
+<li><p>コミットメッセージを書く用？のエディタが開くので、コミットメッセージを変更する。</p></li>
+<li><p><code class="docutils literal">:wq</code> で保存して閉じる</p></li>
 <li>
-<p class="first">エディターが開き、 3 で指定したコミット番号より後のコミット一覧が表示されるので、コミットメッセージを変更したいコミット番号の <tt class="docutils literal">pick</tt> を <tt class="docutils literal">reword</tt> 書き換える。</p>
-</li>
-<li>
-<p class="first"><tt class="docutils literal">:wq</tt> で保存して閉じる</p>
-</li>
-<li>
-<p class="first">コミットメッセージを書く用？のエディタが開くので、コミットメッセージを変更する。</p>
-</li>
-<li>
-<p class="first"><tt class="docutils literal">:wq</tt> で保存して閉じる</p>
-</li>
-<li>
-<p class="first">リモートリポジトリにフォースプッシュする。</p>
+<p>リモートリポジトリにフォースプッシュする。</p>
 <blockquote>
-<pre class="code console"><a name="rest_code_9f35ec7dfcf14d1390d11b8ba7e57d9e-1"></a><span class="gp">$</span> git push -f
+<pre class="code console"><a name="rest_code_d02d27c196ad45df8f361e82121a5b61-1"></a><span class="gp">$</span> git push -f
 </pre>
 </blockquote>
 </li>
@@ -128,7 +106,7 @@ You are currently rebasing branch 'master' on 'リビジョン番号'.
 <h3>参考にしたサイト</h3>
 <ul>
 <li>
-<p class="first">これがわかりやすかった</p>
+<p>これがわかりやすかった</p>
 <p><a class="reference external" href="https://www.karakaram.com/git-rebase-i-usage#whats-rebase-i">https://www.karakaram.com/git-rebase-i-usage#whats-rebase-i</a></p>
 </li>
 </ul>

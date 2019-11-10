@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ふみのて (sshについての文書)</title><link>https://32imuf.com/</link><description></description><atom:link href="https://32imuf.com/tags/ssh.xml" rel="self" type="application/rss+xml"></atom:link><language>ja</language><copyright>Contents © 2019 &lt;a href="mailto:fumi232323fumi2016@gmail.com"&gt;fumi23&lt;/a&gt; </copyright><lastBuildDate>Sun, 09 Jun 2019 10:24:40 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>ssh-keygen</title><link>https://32imuf.com/ssh/command/ssh-keygen/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;div class="section" id="id1"&gt;
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ふみのて (sshについての文書)</title><link>https://32imuf.com/</link><description></description><atom:link href="https://32imuf.com/tags/ssh.xml" rel="self" type="application/rss+xml"></atom:link><language>ja</language><copyright>Contents © 2019 &lt;a href="mailto:fumi232323fumi2016@gmail.com"&gt;fumi23&lt;/a&gt; </copyright><lastBuildDate>Sun, 10 Nov 2019 13:51:11 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>ssh-keygen</title><link>https://32imuf.com/ssh/command/ssh-keygen/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;div class="section" id="id1"&gt;
 &lt;h2&gt;リファレンス&lt;/h2&gt;
 &lt;p&gt;ubuntu のやつ&lt;/p&gt;
 &lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference external" href="http://manpages.ubuntu.com/manpages/bionic/en/man1/ssh-keygen.1.html"&gt;ssh-keygen&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="http://manpages.ubuntu.com/manpages/bionic/en/man1/ssh-keygen.1.html"&gt;ssh-keygen&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;種類やバージョンが選べるやつ&lt;/p&gt;
 &lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://www.freebsd.org/cgi/man.cgi?query=ssh-keygen&amp;amp;apropos=0&amp;amp;sektion=1&amp;amp;manpath=CentOS+6.5&amp;amp;arch=default&amp;amp;format=html"&gt;SSH-KEYGEN(1)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://www.freebsd.org/cgi/man.cgi?query=ssh-keygen&amp;amp;apropos=0&amp;amp;sektion=1&amp;amp;manpath=CentOS+6.5&amp;amp;arch=default&amp;amp;format=html"&gt;SSH-KEYGEN(1)&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id2"&gt;
@@ -15,17 +15,18 @@
 &lt;p&gt;認証鍵の生成と管理・変換が役割&lt;/p&gt;
 &lt;div class="section" id="id3"&gt;
 &lt;h3&gt;秘密鍵・公開鍵のペアを作る&lt;/h3&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_9052494e64094d0a9c608fc2105ddb6f-1"&gt;&lt;/a&gt;$ ssh-keygen -t rsa
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_f9d677340c984f03802d97e5274c4820-1"&gt;&lt;/a&gt;$ ssh-keygen -t rsa
 &lt;/pre&gt;&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;~/.ssh/id_rsa&lt;/span&gt;&lt;/tt&gt; (秘密鍵), &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;~/.ssh/id_rsa.pub&lt;/span&gt;&lt;/tt&gt; (公開鍵) にできあがる。&lt;ul&gt;
-&lt;li&gt;&lt;tt class="docutils literal"&gt;id_rsa&lt;/tt&gt; が、秘密鍵(自分で持っておく、復号用)&lt;/li&gt;
-&lt;li&gt;&lt;tt class="docutils literal"&gt;id_rsa.pub&lt;/tt&gt; が、公開鍵(サーバに置く、暗号用)&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code class="docutils literal"&gt;&lt;span class="pre"&gt;~/.ssh/id_rsa&lt;/span&gt;&lt;/code&gt; (秘密鍵), &lt;code class="docutils literal"&gt;&lt;span class="pre"&gt;~/.ssh/id_rsa.pub&lt;/span&gt;&lt;/code&gt; (公開鍵) にできあがる。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;code class="docutils literal"&gt;id_rsa&lt;/code&gt; が、秘密鍵(自分で持っておく、復号用)&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code class="docutils literal"&gt;id_rsa.pub&lt;/code&gt; が、公開鍵(サーバに置く、暗号用)&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;-t&lt;/span&gt; type&lt;/tt&gt; : 生成する鍵のタイプを指定できる&lt;/li&gt;
-&lt;li&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;-f&lt;/span&gt; output_keyfile&lt;/tt&gt; : 出力先ファイルを指定できる&lt;/li&gt;
-&lt;li&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;-N&lt;/span&gt; new_passphrase&lt;/tt&gt; : パスフレーズ（鍵の鍵みたいなやつ）を指定できる。後からでもつけられる。&lt;/li&gt;
-&lt;li&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;-C&lt;/span&gt; comment&lt;/tt&gt; : コメント&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code class="docutils literal"&gt;&lt;span class="pre"&gt;-t&lt;/span&gt; type&lt;/code&gt; : 生成する鍵のタイプを指定できる&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code class="docutils literal"&gt;&lt;span class="pre"&gt;-f&lt;/span&gt; output_keyfile&lt;/code&gt; : 出力先ファイルを指定できる&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code class="docutils literal"&gt;&lt;span class="pre"&gt;-N&lt;/span&gt; new_passphrase&lt;/code&gt; : パスフレーズ（鍵の鍵みたいなやつ）を指定できる。後からでもつけられる。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code class="docutils literal"&gt;&lt;span class="pre"&gt;-C&lt;/span&gt; comment&lt;/code&gt; : コメント&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class="section" id="id4"&gt;
 &lt;h4&gt;サーバ側の公開鍵の置き場所&lt;/h4&gt;
@@ -34,87 +35,84 @@
 &lt;/div&gt;
 &lt;div class="section" id="id5"&gt;
 &lt;h3&gt;秘密鍵から公開鍵を取り出す&lt;/h3&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_09fb451653b343c286267a1c5049a4dc-1"&gt;&lt;/a&gt;$ ssh-keygen -y -f private_key_file
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_70b45efaa8b34bf787cda1e4fca3947c-1"&gt;&lt;/a&gt;$ ssh-keygen -y -f private_key_file
 &lt;/pre&gt;&lt;/div&gt;
 &lt;div class="section" id="fingerprint"&gt;
 &lt;h3&gt;公開鍵から fingerprint を表示&lt;/h3&gt;
 &lt;p&gt;fingerprint は、公開鍵にくっついているものらしい。&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p class="first"&gt;カレントディレクトリ配下の公開鍵ファイルを指定して表示&lt;/p&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_73b1e7c0b3ec4e57bb6ee73a3653780a-1"&gt;&lt;/a&gt;$ ssh-keygen -l -f id_rsa_test1.pub
-&lt;a name="rest_code_73b1e7c0b3ec4e57bb6ee73a3653780a-2"&gt;&lt;/a&gt;&lt;span class="m"&gt;2048&lt;/span&gt; SHA256:1WfZC2LtB0bkllFW1bTmSpleRbR+QSnARuYFvT7kLC0 fumi23 &lt;span class="o"&gt;(&lt;/span&gt;RSA&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;li&gt;&lt;p&gt;カレントディレクトリ配下の公開鍵ファイルを指定して表示&lt;/p&gt;
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_bf8061644acd4b40aba612ca79cee3ff-1"&gt;&lt;/a&gt;$ ssh-keygen -l -f id_rsa_test1.pub
+&lt;a name="rest_code_bf8061644acd4b40aba612ca79cee3ff-2"&gt;&lt;/a&gt;&lt;span class="m"&gt;2048&lt;/span&gt; SHA256:1WfZC2LtB0bkllFW1bTmSpleRbR+QSnARuYFvT7kLC0 fumi23 &lt;span class="o"&gt;(&lt;/span&gt;RSA&lt;span class="o"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p class="first"&gt;秘密鍵を指定すると、ペアとなる公開鍵を探してその fingerprint を表示してくれる。&lt;/p&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_28819ef7bb3b408fabaf66d315a039f6-1"&gt;&lt;/a&gt;$ ssh-keygen -l -f id_rsa_test1
-&lt;a name="rest_code_28819ef7bb3b408fabaf66d315a039f6-2"&gt;&lt;/a&gt;&lt;span class="m"&gt;2048&lt;/span&gt; SHA256:1WfZC2LtB0bkllFW1bTmSpleRbR+QSnARuYFvT7kLC0 fumi23 &lt;span class="o"&gt;(&lt;/span&gt;RSA&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;li&gt;&lt;p&gt;秘密鍵を指定すると、ペアとなる公開鍵を探してその fingerprint を表示してくれる。&lt;/p&gt;
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_fffb869bcd8e42dd8aa7f5aa594a5250-1"&gt;&lt;/a&gt;$ ssh-keygen -l -f id_rsa_test1
+&lt;a name="rest_code_fffb869bcd8e42dd8aa7f5aa594a5250-2"&gt;&lt;/a&gt;&lt;span class="m"&gt;2048&lt;/span&gt; SHA256:1WfZC2LtB0bkllFW1bTmSpleRbR+QSnARuYFvT7kLC0 fumi23 &lt;span class="o"&gt;(&lt;/span&gt;RSA&lt;span class="o"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div class="section" id="known-hosts-file"&gt;
 &lt;h3&gt;known_hosts file からキーを削除&lt;/h3&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_29a944fe012345ad98f90f6abbcf4840-1"&gt;&lt;/a&gt;$ ssh-keygen -R hostname &lt;span class="o"&gt;[&lt;/span&gt;-f known_hosts_file&lt;span class="o"&gt;]&lt;/span&gt;
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_c4a0e64f90b44250b48b531d17b3ec21-1"&gt;&lt;/a&gt;$ ssh-keygen -R hostname &lt;span class="o"&gt;[&lt;/span&gt;-f known_hosts_file&lt;span class="o"&gt;]&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;div class="section" id="id6"&gt;
 &lt;h3&gt;ためしてみる&lt;/h3&gt;
 &lt;ol class="arabic simple"&gt;
-&lt;li&gt;カレントディレクトリに、↓で rsa 鍵のペアを作成する。&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;カレントディレクトリに、↓で rsa 鍵のペアを作成する。&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;blockquote&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p class="first"&gt;ファイル名: &lt;tt class="docutils literal"&gt;id_rsa_test1&lt;/tt&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p class="first"&gt;コメント: &lt;tt class="docutils literal"&gt;fumi23&lt;/tt&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p class="first"&gt;パスフレーズ: &lt;tt class="docutils literal"&gt;fumi23&lt;/tt&gt;&lt;/p&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_8c42e8975e634b6dbe94f21202536c44-1"&gt;&lt;/a&gt;$ ssh-keygen -t rsa -f id_rsa_test1 -C fumi23
-&lt;a name="rest_code_8c42e8975e634b6dbe94f21202536c44-2"&gt;&lt;/a&gt;Generating public/private rsa key pair.
-&lt;a name="rest_code_8c42e8975e634b6dbe94f21202536c44-3"&gt;&lt;/a&gt;Enter passphrase &lt;span class="o"&gt;(&lt;/span&gt;empty &lt;span class="k"&gt;for&lt;/span&gt; no passphrase&lt;span class="o"&gt;)&lt;/span&gt;: &lt;span class="o"&gt;(&lt;/span&gt;ここで &lt;span class="sb"&gt;``&lt;/span&gt;fumi23&lt;span class="sb"&gt;``&lt;/span&gt; と入力した&lt;span class="o"&gt;)&lt;/span&gt;
-&lt;a name="rest_code_8c42e8975e634b6dbe94f21202536c44-4"&gt;&lt;/a&gt;Enter same passphrase again:  &lt;span class="o"&gt;(&lt;/span&gt;ここで &lt;span class="sb"&gt;``&lt;/span&gt;fumi23&lt;span class="sb"&gt;``&lt;/span&gt; と入力した&lt;span class="o"&gt;)&lt;/span&gt;
-&lt;a name="rest_code_8c42e8975e634b6dbe94f21202536c44-5"&gt;&lt;/a&gt;Your identification has been saved in id_rsa_test1.
-&lt;a name="rest_code_8c42e8975e634b6dbe94f21202536c44-6"&gt;&lt;/a&gt;Your public key has been saved in id_rsa_test1.pub.
-&lt;a name="rest_code_8c42e8975e634b6dbe94f21202536c44-7"&gt;&lt;/a&gt;The key fingerprint is:
-&lt;a name="rest_code_8c42e8975e634b6dbe94f21202536c44-8"&gt;&lt;/a&gt;SHA256:1WfZC2LtB0bkllFW1bTmSpleRbR+QSnARuYFvT7kLC0 fumi23
-&lt;a name="rest_code_8c42e8975e634b6dbe94f21202536c44-9"&gt;&lt;/a&gt;The key&lt;span class="err"&gt;'&lt;/span&gt;s randomart image is:
-&lt;a name="rest_code_8c42e8975e634b6dbe94f21202536c44-10"&gt;&lt;/a&gt;+---&lt;span class="o"&gt;[&lt;/span&gt;RSA &lt;span class="m"&gt;2048&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;----+
-&lt;a name="rest_code_8c42e8975e634b6dbe94f21202536c44-11"&gt;&lt;/a&gt;&lt;span class="p"&gt;|&lt;/span&gt;          &lt;span class="nv"&gt;o&lt;/span&gt;&lt;span class="o"&gt;===&lt;/span&gt;.*@&lt;span class="p"&gt;|&lt;/span&gt;
-&lt;a name="rest_code_8c42e8975e634b6dbe94f21202536c44-12"&gt;&lt;/a&gt;&lt;span class="p"&gt;|&lt;/span&gt;          &lt;span class="nv"&gt;o&lt;/span&gt;&lt;span class="o"&gt;+=&lt;/span&gt;&lt;span class="nv"&gt;o&lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;+&lt;span class="p"&gt;|&lt;/span&gt;
-&lt;a name="rest_code_8c42e8975e634b6dbe94f21202536c44-13"&gt;&lt;/a&gt;&lt;span class="p"&gt;|&lt;/span&gt;          o+.O*&lt;span class="o"&gt;=&lt;/span&gt;o&lt;span class="p"&gt;|&lt;/span&gt;
-&lt;a name="rest_code_8c42e8975e634b6dbe94f21202536c44-14"&gt;&lt;/a&gt;&lt;span class="p"&gt;|&lt;/span&gt;         .. &lt;span class="o"&gt;==&lt;/span&gt;O +&lt;span class="p"&gt;|&lt;/span&gt;
-&lt;a name="rest_code_8c42e8975e634b6dbe94f21202536c44-15"&gt;&lt;/a&gt;&lt;span class="p"&gt;|&lt;/span&gt;        S   *&lt;span class="o"&gt;=&lt;/span&gt; *.&lt;span class="p"&gt;|&lt;/span&gt;
-&lt;a name="rest_code_8c42e8975e634b6dbe94f21202536c44-16"&gt;&lt;/a&gt;&lt;span class="p"&gt;|&lt;/span&gt;           Eo*+ .&lt;span class="p"&gt;|&lt;/span&gt;
-&lt;a name="rest_code_8c42e8975e634b6dbe94f21202536c44-17"&gt;&lt;/a&gt;&lt;span class="p"&gt;|&lt;/span&gt;            oo.  &lt;span class="p"&gt;|&lt;/span&gt;
-&lt;a name="rest_code_8c42e8975e634b6dbe94f21202536c44-18"&gt;&lt;/a&gt;&lt;span class="p"&gt;|&lt;/span&gt;                 &lt;span class="p"&gt;|&lt;/span&gt;
-&lt;a name="rest_code_8c42e8975e634b6dbe94f21202536c44-19"&gt;&lt;/a&gt;&lt;span class="p"&gt;|&lt;/span&gt;                 &lt;span class="p"&gt;|&lt;/span&gt;
-&lt;a name="rest_code_8c42e8975e634b6dbe94f21202536c44-20"&gt;&lt;/a&gt;+----&lt;span class="o"&gt;[&lt;/span&gt;SHA256&lt;span class="o"&gt;]&lt;/span&gt;-----+
+&lt;li&gt;&lt;p&gt;ファイル名: &lt;code class="docutils literal"&gt;id_rsa_test1&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;コメント: &lt;code class="docutils literal"&gt;fumi23&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;パスフレーズ: &lt;code class="docutils literal"&gt;fumi23&lt;/code&gt;&lt;/p&gt;
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_1da1795c32ff4c3192fd1c0b3ad7631f-1"&gt;&lt;/a&gt;$ ssh-keygen -t rsa -f id_rsa_test1 -C fumi23
+&lt;a name="rest_code_1da1795c32ff4c3192fd1c0b3ad7631f-2"&gt;&lt;/a&gt;Generating public/private rsa key pair.
+&lt;a name="rest_code_1da1795c32ff4c3192fd1c0b3ad7631f-3"&gt;&lt;/a&gt;Enter passphrase &lt;span class="o"&gt;(&lt;/span&gt;empty &lt;span class="k"&gt;for&lt;/span&gt; no passphrase&lt;span class="o"&gt;)&lt;/span&gt;: &lt;span class="o"&gt;(&lt;/span&gt;ここで &lt;span class="sb"&gt;``&lt;/span&gt;fumi23&lt;span class="sb"&gt;``&lt;/span&gt; と入力した&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_1da1795c32ff4c3192fd1c0b3ad7631f-4"&gt;&lt;/a&gt;Enter same passphrase again:  &lt;span class="o"&gt;(&lt;/span&gt;ここで &lt;span class="sb"&gt;``&lt;/span&gt;fumi23&lt;span class="sb"&gt;``&lt;/span&gt; と入力した&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_1da1795c32ff4c3192fd1c0b3ad7631f-5"&gt;&lt;/a&gt;Your identification has been saved in id_rsa_test1.
+&lt;a name="rest_code_1da1795c32ff4c3192fd1c0b3ad7631f-6"&gt;&lt;/a&gt;Your public key has been saved in id_rsa_test1.pub.
+&lt;a name="rest_code_1da1795c32ff4c3192fd1c0b3ad7631f-7"&gt;&lt;/a&gt;The key fingerprint is:
+&lt;a name="rest_code_1da1795c32ff4c3192fd1c0b3ad7631f-8"&gt;&lt;/a&gt;SHA256:1WfZC2LtB0bkllFW1bTmSpleRbR+QSnARuYFvT7kLC0 fumi23
+&lt;a name="rest_code_1da1795c32ff4c3192fd1c0b3ad7631f-9"&gt;&lt;/a&gt;The key&lt;span class="err"&gt;'&lt;/span&gt;s randomart image is:
+&lt;a name="rest_code_1da1795c32ff4c3192fd1c0b3ad7631f-10"&gt;&lt;/a&gt;+---&lt;span class="o"&gt;[&lt;/span&gt;RSA &lt;span class="m"&gt;2048&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;----+
+&lt;a name="rest_code_1da1795c32ff4c3192fd1c0b3ad7631f-11"&gt;&lt;/a&gt;&lt;span class="p"&gt;|&lt;/span&gt;          &lt;span class="nv"&gt;o&lt;/span&gt;&lt;span class="o"&gt;===&lt;/span&gt;.*@&lt;span class="p"&gt;|&lt;/span&gt;
+&lt;a name="rest_code_1da1795c32ff4c3192fd1c0b3ad7631f-12"&gt;&lt;/a&gt;&lt;span class="p"&gt;|&lt;/span&gt;          &lt;span class="nv"&gt;o&lt;/span&gt;&lt;span class="o"&gt;+=&lt;/span&gt;&lt;span class="nv"&gt;o&lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;+&lt;span class="p"&gt;|&lt;/span&gt;
+&lt;a name="rest_code_1da1795c32ff4c3192fd1c0b3ad7631f-13"&gt;&lt;/a&gt;&lt;span class="p"&gt;|&lt;/span&gt;          o+.O*&lt;span class="o"&gt;=&lt;/span&gt;o&lt;span class="p"&gt;|&lt;/span&gt;
+&lt;a name="rest_code_1da1795c32ff4c3192fd1c0b3ad7631f-14"&gt;&lt;/a&gt;&lt;span class="p"&gt;|&lt;/span&gt;         .. &lt;span class="o"&gt;==&lt;/span&gt;O +&lt;span class="p"&gt;|&lt;/span&gt;
+&lt;a name="rest_code_1da1795c32ff4c3192fd1c0b3ad7631f-15"&gt;&lt;/a&gt;&lt;span class="p"&gt;|&lt;/span&gt;        S   *&lt;span class="o"&gt;=&lt;/span&gt; *.&lt;span class="p"&gt;|&lt;/span&gt;
+&lt;a name="rest_code_1da1795c32ff4c3192fd1c0b3ad7631f-16"&gt;&lt;/a&gt;&lt;span class="p"&gt;|&lt;/span&gt;           Eo*+ .&lt;span class="p"&gt;|&lt;/span&gt;
+&lt;a name="rest_code_1da1795c32ff4c3192fd1c0b3ad7631f-17"&gt;&lt;/a&gt;&lt;span class="p"&gt;|&lt;/span&gt;            oo.  &lt;span class="p"&gt;|&lt;/span&gt;
+&lt;a name="rest_code_1da1795c32ff4c3192fd1c0b3ad7631f-18"&gt;&lt;/a&gt;&lt;span class="p"&gt;|&lt;/span&gt;                 &lt;span class="p"&gt;|&lt;/span&gt;
+&lt;a name="rest_code_1da1795c32ff4c3192fd1c0b3ad7631f-19"&gt;&lt;/a&gt;&lt;span class="p"&gt;|&lt;/span&gt;                 &lt;span class="p"&gt;|&lt;/span&gt;
+&lt;a name="rest_code_1da1795c32ff4c3192fd1c0b3ad7631f-20"&gt;&lt;/a&gt;+----&lt;span class="o"&gt;[&lt;/span&gt;SHA256&lt;span class="o"&gt;]&lt;/span&gt;-----+
 &lt;/pre&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/blockquote&gt;
 &lt;ol class="arabic" start="2"&gt;
-&lt;li&gt;&lt;p class="first"&gt;できあがった。&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;できあがった。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;カレントディレクトリに、秘密鍵ファイルと公開鍵ファイルが作成できた。&lt;/p&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_7d339d1444764ac2928d3b39e9463bf0-1"&gt;&lt;/a&gt;$ ls -la
-&lt;a name="rest_code_7d339d1444764ac2928d3b39e9463bf0-2"&gt;&lt;/a&gt;-rw-------   &lt;span class="m"&gt;1&lt;/span&gt; fumi23  staff   &lt;span class="m"&gt;1766&lt;/span&gt;  &lt;span class="m"&gt;8&lt;/span&gt;  &lt;span class="m"&gt;5&lt;/span&gt; &lt;span class="m"&gt;16&lt;/span&gt;:40 id_rsa_test1
-&lt;a name="rest_code_7d339d1444764ac2928d3b39e9463bf0-3"&gt;&lt;/a&gt;-rw-r--r--   &lt;span class="m"&gt;1&lt;/span&gt; fumi23  staff    &lt;span class="m"&gt;388&lt;/span&gt;  &lt;span class="m"&gt;8&lt;/span&gt;  &lt;span class="m"&gt;5&lt;/span&gt; &lt;span class="m"&gt;16&lt;/span&gt;:40 id_rsa_test1.pub
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_7c8e7cb5cd3545c8bb654f97f37b0c3d-1"&gt;&lt;/a&gt;$ ls -la
+&lt;a name="rest_code_7c8e7cb5cd3545c8bb654f97f37b0c3d-2"&gt;&lt;/a&gt;-rw-------   &lt;span class="m"&gt;1&lt;/span&gt; fumi23  staff   &lt;span class="m"&gt;1766&lt;/span&gt;  &lt;span class="m"&gt;8&lt;/span&gt;  &lt;span class="m"&gt;5&lt;/span&gt; &lt;span class="m"&gt;16&lt;/span&gt;:40 id_rsa_test1
+&lt;a name="rest_code_7c8e7cb5cd3545c8bb654f97f37b0c3d-3"&gt;&lt;/a&gt;-rw-r--r--   &lt;span class="m"&gt;1&lt;/span&gt; fumi23  staff    &lt;span class="m"&gt;388&lt;/span&gt;  &lt;span class="m"&gt;8&lt;/span&gt;  &lt;span class="m"&gt;5&lt;/span&gt; &lt;span class="m"&gt;16&lt;/span&gt;:40 id_rsa_test1.pub
 &lt;/pre&gt;&lt;/blockquote&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p class="first"&gt;公開鍵の中身を見てみる。&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;公開鍵の中身を見てみる。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;末尾にコメントとして指定した文字列が付与されている。&lt;/p&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_954bf9a094c6435eb98c453d00874f9c-1"&gt;&lt;/a&gt;$ cat id_rsa_test1.pub
-&lt;a name="rest_code_954bf9a094c6435eb98c453d00874f9c-2"&gt;&lt;/a&gt;ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDfq5BPUHIRnrxBX1b3sp8OFTzFh3k9e1VZ3OXlRQRAKPTJlwdMR0apIatgq4KocFTTc4EKBksOVxOJShG1iVcUNFkhQ0kxpHTMyPHMyQdgpWAqaF5REOKMCI111xWgEC166zLUwZ1SdOHi/p2+5oDFhElsyjprro66o+uVluCD1VmfWORYYZlrMyUTtbdzHOO8xyT4k+yVMnuDJSLgfSGkCA/gXUi9vCqJf0p5iRt1owf520DSLLnkE5Cu9QxIdGDEBbS8lq53oJm5DyOcSXn+V2vKBv6pfjh+TJJNZ6PClrRI7Zk/aZFAkB/9XgqErbhU6mkHWWO9vmRavJh8Wspd fumi23
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_2c0e3a80743e476ba178ab4be82a2d35-1"&gt;&lt;/a&gt;$ cat id_rsa_test1.pub
+&lt;a name="rest_code_2c0e3a80743e476ba178ab4be82a2d35-2"&gt;&lt;/a&gt;ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDfq5BPUHIRnrxBX1b3sp8OFTzFh3k9e1VZ3OXlRQRAKPTJlwdMR0apIatgq4KocFTTc4EKBksOVxOJShG1iVcUNFkhQ0kxpHTMyPHMyQdgpWAqaF5REOKMCI111xWgEC166zLUwZ1SdOHi/p2+5oDFhElsyjprro66o+uVluCD1VmfWORYYZlrMyUTtbdzHOO8xyT4k+yVMnuDJSLgfSGkCA/gXUi9vCqJf0p5iRt1owf520DSLLnkE5Cu9QxIdGDEBbS8lq53oJm5DyOcSXn+V2vKBv6pfjh+TJJNZ6PClrRI7Zk/aZFAkB/9XgqErbhU6mkHWWO9vmRavJh8Wspd fumi23
 &lt;/pre&gt;&lt;/blockquote&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p class="first"&gt;秘密鍵から公開鍵を取り出してみる。&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;秘密鍵から公開鍵を取り出してみる。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;パスフレーズを聞かれる。 3 と同じ公開鍵が取り出せた。&lt;/p&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_4b1a6321cb794287afebe068e415cae2-1"&gt;&lt;/a&gt;$ ssh-keygen -y -f id_rsa_test1
-&lt;a name="rest_code_4b1a6321cb794287afebe068e415cae2-2"&gt;&lt;/a&gt;Enter passphrase: &lt;span class="o"&gt;(&lt;/span&gt;ここで &lt;span class="sb"&gt;``&lt;/span&gt;fumi23&lt;span class="sb"&gt;``&lt;/span&gt; と入力した&lt;span class="o"&gt;)&lt;/span&gt;
-&lt;a name="rest_code_4b1a6321cb794287afebe068e415cae2-3"&gt;&lt;/a&gt;ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDfq5BPUHIRnrxBX1b3sp8OFTzFh3k9e1VZ3OXlRQRAKPTJlwdMR0apIatgq4KocFTTc4EKBksOVxOJShG1iVcUNFkhQ0kxpHTMyPHMyQdgpWAqaF5REOKMCI111xWgEC166zLUwZ1SdOHi/p2+5oDFhElsyjprro66o+uVluCD1VmfWORYYZlrMyUTtbdzHOO8xyT4k+yVMnuDJSLgfSGkCA/gXUi9vCqJf0p5iRt1owf520DSLLnkE5Cu9QxIdGDEBbS8lq53oJm5DyOcSXn+V2vKBv6pfjh+TJJNZ6PClrRI7Zk/aZFAkB/9XgqErbhU6mkHWWO9vmRavJh8Wspd
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_cdbaee722add41558809e8ad87905fd3-1"&gt;&lt;/a&gt;$ ssh-keygen -y -f id_rsa_test1
+&lt;a name="rest_code_cdbaee722add41558809e8ad87905fd3-2"&gt;&lt;/a&gt;Enter passphrase: &lt;span class="o"&gt;(&lt;/span&gt;ここで &lt;span class="sb"&gt;``&lt;/span&gt;fumi23&lt;span class="sb"&gt;``&lt;/span&gt; と入力した&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_cdbaee722add41558809e8ad87905fd3-3"&gt;&lt;/a&gt;ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDfq5BPUHIRnrxBX1b3sp8OFTzFh3k9e1VZ3OXlRQRAKPTJlwdMR0apIatgq4KocFTTc4EKBksOVxOJShG1iVcUNFkhQ0kxpHTMyPHMyQdgpWAqaF5REOKMCI111xWgEC166zLUwZ1SdOHi/p2+5oDFhElsyjprro66o+uVluCD1VmfWORYYZlrMyUTtbdzHOO8xyT4k+yVMnuDJSLgfSGkCA/gXUi9vCqJf0p5iRt1owf520DSLLnkE5Cu9QxIdGDEBbS8lq53oJm5DyOcSXn+V2vKBv6pfjh+TJJNZ6PClrRI7Zk/aZFAkB/9XgqErbhU6mkHWWO9vmRavJh8Wspd
 &lt;/pre&gt;&lt;/blockquote&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p class="first"&gt;公開鍵のほうは、RSA認証で接続したいサーバーの &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;~/.ssh/authorized_keys&lt;/span&gt;&lt;/tt&gt; に追記する。&lt;/p&gt;
-&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;公開鍵のほうは、RSA認証で接続したいサーバーの &lt;code class="docutils literal"&gt;&lt;span class="pre"&gt;~/.ssh/authorized_keys&lt;/span&gt;&lt;/code&gt; に追記する。&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;div class="section" id="id7"&gt;
 &lt;h4&gt;参考&lt;/h4&gt;
@@ -125,33 +123,33 @@
 &lt;h2&gt;リファレンス&lt;/h2&gt;
 &lt;p&gt;ubuntu のやつ&lt;/p&gt;
 &lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference external" href="http://manpages.ubuntu.com/manpages/bionic/en/man1/ssh.1.html"&gt;ssh&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="http://manpages.ubuntu.com/manpages/bionic/en/man5/ssh_config.5.html"&gt;ssh_config&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="http://manpages.ubuntu.com/manpages/bionic/en/man1/ssh.1.html"&gt;ssh&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="http://manpages.ubuntu.com/manpages/bionic/en/man5/ssh_config.5.html"&gt;ssh_config&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;種類やバージョンが選べるやつ&lt;/p&gt;
 &lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://www.freebsd.org/cgi/man.cgi?query=ssh&amp;amp;apropos=0&amp;amp;sektion=0&amp;amp;manpath=CentOS+6.5&amp;amp;arch=default&amp;amp;format=html"&gt;SSH(1)&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://www.freebsd.org/cgi/man.cgi?query=ssh_config&amp;amp;apropos=0&amp;amp;sektion=0&amp;amp;manpath=CentOS+6.5&amp;amp;arch=default&amp;amp;format=html"&gt;SSH_CONFIG(5)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://www.freebsd.org/cgi/man.cgi?query=ssh&amp;amp;apropos=0&amp;amp;sektion=0&amp;amp;manpath=CentOS+6.5&amp;amp;arch=default&amp;amp;format=html"&gt;SSH(1)&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://www.freebsd.org/cgi/man.cgi?query=ssh_config&amp;amp;apropos=0&amp;amp;sektion=0&amp;amp;manpath=CentOS+6.5&amp;amp;arch=default&amp;amp;format=html"&gt;SSH_CONFIG(5)&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id2"&gt;
 &lt;h2&gt;sshとは&lt;/h2&gt;
 &lt;p&gt;SecureShell&lt;/p&gt;
 &lt;ul class="simple"&gt;
-&lt;li&gt;リモートマシンにログインし、リモートマシン上でコマンドを実行できるプログラム&lt;/li&gt;
-&lt;li&gt;セキュアでないネットワーク上の、信頼できないホスト間で、セキュアな暗号化通信を提供する&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;リモートマシンにログインし、リモートマシン上でコマンドを実行できるプログラム&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;セキュアでないネットワーク上の、信頼できないホスト間で、セキュアな暗号化通信を提供する&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class="section" id="id3"&gt;
 &lt;h3&gt;ssh の使い方&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p class="first"&gt;リモートホストに接続する&lt;/p&gt;
-&lt;pre class="code console"&gt;&lt;a name="rest_code_6311e4df34f64529b49f1f2bcba81fe6-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; ssh &amp;lt;hostname&amp;gt;
+&lt;li&gt;&lt;p&gt;リモートホストに接続する&lt;/p&gt;
+&lt;pre class="code console"&gt;&lt;a name="rest_code_96dc5b936dbe4c9fb1c3a283f5039147-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; ssh &amp;lt;hostname&amp;gt;
 &lt;/pre&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p class="first"&gt;秘密鍵を指定して接続する&lt;/p&gt;
-&lt;pre class="code console"&gt;&lt;a name="rest_code_a8ef1a8a40c949f18ecf050d6de64050-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; ssh -i &amp;lt;identity_file&amp;gt; &amp;lt;user&amp;gt;@&amp;lt;hostname&amp;gt;
+&lt;li&gt;&lt;p&gt;秘密鍵を指定して接続する&lt;/p&gt;
+&lt;pre class="code console"&gt;&lt;a name="rest_code_f4761922c8514fbe858710af0e40bc33-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; ssh -i &amp;lt;identity_file&amp;gt; &amp;lt;user&amp;gt;@&amp;lt;hostname&amp;gt;
 &lt;/pre&gt;&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;-i&lt;/span&gt; &amp;lt;identity_file&amp;gt;&lt;/tt&gt; : 公開鍵認証のためのID（秘密鍵）ファイルを指定する&lt;/li&gt;
-&lt;li&gt;identity files は、 ssh config ファイル内でホストごとに指定することもできる&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code class="docutils literal"&gt;&lt;span class="pre"&gt;-i&lt;/span&gt; &amp;lt;identity_file&amp;gt;&lt;/code&gt; : 公開鍵認証のためのID（秘密鍵）ファイルを指定する&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;identity files は、 ssh config ファイル内でホストごとに指定することもできる&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -159,15 +157,17 @@
 &lt;div class="section" id="id4"&gt;
 &lt;h3&gt;オプションいろいろ&lt;/h3&gt;
 &lt;ul class="simple"&gt;
-&lt;li&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;-v&lt;/span&gt;&lt;/tt&gt; : 詳細を表示する&lt;ul&gt;
-&lt;li&gt;Multiple -v options increase the verbosity.  The maximum is 3.&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code class="docutils literal"&gt;&lt;span class="pre"&gt;-v&lt;/span&gt;&lt;/code&gt; : 詳細を表示する&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Multiple -v options increase the verbosity.  The maximum is 3.&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;-A&lt;/span&gt;&lt;/tt&gt; : ssh-agent 転送を有効にする&lt;ul&gt;
-&lt;li&gt;ssh config ファイル内でホストごとに指定することもできる&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code class="docutils literal"&gt;&lt;span class="pre"&gt;-A&lt;/span&gt;&lt;/code&gt; : ssh-agent 転送を有効にする&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;ssh config ファイル内でホストごとに指定することもできる&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;オプションで指定できるものは (できないものも) だいたい、 ssh config ファイルでも指定できる。&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;オプションで指定できるものは (できないものも) だいたい、 ssh config ファイルでも指定できる。&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -175,11 +175,11 @@
 &lt;h2&gt;ssh トンネル (Port forwardings)&lt;/h2&gt;
 &lt;p&gt;ローカルに対するアクセスをリモートに受け流す。&lt;/p&gt;
 &lt;p&gt;ファイアウォールの中にあって直接接続できない DB1 に、 server1 を介して接続するときに使う。&lt;/p&gt;
-&lt;pre class="code console"&gt;&lt;a name="rest_code_d33162157aca43b3b14597fb405bf8ac-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; ssh -fN &amp;lt;踏み台ホスト&amp;gt; -L &amp;lt;ローカルのポート&amp;gt;:&amp;lt;リモートホスト&amp;gt;:&amp;lt;リモートホストのポート&amp;gt;
+&lt;pre class="code console"&gt;&lt;a name="rest_code_9540a3d8a65d44b0a3f7d15353bc9d14-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; ssh -fN &amp;lt;踏み台ホスト&amp;gt; -L &amp;lt;ローカルのポート&amp;gt;:&amp;lt;リモートホスト&amp;gt;:&amp;lt;リモートホストのポート&amp;gt;
 &lt;/pre&gt;&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;-L&lt;/span&gt; &lt;span class="pre"&gt;[bind_address:]port:host:hostport&lt;/span&gt;&lt;/tt&gt; : ローカルへの通信をリモートにバインドする&lt;/li&gt;
-&lt;li&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;-N&lt;/span&gt;&lt;/tt&gt; : Do not execute a remote command.  This is useful for just forwarding ports.&lt;/li&gt;
-&lt;li&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;-f&lt;/span&gt;&lt;/tt&gt; : バックグラウンドで実行してね&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code class="docutils literal"&gt;&lt;span class="pre"&gt;-L&lt;/span&gt; &lt;span class="pre"&gt;[bind_address:]port:host:hostport&lt;/span&gt;&lt;/code&gt; : ローカルへの通信をリモートにバインドする&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code class="docutils literal"&gt;&lt;span class="pre"&gt;-N&lt;/span&gt;&lt;/code&gt; : Do not execute a remote command.  This is useful for just forwarding ports.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code class="docutils literal"&gt;&lt;span class="pre"&gt;-f&lt;/span&gt;&lt;/code&gt; : バックグラウンドで実行してね&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class="section" id="id5"&gt;
 &lt;h3&gt;参考&lt;/h3&gt;
@@ -189,45 +189,45 @@
 &lt;h2&gt;リファレンス&lt;/h2&gt;
 &lt;p&gt;ubuntu のやつ&lt;/p&gt;
 &lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference external" href="http://manpages.ubuntu.com/manpages/bionic/en/man1/ssh-add.1.html"&gt;ssh-add&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="http://manpages.ubuntu.com/manpages/bionic/en/man1/ssh-agent.1.html"&gt;ssh-agent&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="http://manpages.ubuntu.com/manpages/bionic/en/man1/ssh-add.1.html"&gt;ssh-add&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="http://manpages.ubuntu.com/manpages/bionic/en/man1/ssh-agent.1.html"&gt;ssh-agent&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;種類やバージョンが選べるやつ&lt;/p&gt;
 &lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://www.freebsd.org/cgi/man.cgi?query=ssh-add&amp;amp;apropos=0&amp;amp;sektion=0&amp;amp;manpath=CentOS+6.5&amp;amp;arch=default&amp;amp;format=html"&gt;SSH-ADD(1)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://www.freebsd.org/cgi/man.cgi?query=ssh-add&amp;amp;apropos=0&amp;amp;sektion=0&amp;amp;manpath=CentOS+6.5&amp;amp;arch=default&amp;amp;format=html"&gt;SSH-ADD(1)&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id2"&gt;
 &lt;h2&gt;ssh-agent&lt;/h2&gt;
 &lt;p&gt;公開鍵認証で使われる認証鍵を保持する&lt;/p&gt;
 &lt;ul class="simple"&gt;
-&lt;li&gt;sshで使う認証鍵を複数登録しておける&lt;/li&gt;
-&lt;li&gt;登録するのは秘密鍵&lt;/li&gt;
-&lt;li&gt;公開鍵はSSHAgentには登録できないし、登録する性質のものではない。&lt;/li&gt;
-&lt;li&gt;鍵に対してさらに鍵(パスフレーズ)を掛けることができるが、ssh接続するたびにパスフレーズを聞かれる。 agent に登録しておくと、つど聞かれずに済む。&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;sshで使う認証鍵を複数登録しておける&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;登録するのは秘密鍵&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;公開鍵はSSHAgentには登録できないし、登録する性質のものではない。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;鍵に対してさらに鍵(パスフレーズ)を掛けることができるが、ssh接続するたびにパスフレーズを聞かれる。 agent に登録しておくと、つど聞かれずに済む。&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class="section" id="id3"&gt;
 &lt;h3&gt;ssh-add の使い方&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p class="first"&gt;ssh-agent に秘密鍵を登録する&lt;/p&gt;
-&lt;pre class="code console"&gt;&lt;a name="rest_code_e86bc39d15614eafa75bef7dc1ec6c3a-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; ssh-add ~/.ssh/id_rsa
-&lt;a name="rest_code_e86bc39d15614eafa75bef7dc1ec6c3a-2"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; ssh-add &amp;lt;秘密鍵のパス&amp;gt;
+&lt;li&gt;&lt;p&gt;ssh-agent に秘密鍵を登録する&lt;/p&gt;
+&lt;pre class="code console"&gt;&lt;a name="rest_code_d7d4f3cd6ade498daa8a7459c8cd1b01-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; ssh-add ~/.ssh/id_rsa
+&lt;a name="rest_code_d7d4f3cd6ade498daa8a7459c8cd1b01-2"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; ssh-add &amp;lt;秘密鍵のパス&amp;gt;
 &lt;/pre&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p class="first"&gt;ssh-agent に登録されている鍵を一覧表示する&lt;/p&gt;
-&lt;pre class="code console"&gt;&lt;a name="rest_code_a0497efd730f4cc2ab62000dd1b66180-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; ssh-add -l
+&lt;li&gt;&lt;p&gt;ssh-agent に登録されている鍵を一覧表示する&lt;/p&gt;
+&lt;pre class="code console"&gt;&lt;a name="rest_code_f66a0db2cdb74fe7b4b229d211856611-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; ssh-add -l
 &lt;/pre&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p class="first"&gt;ssh-agent に登録されている鍵をすべて削除する&lt;/p&gt;
-&lt;pre class="code console"&gt;&lt;a name="rest_code_43a32b8f1b0a40f5beb7f157c5bc7bed-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; ssh-add -D
+&lt;li&gt;&lt;p&gt;ssh-agent に登録されている鍵をすべて削除する&lt;/p&gt;
+&lt;pre class="code console"&gt;&lt;a name="rest_code_cb378f80cb4e41e0bf12e0fd58522903-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; ssh-add -D
 &lt;/pre&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p class="first"&gt;ssh-agent 登録されている鍵から、指定した鍵を削除する&lt;/p&gt;
-&lt;pre class="code console"&gt;&lt;a name="rest_code_66b566ade4234d8488e2b5f4266bd393-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; ssh-add -d &amp;lt;削除したい秘密鍵のパス&amp;gt;
+&lt;li&gt;&lt;p&gt;ssh-agent 登録されている鍵から、指定した鍵を削除する&lt;/p&gt;
+&lt;pre class="code console"&gt;&lt;a name="rest_code_0368ec5c391247ed85ba8bcb6a1b5fa7-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; ssh-add -d &amp;lt;削除したい秘密鍵のパス&amp;gt;
 &lt;/pre&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p class="first"&gt;ssh-agent のキーチェーンに秘密鍵を登録する&lt;/p&gt;
-&lt;pre class="code console"&gt;&lt;a name="rest_code_f599f67fb15641858ff7957327e35298-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; ssh-add -K &amp;lt;秘密鍵のパス&amp;gt;
+&lt;li&gt;&lt;p&gt;ssh-agent のキーチェーンに秘密鍵を登録する&lt;/p&gt;
+&lt;pre class="code console"&gt;&lt;a name="rest_code_3b478ddf32d84828a1483e106b1eff21-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; ssh-add -K &amp;lt;秘密鍵のパス&amp;gt;
 &lt;/pre&gt;&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;-K&lt;/span&gt;&lt;/tt&gt; をつけると電源を落としても消えない。&lt;/li&gt;
-&lt;li&gt;利便性は上がるが、セキュリティ度は下がる。&lt;/li&gt;
-&lt;li&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;-K&lt;/span&gt;&lt;/tt&gt; をつけないと、電源を落としたら消えるので、セキュリティ的に良い。&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code class="docutils literal"&gt;&lt;span class="pre"&gt;-K&lt;/span&gt;&lt;/code&gt; をつけると電源を落としても消えない。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;利便性は上がるが、セキュリティ度は下がる。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code class="docutils literal"&gt;&lt;span class="pre"&gt;-K&lt;/span&gt;&lt;/code&gt; をつけないと、電源を落としたら消えるので、セキュリティ的に良い。&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;

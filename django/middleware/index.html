@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Vollkorn:400,700">
 <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/sawarabimincho.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-<link rel="stylesheet" href="../../assets/css/style.css?20190615">
+<link rel="stylesheet" href="../../assets/css/style.css?20191110">
 </head>
 <body>
     <div class="container">
@@ -34,43 +34,46 @@
 <details><summary>目次</summary><div class="contents topic" id="id1">
 <p class="topic-title first">目次</p>
 <ul class="simple">
-<li><a class="reference internal" href="#id2" id="id8">書籍/リファレンス</a></li>
-<li><a class="reference internal" href="#id3" id="id9">概要</a></li>
+<li><p><a class="reference internal" href="#id2" id="id8">書籍/リファレンス</a></p></li>
+<li><p><a class="reference internal" href="#id3" id="id9">概要</a></p></li>
 <li>
-<a class="reference internal" href="#id4" id="id10">主なミドルウェア</a><ul>
-<li><a class="reference internal" href="#securitymiddleware" id="id11">SecurityMiddleware</a></li>
-<li><a class="reference internal" href="#sessionmiddleware" id="id12">SessionMiddleware</a></li>
-<li><a class="reference internal" href="#commonmiddleware" id="id13">CommonMiddleware</a></li>
-<li><a class="reference internal" href="#csrfviewmiddleware" id="id14">CsrfViewMiddleware</a></li>
-<li><a class="reference internal" href="#authenticationmiddleware" id="id15">AuthenticationMiddleware</a></li>
-<li><a class="reference internal" href="#messagemiddleware" id="id16">MessageMiddleware</a></li>
-<li><a class="reference internal" href="#xframeoptionsmiddleware" id="id17">XFrameOptionsMiddleware</a></li>
+<p><a class="reference internal" href="#id4" id="id10">主なミドルウェア</a></p>
+<ul>
+<li><p><a class="reference internal" href="#securitymiddleware" id="id11">SecurityMiddleware</a></p></li>
+<li><p><a class="reference internal" href="#sessionmiddleware" id="id12">SessionMiddleware</a></p></li>
+<li><p><a class="reference internal" href="#commonmiddleware" id="id13">CommonMiddleware</a></p></li>
+<li><p><a class="reference internal" href="#csrfviewmiddleware" id="id14">CsrfViewMiddleware</a></p></li>
+<li><p><a class="reference internal" href="#authenticationmiddleware" id="id15">AuthenticationMiddleware</a></p></li>
+<li><p><a class="reference internal" href="#messagemiddleware" id="id16">MessageMiddleware</a></p></li>
+<li><p><a class="reference internal" href="#xframeoptionsmiddleware" id="id17">XFrameOptionsMiddleware</a></p></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id6" id="id18">ミドルウェアの書き方</a></li>
+<li><p><a class="reference internal" href="#id6" id="id18">ミドルウェアの書き方</a></p></li>
 </ul>
 </div>
 </details><div class="section" id="id2">
 <h2><a class="toc-backref" href="#id8">書籍/リファレンス</a></h2>
 <ul class="simple">
-<li><a class="reference external" href="https://docs.djangoproject.com/ja/2.2/topics/http/middleware/">https://docs.djangoproject.com/ja/2.2/topics/http/middleware/</a></li>
-<li><a class="reference external" href="https://booth.pm/ja/items/1059917">現場で使える Django の教科書</a></li>
+<li><p><a class="reference external" href="https://docs.djangoproject.com/ja/2.2/topics/http/middleware/">https://docs.djangoproject.com/ja/2.2/topics/http/middleware/</a></p></li>
+<li><p><a class="reference external" href="https://booth.pm/ja/items/1059917">現場で使える Django の教科書</a></p></li>
 </ul>
 </div>
 <div class="section" id="id3">
 <h2><a class="toc-backref" href="#id9">概要</a></h2>
 <ul class="simple">
-<li>Django の主要な機能 (モデル・テンプレート・ビュー) と Web サーバー/アプリケーションの中間に位置</li>
-<li>ビューを出入りするすべてのリクエストとレスポンスをフックできる</li>
-<li>さまざまなミドルウェアが組み込みで用意されている</li>
-<li>自作して追加することも可能</li>
-<li>必要なものを settings に加えると利用できる</li>
-<li>サイト全体にリクエストやレスポンスを使用して一律に何らかの機能を加えたい場合などに利用する</li>
-<li>settings の <tt class="docutils literal">MIDDLEWARE</tt> にリスト形式で列挙</li>
-<li>書いた順番に実行される。順番大事。</li>
-<li>書いたミドルウェアはリクエストの度に全部実行されるので、あまり重い処理は書かないようにすること。<ul>
-<li>できるかぎりデータベースアクセスしない</li>
-<li>必要なら <tt class="docutils literal">django.utils.functional.SimpleLazyObject</tt> を使うようにする</li>
+<li><p>Django の主要な機能 (モデル・テンプレート・ビュー) と Web サーバー/アプリケーションの中間に位置</p></li>
+<li><p>ビューを出入りするすべてのリクエストとレスポンスをフックできる</p></li>
+<li><p>さまざまなミドルウェアが組み込みで用意されている</p></li>
+<li><p>自作して追加することも可能</p></li>
+<li><p>必要なものを settings に加えると利用できる</p></li>
+<li><p>サイト全体にリクエストやレスポンスを使用して一律に何らかの機能を加えたい場合などに利用する</p></li>
+<li><p>settings の <code class="docutils literal">MIDDLEWARE</code> にリスト形式で列挙</p></li>
+<li><p>書いた順番に実行される。順番大事。</p></li>
+<li>
+<p>書いたミドルウェアはリクエストの度に全部実行されるので、あまり重い処理は書かないようにすること。</p>
+<ul>
+<li><p>できるかぎりデータベースアクセスしない</p></li>
+<li><p>必要なら <code class="docutils literal">django.utils.functional.SimpleLazyObject</code> を使うようにする</p></li>
 </ul>
 </li>
 </ul>
@@ -78,76 +81,69 @@
 <div class="section" id="id4">
 <h2><a class="toc-backref" href="#id10">主なミドルウェア</a></h2>
 <ul class="simple">
-<li>以下は、 Django プロジェクト作成時にデフォルトで設定される</li>
-<li>デフォルトで設定されるミドルウェアはとりあえずそのまま使うのが吉とのこと</li>
+<li><p>以下は、 Django プロジェクト作成時にデフォルトで設定される</p></li>
+<li><p>デフォルトで設定されるミドルウェアはとりあえずそのまま使うのが吉とのこと</p></li>
 </ul>
 <div class="section" id="securitymiddleware">
 <h3><a class="toc-backref" href="#id11">SecurityMiddleware</a></h3>
 <ul>
+<li><p>リクエスト/レスポンスのセキュリティ強化</p></li>
 <li>
-<p class="first">リクエスト/レスポンスのセキュリティ強化</p>
-</li>
-<li>
-<p class="first">HTTP =&gt; HTTPS リダイレクト (デフォルトはOFF)</p>
-<pre class="code Python"><a name="rest_code_9d0193c1b7cc4d34ae4fe9e932497aad-1"></a><span class="n">SECURE_SSL_REDIRECT</span> <span class="o">=</span> <span class="bp">True</span>
+<p>HTTP =&gt; HTTPS リダイレクト (デフォルトはOFF)</p>
+<pre class="code Python"><a name="rest_code_1a2ef5bebaa3437cad3741de60a5e727-1"></a><span class="n">SECURE_SSL_REDIRECT</span> <span class="o">=</span> <span class="bp">True</span>
 </pre>
 </li>
-<li>
-<p class="first">入れておいて損はないので何も考えずに入れておくとよい</p>
-</li>
+<li><p>入れておいて損はないので何も考えずに入れておくとよい</p></li>
 </ul>
 </div>
 <div class="section" id="sessionmiddleware">
 <h3><a class="toc-backref" href="#id12">SessionMiddleware</a></h3>
 <ul class="simple">
-<li>セッションを有効にする</li>
-<li>有効にする場合は、 <tt class="docutils literal">INSTALLED_APPS</tt> に <tt class="docutils literal">django.contrib.sessions</tt> を入れるのを忘れずに</li>
-<li>使い方はここを見よ: <a class="reference external" href="https://docs.djangoproject.com/ja/2.2/topics/http/sessions/">https://docs.djangoproject.com/ja/2.2/topics/http/sessions/</a>
-</li>
-<li>迷ったら有効化しておく</li>
+<li><p>セッションを有効にする</p></li>
+<li><p>有効にする場合は、 <code class="docutils literal">INSTALLED_APPS</code> に <code class="docutils literal">django.contrib.sessions</code> を入れるのを忘れずに</p></li>
+<li><p>使い方はここを見よ: <a class="reference external" href="https://docs.djangoproject.com/ja/2.2/topics/http/sessions/">https://docs.djangoproject.com/ja/2.2/topics/http/sessions/</a></p></li>
+<li><p>迷ったら有効化しておく</p></li>
 </ul>
 </div>
 <div class="section" id="commonmiddleware">
 <h3><a class="toc-backref" href="#id13">CommonMiddleware</a></h3>
 <ul class="simple">
-<li>ユーザーエージェントによるアクセス制限</li>
-<li>URL リライティング</li>
-<li>公式でも使用を強くお勧め</li>
-<li>必須では</li>
-<li><tt class="docutils literal">APPEND_SLASH</tt></li>
-<li><tt class="docutils literal">PREPEND_WWW</tt></li>
+<li><p>ユーザーエージェントによるアクセス制限</p></li>
+<li><p>URL リライティング</p></li>
+<li><p>公式でも使用を強くお勧め</p></li>
+<li><p>必須では</p></li>
+<li><p><code class="docutils literal">APPEND_SLASH</code></p></li>
+<li><p><code class="docutils literal">PREPEND_WWW</code></p></li>
 </ul>
 </div>
 <div class="section" id="csrfviewmiddleware">
 <h3><a class="toc-backref" href="#id14">CsrfViewMiddleware</a></h3>
 <ul class="simple">
-<li>CSRF トークン検証</li>
+<li><p>CSRF トークン検証</p></li>
 </ul>
 </div>
 <div class="section" id="authenticationmiddleware">
 <h3><a class="toc-backref" href="#id15">AuthenticationMiddleware</a></h3>
 <ul class="simple">
-<li>リクエストの度に、リクエストオブジェクトの <tt class="docutils literal">user</tt> 属性にユーザー情報をセットしてくれる</li>
-<li>ログイン済みの場合: セッション.Userインスタンス</li>
-<li>未ログインの場合: AnonymousUser (匿名ユーザー)</li>
-<li>セッションが必要なので、 SessionMiddleware より後ろに書く</li>
+<li><p>リクエストの度に、リクエストオブジェクトの <code class="docutils literal">user</code> 属性にユーザー情報をセットしてくれる</p></li>
+<li><p>ログイン済みの場合: セッション.Userインスタンス</p></li>
+<li><p>未ログインの場合: AnonymousUser (匿名ユーザー)</p></li>
+<li><p>セッションが必要なので、 SessionMiddleware より後ろに書く</p></li>
 </ul>
 </div>
 <div class="section" id="messagemiddleware">
 <h3><a class="toc-backref" href="#id16">MessageMiddleware</a></h3>
 <ul class="simple">
-<li>フラッシュメッセージ</li>
-<li>メッセージフレームワーク</li>
-<li>
-<a class="reference external" href="https://booth.pm/ja/items/1059917">現場で使える Django の教科書</a> P.103</li>
+<li><p>フラッシュメッセージ</p></li>
+<li><p>メッセージフレームワーク</p></li>
+<li><p><a class="reference external" href="https://booth.pm/ja/items/1059917">現場で使える Django の教科書</a> P.103</p></li>
 </ul>
 </div>
 <div class="section" id="xframeoptionsmiddleware">
 <h3><a class="toc-backref" href="#id17">XFrameOptionsMiddleware</a></h3>
 <ul class="simple">
-<li>クリックジャッキング対策</li>
-<li>
-<tt class="docutils literal"><span class="pre">X-Frame-Options</span></tt> ヘッダーを全てのレスポンスに設定</li>
+<li><p>クリックジャッキング対策</p></li>
+<li><p><code class="docutils literal"><span class="pre">X-Frame-Options</span></code> ヘッダーを全てのレスポンスに設定</p></li>
 </ul>
 </div>
 </div>
@@ -155,9 +151,8 @@
 <h2><a class="toc-backref" href="#id18">ミドルウェアの書き方</a></h2>
 <p>ここを見よ</p>
 <ul class="simple">
-<li><a class="reference external" href="https://docs.djangoproject.com/ja/2.2/topics/http/middleware/#writing-your-own-middleware">https://docs.djangoproject.com/ja/2.2/topics/http/middleware/#writing-your-own-middleware</a></li>
-<li>
-<a class="reference external" href="https://booth.pm/ja/items/1059917">現場で使える Django の教科書</a> P.101</li>
+<li><p><a class="reference external" href="https://docs.djangoproject.com/ja/2.2/topics/http/middleware/#writing-your-own-middleware">https://docs.djangoproject.com/ja/2.2/topics/http/middleware/#writing-your-own-middleware</a></p></li>
+<li><p><a class="reference external" href="https://booth.pm/ja/items/1059917">現場で使える Django の教科書</a> P.101</p></li>
 </ul>
 </div>
 </div>

@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Vollkorn:400,700">
 <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/sawarabimincho.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-<link rel="stylesheet" href="../../assets/css/style.css?20190615">
+<link rel="stylesheet" href="../../assets/css/style.css?20191110">
 </head>
 <body>
     <div class="container">
@@ -34,44 +34,42 @@
 <h2>いろいろ</h2>
 <ul>
 <li>
-<p class="first">git の config ファイル</p>
+<p>git の config ファイル</p>
 <ul class="simple">
-<li>~/.gitconfig</li>
+<li><p>~/.gitconfig</p></li>
 </ul>
 </li>
 <li>
-<p class="first">コミットメッセージのテンプレートを設定できるファイル</p>
+<p>コミットメッセージのテンプレートを設定できるファイル</p>
 <ul class="simple">
-<li>~/.stCommitMsg</li>
+<li><p>~/.stCommitMsg</p></li>
 </ul>
 </li>
 <li>
-<p class="first">グローバル (たぶん Mac のユーザー単位) に gitignore したいものを書けるファイル</p>
+<p>グローバル (たぶん Mac のユーザー単位) に gitignore したいものを書けるファイル</p>
 <ul>
+<li><p>~/.gitignore_global</p></li>
 <li>
-<p class="first">~/.gitignore_global</p>
-</li>
-<li>
-<p class="first">~/.gitconfig に以下を記述</p>
-<pre class="code ini"><a name="rest_code_c150daac70724a03aa59c5c2ef765d55-1"></a><span class="k">[core]</span>
-<a name="rest_code_c150daac70724a03aa59c5c2ef765d55-2"></a>  <span class="na">excludesfile</span> <span class="o">=</span> <span class="s">/path/to/userhome/.gitignore_global</span>
+<p>~/.gitconfig に以下を記述</p>
+<pre class="code ini"><a name="rest_code_557515c55fbf4ebd851168835831df72-1"></a><span class="k">[core]</span>
+<a name="rest_code_557515c55fbf4ebd851168835831df72-2"></a>  <span class="na">excludesfile</span> <span class="o">=</span> <span class="s">/path/to/userhome/.gitignore_global</span>
 </pre>
 </li>
 </ul>
 </li>
 <li>
-<p class="first">エディタに Vim に設定する</p>
-<pre class="code console"><a name="rest_code_0b84543fa70c480f8ce4e2d025469583-1"></a><span class="gp">$</span> git config --global core.editor <span class="s1">'vim -c "set fenc=utf-8"'</span>
+<p>エディタに Vim に設定する</p>
+<pre class="code console"><a name="rest_code_5f6dd28f7d0e4ccdbcbdcbcd8d61f458-1"></a><span class="gp">$</span> git config --global core.editor <span class="s1">'vim -c "set fenc=utf-8"'</span>
 </pre>
 </li>
 <li>
-<p class="first">git status で日本語のファイル名をちゃんと出す</p>
-<pre class="code console"><a name="rest_code_2f3f00769e3648b9a9ae59b58543d44d-1"></a><span class="gp">$</span> git config --global core.quotepath off
+<p>git status で日本語のファイル名をちゃんと出す</p>
+<pre class="code console"><a name="rest_code_a08c3f2e23ed4669ad5366bba2408167-1"></a><span class="gp">$</span> git config --global core.quotepath off
 </pre>
 </li>
 <li>
-<p class="first">現在の設定を確認する</p>
-<pre class="code console"><a name="rest_code_ea41d1c806db4cef8a4ad847dac5b3e7-1"></a><span class="gp">$</span> git config --list
+<p>現在の設定を確認する</p>
+<pre class="code console"><a name="rest_code_59d4644ada0b4919b78003501ac5fce2-1"></a><span class="gp">$</span> git config --list
 </pre>
 </li>
 </ul>

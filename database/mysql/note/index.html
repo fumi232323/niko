@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Vollkorn:400,700">
 <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/sawarabimincho.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-<link rel="stylesheet" href="../../../assets/css/style.css?20190615">
+<link rel="stylesheet" href="../../../assets/css/style.css?20191110">
 </head>
 <body>
     <div class="container">
@@ -21,12 +21,12 @@
 </header></div>
       <div class="main">
 <div class="article-content">
-  <main class="item item-article item-mysql"><time class="date" datetime="2019-04-30 00:00:00+09:00">
+  <main class="item item-article item-database"><time class="date" datetime="2019-04-30 00:00:00+09:00">
       2019-04-30 Tue
     </time><div class="title">MySQL のメモ</div>
     <div class="category">
-      <a href="../../../tags/mysql/">
-          mysql
+      <a href="../../../tags/database/">
+          database
       </a>
     </div>
     <div class="text">
@@ -34,107 +34,114 @@
 <details><summary>目次</summary><div class="contents topic" id="id1">
 <p class="topic-title first">目次</p>
 <ul class="simple">
-<li><a class="reference internal" href="#id2" id="id8">リファレンス</a></li>
-<li><a class="reference internal" href="#id3" id="id9">ログイン</a></li>
-<li><a class="reference internal" href="#id4" id="id10">便利</a></li>
-<li><a class="reference internal" href="#id5" id="id11">データベース</a></li>
-<li><a class="reference internal" href="#id6" id="id12">テーブル</a></li>
-<li><a class="reference internal" href="#dump" id="id13">dump</a></li>
-<li><a class="reference internal" href="#id7" id="id14">おぼえがき</a></li>
+<li><p><a class="reference internal" href="#id2" id="id8">リファレンス</a></p></li>
+<li><p><a class="reference internal" href="#id3" id="id9">ログイン</a></p></li>
+<li><p><a class="reference internal" href="#id4" id="id10">便利</a></p></li>
+<li><p><a class="reference internal" href="#id5" id="id11">データベース</a></p></li>
+<li><p><a class="reference internal" href="#id6" id="id12">テーブル</a></p></li>
+<li><p><a class="reference internal" href="#dump" id="id13">dump</a></p></li>
+<li><p><a class="reference internal" href="#id7" id="id14">おぼえがき</a></p></li>
 </ul>
 </div>
 </details><div class="section" id="id2">
 <h2><a class="toc-backref" href="#id8">リファレンス</a></h2>
 <ul class="simple">
-<li><a class="reference external" href="https://dev.mysql.com/doc/refman/8.0/en/">MySQL 8.0 Reference Manual</a></li>
-<li><a class="reference external" href="https://dev.mysql.com/doc/refman/8.0/en/information-schema.html">Chapter 25 INFORMATION_SCHEMA Tables</a></li>
-<li><a class="reference external" href="https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html">4.5.4 mysqldump</a></li>
-<li><a class="reference external" href="https://dev.mysql.com/doc/refman/8.0/en/window-functions.html">12.21 Window Functions</a></li>
+<li><p><a class="reference external" href="https://dev.mysql.com/doc/refman/8.0/en/">MySQL 8.0 Reference Manual</a></p></li>
+<li><p><a class="reference external" href="https://dev.mysql.com/doc/refman/8.0/en/information-schema.html">Chapter 25 INFORMATION_SCHEMA Tables</a></p></li>
+<li><p><a class="reference external" href="https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html">4.5.4 mysqldump</a></p></li>
+<li><p><a class="reference external" href="https://dev.mysql.com/doc/refman/8.0/en/window-functions.html">12.21 Window Functions</a></p></li>
 </ul>
 </div>
 <div class="section" id="id3">
 <h2><a class="toc-backref" href="#id9">ログイン</a></h2>
-<pre class="code bash"><a name="rest_code_14672c229c124d5f9ea7e9ae595669ec-1"></a><span class="c1"># ログイン</span>
-<a name="rest_code_14672c229c124d5f9ea7e9ae595669ec-2"></a>$ mysql -u user_name -D db_mame -p
+<pre class="code bash"><a name="rest_code_d115dad451b4435bab1ee2add3251ba5-1"></a><span class="c1"># ログイン</span>
+<a name="rest_code_d115dad451b4435bab1ee2add3251ba5-2"></a>$ mysql -u user_name -D db_mame -p
 </pre>
 </div>
 <div class="section" id="id4">
 <h2><a class="toc-backref" href="#id10">便利</a></h2>
-<pre class="code mysql"><a name="rest_code_795cb62a2829412baf135b5b1993a89c-1"></a><span class="c1">-- 拡張表示</span>
-<a name="rest_code_795cb62a2829412baf135b5b1993a89c-2"></a><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">users</span> <span class="k">WHERE</span> <span class="n">login</span> <span class="o">=</span> <span class="s1">'fumi23'</span><span class="err">\</span><span class="n">G</span>
+<pre class="code mysql"><a name="rest_code_776683266d884af98a83180a49175095-1"></a><span class="c1">-- 拡張表示</span>
+<a name="rest_code_776683266d884af98a83180a49175095-2"></a><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">users</span> <span class="k">WHERE</span> <span class="n">login</span> <span class="o">=</span> <span class="s1">'fumi23'</span><span class="err">\</span><span class="n">G</span>
 </pre>
 </div>
 <div class="section" id="id5">
 <h2><a class="toc-backref" href="#id11">データベース</a></h2>
-<pre class="code mysql"><a name="rest_code_14bea556c71148a58165895feb233da5-1"></a><span class="c1">-- データベース一覧</span>
-<a name="rest_code_14bea556c71148a58165895feb233da5-2"></a><span class="k">SHOW</span> <span class="k">DATABASES</span><span class="p">;</span>
-<a name="rest_code_14bea556c71148a58165895feb233da5-3"></a>
-<a name="rest_code_14bea556c71148a58165895feb233da5-4"></a><span class="c1">-- データベースの切り替え</span>
-<a name="rest_code_14bea556c71148a58165895feb233da5-5"></a><span class="k">USE</span> <span class="n">db_mame</span><span class="p">;</span>
+<pre class="code mysql"><a name="rest_code_8ffe7339e20145108690455cae97e47b-1"></a><span class="c1">-- データベース一覧</span>
+<a name="rest_code_8ffe7339e20145108690455cae97e47b-2"></a><span class="k">SHOW</span> <span class="k">DATABASES</span><span class="p">;</span>
+<a name="rest_code_8ffe7339e20145108690455cae97e47b-3"></a>
+<a name="rest_code_8ffe7339e20145108690455cae97e47b-4"></a><span class="c1">-- データベースの切り替え</span>
+<a name="rest_code_8ffe7339e20145108690455cae97e47b-5"></a><span class="k">USE</span> <span class="n">db_mame</span><span class="p">;</span>
 </pre>
-<pre class="code mysql"><a name="rest_code_9ad04dd444fc4a90adb6515b06887e1b-1"></a><span class="c1">-- 現在の Character Sets 設定を表示する</span>
-<a name="rest_code_9ad04dd444fc4a90adb6515b06887e1b-2"></a><span class="k">SHOW</span> <span class="n">VARIABLES</span> <span class="k">LIKE</span> <span class="s2">"char%"</span><span class="p">;</span>
-<a name="rest_code_9ad04dd444fc4a90adb6515b06887e1b-3"></a>
-<a name="rest_code_9ad04dd444fc4a90adb6515b06887e1b-4"></a><span class="c1">-- 現在のタイムゾーン設定を表示する</span>
-<a name="rest_code_9ad04dd444fc4a90adb6515b06887e1b-5"></a><span class="k">SHOW</span> <span class="n">VARIABLES</span> <span class="k">LIKE</span> <span class="s1">'%time_zone%'</span><span class="p">;</span>
-<a name="rest_code_9ad04dd444fc4a90adb6515b06887e1b-6"></a>
-<a name="rest_code_9ad04dd444fc4a90adb6515b06887e1b-7"></a><span class="c1">-- 現在の状態を表示する</span>
-<a name="rest_code_9ad04dd444fc4a90adb6515b06887e1b-8"></a><span class="n">STATUS</span><span class="p">;</span>
+<pre class="code mysql"><a name="rest_code_75386c907ff94df0915b62458b2d1c2b-1"></a><span class="c1">-- 現在の Character Sets 設定を表示する</span>
+<a name="rest_code_75386c907ff94df0915b62458b2d1c2b-2"></a><span class="k">SHOW</span> <span class="n">VARIABLES</span> <span class="k">LIKE</span> <span class="s2">"char%"</span><span class="p">;</span>
+<a name="rest_code_75386c907ff94df0915b62458b2d1c2b-3"></a>
+<a name="rest_code_75386c907ff94df0915b62458b2d1c2b-4"></a><span class="c1">-- 現在のタイムゾーン設定を表示する</span>
+<a name="rest_code_75386c907ff94df0915b62458b2d1c2b-5"></a><span class="k">SHOW</span> <span class="n">VARIABLES</span> <span class="k">LIKE</span> <span class="s1">'%time_zone%'</span><span class="p">;</span>
+<a name="rest_code_75386c907ff94df0915b62458b2d1c2b-6"></a>
+<a name="rest_code_75386c907ff94df0915b62458b2d1c2b-7"></a><span class="c1">-- 現在の状態を表示する</span>
+<a name="rest_code_75386c907ff94df0915b62458b2d1c2b-8"></a><span class="n">STATUS</span><span class="p">;</span>
 </pre>
-<pre class="code mysql"><a name="rest_code_91bc76705cd2486399e3ca6977611ae0-1"></a><span class="c1">-- データサイズを確認する</span>
-<a name="rest_code_91bc76705cd2486399e3ca6977611ae0-2"></a><span class="c1">-- https://dev.mysql.com/doc/refman/8.0/en/tables-table.html</span>
-<a name="rest_code_91bc76705cd2486399e3ca6977611ae0-3"></a><span class="k">SELECT</span>
-<a name="rest_code_91bc76705cd2486399e3ca6977611ae0-4"></a>  <span class="nf">SUM</span><span class="p">(</span><span class="n">data_length</span><span class="p">)</span> <span class="o">/</span> <span class="mi">1024</span> <span class="o">/</span> <span class="mi">1024</span> <span class="o">/</span> <span class="mi">1024</span> <span class="k">AS</span> <span class="n">db_size_gb</span><span class="p">,</span>
-<a name="rest_code_91bc76705cd2486399e3ca6977611ae0-5"></a>  <span class="nf">SUM</span><span class="p">(</span><span class="n">data_length</span><span class="p">)</span> <span class="o">/</span> <span class="mi">1024</span> <span class="o">/</span> <span class="mi">1024</span> <span class="k">AS</span> <span class="n">db_size_mb</span><span class="p">,</span>
-<a name="rest_code_91bc76705cd2486399e3ca6977611ae0-6"></a>  <span class="nf">SUM</span><span class="p">(</span><span class="n">data_length</span><span class="p">)</span> <span class="o">/</span> <span class="mi">1024</span> <span class="k">AS</span> <span class="n">db_size_kb</span>
-<a name="rest_code_91bc76705cd2486399e3ca6977611ae0-7"></a><span class="k">FROM</span>
-<a name="rest_code_91bc76705cd2486399e3ca6977611ae0-8"></a>  <span class="n">information_schema</span><span class="p">.</span><span class="kp">tables</span>
-<a name="rest_code_91bc76705cd2486399e3ca6977611ae0-9"></a><span class="k">WHERE</span>
-<a name="rest_code_91bc76705cd2486399e3ca6977611ae0-10"></a>  <span class="n">table_schema</span> <span class="o">=</span> <span class="s1">'mmm'</span>
-<a name="rest_code_91bc76705cd2486399e3ca6977611ae0-11"></a><span class="p">;</span>
+<pre class="code mysql"><a name="rest_code_35f79c76905741b4b131a23e0cb127e0-1"></a><span class="c1">-- データサイズを確認する</span>
+<a name="rest_code_35f79c76905741b4b131a23e0cb127e0-2"></a><span class="c1">-- https://dev.mysql.com/doc/refman/8.0/en/tables-table.html</span>
+<a name="rest_code_35f79c76905741b4b131a23e0cb127e0-3"></a><span class="k">SELECT</span>
+<a name="rest_code_35f79c76905741b4b131a23e0cb127e0-4"></a>  <span class="nf">SUM</span><span class="p">(</span><span class="n">data_length</span><span class="p">)</span> <span class="o">/</span> <span class="mi">1024</span> <span class="o">/</span> <span class="mi">1024</span> <span class="o">/</span> <span class="mi">1024</span> <span class="k">AS</span> <span class="n">db_size_gb</span><span class="p">,</span>
+<a name="rest_code_35f79c76905741b4b131a23e0cb127e0-5"></a>  <span class="nf">SUM</span><span class="p">(</span><span class="n">data_length</span><span class="p">)</span> <span class="o">/</span> <span class="mi">1024</span> <span class="o">/</span> <span class="mi">1024</span> <span class="k">AS</span> <span class="n">db_size_mb</span><span class="p">,</span>
+<a name="rest_code_35f79c76905741b4b131a23e0cb127e0-6"></a>  <span class="nf">SUM</span><span class="p">(</span><span class="n">data_length</span><span class="p">)</span> <span class="o">/</span> <span class="mi">1024</span> <span class="k">AS</span> <span class="n">db_size_kb</span>
+<a name="rest_code_35f79c76905741b4b131a23e0cb127e0-7"></a><span class="k">FROM</span>
+<a name="rest_code_35f79c76905741b4b131a23e0cb127e0-8"></a>  <span class="n">information_schema</span><span class="p">.</span><span class="kp">tables</span>
+<a name="rest_code_35f79c76905741b4b131a23e0cb127e0-9"></a><span class="k">WHERE</span>
+<a name="rest_code_35f79c76905741b4b131a23e0cb127e0-10"></a>  <span class="n">table_schema</span> <span class="o">=</span> <span class="s1">'mmm'</span>
+<a name="rest_code_35f79c76905741b4b131a23e0cb127e0-11"></a><span class="p">;</span>
 </pre>
 </div>
 <div class="section" id="id6">
 <h2><a class="toc-backref" href="#id12">テーブル</a></h2>
-<pre class="code mysql"><a name="rest_code_d32a889a5154441aaa0c5a2a8be1ae58-1"></a><span class="c1">-- テーブル一覧</span>
-<a name="rest_code_d32a889a5154441aaa0c5a2a8be1ae58-2"></a><span class="k">SHOW</span> <span class="kp">tables</span><span class="p">;</span>
-<a name="rest_code_d32a889a5154441aaa0c5a2a8be1ae58-3"></a>
-<a name="rest_code_d32a889a5154441aaa0c5a2a8be1ae58-4"></a><span class="c1">-- テーブルの列一覧</span>
-<a name="rest_code_d32a889a5154441aaa0c5a2a8be1ae58-5"></a><span class="k">SHOW</span> <span class="n">COLUMNS</span> <span class="k">FROM</span> <span class="n">table_name</span><span class="p">;</span>
-<a name="rest_code_d32a889a5154441aaa0c5a2a8be1ae58-6"></a>
-<a name="rest_code_d32a889a5154441aaa0c5a2a8be1ae58-7"></a><span class="c1">-- テーブル定義を確認する</span>
-<a name="rest_code_d32a889a5154441aaa0c5a2a8be1ae58-8"></a><span class="k">DESC</span> <span class="n">table_name</span><span class="p">;</span>
-<a name="rest_code_d32a889a5154441aaa0c5a2a8be1ae58-9"></a><span class="k">SHOW</span> <span class="n">FULL</span> <span class="n">COLUMNS</span> <span class="k">FROM</span> <span class="n">table_name</span><span class="p">;</span>
-<a name="rest_code_d32a889a5154441aaa0c5a2a8be1ae58-10"></a><span class="k">SHOW</span> <span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">table_name</span><span class="p">;</span>
+<pre class="code mysql"><a name="rest_code_ec2a7c90e00744bc8cfad0d0bcd4c0f9-1"></a><span class="c1">-- テーブル一覧</span>
+<a name="rest_code_ec2a7c90e00744bc8cfad0d0bcd4c0f9-2"></a><span class="k">SHOW</span> <span class="kp">tables</span><span class="p">;</span>
+<a name="rest_code_ec2a7c90e00744bc8cfad0d0bcd4c0f9-3"></a>
+<a name="rest_code_ec2a7c90e00744bc8cfad0d0bcd4c0f9-4"></a><span class="c1">-- テーブルの列一覧</span>
+<a name="rest_code_ec2a7c90e00744bc8cfad0d0bcd4c0f9-5"></a><span class="k">SHOW</span> <span class="n">COLUMNS</span> <span class="k">FROM</span> <span class="n">table_name</span><span class="p">;</span>
+<a name="rest_code_ec2a7c90e00744bc8cfad0d0bcd4c0f9-6"></a>
+<a name="rest_code_ec2a7c90e00744bc8cfad0d0bcd4c0f9-7"></a><span class="c1">-- テーブル定義を確認する</span>
+<a name="rest_code_ec2a7c90e00744bc8cfad0d0bcd4c0f9-8"></a><span class="k">DESC</span> <span class="n">table_name</span><span class="p">;</span>
+<a name="rest_code_ec2a7c90e00744bc8cfad0d0bcd4c0f9-9"></a><span class="k">SHOW</span> <span class="n">FULL</span> <span class="n">COLUMNS</span> <span class="k">FROM</span> <span class="n">table_name</span><span class="p">;</span>
+<a name="rest_code_ec2a7c90e00744bc8cfad0d0bcd4c0f9-10"></a><span class="k">SHOW</span> <span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">table_name</span><span class="p">;</span>
 </pre>
 </div>
 <div class="section" id="dump">
 <h2><a class="toc-backref" href="#id13">dump</a></h2>
-<pre class="code bash"><a name="rest_code_9e126b55746344ecba776e8ee21bc322-1"></a><span class="c1"># dump を作る</span>
-<a name="rest_code_9e126b55746344ecba776e8ee21bc322-2"></a>$ mysqldump -u root -p db_mame &gt; dump_filename.sql
-<a name="rest_code_9e126b55746344ecba776e8ee21bc322-3"></a>
-<a name="rest_code_9e126b55746344ecba776e8ee21bc322-4"></a><span class="c1"># dump を入れる</span>
-<a name="rest_code_9e126b55746344ecba776e8ee21bc322-5"></a>$ mysql -h localhost -u root -p db_mame &lt; dump_filename.sql
+<pre class="code bash"><a name="rest_code_769fa0d6fd6048ea9180a6f593749e69-1"></a><span class="c1"># dump を作る</span>
+<a name="rest_code_769fa0d6fd6048ea9180a6f593749e69-2"></a>$ mysqldump -u root -p db_mame &gt; dump_filename.sql
+<a name="rest_code_769fa0d6fd6048ea9180a6f593749e69-3"></a>
+<a name="rest_code_769fa0d6fd6048ea9180a6f593749e69-4"></a><span class="c1"># dump を入れる</span>
+<a name="rest_code_769fa0d6fd6048ea9180a6f593749e69-5"></a>$ mysql -h localhost -u root -p db_mame &lt; dump_filename.sql
 </pre>
 </div>
 <div class="section" id="id7">
 <h2><a class="toc-backref" href="#id14">おぼえがき</a></h2>
 <ul class="simple">
-<li>Window 関数は 8.0.2 から利用可能<ul>
-<li><a class="reference external" href="https://mysqlserverteam.com/mysql-8-0-2-introducing-window-functions/">MySQL 8.0.2: Introducing Window Functions</a></li>
+<li>
+<p>Window 関数は 8.0.2 から利用可能</p>
+<ul>
+<li><p><a class="reference external" href="https://mysqlserverteam.com/mysql-8-0-2-introducing-window-functions/">MySQL 8.0.2: Introducing Window Functions</a></p></li>
 </ul>
 </li>
 </ul>
 <ul class="simple">
-<li>MySQL 8.0.4 からデフォルトの認証 plugin のデフォルト値が mysql_native_password から caching_sha2_password へ変更になった<ul>
-<li><a class="reference external" href="../../../docker/create-django-env-with-docker-compose-mysql-2/#default-authentication-plugin-mysql-native-password">default-authentication-plugin=mysql_native_password について</a></li>
+<li>
+<p>MySQL 8.0.4 からデフォルトの認証 plugin のデフォルト値が mysql_native_password から caching_sha2_password へ変更になった</p>
+<ul>
+<li><p><a class="reference external" href="../../../docker/create-django-env-with-docker-compose-mysql-2/#default-authentication-plugin-mysql-native-password">default-authentication-plugin=mysql_native_password について</a></p></li>
 </ul>
 </li>
-<li>Database Character Set and Collation<ul>
 <li>
-<a class="reference external" href="https://dev.mysql.com/doc/refman/5.7/en/charset-database.html">https://dev.mysql.com/doc/refman/5.7/en/charset-database.html</a><ul>
-<li>CREATE TABLE 時、指定しないとデータベースの Character Set と Collation が使われる</li>
-<li>LOAD DATA 時、指定しないとデータベースの Character Set と Collation が使われる</li>
+<p>Database Character Set and Collation</p>
+<ul>
+<li>
+<p><a class="reference external" href="https://dev.mysql.com/doc/refman/5.7/en/charset-database.html">https://dev.mysql.com/doc/refman/5.7/en/charset-database.html</a></p>
+<ul>
+<li><p>CREATE TABLE 時、指定しないとデータベースの Character Set と Collation が使われる</p></li>
+<li><p>LOAD DATA 時、指定しないとデータベースの Character Set と Collation が使われる</p></li>
 </ul>
 </li>
 </ul>

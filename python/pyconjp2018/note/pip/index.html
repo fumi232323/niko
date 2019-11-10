@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Vollkorn:400,700">
 <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/sawarabimincho.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-<link rel="stylesheet" href="../../../../assets/css/style.css?20190615">
+<link rel="stylesheet" href="../../../../assets/css/style.css?20191110">
 </head>
 <body>
     <div class="container">
@@ -38,42 +38,40 @@
 <div class="section" id="pip">
 <h2>今日のpip</h2>
 <ul class="simple">
-<li>10 -&gt; 18</li>
-<li>いきなりあがったけど、びっくりしないこと</li>
+<li><p>10 -&gt; 18</p></li>
+<li><p>いきなりあがったけど、びっくりしないこと</p></li>
 </ul>
 </div>
 <div class="section" id="setuptools">
 <h2>setuptools</h2>
 <ul class="simple">
-<li>名前空間パッケージ</li>
-<li>モジュールとかをまとめてるディレクトリのこと = 名前空間</li>
-<li>同じパッケージ以下のモジュールを複数の配布物にする仕組み</li>
-<li>
-<tt class="docutils literal">__init__</tt> をあえておかないでやる</li>
-<li>native になると、 <tt class="docutils literal">__init__</tt> なくなる</li>
-<li>名前空間のはややこしいよ</li>
+<li><p>名前空間パッケージ</p></li>
+<li><p>モジュールとかをまとめてるディレクトリのこと = 名前空間</p></li>
+<li><p>同じパッケージ以下のモジュールを複数の配布物にする仕組み</p></li>
+<li><p><code class="docutils literal">__init__</code> をあえておかないでやる</p></li>
+<li><p>native になると、 <code class="docutils literal">__init__</code> なくなる</p></li>
+<li><p>名前空間のはややこしいよ</p></li>
 </ul>
 </div>
 <div class="section" id="pypi-org">
 <h2>pypi.org</h2>
 <ul class="simple">
-<li>pip と virtualenv</li>
-<li>pip は単なるインストーラー</li>
-<li>pip</li>
+<li><p>pip と virtualenv</p></li>
+<li><p>pip は単なるインストーラー</p></li>
+<li><p>pip</p></li>
 </ul>
 </div>
 <div class="section" id="pipenv">
 <h2>pipenv</h2>
 <ul class="simple">
-<li>遅い</li>
-<li>virtualenv を外から管理する</li>
-<li>一番最初に python のバージョンを明示的に指定したほうがよい</li>
-<li>裏側には virtualenv がある</li>
-<li>activate しなくてもできる <tt class="docutils literal">run</tt>
-</li>
-<li>ロックファイル</li>
-<li>dev_dependensies ある</li>
-<li>新しい</li>
+<li><p>遅い</p></li>
+<li><p>virtualenv を外から管理する</p></li>
+<li><p>一番最初に python のバージョンを明示的に指定したほうがよい</p></li>
+<li><p>裏側には virtualenv がある</p></li>
+<li><p>activate しなくてもできる <code class="docutils literal">run</code></p></li>
+<li><p>ロックファイル</p></li>
+<li><p>dev_dependensies ある</p></li>
+<li><p>新しい</p></li>
 </ul>
 </div>
 <div class="section" id="pep517-pep518">
@@ -81,38 +79,40 @@
 <ul class="simple">
 <li>
 </li>
-<li>flit というのがある</li>
-<li>種類は増えたけど、全部使う、とかいうことにはならない</li>
+<li><p>flit というのがある</p></li>
+<li><p>種類は増えたけど、全部使う、とかいうことにはならない</p></li>
 </ul>
 </div>
 <div class="section" id="mypy">
 <h2>mypy</h2>
 <ul class="simple">
-<li>アノテーション</li>
-<li>py.typed と言うファイルがあると、このパッケージはタイプアノテーション入ってるよ、というお知らせになる</li>
+<li><p>アノテーション</p></li>
+<li><p>py.typed と言うファイルがあると、このパッケージはタイプアノテーション入ってるよ、というお知らせになる</p></li>
 </ul>
 <div class="section" id="stub">
 <h3>stub なんやら</h3>
 <ul class="simple">
-<li>タイプアノテーションを外付けできる</li>
-<li>ほかのファイルにしておける、別々に配布できる</li>
+<li><p>タイプアノテーションを外付けできる</p></li>
+<li><p>ほかのファイルにしておける、別々に配布できる</p></li>
 </ul>
 </div>
 </div>
 <div class="section" id="id2">
 <h2>まとめ</h2>
 <ul class="simple">
-<li>pipenv 説明する側からは便利これさえやっておけばいいんだよ</li>
-<li>pipfile pyproject.toml 両方使う、というわけじゃない</li>
+<li><p>pipenv 説明する側からは便利これさえやっておけばいいんだよ</p></li>
+<li><p>pipfile pyproject.toml 両方使う、というわけじゃない</p></li>
 </ul>
 </div>
 <div class="section" id="id3">
 <h2>質疑応答</h2>
 <ul class="simple">
-<li>実行環境ごとパッキングして持ってける形式にしてくれるツールあるか<ul>
-<li>実行形式</li>
-<li>pyz</li>
-<li>あるにはあるが、依存関係まで全部インストールしてくれるわけではないので、そういう意味では完全なものはない感じ</li>
+<li>
+<p>実行環境ごとパッキングして持ってける形式にしてくれるツールあるか</p>
+<ul>
+<li><p>実行形式</p></li>
+<li><p>pyz</p></li>
+<li><p>あるにはあるが、依存関係まで全部インストールしてくれるわけではないので、そういう意味では完全なものはない感じ</p></li>
 </ul>
 </li>
 </ul>

@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Vollkorn:400,700">
 <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/sawarabimincho.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-<link rel="stylesheet" href="../../assets/css/style.css?20190615">
+<link rel="stylesheet" href="../../assets/css/style.css?20191110">
 </head>
 <body>
     <div class="container">
@@ -35,18 +35,20 @@
 <p class="topic-title first">目次</p>
 <ul class="simple">
 <li>
-<a class="reference internal" href="#id2" id="id7">リファレンス</a><ul>
-<li><a class="reference internal" href="#id3" id="id8">~/.ssh/config</a></li>
-<li><a class="reference internal" href="#etc-ssh-ssh-config" id="id9">/etc/ssh/ssh_config</a></li>
+<p><a class="reference internal" href="#id2" id="id7">リファレンス</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id3" id="id8">~/.ssh/config</a></p></li>
+<li><p><a class="reference internal" href="#etc-ssh-ssh-config" id="id9">/etc/ssh/ssh_config</a></p></li>
 </ul>
 </li>
 <li>
-<a class="reference internal" href="#proxycommand" id="id10">ProxyCommand</a><ul>
-<li><a class="reference internal" href="#id4" id="id11">キーワードやオプションの意味</a></li>
-<li><a class="reference internal" href="#id5" id="id12">参考</a></li>
+<p><a class="reference internal" href="#proxycommand" id="id10">ProxyCommand</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id4" id="id11">キーワードやオプションの意味</a></p></li>
+<li><p><a class="reference internal" href="#id5" id="id12">参考</a></p></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#forwardagent-yes" id="id13">ForwardAgent yes</a></li>
+<li><p><a class="reference internal" href="#forwardagent-yes" id="id13">ForwardAgent yes</a></p></li>
 </ul>
 </div>
 </details><p>TODO: 整理中
@@ -55,11 +57,11 @@ TODO: ssh config のメモとして整理しようと思う</p>
 <h2><a class="toc-backref" href="#id7">リファレンス</a></h2>
 <p>ubuntu のやつ</p>
 <ul class="simple">
-<li><a class="reference external" href="http://manpages.ubuntu.com/manpages/bionic/en/man5/ssh_config.5.html">ssh_config</a></li>
+<li><p><a class="reference external" href="http://manpages.ubuntu.com/manpages/bionic/en/man5/ssh_config.5.html">ssh_config</a></p></li>
 </ul>
 <p>種類やバージョンが選べるやつ</p>
 <ul class="simple">
-<li><a class="reference external" href="https://www.freebsd.org/cgi/man.cgi?query=ssh&amp;apropos=0&amp;sektion=0&amp;manpath=CentOS+6.5&amp;arch=default&amp;format=html">SSH(1)</a></li>
+<li><p><a class="reference external" href="https://www.freebsd.org/cgi/man.cgi?query=ssh&amp;apropos=0&amp;sektion=0&amp;manpath=CentOS+6.5&amp;arch=default&amp;format=html">SSH(1)</a></p></li>
 </ul>
 <div class="section" id="id3">
 <h3><a class="toc-backref" href="#id8">~/.ssh/config</a></h3>
@@ -73,32 +75,32 @@ TODO: ssh config のメモとして整理しようと思う</p>
 <div class="section" id="proxycommand">
 <h2><a class="toc-backref" href="#id10">ProxyCommand</a></h2>
 <p>ローカルから、B へ ssh する</p>
-<pre class="code bash"><a name="rest_code_14a3eb0e7122445097821c05565a52fe-1"></a>$ ssh-add ~/.ssh/id_rsa
-<a name="rest_code_14a3eb0e7122445097821c05565a52fe-2"></a>$ ssh my-host
-<a name="rest_code_14a3eb0e7122445097821c05565a52fe-3"></a>
-<a name="rest_code_14a3eb0e7122445097821c05565a52fe-4"></a><span class="m">1</span>. まず、<span class="o">(</span><span class="m">1</span><span class="o">)</span> の <span class="sb">``</span>ssh -W %h:%p my-gateway<span class="sb">``</span> が実行される
-<a name="rest_code_14a3eb0e7122445097821c05565a52fe-5"></a><span class="m">2</span>. <span class="sb">``</span>$ ssh my-gateway<span class="sb">``</span> が実行される
-<a name="rest_code_14a3eb0e7122445097821c05565a52fe-6"></a>  - HostName, User, IdentityFile は <span class="o">(</span><span class="m">3</span><span class="o">)</span> に記述のものが使用される
-<a name="rest_code_14a3eb0e7122445097821c05565a52fe-7"></a>  -
-<a name="rest_code_14a3eb0e7122445097821c05565a52fe-8"></a><span class="m">3</span>. <span class="sb">``</span>my-gateway<span class="sb">``</span> から <span class="sb">``</span>$ ssh my-host<span class="sb">``</span> が実行される
-<a name="rest_code_14a3eb0e7122445097821c05565a52fe-9"></a>  - <span class="sb">``</span>ForwardAgent yes<span class="sb">``</span> のため、 <span class="sb">``</span>IdentityFile<span class="sb">``</span> は、 <span class="o">(</span><span class="m">3</span><span class="o">)</span> で指定されたものが使用される
+<pre class="code bash"><a name="rest_code_6dbee4a84c98495496b2a7434d0f76d3-1"></a>$ ssh-add ~/.ssh/id_rsa
+<a name="rest_code_6dbee4a84c98495496b2a7434d0f76d3-2"></a>$ ssh my-host
+<a name="rest_code_6dbee4a84c98495496b2a7434d0f76d3-3"></a>
+<a name="rest_code_6dbee4a84c98495496b2a7434d0f76d3-4"></a><span class="m">1</span>. まず、<span class="o">(</span><span class="m">1</span><span class="o">)</span> の <span class="sb">``</span>ssh -W %h:%p my-gateway<span class="sb">``</span> が実行される
+<a name="rest_code_6dbee4a84c98495496b2a7434d0f76d3-5"></a><span class="m">2</span>. <span class="sb">``</span>$ ssh my-gateway<span class="sb">``</span> が実行される
+<a name="rest_code_6dbee4a84c98495496b2a7434d0f76d3-6"></a>  - HostName, User, IdentityFile は <span class="o">(</span><span class="m">3</span><span class="o">)</span> に記述のものが使用される
+<a name="rest_code_6dbee4a84c98495496b2a7434d0f76d3-7"></a>  -
+<a name="rest_code_6dbee4a84c98495496b2a7434d0f76d3-8"></a><span class="m">3</span>. <span class="sb">``</span>my-gateway<span class="sb">``</span> から <span class="sb">``</span>$ ssh my-host<span class="sb">``</span> が実行される
+<a name="rest_code_6dbee4a84c98495496b2a7434d0f76d3-9"></a>  - <span class="sb">``</span>ForwardAgent yes<span class="sb">``</span> のため、 <span class="sb">``</span>IdentityFile<span class="sb">``</span> は、 <span class="o">(</span><span class="m">3</span><span class="o">)</span> で指定されたものが使用される
 </pre>
-<p><tt class="docutils literal"><span class="pre">~/.ssh/config</span></tt></p>
+<p><code class="docutils literal"><span class="pre">~/.ssh/config</span></code></p>
 <blockquote>
-<pre class="code console"><a name="rest_code_53cf60e5ae0a44b5978f31eb57be0184-1"></a><span class="gp">#</span> エージェント転送を行う
-<a name="rest_code_53cf60e5ae0a44b5978f31eb57be0184-2"></a><span class="go">ForwardAgent yes</span>
-<a name="rest_code_53cf60e5ae0a44b5978f31eb57be0184-3"></a>
-<a name="rest_code_53cf60e5ae0a44b5978f31eb57be0184-4"></a><span class="gp">#</span> A: gateway
-<a name="rest_code_53cf60e5ae0a44b5978f31eb57be0184-5"></a><span class="go">Host my-gateway                                 # (3)</span>
-<a name="rest_code_53cf60e5ae0a44b5978f31eb57be0184-6"></a><span class="go">  HostName      my-gateway.com</span>
-<a name="rest_code_53cf60e5ae0a44b5978f31eb57be0184-7"></a><span class="go">  User          my-user                         # (2)</span>
-<a name="rest_code_53cf60e5ae0a44b5978f31eb57be0184-8"></a><span class="go">  IdentityFile  ~/.ssh/id_rsa</span>
-<a name="rest_code_53cf60e5ae0a44b5978f31eb57be0184-9"></a>
-<a name="rest_code_53cf60e5ae0a44b5978f31eb57be0184-10"></a><span class="gp">#</span> B: アプリケーションがデプロイしてあるサーバー
-<a name="rest_code_53cf60e5ae0a44b5978f31eb57be0184-11"></a><span class="go">Host my-host</span>
-<a name="rest_code_53cf60e5ae0a44b5978f31eb57be0184-12"></a><span class="go">  HostName      my-host-name</span>
-<a name="rest_code_53cf60e5ae0a44b5978f31eb57be0184-13"></a><span class="go">  User          my-user                         # (2)</span>
-<a name="rest_code_53cf60e5ae0a44b5978f31eb57be0184-14"></a><span class="go">  ProxyCommand  ssh -W %h:%p my-gateway         # (1)</span>
+<pre class="code console"><a name="rest_code_7801b4c3d9764d0896abf28442abbfe8-1"></a><span class="gp">#</span> エージェント転送を行う
+<a name="rest_code_7801b4c3d9764d0896abf28442abbfe8-2"></a><span class="go">ForwardAgent yes</span>
+<a name="rest_code_7801b4c3d9764d0896abf28442abbfe8-3"></a>
+<a name="rest_code_7801b4c3d9764d0896abf28442abbfe8-4"></a><span class="gp">#</span> A: gateway
+<a name="rest_code_7801b4c3d9764d0896abf28442abbfe8-5"></a><span class="go">Host my-gateway                                 # (3)</span>
+<a name="rest_code_7801b4c3d9764d0896abf28442abbfe8-6"></a><span class="go">  HostName      my-gateway.com</span>
+<a name="rest_code_7801b4c3d9764d0896abf28442abbfe8-7"></a><span class="go">  User          my-user                         # (2)</span>
+<a name="rest_code_7801b4c3d9764d0896abf28442abbfe8-8"></a><span class="go">  IdentityFile  ~/.ssh/id_rsa</span>
+<a name="rest_code_7801b4c3d9764d0896abf28442abbfe8-9"></a>
+<a name="rest_code_7801b4c3d9764d0896abf28442abbfe8-10"></a><span class="gp">#</span> B: アプリケーションがデプロイしてあるサーバー
+<a name="rest_code_7801b4c3d9764d0896abf28442abbfe8-11"></a><span class="go">Host my-host</span>
+<a name="rest_code_7801b4c3d9764d0896abf28442abbfe8-12"></a><span class="go">  HostName      my-host-name</span>
+<a name="rest_code_7801b4c3d9764d0896abf28442abbfe8-13"></a><span class="go">  User          my-user                         # (2)</span>
+<a name="rest_code_7801b4c3d9764d0896abf28442abbfe8-14"></a><span class="go">  ProxyCommand  ssh -W %h:%p my-gateway         # (1)</span>
 </pre>
 </blockquote>
 <ol class="arabic simple"><li>
@@ -107,27 +109,23 @@ TODO: ssh config のメモとして整理しようと思う</p>
 <h3><a class="toc-backref" href="#id11">キーワードやオプションの意味</a></h3>
 <ul>
 <li>
-<p class="first">ssh_config のマニュアルページの <tt class="docutils literal">ProxyCommand</tt> の説明</p>
-<pre class="literal-block">
-Specifies the command to use to connect to the server.
+<p>ssh_config のマニュアルページの <code class="docutils literal">ProxyCommand</code> の説明</p>
+<pre class="literal-block">Specifies the command to use to connect to the server.
 The command string extends to the end of the line, and is executed with the user's shell.
 In the command string, `%h' will be substituted by the host name to connect and `%p' by the port.
-The command can be basically anything, and should read from its standard input and write to its standard output.
-</pre>
+The command can be basically anything, and should read from its standard input and write to its standard output.</pre>
 </li>
 <li>
-<p class="first">ssh のマニュアルページの <tt class="docutils literal"><span class="pre">-W</span></tt> オプションの説明</p>
-<pre class="literal-block">
--W host:port
-  Requests that standard input and output on the client be forwarded to host on port over the secure channel.
-</pre>
+<p>ssh のマニュアルページの <code class="docutils literal"><span class="pre">-W</span></code> オプションの説明</p>
+<pre class="literal-block">-W host:port
+  Requests that standard input and output on the client be forwarded to host on port over the secure channel.</pre>
 </li>
 </ul>
 </div>
 <div class="section" id="id5">
 <h3><a class="toc-backref" href="#id12">参考</a></h3>
 <ul class="simple">
-<li><a class="reference external" href="http://note.crohaco.net/2017/ssh-tunnel/#proxycommand">ProxyCommand</a></li>
+<li><p><a class="reference external" href="http://note.crohaco.net/2017/ssh-tunnel/#proxycommand">ProxyCommand</a></p></li>
 </ul>
 </div>
 </div>

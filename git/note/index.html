@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Vollkorn:400,700">
 <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/sawarabimincho.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-<link rel="stylesheet" href="../../assets/css/style.css?20190615">
+<link rel="stylesheet" href="../../assets/css/style.css?20191110">
 </head>
 <body>
     <div class="container">
@@ -35,15 +35,16 @@
 <p class="topic-title first">目次</p>
 <ul class="simple">
 <li>
-<a class="reference internal" href="#gitgithub" id="id5">GitとGitHubは別物</a><ul>
-<li><a class="reference internal" href="#git" id="id6">Git</a></li>
-<li><a class="reference internal" href="#github" id="id7">GitHub</a></li>
+<p><a class="reference internal" href="#gitgithub" id="id5">GitとGitHubは別物</a></p>
+<ul>
+<li><p><a class="reference internal" href="#git" id="id6">Git</a></p></li>
+<li><p><a class="reference internal" href="#github" id="id7">GitHub</a></p></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id2" id="id8">Gitの基本</a></li>
-<li><a class="reference internal" href="#git-submodule" id="id9">git submodule</a></li>
-<li><a class="reference internal" href="#origin" id="id10">origin の謎が解けた</a></li>
-<li><a class="reference internal" href="#master" id="id11">master の謎が解けた</a></li>
+<li><p><a class="reference internal" href="#id2" id="id8">Gitの基本</a></p></li>
+<li><p><a class="reference internal" href="#git-submodule" id="id9">git submodule</a></p></li>
+<li><p><a class="reference internal" href="#origin" id="id10">origin の謎が解けた</a></p></li>
+<li><p><a class="reference internal" href="#master" id="id11">master の謎が解けた</a></p></li>
 </ul>
 </div>
 </details><div class="section" id="gitgithub">
@@ -61,36 +62,34 @@
 <h2><a class="toc-backref" href="#id8">Gitの基本</a></h2>
 <p><a class="reference external" href="https://git-scm.com/book/ja/v2/%E4%BD%BF%E3%81%84%E5%A7%8B%E3%82%81%E3%82%8B-Git%E3%81%AE%E5%9F%BA%E6%9C%AC">1.3 使い始める - Gitの基本</a></p>
 <ul class="simple">
-<li>スナップショットで、差分ではない</li>
+<li><p>スナップショットで、差分ではない</p></li>
 </ul>
 </div>
 <div class="section" id="git-submodule">
 <h2><a class="toc-backref" href="#id9">git submodule</a></h2>
 <p><a class="reference external" href="https://git-scm.com/book/ja/v2/Git-%E3%81%AE%E3%81%95%E3%81%BE%E3%81%96%E3%81%BE%E3%81%AA%E3%83%84%E3%83%BC%E3%83%AB-%E3%82%B5%E3%83%96%E3%83%A2%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB">7.11 Git のさまざまなツール - サブモジュール</a></p>
-<pre class="literal-block">
-サブモジュールを使うと、ある Git リポジトリを別の Git リポジトリのサブディレクトリとして扱うことができるようになります。 これで、別のリポジトリをプロジェクト内にクローンしても自分のコミットは別管理とすることができるようになります。
-</pre>
+<pre class="literal-block">サブモジュールを使うと、ある Git リポジトリを別の Git リポジトリのサブディレクトリとして扱うことができるようになります。 これで、別のリポジトリをプロジェクト内にクローンしても自分のコミットは別管理とすることができるようになります。</pre>
 </div>
 <div class="section" id="origin">
 <h2><a class="toc-backref" href="#id10">origin の謎が解けた</a></h2>
-<p><tt class="docutils literal">origin</tt> は「リモートリポジトリの〜」という意味。</p>
-<p><tt class="docutils literal">hogehoge</tt> ブランチを作成すると、</p>
+<p><code class="docutils literal">origin</code> は「リモートリポジトリの〜」という意味。</p>
+<p><code class="docutils literal">hogehoge</code> ブランチを作成すると、</p>
 <ol class="arabic simple">
-<li><tt class="docutils literal">hogehoge</tt></li>
-<li><tt class="docutils literal">origin/hogehoge</tt></li>
+<li><p><code class="docutils literal">hogehoge</code></p></li>
+<li><p><code class="docutils literal">origin/hogehoge</code></p></li>
 </ol>
 <p>という二つのブランチができる。</p>
 <ol class="arabic simple">
-<li>はローカルにある自分のブランチ</li>
-<li>はローカルにあるリモートと同期用のブランチ。手動で更新しない限り、最後に同期したタイミングのスナップショット状態。</li>
+<li><p>はローカルにある自分のブランチ</p></li>
+<li><p>はローカルにあるリモートと同期用のブランチ。手動で更新しない限り、最後に同期したタイミングのスナップショット状態。</p></li>
 </ol>
 </div>
 <div class="section" id="master">
 <h2><a class="toc-backref" href="#id11">master の謎が解けた</a></h2>
-<p><tt class="docutils literal">master</tt> は、</p>
+<p><code class="docutils literal">master</code> は、</p>
 <ul class="simple">
-<li>物理的には単なるブランチに過ぎないが、</li>
-<li>意味的には「本番リリース用のブランチ」、みたいなもの。</li>
+<li><p>物理的には単なるブランチに過ぎないが、</p></li>
+<li><p>意味的には「本番リリース用のブランチ」、みたいなもの。</p></li>
 </ul>
 </div>
 </div>

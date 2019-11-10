@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Vollkorn:400,700">
 <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/sawarabimincho.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-<link rel="stylesheet" href="../../assets/css/style.css?20190615">
+<link rel="stylesheet" href="../../assets/css/style.css?20191110">
 </head>
 <body>
     <div class="container">
@@ -34,12 +34,13 @@
 <details><summary>目次</summary><div class="contents topic" id="id1">
 <p class="topic-title first">目次</p>
 <ul class="simple">
-<li><a class="reference internal" href="#id2" id="id6">ガイド/リファレンスなど</a></li>
+<li><p><a class="reference internal" href="#id2" id="id6">ガイド/リファレンスなど</a></p></li>
 <li>
-<a class="reference internal" href="#id3" id="id7">設定</a><ul>
-<li><a class="reference internal" href="#id4" id="id8">良いところ</a></li>
-<li><a class="reference internal" href="#id5" id="id9">イマイチなところ</a></li>
-<li><a class="reference internal" href="#pytest" id="id10">注意: pytest のバージョンは以下なら動く</a></li>
+<p><a class="reference internal" href="#id3" id="id7">設定</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id4" id="id8">良いところ</a></p></li>
+<li><p><a class="reference internal" href="#id5" id="id9">イマイチなところ</a></p></li>
+<li><p><a class="reference internal" href="#pytest" id="id10">注意: pytest のバージョンは以下なら動く</a></p></li>
 </ul>
 </li>
 </ul>
@@ -47,43 +48,41 @@
 </details><div class="section" id="id2">
 <h2><a class="toc-backref" href="#id6">ガイド/リファレンスなど</a></h2>
 <ul class="simple">
-<li><a class="reference external" href="https://pleiades.io/help/pycharm/tox-support.html">https://pleiades.io/help/pycharm/tox-support.html</a></li>
-<li><a class="reference external" href="https://stackoverflow.com/questions/19236745/pycharm-pytestrunner-pluginmanager-unexpected-keyword-argument">https://stackoverflow.com/questions/19236745/pycharm-pytestrunner-pluginmanager-unexpected-keyword-argument</a></li>
+<li><p><a class="reference external" href="https://pleiades.io/help/pycharm/tox-support.html">https://pleiades.io/help/pycharm/tox-support.html</a></p></li>
+<li><p><a class="reference external" href="https://stackoverflow.com/questions/19236745/pycharm-pytestrunner-pluginmanager-unexpected-keyword-argument">https://stackoverflow.com/questions/19236745/pycharm-pytestrunner-pluginmanager-unexpected-keyword-argument</a></p></li>
 </ul>
 </div>
 <div class="section" id="id3">
 <h2><a class="toc-backref" href="#id7">設定</a></h2>
 <ol class="arabic">
+<li><p>Run/Debug Configurations</p></li>
+<li><p><code class="docutils literal">+</code> ボタン</p></li>
+<li><p>Templates から <code class="docutils literal">tox</code> を選ぶ</p></li>
 <li>
-<p class="first">Run/Debug Configurations</p>
-</li>
-<li>
-<p class="first"><tt class="docutils literal">+</tt> ボタン</p>
-</li>
-<li>
-<p class="first">Templates から <tt class="docutils literal">tox</tt> を選ぶ</p>
-</li>
-<li>
-<p class="first">必要事項を記入して <tt class="docutils literal">Apply</tt> =&gt; <tt class="docutils literal">OK</tt></p>
+<p>必要事項を記入して <code class="docutils literal">Apply</code> =&gt; <code class="docutils literal">OK</code></p>
 <blockquote>
 <ul class="simple">
-<li>Name: 好きな名前</li>
-<li>Argument: tox に渡す引数<ul>
-<li>例) <tt class="docutils literal"><span class="pre">--</span> <span class="pre">--reuse-db</span> <span class="pre">tests/test_views/test_entries.py::TestEntries::test_it</span> <span class="pre">-x</span> <span class="pre">-vv</span></tt>
-</li>
+<li><p>Name: 好きな名前</p></li>
+<li>
+<p>Argument: tox に渡す引数</p>
+<ul>
+<li><p>例) <code class="docutils literal"><span class="pre">--</span> <span class="pre">--reuse-db</span> <span class="pre">tests/test_views/test_entries.py::TestEntries::test_it</span> <span class="pre">-x</span> <span class="pre">-vv</span></code></p></li>
 </ul>
 </li>
-<li>Run only environment: 実行したい環境<ul>
-<li>例) py37, flake8</li>
+<li>
+<p>Run only environment: 実行したい環境</p>
+<ul>
+<li><p>例) py37, flake8</p></li>
 </ul>
 </li>
-<li>Python interpreter: Project Innterpreter を選択<ul>
-<li>例) <tt class="docutils literal">Remote Python 3.7.3 Docker Compose (app at <span class="pre">[/Users/fumi23/docker-work/fufufu/docker-compose.yml])</span></tt>
-</li>
+<li>
+<p>Python interpreter: Project Innterpreter を選択</p>
+<ul>
+<li><p>例) <code class="docutils literal">Remote Python 3.7.3 Docker Compose (app at <span class="pre">[/Users/fumi23/docker-work/fufufu/docker-compose.yml])</span></code></p></li>
 </ul>
 </li>
-<li>Workinng directory: なしでもローカルpathでもリモートpathでも動いた</li>
-<li>Path mapping: 設定してもしなくても動いた =&gt; 設定したほうが良さそう</li>
+<li><p>Workinng directory: なしでもローカルpathでもリモートpathでも動いた</p></li>
+<li><p>Path mapping: 設定してもしなくても動いた =&gt; 設定したほうが良さそう</p></li>
 </ul>
 </blockquote>
 </li>
@@ -95,13 +94,17 @@
 <div class="section" id="id4">
 <h3><a class="toc-backref" href="#id8">良いところ</a></h3>
 <ul class="simple">
-<li>各テストケースのログにパッとアクセスできる<ul>
-<li>テストメソッド名を押すと、横にそのテストケースだけのログが出る</li>
-<li>たくさんスクロールしなくて良い</li>
+<li>
+<p>各テストケースのログにパッとアクセスできる</p>
+<ul>
+<li><p>テストメソッド名を押すと、横にそのテストケースだけのログが出る</p></li>
+<li><p>たくさんスクロールしなくて良い</p></li>
 </ul>
 </li>
-<li>失敗したテストケースだけサクッと再実行できる<ul>
-<li>左側の▶︎丸びっくりボタンを押すだけ</li>
+<li>
+<p>失敗したテストケースだけサクッと再実行できる</p>
+<ul>
+<li><p>左側の▶︎丸びっくりボタンを押すだけ</p></li>
 </ul>
 </li>
 </ul>
@@ -113,21 +116,22 @@
 <div class="section" id="id5">
 <h3><a class="toc-backref" href="#id9">イマイチなところ</a></h3>
 <ul class="simple">
-<li>BreakPoint で止まらない (いろいろ試したけれど解消できなかった)</li>
-<li>ほかにもできないひとがいるみたい? <a class="reference external" href="https://intellij-support.jetbrains.com/hc/en-us/community/posts/360000140764-Pycharm-debugger-doesn-t-stop-at-any-breakpoint">https://intellij-support.jetbrains.com/hc/en-us/community/posts/360000140764-Pycharm-debugger-doesn-t-stop-at-any-breakpoint</a>
-</li>
-<li>たぶん、本来はできるんだと思う</li>
+<li><p>BreakPoint で止まらない (いろいろ試したけれど解消できなかった)</p></li>
+<li><p>ほかにもできないひとがいるみたい? <a class="reference external" href="https://intellij-support.jetbrains.com/hc/en-us/community/posts/360000140764-Pycharm-debugger-doesn-t-stop-at-any-breakpoint">https://intellij-support.jetbrains.com/hc/en-us/community/posts/360000140764-Pycharm-debugger-doesn-t-stop-at-any-breakpoint</a></p></li>
+<li><p>たぶん、本来はできるんだと思う</p></li>
 </ul>
 </div>
 <div class="section" id="pytest">
 <h3><a class="toc-backref" href="#id10">注意: pytest のバージョンは以下なら動く</a></h3>
 <ul class="simple">
-<li>pytest 5.0.1 (2019-07-04)<ul>
-<li>これより新しいバージョンは動かなかった</li>
+<li>
+<p>pytest 5.0.1 (2019-07-04)</p>
+<ul>
+<li><p>これより新しいバージョンは動かなかった</p></li>
 </ul>
 </li>
-<li>PyCharm 2019.2.3 (Professional Edition)
-Build #PY-192.6817.19, built on September 25, 2019</li>
+<li><p>PyCharm 2019.2.3 (Professional Edition)
+Build #PY-192.6817.19, built on September 25, 2019</p></li>
 </ul>
 </div>
 </div>

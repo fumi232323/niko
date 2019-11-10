@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Vollkorn:400,700">
 <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/sawarabimincho.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-<link rel="stylesheet" href="../../assets/css/style.css?20190615">
+<link rel="stylesheet" href="../../assets/css/style.css?20191110">
 </head>
 <body>
     <div class="container">
@@ -34,30 +34,33 @@
 <details><summary>目次</summary><div class="contents topic" id="id1">
 <p class="topic-title first">目次</p>
 <ul class="simple">
-<li><a class="reference internal" href="#id2" id="id12">書籍/リファレンス</a></li>
-<li><a class="reference internal" href="#id3" id="id13">役割</a></li>
-<li><a class="reference internal" href="#id4" id="id14">入力フィールド</a></li>
+<li><p><a class="reference internal" href="#id2" id="id12">書籍/リファレンス</a></p></li>
+<li><p><a class="reference internal" href="#id3" id="id13">役割</a></p></li>
+<li><p><a class="reference internal" href="#id4" id="id14">入力フィールド</a></p></li>
 <li>
-<a class="reference internal" href="#id5" id="id15">バリデーション</a><ul>
-<li><a class="reference internal" href="#id6" id="id16">実行される順番</a></li>
-<li><a class="reference internal" href="#clean" id="id17">clean_&lt;フィールド名&gt;()</a></li>
-<li><a class="reference internal" href="#id7" id="id18">clean()</a></li>
+<p><a class="reference internal" href="#id5" id="id15">バリデーション</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id6" id="id16">実行される順番</a></p></li>
+<li><p><a class="reference internal" href="#clean" id="id17">clean_&lt;フィールド名&gt;()</a></p></li>
+<li><p><a class="reference internal" href="#id7" id="id18">clean()</a></p></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#view" id="id19">View からの利用</a></li>
-<li><a class="reference internal" href="#template" id="id20">Template からの利用</a></li>
-<li><a class="reference internal" href="#csrf" id="id21">CSRF</a></li>
+<li><p><a class="reference internal" href="#view" id="id19">View からの利用</a></p></li>
+<li><p><a class="reference internal" href="#template" id="id20">Template からの利用</a></p></li>
+<li><p><a class="reference internal" href="#csrf" id="id21">CSRF</a></p></li>
 <li>
-<a class="reference internal" href="#modelform" id="id22">ModelForm</a><ul>
-<li><a class="reference internal" href="#id8" id="id23">こんなときに利用価値が高い</a></li>
-<li><a class="reference internal" href="#modelform-field" id="id24">ModelForm の Field</a></li>
-<li><a class="reference internal" href="#modelform-p-94" id="id25">ModelForm のバリデーションが実行される順番 (P.94 の絵がとてもよい)</a></li>
-<li><a class="reference internal" href="#id9" id="id26">View からの利用</a></li>
+<p><a class="reference internal" href="#modelform" id="id22">ModelForm</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id8" id="id23">こんなときに利用価値が高い</a></p></li>
+<li><p><a class="reference internal" href="#modelform-field" id="id24">ModelForm の Field</a></p></li>
+<li><p><a class="reference internal" href="#modelform-p-94" id="id25">ModelForm のバリデーションが実行される順番 (P.94 の絵がとてもよい)</a></p></li>
+<li><p><a class="reference internal" href="#id9" id="id26">View からの利用</a></p></li>
 </ul>
 </li>
 <li>
-<a class="reference internal" href="#id10" id="id27">こんなのある</a><ul>
-<li><a class="reference internal" href="#id11" id="id28">インラインフォームセット</a></li>
+<p><a class="reference internal" href="#id10" id="id27">こんなのある</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id11" id="id28">インラインフォームセット</a></p></li>
 </ul>
 </li>
 </ul>
@@ -65,37 +68,41 @@
 </details><div class="section" id="id2">
 <h2><a class="toc-backref" href="#id12">書籍/リファレンス</a></h2>
 <ul class="simple">
-<li><a class="reference external" href="https://docs.djangoproject.com/ja/2.2/ref/forms/api/">Django documentation &gt; フォーム API</a></li>
-<li><a class="reference external" href="https://booth.pm/ja/items/1059917">現場で使える Django の教科書</a></li>
+<li><p><a class="reference external" href="https://docs.djangoproject.com/ja/2.2/ref/forms/api/">Django documentation &gt; フォーム API</a></p></li>
+<li><p><a class="reference external" href="https://booth.pm/ja/items/1059917">現場で使える Django の教科書</a></p></li>
 </ul>
 </div>
 <div class="section" id="id3">
 <h2><a class="toc-backref" href="#id13">役割</a></h2>
 <ul class="simple">
-<li>入力データの保持</li>
-<li>バリデーション<ul>
-<li>OK の場合: <tt class="docutils literal">cleaned_data</tt> (辞書) に入る<ul>
-<li>ユーザー入力データを Python 型へ変換してくれる</li>
+<li><p>入力データの保持</p></li>
+<li>
+<p>バリデーション</p>
+<ul>
+<li>
+<p>OK の場合: <code class="docutils literal">cleaned_data</code> (辞書) に入る</p>
+<ul>
+<li><p>ユーザー入力データを Python 型へ変換してくれる</p></li>
 </ul>
 </li>
-<li>NG の場合: エラーメッセージ (list)</li>
+<li><p>NG の場合: エラーメッセージ (list)</p></li>
 </ul>
 </li>
 </ul>
 </div>
 <div class="section" id="id4">
 <h2><a class="toc-backref" href="#id14">入力フィールド</a></h2>
-<pre class="code python"><a name="rest_code_fd7465f33c8f4d0ea9c45bed1f0f1ac2-1"></a><span class="kn">from</span> <span class="nn">django</span> <span class="kn">import</span> <span class="n">forms</span>
-<a name="rest_code_fd7465f33c8f4d0ea9c45bed1f0f1ac2-2"></a>
-<a name="rest_code_fd7465f33c8f4d0ea9c45bed1f0f1ac2-3"></a><span class="k">class</span> <span class="nc">LoginForm</span><span class="p">(</span><span class="n">forms</span><span class="o">.</span><span class="n">Form</span><span class="p">):</span>
-<a name="rest_code_fd7465f33c8f4d0ea9c45bed1f0f1ac2-4"></a>    <span class="c1"># この変数名が画面の入力フィールドの name 属性になる</span>
-<a name="rest_code_fd7465f33c8f4d0ea9c45bed1f0f1ac2-5"></a>    <span class="n">password</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span>  <span class="c1"># django.forms.fields.Field クラスのサブクラスを指定</span>
-<a name="rest_code_fd7465f33c8f4d0ea9c45bed1f0f1ac2-6"></a>        <span class="c1"># widget でどんな部品で画面に表示するか指定できる。 Field ごとにデフォルトもある。</span>
-<a name="rest_code_fd7465f33c8f4d0ea9c45bed1f0f1ac2-7"></a>        <span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">PasswordInput</span><span class="p">(</span><span class="n">render_value</span><span class="o">=</span><span class="bp">True</span><span class="p">),</span>
-<a name="rest_code_fd7465f33c8f4d0ea9c45bed1f0f1ac2-8"></a>        <span class="c1"># そのほかにも、いろいろ指定できる。指定できるものは Field により異なる。</span>
-<a name="rest_code_fd7465f33c8f4d0ea9c45bed1f0f1ac2-9"></a>        <span class="n">label</span><span class="o">=</span><span class="s1">'パスワード'</span><span class="p">,</span>
-<a name="rest_code_fd7465f33c8f4d0ea9c45bed1f0f1ac2-10"></a>        <span class="n">strip</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
-<a name="rest_code_fd7465f33c8f4d0ea9c45bed1f0f1ac2-11"></a>    <span class="p">)</span>
+<pre class="code python"><a name="rest_code_106c28f6883e4de3900b0e975bcbaafd-1"></a><span class="kn">from</span> <span class="nn">django</span> <span class="kn">import</span> <span class="n">forms</span>
+<a name="rest_code_106c28f6883e4de3900b0e975bcbaafd-2"></a>
+<a name="rest_code_106c28f6883e4de3900b0e975bcbaafd-3"></a><span class="k">class</span> <span class="nc">LoginForm</span><span class="p">(</span><span class="n">forms</span><span class="o">.</span><span class="n">Form</span><span class="p">):</span>
+<a name="rest_code_106c28f6883e4de3900b0e975bcbaafd-4"></a>    <span class="c1"># この変数名が画面の入力フィールドの name 属性になる</span>
+<a name="rest_code_106c28f6883e4de3900b0e975bcbaafd-5"></a>    <span class="n">password</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span>  <span class="c1"># django.forms.fields.Field クラスのサブクラスを指定</span>
+<a name="rest_code_106c28f6883e4de3900b0e975bcbaafd-6"></a>        <span class="c1"># widget でどんな部品で画面に表示するか指定できる。 Field ごとにデフォルトもある。</span>
+<a name="rest_code_106c28f6883e4de3900b0e975bcbaafd-7"></a>        <span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">PasswordInput</span><span class="p">(</span><span class="n">render_value</span><span class="o">=</span><span class="bp">True</span><span class="p">),</span>
+<a name="rest_code_106c28f6883e4de3900b0e975bcbaafd-8"></a>        <span class="c1"># そのほかにも、いろいろ指定できる。指定できるものは Field により異なる。</span>
+<a name="rest_code_106c28f6883e4de3900b0e975bcbaafd-9"></a>        <span class="n">label</span><span class="o">=</span><span class="s1">'パスワード'</span><span class="p">,</span>
+<a name="rest_code_106c28f6883e4de3900b0e975bcbaafd-10"></a>        <span class="n">strip</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+<a name="rest_code_106c28f6883e4de3900b0e975bcbaafd-11"></a>    <span class="p">)</span>
 </pre>
 </div>
 <div class="section" id="id5">
@@ -103,136 +110,140 @@
 <div class="section" id="id6">
 <h3><a class="toc-backref" href="#id16">実行される順番</a></h3>
 <ol class="arabic simple">
-<li><tt class="docutils literal">Form.is_valid()</tt></li>
+<li><p><code class="docutils literal">Form.is_valid()</code></p></li>
 <li>
-<tt class="docutils literal">Form.フィールド</tt> に定義されたバリデーション<ul>
-<li>文字種チェックなど</li>
-<li>フォームクラスに定義した順に実行される</li>
+<p><code class="docutils literal">Form.フィールド</code> に定義されたバリデーション</p>
+<ul class="simple">
+<li><p>文字種チェックなど</p></li>
+<li><p>フォームクラスに定義した順に実行される</p></li>
 </ul>
 </li>
 <li>
-<tt class="docutils literal"><span class="pre">Form.clean_&lt;フィールド名&gt;()</span></tt><ul>
-<li>単項目。フィールド単体のバリデーション。</li>
-<li>妥当性チェック</li>
-<li>フォームクラスに定義した順に実行される</li>
+<p><code class="docutils literal"><span class="pre">Form.clean_&lt;フィールド名&gt;()</span></code></p>
+<ul class="simple">
+<li><p>単項目。フィールド単体のバリデーション。</p></li>
+<li><p>妥当性チェック</p></li>
+<li><p>フォームクラスに定義した順に実行される</p></li>
 </ul>
 </li>
 <li>
-<tt class="docutils literal">Form.clean()</tt><ul>
-<li>複数項目</li>
-<li>相関チェック</li>
-<li>データベースとの整合性チェック</li>
+<p><code class="docutils literal">Form.clean()</code></p>
+<ul class="simple">
+<li><p>複数項目</p></li>
+<li><p>相関チェック</p></li>
+<li><p>データベースとの整合性チェック</p></li>
 </ul>
 </li>
-<li>バリデーション OK の場合、 <tt class="docutils literal">Form.cleaned_data</tt> に検証済みデータがセットされる<ul>
 <li>
-<tt class="docutils literal">is_valid()</tt> 未実行の場合は <tt class="docutils literal">cleaned_data</tt> 属性自体が存在しない</li>
+<p>バリデーション OK の場合、 <code class="docutils literal">Form.cleaned_data</code> に検証済みデータがセットされる</p>
+<ul class="simple">
+<li><p><code class="docutils literal">is_valid()</code> 未実行の場合は <code class="docutils literal">cleaned_data</code> 属性自体が存在しない</p></li>
 </ul>
 </li>
 </ol>
 </div>
 <div class="section" id="clean">
 <h3><a class="toc-backref" href="#id17">clean_&lt;フィールド名&gt;()</a></h3>
-<pre class="code python"><a name="rest_code_2a607f832b9e4e1e9d7038fdd22f863d-1"></a><span class="kn">from</span> <span class="nn">django</span> <span class="kn">import</span> <span class="n">forms</span>
-<a name="rest_code_2a607f832b9e4e1e9d7038fdd22f863d-2"></a>
-<a name="rest_code_2a607f832b9e4e1e9d7038fdd22f863d-3"></a><span class="k">class</span> <span class="nc">LoginForm</span><span class="p">(</span><span class="n">forms</span><span class="o">.</span><span class="n">Form</span><span class="p">):</span>
-<a name="rest_code_2a607f832b9e4e1e9d7038fdd22f863d-4"></a>    <span class="n">username</span> <span class="o">=</span> <span class="n">UsernameField</span><span class="p">(</span>
-<a name="rest_code_2a607f832b9e4e1e9d7038fdd22f863d-5"></a>        <span class="n">label</span><span class="o">=</span><span class="s1">'ユーザー名'</span><span class="p">,</span>
-<a name="rest_code_2a607f832b9e4e1e9d7038fdd22f863d-6"></a>        <span class="n">max_length</span><span class="o">=</span><span class="mi">255</span><span class="p">,</span>
-<a name="rest_code_2a607f832b9e4e1e9d7038fdd22f863d-7"></a>    <span class="p">)</span>
-<a name="rest_code_2a607f832b9e4e1e9d7038fdd22f863d-8"></a>
-<a name="rest_code_2a607f832b9e4e1e9d7038fdd22f863d-9"></a>    <span class="c1"># ``clean_&lt;フィールド名&gt;`` というメソッド名にする</span>
-<a name="rest_code_2a607f832b9e4e1e9d7038fdd22f863d-10"></a>    <span class="k">def</span> <span class="nf">clean_username</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a name="rest_code_2a607f832b9e4e1e9d7038fdd22f863d-11"></a>        <span class="c1"># 入力値は cleaned_data から取得する</span>
-<a name="rest_code_2a607f832b9e4e1e9d7038fdd22f863d-12"></a>        <span class="n">username</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cleaned_data</span><span class="p">[</span><span class="s1">'username'</span><span class="p">]</span>
-<a name="rest_code_2a607f832b9e4e1e9d7038fdd22f863d-13"></a>        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">username</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
-<a name="rest_code_2a607f832b9e4e1e9d7038fdd22f863d-14"></a>            <span class="c1"># バリデーション NG の場合</span>
-<a name="rest_code_2a607f832b9e4e1e9d7038fdd22f863d-15"></a>            <span class="k">raise</span> <span class="n">forms</span><span class="o">.</span><span class="n">ValidationError</span><span class="p">(</span>
-<a name="rest_code_2a607f832b9e4e1e9d7038fdd22f863d-16"></a>                <span class="c1"># ValidationError を raise すると Form 内部の変数にエラーメッセージを追加できる</span>
-<a name="rest_code_2a607f832b9e4e1e9d7038fdd22f863d-17"></a>                <span class="c1"># ValidationError には↓のように、メッセージを設定できる</span>
-<a name="rest_code_2a607f832b9e4e1e9d7038fdd22f863d-18"></a>                <span class="s1">'</span><span class="si">%(min_length)s</span><span class="s1"> 文字以上で入力してください'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s1">'min_length'</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
-<a name="rest_code_2a607f832b9e4e1e9d7038fdd22f863d-19"></a>            <span class="p">)</span>
-<a name="rest_code_2a607f832b9e4e1e9d7038fdd22f863d-20"></a>        <span class="c1"># バリデーションOK の場合は、 検証済み値を return することで cleaned_data に値を再セットできる</span>
-<a name="rest_code_2a607f832b9e4e1e9d7038fdd22f863d-21"></a>        <span class="c1"># ``return 値`` しないと cleaned_data から値が消えてしまう!!</span>
-<a name="rest_code_2a607f832b9e4e1e9d7038fdd22f863d-22"></a>        <span class="k">return</span> <span class="n">username</span>
+<pre class="code python"><a name="rest_code_506a920b20024e1abfbe232c17bb5d22-1"></a><span class="kn">from</span> <span class="nn">django</span> <span class="kn">import</span> <span class="n">forms</span>
+<a name="rest_code_506a920b20024e1abfbe232c17bb5d22-2"></a>
+<a name="rest_code_506a920b20024e1abfbe232c17bb5d22-3"></a><span class="k">class</span> <span class="nc">LoginForm</span><span class="p">(</span><span class="n">forms</span><span class="o">.</span><span class="n">Form</span><span class="p">):</span>
+<a name="rest_code_506a920b20024e1abfbe232c17bb5d22-4"></a>    <span class="n">username</span> <span class="o">=</span> <span class="n">UsernameField</span><span class="p">(</span>
+<a name="rest_code_506a920b20024e1abfbe232c17bb5d22-5"></a>        <span class="n">label</span><span class="o">=</span><span class="s1">'ユーザー名'</span><span class="p">,</span>
+<a name="rest_code_506a920b20024e1abfbe232c17bb5d22-6"></a>        <span class="n">max_length</span><span class="o">=</span><span class="mi">255</span><span class="p">,</span>
+<a name="rest_code_506a920b20024e1abfbe232c17bb5d22-7"></a>    <span class="p">)</span>
+<a name="rest_code_506a920b20024e1abfbe232c17bb5d22-8"></a>
+<a name="rest_code_506a920b20024e1abfbe232c17bb5d22-9"></a>    <span class="c1"># ``clean_&lt;フィールド名&gt;`` というメソッド名にする</span>
+<a name="rest_code_506a920b20024e1abfbe232c17bb5d22-10"></a>    <span class="k">def</span> <span class="nf">clean_username</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a name="rest_code_506a920b20024e1abfbe232c17bb5d22-11"></a>        <span class="c1"># 入力値は cleaned_data から取得する</span>
+<a name="rest_code_506a920b20024e1abfbe232c17bb5d22-12"></a>        <span class="n">username</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cleaned_data</span><span class="p">[</span><span class="s1">'username'</span><span class="p">]</span>
+<a name="rest_code_506a920b20024e1abfbe232c17bb5d22-13"></a>        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">username</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+<a name="rest_code_506a920b20024e1abfbe232c17bb5d22-14"></a>            <span class="c1"># バリデーション NG の場合</span>
+<a name="rest_code_506a920b20024e1abfbe232c17bb5d22-15"></a>            <span class="k">raise</span> <span class="n">forms</span><span class="o">.</span><span class="n">ValidationError</span><span class="p">(</span>
+<a name="rest_code_506a920b20024e1abfbe232c17bb5d22-16"></a>                <span class="c1"># ValidationError を raise すると Form 内部の変数にエラーメッセージを追加できる</span>
+<a name="rest_code_506a920b20024e1abfbe232c17bb5d22-17"></a>                <span class="c1"># ValidationError には↓のように、メッセージを設定できる</span>
+<a name="rest_code_506a920b20024e1abfbe232c17bb5d22-18"></a>                <span class="s1">'</span><span class="si">%(min_length)s</span><span class="s1"> 文字以上で入力してください'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s1">'min_length'</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
+<a name="rest_code_506a920b20024e1abfbe232c17bb5d22-19"></a>            <span class="p">)</span>
+<a name="rest_code_506a920b20024e1abfbe232c17bb5d22-20"></a>        <span class="c1"># バリデーションOK の場合は、 検証済み値を return することで cleaned_data に値を再セットできる</span>
+<a name="rest_code_506a920b20024e1abfbe232c17bb5d22-21"></a>        <span class="c1"># ``return 値`` しないと cleaned_data から値が消えてしまう!!</span>
+<a name="rest_code_506a920b20024e1abfbe232c17bb5d22-22"></a>        <span class="k">return</span> <span class="n">username</span>
 </pre>
 </div>
 <div class="section" id="id7">
 <h3><a class="toc-backref" href="#id18">clean()</a></h3>
-<pre class="code python"><a name="rest_code_d3ea15adf8074d39bb7dd49830e5d976-1"></a><span class="k">def</span> <span class="nf">clean</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a name="rest_code_d3ea15adf8074d39bb7dd49830e5d976-2"></a>    <span class="c1"># 入力値は cleaned_data から取得する</span>
-<a name="rest_code_d3ea15adf8074d39bb7dd49830e5d976-3"></a>    <span class="n">username</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cleaned_data</span><span class="p">[</span><span class="s1">'username'</span><span class="p">]</span>
-<a name="rest_code_d3ea15adf8074d39bb7dd49830e5d976-4"></a>    <span class="n">password</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cleaned_data</span><span class="p">[</span><span class="s1">'password'</span><span class="p">]</span>
-<a name="rest_code_d3ea15adf8074d39bb7dd49830e5d976-5"></a>
-<a name="rest_code_d3ea15adf8074d39bb7dd49830e5d976-6"></a>    <span class="k">try</span><span class="p">:</span>
-<a name="rest_code_d3ea15adf8074d39bb7dd49830e5d976-7"></a>        <span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="n">username</span><span class="p">)</span>
-<a name="rest_code_d3ea15adf8074d39bb7dd49830e5d976-8"></a>    <span class="k">except</span> <span class="n">ObjectDoesNotExist</span><span class="p">:</span>
-<a name="rest_code_d3ea15adf8074d39bb7dd49830e5d976-9"></a>        <span class="c1"># バリデーション NG の場合 `ValidationError` を raise することで</span>
-<a name="rest_code_d3ea15adf8074d39bb7dd49830e5d976-10"></a>        <span class="c1"># エラーメッセージを Form 内部の変数に追加できる</span>
-<a name="rest_code_d3ea15adf8074d39bb7dd49830e5d976-11"></a>        <span class="k">raise</span> <span class="n">forms</span><span class="o">.</span><span class="n">ValidationError</span><span class="p">(</span><span class="s2">"正しいユーザー名を入力してください"</span><span class="p">)</span>
-<a name="rest_code_d3ea15adf8074d39bb7dd49830e5d976-12"></a>
-<a name="rest_code_d3ea15adf8074d39bb7dd49830e5d976-13"></a>    <span class="c1"># バリデーションOK の場合、 検証済み値を return する必要はない</span>
+<pre class="code python"><a name="rest_code_34b9cee16fef4d57812b228a71b38853-1"></a><span class="k">def</span> <span class="nf">clean</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a name="rest_code_34b9cee16fef4d57812b228a71b38853-2"></a>    <span class="c1"># 入力値は cleaned_data から取得する</span>
+<a name="rest_code_34b9cee16fef4d57812b228a71b38853-3"></a>    <span class="n">username</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cleaned_data</span><span class="p">[</span><span class="s1">'username'</span><span class="p">]</span>
+<a name="rest_code_34b9cee16fef4d57812b228a71b38853-4"></a>    <span class="n">password</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cleaned_data</span><span class="p">[</span><span class="s1">'password'</span><span class="p">]</span>
+<a name="rest_code_34b9cee16fef4d57812b228a71b38853-5"></a>
+<a name="rest_code_34b9cee16fef4d57812b228a71b38853-6"></a>    <span class="k">try</span><span class="p">:</span>
+<a name="rest_code_34b9cee16fef4d57812b228a71b38853-7"></a>        <span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="n">username</span><span class="p">)</span>
+<a name="rest_code_34b9cee16fef4d57812b228a71b38853-8"></a>    <span class="k">except</span> <span class="n">ObjectDoesNotExist</span><span class="p">:</span>
+<a name="rest_code_34b9cee16fef4d57812b228a71b38853-9"></a>        <span class="c1"># バリデーション NG の場合 `ValidationError` を raise することで</span>
+<a name="rest_code_34b9cee16fef4d57812b228a71b38853-10"></a>        <span class="c1"># エラーメッセージを Form 内部の変数に追加できる</span>
+<a name="rest_code_34b9cee16fef4d57812b228a71b38853-11"></a>        <span class="k">raise</span> <span class="n">forms</span><span class="o">.</span><span class="n">ValidationError</span><span class="p">(</span><span class="s2">"正しいユーザー名を入力してください"</span><span class="p">)</span>
+<a name="rest_code_34b9cee16fef4d57812b228a71b38853-12"></a>
+<a name="rest_code_34b9cee16fef4d57812b228a71b38853-13"></a>    <span class="c1"># バリデーションOK の場合、 検証済み値を return する必要はない</span>
 </pre>
 </div>
 </div>
 <div class="section" id="view">
 <h2><a class="toc-backref" href="#id19">View からの利用</a></h2>
 <ul class="simple">
-<li>リクエストオブジェクトから入力データを取得して型変換</li>
-<li>入力データをバリデーション</li>
+<li><p>リクエストオブジェクトから入力データを取得して型変換</p></li>
+<li><p>入力データをバリデーション</p></li>
 </ul>
-<pre class="code python"><a name="rest_code_aef01dd4c12544d4b38171d311d37469-1"></a><span class="c1"># Form に request.POST をあげる</span>
-<a name="rest_code_aef01dd4c12544d4b38171d311d37469-2"></a><span class="n">form</span> <span class="o">=</span> <span class="n">LoginForm</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">)</span>
-<a name="rest_code_aef01dd4c12544d4b38171d311d37469-3"></a><span class="c1"># request から入力データを取り出して =&gt; 型変換して =&gt; バリデーションをする</span>
-<a name="rest_code_aef01dd4c12544d4b38171d311d37469-4"></a><span class="n">is_valid</span> <span class="o">=</span> <span class="n">form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">()</span>
-<a name="rest_code_aef01dd4c12544d4b38171d311d37469-5"></a>
-<a name="rest_code_aef01dd4c12544d4b38171d311d37469-6"></a><span class="k">if</span> <span class="ow">not</span> <span class="n">is_valid</span><span class="p">:</span>
-<a name="rest_code_aef01dd4c12544d4b38171d311d37469-7"></a>  <span class="c1"># ヴァリデーションNGの場合、遷移元画面のテンプレートにフォームオブジェクトを 'form' という名前で渡している</span>
-<a name="rest_code_aef01dd4c12544d4b38171d311d37469-8"></a>  <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">'account/login.html'</span><span class="p">,</span> <span class="p">{</span><span class="s1">'form'</span><span class="p">:</span> <span class="n">form</span><span class="p">})</span>
+<pre class="code python"><a name="rest_code_877a152f8a864c1da4f11eea855319f7-1"></a><span class="c1"># Form に request.POST をあげる</span>
+<a name="rest_code_877a152f8a864c1da4f11eea855319f7-2"></a><span class="n">form</span> <span class="o">=</span> <span class="n">LoginForm</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">)</span>
+<a name="rest_code_877a152f8a864c1da4f11eea855319f7-3"></a><span class="c1"># request から入力データを取り出して =&gt; 型変換して =&gt; バリデーションをする</span>
+<a name="rest_code_877a152f8a864c1da4f11eea855319f7-4"></a><span class="n">is_valid</span> <span class="o">=</span> <span class="n">form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">()</span>
+<a name="rest_code_877a152f8a864c1da4f11eea855319f7-5"></a>
+<a name="rest_code_877a152f8a864c1da4f11eea855319f7-6"></a><span class="k">if</span> <span class="ow">not</span> <span class="n">is_valid</span><span class="p">:</span>
+<a name="rest_code_877a152f8a864c1da4f11eea855319f7-7"></a>  <span class="c1"># ヴァリデーションNGの場合、遷移元画面のテンプレートにフォームオブジェクトを 'form' という名前で渡している</span>
+<a name="rest_code_877a152f8a864c1da4f11eea855319f7-8"></a>  <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">'account/login.html'</span><span class="p">,</span> <span class="p">{</span><span class="s1">'form'</span><span class="p">:</span> <span class="n">form</span><span class="p">})</span>
 </pre>
 </div>
 <div class="section" id="template">
 <h2><a class="toc-backref" href="#id20">Template からの利用</a></h2>
 <ul class="simple">
-<li>テンプレート内でフォームの入力データやエラーメッセージを表示する</li>
+<li><p>テンプレート内でフォームの入力データやエラーメッセージを表示する</p></li>
 </ul>
-<pre class="code python"><a name="rest_code_13e0b507971042029ae2b092405d8ed4-1"></a><span class="c1"># これだけで入力データがセットされた入力フィールドを全て出力できる</span>
-<a name="rest_code_13e0b507971042029ae2b092405d8ed4-2"></a><span class="c1"># * フィールドの出力順は、フォームクラスにフィールドを定義した順</span>
-<a name="rest_code_13e0b507971042029ae2b092405d8ed4-3"></a><span class="c1"># * 順番を変更したい =&gt; Form に `field_order`</span>
-<a name="rest_code_13e0b507971042029ae2b092405d8ed4-4"></a><span class="p">{{</span><span class="n">form</span><span class="p">}}</span>
+<pre class="code python"><a name="rest_code_fed96d46f7434a73abe9096eb9df2164-1"></a><span class="c1"># これだけで入力データがセットされた入力フィールドを全て出力できる</span>
+<a name="rest_code_fed96d46f7434a73abe9096eb9df2164-2"></a><span class="c1"># * フィールドの出力順は、フォームクラスにフィールドを定義した順</span>
+<a name="rest_code_fed96d46f7434a73abe9096eb9df2164-3"></a><span class="c1"># * 順番を変更したい =&gt; Form に `field_order`</span>
+<a name="rest_code_fed96d46f7434a73abe9096eb9df2164-4"></a><span class="p">{{</span><span class="n">form</span><span class="p">}}</span>
 </pre>
-<pre class="code python"><a name="rest_code_2d9e6660c81940ff991d169105be313e-1"></a><span class="p">{</span><span class="c1"># form オブジェクトをイテレートすると form に定義した fields が順番に取り出せるよ! #}</span>
-<a name="rest_code_2d9e6660c81940ff991d169105be313e-2"></a><span class="p">{</span><span class="o">%</span> <span class="k">for</span> <span class="n">field</span> <span class="ow">in</span> <span class="n">form</span> <span class="o">%</span><span class="p">}</span>
-<a name="rest_code_2d9e6660c81940ff991d169105be313e-3"></a>  <span class="o">&lt;</span><span class="n">div</span> <span class="n">class</span><span class="o">=</span><span class="s2">"field"</span><span class="o">&gt;</span>
-<a name="rest_code_2d9e6660c81940ff991d169105be313e-4"></a>    <span class="p">{{</span> <span class="n">field</span> <span class="p">}}</span>
-<a name="rest_code_2d9e6660c81940ff991d169105be313e-5"></a>  <span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
-<a name="rest_code_2d9e6660c81940ff991d169105be313e-6"></a>  <span class="p">{</span><span class="o">%</span> <span class="k">if</span> <span class="n">field</span><span class="o">.</span><span class="n">errors</span> <span class="o">%</span><span class="p">}</span>
-<a name="rest_code_2d9e6660c81940ff991d169105be313e-7"></a>    <span class="p">{</span><span class="c1"># field に関連する error messages は errors 属性にリスト形式で入っている #}</span>
-<a name="rest_code_2d9e6660c81940ff991d169105be313e-8"></a>    <span class="p">{{</span> <span class="n">field</span><span class="o">.</span><span class="n">errors</span><span class="o">.</span><span class="mi">0</span> <span class="p">}}</span>
-<a name="rest_code_2d9e6660c81940ff991d169105be313e-9"></a>  <span class="p">{</span><span class="o">%</span> <span class="n">endif</span> <span class="o">%</span><span class="p">}</span>
-<a name="rest_code_2d9e6660c81940ff991d169105be313e-10"></a><span class="p">{</span><span class="o">%</span> <span class="n">endfor</span> <span class="o">%</span><span class="p">}</span>
-<a name="rest_code_2d9e6660c81940ff991d169105be313e-11"></a>
-<a name="rest_code_2d9e6660c81940ff991d169105be313e-12"></a><span class="p">{</span><span class="c1"># 全体エラーメッセージ #}</span>
-<a name="rest_code_2d9e6660c81940ff991d169105be313e-13"></a><span class="p">{</span><span class="c1"># Form.clean() で追加したエラーメッセージは、 form オブジェクトの non_field_errors 属性にリストで入っている #}</span>
-<a name="rest_code_2d9e6660c81940ff991d169105be313e-14"></a><span class="p">{</span><span class="o">%</span> <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">non_field_errors</span> <span class="o">%</span><span class="p">}</span>
-<a name="rest_code_2d9e6660c81940ff991d169105be313e-15"></a><span class="o">&lt;</span><span class="n">div</span> <span class="n">class</span><span class="o">=</span><span class="s2">"ui red message"</span><span class="o">&gt;</span>
-<a name="rest_code_2d9e6660c81940ff991d169105be313e-16"></a>  <span class="o">&lt;</span><span class="n">ul</span> <span class="n">class</span><span class="o">=</span><span class="s2">"list"</span><span class="o">&gt;</span>
-<a name="rest_code_2d9e6660c81940ff991d169105be313e-17"></a>    <span class="p">{</span><span class="o">%</span> <span class="k">for</span> <span class="n">non_field_error</span> <span class="ow">in</span> <span class="n">form</span><span class="o">.</span><span class="n">non_field_errors</span> <span class="o">%</span><span class="p">}</span>
-<a name="rest_code_2d9e6660c81940ff991d169105be313e-18"></a>      <span class="o">&lt;</span><span class="n">li</span><span class="o">&gt;</span><span class="p">{{</span> <span class="n">non_field_error</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="n">li</span><span class="o">&gt;</span>
-<a name="rest_code_2d9e6660c81940ff991d169105be313e-19"></a>    <span class="p">{</span><span class="o">%</span> <span class="n">endfor</span> <span class="o">%</span><span class="p">}</span>
-<a name="rest_code_2d9e6660c81940ff991d169105be313e-20"></a>  <span class="o">&lt;/</span><span class="n">ul</span><span class="o">&gt;</span>
-<a name="rest_code_2d9e6660c81940ff991d169105be313e-21"></a><span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
-<a name="rest_code_2d9e6660c81940ff991d169105be313e-22"></a><span class="p">{</span><span class="o">%</span> <span class="n">endif</span> <span class="o">%</span><span class="p">}</span>
+<pre class="code python"><a name="rest_code_152dc8f20a39423e9c735046b66383a3-1"></a><span class="p">{</span><span class="c1"># form オブジェクトをイテレートすると form に定義した fields が順番に取り出せるよ! #}</span>
+<a name="rest_code_152dc8f20a39423e9c735046b66383a3-2"></a><span class="p">{</span><span class="o">%</span> <span class="k">for</span> <span class="n">field</span> <span class="ow">in</span> <span class="n">form</span> <span class="o">%</span><span class="p">}</span>
+<a name="rest_code_152dc8f20a39423e9c735046b66383a3-3"></a>  <span class="o">&lt;</span><span class="n">div</span> <span class="n">class</span><span class="o">=</span><span class="s2">"field"</span><span class="o">&gt;</span>
+<a name="rest_code_152dc8f20a39423e9c735046b66383a3-4"></a>    <span class="p">{{</span> <span class="n">field</span> <span class="p">}}</span>
+<a name="rest_code_152dc8f20a39423e9c735046b66383a3-5"></a>  <span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+<a name="rest_code_152dc8f20a39423e9c735046b66383a3-6"></a>  <span class="p">{</span><span class="o">%</span> <span class="k">if</span> <span class="n">field</span><span class="o">.</span><span class="n">errors</span> <span class="o">%</span><span class="p">}</span>
+<a name="rest_code_152dc8f20a39423e9c735046b66383a3-7"></a>    <span class="p">{</span><span class="c1"># field に関連する error messages は errors 属性にリスト形式で入っている #}</span>
+<a name="rest_code_152dc8f20a39423e9c735046b66383a3-8"></a>    <span class="p">{{</span> <span class="n">field</span><span class="o">.</span><span class="n">errors</span><span class="o">.</span><span class="mi">0</span> <span class="p">}}</span>
+<a name="rest_code_152dc8f20a39423e9c735046b66383a3-9"></a>  <span class="p">{</span><span class="o">%</span> <span class="n">endif</span> <span class="o">%</span><span class="p">}</span>
+<a name="rest_code_152dc8f20a39423e9c735046b66383a3-10"></a><span class="p">{</span><span class="o">%</span> <span class="n">endfor</span> <span class="o">%</span><span class="p">}</span>
+<a name="rest_code_152dc8f20a39423e9c735046b66383a3-11"></a>
+<a name="rest_code_152dc8f20a39423e9c735046b66383a3-12"></a><span class="p">{</span><span class="c1"># 全体エラーメッセージ #}</span>
+<a name="rest_code_152dc8f20a39423e9c735046b66383a3-13"></a><span class="p">{</span><span class="c1"># Form.clean() で追加したエラーメッセージは、 form オブジェクトの non_field_errors 属性にリストで入っている #}</span>
+<a name="rest_code_152dc8f20a39423e9c735046b66383a3-14"></a><span class="p">{</span><span class="o">%</span> <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">non_field_errors</span> <span class="o">%</span><span class="p">}</span>
+<a name="rest_code_152dc8f20a39423e9c735046b66383a3-15"></a><span class="o">&lt;</span><span class="n">div</span> <span class="n">class</span><span class="o">=</span><span class="s2">"ui red message"</span><span class="o">&gt;</span>
+<a name="rest_code_152dc8f20a39423e9c735046b66383a3-16"></a>  <span class="o">&lt;</span><span class="n">ul</span> <span class="n">class</span><span class="o">=</span><span class="s2">"list"</span><span class="o">&gt;</span>
+<a name="rest_code_152dc8f20a39423e9c735046b66383a3-17"></a>    <span class="p">{</span><span class="o">%</span> <span class="k">for</span> <span class="n">non_field_error</span> <span class="ow">in</span> <span class="n">form</span><span class="o">.</span><span class="n">non_field_errors</span> <span class="o">%</span><span class="p">}</span>
+<a name="rest_code_152dc8f20a39423e9c735046b66383a3-18"></a>      <span class="o">&lt;</span><span class="n">li</span><span class="o">&gt;</span><span class="p">{{</span> <span class="n">non_field_error</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="n">li</span><span class="o">&gt;</span>
+<a name="rest_code_152dc8f20a39423e9c735046b66383a3-19"></a>    <span class="p">{</span><span class="o">%</span> <span class="n">endfor</span> <span class="o">%</span><span class="p">}</span>
+<a name="rest_code_152dc8f20a39423e9c735046b66383a3-20"></a>  <span class="o">&lt;/</span><span class="n">ul</span><span class="o">&gt;</span>
+<a name="rest_code_152dc8f20a39423e9c735046b66383a3-21"></a><span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+<a name="rest_code_152dc8f20a39423e9c735046b66383a3-22"></a><span class="p">{</span><span class="o">%</span> <span class="n">endif</span> <span class="o">%</span><span class="p">}</span>
 </pre>
 </div>
 <div class="section" id="csrf">
 <h2><a class="toc-backref" href="#id21">CSRF</a></h2>
 <ul class="simple">
-<li>シーサーフ、クロスサイトリクエストフォージェリーと呼ばれるセキュリティ攻撃の一種</li>
-<li>POST リクエストに CSRF 対策のトークン <tt class="docutils literal">csrfmiddlewaretoken</tt> を加えられる</li>
+<li><p>シーサーフ、クロスサイトリクエストフォージェリーと呼ばれるセキュリティ攻撃の一種</p></li>
+<li><p>POST リクエストに CSRF 対策のトークン <code class="docutils literal">csrfmiddlewaretoken</code> を加えられる</p></li>
 </ul>
-<pre class="code python"><a name="rest_code_72c9ba65e0f24508af46c2f7d22ddc31-1"></a><span class="c1"># template の form 内にこれを書くよ</span>
-<a name="rest_code_72c9ba65e0f24508af46c2f7d22ddc31-2"></a><span class="p">{</span><span class="o">%</span> <span class="n">csrf_token</span> <span class="o">%</span><span class="p">}</span>
+<pre class="code python"><a name="rest_code_3a22cf91fce841868dda6da643aadf10-1"></a><span class="c1"># template の form 内にこれを書くよ</span>
+<a name="rest_code_3a22cf91fce841868dda6da643aadf10-2"></a><span class="p">{</span><span class="o">%</span> <span class="n">csrf_token</span> <span class="o">%</span><span class="p">}</span>
 </pre>
 </div>
 <div class="section" id="modelform">
@@ -240,60 +251,60 @@
 <div class="section" id="id8">
 <h3><a class="toc-backref" href="#id23">こんなときに利用価値が高い</a></h3>
 <ul class="simple">
-<li>モデルに定義したフィールドのうちのいくつかが画面の入力フィールドと合致する</li>
-<li>モデルの登録や変更を伴う</li>
+<li><p>モデルに定義したフィールドのうちのいくつかが画面の入力フィールドと合致する</p></li>
+<li><p>モデルの登録や変更を伴う</p></li>
 </ul>
-<pre class="code python"><a name="rest_code_33d24b11f6ba4829bce43919806eb5ca-1"></a><span class="kn">from</span> <span class="nn">django</span> <span class="kn">import</span> <span class="n">forms</span>
-<a name="rest_code_33d24b11f6ba4829bce43919806eb5ca-2"></a><span class="kn">from</span> <span class="nn">django.contrib.auth.models</span> <span class="kn">import</span> <span class="n">User</span>
-<a name="rest_code_33d24b11f6ba4829bce43919806eb5ca-3"></a>
-<a name="rest_code_33d24b11f6ba4829bce43919806eb5ca-4"></a><span class="c1"># django.forms.models.ModelForm を継承する</span>
-<a name="rest_code_33d24b11f6ba4829bce43919806eb5ca-5"></a><span class="k">class</span> <span class="nc">RegisterForm</span><span class="p">(</span><span class="n">forms</span><span class="o">.</span><span class="n">ModelForm</span><span class="p">):</span>
-<a name="rest_code_33d24b11f6ba4829bce43919806eb5ca-6"></a>    <span class="sd">"""ユーザー登録画面用のフォーム"""</span>
-<a name="rest_code_33d24b11f6ba4829bce43919806eb5ca-7"></a>    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
-<a name="rest_code_33d24b11f6ba4829bce43919806eb5ca-8"></a>        <span class="c1"># 利用するモデルクラスを指定</span>
-<a name="rest_code_33d24b11f6ba4829bce43919806eb5ca-9"></a>        <span class="n">model</span> <span class="o">=</span> <span class="n">User</span>
-<a name="rest_code_33d24b11f6ba4829bce43919806eb5ca-10"></a>        <span class="c1"># 利用するモデルのフィールドを指定</span>
-<a name="rest_code_33d24b11f6ba4829bce43919806eb5ca-11"></a>        <span class="n">fields</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'username'</span><span class="p">,</span> <span class="s1">'email'</span><span class="p">,</span> <span class="s1">'password'</span><span class="p">,</span> <span class="p">)</span>
+<pre class="code python"><a name="rest_code_efcfb40d00184737a5167b6cf2d3f706-1"></a><span class="kn">from</span> <span class="nn">django</span> <span class="kn">import</span> <span class="n">forms</span>
+<a name="rest_code_efcfb40d00184737a5167b6cf2d3f706-2"></a><span class="kn">from</span> <span class="nn">django.contrib.auth.models</span> <span class="kn">import</span> <span class="n">User</span>
+<a name="rest_code_efcfb40d00184737a5167b6cf2d3f706-3"></a>
+<a name="rest_code_efcfb40d00184737a5167b6cf2d3f706-4"></a><span class="c1"># django.forms.models.ModelForm を継承する</span>
+<a name="rest_code_efcfb40d00184737a5167b6cf2d3f706-5"></a><span class="k">class</span> <span class="nc">RegisterForm</span><span class="p">(</span><span class="n">forms</span><span class="o">.</span><span class="n">ModelForm</span><span class="p">):</span>
+<a name="rest_code_efcfb40d00184737a5167b6cf2d3f706-6"></a>    <span class="sd">"""ユーザー登録画面用のフォーム"""</span>
+<a name="rest_code_efcfb40d00184737a5167b6cf2d3f706-7"></a>    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+<a name="rest_code_efcfb40d00184737a5167b6cf2d3f706-8"></a>        <span class="c1"># 利用するモデルクラスを指定</span>
+<a name="rest_code_efcfb40d00184737a5167b6cf2d3f706-9"></a>        <span class="n">model</span> <span class="o">=</span> <span class="n">User</span>
+<a name="rest_code_efcfb40d00184737a5167b6cf2d3f706-10"></a>        <span class="c1"># 利用するモデルのフィールドを指定</span>
+<a name="rest_code_efcfb40d00184737a5167b6cf2d3f706-11"></a>        <span class="n">fields</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'username'</span><span class="p">,</span> <span class="s1">'email'</span><span class="p">,</span> <span class="s1">'password'</span><span class="p">,</span> <span class="p">)</span>
 </pre>
 </div>
 <div class="section" id="modelform-field">
 <h3><a class="toc-backref" href="#id24">ModelForm の Field</a></h3>
 <ul>
 <li>
-<p class="first">ModelForm は、モデルの django.db.models.fields.Field のサブクラスを自動判別してそれに対応するフォームの django.forms.fields.Field のサブクラスに変換してくれる</p>
+<p>ModelForm は、モデルの django.db.models.fields.Field のサブクラスを自動判別してそれに対応するフォームの django.forms.fields.Field のサブクラスに変換してくれる</p>
 <ul class="simple">
-<li>対応表は P.92</li>
+<li><p>対応表は P.92</p></li>
 </ul>
 </li>
 <li>
-<p class="first">変換されたフォームの Field をそのまま使えない場合は、いろいろカスタマイズできる。</p>
-<pre class="code python"><a name="rest_code_bac61d61497a484898afd17114acbf9b-1"></a><span class="k">class</span> <span class="nc">RegisterForm</span><span class="p">(</span><span class="n">forms</span><span class="o">.</span><span class="n">ModelForm</span><span class="p">):</span>
-<a name="rest_code_bac61d61497a484898afd17114acbf9b-2"></a>    <span class="sd">"""ユーザー登録画面用のフォーム"""</span>
-<a name="rest_code_bac61d61497a484898afd17114acbf9b-3"></a>
-<a name="rest_code_bac61d61497a484898afd17114acbf9b-4"></a>    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
-<a name="rest_code_bac61d61497a484898afd17114acbf9b-5"></a>        <span class="n">model</span> <span class="o">=</span> <span class="n">User</span>
-<a name="rest_code_bac61d61497a484898afd17114acbf9b-6"></a>        <span class="n">fields</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'username'</span><span class="p">,</span> <span class="s1">'email'</span><span class="p">,</span> <span class="s1">'password'</span><span class="p">,)</span>
-<a name="rest_code_bac61d61497a484898afd17114acbf9b-7"></a>        <span class="c1"># widget を TextInput から PasswordInput に変更</span>
-<a name="rest_code_bac61d61497a484898afd17114acbf9b-8"></a>        <span class="n">widgets</span> <span class="o">=</span> <span class="p">{</span>
-<a name="rest_code_bac61d61497a484898afd17114acbf9b-9"></a>            <span class="s1">'password'</span><span class="p">:</span> <span class="n">forms</span><span class="o">.</span><span class="n">PasswordInput</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">'placeholder'</span><span class="p">:</span> <span class="s1">'パスワード'</span><span class="p">})</span>
-<a name="rest_code_bac61d61497a484898afd17114acbf9b-10"></a>        <span class="p">}</span>
-<a name="rest_code_bac61d61497a484898afd17114acbf9b-11"></a>
-<a name="rest_code_bac61d61497a484898afd17114acbf9b-12"></a>    <span class="c1"># User モデルにはない「確認用パスワード」フィールドを追加</span>
-<a name="rest_code_bac61d61497a484898afd17114acbf9b-13"></a>    <span class="n">password2</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span>
-<a name="rest_code_bac61d61497a484898afd17114acbf9b-14"></a>        <span class="n">label</span><span class="o">=</span><span class="s1">'確認用パスワード'</span><span class="p">,</span>
-<a name="rest_code_bac61d61497a484898afd17114acbf9b-15"></a>        <span class="n">required</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
-<a name="rest_code_bac61d61497a484898afd17114acbf9b-16"></a>        <span class="n">strip</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
-<a name="rest_code_bac61d61497a484898afd17114acbf9b-17"></a>        <span class="n">widgets</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">PasswordInput</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">'placeholder'</span><span class="p">:</span> <span class="s1">'確認用パスワード'</span><span class="p">})</span>
-<a name="rest_code_bac61d61497a484898afd17114acbf9b-18"></a>    <span class="p">)</span>
-<a name="rest_code_bac61d61497a484898afd17114acbf9b-19"></a>
-<a name="rest_code_bac61d61497a484898afd17114acbf9b-20"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<a name="rest_code_bac61d61497a484898afd17114acbf9b-21"></a>        <span class="nb">super</span><span class="p">(</span><span class="n">RegisterForm</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">*</span><span class="n">kwargs</span><span class="p">)</span>
-<a name="rest_code_bac61d61497a484898afd17114acbf9b-22"></a>        <span class="c1"># プレースホルダーをつける</span>
-<a name="rest_code_bac61d61497a484898afd17114acbf9b-23"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="s1">'username'</span><span class="p">]</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">attrs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'placeholder'</span><span class="p">:</span> <span class="s1">'ユーザー名'</span><span class="p">}</span>
-<a name="rest_code_bac61d61497a484898afd17114acbf9b-24"></a>        <span class="c1"># email に必須を設定</span>
-<a name="rest_code_bac61d61497a484898afd17114acbf9b-25"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="s1">'email'</span><span class="p">]</span><span class="o">.</span><span class="n">required</span> <span class="o">=</span> <span class="bp">True</span>
-<a name="rest_code_bac61d61497a484898afd17114acbf9b-26"></a>        <span class="c1"># プレースホルダーをつける</span>
-<a name="rest_code_bac61d61497a484898afd17114acbf9b-27"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="s1">'email'</span><span class="p">]</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">attrs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'placeholder'</span><span class="p">:</span> <span class="s1">'メールアドレス'</span><span class="p">}</span>
+<p>変換されたフォームの Field をそのまま使えない場合は、いろいろカスタマイズできる。</p>
+<pre class="code python"><a name="rest_code_b7e991e36e814b0884f55c638af1e2f0-1"></a><span class="k">class</span> <span class="nc">RegisterForm</span><span class="p">(</span><span class="n">forms</span><span class="o">.</span><span class="n">ModelForm</span><span class="p">):</span>
+<a name="rest_code_b7e991e36e814b0884f55c638af1e2f0-2"></a>    <span class="sd">"""ユーザー登録画面用のフォーム"""</span>
+<a name="rest_code_b7e991e36e814b0884f55c638af1e2f0-3"></a>
+<a name="rest_code_b7e991e36e814b0884f55c638af1e2f0-4"></a>    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+<a name="rest_code_b7e991e36e814b0884f55c638af1e2f0-5"></a>        <span class="n">model</span> <span class="o">=</span> <span class="n">User</span>
+<a name="rest_code_b7e991e36e814b0884f55c638af1e2f0-6"></a>        <span class="n">fields</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'username'</span><span class="p">,</span> <span class="s1">'email'</span><span class="p">,</span> <span class="s1">'password'</span><span class="p">,)</span>
+<a name="rest_code_b7e991e36e814b0884f55c638af1e2f0-7"></a>        <span class="c1"># widget を TextInput から PasswordInput に変更</span>
+<a name="rest_code_b7e991e36e814b0884f55c638af1e2f0-8"></a>        <span class="n">widgets</span> <span class="o">=</span> <span class="p">{</span>
+<a name="rest_code_b7e991e36e814b0884f55c638af1e2f0-9"></a>            <span class="s1">'password'</span><span class="p">:</span> <span class="n">forms</span><span class="o">.</span><span class="n">PasswordInput</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">'placeholder'</span><span class="p">:</span> <span class="s1">'パスワード'</span><span class="p">})</span>
+<a name="rest_code_b7e991e36e814b0884f55c638af1e2f0-10"></a>        <span class="p">}</span>
+<a name="rest_code_b7e991e36e814b0884f55c638af1e2f0-11"></a>
+<a name="rest_code_b7e991e36e814b0884f55c638af1e2f0-12"></a>    <span class="c1"># User モデルにはない「確認用パスワード」フィールドを追加</span>
+<a name="rest_code_b7e991e36e814b0884f55c638af1e2f0-13"></a>    <span class="n">password2</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span>
+<a name="rest_code_b7e991e36e814b0884f55c638af1e2f0-14"></a>        <span class="n">label</span><span class="o">=</span><span class="s1">'確認用パスワード'</span><span class="p">,</span>
+<a name="rest_code_b7e991e36e814b0884f55c638af1e2f0-15"></a>        <span class="n">required</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+<a name="rest_code_b7e991e36e814b0884f55c638af1e2f0-16"></a>        <span class="n">strip</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+<a name="rest_code_b7e991e36e814b0884f55c638af1e2f0-17"></a>        <span class="n">widgets</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">PasswordInput</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">'placeholder'</span><span class="p">:</span> <span class="s1">'確認用パスワード'</span><span class="p">})</span>
+<a name="rest_code_b7e991e36e814b0884f55c638af1e2f0-18"></a>    <span class="p">)</span>
+<a name="rest_code_b7e991e36e814b0884f55c638af1e2f0-19"></a>
+<a name="rest_code_b7e991e36e814b0884f55c638af1e2f0-20"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<a name="rest_code_b7e991e36e814b0884f55c638af1e2f0-21"></a>        <span class="nb">super</span><span class="p">(</span><span class="n">RegisterForm</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">*</span><span class="n">kwargs</span><span class="p">)</span>
+<a name="rest_code_b7e991e36e814b0884f55c638af1e2f0-22"></a>        <span class="c1"># プレースホルダーをつける</span>
+<a name="rest_code_b7e991e36e814b0884f55c638af1e2f0-23"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="s1">'username'</span><span class="p">]</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">attrs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'placeholder'</span><span class="p">:</span> <span class="s1">'ユーザー名'</span><span class="p">}</span>
+<a name="rest_code_b7e991e36e814b0884f55c638af1e2f0-24"></a>        <span class="c1"># email に必須を設定</span>
+<a name="rest_code_b7e991e36e814b0884f55c638af1e2f0-25"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="s1">'email'</span><span class="p">]</span><span class="o">.</span><span class="n">required</span> <span class="o">=</span> <span class="bp">True</span>
+<a name="rest_code_b7e991e36e814b0884f55c638af1e2f0-26"></a>        <span class="c1"># プレースホルダーをつける</span>
+<a name="rest_code_b7e991e36e814b0884f55c638af1e2f0-27"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="s1">'email'</span><span class="p">]</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">attrs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'placeholder'</span><span class="p">:</span> <span class="s1">'メールアドレス'</span><span class="p">}</span>
 </pre>
 </li>
 </ul>
@@ -302,41 +313,37 @@
 <h3><a class="toc-backref" href="#id25">ModelForm のバリデーションが実行される順番 (P.94 の絵がとてもよい)</a></h3>
 <ol class="arabic">
 <li>
-<p class="first">フィールドのバリデーション</p>
+<p>フィールドのバリデーション</p>
 <ul class="simple">
-<li>文字種などの形式チェック</li>
+<li><p>文字種などの形式チェック</p></li>
 </ul>
 </li>
 <li>
-<p class="first">フォームのバリデーション</p>
+<p>フォームのバリデーション</p>
 <ul class="simple">
-<li>値の妥当性チェック</li>
-<li>
-<tt class="docutils literal"><span class="pre">clean_&lt;フィールド名&gt;()</span></tt> =&gt; <tt class="docutils literal">clean()</tt>
-</li>
+<li><p>値の妥当性チェック</p></li>
+<li><p><code class="docutils literal"><span class="pre">clean_&lt;フィールド名&gt;()</span></code> =&gt; <code class="docutils literal">clean()</code></p></li>
 </ul>
 </li>
 <li>
-<p class="first">モデルのバリデーション</p>
+<p>モデルのバリデーション</p>
 <ul>
 <li>
-<p class="first">ユニーク制約などのデータベースとの整合性チェック</p>
+<p>ユニーク制約などのデータベースとの整合性チェック</p>
 <ul>
+<li><p>モデルの各フィールドに定義された <code class="docutils literal">unique=True</code> の制約にしたがって、レコードがユニークになっているか否かチェックしてくれる! ので、</p></li>
 <li>
-<p class="first">モデルの各フィールドに定義された <tt class="docutils literal">unique=True</tt> の制約にしたがって、レコードがユニークになっているか否かチェックしてくれる! ので、</p>
-</li>
-<li>
-<p class="first">モデルの登録変更を伴うフォームでは、親クラスの <tt class="docutils literal">clean()</tt> を明示的に呼び出すとよい</p>
+<p>モデルの登録変更を伴うフォームでは、親クラスの <code class="docutils literal">clean()</code> を明示的に呼び出すとよい</p>
 <blockquote>
-<pre class="code python"><a name="rest_code_9dfceee0214144fb9b4515295e334097-1"></a><span class="k">def</span> <span class="nf">clean</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a name="rest_code_9dfceee0214144fb9b4515295e334097-2"></a>    <span class="c1"># 明示的に親クラスの clean() を呼び出すことで、</span>
-<a name="rest_code_9dfceee0214144fb9b4515295e334097-3"></a>    <span class="c1"># Form を `_validate_unique = True` に更新する</span>
-<a name="rest_code_9dfceee0214144fb9b4515295e334097-4"></a>    <span class="c1"># そうすると、 validate_unique() が実行されるようになる</span>
-<a name="rest_code_9dfceee0214144fb9b4515295e334097-5"></a>    <span class="nb">super</span><span class="p">(</span><span class="n">RegisterForm</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">clean</span><span class="p">()</span>
-<a name="rest_code_9dfceee0214144fb9b4515295e334097-6"></a>    <span class="n">password</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">changed_data</span><span class="p">[</span><span class="s1">'password'</span><span class="p">]</span>
-<a name="rest_code_9dfceee0214144fb9b4515295e334097-7"></a>    <span class="n">password2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">changed_data</span><span class="p">[</span><span class="s1">'password2'</span><span class="p">]</span>
-<a name="rest_code_9dfceee0214144fb9b4515295e334097-8"></a>    <span class="k">if</span> <span class="n">password</span> <span class="o">!=</span> <span class="n">password2</span><span class="p">:</span>
-<a name="rest_code_9dfceee0214144fb9b4515295e334097-9"></a>        <span class="k">raise</span> <span class="n">forms</span><span class="o">.</span><span class="n">ValidationError</span><span class="p">(</span><span class="s2">"パスワードと確認用パスワードが合致しません"</span><span class="p">)</span>
+<pre class="code python"><a name="rest_code_ff01832ab8aa45b49b8be59766e29362-1"></a><span class="k">def</span> <span class="nf">clean</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a name="rest_code_ff01832ab8aa45b49b8be59766e29362-2"></a>    <span class="c1"># 明示的に親クラスの clean() を呼び出すことで、</span>
+<a name="rest_code_ff01832ab8aa45b49b8be59766e29362-3"></a>    <span class="c1"># Form を `_validate_unique = True` に更新する</span>
+<a name="rest_code_ff01832ab8aa45b49b8be59766e29362-4"></a>    <span class="c1"># そうすると、 validate_unique() が実行されるようになる</span>
+<a name="rest_code_ff01832ab8aa45b49b8be59766e29362-5"></a>    <span class="nb">super</span><span class="p">(</span><span class="n">RegisterForm</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">clean</span><span class="p">()</span>
+<a name="rest_code_ff01832ab8aa45b49b8be59766e29362-6"></a>    <span class="n">password</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">changed_data</span><span class="p">[</span><span class="s1">'password'</span><span class="p">]</span>
+<a name="rest_code_ff01832ab8aa45b49b8be59766e29362-7"></a>    <span class="n">password2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">changed_data</span><span class="p">[</span><span class="s1">'password2'</span><span class="p">]</span>
+<a name="rest_code_ff01832ab8aa45b49b8be59766e29362-8"></a>    <span class="k">if</span> <span class="n">password</span> <span class="o">!=</span> <span class="n">password2</span><span class="p">:</span>
+<a name="rest_code_ff01832ab8aa45b49b8be59766e29362-9"></a>        <span class="k">raise</span> <span class="n">forms</span><span class="o">.</span><span class="n">ValidationError</span><span class="p">(</span><span class="s2">"パスワードと確認用パスワードが合致しません"</span><span class="p">)</span>
 </pre>
 </blockquote>
 </li>
@@ -350,30 +357,30 @@
 <h3><a class="toc-backref" href="#id26">View からの利用</a></h3>
 <ul>
 <li>
-<p class="first">登録の場合</p>
-<pre class="code python"><a name="rest_code_5c4a9042416b459292223d5a978d900a-1"></a><span class="c1"># GET や POST オブジェクトをあげる</span>
-<a name="rest_code_5c4a9042416b459292223d5a978d900a-2"></a><span class="n">form</span> <span class="o">=</span> <span class="n">RegisterForm</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">)</span>
-<a name="rest_code_5c4a9042416b459292223d5a978d900a-3"></a><span class="c1"># 対象のモデルをデータベースに保存</span>
-<a name="rest_code_5c4a9042416b459292223d5a978d900a-4"></a><span class="n">user</span> <span class="o">=</span> <span class="n">form</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+<p>登録の場合</p>
+<pre class="code python"><a name="rest_code_d99a278b06ef4774aca66423218a4e81-1"></a><span class="c1"># GET や POST オブジェクトをあげる</span>
+<a name="rest_code_d99a278b06ef4774aca66423218a4e81-2"></a><span class="n">form</span> <span class="o">=</span> <span class="n">RegisterForm</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">)</span>
+<a name="rest_code_d99a278b06ef4774aca66423218a4e81-3"></a><span class="c1"># 対象のモデルをデータベースに保存</span>
+<a name="rest_code_d99a278b06ef4774aca66423218a4e81-4"></a><span class="n">user</span> <span class="o">=</span> <span class="n">form</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
 </pre>
 </li>
 <li>
-<p class="first">request からもらったものだけでは足りない場合</p>
-<pre class="code python"><a name="rest_code_944f911db6924788954dc251a850d85c-1"></a><span class="c1"># モデルにセットするけれど、データベースには登録していない</span>
-<a name="rest_code_944f911db6924788954dc251a850d85c-2"></a><span class="n">user</span> <span class="o">=</span> <span class="n">form</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">commit</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
-<a name="rest_code_944f911db6924788954dc251a850d85c-3"></a><span class="c1"># 補完してあげる</span>
-<a name="rest_code_944f911db6924788954dc251a850d85c-4"></a><span class="n">user</span><span class="o">.</span><span class="n">set_password</span><span class="p">(</span><span class="n">form</span><span class="o">.</span><span class="n">cleaned_data</span><span class="p">[</span><span class="s1">'password'</span><span class="p">]</span>
-<a name="rest_code_944f911db6924788954dc251a850d85c-5"></a><span class="c1"># データベースに登録する</span>
-<a name="rest_code_944f911db6924788954dc251a850d85c-6"></a><span class="n">user</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+<p>request からもらったものだけでは足りない場合</p>
+<pre class="code python"><a name="rest_code_25c6a2d37d45413da14ffbabacbfedca-1"></a><span class="c1"># モデルにセットするけれど、データベースには登録していない</span>
+<a name="rest_code_25c6a2d37d45413da14ffbabacbfedca-2"></a><span class="n">user</span> <span class="o">=</span> <span class="n">form</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">commit</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<a name="rest_code_25c6a2d37d45413da14ffbabacbfedca-3"></a><span class="c1"># 補完してあげる</span>
+<a name="rest_code_25c6a2d37d45413da14ffbabacbfedca-4"></a><span class="n">user</span><span class="o">.</span><span class="n">set_password</span><span class="p">(</span><span class="n">form</span><span class="o">.</span><span class="n">cleaned_data</span><span class="p">[</span><span class="s1">'password'</span><span class="p">]</span>
+<a name="rest_code_25c6a2d37d45413da14ffbabacbfedca-5"></a><span class="c1"># データベースに登録する</span>
+<a name="rest_code_25c6a2d37d45413da14ffbabacbfedca-6"></a><span class="n">user</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
 </pre>
 </li>
 <li>
-<p class="first">更新の場合</p>
-<pre class="code python"><a name="rest_code_f4e8130ec3d041c2a67c64d79e6e874b-1"></a><span class="c1"># 更新したい model オブジェクトを DB から取得</span>
-<a name="rest_code_f4e8130ec3d041c2a67c64d79e6e874b-2"></a><span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
-<a name="rest_code_f4e8130ec3d041c2a67c64d79e6e874b-3"></a><span class="c1"># `instance` キーワード引数にあげる</span>
-<a name="rest_code_f4e8130ec3d041c2a67c64d79e6e874b-4"></a><span class="n">form</span> <span class="o">=</span> <span class="n">ProfileForm</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">,</span> <span class="n">instance</span><span class="o">=</span><span class="n">user</span><span class="p">)</span>
-<a name="rest_code_f4e8130ec3d041c2a67c64d79e6e874b-5"></a><span class="c1"># 更新前のデータをベースにして request で上書きしてくれる</span>
+<p>更新の場合</p>
+<pre class="code python"><a name="rest_code_d2efe6db1085465eb78ab3732d97a23f-1"></a><span class="c1"># 更新したい model オブジェクトを DB から取得</span>
+<a name="rest_code_d2efe6db1085465eb78ab3732d97a23f-2"></a><span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+<a name="rest_code_d2efe6db1085465eb78ab3732d97a23f-3"></a><span class="c1"># `instance` キーワード引数にあげる</span>
+<a name="rest_code_d2efe6db1085465eb78ab3732d97a23f-4"></a><span class="n">form</span> <span class="o">=</span> <span class="n">ProfileForm</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">,</span> <span class="n">instance</span><span class="o">=</span><span class="n">user</span><span class="p">)</span>
+<a name="rest_code_d2efe6db1085465eb78ab3732d97a23f-5"></a><span class="c1"># 更新前のデータをベースにして request で上書きしてくれる</span>
 </pre>
 </li>
 </ul>
@@ -385,8 +392,8 @@
 <h3><a class="toc-backref" href="#id28">インラインフォームセット</a></h3>
 <p>使い方はよくわかっていない</p>
 <ul class="simple">
-<li><a class="reference external" href="https://docs.djangoproject.com/ja/2.2/topics/forms/modelforms/#inline-formsets">https://docs.djangoproject.com/ja/2.2/topics/forms/modelforms/#inline-formsets</a></li>
-<li><a class="reference external" href="https://docs.djangoproject.com/ja/2.2/ref/forms/models/#inlineformset-factory">https://docs.djangoproject.com/ja/2.2/ref/forms/models/#inlineformset-factory</a></li>
+<li><p><a class="reference external" href="https://docs.djangoproject.com/ja/2.2/topics/forms/modelforms/#inline-formsets">https://docs.djangoproject.com/ja/2.2/topics/forms/modelforms/#inline-formsets</a></p></li>
+<li><p><a class="reference external" href="https://docs.djangoproject.com/ja/2.2/ref/forms/models/#inlineformset-factory">https://docs.djangoproject.com/ja/2.2/ref/forms/models/#inlineformset-factory</a></p></li>
 </ul>
 </div>
 </div>

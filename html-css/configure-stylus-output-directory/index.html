@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Vollkorn:400,700">
 <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/sawarabimincho.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-<link rel="stylesheet" href="../../assets/css/style.css?20190615">
+<link rel="stylesheet" href="../../assets/css/style.css?20191110">
 </head>
 <body>
     <div class="container">
@@ -34,34 +34,27 @@
 <div class="section" id="id1">
 <h2>リファレンス</h2>
 <ul class="simple">
-<li>PyCharm: <a class="reference external" href="https://www.jetbrains.com/help/pycharm/using-file-watchers.html#ws_filewatcher_examples">https://www.jetbrains.com/help/pycharm/using-file-watchers.html#ws_filewatcher_examples</a>
-</li>
-<li>Stylus: <a class="reference external" href="http://stylus-lang.com/docs/executable.html">http://stylus-lang.com/docs/executable.html</a>
-</li>
+<li><p>PyCharm: <a class="reference external" href="https://www.jetbrains.com/help/pycharm/using-file-watchers.html#ws_filewatcher_examples">https://www.jetbrains.com/help/pycharm/using-file-watchers.html#ws_filewatcher_examples</a></p></li>
+<li><p>Stylus: <a class="reference external" href="http://stylus-lang.com/docs/executable.html">http://stylus-lang.com/docs/executable.html</a></p></li>
 </ul>
 </div>
 <div class="section" id="id2">
 <h2>手順</h2>
 <ol class="arabic">
+<li><p>PyCharm -&gt; Preferences -&gt; Tools -&gt; File Watchers -&gt; Stylus -&gt; 編集ボタン (えんぴつみたいなマーク) 押下</p></li>
 <li>
-<p class="first">PyCharm -&gt; Preferences -&gt; Tools -&gt; File Watchers -&gt; Stylus -&gt; 編集ボタン (えんぴつみたいなマーク) 押下</p>
-</li>
-<li>
-<p class="first">Edit Watcher ダイアログで、</p>
+<p>Edit Watcher ダイアログで、</p>
 <ul>
 <li>
-<p class="first">Arguments: <tt class="docutils literal"><span class="pre">--out</span> <span class="pre">$FileParentDir$/files/static/css/</span> $FileName$</tt></p>
+<p>Arguments: <code class="docutils literal"><span class="pre">--out</span> <span class="pre">$FileParentDir$/files/static/css/</span> $FileName$</code></p>
 <p></p>
 <div class="figure">
 <img alt="/images/html-css/configure-stylus-output-directory/edit-watcher.png" src="../../images/html-css/configure-stylus-output-directory/edit-watcher.png">
 </div>
 <ul class="simple">
-<li>
-<tt class="docutils literal">Insert <span class="pre">Macro...</span></tt> ボタンを押下すると、指定できるマクロのプレビューが見られるので、好きなものを選ぶと良い。</li>
-<li>
-<tt class="docutils literal"><span class="pre">--out</span> <span class="pre">$FileParentDir$/files/static/css/</span></tt> の指定は、 Stylus の Options 指定形式に従うこと。</li>
-<li>
-<tt class="docutils literal">$FileName$</tt> は、どうも PyCharm の File Watcher 側で必要らしく、指定しないと動かなくなるので、削除しないこと。</li>
+<li><p><code class="docutils literal">Insert <span class="pre">Macro...</span></code> ボタンを押下すると、指定できるマクロのプレビューが見られるので、好きなものを選ぶと良い。</p></li>
+<li><p><code class="docutils literal"><span class="pre">--out</span> <span class="pre">$FileParentDir$/files/static/css/</span></code> の指定は、 Stylus の Options 指定形式に従うこと。</p></li>
+<li><p><code class="docutils literal">$FileName$</code> は、どうも PyCharm の File Watcher 側で必要らしく、指定しないと動かなくなるので、削除しないこと。</p></li>
 </ul>
 </li>
 </ul>

@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Vollkorn:400,700">
 <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/sawarabimincho.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-<link rel="stylesheet" href="../../assets/css/style.css?20190615">
+<link rel="stylesheet" href="../../assets/css/style.css?20191110">
 </head>
 <body>
     <div class="container">
@@ -35,36 +35,30 @@
 <div class="section" id="id1">
 <h2>どういうわけか</h2>
 <ul>
+<li><p>何にもしていないのに（たぶん何かしたんだと思う）、 vim が怒って起動しなくなったので、なおすことにした。</p></li>
 <li>
-<p class="first">何にもしていないのに（たぶん何かしたんだと思う）、 vim が怒って起動しなくなったので、なおすことにした。</p>
-</li>
-<li>
-<p class="first">こう言っていた。</p>
-<pre class="code shell"><a name="rest_code_1187889fe7ab4f7a94d385fb0c92ae01-1"></a>Error detected <span class="k">while</span> processing /Users/fumi23/.vimrc:
-<a name="rest_code_1187889fe7ab4f7a94d385fb0c92ae01-2"></a>line   <span class="m">19</span>:
-<a name="rest_code_1187889fe7ab4f7a94d385fb0c92ae01-3"></a>E484: Can<span class="err">'</span>t open file /usr/share/vim/vim74/defaults.vim
-<a name="rest_code_1187889fe7ab4f7a94d385fb0c92ae01-4"></a>line   <span class="m">60</span>:
-<a name="rest_code_1187889fe7ab4f7a94d385fb0c92ae01-5"></a>E492: Not an editor command:   packadd! matchit
-<a name="rest_code_1187889fe7ab4f7a94d385fb0c92ae01-6"></a>Press ENTER or <span class="nb">type</span> <span class="nb">command</span> to <span class="k">continue</span>
+<p>こう言っていた。</p>
+<pre class="code shell"><a name="rest_code_9675bfb643fd472c8c68020ce1b7b4ac-1"></a>Error detected <span class="k">while</span> processing /Users/fumi23/.vimrc:
+<a name="rest_code_9675bfb643fd472c8c68020ce1b7b4ac-2"></a>line   <span class="m">19</span>:
+<a name="rest_code_9675bfb643fd472c8c68020ce1b7b4ac-3"></a>E484: Can<span class="err">'</span>t open file /usr/share/vim/vim74/defaults.vim
+<a name="rest_code_9675bfb643fd472c8c68020ce1b7b4ac-4"></a>line   <span class="m">60</span>:
+<a name="rest_code_9675bfb643fd472c8c68020ce1b7b4ac-5"></a>E492: Not an editor command:   packadd! matchit
+<a name="rest_code_9675bfb643fd472c8c68020ce1b7b4ac-6"></a>Press ENTER or <span class="nb">type</span> <span class="nb">command</span> to <span class="k">continue</span>
 </pre>
 </li>
+<li><p>実際に <code class="docutils literal">/usr/share/vim/vim74/defaults.vim</code> あるかな？と確認したら、ちゃんとなかった。消してないけど・・（消したのかもしれない）？不思議。</p></li>
 <li>
-<p class="first">実際に <tt class="docutils literal">/usr/share/vim/vim74/defaults.vim</tt> あるかな？と確認したら、ちゃんとなかった。消してないけど・・（消したのかもしれない）？不思議。</p>
-</li>
-<li>
-<p class="first"><tt class="docutils literal">defaults.vim</tt> って何？？</p>
+<p><code class="docutils literal">defaults.vim</code> って何？？</p>
 <ul>
 <li>
-<p class="first">こういうことだそうです↓</p>
+<p>こういうことだそうです↓</p>
 <ul>
 <li>
-<p class="first"><a class="reference external" href="https://qiita.com/thinca/items/9a42ef9047d44a765bdd#%E8%83%8C%E6%99%AF">https://qiita.com/thinca/items/9a42ef9047d44a765bdd#%E8%83%8C%E6%99%AF</a></p>
-<pre class="literal-block">
-Vim には今でも多くの新機能が追加され便利になっていっていますが、一方で互換性も重視しています。
+<p><a class="reference external" href="https://qiita.com/thinca/items/9a42ef9047d44a765bdd#%E8%83%8C%E6%99%AF">https://qiita.com/thinca/items/9a42ef9047d44a765bdd#%E8%83%8C%E6%99%AF</a></p>
+<pre class="literal-block">Vim には今でも多くの新機能が追加され便利になっていっていますが、一方で互換性も重視しています。
 中には、シンタックスハイライトなど明らかに便利であるにも関わらず、デフォルトでは有効になっていない機能があります。
 新しく Vim を使い始めるユーザーにとって、互換性が理由で便利な機能がすぐに使えないことはあまり嬉しくはないでしょう。
-そこで追加されたのが defaults.vim です。あくまで Vim 自体のデフォルト値は変えずに、ユーザーに便利な設定を提供します。
-</pre>
+そこで追加されたのが defaults.vim です。あくまで Vim 自体のデフォルト値は変えずに、ユーザーに便利な設定を提供します。</pre>
 </li>
 </ul>
 </li>
@@ -77,68 +71,68 @@ Vim には今でも多くの新機能が追加され便利になっていって�
 <p>再インストールしたら失くしたものを取り戻せるのでは？？と考え、 アンインストール -&gt; インストール することにした。</p>
 <ol class="arabic">
 <li>
-<p class="first">vim をアンインストール</p>
+<p>vim をアンインストール</p>
 <blockquote>
-<pre class="code shell"><a name="rest_code_b6c54275ec4e4458b77106b26efde306-1"></a>$ brew uninstall vim
-<a name="rest_code_b6c54275ec4e4458b77106b26efde306-2"></a>Uninstalling /usr/local/Cellar/vim/8.1.0202... <span class="o">(</span><span class="m">1</span>,434 files, <span class="m">23</span>.4MB<span class="o">)</span>
+<pre class="code shell"><a name="rest_code_d468ab897ef540ddbf3754cb84e8a518-1"></a>$ brew uninstall vim
+<a name="rest_code_d468ab897ef540ddbf3754cb84e8a518-2"></a>Uninstalling /usr/local/Cellar/vim/8.1.0202... <span class="o">(</span><span class="m">1</span>,434 files, <span class="m">23</span>.4MB<span class="o">)</span>
 </pre>
-<p>インストール時に <tt class="docutils literal">brew</tt> でやったような覚えがあった</p>
+<p>インストール時に <code class="docutils literal">brew</code> でやったような覚えがあった</p>
 </blockquote>
 </li>
 <li>
-<p class="first">アンインストールできたか確認してみる。</p>
+<p>アンインストールできたか確認してみる。</p>
 <blockquote>
-<pre class="code shell"><a name="rest_code_3a6ef48c1ce943deb5290668b12160cd-1"></a>$ which vim
-<a name="rest_code_3a6ef48c1ce943deb5290668b12160cd-2"></a>/usr/bin/vim
+<pre class="code shell"><a name="rest_code_1b50ef16da7749f185e6a6f7be456d2a-1"></a>$ which vim
+<a name="rest_code_1b50ef16da7749f185e6a6f7be456d2a-2"></a>/usr/bin/vim
 </pre>
 <p>あれ・・ある。 mac にデフォルトで入っていたやつかな・・・</p>
-<pre class="code shell"><a name="rest_code_12d879f4977c4bbeb01cbffbb5107202-1"></a>$ vim --version
-<a name="rest_code_12d879f4977c4bbeb01cbffbb5107202-2"></a>-bash: /usr/local/bin/vim: No such file or directory
+<pre class="code shell"><a name="rest_code_af9d265bbc064cb78d1c230b710efe7d-1"></a>$ vim --version
+<a name="rest_code_af9d265bbc064cb78d1c230b710efe7d-2"></a>-bash: /usr/local/bin/vim: No such file or directory
 </pre>
-<p>今度はないって言う。でもよく見たら↑とパスが違うな・・ <tt class="docutils literal">/usr/local/bin/vim</tt></p>
+<p>今度はないって言う。でもよく見たら↑とパスが違うな・・ <code class="docutils literal">/usr/local/bin/vim</code></p>
 <p>これならどうかな</p>
-<pre class="code shell"><a name="rest_code_266975dd4b9d43589c1cdd3d89326c23-1"></a>$ /usr/bin/vim --version
-<a name="rest_code_266975dd4b9d43589c1cdd3d89326c23-2"></a>VIM - Vi IMproved <span class="m">7</span>.4 <span class="o">(</span><span class="m">2013</span> Aug <span class="m">10</span>, compiled Apr  <span class="m">4</span> <span class="m">2017</span> <span class="m">18</span>:14:54<span class="o">)</span>
-<a name="rest_code_266975dd4b9d43589c1cdd3d89326c23-3"></a>Included patches: <span class="m">1</span>-898, <span class="m">8056</span>
-<a name="rest_code_266975dd4b9d43589c1cdd3d89326c23-4"></a><span class="o">(</span>以下省略<span class="o">)</span>
+<pre class="code shell"><a name="rest_code_62b1c95807004956a6181bc53f08a4f1-1"></a>$ /usr/bin/vim --version
+<a name="rest_code_62b1c95807004956a6181bc53f08a4f1-2"></a>VIM - Vi IMproved <span class="m">7</span>.4 <span class="o">(</span><span class="m">2013</span> Aug <span class="m">10</span>, compiled Apr  <span class="m">4</span> <span class="m">2017</span> <span class="m">18</span>:14:54<span class="o">)</span>
+<a name="rest_code_62b1c95807004956a6181bc53f08a4f1-3"></a>Included patches: <span class="m">1</span>-898, <span class="m">8056</span>
+<a name="rest_code_62b1c95807004956a6181bc53f08a4f1-4"></a><span class="o">(</span>以下省略<span class="o">)</span>
 </pre>
 <p>なんか出た。</p>
 <p>どうして、ふたつもみっつも（みっつはないかもしれない）あるんだろう・・・</p>
 <p>これもアンインストールしたいと思ってごにょごにょ調べた結果、</p>
 <blockquote>
 <ul class="simple">
-<li>手動でひとつずつファイルを削除するっぽい。（めんどう）</li>
-<li>古いバージョンのものがあっても、手動もしくは自動で置き換えられるっぽい。</li>
+<li><p>手動でひとつずつファイルを削除するっぽい。（めんどう）</p></li>
+<li><p>古いバージョンのものがあっても、手動もしくは自動で置き換えられるっぽい。</p></li>
 </ul>
 </blockquote>
 </blockquote>
 </li>
 <li>
-<p class="first">というわけで、無視して再度インストールしてみる。</p>
+<p>というわけで、無視して再度インストールしてみる。</p>
 <blockquote>
-<pre class="code shell"><a name="rest_code_3b2d90343d9b4e75b64cfd37fadd62b7-1"></a>$ brew install vim
-<a name="rest_code_3b2d90343d9b4e75b64cfd37fadd62b7-2"></a><span class="o">(</span>以下省略<span class="o">)</span>
+<pre class="code shell"><a name="rest_code_244c67fa95284949aa73b9ec6da76e37-1"></a>$ brew install vim
+<a name="rest_code_244c67fa95284949aa73b9ec6da76e37-2"></a><span class="o">(</span>以下省略<span class="o">)</span>
 </pre>
 <p>けっこう長かった。</p>
 </blockquote>
 </li>
 <li>
-<p class="first">インストールできたか確認してみる。</p>
+<p>インストールできたか確認してみる。</p>
 <blockquote>
-<pre class="code shell"><a name="rest_code_da97444e19494992ada1903b0b2145bb-1"></a>$ which vim
-<a name="rest_code_da97444e19494992ada1903b0b2145bb-2"></a>/usr/local/bin/vim
+<pre class="code shell"><a name="rest_code_e87140f30f014322b032daaf3556dc00-1"></a>$ which vim
+<a name="rest_code_e87140f30f014322b032daaf3556dc00-2"></a>/usr/local/bin/vim
 </pre>
-<p>む。さっき見たパスだ・・・ <tt class="docutils literal">/usr/local/bin/vim</tt></p>
-<pre class="code shell"><a name="rest_code_a6524e6c735440c79a13093f712a1d73-1"></a>$ vim --version
-<a name="rest_code_a6524e6c735440c79a13093f712a1d73-2"></a>VIM - Vi IMproved <span class="m">8</span>.1 <span class="o">(</span><span class="m">2018</span> May <span class="m">18</span>, compiled Jul <span class="m">22</span> <span class="m">2018</span> <span class="m">05</span>:24:59<span class="o">)</span>
-<a name="rest_code_a6524e6c735440c79a13093f712a1d73-3"></a>macOS version
-<a name="rest_code_a6524e6c735440c79a13093f712a1d73-4"></a>Included patches: <span class="m">1</span>-202
-<a name="rest_code_a6524e6c735440c79a13093f712a1d73-5"></a><span class="o">(</span>以下省略<span class="o">)</span>
+<p>む。さっき見たパスだ・・・ <code class="docutils literal">/usr/local/bin/vim</code></p>
+<pre class="code shell"><a name="rest_code_869d80b1c2574312aa1ebdb35af6b32b-1"></a>$ vim --version
+<a name="rest_code_869d80b1c2574312aa1ebdb35af6b32b-2"></a>VIM - Vi IMproved <span class="m">8</span>.1 <span class="o">(</span><span class="m">2018</span> May <span class="m">18</span>, compiled Jul <span class="m">22</span> <span class="m">2018</span> <span class="m">05</span>:24:59<span class="o">)</span>
+<a name="rest_code_869d80b1c2574312aa1ebdb35af6b32b-3"></a>macOS version
+<a name="rest_code_869d80b1c2574312aa1ebdb35af6b32b-4"></a>Included patches: <span class="m">1</span>-202
+<a name="rest_code_869d80b1c2574312aa1ebdb35af6b32b-5"></a><span class="o">(</span>以下省略<span class="o">)</span>
 </pre>
 </blockquote>
 </li>
 <li>
-<p class="first">適当なファイルを開いてみる。</p>
+<p>適当なファイルを開いてみる。</p>
 <blockquote>
 <p>なおった。</p>
 </blockquote>
@@ -148,8 +142,8 @@ Vim には今でも多くの新機能が追加され便利になっていって�
 <div class="section" id="id3">
 <h2>参考にしたサイト</h2>
 <ul class="simple">
-<li><a class="reference external" href="https://qiita.com/thinca/items/9a42ef9047d44a765bdd">https://qiita.com/thinca/items/9a42ef9047d44a765bdd</a></li>
-<li><a class="reference external" href="https://oki2a24.com/2016/08/17/install-uninstall-start-vim-with-homebrew-in-mac/">https://oki2a24.com/2016/08/17/install-uninstall-start-vim-with-homebrew-in-mac/</a></li>
+<li><p><a class="reference external" href="https://qiita.com/thinca/items/9a42ef9047d44a765bdd">https://qiita.com/thinca/items/9a42ef9047d44a765bdd</a></p></li>
+<li><p><a class="reference external" href="https://oki2a24.com/2016/08/17/install-uninstall-start-vim-with-homebrew-in-mac/">https://oki2a24.com/2016/08/17/install-uninstall-start-vim-with-homebrew-in-mac/</a></p></li>
 </ul>
 <p>ありがとうございました。</p>
 </div>

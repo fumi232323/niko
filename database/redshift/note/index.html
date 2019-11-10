@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Vollkorn:400,700">
 <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/sawarabimincho.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-<link rel="stylesheet" href="../../../assets/css/style.css?20190615">
+<link rel="stylesheet" href="../../../assets/css/style.css?20191110">
 </head>
 <body>
     <div class="container">
@@ -38,25 +38,17 @@
 <p>テーブル全体のデータ分散スタイルを定義する。</p>
 <ul>
 <li>
-<p class="first"><tt class="docutils literal">EVEN</tt> 、 <tt class="docutils literal">KEY</tt> 、 <tt class="docutils literal">ALL</tt> の3種類ある</p>
+<p><code class="docutils literal">EVEN</code> 、 <code class="docutils literal">KEY</code> 、 <code class="docutils literal">ALL</code> の3種類ある</p>
 <ul>
 <li>
-<p class="first"><a class="reference external" href="https://docs.aws.amazon.com/ja_jp/redshift/latest/dg/r_CREATE_TABLE_AS.html">CREATE TABLE AS</a></p>
-<pre class="literal-block">
-テーブルにどの分散スタイルを選択するかによって、データベースの全体的なパフォーマンスが左右されます。
-</pre>
+<p><a class="reference external" href="https://docs.aws.amazon.com/ja_jp/redshift/latest/dg/r_CREATE_TABLE_AS.html">CREATE TABLE AS</a></p>
+<pre class="literal-block">テーブルにどの分散スタイルを選択するかによって、データベースの全体的なパフォーマンスが左右されます。</pre>
 </li>
-<li>
-<p class="first"><a class="reference external" href="https://docs.aws.amazon.com/ja_jp/redshift/latest/dg/c_choosing_dist_sort.html">分散スタイル</a></p>
-</li>
-<li>
-<p class="first"><a class="reference external" href="https://docs.aws.amazon.com/ja_jp/redshift/latest/dg/c_Distribution_examples.html">分散の例</a></p>
-</li>
+<li><p><a class="reference external" href="https://docs.aws.amazon.com/ja_jp/redshift/latest/dg/c_choosing_dist_sort.html">分散スタイル</a></p></li>
+<li><p><a class="reference external" href="https://docs.aws.amazon.com/ja_jp/redshift/latest/dg/c_Distribution_examples.html">分散の例</a></p></li>
 </ul>
 </li>
-<li>
-<p class="first">よく考えて選んだほうが良さそう...</p>
-</li>
+<li><p>よく考えて選んだほうが良さそう...</p></li>
 </ul>
 </div>
 <div class="section" id="distkey">
@@ -71,12 +63,10 @@
 <p>CHAR および VARCHAR のデータ型は、文字単位でなくバイト単位で定義される。</p>
 <ul>
 <li>
-<p class="first"><a class="reference external" href="https://docs.aws.amazon.com/ja_jp/redshift/latest/dg/r_Character_types.html">文字型</a></p>
-<pre class="literal-block">
-例えば、VARCHAR(12) 列には、シングルバイト文字なら 12 個、2 バイト文字なら 6 個、3 バイト文字なら 4 個、4 バイト文字なら 3 個含めることができます。
-</pre>
+<p><a class="reference external" href="https://docs.aws.amazon.com/ja_jp/redshift/latest/dg/r_Character_types.html">文字型</a></p>
+<pre class="literal-block">例えば、VARCHAR(12) 列には、シングルバイト文字なら 12 個、2 バイト文字なら 6 個、3 バイト文字なら 4 個、4 バイト文字なら 3 個含めることができます。</pre>
 <ul class="simple">
-<li>3バイト文字と4バイト文字の違いがわかってない・・</li>
+<li><p>3バイト文字と4バイト文字の違いがわかってない・・</p></li>
 </ul>
 </li>
 </ul>
@@ -86,11 +76,9 @@
 <p>CHAR と VARCHAR は、 MAX キーワードを指定できる。</p>
 <ul>
 <li>
-<p class="first"><a class="reference external" href="https://docs.aws.amazon.com/ja_jp/redshift/latest/dg/r_Character_types.html#r_Character_types-storage-and-ranges">ストレージと範囲</a></p>
-<pre class="literal-block">
-MAX 設定は列幅を定義します。CHAR の場合は 4096 バイトであり、VARCHAR の場合は 65535 となります。
-</pre>
-<pre class="code sql"><a name="rest_code_a24194584c544303a2df06a18a26f121-1"></a><span class="k">create</span> <span class="k">table</span> <span class="n">test</span><span class="p">(</span><span class="n">col1</span> <span class="nb">varchar</span><span class="p">(</span><span class="k">max</span><span class="p">));</span>
+<p><a class="reference external" href="https://docs.aws.amazon.com/ja_jp/redshift/latest/dg/r_Character_types.html#r_Character_types-storage-and-ranges">ストレージと範囲</a></p>
+<pre class="literal-block">MAX 設定は列幅を定義します。CHAR の場合は 4096 バイトであり、VARCHAR の場合は 65535 となります。</pre>
+<pre class="code sql"><a name="rest_code_5b24df9a389840b480a31d95057fc606-1"></a><span class="k">create</span> <span class="k">table</span> <span class="n">test</span><span class="p">(</span><span class="n">col1</span> <span class="nb">varchar</span><span class="p">(</span><span class="k">max</span><span class="p">));</span>
 </pre>
 </li>
 </ul>
@@ -103,33 +91,23 @@ MAX 設定は列幅を定義します。CHAR の場合は 4096 バイトであ�
 <p>圧縮分析レポート取得できるコマンドがある。</p>
 <ul>
 <li>
-<p class="first"><a class="reference external" href="https://docs.aws.amazon.com/ja_jp/redshift/latest/dg/r_ANALYZE_COMPRESSION.html">ANALYZE COMPRESSION</a></p>
-<pre class="literal-block">
-圧縮分析を行い、分析されたテーブルの推奨列エンコードスキームのレポートを生成します。レポートには、列ごとに現在のエンコードと比較したディスク容量の圧縮可能率の推定値が含まれます。
-</pre>
+<p><a class="reference external" href="https://docs.aws.amazon.com/ja_jp/redshift/latest/dg/r_ANALYZE_COMPRESSION.html">ANALYZE COMPRESSION</a></p>
+<pre class="literal-block">圧縮分析を行い、分析されたテーブルの推奨列エンコードスキームのレポートを生成します。レポートには、列ごとに現在のエンコードと比較したディスク容量の圧縮可能率の推定値が含まれます。</pre>
 </li>
 </ul>
 </div>
 <div class="section" id="id9">
 <h3>列圧縮タイプの選択</h3>
 <ul>
+<li><p>テーブルの作成後に変更することはできない</p></li>
+<li><p>ALTER 文で列追加する場合は指定できる</p></li>
 <li>
-<p class="first">テーブルの作成後に変更することはできない</p>
-</li>
-<li>
-<p class="first">ALTER 文で列追加する場合は指定できる</p>
-</li>
-<li>
-<p class="first">圧縮すると、クエリパフォーマンスが向上する</p>
+<p>圧縮すると、クエリパフォーマンスが向上する</p>
 <ul>
 <li>
-<p class="first"><a class="reference external" href="https://docs.aws.amazon.com/ja_jp/redshift/latest/dg/t_Compressing_data_on_disk.html">列圧縮タイプの選択</a></p>
-<pre class="literal-block">
-テーブルの作成後に列の圧縮エンコードを変更することはできません。ALTER TABLE コマンドを使用して列をテーブルに追加する際には、列のエンコードを指定できます。
-</pre>
-<pre class="literal-block">
-圧縮は、データの格納時にそのサイズを小さくする列レベルの操作です。圧縮によってストレージスペースが節約され、ストレージから読み込まれるデータのサイズが小さくなり、ディスク I/O の量が減少するので、クエリパフォーマンスが向上します
-</pre>
+<p><a class="reference external" href="https://docs.aws.amazon.com/ja_jp/redshift/latest/dg/t_Compressing_data_on_disk.html">列圧縮タイプの選択</a></p>
+<pre class="literal-block">テーブルの作成後に列の圧縮エンコードを変更することはできません。ALTER TABLE コマンドを使用して列をテーブルに追加する際には、列のエンコードを指定できます。</pre>
+<pre class="literal-block">圧縮は、データの格納時にそのサイズを小さくする列レベルの操作です。圧縮によってストレージスペースが節約され、ストレージから読み込まれるデータのサイズが小さくなり、ディスク I/O の量が減少するので、クエリパフォーマンスが向上します</pre>
 </li>
 </ul>
 </li>
@@ -138,19 +116,15 @@ MAX 設定は列幅を定義します。CHAR の場合は 4096 バイトであ�
 <div class="section" id="id11">
 <h3>圧縮エンコード</h3>
 <ul>
+<li><p>指定しないと自動的に割り当てられる。</p></li>
 <li>
-<p class="first">指定しないと自動的に割り当てられる。</p>
-</li>
-<li>
-<p class="first">型によっては、CREATE TABLE または ALTER TABLE ステートメントで明示的に指定した方が良さそう。</p>
+<p>型によっては、CREATE TABLE または ALTER TABLE ステートメントで明示的に指定した方が良さそう。</p>
 <ul>
 <li>
-<p class="first"><a class="reference external" href="https://docs.aws.amazon.com/ja_jp/redshift/latest/dg/c_Compression_encodings.html">圧縮エンコード</a></p>
-<pre class="literal-block">
-圧縮エンコードは、行がテーブルに追加されるときにデータ値の列に適用される圧縮のタイプを指定します。
+<p><a class="reference external" href="https://docs.aws.amazon.com/ja_jp/redshift/latest/dg/c_Compression_encodings.html">圧縮エンコード</a></p>
+<pre class="literal-block">圧縮エンコードは、行がテーブルに追加されるときにデータ値の列に適用される圧縮のタイプを指定します。
 
-CREATE TABLE または ALTER TABLE ステートメントで圧縮が指定されていない場合、Amazon Redshift は以下のように自動的に圧縮エンコードを割り当てます。...
-</pre>
+CREATE TABLE または ALTER TABLE ステートメントで圧縮が指定されていない場合、Amazon Redshift は以下のように自動的に圧縮エンコードを割り当てます。...</pre>
 </li>
 </ul>
 </li>

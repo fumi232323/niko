@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Vollkorn:400,700">
 <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/sawarabimincho.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-<link rel="stylesheet" href="../../../assets/css/style.css?20190615">
+<link rel="stylesheet" href="../../../assets/css/style.css?20191110">
 </head>
 <body>
     <div class="container">
@@ -35,38 +35,37 @@
 <h2>リファレンス</h2>
 <p>ubuntu のやつ</p>
 <ul class="simple">
-<li><a class="reference external" href="http://manpages.ubuntu.com/manpages/bionic/en/man1/ssh.1.html">ssh</a></li>
-<li><a class="reference external" href="http://manpages.ubuntu.com/manpages/bionic/en/man5/ssh_config.5.html">ssh_config</a></li>
+<li><p><a class="reference external" href="http://manpages.ubuntu.com/manpages/bionic/en/man1/ssh.1.html">ssh</a></p></li>
+<li><p><a class="reference external" href="http://manpages.ubuntu.com/manpages/bionic/en/man5/ssh_config.5.html">ssh_config</a></p></li>
 </ul>
 <p>種類やバージョンが選べるやつ</p>
 <ul class="simple">
-<li><a class="reference external" href="https://www.freebsd.org/cgi/man.cgi?query=ssh&amp;apropos=0&amp;sektion=0&amp;manpath=CentOS+6.5&amp;arch=default&amp;format=html">SSH(1)</a></li>
-<li><a class="reference external" href="https://www.freebsd.org/cgi/man.cgi?query=ssh_config&amp;apropos=0&amp;sektion=0&amp;manpath=CentOS+6.5&amp;arch=default&amp;format=html">SSH_CONFIG(5)</a></li>
+<li><p><a class="reference external" href="https://www.freebsd.org/cgi/man.cgi?query=ssh&amp;apropos=0&amp;sektion=0&amp;manpath=CentOS+6.5&amp;arch=default&amp;format=html">SSH(1)</a></p></li>
+<li><p><a class="reference external" href="https://www.freebsd.org/cgi/man.cgi?query=ssh_config&amp;apropos=0&amp;sektion=0&amp;manpath=CentOS+6.5&amp;arch=default&amp;format=html">SSH_CONFIG(5)</a></p></li>
 </ul>
 </div>
 <div class="section" id="id2">
 <h2>sshとは</h2>
 <p>SecureShell</p>
 <ul class="simple">
-<li>リモートマシンにログインし、リモートマシン上でコマンドを実行できるプログラム</li>
-<li>セキュアでないネットワーク上の、信頼できないホスト間で、セキュアな暗号化通信を提供する</li>
+<li><p>リモートマシンにログインし、リモートマシン上でコマンドを実行できるプログラム</p></li>
+<li><p>セキュアでないネットワーク上の、信頼できないホスト間で、セキュアな暗号化通信を提供する</p></li>
 </ul>
 <div class="section" id="id3">
 <h3>ssh の使い方</h3>
 <ul>
 <li>
-<p class="first">リモートホストに接続する</p>
-<pre class="code console"><a name="rest_code_6311e4df34f64529b49f1f2bcba81fe6-1"></a><span class="gp">$</span> ssh &lt;hostname&gt;
+<p>リモートホストに接続する</p>
+<pre class="code console"><a name="rest_code_96dc5b936dbe4c9fb1c3a283f5039147-1"></a><span class="gp">$</span> ssh &lt;hostname&gt;
 </pre>
 </li>
 <li>
-<p class="first">秘密鍵を指定して接続する</p>
-<pre class="code console"><a name="rest_code_a8ef1a8a40c949f18ecf050d6de64050-1"></a><span class="gp">$</span> ssh -i &lt;identity_file&gt; &lt;user&gt;@&lt;hostname&gt;
+<p>秘密鍵を指定して接続する</p>
+<pre class="code console"><a name="rest_code_f4761922c8514fbe858710af0e40bc33-1"></a><span class="gp">$</span> ssh -i &lt;identity_file&gt; &lt;user&gt;@&lt;hostname&gt;
 </pre>
 <ul class="simple">
-<li>
-<tt class="docutils literal"><span class="pre">-i</span> &lt;identity_file&gt;</tt> : 公開鍵認証のためのID（秘密鍵）ファイルを指定する</li>
-<li>identity files は、 ssh config ファイル内でホストごとに指定することもできる</li>
+<li><p><code class="docutils literal"><span class="pre">-i</span> &lt;identity_file&gt;</code> : 公開鍵認証のためのID（秘密鍵）ファイルを指定する</p></li>
+<li><p>identity files は、 ssh config ファイル内でホストごとに指定することもできる</p></li>
 </ul>
 </li>
 </ul>
@@ -75,16 +74,18 @@
 <h3>オプションいろいろ</h3>
 <ul class="simple">
 <li>
-<tt class="docutils literal"><span class="pre">-v</span></tt> : 詳細を表示する<ul>
-<li>Multiple -v options increase the verbosity.  The maximum is 3.</li>
+<p><code class="docutils literal"><span class="pre">-v</span></code> : 詳細を表示する</p>
+<ul>
+<li><p>Multiple -v options increase the verbosity.  The maximum is 3.</p></li>
 </ul>
 </li>
 <li>
-<tt class="docutils literal"><span class="pre">-A</span></tt> : ssh-agent 転送を有効にする<ul>
-<li>ssh config ファイル内でホストごとに指定することもできる</li>
+<p><code class="docutils literal"><span class="pre">-A</span></code> : ssh-agent 転送を有効にする</p>
+<ul>
+<li><p>ssh config ファイル内でホストごとに指定することもできる</p></li>
 </ul>
 </li>
-<li>オプションで指定できるものは (できないものも) だいたい、 ssh config ファイルでも指定できる。</li>
+<li><p>オプションで指定できるものは (できないものも) だいたい、 ssh config ファイルでも指定できる。</p></li>
 </ul>
 </div>
 </div>
@@ -92,15 +93,12 @@
 <h2>ssh トンネル (Port forwardings)</h2>
 <p>ローカルに対するアクセスをリモートに受け流す。</p>
 <p>ファイアウォールの中にあって直接接続できない DB1 に、 server1 を介して接続するときに使う。</p>
-<pre class="code console"><a name="rest_code_d33162157aca43b3b14597fb405bf8ac-1"></a><span class="gp">$</span> ssh -fN &lt;踏み台ホスト&gt; -L &lt;ローカルのポート&gt;:&lt;リモートホスト&gt;:&lt;リモートホストのポート&gt;
+<pre class="code console"><a name="rest_code_9540a3d8a65d44b0a3f7d15353bc9d14-1"></a><span class="gp">$</span> ssh -fN &lt;踏み台ホスト&gt; -L &lt;ローカルのポート&gt;:&lt;リモートホスト&gt;:&lt;リモートホストのポート&gt;
 </pre>
 <ul class="simple">
-<li>
-<tt class="docutils literal"><span class="pre">-L</span> <span class="pre">[bind_address:]port:host:hostport</span></tt> : ローカルへの通信をリモートにバインドする</li>
-<li>
-<tt class="docutils literal"><span class="pre">-N</span></tt> : Do not execute a remote command.  This is useful for just forwarding ports.</li>
-<li>
-<tt class="docutils literal"><span class="pre">-f</span></tt> : バックグラウンドで実行してね</li>
+<li><p><code class="docutils literal"><span class="pre">-L</span> <span class="pre">[bind_address:]port:host:hostport</span></code> : ローカルへの通信をリモートにバインドする</p></li>
+<li><p><code class="docutils literal"><span class="pre">-N</span></code> : Do not execute a remote command.  This is useful for just forwarding ports.</p></li>
+<li><p><code class="docutils literal"><span class="pre">-f</span></code> : バックグラウンドで実行してね</p></li>
 </ul>
 <div class="section" id="id5">
 <h3>参考</h3>

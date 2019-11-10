@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Vollkorn:400,700">
 <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/sawarabimincho.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-<link rel="stylesheet" href="../../assets/css/style.css?20190615">
+<link rel="stylesheet" href="../../assets/css/style.css?20191110">
 </head>
 <body>
     <div class="container">
@@ -34,26 +34,30 @@
 <details><summary>目次</summary><div class="contents topic" id="id1">
 <p class="topic-title first">目次</p>
 <ul class="simple">
-<li><a class="reference internal" href="#id2" id="id11">リファレンス・参考サイト書籍</a></li>
+<li><p><a class="reference internal" href="#id2" id="id11">リファレンス・参考サイト書籍</a></p></li>
 <li>
-<a class="reference internal" href="#id3" id="id12">つくりかた</a><ul>
-<li><a class="reference internal" href="#id4" id="id13">構成</a></li>
-<li><a class="reference internal" href="#id5" id="id14">設定ファイル</a></li>
-<li><a class="reference internal" href="#id6" id="id15">起動</a></li>
+<p><a class="reference internal" href="#id3" id="id12">つくりかた</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id4" id="id13">構成</a></p></li>
+<li><p><a class="reference internal" href="#id5" id="id14">設定ファイル</a></p></li>
+<li><p><a class="reference internal" href="#id6" id="id15">起動</a></p></li>
 </ul>
 </li>
 <li>
-<a class="reference internal" href="#id7" id="id16">つかいかた</a><ul>
-<li><a class="reference internal" href="#app" id="id17">app コンテナ</a></li>
-<li><a class="reference internal" href="#mysql-postgresql" id="id18">MySQL, PostgreSQL コンテナ</a></li>
+<p><a class="reference internal" href="#id7" id="id16">つかいかた</a></p>
+<ul>
+<li><p><a class="reference internal" href="#app" id="id17">app コンテナ</a></p></li>
+<li><p><a class="reference internal" href="#mysql-postgresql" id="id18">MySQL, PostgreSQL コンテナ</a></p></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id8" id="id19">感想</a></li>
+<li><p><a class="reference internal" href="#id8" id="id19">感想</a></p></li>
 <li>
-<a class="reference internal" href="#id9" id="id20">その他</a><ul>
+<p><a class="reference internal" href="#id9" id="id20">その他</a></p>
+<ul>
 <li>
-<a class="reference internal" href="#id10" id="id21">Python 公式イメージのルーツ</a><ul>
-<li><a class="reference internal" href="#docker-hub" id="id22">Docker Hub</a></li>
+<p><a class="reference internal" href="#id10" id="id21">Python 公式イメージのルーツ</a></p>
+<ul>
+<li><p><a class="reference internal" href="#docker-hub" id="id22">Docker Hub</a></p></li>
 </ul>
 </li>
 </ul>
@@ -64,117 +68,108 @@
 <h2><a class="toc-backref" href="#id11">リファレンス・参考サイト書籍</a></h2>
 <p>ありがとうございました</p>
 <ul>
+<li><p>Python プロフェッショナルプログラミング第３版 &gt; 01-01 Python のセットアップ</p></li>
 <li>
-<p class="first">Python プロフェッショナルプログラミング第３版 &gt; 01-01 Python のセットアップ</p>
-</li>
-<li>
-<p class="first"><a class="reference external" href="https://hub.docker.com/_/ubuntu">ubuntu Docker Official Images</a></p>
+<p><a class="reference external" href="https://hub.docker.com/_/ubuntu">ubuntu Docker Official Images</a></p>
 <ul class="simple">
 <li>
-<tt class="docutils literal">en_US.utf8</tt> を <tt class="docutils literal"><span class="pre">apt-get</span></tt> するくだりを参考にした<ul>
-<li>Ubuntu イメージにはデフォルトで <tt class="docutils literal">C</tt>, <tt class="docutils literal"><span class="pre">C.UTF-8</span></tt>, and <tt class="docutils literal">POSIX</tt> locales が含まれている、これで UTF-8 locale を使うほとんどのひとには十分なはずだけれども、</li>
-<li>足りない場合は、<tt class="docutils literal">locales</tt> package からインストールしてね</li>
+<p><code class="docutils literal">en_US.utf8</code> を <code class="docutils literal"><span class="pre">apt-get</span></code> するくだりを参考にした</p>
+<ul>
+<li><p>Ubuntu イメージにはデフォルトで <code class="docutils literal">C</code>, <code class="docutils literal"><span class="pre">C.UTF-8</span></code>, and <code class="docutils literal">POSIX</code> locales が含まれている、これで UTF-8 locale を使うほとんどのひとには十分なはずだけれども、</p></li>
+<li><p>足りない場合は、<code class="docutils literal">locales</code> package からインストールしてね</p></li>
 </ul>
 </li>
 </ul>
 </li>
 <li>
-<p class="first"><a class="reference external" href="https://docs.docker.com/develop/develop-images/dockerfile_best-practices/">Best practices for writing Dockerfiles</a></p>
+<p><a class="reference external" href="https://docs.docker.com/develop/develop-images/dockerfile_best-practices/">Best practices for writing Dockerfiles</a></p>
 <ul>
 <li>
-<p class="first"><tt class="docutils literal">RUN</tt> で <tt class="docutils literal"><span class="pre">apt-get</span></tt> するときはこうすると良さそう</p>
+<p><code class="docutils literal">RUN</code> で <code class="docutils literal"><span class="pre">apt-get</span></code> するときはこうすると良さそう</p>
 <ul class="simple">
+<li><p><code class="docutils literal"><span class="pre">apt-get</span> upgrade</code> , <code class="docutils literal"><span class="pre">dist-upgrade</span></code> するのは避けよう</p></li>
 <li>
-<tt class="docutils literal"><span class="pre">apt-get</span> upgrade</tt> , <tt class="docutils literal"><span class="pre">dist-upgrade</span></tt> するのは避けよう</li>
-<li>
-<tt class="docutils literal"><span class="pre">apt-get</span> update &amp;&amp; <span class="pre">apt-get</span> install <span class="pre">-y</span></tt> はセットでやろう<ul>
-<li>こうすると、 latest package versions が install できる</li>
-<li>このテクニックは、 <tt class="docutils literal">cache busting</tt> として知られているらしい</li>
-</ul>
-</li>
-<li>packages はアルファベット順に並べる<ul>
-<li>重複に気づけるし、後から足したり減らしたりするのが容易になるから</li>
-</ul>
-</li>
-<li>最後に <tt class="docutils literal">rm <span class="pre">-rf</span> /var/lib/apt/lists/*</tt> して apt キャッシュを clean up すると、 image size を減らせる</li>
+<p><code class="docutils literal"><span class="pre">apt-get</span> update &amp;&amp; <span class="pre">apt-get</span> install <span class="pre">-y</span></code> はセットでやろう</p>
+<ul>
+<li><p>こうすると、 latest package versions が install できる</p></li>
+<li><p>このテクニックは、 <code class="docutils literal">cache busting</code> として知られているらしい</p></li>
 </ul>
 </li>
 <li>
-<p class="first">良い見本</p>
-<pre class="code docker"><a name="rest_code_a21ee3407b2e4372b67c29bab3af0bb1-1"></a><span class="k">RUN</span> apt-get update <span class="o">&amp;&amp;</span> apt-get install -y <span class="se">\</span>
-<a name="rest_code_a21ee3407b2e4372b67c29bab3af0bb1-2"></a>    aufs-tools <span class="se">\</span>
-<a name="rest_code_a21ee3407b2e4372b67c29bab3af0bb1-3"></a>    automake <span class="se">\</span>
-<a name="rest_code_a21ee3407b2e4372b67c29bab3af0bb1-4"></a>    build-essential <span class="se">\</span>
-<a name="rest_code_a21ee3407b2e4372b67c29bab3af0bb1-5"></a>    curl <span class="se">\</span>
-<a name="rest_code_a21ee3407b2e4372b67c29bab3af0bb1-6"></a>    dpkg-sig <span class="se">\</span>
-<a name="rest_code_a21ee3407b2e4372b67c29bab3af0bb1-7"></a>    libcap-dev <span class="se">\</span>
-<a name="rest_code_a21ee3407b2e4372b67c29bab3af0bb1-8"></a>    libsqlite3-dev <span class="se">\</span>
-<a name="rest_code_a21ee3407b2e4372b67c29bab3af0bb1-9"></a>    mercurial <span class="se">\</span>
-<a name="rest_code_a21ee3407b2e4372b67c29bab3af0bb1-10"></a>    reprepro <span class="se">\</span>
-<a name="rest_code_a21ee3407b2e4372b67c29bab3af0bb1-11"></a>    ruby1.9.1 <span class="se">\</span>
-<a name="rest_code_a21ee3407b2e4372b67c29bab3af0bb1-12"></a>    ruby1.9.1-dev <span class="se">\</span>
-<a name="rest_code_a21ee3407b2e4372b67c29bab3af0bb1-13"></a>    <span class="nv">s3cmd</span><span class="o">=</span><span class="m">1</span>.1.* <span class="se">\</span>
-<a name="rest_code_a21ee3407b2e4372b67c29bab3af0bb1-14"></a> <span class="o">&amp;&amp;</span> rm -rf /var/lib/apt/lists/*
+<p>packages はアルファベット順に並べる</p>
+<ul>
+<li><p>重複に気づけるし、後から足したり減らしたりするのが容易になるから</p></li>
+</ul>
+</li>
+<li><p>最後に <code class="docutils literal">rm <span class="pre">-rf</span> /var/lib/apt/lists/*</code> して apt キャッシュを clean up すると、 image size を減らせる</p></li>
+</ul>
+</li>
+<li>
+<p>良い見本</p>
+<pre class="code docker"><a name="rest_code_981ab21e5fb44b4796021e734de6e5b2-1"></a><span class="k">RUN</span> apt-get update <span class="o">&amp;&amp;</span> apt-get install -y <span class="se">\</span>
+<a name="rest_code_981ab21e5fb44b4796021e734de6e5b2-2"></a>    aufs-tools <span class="se">\</span>
+<a name="rest_code_981ab21e5fb44b4796021e734de6e5b2-3"></a>    automake <span class="se">\</span>
+<a name="rest_code_981ab21e5fb44b4796021e734de6e5b2-4"></a>    build-essential <span class="se">\</span>
+<a name="rest_code_981ab21e5fb44b4796021e734de6e5b2-5"></a>    curl <span class="se">\</span>
+<a name="rest_code_981ab21e5fb44b4796021e734de6e5b2-6"></a>    dpkg-sig <span class="se">\</span>
+<a name="rest_code_981ab21e5fb44b4796021e734de6e5b2-7"></a>    libcap-dev <span class="se">\</span>
+<a name="rest_code_981ab21e5fb44b4796021e734de6e5b2-8"></a>    libsqlite3-dev <span class="se">\</span>
+<a name="rest_code_981ab21e5fb44b4796021e734de6e5b2-9"></a>    mercurial <span class="se">\</span>
+<a name="rest_code_981ab21e5fb44b4796021e734de6e5b2-10"></a>    reprepro <span class="se">\</span>
+<a name="rest_code_981ab21e5fb44b4796021e734de6e5b2-11"></a>    ruby1.9.1 <span class="se">\</span>
+<a name="rest_code_981ab21e5fb44b4796021e734de6e5b2-12"></a>    ruby1.9.1-dev <span class="se">\</span>
+<a name="rest_code_981ab21e5fb44b4796021e734de6e5b2-13"></a>    <span class="nv">s3cmd</span><span class="o">=</span><span class="m">1</span>.1.* <span class="se">\</span>
+<a name="rest_code_981ab21e5fb44b4796021e734de6e5b2-14"></a> <span class="o">&amp;&amp;</span> rm -rf /var/lib/apt/lists/*
 </pre>
 </li>
 </ul>
 </li>
 <li>
-<p class="first"><a class="reference external" href="https://docs.docker.com/develop/dev-best-practices/">Docker development best practices</a></p>
+<p><a class="reference external" href="https://docs.docker.com/develop/dev-best-practices/">Docker development best practices</a></p>
 <ul>
 <li>
-<p class="first"><tt class="docutils literal">RUN</tt> で <tt class="docutils literal"><span class="pre">apt-get</span></tt> するときはこうすると良さそう</p>
+<p><code class="docutils literal">RUN</code> で <code class="docutils literal"><span class="pre">apt-get</span></code> するときはこうすると良さそう</p>
 <ul>
+<li><p>2行で書くより、1行で書く</p></li>
+<li><p>1行で書くと、イメージを小さくできる ( <code class="docutils literal">layers</code> がなんのことなのかはよくわからない)</p></li>
 <li>
-<p class="first">2行で書くより、1行で書く</p>
-</li>
-<li>
-<p class="first">1行で書くと、イメージを小さくできる ( <tt class="docutils literal">layers</tt> がなんのことなのかはよくわからない)</p>
-</li>
-<li>
-<p class="first"><cite>The first creates two layers in the image, while the second only creates one.</cite></p>
-<pre class="code docker"><a name="rest_code_a4e338a05d3e46a7ab57d0f8fde8a619-1"></a><span class="k">RUN</span> apt-get -y update
-<a name="rest_code_a4e338a05d3e46a7ab57d0f8fde8a619-2"></a><span class="k">RUN</span> apt-get install -y python
+<p><cite>The first creates two layers in the image, while the second only creates one.</cite></p>
+<pre class="code docker"><a name="rest_code_6a9f7206adc44dabb0700cbd51874dfd-1"></a><span class="k">RUN</span> apt-get -y update
+<a name="rest_code_6a9f7206adc44dabb0700cbd51874dfd-2"></a><span class="k">RUN</span> apt-get install -y python
 </pre>
-<pre class="code docker"><a name="rest_code_f6f0cc77fa0c429c850380ceefade8d2-1"></a><span class="k">RUN</span> apt-get -y update <span class="o">&amp;&amp;</span> apt-get install -y python
+<pre class="code docker"><a name="rest_code_4238f54fc47a40e387e35402428d20c1-1"></a><span class="k">RUN</span> apt-get -y update <span class="o">&amp;&amp;</span> apt-get install -y python
 </pre>
 </li>
 </ul>
 </li>
 </ul>
 </li>
+<li><p><a class="reference external" href="https://github.com/righ/djample/">くろのて勉強会 &gt; DRF勉強会 (全6回) &gt; djample</a></p></li>
+<li><p>現場で使える Django の教科書 &gt; D: Docker でラクラク開発</p></li>
 <li>
-<p class="first"><a class="reference external" href="https://github.com/righ/djample/">くろのて勉強会 &gt; DRF勉強会 (全6回) &gt; djample</a></p>
-</li>
-<li>
-<p class="first">現場で使える Django の教科書 &gt; D: Docker でラクラク開発</p>
-</li>
-<li>
-<p class="first"><a class="reference external" href="https://qiita.com/yagince/items/deba267f789604643bab">Docker Ubuntu18.04でtzdataをinstallするときにtimezoneの選択をしないでinstallする</a></p>
+<p><a class="reference external" href="https://qiita.com/yagince/items/deba267f789604643bab">Docker Ubuntu18.04でtzdataをinstallするときにtimezoneの選択をしないでinstallする</a></p>
 <ul class="simple">
-<li>途中で何も尋ねてほしくないときは、 <tt class="docutils literal">ENV DEBIAN_FRONTEND=noninteractive</tt> すると良さそう</li>
+<li><p>途中で何も尋ねてほしくないときは、 <code class="docutils literal">ENV DEBIAN_FRONTEND=noninteractive</code> すると良さそう</p></li>
 </ul>
 </li>
 <li>
-<p class="first"><a class="reference external" href="https://stackoverflow.com/questions/27022373/python3-importerror-no-module-named-ctypes-when-using-value-from-module-mul/48045929">ModuleNotFoundError: No module named '_ctypes' の解決方法</a></p>
+<p><a class="reference external" href="https://stackoverflow.com/questions/27022373/python3-importerror-no-module-named-ctypes-when-using-value-from-module-mul/48045929">ModuleNotFoundError: No module named '_ctypes' の解決方法</a></p>
 <ul class="simple">
-<li>事前に <tt class="docutils literal"><span class="pre">libffi-dev</span></tt> パッケージのインストールが必要</li>
+<li><p>事前に <code class="docutils literal"><span class="pre">libffi-dev</span></code> パッケージのインストールが必要</p></li>
 </ul>
 </li>
 <li>
-<p class="first"><a class="reference external" href="https://www.t3a.jp/blog/infrastructure/set-timezone/">[Linux]タイムゾーン(Timezone)をUTCから日本標準時(JST)に変更する</a></p>
+<p><a class="reference external" href="https://www.t3a.jp/blog/infrastructure/set-timezone/">[Linux]タイムゾーン(Timezone)をUTCから日本標準時(JST)に変更する</a></p>
 <ul class="simple">
-<li>シンボリックリンクを張り替える</li>
-<li><tt class="docutils literal">ln <span class="pre">-sf</span> /usr/share/zoneinfo/Asia/Tokyo /etc/localtime</tt></li>
+<li><p>シンボリックリンクを張り替える</p></li>
+<li><p><code class="docutils literal">ln <span class="pre">-sf</span> /usr/share/zoneinfo/Asia/Tokyo /etc/localtime</code></p></li>
 </ul>
 </li>
 <li>
-<p class="first"><a class="reference external" href="https://docs.python.org/ja/3/using/unix.html#building-python">2.2. Python のビルド</a></p>
+<p><a class="reference external" href="https://docs.python.org/ja/3/using/unix.html#building-python">2.2. Python のビルド</a></p>
 <ul class="simple">
-<li>
-<tt class="docutils literal">make install</tt> の代わりに <tt class="docutils literal">make altinstall</tt> 推奨</li>
-<li>
-<cite>警告 make install は python3 バイナリを上書きまたはリンクを破壊してしまうかもしれません。そのため、make install の代わりに exec_prefix/bin/pythonversion のみインストールする make altinstall が推奨されています。</cite> だそうです。</li>
+<li><p><code class="docutils literal">make install</code> の代わりに <code class="docutils literal">make altinstall</code> 推奨</p></li>
+<li><p><cite>警告 make install は python3 バイナリを上書きまたはリンクを破壊してしまうかもしれません。そのため、make install の代わりに exec_prefix/bin/pythonversion のみインストールする make altinstall が推奨されています。</cite> だそうです。</p></li>
 </ul>
 </li>
 </ul>
@@ -184,20 +179,20 @@
 <p>実際には、 PostgreSQL か MySQL かどちらか使うほうのみを生きとする。</p>
 <div class="section" id="id4">
 <h3><a class="toc-backref" href="#id13">構成</a></h3>
-<pre class="code bash"><a name="rest_code_7b5a5ab025094634a2b9cbfc428faf0e-1"></a>$ tree fufufu
-<a name="rest_code_7b5a5ab025094634a2b9cbfc428faf0e-2"></a>fufufu
-<a name="rest_code_7b5a5ab025094634a2b9cbfc428faf0e-3"></a>├── Dockerfile-app        <span class="c1"># 1. Django プロジェクト作るよう Dockerfile</span>
-<a name="rest_code_7b5a5ab025094634a2b9cbfc428faf0e-4"></a>├── Dockerfile-mysql      <span class="c1"># 2. MySQL よう Dockerfile</span>
-<a name="rest_code_7b5a5ab025094634a2b9cbfc428faf0e-5"></a>├── Dockerfile-postgres   <span class="c1"># 3. PostgreSQL よう Dockerfile</span>
-<a name="rest_code_7b5a5ab025094634a2b9cbfc428faf0e-6"></a>├── docker-compose.yml    <span class="c1"># 4. Composeファイル</span>
-<a name="rest_code_7b5a5ab025094634a2b9cbfc428faf0e-7"></a>└── requirements.txt      <span class="c1"># 5. requirements.txt</span>
+<pre class="code bash"><a name="rest_code_070719ac00b04e51848089eb12d2c4e0-1"></a>$ tree fufufu
+<a name="rest_code_070719ac00b04e51848089eb12d2c4e0-2"></a>fufufu
+<a name="rest_code_070719ac00b04e51848089eb12d2c4e0-3"></a>├── Dockerfile-app        <span class="c1"># 1. Django プロジェクト作るよう Dockerfile</span>
+<a name="rest_code_070719ac00b04e51848089eb12d2c4e0-4"></a>├── Dockerfile-mysql      <span class="c1"># 2. MySQL よう Dockerfile</span>
+<a name="rest_code_070719ac00b04e51848089eb12d2c4e0-5"></a>├── Dockerfile-postgres   <span class="c1"># 3. PostgreSQL よう Dockerfile</span>
+<a name="rest_code_070719ac00b04e51848089eb12d2c4e0-6"></a>├── docker-compose.yml    <span class="c1"># 4. Composeファイル</span>
+<a name="rest_code_070719ac00b04e51848089eb12d2c4e0-7"></a>└── requirements.txt      <span class="c1"># 5. requirements.txt</span>
 </pre>
 </div>
 <div class="section" id="id5">
 <h3><a class="toc-backref" href="#id14">設定ファイル</a></h3>
 <ol class="arabic">
 <li>
-<p class="first"><tt class="docutils literal"><span class="pre">Dockerfile-app</span></tt> : Django プロジェクトを入れるコンテナ</p>
+<p><code class="docutils literal"><span class="pre">Dockerfile-app</span></code> : Django プロジェクトを入れるコンテナ</p>
 <blockquote>
 <p></p>
 <div class="code-block ">
@@ -268,7 +263,7 @@
 </blockquote>
 </li>
 <li>
-<p class="first"><tt class="docutils literal"><span class="pre">Dockerfile-mysql</span></tt> : MySQL を入れるコンテナ</p>
+<p><code class="docutils literal"><span class="pre">Dockerfile-mysql</span></code> : MySQL を入れるコンテナ</p>
 <blockquote>
 <p></p>
 <div class="code-block ">
@@ -289,7 +284,7 @@
 </blockquote>
 </li>
 <li>
-<p class="first"><tt class="docutils literal"><span class="pre">Dockerfile-postgres</span></tt> : PostgreSQL を入れるコンテナ</p>
+<p><code class="docutils literal"><span class="pre">Dockerfile-postgres</span></code> : PostgreSQL を入れるコンテナ</p>
 <blockquote>
 <p></p>
 <div class="code-block ">
@@ -311,7 +306,7 @@
 </blockquote>
 </li>
 <li>
-<p class="first"><tt class="docutils literal"><span class="pre">docker-compose.yml</span></tt> : Composeファイル</p>
+<p><code class="docutils literal"><span class="pre">docker-compose.yml</span></code> : Composeファイル</p>
 <blockquote>
 <p></p>
 <div class="code-block ">
@@ -371,7 +366,7 @@
 </blockquote>
 </li>
 <li>
-<p class="first"><tt class="docutils literal">requirements.txt</tt> : requirements.txt</p>
+<p><code class="docutils literal">requirements.txt</code> : requirements.txt</p>
 <blockquote>
 <p></p>
 <div class="code-block ">
@@ -387,9 +382,9 @@
 </div>
 <div class="section" id="id6">
 <h3><a class="toc-backref" href="#id15">起動</a></h3>
-<pre class="code bash"><a name="rest_code_da0804eacb9f4e0f8f3d3e34db125654-1"></a>$ docker-compose up
-<a name="rest_code_da0804eacb9f4e0f8f3d3e34db125654-2"></a><span class="c1"># 再度 image ビルドからやり直したい</span>
-<a name="rest_code_da0804eacb9f4e0f8f3d3e34db125654-3"></a>$ docker-compose up --build
+<pre class="code bash"><a name="rest_code_400be82813db42b4b86c5d629bd3e051-1"></a>$ docker-compose up
+<a name="rest_code_400be82813db42b4b86c5d629bd3e051-2"></a><span class="c1"># 再度 image ビルドからやり直したい</span>
+<a name="rest_code_400be82813db42b4b86c5d629bd3e051-3"></a>$ docker-compose up --build
 </pre>
 </div>
 </div>
@@ -397,38 +392,38 @@
 <h2><a class="toc-backref" href="#id16">つかいかた</a></h2>
 <div class="section" id="app">
 <h3><a class="toc-backref" href="#id17">app コンテナ</a></h3>
-<pre class="code bash"><a name="rest_code_8b6fafe70fd142559147ef36120504e2-1"></a><span class="c1"># Django プロジェクトのコンテナに入る</span>
-<a name="rest_code_8b6fafe70fd142559147ef36120504e2-2"></a>$ docker container <span class="nb">exec</span> -it fufufu_app bash
-<a name="rest_code_8b6fafe70fd142559147ef36120504e2-3"></a><span class="c1"># Django プロジェクトを作成する</span>
-<a name="rest_code_8b6fafe70fd142559147ef36120504e2-4"></a>$ <span class="nb">cd</span> /fufufu
-<a name="rest_code_8b6fafe70fd142559147ef36120504e2-5"></a>$ /opt/python3.7.3/lib/python3.7/site-packages/django/bin/django-admin.py startproject config .
-<a name="rest_code_8b6fafe70fd142559147ef36120504e2-6"></a><span class="c1"># runserver する ( settings.py の ``ALLOWED_HOSTS`` に ``'0.0.0.0'`` を書いておかないと ``DisallowedHost`` になります)</span>
-<a name="rest_code_8b6fafe70fd142559147ef36120504e2-7"></a>$ python manage.py runserver <span class="m">0</span>.0.0.0:8000
+<pre class="code bash"><a name="rest_code_77838f999dca4c7a896b37902f31fbae-1"></a><span class="c1"># Django プロジェクトのコンテナに入る</span>
+<a name="rest_code_77838f999dca4c7a896b37902f31fbae-2"></a>$ docker container <span class="nb">exec</span> -it fufufu_app bash
+<a name="rest_code_77838f999dca4c7a896b37902f31fbae-3"></a><span class="c1"># Django プロジェクトを作成する</span>
+<a name="rest_code_77838f999dca4c7a896b37902f31fbae-4"></a>$ <span class="nb">cd</span> /fufufu
+<a name="rest_code_77838f999dca4c7a896b37902f31fbae-5"></a>$ /opt/python3.7.3/lib/python3.7/site-packages/django/bin/django-admin.py startproject config .
+<a name="rest_code_77838f999dca4c7a896b37902f31fbae-6"></a><span class="c1"># runserver する ( settings.py の ``ALLOWED_HOSTS`` に ``'0.0.0.0'`` を書いておかないと ``DisallowedHost`` になります)</span>
+<a name="rest_code_77838f999dca4c7a896b37902f31fbae-7"></a>$ python manage.py runserver <span class="m">0</span>.0.0.0:8000
 </pre>
 </div>
 <div class="section" id="mysql-postgresql">
 <h3><a class="toc-backref" href="#id18">MySQL, PostgreSQL コンテナ</a></h3>
-<pre class="code bash"><a name="rest_code_86a8c9aa37f649909256435ab25550f8-1"></a><span class="c1"># MySQL のコンテナに入る</span>
-<a name="rest_code_86a8c9aa37f649909256435ab25550f8-2"></a>$ docker container <span class="nb">exec</span> -it fufufu_mysql bash
-<a name="rest_code_86a8c9aa37f649909256435ab25550f8-3"></a><span class="c1"># MySQL に入る</span>
-<a name="rest_code_86a8c9aa37f649909256435ab25550f8-4"></a>$ mysql -u fufufu -D fufufu -p
-<a name="rest_code_86a8c9aa37f649909256435ab25550f8-5"></a>
-<a name="rest_code_86a8c9aa37f649909256435ab25550f8-6"></a><span class="c1"># PostgreSQL のコンテナに入る</span>
-<a name="rest_code_86a8c9aa37f649909256435ab25550f8-7"></a>$ docker container <span class="nb">exec</span> -it fufufu_postgres bash
-<a name="rest_code_86a8c9aa37f649909256435ab25550f8-8"></a><span class="c1"># PostgreSQL に入る</span>
-<a name="rest_code_86a8c9aa37f649909256435ab25550f8-9"></a>$ psql -U fufufu fufufu
+<pre class="code bash"><a name="rest_code_bf0f346c3bf1413cbcd4d5d4346ffa66-1"></a><span class="c1"># MySQL のコンテナに入る</span>
+<a name="rest_code_bf0f346c3bf1413cbcd4d5d4346ffa66-2"></a>$ docker container <span class="nb">exec</span> -it fufufu_mysql bash
+<a name="rest_code_bf0f346c3bf1413cbcd4d5d4346ffa66-3"></a><span class="c1"># MySQL に入る</span>
+<a name="rest_code_bf0f346c3bf1413cbcd4d5d4346ffa66-4"></a>$ mysql -u fufufu -D fufufu -p
+<a name="rest_code_bf0f346c3bf1413cbcd4d5d4346ffa66-5"></a>
+<a name="rest_code_bf0f346c3bf1413cbcd4d5d4346ffa66-6"></a><span class="c1"># PostgreSQL のコンテナに入る</span>
+<a name="rest_code_bf0f346c3bf1413cbcd4d5d4346ffa66-7"></a>$ docker container <span class="nb">exec</span> -it fufufu_postgres bash
+<a name="rest_code_bf0f346c3bf1413cbcd4d5d4346ffa66-8"></a><span class="c1"># PostgreSQL に入る</span>
+<a name="rest_code_bf0f346c3bf1413cbcd4d5d4346ffa66-9"></a>$ psql -U fufufu fufufu
 </pre>
 </div>
 </div>
 <div class="section" id="id8">
 <h2><a class="toc-backref" href="#id19">感想</a></h2>
 <ul class="simple">
+<li><p><code class="docutils literal">Python をソースファイルからビルドしてインストール</code> するのは時間がかかる</p></li>
 <li>
-<tt class="docutils literal">Python をソースファイルからビルドしてインストール</tt> するのは時間がかかる</li>
-<li>Django プロジェクトを作成するのに、venv を作らず、<ul>
-<li>
-<tt class="docutils literal"><span class="pre">/opt/python3.7.3/lib/python3.7/site-packages/django/bin/django-admin.py</span> startproject config .</tt> じゃなくて、 <tt class="docutils literal"><span class="pre">django-admin.py</span> startproject config .</tt> できる方法ないのだろうか...</li>
-<li>手動で <tt class="docutils literal"><span class="pre">/opt/python3.7.3/lib/python3.7/site-packages/django/bin/</span></tt> に PATH を通せばできるけどそうじゃなくて自動でやってくれないのかな...</li>
+<p>Django プロジェクトを作成するのに、venv を作らず、</p>
+<ul>
+<li><p><code class="docutils literal"><span class="pre">/opt/python3.7.3/lib/python3.7/site-packages/django/bin/django-admin.py</span> startproject config .</code> じゃなくて、 <code class="docutils literal"><span class="pre">django-admin.py</span> startproject config .</code> できる方法ないのだろうか...</p></li>
+<li><p>手動で <code class="docutils literal"><span class="pre">/opt/python3.7.3/lib/python3.7/site-packages/django/bin/</span></code> に PATH を通せばできるけどそうじゃなくて自動でやってくれないのかな...</p></li>
 </ul>
 </li>
 </ul>
@@ -439,19 +434,20 @@
 <h3><a class="toc-backref" href="#id21">Python 公式イメージのルーツ</a></h3>
 <p>python:latest, python:3 =&gt; buildpack-deps:stretch =&gt; debian:stretch</p>
 <ul class="simple">
-<li>ubuntu は Debian-based ということだけれど、 Debian と ubuntu はどんな風に違うんだろうなあ</li>
-<li>MySQL, PostgreSQL の公式イメージも Debian (debian:stretch-slim) だった</li>
+<li><p>ubuntu は Debian-based ということだけれど、 Debian と ubuntu はどんな風に違うんだろうなあ</p></li>
+<li><p>MySQL, PostgreSQL の公式イメージも Debian (debian:stretch-slim) だった</p></li>
 </ul>
 <div class="section" id="docker-hub">
 <h4><a class="toc-backref" href="#id22">Docker Hub</a></h4>
 <ul class="simple">
-<li><a class="reference external" href="https://hub.docker.com/_/python">python Docker Official Images</a></li>
+<li><p><a class="reference external" href="https://hub.docker.com/_/python">python Docker Official Images</a></p></li>
 <li>
-<a class="reference external" href="https://hub.docker.com/_/buildpack-deps">buildpack-deps Docker Official Images</a><ul>
-<li><cite>A collection of common build dependencies used for installing various modules, e.g., gems.</cite></li>
+<p><a class="reference external" href="https://hub.docker.com/_/buildpack-deps">buildpack-deps Docker Official Images</a></p>
+<ul>
+<li><p><cite>A collection of common build dependencies used for installing various modules, e.g., gems.</cite></p></li>
 </ul>
 </li>
-<li><a class="reference external" href="https://hub.docker.com/_/debian">Debian Docker Official Images</a></li>
+<li><p><a class="reference external" href="https://hub.docker.com/_/debian">Debian Docker Official Images</a></p></li>
 </ul>
 </div>
 </div>

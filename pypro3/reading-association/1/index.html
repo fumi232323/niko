@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Vollkorn:400,700">
 <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/sawarabimincho.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-<link rel="stylesheet" href="../../../assets/css/style.css?20190615">
+<link rel="stylesheet" href="../../../assets/css/style.css?20191110">
 </head>
 <body>
     <div class="container">
@@ -36,57 +36,59 @@
 <div class="section" id="id2">
 <h3>目的</h3>
 <ul class="simple">
-<li>個人で、Python を使って開発を始めるための準備はこれです。</li>
-<li>Python で開発するための環境構築</li>
+<li><p>個人で、Python を使って開発を始めるための準備はこれです。</p></li>
+<li><p>Python で開発するための環境構築</p></li>
 </ul>
 </div>
 <div class="section" id="id3">
 <h3>ポイント</h3>
 <ul class="simple">
-<li>仮想環境</li>
-<li>Python を仕事で使う上で必要な環境について、まずはひととおり、薄く、説明している。</li>
-<li>インストールの仕方、いくつかある</li>
-<li>パッケージ管理ツール</li>
-<li>エディター (社内でも紛糾)</li>
+<li><p>仮想環境</p></li>
+<li><p>Python を仕事で使う上で必要な環境について、まずはひととおり、薄く、説明している。</p></li>
+<li><p>インストールの仕方、いくつかある</p></li>
+<li><p>パッケージ管理ツール</p></li>
+<li><p>エディター (社内でも紛糾)</p></li>
 </ul>
 </div>
 <div class="section" id="id4">
 <h3>気になったこと</h3>
 <ul class="simple">
-<li>Git が増えてる</li>
+<li><p>Git が増えてる</p></li>
 </ul>
 </div>
 <div class="section" id="id5">
 <h3>質問と回答</h3>
 <ul class="simple">
-<li>Redhat CentOS<ul>
-<li>保証期間が長いので、有償もある、という理由で使うこともある。</li>
+<li>
+<p>Redhat CentOS</p>
+<ul>
+<li><p>保証期間が長いので、有償もある、という理由で使うこともある。</p></li>
 </ul>
 </li>
-<li>2011年ごろ ubuntu 楽に使える</li>
-<li>サーバー用途で使うことはない</li>
-<li>自動で行う場合もある</li>
-<li>コマンドをうつ、初心者向けなので、大事</li>
-<li>仕事でやるときは、自動化する (ansible)</li>
-<li>BP は多い</li>
-<li>Docker でやることも多い(tell-kさん)</li>
+<li><p>2011年ごろ ubuntu 楽に使える</p></li>
+<li><p>サーバー用途で使うことはない</p></li>
+<li><p>自動で行う場合もある</p></li>
+<li><p>コマンドをうつ、初心者向けなので、大事</p></li>
+<li><p>仕事でやるときは、自動化する (ansible)</p></li>
+<li><p>BP は多い</p></li>
+<li><p>Docker でやることも多い(tell-kさん)</p></li>
+<li><p><cite>virtualenv</cite> が公式に取り込まれたのが、 <cite>venv</cite></p></li>
+<li><p><cite>pipenv</cite> 公式のおすすめ</p></li>
+<li><p><cite>git init</cite> は <cite>readme</cite> のあるところでやるのが多い</p></li>
 <li>
-<cite>virtualenv</cite> が公式に取り込まれたのが、 <cite>venv</cite>
-</li>
-<li>
-<cite>pipenv</cite> 公式のおすすめ</li>
-<li>
-<cite>git init</cite> は <cite>readme</cite> のあるところでやるのが多い</li>
-<li>tell-k さんは vim 使い<ul>
-<li>サーバーにはだいたい入ってるだろう</li>
-<li>環境によっては、IDE使えないからねの理由</li>
+<p>tell-k さんは vim 使い</p>
+<ul>
+<li><p>サーバーにはだいたい入ってるだろう</p></li>
+<li><p>環境によっては、IDE使えないからねの理由</p></li>
 </ul>
 </li>
-<li>shimizukawa さんの pycon の資料がよい PyCharm</li>
-<li>VSCord</li>
-<li>秘伝のたれ vagrant ほんとにいいの？いいとは言い切れない。<ul>
-<li>手順をテキストで用意して、おまけで vagrant の自動化</li>
-<li>OS が選べるので、 vagrant 用意しとけば誰でも使えるよみたいな</li>
+<li><p>shimizukawa さんの pycon の資料がよい PyCharm</p></li>
+<li><p>VSCord</p></li>
+<li>
+<p>秘伝のたれ vagrant ほんとにいいの？いいとは言い切れない。</p>
+<ul>
+<li><p>手順をテキストで用意して、おまけで vagrant の自動化</p></li>
+<li><p>OS が選べるので、 vagrant 用意しとけば誰でも使えるよみたいな</p></li>
 </ul>
 </li>
 </ul>
@@ -97,31 +99,35 @@
 <div class="section" id="id7">
 <h3>目的</h3>
 <ul class="simple">
-<li>Web アプリケーションのとはどういうものか、仕組みを知る。</li>
-<li>Web アプリケーション開発の流れを把握する。</li>
-<li>Python, フレームワーク を使って、簡単な Web アプリの作り方</li>
+<li><p>Web アプリケーションのとはどういうものか、仕組みを知る。</p></li>
+<li><p>Web アプリケーション開発の流れを把握する。</p></li>
+<li><p>Python, フレームワーク を使って、簡単な Web アプリの作り方</p></li>
 </ul>
 </div>
 <div class="section" id="id8">
 <h3>ポイント</h3>
 <ul class="simple">
-<li>いきなりプログラム書かないよ、どういうものを作るかちゃんか考える</li>
-<li>セキュリティ、Xss<ul>
-<li>初心者やりがち</li>
+<li><p>いきなりプログラム書かないよ、どういうものを作るかちゃんか考える</p></li>
+<li>
+<p>セキュリティ、Xss</p>
+<ul>
+<li><p>初心者やりがち</p></li>
 </ul>
 </li>
-<li>仮想環境で開発しよう</li>
-<li>フレームワーク</li>
-<li>テンプレートエンジン</li>
+<li><p>仮想環境で開発しよう</p></li>
+<li><p>フレームワーク</p></li>
+<li><p>テンプレートエンジン</p></li>
 </ul>
 </div>
 <div class="section" id="id9">
 <h3>気になったこと</h3>
 <ul class="simple">
-<li>乗りログになってる！！</li>
-<li>Python, Django (?) での、 web サーバーとアプリケーションサーバーのところがようわからん・・<ul>
-<li>WSGI って・・・？</li>
-<li>プロトコルだったの...</li>
+<li><p>乗りログになってる！！</p></li>
+<li>
+<p>Python, Django (?) での、 web サーバーとアプリケーションサーバーのところがようわからん・・</p>
+<ul>
+<li><p>WSGI って・・・？</p></li>
+<li><p>プロトコルだったの...</p></li>
 </ul>
 </li>
 </ul>
@@ -129,41 +135,47 @@
 <div class="section" id="id10">
 <h3>質問と回答</h3>
 <ul class="simple">
-<li>Python 使う、選ぶ理由<ul>
-<li>オールラウンドの言語</li>
-<li>日本ではなく、世界で一般的に使われている</li>
-<li>たくさんライブラリがある</li>
-<li>今はたまたま数学系のライブラリが今一番豊富なので、当たりの状態</li>
-<li>やってる人が多いと、質問しやすい、勉強会、書籍も豊富</li>
-<li>マルチプロセス、マルチスレッドは大苦手。</li>
+<li>
+<p>Python 使う、選ぶ理由</p>
+<ul>
+<li><p>オールラウンドの言語</p></li>
+<li><p>日本ではなく、世界で一般的に使われている</p></li>
+<li><p>たくさんライブラリがある</p></li>
+<li><p>今はたまたま数学系のライブラリが今一番豊富なので、当たりの状態</p></li>
+<li><p>やってる人が多いと、質問しやすい、勉強会、書籍も豊富</p></li>
+<li><p>マルチプロセス、マルチスレッドは大苦手。</p></li>
 </ul>
 </li>
-<li>Django と Flask の使いわけ<ul>
-<li>Django では少ないページ数に治らない。</li>
-<li>BP では、実案件はほとんど Django を使っている。</li>
-<li>最初は小さくても、そのうち育っていくと可能性があるから。</li>
-<li>手元でちょっとつくってみたいときとかに使う</li>
-<li>シンプルなものをシンプルに作りたい、提供したいときに使う</li>
-<li>大きいものは、Django。オレオレルールを整理して最初から整えられてるのは Django。</li>
-<li>Django は、フルスタック。</li>
-<li>セッション</li>
-<li>Django はいろいろついてる。</li>
-<li>Flask はついてない。プロで、色々自分で選んでくっつけたい場合はよいけど。</li>
+<li>
+<p>Django と Flask の使いわけ</p>
+<ul>
+<li><p>Django では少ないページ数に治らない。</p></li>
+<li><p>BP では、実案件はほとんど Django を使っている。</p></li>
+<li><p>最初は小さくても、そのうち育っていくと可能性があるから。</p></li>
+<li><p>手元でちょっとつくってみたいときとかに使う</p></li>
+<li><p>シンプルなものをシンプルに作りたい、提供したいときに使う</p></li>
+<li><p>大きいものは、Django。オレオレルールを整理して最初から整えられてるのは Django。</p></li>
+<li><p>Django は、フルスタック。</p></li>
+<li><p>セッション</p></li>
+<li><p>Django はいろいろついてる。</p></li>
+<li><p>Flask はついてない。プロで、色々自分で選んでくっつけたい場合はよいけど。</p></li>
 </ul>
 </li>
-<li>フロント系のライブラリ<ul>
-<li>vue.js が多い。なくすとJS、ラッピングしてフルスタック、リアクトも。</li>
-<li>SEO 気にすると。シングルページアプリケーション。</li>
-<li>サーバーサイドレンダリング</li>
-<li>Web のサイトを簡単に</li>
-<li>API サーバーとして Django 使う。 ORM として使う。</li>
-<li>djangorestframework と組み合わせることが多い。</li>
-<li>JQuery はあまり使いたくない。</li>
-<li>画像処理を GO で書き換える。</li>
-<li>パフォーマンスきついとき、 Python + Django だときついときある。</li>
+<li>
+<p>フロント系のライブラリ</p>
+<ul>
+<li><p>vue.js が多い。なくすとJS、ラッピングしてフルスタック、リアクトも。</p></li>
+<li><p>SEO 気にすると。シングルページアプリケーション。</p></li>
+<li><p>サーバーサイドレンダリング</p></li>
+<li><p>Web のサイトを簡単に</p></li>
+<li><p>API サーバーとして Django 使う。 ORM として使う。</p></li>
+<li><p>djangorestframework と組み合わせることが多い。</p></li>
+<li><p>JQuery はあまり使いたくない。</p></li>
+<li><p>画像処理を GO で書き換える。</p></li>
+<li><p>パフォーマンスきついとき、 Python + Django だときついときある。</p></li>
 </ul>
 </li>
-<li>auto pep 8 フォーマット 自動的にフォーマット vim フォーマッティングしてくれるプラグインある。</li>
+<li><p>auto pep 8 フォーマット 自動的にフォーマット vim フォーマッティングしてくれるプラグインある。</p></li>
 </ul>
 </div>
 </div>

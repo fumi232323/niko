@@ -1,27 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ふみのて (miyadaikuについての文書)</title><link>https://32imuf.com/</link><description></description><atom:link href="https://32imuf.com/tags/miyadaiku.xml" rel="self" type="application/rss+xml"></atom:link><language>ja</language><copyright>Contents © 2019 &lt;a href="mailto:fumi232323fumi2016@gmail.com"&gt;fumi23&lt;/a&gt; </copyright><lastBuildDate>Tue, 11 Jun 2019 13:11:24 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Miyadaiku ビルドするときのコマンド</title><link>https://32imuf.com/miyadaiku/build/</link><dc:creator>fumi23</dc:creator><description>&lt;div class="section" id="id1"&gt;
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ふみのて (miyadaikuについての文書)</title><link>https://32imuf.com/</link><description></description><atom:link href="https://32imuf.com/tags/miyadaiku.xml" rel="self" type="application/rss+xml"></atom:link><language>ja</language><copyright>Contents © 2019 &lt;a href="mailto:fumi232323fumi2016@gmail.com"&gt;fumi23&lt;/a&gt; </copyright><lastBuildDate>Sun, 10 Nov 2019 13:51:11 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Miyadaiku ビルドするときのコマンド</title><link>https://32imuf.com/miyadaiku/build/</link><dc:creator>fumi23</dc:creator><description>&lt;div class="section" id="id1"&gt;
 &lt;h2&gt;ビルド&lt;/h2&gt;
 &lt;p&gt;blogディレクトリの中で、これを実行&lt;/p&gt;
-&lt;pre class="code shell"&gt;&lt;a name="rest_code_19be2181eded441a92ae3ae8e3dcd7c0-1"&gt;&lt;/a&gt;$ miyadaiku-build . --watch --server --port &lt;span class="m"&gt;8181&lt;/span&gt;
+&lt;pre class="code shell"&gt;&lt;a name="rest_code_043e14d830314b419e538bba9947e2d0-1"&gt;&lt;/a&gt;$ miyadaiku-build . --watch --server --port &lt;span class="m"&gt;8181&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;</description><category>miyadaiku</category><guid>https://32imuf.com/miyadaiku/build/</guid><pubDate>Sat, 01 Sep 2018 15:00:00 GMT</pubDate></item><item><title>article の置きかた</title><link>https://32imuf.com/miyadaiku/article-directory-structure/</link><dc:creator>fumi23</dc:creator><description>&lt;div class="section" id="article"&gt;
 &lt;h2&gt;article の置きかた&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p class="first"&gt;最初に決めた方がよい。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p class="first"&gt;分けないと後々何が何だかわからなくなるらしい。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p class="first"&gt;年ごと &amp;gt; カテゴリごとにディレクトリを作る。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p class="first"&gt;article には、 &lt;tt class="docutils literal"&gt;index.rst&lt;/tt&gt; というファイル名をつける。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p class="first"&gt;article ごとに、 &lt;tt class="docutils literal"&gt;canonical_url&lt;/tt&gt; プロパティを設定する。&lt;/p&gt;
-&lt;p&gt;e.g. &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;contents/2018/sample-article1/index.rst&lt;/span&gt;&lt;/tt&gt;&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;最初に決めた方がよい。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;分けないと後々何が何だかわからなくなるらしい。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;年ごと &amp;gt; カテゴリごとにディレクトリを作る。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;article には、 &lt;code class="docutils literal"&gt;index.rst&lt;/code&gt; というファイル名をつける。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;article ごとに、 &lt;code class="docutils literal"&gt;canonical_url&lt;/code&gt; プロパティを設定する。&lt;/p&gt;
+&lt;p&gt;e.g. &lt;code class="docutils literal"&gt;&lt;span class="pre"&gt;contents/2018/sample-article1/index.rst&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;
 &lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;&amp;lt;string&amp;gt;&lt;/tt&gt;, line 12)&lt;/p&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;span class="docutils literal"&gt;&amp;lt;string&amp;gt;&lt;/span&gt;, line 12)&lt;/p&gt;
 &lt;p&gt;Content block expected for the "code-block" directive; none found.&lt;/p&gt;
-&lt;pre class="literal-block"&gt;
-.. code-block:: python
-
+&lt;pre class="literal-block"&gt;.. code-block:: python
 &lt;/pre&gt;
 &lt;/div&gt;
 &lt;/li&gt;
@@ -30,6 +24,6 @@
 &lt;!-- slug: index --&gt;
 &lt;/blockquote&gt;
 &lt;ul class="simple"&gt;
-&lt;li&gt;article 本体とそこから参照する画像は同じディレクトリに配置する。&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;article 本体とそこから参照する画像は同じディレクトリに配置する。&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;</description><category>miyadaiku</category><guid>https://32imuf.com/miyadaiku/article-directory-structure/</guid><pubDate>Sat, 30 Jun 2018 15:00:00 GMT</pubDate></item></channel></rss>

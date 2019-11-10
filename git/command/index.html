@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Vollkorn:400,700">
 <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/sawarabimincho.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-<link rel="stylesheet" href="../../assets/css/style.css?20190615">
+<link rel="stylesheet" href="../../assets/css/style.css?20191110">
 </head>
 <body>
     <div class="container">
@@ -34,22 +34,24 @@
 <details><summary>目次</summary><div class="contents topic" id="id1">
 <p class="topic-title first">目次</p>
 <ul class="simple">
-<li><a class="reference internal" href="#git" id="id7">Git の絵</a></li>
+<li><p><a class="reference internal" href="#git" id="id7">Git の絵</a></p></li>
 <li>
-<a class="reference internal" href="#id2" id="id8">ブランチ操作</a><ul>
-<li><a class="reference internal" href="#id3" id="id9">ローカル</a></li>
-<li><a class="reference internal" href="#id4" id="id10">リモート</a></li>
+<p><a class="reference internal" href="#id2" id="id8">ブランチ操作</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id3" id="id9">ローカル</a></p></li>
+<li><p><a class="reference internal" href="#id4" id="id10">リモート</a></p></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#git-reset" id="id11">git reset 使い分け</a></li>
-<li><a class="reference internal" href="#id5" id="id12">コミット</a></li>
-<li><a class="reference internal" href="#stash" id="id13">stash: コミットはせずに変更を退避したい</a></li>
-<li><a class="reference internal" href="#git-log" id="id14">git log</a></li>
-<li><a class="reference internal" href="#id6" id="id15">リセットする</a></li>
+<li><p><a class="reference internal" href="#git-reset" id="id11">git reset 使い分け</a></p></li>
+<li><p><a class="reference internal" href="#id5" id="id12">コミット</a></p></li>
+<li><p><a class="reference internal" href="#stash" id="id13">stash: コミットはせずに変更を退避したい</a></p></li>
+<li><p><a class="reference internal" href="#git-log" id="id14">git log</a></p></li>
+<li><p><a class="reference internal" href="#id6" id="id15">リセットする</a></p></li>
 <li>
-<a class="reference internal" href="#fetch-pull" id="id16">fetch と pull</a><ul>
-<li><a class="reference internal" href="#fetch" id="id17">fetch</a></li>
-<li><a class="reference internal" href="#pull" id="id18">pull</a></li>
+<p><a class="reference internal" href="#fetch-pull" id="id16">fetch と pull</a></p>
+<ul>
+<li><p><a class="reference internal" href="#fetch" id="id17">fetch</a></p></li>
+<li><p><a class="reference internal" href="#pull" id="id18">pull</a></p></li>
 </ul>
 </li>
 </ul>
@@ -61,7 +63,7 @@
 <img alt="/images/git/command/areas.png" src="../../images/git/command/areas.png">
 </div>
 <blockquote>
-<a class="reference external" href="https://git-scm.com/book/en/v2/Getting-Started-Git-Basics">https://git-scm.com/book/en/v2/Getting-Started-Git-Basics</a>
+<p><a class="reference external" href="https://git-scm.com/book/en/v2/Getting-Started-Git-Basics">https://git-scm.com/book/en/v2/Getting-Started-Git-Basics</a></p>
 </blockquote>
 </div>
 <div class="section" id="id2">
@@ -70,30 +72,30 @@
 <h3><a class="toc-backref" href="#id9">ローカル</a></h3>
 <ul>
 <li>
-<p class="first">新しいブランチを作成して、新しいブランチにチェックアウト</p>
-<pre class="code console"><a name="rest_code_885288447eba4a4dbef0281317a362b5-1"></a><span class="gp">$</span> git checkout &lt;元にしたいブランチ&gt;
-<a name="rest_code_885288447eba4a4dbef0281317a362b5-2"></a><span class="gp">$</span> git checkout -b &lt;new-branch-name&gt;
+<p>新しいブランチを作成して、新しいブランチにチェックアウト</p>
+<pre class="code console"><a name="rest_code_97e5dd6aab004fa3b3991ea6d8a9c3d2-1"></a><span class="gp">$</span> git checkout &lt;元にしたいブランチ&gt;
+<a name="rest_code_97e5dd6aab004fa3b3991ea6d8a9c3d2-2"></a><span class="gp">$</span> git checkout -b &lt;new-branch-name&gt;
 </pre>
 </li>
 <li>
-<p class="first">ブランチ名を変更</p>
-<pre class="code console"><a name="rest_code_46271215dcd345e9923368777e7685e1-1"></a><span class="gp">$</span> git branch -m &lt;old-branch-name&gt; &lt;new-branch-name&gt;
+<p>ブランチ名を変更</p>
+<pre class="code console"><a name="rest_code_f1b1911fcb9c4149a5b1af72b1bbc85f-1"></a><span class="gp">$</span> git branch -m &lt;old-branch-name&gt; &lt;new-branch-name&gt;
 </pre>
 </li>
 <li>
-<p class="first">ブランチを削除</p>
-<pre class="code console"><a name="rest_code_d0eda441431240afa18fc9f2c8f0aaa0-1"></a><span class="gp">$</span> git checkout &lt;違うブランチ&gt;
-<a name="rest_code_d0eda441431240afa18fc9f2c8f0aaa0-2"></a><span class="gp">$</span> git branch -D &lt;branch-you-want-to-delete&gt;
+<p>ブランチを削除</p>
+<pre class="code console"><a name="rest_code_75b2107c4b72431dbd25fc9ae8e6a2d4-1"></a><span class="gp">$</span> git checkout &lt;違うブランチ&gt;
+<a name="rest_code_75b2107c4b72431dbd25fc9ae8e6a2d4-2"></a><span class="gp">$</span> git branch -D &lt;branch-you-want-to-delete&gt;
 </pre>
 </li>
 <li>
-<p class="first">ブランチを強制チェックアウト（ローカル変更はなくなる）</p>
-<pre class="code console"><a name="rest_code_52bfa43681d34148a3fca39c163e4f75-1"></a><span class="gp">$</span> git checkout --force &lt;branch-you-want-to-checkout&gt;
+<p>ブランチを強制チェックアウト（ローカル変更はなくなる）</p>
+<pre class="code console"><a name="rest_code_683bd0a1fb2d42b2a386e9547c73b05f-1"></a><span class="gp">$</span> git checkout --force &lt;branch-you-want-to-checkout&gt;
 </pre>
 </li>
 <li>
-<p class="first">ブランチをプッシュ（初回）</p>
-<pre class="code console"><a name="rest_code_d8b602f65470492d96c3e5b4598a22e9-1"></a><span class="gp">$</span> git push -u origin &lt;branch-you-want-to-push&gt;
+<p>ブランチをプッシュ（初回）</p>
+<pre class="code console"><a name="rest_code_9afefb1567c3412f9e00a840544ac418-1"></a><span class="gp">$</span> git push -u origin &lt;branch-you-want-to-push&gt;
 </pre>
 </li>
 </ul>
@@ -102,13 +104,13 @@
 <h3><a class="toc-backref" href="#id10">リモート</a></h3>
 <ul>
 <li>
-<p class="first">リモートブランチをチェックアウト</p>
-<pre class="code bash"><a name="rest_code_5531e513bf714d1fadfc8b0538ae467e-1"></a>$ git checkout -b &lt;branch-you-want-to-checkout&gt; origin/&lt;branch-you-want-to-checkout&gt;
+<p>リモートブランチをチェックアウト</p>
+<pre class="code bash"><a name="rest_code_2203825cd13241dd9490fde8b43fae59-1"></a>$ git checkout -b &lt;branch-you-want-to-checkout&gt; origin/&lt;branch-you-want-to-checkout&gt;
 </pre>
 </li>
 <li>
-<p class="first">リモートブランチの一覧を表示</p>
-<pre class="code console"><a name="rest_code_c6c04ea64313482ea8dea351f029359a-1"></a><span class="gp">$</span> git branch -a
+<p>リモートブランチの一覧を表示</p>
+<pre class="code console"><a name="rest_code_0b3c7032128146f699a8ab362efc97b2-1"></a><span class="gp">$</span> git branch -a
 </pre>
 </li>
 </ul>
@@ -116,26 +118,26 @@
 </div>
 <div class="section" id="git-reset">
 <h2><a class="toc-backref" href="#id11">git reset 使い分け</a></h2>
-<p>ちなみに <tt class="docutils literal">git reset</tt> == <tt class="docutils literal">git reset <span class="pre">--mixed</span></tt> ですね</p>
+<p>ちなみに <code class="docutils literal">git reset</code> == <code class="docutils literal">git reset <span class="pre">--mixed</span></code> ですね</p>
 <ul>
 <li>
-<p class="first">git commit だけ取り消し</p>
-<pre class="code console"><a name="rest_code_02b8f88b29c544f887b213d8e3018958-1"></a><span class="gp">$</span> git reset --soft
+<p>git commit だけ取り消し</p>
+<pre class="code console"><a name="rest_code_9e2e76051213453abb685efb626ee1ad-1"></a><span class="gp">$</span> git reset --soft
 </pre>
 </li>
 <li>
-<p class="first">git add と git commit を取り消し、ファイルの変更は保持する</p>
-<pre class="code console"><a name="rest_code_e881bb19726a40fe9dc7c7dbe41675d9-1"></a><span class="gp">$</span> git reset --mixed
+<p>git add と git commit を取り消し、ファイルの変更は保持する</p>
+<pre class="code console"><a name="rest_code_e8864d93fa504baa8a82c13b2eebfdd0-1"></a><span class="gp">$</span> git reset --mixed
 </pre>
 </li>
 <li>
-<p class="first">git add と git commit を取り消して、ファイルの変更も削除する</p>
-<pre class="code console"><a name="rest_code_02a901b4beee494b8d449fc8590f17ae-1"></a><span class="gp">$</span> git reset --hard
+<p>git add と git commit を取り消して、ファイルの変更も削除する</p>
+<pre class="code console"><a name="rest_code_2dff88b41f68412088aa771c0848ef76-1"></a><span class="gp">$</span> git reset --hard
 </pre>
 </li>
 <li>
-<p class="first">コミットを取り消し（直前のコミットまで戻す。 git commit を取り消し、ファイルの変更は保持する。）</p>
-<pre class="code console"><a name="rest_code_f2043e540fb14651aefb2a6343dcc3e2-1"></a><span class="gp">$</span> git reset --mixed HEAD^
+<p>コミットを取り消し（直前のコミットまで戻す。 git commit を取り消し、ファイルの変更は保持する。）</p>
+<pre class="code console"><a name="rest_code_d393a3b6678b4bb59683625a6bdd9a24-1"></a><span class="gp">$</span> git reset --mixed HEAD^
 </pre>
 </li>
 </ul>
@@ -144,24 +146,24 @@
 <h2><a class="toc-backref" href="#id12">コミット</a></h2>
 <ul>
 <li>
-<p class="first">コミットをもう一度やりなおす</p>
-<pre class="code console"><a name="rest_code_28e09fcdd5844172a0e5d32c3f00d65f-1"></a><span class="gp">$</span> git commit --amend
+<p>コミットをもう一度やりなおす</p>
+<pre class="code console"><a name="rest_code_996ac60b4bdb4ddd8643106996264b3b-1"></a><span class="gp">$</span> git commit --amend
 </pre>
 </li>
 <li>
-<p class="first">コミットメッセージの修正</p>
-<pre class="code console"><a name="rest_code_61ad2e962517465cbd70f2271cb22a7f-1"></a><span class="gp">$</span> git commit --amend -m <span class="s2">"new commit message"</span>
+<p>コミットメッセージの修正</p>
+<pre class="code console"><a name="rest_code_d12fbfbbf7014a81b4e5a6390f73eeb5-1"></a><span class="gp">$</span> git commit --amend -m <span class="s2">"new commit message"</span>
 </pre>
 </li>
 <li>
-<p class="first">いったんコミットした後、 add 忘れに気づいた</p>
-<pre class="code console"><a name="rest_code_933f062c17d149828963daa03eecda57-1"></a><span class="gp">$</span> git add &lt;わすれもの&gt;
-<a name="rest_code_933f062c17d149828963daa03eecda57-2"></a><span class="gp">$</span> git commit --amend
+<p>いったんコミットした後、 add 忘れに気づいた</p>
+<pre class="code console"><a name="rest_code_faecd5bc398c41bda5db96dac9f5f9d2-1"></a><span class="gp">$</span> git add &lt;わすれもの&gt;
+<a name="rest_code_faecd5bc398c41bda5db96dac9f5f9d2-2"></a><span class="gp">$</span> git commit --amend
 </pre>
 </li>
 <li>
-<p class="first">空コミット</p>
-<pre class="code console"><a name="rest_code_bec8b0ce479f49579ae8ae70dd8dd11c-1"></a><span class="gp">$</span> git commit --allow-empty -m <span class="s2">"commit message"</span>
+<p>空コミット</p>
+<pre class="code console"><a name="rest_code_c666c1036d584ac8bc87fe8cad0d55d6-1"></a><span class="gp">$</span> git commit --allow-empty -m <span class="s2">"commit message"</span>
 </pre>
 </li>
 </ul>
@@ -170,7 +172,7 @@
 <h2><a class="toc-backref" href="#id13">stash: コミットはせずに変更を退避したい</a></h2>
 <ul>
 <li>
-<p class="first">これがわかりやすい</p>
+<p>これがわかりやすい</p>
 <p><a class="reference external" href="https://qiita.com/chihiro/items/f373873d5c2dfbd03250">https://qiita.com/chihiro/items/f373873d5c2dfbd03250</a></p>
 </li>
 </ul>
@@ -179,17 +181,17 @@
 <h2><a class="toc-backref" href="#id14">git log</a></h2>
 <ul>
 <li>
-<p class="first">各コミットを 1 行ずつ表示</p>
-<pre class="code console"><a name="rest_code_9a4448333f184732834def42e04369fe-1"></a><span class="gp">$</span> git log --oneline
+<p>各コミットを 1 行ずつ表示</p>
+<pre class="code console"><a name="rest_code_2a5c5f05de2e46ee92f5734b423d2b85-1"></a><span class="gp">$</span> git log --oneline
 </pre>
 </li>
 <li>
-<p class="first">master と topic の共通の祖先がわかる</p>
-<pre class="code console"><a name="rest_code_bfb95ffc4af84daaa576c994c1f51d5f-1"></a><span class="gp">$</span> git log -1 <span class="k">$(</span>git merge-base origin/master origin/topic<span class="k">)</span>
+<p>master と topic の共通の祖先がわかる</p>
+<pre class="code console"><a name="rest_code_556d9d97d95b43999e2566e3b4c25323-1"></a><span class="gp">$</span> git log -1 <span class="k">$(</span>git merge-base origin/master origin/topic<span class="k">)</span>
 </pre>
 </li>
 <li>
-<p class="first">見本がたくさん書いてあって良い</p>
+<p>見本がたくさん書いてあって良い</p>
 <p><a class="reference external" href="http://yanor.net/wiki/?Git%2Fgit%20log%2F%E6%9D%A1%E4%BB%B6%E6%8C%87%E5%AE%9A%E3%81%97%E3%81%A6%E3%82%B3%E3%83%9F%E3%83%83%E3%83%88%E3%82%92%E7%B5%9E%E3%82%8A%E8%BE%BC%E3%82%80">http://yanor.net/wiki/?Git%2Fgit%20log%2F%E6%9D%A1%E4%BB%B6%E6%8C%87%E5%AE%9A%E3%81%97%E3%81%A6%E3%82%B3%E3%83%9F%E3%83%83%E3%83%88%E3%82%92%E7%B5%9E%E3%82%8A%E8%BE%BC%E3%82%80</a></p>
 </li>
 </ul>
@@ -198,16 +200,14 @@
 <h2><a class="toc-backref" href="#id15">リセットする</a></h2>
 <p>履歴を全部消して force push する。</p>
 <ol class="arabic">
+<li><p><code class="docutils literal">.git</code> を消す</p></li>
 <li>
-<p class="first"><tt class="docutils literal">.git</tt> を消す</p>
-</li>
-<li>
-<p class="first">force push する</p>
+<p>force push する</p>
 <blockquote>
-<pre class="code bash"><a name="rest_code_1c845c08557a4e018ed00730907432c2-1"></a>$ git add *
-<a name="rest_code_1c845c08557a4e018ed00730907432c2-2"></a>$ git commit -m <span class="err">'</span>initialize
-<a name="rest_code_1c845c08557a4e018ed00730907432c2-3"></a>$ git remote add origin <span class="o">{</span>URL<span class="o">}</span>
-<a name="rest_code_1c845c08557a4e018ed00730907432c2-4"></a>$ git push origin master --force
+<pre class="code bash"><a name="rest_code_f168d223e9de49ee82540fec9804984b-1"></a>$ git add *
+<a name="rest_code_f168d223e9de49ee82540fec9804984b-2"></a>$ git commit -m <span class="err">'</span>initialize
+<a name="rest_code_f168d223e9de49ee82540fec9804984b-3"></a>$ git remote add origin <span class="o">{</span>URL<span class="o">}</span>
+<a name="rest_code_f168d223e9de49ee82540fec9804984b-4"></a>$ git push origin master --force
 </pre>
 </blockquote>
 </li>
@@ -219,25 +219,25 @@
 <h3><a class="toc-backref" href="#id17">fetch</a></h3>
 <p>リモートリポジトリの最新の履歴の取得だけを行う。</p>
 <ul class="simple">
-<li>
-<tt class="docutils literal">hogehoge</tt> ブランチをfetchすると、 ローカルの <tt class="docutils literal">origin/hogehoge</tt> がリモートの <tt class="docutils literal">origin/hogehoge</tt> リポジトリと同期されて最新状態になる。</li>
-<li>ローカルの <tt class="docutils literal">hogehoge</tt> ブランチは、そのまま何にも変更されない。</li>
+<li><p><code class="docutils literal">hogehoge</code> ブランチをfetchすると、 ローカルの <code class="docutils literal">origin/hogehoge</code> がリモートの <code class="docutils literal">origin/hogehoge</code> リポジトリと同期されて最新状態になる。</p></li>
+<li><p>ローカルの <code class="docutils literal">hogehoge</code> ブランチは、そのまま何にも変更されない。</p></li>
 </ul>
 </div>
 <div class="section" id="pull">
 <h3><a class="toc-backref" href="#id18">pull</a></h3>
 <p>fetch + merge</p>
 <ul class="simple">
+<li><p><code class="docutils literal">hogehoge</code> ブランチを pull すると、 ローカルの <code class="docutils literal">origin/hogehoge</code> も <code class="docutils literal">hogehoge</code> も両方リモートの <code class="docutils literal">origin/hogehoge</code> リポジトリの変更とマージされる。</p></li>
 <li>
-<tt class="docutils literal">hogehoge</tt> ブランチを pull すると、 ローカルの <tt class="docutils literal">origin/hogehoge</tt> も <tt class="docutils literal">hogehoge</tt> も両方リモートの <tt class="docutils literal">origin/hogehoge</tt> リポジトリの変更とマージされる。</li>
-<li>内部的には、<ol class="arabic">
-<li>リモートの <tt class="docutils literal">origin/hogehoge</tt> と、ローカルの <tt class="docutils literal">origin/hogehoge</tt> とマージ</li>
-<li>ローカルの <tt class="docutils literal">origin/hogehoge</tt> と <tt class="docutils literal">hogehoge</tt> をマージ</li>
+<p>内部的には、</p>
+<ol class="arabic simple">
+<li><p>リモートの <code class="docutils literal">origin/hogehoge</code> と、ローカルの <code class="docutils literal">origin/hogehoge</code> とマージ</p></li>
+<li><p>ローカルの <code class="docutils literal">origin/hogehoge</code> と <code class="docutils literal">hogehoge</code> をマージ</p></li>
 </ol>
 </li>
-<li>ローカルの <tt class="docutils literal">hogehoge</tt> に、自分の変更とリモートの変更と両方入った状態になる。</li>
-<li>競合があったら自分で解決してコミットする必要がある。</li>
-<li>通常ローカルで触るのは <tt class="docutils literal">origin</tt> がついていない <tt class="docutils literal">hogehoge</tt> ブランチ。</li>
+<li><p>ローカルの <code class="docutils literal">hogehoge</code> に、自分の変更とリモートの変更と両方入った状態になる。</p></li>
+<li><p>競合があったら自分で解決してコミットする必要がある。</p></li>
+<li><p>通常ローカルで触るのは <code class="docutils literal">origin</code> がついていない <code class="docutils literal">hogehoge</code> ブランチ。</p></li>
 </ul>
 </div>
 </div>

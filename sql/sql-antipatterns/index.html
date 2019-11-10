@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Vollkorn:400,700">
 <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/sawarabimincho.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-<link rel="stylesheet" href="../../assets/css/style.css?20190615">
+<link rel="stylesheet" href="../../assets/css/style.css?20191110">
 </head>
 <body>
     <div class="container">
@@ -35,9 +35,9 @@
 <h2>書籍</h2>
 <p><a class="reference external" href="https://www.oreilly.co.jp/books/9784873115894/">SQL アンチパターン SQL Antipatterns (2013年, オライリー・ジャパン)</a></p>
 <ul class="simple">
-<li>Bill Karwin 著</li>
-<li>和田 卓人, 和田 省二 監訳</li>
-<li>小島 修 訳</li>
+<li><p>Bill Karwin 著</p></li>
+<li><p>和田 卓人, 和田 省二 監訳</p></li>
+<li><p>小島 修 訳</p></li>
 </ul>
 </div>
 <div class="section" id="i">
@@ -45,330 +45,262 @@
 <div class="section" id="id2">
 <h3>1章 ジェイウォーク (信号無視)</h3>
 <p>１つの製品に複数ユーザーを連絡先として登録できるようにしたい</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name">
-<col class="field-body">
-<tbody valign="top">
-<tr class="field">
-<th class="field-name">目的:</th>
-<td class="field-body">複数の値を持つ属性を格納する</td>
-</tr>
-<tr class="field">
-<th class="field-name">アンチパターン:</th>
-<td class="field-body">カンマ区切りフォーマットのリストを格納する</td>
-</tr>
-<tr class="field">
-<th class="field-name">解決策:</th>
-<td class="field-body">交差テーブルを作成する</td>
-</tr>
-<tr class="field">
-<th class="field-name">まとめ:</th>
-<td class="field-body">ひとつひとつの値は個別の行と列に格納しましょう</td>
-</tr>
-<tr class="field">
-<th class="field-name">わたしの感想:</th>
-<td class="field-body">多対多は交差テーブルだな</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt>目的</dt>
+<dd>
+<p>複数の値を持つ属性を格納する</p>
+</dd>
+<dt>アンチパターン</dt>
+<dd>
+<p>カンマ区切りフォーマットのリストを格納する</p>
+</dd>
+<dt>解決策</dt>
+<dd>
+<p>交差テーブルを作成する</p>
+</dd>
+<dt>まとめ</dt>
+<dd>
+<p>ひとつひとつの値は個別の行と列に格納しましょう</p>
+</dd>
+<dt>わたしの感想</dt>
+<dd>
+<p>多対多は交差テーブルだな</p>
+</dd>
+</dl>
 </div>
 <div class="section" id="id3">
 <h3>2章 ナイーブツリー (素朴な木)</h3>
 <p>スレッド形式のコメント欄</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name">
-<col class="field-body">
-<tbody valign="top">
-<tr class="field">
-<th class="field-name">目的:</th>
-<td class="field-body">
-<p class="first">階層構造を格納し、クエリを実行する</p>
-</td>
-</tr>
-<tr class="field">
-<th class="field-name">アンチパターン:</th>
-<td class="field-body">
-<p class="first">常に親のみに依存する</p>
-</td>
-</tr>
-<tr class="field">
-<th class="field-name">解決策:</th>
-<td class="field-body">
-<p class="first">代替ツリーモデルを使用する (各設計の比較はP.30を見よ)</p>
+<dl class="field-list simple">
+<dt>目的</dt>
+<dd>
+<p>階層構造を格納し、クエリを実行する</p>
+</dd>
+<dt>アンチパターン</dt>
+<dd>
+<p>常に親のみに依存する</p>
+</dd>
+<dt>解決策</dt>
+<dd>
+<p>代替ツリーモデルを使用する (各設計の比較はP.30を見よ)</p>
 <ul class="simple">
-<li>経路列挙 (Path Enumeration)</li>
-<li>入れ子集合 (Nested Set)</li>
-<li>閉包テーブル (Closure Table)</li>
-<li>再帰クエリ ※</li>
+<li><p>経路列挙 (Path Enumeration)</p></li>
+<li><p>入れ子集合 (Nested Set)</p></li>
+<li><p>閉包テーブル (Closure Table)</p></li>
+<li><p>再帰クエリ ※</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field">
-<th class="field-name">まとめ:</th>
-<td class="field-body">
-<p class="first">階層構造はエントリと関連 (リレーションシップ) から成り立ちます。これを念頭に、行う作業に合わせて最適な設計手法を選択しましょう。</p>
-</td>
-</tr>
-<tr class="field">
-<th class="field-name">わたしの感想:</th>
-<td class="field-body">
-<p class="first last">再帰クエリめちゃくちゃ便利だな</p>
-</td>
-</tr>
-</tbody>
-</table>
-<pre class="code mysql"><a name="rest_code_d14568d185574bcd8f423f395bf0ad93-1"></a><span class="c1">-- ※ 再帰クエリの例</span>
-<a name="rest_code_d14568d185574bcd8f423f395bf0ad93-2"></a><span class="k">WITH</span> <span class="n">RECURSIVE</span> <span class="nf">CommentTree</span>
-<a name="rest_code_d14568d185574bcd8f423f395bf0ad93-3"></a>  <span class="p">(</span><span class="n">comment_id</span><span class="p">,</span> <span class="n">bug_id</span><span class="p">,</span> <span class="n">parent_id</span><span class="p">,</span> <span class="n">author</span><span class="p">,</span> <span class="n">comment</span><span class="p">,</span> <span class="n">depth</span><span class="p">)</span>
-<a name="rest_code_d14568d185574bcd8f423f395bf0ad93-4"></a><span class="k">AS</span> <span class="p">(</span>
-<a name="rest_code_d14568d185574bcd8f423f395bf0ad93-5"></a>    <span class="k">SELECT</span> <span class="o">*</span><span class="p">,</span> <span class="mi">0</span> <span class="k">AS</span> <span class="n">depth</span> <span class="k">FROM</span> <span class="n">Comments</span>
-<a name="rest_code_d14568d185574bcd8f423f395bf0ad93-6"></a>    <span class="k">WHERE</span> <span class="n">parent_id</span> <span class="k">IS</span> <span class="no">NULL</span>
-<a name="rest_code_d14568d185574bcd8f423f395bf0ad93-7"></a>  <span class="k">UNION</span> <span class="k">ALL</span>
-<a name="rest_code_d14568d185574bcd8f423f395bf0ad93-8"></a>    <span class="k">SELECT</span> <span class="n">c</span><span class="p">.</span><span class="o">*</span><span class="p">,</span> <span class="n">ct</span><span class="p">.</span><span class="n">depth</span><span class="o">+</span><span class="mi">1</span> <span class="k">AS</span> <span class="n">depth</span> <span class="k">FROM</span> <span class="n">CommentTree</span> <span class="n">ct</span>
-<a name="rest_code_d14568d185574bcd8f423f395bf0ad93-9"></a>    <span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">Comments</span> <span class="n">c</span> <span class="k">ON</span> <span class="n">ct</span><span class="p">.</span><span class="n">comment_id</span> <span class="o">=</span> <span class="n">c</span><span class="p">.</span><span class="n">parent_id</span>
-<a name="rest_code_d14568d185574bcd8f423f395bf0ad93-10"></a><span class="p">)</span>
-<a name="rest_code_d14568d185574bcd8f423f395bf0ad93-11"></a><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">CommentTree</span> <span class="k">WHERE</span> <span class="n">bug_id</span> <span class="o">=</span> <span class="mi">1234</span><span class="p">;</span>
+</dd>
+<dt>まとめ</dt>
+<dd>
+<p>階層構造はエントリと関連 (リレーションシップ) から成り立ちます。これを念頭に、行う作業に合わせて最適な設計手法を選択しましょう。</p>
+</dd>
+<dt>わたしの感想</dt>
+<dd>
+<p>再帰クエリめちゃくちゃ便利だな</p>
+</dd>
+</dl>
+<pre class="code mysql"><a name="rest_code_28480ffe171946b1b8dddfb6b9046b9f-1"></a><span class="c1">-- ※ 再帰クエリの例</span>
+<a name="rest_code_28480ffe171946b1b8dddfb6b9046b9f-2"></a><span class="k">WITH</span> <span class="n">RECURSIVE</span> <span class="nf">CommentTree</span>
+<a name="rest_code_28480ffe171946b1b8dddfb6b9046b9f-3"></a>  <span class="p">(</span><span class="n">comment_id</span><span class="p">,</span> <span class="n">bug_id</span><span class="p">,</span> <span class="n">parent_id</span><span class="p">,</span> <span class="n">author</span><span class="p">,</span> <span class="n">comment</span><span class="p">,</span> <span class="n">depth</span><span class="p">)</span>
+<a name="rest_code_28480ffe171946b1b8dddfb6b9046b9f-4"></a><span class="k">AS</span> <span class="p">(</span>
+<a name="rest_code_28480ffe171946b1b8dddfb6b9046b9f-5"></a>    <span class="k">SELECT</span> <span class="o">*</span><span class="p">,</span> <span class="mi">0</span> <span class="k">AS</span> <span class="n">depth</span> <span class="k">FROM</span> <span class="n">Comments</span>
+<a name="rest_code_28480ffe171946b1b8dddfb6b9046b9f-6"></a>    <span class="k">WHERE</span> <span class="n">parent_id</span> <span class="k">IS</span> <span class="no">NULL</span>
+<a name="rest_code_28480ffe171946b1b8dddfb6b9046b9f-7"></a>  <span class="k">UNION</span> <span class="k">ALL</span>
+<a name="rest_code_28480ffe171946b1b8dddfb6b9046b9f-8"></a>    <span class="k">SELECT</span> <span class="n">c</span><span class="p">.</span><span class="o">*</span><span class="p">,</span> <span class="n">ct</span><span class="p">.</span><span class="n">depth</span><span class="o">+</span><span class="mi">1</span> <span class="k">AS</span> <span class="n">depth</span> <span class="k">FROM</span> <span class="n">CommentTree</span> <span class="n">ct</span>
+<a name="rest_code_28480ffe171946b1b8dddfb6b9046b9f-9"></a>    <span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">Comments</span> <span class="n">c</span> <span class="k">ON</span> <span class="n">ct</span><span class="p">.</span><span class="n">comment_id</span> <span class="o">=</span> <span class="n">c</span><span class="p">.</span><span class="n">parent_id</span>
+<a name="rest_code_28480ffe171946b1b8dddfb6b9046b9f-10"></a><span class="p">)</span>
+<a name="rest_code_28480ffe171946b1b8dddfb6b9046b9f-11"></a><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">CommentTree</span> <span class="k">WHERE</span> <span class="n">bug_id</span> <span class="o">=</span> <span class="mi">1234</span><span class="p">;</span>
 </pre>
 <ul class="simple">
-<li>MySQL 8.0 ~ , PostgreSQL 8.4 ~ ... はサポートしている</li>
+<li><p>MySQL 8.0 ~ , PostgreSQL 8.4 ~ ... はサポートしている</p></li>
 </ul>
 </div>
 <div class="section" id="id-id">
 <h3>3章 ID リクワイアド (とりあえずID)</h3>
 <p>「行の重複を避けるにはどうすればよいか」と質問された</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name">
-<col class="field-body">
-<tbody valign="top">
-<tr class="field">
-<th class="field-name">目的:</th>
-<td class="field-body">
-<p class="first">主キーの規約を確立する</p>
-</td>
-</tr>
-<tr class="field">
-<th class="field-name">アンチパターン:</th>
-<td class="field-body">
-<p class="first">すべてのテーブルに「id」列を用いる</p>
-</td>
-</tr>
-<tr class="field">
-<th class="field-name">解決策:</th>
-<td class="field-body">
-<p class="first">状況に応じて適切に調整する</p>
+<dl class="field-list simple">
+<dt>目的</dt>
+<dd>
+<p>主キーの規約を確立する</p>
+</dd>
+<dt>アンチパターン</dt>
+<dd>
+<p>すべてのテーブルに「id」列を用いる</p>
+</dd>
+<dt>解決策</dt>
+<dd>
+<p>状況に応じて適切に調整する</p>
 <ul class="simple">
-<li>わかりやすい列名にしよう</li>
-<li>規約に縛られない</li>
-<li>自然キーと複合キーの活用</li>
+<li><p>わかりやすい列名にしよう</p></li>
+<li><p>規約に縛られない</p></li>
+<li><p>自然キーと複合キーの活用</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field">
-<th class="field-name">まとめ:</th>
-<td class="field-body">
-<p class="first">規約は、役立つと思える場合のみ従いましょう。</p>
-</td>
-</tr>
-<tr class="field">
-<th class="field-name">わたしの感想:</th>
-<td class="field-body">
-<p class="first last">ずっと気になっていたので腹落ち</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt>まとめ</dt>
+<dd>
+<p>規約は、役立つと思える場合のみ従いましょう。</p>
+</dd>
+<dt>わたしの感想</dt>
+<dd>
+<p>ずっと気になっていたので腹落ち</p>
+</dd>
+</dl>
 </div>
 <div class="section" id="id4">
 <h3>4章 キーレスエントリー (外部キー嫌い)</h3>
 <p>研究所の設備がダブルブッキングされた</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name">
-<col class="field-body">
-<tbody valign="top">
-<tr class="field">
-<th class="field-name">目的:</th>
-<td class="field-body">
-<p class="first">データベースのアーキテクチャを単純化する</p>
-</td>
-</tr>
-<tr class="field">
-<th class="field-name">アンチパターン:</th>
-<td class="field-body">
-<p class="first">外部キー制約を使用しない</p>
-</td>
-</tr>
-<tr class="field">
-<th class="field-name">解決策:</th>
-<td class="field-body">
-<p class="first">外部キー制約を宣言する</p>
+<dl class="field-list simple">
+<dt>目的</dt>
+<dd>
+<p>データベースのアーキテクチャを単純化する</p>
+</dd>
+<dt>アンチパターン</dt>
+<dd>
+<p>外部キー制約を使用しない</p>
+</dd>
+<dt>解決策</dt>
+<dd>
+<p>外部キー制約を宣言する</p>
 <ul class="simple">
-<li>複数テーブルの変更をサポートする (カスケード更新)</li>
-<li>オーバーヘッド、……にはなりません</li>
+<li><p>複数テーブルの変更をサポートする (カスケード更新)</p></li>
+<li><p>オーバーヘッド、……にはなりません</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field">
-<th class="field-name">まとめ:</th>
-<td class="field-body">
-<p class="first">データベースでのミスの発生を未然に防ぐために、外部キー制約を用いましょう。</p>
-</td>
-</tr>
-<tr class="field">
-<th class="field-name">わたしの感想:</th>
-<td class="field-body">
-<p class="first last">やっぱりつけたほうが良かったんだな!</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt>まとめ</dt>
+<dd>
+<p>データベースでのミスの発生を未然に防ぐために、外部キー制約を用いましょう。</p>
+</dd>
+<dt>わたしの感想</dt>
+<dd>
+<p>やっぱりつけたほうが良かったんだな!</p>
+</dd>
+</dl>
 </div>
 <div class="section" id="eav">
 <h3>5章 EAV (エンティティ・アトリビュート・バリュー)</h3>
 <p>Issue と Bug と FeatureRequest (機能要望) のはなし</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name">
-<col class="field-body">
-<tbody valign="top">
-<tr class="field">
-<th class="field-name">目的:</th>
-<td class="field-body">
-<p class="first">可変属性をサポートする</p>
-</td>
-</tr>
-<tr class="field">
-<th class="field-name">アンチパターン:</th>
-<td class="field-body">
-<p class="first">汎用的な属性テーブルを使用する</p>
-</td>
-</tr>
-<tr class="field">
-<th class="field-name">解決策:</th>
-<td class="field-body">
-<p class="first">サブタイプのモデリングを行う</p>
+<dl class="field-list simple">
+<dt>目的</dt>
+<dd>
+<p>可変属性をサポートする</p>
+</dd>
+<dt>アンチパターン</dt>
+<dd>
+<p>汎用的な属性テーブルを使用する</p>
+</dd>
+<dt>解決策</dt>
+<dd>
+<p>サブタイプのモデリングを行う</p>
 <ul class="simple">
-<li>シングルテーブル継承 (Single Table Inheritance)<ul>
-<li>Bug と FeatureRequest を同じテーブル (Issues) に入れる</li>
-<li>issue_type 列を持つ</li>
-<li>Bug のみが使う列/FeatureRequest のみが使う列、がある</li>
+<li>
+<p>シングルテーブル継承 (Single Table Inheritance)</p>
+<ul>
+<li><p>Bug と FeatureRequest を同じテーブル (Issues) に入れる</p></li>
+<li><p>issue_type 列を持つ</p></li>
+<li><p>Bug のみが使う列/FeatureRequest のみが使う列、がある</p></li>
 </ul>
 </li>
-<li>具象テーブル継承 (Concrete Table Inheritance)<ul>
-<li>Bugs テーブルと FeatureRequests テーブルを作る (サブタイプごとにテーブル作成)</li>
-<li>issue_type 列不要</li>
-<li>サブタイプに存在しない属性列を格納せずにすむ</li>
+<li>
+<p>具象テーブル継承 (Concrete Table Inheritance)</p>
+<ul>
+<li><p>Bugs テーブルと FeatureRequests テーブルを作る (サブタイプごとにテーブル作成)</p></li>
+<li><p>issue_type 列不要</p></li>
+<li><p>サブタイプに存在しない属性列を格納せずにすむ</p></li>
 </ul>
 </li>
-<li>クラステーブル継承 (Class Table Inheritance)<ul>
-<li>サブタイプに共通する属性を含む基底型のテーブル (Issues) を１つ作る</li>
-<li>サブタイプごとに追加のテーブルを作る (Bugs/FeatureRequests)<ul>
-<li>Issues.id を外部キーに持つ</li>
-<li>それぞれに固有の属性のみを持つ</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>半構造化データ (シリアライズLOB: Serialized LOB)<ul>
-<li>issue_type 列を持つ</li>
-<li>サブタイプに固有の属性は LOB列に持つ</li>
-<li>サブタイプの数が多い、頻繁に新しい属性を追加しなければならない、場合など</li>
+<li>
+<p>クラステーブル継承 (Class Table Inheritance)</p>
+<ul>
+<li><p>サブタイプに共通する属性を含む基底型のテーブル (Issues) を１つ作る</p></li>
+<li>
+<p>サブタイプごとに追加のテーブルを作る (Bugs/FeatureRequests)</p>
+<ul>
+<li><p>Issues.id を外部キーに持つ</p></li>
+<li><p>それぞれに固有の属性のみを持つ</p></li>
 </ul>
 </li>
 </ul>
-</td>
-</tr>
-<tr class="field">
-<th class="field-name">まとめ:</th>
-<td class="field-body">
-<p class="first">メタデータは、メタデータのために用いましょう。</p>
-</td>
-</tr>
-<tr class="field">
-<th class="field-name">わたしの感想:</th>
-<td class="field-body">
-<p class="first last">ありそう。ある。</p>
-</td>
-</tr>
-</tbody>
-</table>
+</li>
+<li>
+<p>半構造化データ (シリアライズLOB: Serialized LOB)</p>
+<ul>
+<li><p>issue_type 列を持つ</p></li>
+<li><p>サブタイプに固有の属性は LOB列に持つ</p></li>
+<li><p>サブタイプの数が多い、頻繁に新しい属性を追加しなければならない、場合など</p></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt>まとめ</dt>
+<dd>
+<p>メタデータは、メタデータのために用いましょう。</p>
+</dd>
+<dt>わたしの感想</dt>
+<dd>
+<p>ありそう。ある。</p>
+</dd>
+</dl>
 </div>
 <div class="section" id="id5">
 <h3>6章 ポリモーフィック関連</h3>
 <ul class="simple">
-<li>ユーザーがバグについてのコメントを書き込める =&gt; Bugs と Comments が １対多</li>
-<li>ユーザーが機能要望についてのコメントを書き込める =&gt; FeatureRequests と Comments が １対多</li>
-<li>バグについてのコメントも、機能要望についてのコメントも、同じ Comments テーブルに格納したい</li>
+<li><p>ユーザーがバグについてのコメントを書き込める =&gt; Bugs と Comments が １対多</p></li>
+<li><p>ユーザーが機能要望についてのコメントを書き込める =&gt; FeatureRequests と Comments が １対多</p></li>
+<li><p>バグについてのコメントも、機能要望についてのコメントも、同じ Comments テーブルに格納したい</p></li>
 </ul>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name">
-<col class="field-body">
-<tbody valign="top">
-<tr class="field">
-<th class="field-name">目的:</th>
-<td class="field-body">
-<p class="first">複数の親テーブルを参照する</p>
-</td>
-</tr>
-<tr class="field">
-<th class="field-name">アンチパターン:</th>
-<td class="field-body">
-<p class="first">二重目的の外部キーを使用する</p>
-</td>
-</tr>
-<tr class="field">
-<th class="field-name">解決策:</th>
-<td class="field-body">
-<p class="first">関連 (リレーションシップ) を単純化する</p>
+<dl class="field-list simple">
+<dt>目的</dt>
+<dd>
+<p>複数の親テーブルを参照する</p>
+</dd>
+<dt>アンチパターン</dt>
+<dd>
+<p>二重目的の外部キーを使用する</p>
+</dd>
+<dt>解決策</dt>
+<dd>
+<p>関連 (リレーションシップ) を単純化する</p>
 <ul class="simple">
-<li>参照を逆にする</li>
-<li>交差テーブルの作成 (Bugs/FeatureRequests が具象テーブル継承)</li>
-<li>共通の親テーブルの作成 (Bugs/FeatureRequests がクラステーブル継承)</li>
+<li><p>参照を逆にする</p></li>
+<li><p>交差テーブルの作成 (Bugs/FeatureRequests が具象テーブル継承)</p></li>
+<li><p>共通の親テーブルの作成 (Bugs/FeatureRequests がクラステーブル継承)</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field">
-<th class="field-name">まとめ:</th>
-<td class="field-body">
-<p class="first">テーブル間の関連 (リレーションシップ) には、参照元テーブルと参照先テーブルが常にそれぞれ１つしかないことを忘れないようにしましょう。</p>
-</td>
-</tr>
-<tr class="field">
-<th class="field-name">わたしの感想:</th>
-<td class="field-body">
-<p class="first last">5章と関連してる。</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt>まとめ</dt>
+<dd>
+<p>テーブル間の関連 (リレーションシップ) には、参照元テーブルと参照先テーブルが常にそれぞれ１つしかないことを忘れないようにしましょう。</p>
+</dd>
+<dt>わたしの感想</dt>
+<dd>
+<p>5章と関連してる。</p>
+</dd>
+</dl>
 </div>
 <div class="section" id="id6">
 <h3>7章 マルチカラムアトリビュート (複数列属性)</h3>
 <p>バグデータベースに、バグを分類するための「タグ付機能」を追加したい</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name">
-<col class="field-body">
-<tbody valign="top">
-<tr class="field">
-<th class="field-name">目的:</th>
-<td class="field-body">複数の値を持つ属性を格納する</td>
-</tr>
-<tr class="field">
-<th class="field-name">アンチパターン:</th>
-<td class="field-body">複数の列を定義する</td>
-</tr>
-<tr class="field">
-<th class="field-name">解決策:</th>
-<td class="field-body">従属テーブル (Tags テーブル) を作成する</td>
-</tr>
-<tr class="field">
-<th class="field-name">まとめ:</th>
-<td class="field-body">同じ意味を持つ値は、１つの列に格納するようにしましょう。</td>
-</tr>
-<tr class="field">
-<th class="field-name">わたしの感想:</th>
-<td class="field-body">すんなり。</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt>目的</dt>
+<dd>
+<p>複数の値を持つ属性を格納する</p>
+</dd>
+<dt>アンチパターン</dt>
+<dd>
+<p>複数の列を定義する</p>
+</dd>
+<dt>解決策</dt>
+<dd>
+<p>従属テーブル (Tags テーブル) を作成する</p>
+</dd>
+<dt>まとめ</dt>
+<dd>
+<p>同じ意味を持つ値は、１つの列に格納するようにしましょう。</p>
+</dd>
+<dt>わたしの感想</dt>
+<dd>
+<p>すんなり。</p>
+</dd>
+</dl>
 </div>
 </div>
 </div>

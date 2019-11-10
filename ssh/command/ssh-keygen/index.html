@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Vollkorn:400,700">
 <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/sawarabimincho.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-<link rel="stylesheet" href="../../../assets/css/style.css?20190615">
+<link rel="stylesheet" href="../../../assets/css/style.css?20191110">
 </head>
 <body>
     <div class="container">
@@ -35,11 +35,11 @@
 <h2>リファレンス</h2>
 <p>ubuntu のやつ</p>
 <ul class="simple">
-<li><a class="reference external" href="http://manpages.ubuntu.com/manpages/bionic/en/man1/ssh-keygen.1.html">ssh-keygen</a></li>
+<li><p><a class="reference external" href="http://manpages.ubuntu.com/manpages/bionic/en/man1/ssh-keygen.1.html">ssh-keygen</a></p></li>
 </ul>
 <p>種類やバージョンが選べるやつ</p>
 <ul class="simple">
-<li><a class="reference external" href="https://www.freebsd.org/cgi/man.cgi?query=ssh-keygen&amp;apropos=0&amp;sektion=1&amp;manpath=CentOS+6.5&amp;arch=default&amp;format=html">SSH-KEYGEN(1)</a></li>
+<li><p><a class="reference external" href="https://www.freebsd.org/cgi/man.cgi?query=ssh-keygen&amp;apropos=0&amp;sektion=1&amp;manpath=CentOS+6.5&amp;arch=default&amp;format=html">SSH-KEYGEN(1)</a></p></li>
 </ul>
 </div>
 <div class="section" id="id2">
@@ -47,25 +47,20 @@
 <p>認証鍵の生成と管理・変換が役割</p>
 <div class="section" id="id3">
 <h3>秘密鍵・公開鍵のペアを作る</h3>
-<pre class="code bash"><a name="rest_code_9052494e64094d0a9c608fc2105ddb6f-1"></a>$ ssh-keygen -t rsa
+<pre class="code bash"><a name="rest_code_f9d677340c984f03802d97e5274c4820-1"></a>$ ssh-keygen -t rsa
 </pre>
 <ul class="simple">
 <li>
-<tt class="docutils literal"><span class="pre">~/.ssh/id_rsa</span></tt> (秘密鍵), <tt class="docutils literal"><span class="pre">~/.ssh/id_rsa.pub</span></tt> (公開鍵) にできあがる。<ul>
-<li>
-<tt class="docutils literal">id_rsa</tt> が、秘密鍵(自分で持っておく、復号用)</li>
-<li>
-<tt class="docutils literal">id_rsa.pub</tt> が、公開鍵(サーバに置く、暗号用)</li>
+<p><code class="docutils literal"><span class="pre">~/.ssh/id_rsa</span></code> (秘密鍵), <code class="docutils literal"><span class="pre">~/.ssh/id_rsa.pub</span></code> (公開鍵) にできあがる。</p>
+<ul>
+<li><p><code class="docutils literal">id_rsa</code> が、秘密鍵(自分で持っておく、復号用)</p></li>
+<li><p><code class="docutils literal">id_rsa.pub</code> が、公開鍵(サーバに置く、暗号用)</p></li>
 </ul>
 </li>
-<li>
-<tt class="docutils literal"><span class="pre">-t</span> type</tt> : 生成する鍵のタイプを指定できる</li>
-<li>
-<tt class="docutils literal"><span class="pre">-f</span> output_keyfile</tt> : 出力先ファイルを指定できる</li>
-<li>
-<tt class="docutils literal"><span class="pre">-N</span> new_passphrase</tt> : パスフレーズ（鍵の鍵みたいなやつ）を指定できる。後からでもつけられる。</li>
-<li>
-<tt class="docutils literal"><span class="pre">-C</span> comment</tt> : コメント</li>
+<li><p><code class="docutils literal"><span class="pre">-t</span> type</code> : 生成する鍵のタイプを指定できる</p></li>
+<li><p><code class="docutils literal"><span class="pre">-f</span> output_keyfile</code> : 出力先ファイルを指定できる</p></li>
+<li><p><code class="docutils literal"><span class="pre">-N</span> new_passphrase</code> : パスフレーズ（鍵の鍵みたいなやつ）を指定できる。後からでもつけられる。</p></li>
+<li><p><code class="docutils literal"><span class="pre">-C</span> comment</code> : コメント</p></li>
 </ul>
 <div class="section" id="id4">
 <h4>サーバ側の公開鍵の置き場所</h4>
@@ -74,7 +69,7 @@
 </div>
 <div class="section" id="id5">
 <h3>秘密鍵から公開鍵を取り出す</h3>
-<pre class="code bash"><a name="rest_code_09fb451653b343c286267a1c5049a4dc-1"></a>$ ssh-keygen -y -f private_key_file
+<pre class="code bash"><a name="rest_code_70b45efaa8b34bf787cda1e4fca3947c-1"></a>$ ssh-keygen -y -f private_key_file
 </pre>
 </div>
 <div class="section" id="fingerprint">
@@ -82,96 +77,90 @@
 <p>fingerprint は、公開鍵にくっついているものらしい。</p>
 <ul>
 <li>
-<p class="first">カレントディレクトリ配下の公開鍵ファイルを指定して表示</p>
-<pre class="code bash"><a name="rest_code_73b1e7c0b3ec4e57bb6ee73a3653780a-1"></a>$ ssh-keygen -l -f id_rsa_test1.pub
-<a name="rest_code_73b1e7c0b3ec4e57bb6ee73a3653780a-2"></a><span class="m">2048</span> SHA256:1WfZC2LtB0bkllFW1bTmSpleRbR+QSnARuYFvT7kLC0 fumi23 <span class="o">(</span>RSA<span class="o">)</span>
+<p>カレントディレクトリ配下の公開鍵ファイルを指定して表示</p>
+<pre class="code bash"><a name="rest_code_bf8061644acd4b40aba612ca79cee3ff-1"></a>$ ssh-keygen -l -f id_rsa_test1.pub
+<a name="rest_code_bf8061644acd4b40aba612ca79cee3ff-2"></a><span class="m">2048</span> SHA256:1WfZC2LtB0bkllFW1bTmSpleRbR+QSnARuYFvT7kLC0 fumi23 <span class="o">(</span>RSA<span class="o">)</span>
 </pre>
 </li>
 <li>
-<p class="first">秘密鍵を指定すると、ペアとなる公開鍵を探してその fingerprint を表示してくれる。</p>
-<pre class="code bash"><a name="rest_code_28819ef7bb3b408fabaf66d315a039f6-1"></a>$ ssh-keygen -l -f id_rsa_test1
-<a name="rest_code_28819ef7bb3b408fabaf66d315a039f6-2"></a><span class="m">2048</span> SHA256:1WfZC2LtB0bkllFW1bTmSpleRbR+QSnARuYFvT7kLC0 fumi23 <span class="o">(</span>RSA<span class="o">)</span>
+<p>秘密鍵を指定すると、ペアとなる公開鍵を探してその fingerprint を表示してくれる。</p>
+<pre class="code bash"><a name="rest_code_fffb869bcd8e42dd8aa7f5aa594a5250-1"></a>$ ssh-keygen -l -f id_rsa_test1
+<a name="rest_code_fffb869bcd8e42dd8aa7f5aa594a5250-2"></a><span class="m">2048</span> SHA256:1WfZC2LtB0bkllFW1bTmSpleRbR+QSnARuYFvT7kLC0 fumi23 <span class="o">(</span>RSA<span class="o">)</span>
 </pre>
 </li>
 </ul>
 </div>
 <div class="section" id="known-hosts-file">
 <h3>known_hosts file からキーを削除</h3>
-<pre class="code bash"><a name="rest_code_29a944fe012345ad98f90f6abbcf4840-1"></a>$ ssh-keygen -R hostname <span class="o">[</span>-f known_hosts_file<span class="o">]</span>
+<pre class="code bash"><a name="rest_code_c4a0e64f90b44250b48b531d17b3ec21-1"></a>$ ssh-keygen -R hostname <span class="o">[</span>-f known_hosts_file<span class="o">]</span>
 </pre>
 </div>
 <div class="section" id="id6">
 <h3>ためしてみる</h3>
 <ol class="arabic simple">
-<li>カレントディレクトリに、↓で rsa 鍵のペアを作成する。</li>
+<li><p>カレントディレクトリに、↓で rsa 鍵のペアを作成する。</p></li>
 </ol>
 <blockquote>
 <ul>
+<li><p>ファイル名: <code class="docutils literal">id_rsa_test1</code></p></li>
+<li><p>コメント: <code class="docutils literal">fumi23</code></p></li>
 <li>
-<p class="first">ファイル名: <tt class="docutils literal">id_rsa_test1</tt></p>
-</li>
-<li>
-<p class="first">コメント: <tt class="docutils literal">fumi23</tt></p>
-</li>
-<li>
-<p class="first">パスフレーズ: <tt class="docutils literal">fumi23</tt></p>
-<pre class="code bash"><a name="rest_code_8c42e8975e634b6dbe94f21202536c44-1"></a>$ ssh-keygen -t rsa -f id_rsa_test1 -C fumi23
-<a name="rest_code_8c42e8975e634b6dbe94f21202536c44-2"></a>Generating public/private rsa key pair.
-<a name="rest_code_8c42e8975e634b6dbe94f21202536c44-3"></a>Enter passphrase <span class="o">(</span>empty <span class="k">for</span> no passphrase<span class="o">)</span>: <span class="o">(</span>ここで <span class="sb">``</span>fumi23<span class="sb">``</span> と入力した<span class="o">)</span>
-<a name="rest_code_8c42e8975e634b6dbe94f21202536c44-4"></a>Enter same passphrase again:  <span class="o">(</span>ここで <span class="sb">``</span>fumi23<span class="sb">``</span> と入力した<span class="o">)</span>
-<a name="rest_code_8c42e8975e634b6dbe94f21202536c44-5"></a>Your identification has been saved in id_rsa_test1.
-<a name="rest_code_8c42e8975e634b6dbe94f21202536c44-6"></a>Your public key has been saved in id_rsa_test1.pub.
-<a name="rest_code_8c42e8975e634b6dbe94f21202536c44-7"></a>The key fingerprint is:
-<a name="rest_code_8c42e8975e634b6dbe94f21202536c44-8"></a>SHA256:1WfZC2LtB0bkllFW1bTmSpleRbR+QSnARuYFvT7kLC0 fumi23
-<a name="rest_code_8c42e8975e634b6dbe94f21202536c44-9"></a>The key<span class="err">'</span>s randomart image is:
-<a name="rest_code_8c42e8975e634b6dbe94f21202536c44-10"></a>+---<span class="o">[</span>RSA <span class="m">2048</span><span class="o">]</span>----+
-<a name="rest_code_8c42e8975e634b6dbe94f21202536c44-11"></a><span class="p">|</span>          <span class="nv">o</span><span class="o">===</span>.*@<span class="p">|</span>
-<a name="rest_code_8c42e8975e634b6dbe94f21202536c44-12"></a><span class="p">|</span>          <span class="nv">o</span><span class="o">+=</span><span class="nv">o</span><span class="o">==</span>+<span class="p">|</span>
-<a name="rest_code_8c42e8975e634b6dbe94f21202536c44-13"></a><span class="p">|</span>          o+.O*<span class="o">=</span>o<span class="p">|</span>
-<a name="rest_code_8c42e8975e634b6dbe94f21202536c44-14"></a><span class="p">|</span>         .. <span class="o">==</span>O +<span class="p">|</span>
-<a name="rest_code_8c42e8975e634b6dbe94f21202536c44-15"></a><span class="p">|</span>        S   *<span class="o">=</span> *.<span class="p">|</span>
-<a name="rest_code_8c42e8975e634b6dbe94f21202536c44-16"></a><span class="p">|</span>           Eo*+ .<span class="p">|</span>
-<a name="rest_code_8c42e8975e634b6dbe94f21202536c44-17"></a><span class="p">|</span>            oo.  <span class="p">|</span>
-<a name="rest_code_8c42e8975e634b6dbe94f21202536c44-18"></a><span class="p">|</span>                 <span class="p">|</span>
-<a name="rest_code_8c42e8975e634b6dbe94f21202536c44-19"></a><span class="p">|</span>                 <span class="p">|</span>
-<a name="rest_code_8c42e8975e634b6dbe94f21202536c44-20"></a>+----<span class="o">[</span>SHA256<span class="o">]</span>-----+
+<p>パスフレーズ: <code class="docutils literal">fumi23</code></p>
+<pre class="code bash"><a name="rest_code_1da1795c32ff4c3192fd1c0b3ad7631f-1"></a>$ ssh-keygen -t rsa -f id_rsa_test1 -C fumi23
+<a name="rest_code_1da1795c32ff4c3192fd1c0b3ad7631f-2"></a>Generating public/private rsa key pair.
+<a name="rest_code_1da1795c32ff4c3192fd1c0b3ad7631f-3"></a>Enter passphrase <span class="o">(</span>empty <span class="k">for</span> no passphrase<span class="o">)</span>: <span class="o">(</span>ここで <span class="sb">``</span>fumi23<span class="sb">``</span> と入力した<span class="o">)</span>
+<a name="rest_code_1da1795c32ff4c3192fd1c0b3ad7631f-4"></a>Enter same passphrase again:  <span class="o">(</span>ここで <span class="sb">``</span>fumi23<span class="sb">``</span> と入力した<span class="o">)</span>
+<a name="rest_code_1da1795c32ff4c3192fd1c0b3ad7631f-5"></a>Your identification has been saved in id_rsa_test1.
+<a name="rest_code_1da1795c32ff4c3192fd1c0b3ad7631f-6"></a>Your public key has been saved in id_rsa_test1.pub.
+<a name="rest_code_1da1795c32ff4c3192fd1c0b3ad7631f-7"></a>The key fingerprint is:
+<a name="rest_code_1da1795c32ff4c3192fd1c0b3ad7631f-8"></a>SHA256:1WfZC2LtB0bkllFW1bTmSpleRbR+QSnARuYFvT7kLC0 fumi23
+<a name="rest_code_1da1795c32ff4c3192fd1c0b3ad7631f-9"></a>The key<span class="err">'</span>s randomart image is:
+<a name="rest_code_1da1795c32ff4c3192fd1c0b3ad7631f-10"></a>+---<span class="o">[</span>RSA <span class="m">2048</span><span class="o">]</span>----+
+<a name="rest_code_1da1795c32ff4c3192fd1c0b3ad7631f-11"></a><span class="p">|</span>          <span class="nv">o</span><span class="o">===</span>.*@<span class="p">|</span>
+<a name="rest_code_1da1795c32ff4c3192fd1c0b3ad7631f-12"></a><span class="p">|</span>          <span class="nv">o</span><span class="o">+=</span><span class="nv">o</span><span class="o">==</span>+<span class="p">|</span>
+<a name="rest_code_1da1795c32ff4c3192fd1c0b3ad7631f-13"></a><span class="p">|</span>          o+.O*<span class="o">=</span>o<span class="p">|</span>
+<a name="rest_code_1da1795c32ff4c3192fd1c0b3ad7631f-14"></a><span class="p">|</span>         .. <span class="o">==</span>O +<span class="p">|</span>
+<a name="rest_code_1da1795c32ff4c3192fd1c0b3ad7631f-15"></a><span class="p">|</span>        S   *<span class="o">=</span> *.<span class="p">|</span>
+<a name="rest_code_1da1795c32ff4c3192fd1c0b3ad7631f-16"></a><span class="p">|</span>           Eo*+ .<span class="p">|</span>
+<a name="rest_code_1da1795c32ff4c3192fd1c0b3ad7631f-17"></a><span class="p">|</span>            oo.  <span class="p">|</span>
+<a name="rest_code_1da1795c32ff4c3192fd1c0b3ad7631f-18"></a><span class="p">|</span>                 <span class="p">|</span>
+<a name="rest_code_1da1795c32ff4c3192fd1c0b3ad7631f-19"></a><span class="p">|</span>                 <span class="p">|</span>
+<a name="rest_code_1da1795c32ff4c3192fd1c0b3ad7631f-20"></a>+----<span class="o">[</span>SHA256<span class="o">]</span>-----+
 </pre>
 </li>
 </ul>
 </blockquote>
 <ol class="arabic" start="2">
 <li>
-<p class="first">できあがった。</p>
+<p>できあがった。</p>
 <blockquote>
 <p>カレントディレクトリに、秘密鍵ファイルと公開鍵ファイルが作成できた。</p>
-<pre class="code bash"><a name="rest_code_7d339d1444764ac2928d3b39e9463bf0-1"></a>$ ls -la
-<a name="rest_code_7d339d1444764ac2928d3b39e9463bf0-2"></a>-rw-------   <span class="m">1</span> fumi23  staff   <span class="m">1766</span>  <span class="m">8</span>  <span class="m">5</span> <span class="m">16</span>:40 id_rsa_test1
-<a name="rest_code_7d339d1444764ac2928d3b39e9463bf0-3"></a>-rw-r--r--   <span class="m">1</span> fumi23  staff    <span class="m">388</span>  <span class="m">8</span>  <span class="m">5</span> <span class="m">16</span>:40 id_rsa_test1.pub
+<pre class="code bash"><a name="rest_code_7c8e7cb5cd3545c8bb654f97f37b0c3d-1"></a>$ ls -la
+<a name="rest_code_7c8e7cb5cd3545c8bb654f97f37b0c3d-2"></a>-rw-------   <span class="m">1</span> fumi23  staff   <span class="m">1766</span>  <span class="m">8</span>  <span class="m">5</span> <span class="m">16</span>:40 id_rsa_test1
+<a name="rest_code_7c8e7cb5cd3545c8bb654f97f37b0c3d-3"></a>-rw-r--r--   <span class="m">1</span> fumi23  staff    <span class="m">388</span>  <span class="m">8</span>  <span class="m">5</span> <span class="m">16</span>:40 id_rsa_test1.pub
 </pre>
 </blockquote>
 </li>
 <li>
-<p class="first">公開鍵の中身を見てみる。</p>
+<p>公開鍵の中身を見てみる。</p>
 <blockquote>
 <p>末尾にコメントとして指定した文字列が付与されている。</p>
-<pre class="code bash"><a name="rest_code_954bf9a094c6435eb98c453d00874f9c-1"></a>$ cat id_rsa_test1.pub
-<a name="rest_code_954bf9a094c6435eb98c453d00874f9c-2"></a>ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDfq5BPUHIRnrxBX1b3sp8OFTzFh3k9e1VZ3OXlRQRAKPTJlwdMR0apIatgq4KocFTTc4EKBksOVxOJShG1iVcUNFkhQ0kxpHTMyPHMyQdgpWAqaF5REOKMCI111xWgEC166zLUwZ1SdOHi/p2+5oDFhElsyjprro66o+uVluCD1VmfWORYYZlrMyUTtbdzHOO8xyT4k+yVMnuDJSLgfSGkCA/gXUi9vCqJf0p5iRt1owf520DSLLnkE5Cu9QxIdGDEBbS8lq53oJm5DyOcSXn+V2vKBv6pfjh+TJJNZ6PClrRI7Zk/aZFAkB/9XgqErbhU6mkHWWO9vmRavJh8Wspd fumi23
+<pre class="code bash"><a name="rest_code_2c0e3a80743e476ba178ab4be82a2d35-1"></a>$ cat id_rsa_test1.pub
+<a name="rest_code_2c0e3a80743e476ba178ab4be82a2d35-2"></a>ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDfq5BPUHIRnrxBX1b3sp8OFTzFh3k9e1VZ3OXlRQRAKPTJlwdMR0apIatgq4KocFTTc4EKBksOVxOJShG1iVcUNFkhQ0kxpHTMyPHMyQdgpWAqaF5REOKMCI111xWgEC166zLUwZ1SdOHi/p2+5oDFhElsyjprro66o+uVluCD1VmfWORYYZlrMyUTtbdzHOO8xyT4k+yVMnuDJSLgfSGkCA/gXUi9vCqJf0p5iRt1owf520DSLLnkE5Cu9QxIdGDEBbS8lq53oJm5DyOcSXn+V2vKBv6pfjh+TJJNZ6PClrRI7Zk/aZFAkB/9XgqErbhU6mkHWWO9vmRavJh8Wspd fumi23
 </pre>
 </blockquote>
 </li>
 <li>
-<p class="first">秘密鍵から公開鍵を取り出してみる。</p>
+<p>秘密鍵から公開鍵を取り出してみる。</p>
 <blockquote>
 <p>パスフレーズを聞かれる。 3 と同じ公開鍵が取り出せた。</p>
-<pre class="code bash"><a name="rest_code_4b1a6321cb794287afebe068e415cae2-1"></a>$ ssh-keygen -y -f id_rsa_test1
-<a name="rest_code_4b1a6321cb794287afebe068e415cae2-2"></a>Enter passphrase: <span class="o">(</span>ここで <span class="sb">``</span>fumi23<span class="sb">``</span> と入力した<span class="o">)</span>
-<a name="rest_code_4b1a6321cb794287afebe068e415cae2-3"></a>ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDfq5BPUHIRnrxBX1b3sp8OFTzFh3k9e1VZ3OXlRQRAKPTJlwdMR0apIatgq4KocFTTc4EKBksOVxOJShG1iVcUNFkhQ0kxpHTMyPHMyQdgpWAqaF5REOKMCI111xWgEC166zLUwZ1SdOHi/p2+5oDFhElsyjprro66o+uVluCD1VmfWORYYZlrMyUTtbdzHOO8xyT4k+yVMnuDJSLgfSGkCA/gXUi9vCqJf0p5iRt1owf520DSLLnkE5Cu9QxIdGDEBbS8lq53oJm5DyOcSXn+V2vKBv6pfjh+TJJNZ6PClrRI7Zk/aZFAkB/9XgqErbhU6mkHWWO9vmRavJh8Wspd
+<pre class="code bash"><a name="rest_code_cdbaee722add41558809e8ad87905fd3-1"></a>$ ssh-keygen -y -f id_rsa_test1
+<a name="rest_code_cdbaee722add41558809e8ad87905fd3-2"></a>Enter passphrase: <span class="o">(</span>ここで <span class="sb">``</span>fumi23<span class="sb">``</span> と入力した<span class="o">)</span>
+<a name="rest_code_cdbaee722add41558809e8ad87905fd3-3"></a>ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDfq5BPUHIRnrxBX1b3sp8OFTzFh3k9e1VZ3OXlRQRAKPTJlwdMR0apIatgq4KocFTTc4EKBksOVxOJShG1iVcUNFkhQ0kxpHTMyPHMyQdgpWAqaF5REOKMCI111xWgEC166zLUwZ1SdOHi/p2+5oDFhElsyjprro66o+uVluCD1VmfWORYYZlrMyUTtbdzHOO8xyT4k+yVMnuDJSLgfSGkCA/gXUi9vCqJf0p5iRt1owf520DSLLnkE5Cu9QxIdGDEBbS8lq53oJm5DyOcSXn+V2vKBv6pfjh+TJJNZ6PClrRI7Zk/aZFAkB/9XgqErbhU6mkHWWO9vmRavJh8Wspd
 </pre>
 </blockquote>
 </li>
-<li>
-<p class="first">公開鍵のほうは、RSA認証で接続したいサーバーの <tt class="docutils literal"><span class="pre">~/.ssh/authorized_keys</span></tt> に追記する。</p>
-</li>
+<li><p>公開鍵のほうは、RSA認証で接続したいサーバーの <code class="docutils literal"><span class="pre">~/.ssh/authorized_keys</span></code> に追記する。</p></li>
 </ol>
 <div class="section" id="id7">
 <h4>参考</h4>
