@@ -6,23 +6,35 @@
 .. status: draft
 
 
+AWS ドキュメント
+=================
+https://docs.aws.amazon.com/
+
+
 ECS (Amazon Elastic Container Service)
 ========================================
-Amazon Elastic Container Service (Amazon ECS) は、Amazon EC2 インスタンスのクラスターで Docker コンテナの実行、停止、管理を簡単に行うことのできる、高度にスケーラブルで高速なコンテナ管理サービスです。Amazon Elastic Container Service (Amazon ECS) は、Amazon EC2 インスタンスのクラスターで Docker コンテナの実行、停止、管理を簡単に行うことのできる、高度にスケーラブルで高速なコンテナ管理サービスです。
+コンテナオーケストレーションサービス
 
-* コンテナオーケストレーションサービス
+* Amazon Elastic Container Service (Amazon ECS) は、Amazon EC2 インスタンスのクラスターで Docker コンテナの実行、停止、管理を簡単に行うことのできる、高度にスケーラブルで高速なコンテナ管理サービスです。
+
 
 リファレンス/ガイド
 -------------------
 * https://docs.aws.amazon.com/ecs/index.html
 
+メモ
+----
 * クラスター
-  * サービス:
-    * タスク定義
-        * 起動するとタスクになる
-        * タスク定義は、タスクに含まれるコンテナの数、それらが使用するリソース、それらが一緒にリンクされる方法、および使用するホストポートなど、アプリケーションのコンテナ情報を指定します。詳細はこちら
 
-* Fargate:
+  * サービス
+
+    * タスク定義
+
+        * 起動するとタスクになる
+        * タスク定義は、タスクに含まれるコンテナの数、それらが使用するリソース、それらが一緒にリンクされる方法、および使用するホストポートなど、アプリケーションのコンテナ情報を指定します。
+
+* Fargate
+
   * 起動タイプって書いてある
   * AWS FargateとECSの違いは？: https://qiita.com/ABCompany1/items/5f3fcea04052415dc875
   * Fargate を使用した Amazon ECS の使用開始: https://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/ECS_GetStarted_Fargate.html
@@ -45,9 +57,9 @@ ECR (Amazon Elastic Container Registry)
 
 ALB (Application Load Balancer)
 ================================
-Elastic Load Balancing は、EC2 インスタンスなどの複数のターゲット間で、アプリケーションの着信トラフィックを自動的に分散します。
-登録されているターゲットの状態をモニタリングし、正常なターゲットのみにトラフィックをルーティングします。
-Elastic Load Balancing は、Application Load Balancer、Network Load Balancer、Classic Load Balancer の 3 つのタイプのロードバランサーをサポートします。
+* Elastic Load Balancing は、EC2 インスタンスなどの複数のターゲット間で、アプリケーションの着信トラフィックを自動的に分散します。
+* 登録されているターゲットの状態をモニタリングし、正常なターゲットのみにトラフィックをルーティングします。
+* Elastic Load Balancing は、Application Load Balancer、Network Load Balancer、Classic Load Balancer の 3 つのタイプのロードバランサーをサポートします。
 
 リファレンス/ガイド
 -------------------
@@ -133,22 +145,27 @@ EKS (Amazon Elastic Kubernetes Service)
 -------------------
 https://aws.amazon.com/jp/eks/
 
-AWS Lambda
-============
-AWS Lambda はサーバーをプロビジョニングしたり管理する必要なくコードを実行できるコンピューティングサービスです。
-
-リファレンス/ガイド
--------------------
-https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/welcome.html
-
 
 RDS (Amazon Relational Database Service)
 ==========================================
 クラウド上のリレーショナルデータベースのセットアップ、オペレーション、スケールを数回のクリックで実現
 
 
+Amazon S3 Glacier と S3 Glacier Deep Archive
+==============================================
+https://docs.aws.amazon.com/ja_jp/glacier/
+
+1 テラバイトあたり月額 1 USD から利用できる、データアーカイブのための長期保存用の安全で耐久性に優れた Amazon S3 オブジェクトストレージクラス
+
+
+AWS CodeBuild
+==============
+https://docs.aws.amazon.com/ja_jp/codebuild/
+
+AWS CodeBuild は完全マネージド型のビルドサービスです。ソースコードのコンパイル、ユニットテストの実行、すぐにデプロイできるアーティファクトの生成を行います。
+
+
 * AWS のいろいろなサービスについて知りたいなあ
   * 全体を俯瞰して
   * こんなんあるんだなあと、ちょっとした使い方使い道を知りたい
   * いざ使うとなったら詳しく調べて使えるように
-  * CodeBuild ?

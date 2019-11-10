@@ -441,6 +441,18 @@ select_related, prefetch_related
       ]
 
 
+select_for_update()
+-------------------
+https://docs.djangoproject.com/ja/2.2/ref/models/querysets/#django.db.models.query.QuerySet.select_for_update
+
+* ``select_for_update`` は ``transaction.atomic`` ブロック内で使いましょう
+
+  * 自動コミットモードでクエリセットを評価すると、行ロックされないため ``TransactionManagementError`` が発生します
+
+* ``select_for_update`` のタイムアウトエラー (他のトランザクションにロックがとられていて待ち時間内にロックが取得できなかった) は ``OperationalError`` が発生しますが、キャッチするのはその親の ``DatabaseError`` にしましょう
+* MySQL の場合、 ``nowait`` および ``skip_locked`` 引数は MySQL 8.0.1+ でのみサポートされています。
+
+
 User モデルを拡張したい
 ========================
 - 現場で使える Django の教科書《基礎編》 P.63 参照のこと
