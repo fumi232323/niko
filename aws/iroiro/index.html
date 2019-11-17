@@ -49,29 +49,18 @@
 </div>
 <div class="section" id="id2">
 <h3>メモ</h3>
-<ul>
-<li>
-<p>クラスター</p>
-<ul>
-<li>
-<p>サービス</p>
-<ul>
+<ul class="simple">
+<li><p>クラスター &gt; サービス &gt; タスク定義</p></li>
 <li>
 <p>タスク定義</p>
-<blockquote>
-<ul class="simple">
+<ul>
 <li><p>起動するとタスクになる</p></li>
 <li><p>タスク定義は、タスクに含まれるコンテナの数、それらが使用するリソース、それらが一緒にリンクされる方法、および使用するホストポートなど、アプリケーションのコンテナ情報を指定します。</p></li>
-</ul>
-</blockquote>
-</li>
-</ul>
-</li>
 </ul>
 </li>
 <li>
 <p>Fargate</p>
-<ul class="simple">
+<ul>
 <li><p>起動タイプって書いてある</p></li>
 <li><p>AWS FargateとECSの違いは？: <a class="reference external" href="https://qiita.com/ABCompany1/items/5f3fcea04052415dc875">https://qiita.com/ABCompany1/items/5f3fcea04052415dc875</a></p></li>
 <li><p>Fargate を使用した Amazon ECS の使用開始: <a class="reference external" href="https://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/ECS_GetStarted_Fargate.html">https://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/ECS_GetStarted_Fargate.html</a></p></li>
@@ -80,9 +69,10 @@
 </li>
 <li>
 <p>やってみた</p>
-<ul class="simple">
+<ul>
 <li><p>Docker/Kubernetes 実践コンテナ開発入門 &gt; B.3 AWS Fargate を用いた ECS でのコンテナオーケストレーション</p></li>
 <li><p>クラスターつくると、全部セットでできあがるのすごいな</p></li>
+<li><p>だいぶセットでできあがる</p></li>
 </ul>
 </li>
 </ul>
@@ -166,7 +156,7 @@
 <li><p><cite>エラーが検出された場合は変更が自動的にロールバックされます。</cite> なぬ、しゅごいな....</p></li>
 <li><p>CloudWatch アラームを指定できるんだって</p></li>
 <li><p><cite>AWS リソース、およびアプリケーションを実行するために必要な関連するすべての依存関係やランタイムパラメータを記述できる</cite> んですって</p></li>
-<li><p><code class="docutils literal">スタック</code> というキーワードが登場、それなにおいしいの??</p></li>
+<li><p><code class="docutils literal">スタック</code> というキーワードが登場</p></li>
 </ul>
 </li>
 <li>
@@ -175,24 +165,7 @@
 <li><p><cite>インフラストラクチャをコード化することで、インフラストラクチャを単なるコードとして扱えるようになります。</cite> ほうほう</p></li>
 </ul>
 </li>
-<li>
-<p>わたしの理解</p>
-<ul>
-<li><p>Ansible の AWS よう、みたいなイメージだろうか....</p></li>
-<li><p><code class="docutils literal">スタック</code> なに.....</p></li>
-</ul>
-</li>
-<li>
-<p><a class="reference external" href="https://tech.bitbank.cc/cfn-vpc/">https://tech.bitbank.cc/cfn-vpc/</a></p>
-<ul>
-<li><p><cite>Infrastructure as Codeってやつですね。</cite> とのこと。ほーう。</p></li>
-<li><p><cite>AWSで利用するEC2やVPCなどのインフラをコードでビルドできるわけです。</cite> ほうほうー</p></li>
-<li><p>バージョン管理が可能になり</p></li>
-<li><p>冪等性を担保したデプロイが可能になる</p></li>
-<li><p>テンプレートを元にして、AWSのCloudFormation上にスタックというものができあがります。</p></li>
-<li><p>スタックはリソース(EC2とかVPCなど)の変更点を1まとめにしたものです。</p></li>
-</ul>
-</li>
+<li><p><code class="docutils literal">スタック</code> よくわからないな</p></li>
 </ul>
 </div>
 </div>
@@ -220,7 +193,16 @@
 <h2>AWS CodeBuild</h2>
 <p><a class="reference external" href="https://docs.aws.amazon.com/ja_jp/codebuild/">https://docs.aws.amazon.com/ja_jp/codebuild/</a></p>
 <p>AWS CodeBuild は完全マネージド型のビルドサービスです。ソースコードのコンパイル、ユニットテストの実行、すぐにデプロイできるアーティファクトの生成を行います。</p>
+</div>
+<div class="section" id="aws-lambda">
+<h2>AWS Lambda</h2>
+<p>AWS Lambda はサーバーをプロビジョニングしたり管理する必要なくコードを実行できるコンピューティングサービスです。</p>
+</div>
+<div class="section" id="aws-serverless-application-repository">
+<h2>AWS Serverless Application Repository</h2>
+<p><a class="reference external" href="https://aws.amazon.com/jp/serverless/serverlessrepo/">https://aws.amazon.com/jp/serverless/serverlessrepo/</a></p>
 <ul class="simple">
+<li><p>Serverless Application Repository の使用に追加料金はかかりません。デプロイするアプリケーションで使用する AWS リソースに対してのみ料金をお支払いいただきます。</p></li>
 <li><p>AWS のいろいろなサービスについて知りたいなあ
 * 全体を俯瞰して
 * こんなんあるんだなあと、ちょっとした使い方使い道を知りたい

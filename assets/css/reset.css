@@ -85,6 +85,6 @@ hr {
 input, select {
     vertical-align:middle;
 }
-tt, code {
+tt, code, pre {
     font-family: inherit;
 }

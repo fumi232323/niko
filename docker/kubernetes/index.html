@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<title>5. Kubernetes 入門 --- Docker/Kubernetes 実践コンテナ開発入門/ふみのて</title>
+<link rel="shortcut icon" href="../../assets/icons/favicon.ico">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Griffy">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Vollkorn:400,700">
+<link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/sawarabimincho.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+<link rel="stylesheet" href="../../assets/css/style.css?20191110">
+</head>
+<body>
+    <div class="container">
+      <div class="header"><header class="item item-header"><h1>
+    <a href="../../">
+      <img class="logo" src="../../assets/images/inuu.png" alt="犬"></a>
+  </h1>
+  <iframe src="../../tags/" class="tags"></iframe>
+</header></div>
+      <div class="main">
+<div class="article-content">
+  <main class="item item-article item-docker"><time class="date" datetime="2019-11-16 00:00:00+09:00">
+      2019-11-16 Sat
+    </time><div class="title">5. Kubernetes 入門 --- Docker/Kubernetes 実践コンテナ開発入門</div>
+    <div class="category">
+      <a href="../../tags/docker/">
+          docker
+      </a>
+    </div>
+    <div class="text">
+      <div>
+<details><summary>目次</summary><div class="contents topic" id="id1">
+<p class="topic-title first">目次</p>
+<ul class="simple">
+<li>
+<p><a class="reference internal" href="#kubernetes" id="id8">5.1 Kubernetes とは</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id2" id="id9">クラウドプラットフォームの Kubernetes サポート</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#id3" id="id10">5.2 ローカル環境で Kubernetes を実行する</a></p></li>
+<li><p><a class="reference internal" href="#id4" id="id11">5.3 Kubernetes の概念</a></p></li>
+<li><p><a class="reference internal" href="#kubernetes-node" id="id12">5.4 Kubernetes クラスタと Node</a></p></li>
+<li><p><a class="reference internal" href="#pod" id="id13">5.6 Pod を作成してデプロイする</a></p></li>
+<li><p><a class="reference internal" href="#replicaset" id="id14">5.7 ReplicaSet</a></p></li>
+<li>
+<p><a class="reference internal" href="#deployment" id="id15">5.8  Deployment</a></p>
+<ul>
+<li>
+<p><a class="reference internal" href="#id5" id="id16">ReplicaSet のライフサイクル</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id6" id="id17">挙動まとめ</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><a class="reference internal" href="#service" id="id18">5.9 Service</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id7" id="id19">Service の名前解決</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+</details><div class="section" id="kubernetes">
+<h2><a class="toc-backref" href="#id8">5.1 Kubernetes とは</a></h2>
+<ul class="simple">
+<li><p>Google 社主導で開発された、コンテナの運用を自動化するためのコンテナオーケストレーションシステム</p></li>
+<li><p>コンテナオーケストレーションを実現・管理するための統合的なシステム</p></li>
+<li><p>その操作のための API や CLI ツールも併せて提供する</p></li>
+<li>
+<p>コンテナを用いたアプリケーションのデプロイをはじめ、様々な運用管理の自動化を実現する</p>
+<ul>
+<li><p>Docker ホストの管理</p></li>
+<li><p>サーバーリソースの空き具合を考慮したコンテナ配置</p></li>
+<li><p>スケーリング</p></li>
+<li><p>複数のコンテナ群へのアクセスを取りまとめるロードバランサー</p></li>
+<li><p>死活監視</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal">クーバネティス</code> と読むらしい</p></li>
+</ul>
+<div class="section" id="id2">
+<h3><a class="toc-backref" href="#id9">クラウドプラットフォームの Kubernetes サポート</a></h3>
+<ul class="simple">
+<li><p>Google: GKE</p></li>
+<li><p>Microsoft Azure: AKS</p></li>
+<li><p>AWS: Amazon EKS</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id3">
+<h2><a class="toc-backref" href="#id10">5.2 ローカル環境で Kubernetes を実行する</a></h2>
+<ol class="arabic simple">
+<li><p>Docker for Mac の Kubernetes 連携を有効にする</p></li>
+</ol>
+<pre class="code bash"><a name="rest_code_6e008d829c9a437796c21705b83e22d3-1"></a><span class="c1"># 2. kubectl (Kubernetes を操作するためのコマンドラインツール) をインストールする</span>
+<a name="rest_code_6e008d829c9a437796c21705b83e22d3-2"></a><span class="c1"># https://kubernetes.io/docs/tasks/tools/install-kubectl/</span>
+<a name="rest_code_6e008d829c9a437796c21705b83e22d3-3"></a><span class="c1"># けっこう長かった</span>
+<a name="rest_code_6e008d829c9a437796c21705b83e22d3-4"></a>$ brew install kubectl
+<a name="rest_code_6e008d829c9a437796c21705b83e22d3-5"></a>
+<a name="rest_code_6e008d829c9a437796c21705b83e22d3-6"></a><span class="c1"># 3. ダッシュボードの適用 (追加)</span>
+<a name="rest_code_6e008d829c9a437796c21705b83e22d3-7"></a><span class="c1"># https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/</span>
+<a name="rest_code_6e008d829c9a437796c21705b83e22d3-8"></a><span class="c1"># これはすぐだった</span>
+<a name="rest_code_6e008d829c9a437796c21705b83e22d3-9"></a>$ kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0-beta4/aio/deploy/recommended.yaml
+<a name="rest_code_6e008d829c9a437796c21705b83e22d3-10"></a>
+<a name="rest_code_6e008d829c9a437796c21705b83e22d3-11"></a><span class="c1"># 4. ダッシュボードへのプロキシサーバーを立ち上げる</span>
+<a name="rest_code_6e008d829c9a437796c21705b83e22d3-12"></a>$ kubectl proxy
+</pre>
+<ol class="arabic simple" start="5">
+<li><p><a class="reference external" href="http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/">http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/</a>. へアクセスする</p></li>
+</ol>
+</div>
+<div class="section" id="id4">
+<h2><a class="toc-backref" href="#id11">5.3 Kubernetes の概念</a></h2>
+<ul class="simple">
+<li><p>P.173 に一覧表になっている</p></li>
+</ul>
+</div>
+<div class="section" id="kubernetes-node">
+<h2><a class="toc-backref" href="#id12">5.4 Kubernetes クラスタと Node</a></h2>
+<ul class="simple">
+<li><p>大きい順: <code class="docutils literal">クラスタ</code> &gt;&gt;&gt; <code class="docutils literal">Node</code> &gt;&gt;&gt; <code class="docutils literal">Pod</code> &gt;&gt;&gt; <code class="docutils literal">コンテナ</code></p></li>
+<li>
+<p>クラスタ: Kubernetes の様々なリソースを管理する集合体</p>
+<ul>
+<li><p>全体を管理するサーバーである Master が少なくとも1つは配置されている</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="pod">
+<h2><a class="toc-backref" href="#id13">5.6 Pod を作成してデプロイする</a></h2>
+<ul>
+<li>
+<p>Pod: コンテナの集合体の単位</p>
+<ul class="simple">
+<li><p>少なくとも 1つのコンテナを持つ</p></li>
+<li><p>Kubernetes では Pod 単位でコンテナをひとくくりにしてデプロイする</p></li>
+</ul>
+</li>
+<li>
+<p>Pod を定義したマニフェストファイルを作成する</p>
+<ul class="simple">
+<li><p>kubectl だけで Pod を作成することもできるが、バージョン管理の観点から yaml ファイルとして定義することがほとんど</p></li>
+<li><p>kubernetes の各種リソースを定義するファイルを <code class="docutils literal">マニフェストファイル</code> と呼ぶ</p></li>
+</ul>
+<p></p>
+<div class="code-block ">
+<div class="code-block-label">simple-pod.yaml</div>
+<div class="highlight"><pre><span></span><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>
+<span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Pod</span>  <span class="c1"># リソースの種類を指定</span>
+<span class="nt">metadata</span><span class="p">:</span>  <span class="c1"># リソースに付与するメタデータ</span>
+  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">simple-echo</span>
+<span class="nt">spec</span><span class="p">:</span>
+  <span class="nt">containers</span><span class="p">:</span>  <span class="c1"># 構成するコンテナ群を定義</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">nginx</span>
+      <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">gihyodocker/nginx-proxy:latest</span>  <span class="c1"># 使うコンテナイメージ</span>
+      <span class="nt">env</span><span class="p">:</span>
+        <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">BACKEND_HOST</span>  <span class="c1"># リクエストのプロキシ先</span>
+          <span class="nt">value</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">localhost:8080</span>
+      <span class="nt">ports</span><span class="p">:</span>  <span class="c1"># コンテナが EXPOSE するポート</span>
+        <span class="p p-Indicator">-</span> <span class="nt">containerPort</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">80</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">echo</span>
+      <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">gihyodocker/echo:latest</span>
+      <span class="nt">ports</span><span class="p">:</span>
+        <span class="p p-Indicator">-</span> <span class="nt">containerPort</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8080</span>
+</pre></div>
+</div>
+</li>
+<li>
+<p>Kubernetes クラスタに反映する</p>
+<pre class="code bash"><a name="rest_code_e1665b5cd2244025b08b03e111171266-1"></a><span class="c1"># apply: 新規作成/内容に変更があったときだけ反映される</span>
+<a name="rest_code_e1665b5cd2244025b08b03e111171266-2"></a>$ kubectl apply -f simple-pod.yaml
+<a name="rest_code_e1665b5cd2244025b08b03e111171266-3"></a>pod/simple-echo created
+<a name="rest_code_e1665b5cd2244025b08b03e111171266-4"></a>
+<a name="rest_code_e1665b5cd2244025b08b03e111171266-5"></a><span class="c1"># Pod の状態を一覧表示</span>
+<a name="rest_code_e1665b5cd2244025b08b03e111171266-6"></a>$ kubectl get pod
+<a name="rest_code_e1665b5cd2244025b08b03e111171266-7"></a><span class="c1"># STATUS Running:  Pod 内のすべてのコンテナが実行状態</span>
+<a name="rest_code_e1665b5cd2244025b08b03e111171266-8"></a><span class="c1"># READY 2/2: 実行状態になったコンテナ数/Pod に定義されたコンテナ数</span>
+<a name="rest_code_e1665b5cd2244025b08b03e111171266-9"></a>NAME          READY   STATUS    RESTARTS   AGE
+<a name="rest_code_e1665b5cd2244025b08b03e111171266-10"></a>simple-echo   <span class="m">2</span>/2     Running   <span class="m">0</span>          2m49s
+<a name="rest_code_e1665b5cd2244025b08b03e111171266-11"></a>
+<a name="rest_code_e1665b5cd2244025b08b03e111171266-12"></a><span class="c1"># コンテナに入る</span>
+<a name="rest_code_e1665b5cd2244025b08b03e111171266-13"></a>$ kubectl <span class="nb">exec</span> -it simple-echo sh -c nginx
+<a name="rest_code_e1665b5cd2244025b08b03e111171266-14"></a>/ <span class="c1">#</span>
+<a name="rest_code_e1665b5cd2244025b08b03e111171266-15"></a>
+<a name="rest_code_e1665b5cd2244025b08b03e111171266-16"></a><span class="c1"># Pod 内のコンテナの標準出力を表示する</span>
+<a name="rest_code_e1665b5cd2244025b08b03e111171266-17"></a>$ kubectl logs -f simple-echo -c <span class="nb">echo</span>
+<a name="rest_code_e1665b5cd2244025b08b03e111171266-18"></a><span class="m">2019</span>/11/17 <span class="m">04</span>:50:42 start server
+<a name="rest_code_e1665b5cd2244025b08b03e111171266-19"></a>
+<a name="rest_code_e1665b5cd2244025b08b03e111171266-20"></a><span class="c1"># Pod を削除する</span>
+<a name="rest_code_e1665b5cd2244025b08b03e111171266-21"></a>$ kubectl delete pod simple-echo
+<a name="rest_code_e1665b5cd2244025b08b03e111171266-22"></a>pod <span class="s2">"simple-echo"</span> deleted
+<a name="rest_code_e1665b5cd2244025b08b03e111171266-23"></a>
+<a name="rest_code_e1665b5cd2244025b08b03e111171266-24"></a><span class="c1"># マニフェストファイルベースで Pod を削除する</span>
+<a name="rest_code_e1665b5cd2244025b08b03e111171266-25"></a>$ kubectl delete -f simple-pod.yaml
+</pre>
+</li>
+<li>
+<p>Pod と Pod 内コンテナのアドレス</p>
+<ul class="simple">
+<li><p>Pod にはそれぞれ固有の IPアドレスが割り振られる</p></li>
+<li><p>Pod に割り振られた仮想 IPアドレスは、その Pod に所属するすべてのコンテナと共有される =&gt; 同一 Pod 内の全てのコンテナの仮想IPアドレスは同じ</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="replicaset">
+<h2><a class="toc-backref" href="#id14">5.7 ReplicaSet</a></h2>
+<p>同じ仕様の Pod を複数生成/管理するためのリソース</p>
+<p></p>
+<div class="code-block ">
+<div class="code-block-label">simple-replicaset.yaml</div>
+<div class="highlight"><pre><span></span><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">apps/v1</span>
+<span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ReplicaSet</span>  <span class="c1"># リソースの種類を指定</span>
+<span class="nt">metadata</span><span class="p">:</span>  <span class="c1"># リソースに付与するメタデータ</span>
+  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">echo</span>
+  <span class="nt">labels</span><span class="p">:</span>
+    <span class="nt">app</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">echo</span>
+<span class="nt">spec</span><span class="p">:</span>
+  <span class="nt">replicas</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3</span>  <span class="c1"># 作成する Pod数</span>
+  <span class="nt">selector</span><span class="p">:</span>
+    <span class="nt">matchLabels</span><span class="p">:</span>
+      <span class="nt">app</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">echo</span>
+  <span class="nt">template</span><span class="p">:</span>  <span class="c1"># ここから Pod 定義と同じ</span>
+    <span class="nt">metadata</span><span class="p">:</span>
+      <span class="nt">labels</span><span class="p">:</span>
+        <span class="nt">app</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">echo</span>
+    <span class="nt">spec</span><span class="p">:</span>
+      <span class="nt">containers</span><span class="p">:</span>
+        <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">nginx</span>
+          <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">gihyodocker/nginx-proxy:latest</span>
+          <span class="nt">env</span><span class="p">:</span>
+            <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">BACKEND_HOST</span>
+              <span class="nt">value</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">localhost:8080</span>
+          <span class="nt">ports</span><span class="p">:</span>
+            <span class="p p-Indicator">-</span> <span class="nt">containerPort</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">80</span>
+        <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">echo</span>
+          <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">gihyodocker/echo:latest</span>
+          <span class="nt">ports</span><span class="p">:</span>
+            <span class="p p-Indicator">-</span> <span class="nt">containerPort</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8080</span>
+</pre></div>
+</div>
+<pre class="code bash"><a name="rest_code_f8d64061816e471c97d563c66fb20517-1"></a>$ kubectl apply -f simple-replicaset.yaml
+<a name="rest_code_f8d64061816e471c97d563c66fb20517-2"></a>replicaset.apps/echo created
+<a name="rest_code_f8d64061816e471c97d563c66fb20517-3"></a>
+<a name="rest_code_f8d64061816e471c97d563c66fb20517-4"></a><span class="c1"># Pod が 3つ作成されている</span>
+<a name="rest_code_f8d64061816e471c97d563c66fb20517-5"></a><span class="c1"># ReplicaSet を操作して Pod の数を減らすと、減らした分の Pod は削除されて元に戻せない =&gt; Stateless なものに向いてる</span>
+<a name="rest_code_f8d64061816e471c97d563c66fb20517-6"></a>$ kubectl get pod
+<a name="rest_code_f8d64061816e471c97d563c66fb20517-7"></a>NAME         READY   STATUS    RESTARTS   AGE
+<a name="rest_code_f8d64061816e471c97d563c66fb20517-8"></a>echo-69gln   <span class="m">2</span>/2     Running   <span class="m">0</span>          39s
+<a name="rest_code_f8d64061816e471c97d563c66fb20517-9"></a>echo-hm7ns   <span class="m">2</span>/2     Running   <span class="m">0</span>          39s
+<a name="rest_code_f8d64061816e471c97d563c66fb20517-10"></a>echo-x9729   <span class="m">2</span>/2     Running   <span class="m">0</span>          39s
+<a name="rest_code_f8d64061816e471c97d563c66fb20517-11"></a>
+<a name="rest_code_f8d64061816e471c97d563c66fb20517-12"></a><span class="c1"># ReplicaSet を削除する</span>
+<a name="rest_code_f8d64061816e471c97d563c66fb20517-13"></a>$ kubectl delete -f simple-replicaset.yaml
+</pre>
+</div>
+<div class="section" id="deployment">
+<h2><a class="toc-backref" href="#id15">5.8  Deployment</a></h2>
+<ul class="simple">
+<li><p>アプリケーションデプロイの基本単位となるリソース</p></li>
+<li><p><code class="docutils literal">Deployment</code> &gt;&gt;&gt; <code class="docutils literal">ReplicaSet</code> &gt;&gt;&gt; <code class="docutils literal">Pod</code> たち</p></li>
+<li><p>ReplicaSet を管理/操作する</p></li>
+<li><p>Deployment は ReplicaSet の世代管理できる</p></li>
+</ul>
+<p></p>
+<div class="code-block ">
+<div class="code-block-label">simple-deployment.yaml</div>
+<div class="highlight"><pre><span></span><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">apps/v1</span>
+<span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Deployment</span>  <span class="c1"># ここが Deployment に</span>
+<span class="nt">metadata</span><span class="p">:</span>
+  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">echo</span>
+  <span class="nt">labels</span><span class="p">:</span>
+    <span class="nt">app</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">echo</span>
+<span class="nt">spec</span><span class="p">:</span>
+  <span class="nt">replicas</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3</span>
+  <span class="nt">selector</span><span class="p">:</span>
+    <span class="nt">matchLabels</span><span class="p">:</span>
+      <span class="nt">app</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">echo</span>
+  <span class="nt">template</span><span class="p">:</span>
+    <span class="nt">metadata</span><span class="p">:</span>
+      <span class="nt">labels</span><span class="p">:</span>
+        <span class="nt">app</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">echo</span>
+    <span class="nt">spec</span><span class="p">:</span>
+      <span class="nt">containers</span><span class="p">:</span>
+        <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">nginx</span>
+          <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">gihyodocker/nginx-proxy:latest</span>
+          <span class="nt">env</span><span class="p">:</span>
+            <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">BACKEND_HOST</span>
+              <span class="nt">value</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">localhost:8080</span>
+          <span class="nt">ports</span><span class="p">:</span>
+            <span class="p p-Indicator">-</span> <span class="nt">containerPort</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">80</span>
+        <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">echo</span>
+          <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">gihyodocker/echo:patched</span>
+<span class="c1">#          image: gihyodocker/echo:latest</span>
+          <span class="nt">ports</span><span class="p">:</span>
+            <span class="p p-Indicator">-</span> <span class="nt">containerPort</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8080</span>
+</pre></div>
+</div>
+<pre class="code bash"><a name="rest_code_94305edc7bcd467bbb4a38537694dfac-1"></a><span class="c1"># コマンドを記録できる ``--record`` オプションをつけて反映</span>
+<a name="rest_code_94305edc7bcd467bbb4a38537694dfac-2"></a>$ kubectl apply -f simple-deployment.yaml --record
+<a name="rest_code_94305edc7bcd467bbb4a38537694dfac-3"></a>deployment.apps/echo created
+<a name="rest_code_94305edc7bcd467bbb4a38537694dfac-4"></a>
+<a name="rest_code_94305edc7bcd467bbb4a38537694dfac-5"></a>$ kubectl get pod,replicaset,deployment --selector <span class="nv">app</span><span class="o">=</span><span class="nb">echo</span>
+<a name="rest_code_94305edc7bcd467bbb4a38537694dfac-6"></a>NAME                        READY   STATUS    RESTARTS   AGE
+<a name="rest_code_94305edc7bcd467bbb4a38537694dfac-7"></a>pod/echo-679c46ddf9-8rhgm   <span class="m">2</span>/2     Running   <span class="m">0</span>          107s
+<a name="rest_code_94305edc7bcd467bbb4a38537694dfac-8"></a>pod/echo-679c46ddf9-hl22n   <span class="m">2</span>/2     Running   <span class="m">0</span>          107s
+<a name="rest_code_94305edc7bcd467bbb4a38537694dfac-9"></a>pod/echo-679c46ddf9-kbm2g   <span class="m">2</span>/2     Running   <span class="m">0</span>          107s
+<a name="rest_code_94305edc7bcd467bbb4a38537694dfac-10"></a>
+<a name="rest_code_94305edc7bcd467bbb4a38537694dfac-11"></a>NAME                                    DESIRED   CURRENT   READY   AGE
+<a name="rest_code_94305edc7bcd467bbb4a38537694dfac-12"></a>replicaset.extensions/echo-679c46ddf9   <span class="m">3</span>         <span class="m">3</span>         <span class="m">3</span>       107s
+<a name="rest_code_94305edc7bcd467bbb4a38537694dfac-13"></a>
+<a name="rest_code_94305edc7bcd467bbb4a38537694dfac-14"></a>NAME                         READY   UP-TO-DATE   AVAILABLE   AGE
+<a name="rest_code_94305edc7bcd467bbb4a38537694dfac-15"></a>deployment.extensions/echo   <span class="m">3</span>/3     <span class="m">3</span>            <span class="m">3</span>           107s
+<a name="rest_code_94305edc7bcd467bbb4a38537694dfac-16"></a>
+<a name="rest_code_94305edc7bcd467bbb4a38537694dfac-17"></a><span class="c1"># Deployment のリビジョンを確認する</span>
+<a name="rest_code_94305edc7bcd467bbb4a38537694dfac-18"></a>$ kubectl rollout <span class="nb">history</span> deployment <span class="nb">echo</span>
+<a name="rest_code_94305edc7bcd467bbb4a38537694dfac-19"></a>deployment.extensions/echo
+<a name="rest_code_94305edc7bcd467bbb4a38537694dfac-20"></a>REVISION  CHANGE-CAUSE
+<a name="rest_code_94305edc7bcd467bbb4a38537694dfac-21"></a><span class="m">1</span>         kubectl apply --filename<span class="o">=</span>simple-deployment.yaml --record<span class="o">=</span><span class="nb">true</span>
+</pre>
+<div class="section" id="id5">
+<h3><a class="toc-backref" href="#id16">ReplicaSet のライフサイクル</a></h3>
+<ul class="simple">
+<li><p>Kubernetes では Deployment を 1つの単位としてアプリケーションをデプロイする</p></li>
+<li><p>実運用では ReplicaSet を直接用いることはほとんどない</p></li>
+<li><p>Deployment のマニフェストファイルを扱う運用にする</p></li>
+<li>
+<p>ReplicaSet 大事</p>
+<ul>
+<li><p>指定された Pod 数の確保</p></li>
+<li><p>新しいバージョンの Pod への入れ替え</p></li>
+<li><p>以前のバージョンへの Pod のロールバック</p></li>
+</ul>
+</li>
+</ul>
+<div class="section" id="id6">
+<h4><a class="toc-backref" href="#id17">挙動まとめ</a></h4>
+<ul class="simple">
+<li><p>Pod 数を変更: 新規 ReplicaSet 生まれない</p></li>
+<li><p>コンテナ定義を更新: 新しいリビジョンが作成される</p></li>
+</ul>
+<pre class="code bash"><a name="rest_code_87351950ec6244749de9334f889b7dfc-1"></a><span class="c1"># 特定のリビジョンの内容を確認できる</span>
+<a name="rest_code_87351950ec6244749de9334f889b7dfc-2"></a>$ kubectl rollout <span class="nb">history</span> deployment <span class="nb">echo</span>  --revision<span class="o">=</span><span class="m">1</span>
+<a name="rest_code_87351950ec6244749de9334f889b7dfc-3"></a>deployment.extensions/echo with revision <span class="c1">#1</span>
+<a name="rest_code_87351950ec6244749de9334f889b7dfc-4"></a>Pod Template:
+<a name="rest_code_87351950ec6244749de9334f889b7dfc-5"></a>  Labels:     <span class="nv">app</span><span class="o">=</span><span class="nb">echo</span>
+<a name="rest_code_87351950ec6244749de9334f889b7dfc-6"></a>  pod-template-hash<span class="o">=</span>679c46ddf9
+<a name="rest_code_87351950ec6244749de9334f889b7dfc-7"></a>  Annotations:        kubernetes.io/change-cause: kubectl apply --filename<span class="o">=</span>simple-deployment.yaml --record<span class="o">=</span><span class="nb">true</span>
+<a name="rest_code_87351950ec6244749de9334f889b7dfc-8"></a>  Containers:
+<a name="rest_code_87351950ec6244749de9334f889b7dfc-9"></a>   nginx:
+<a name="rest_code_87351950ec6244749de9334f889b7dfc-10"></a>    Image:    gihyodocker/nginx-proxy:latest
+<a name="rest_code_87351950ec6244749de9334f889b7dfc-11"></a>    Port:     <span class="m">80</span>/TCP
+<a name="rest_code_87351950ec6244749de9334f889b7dfc-12"></a>    Host Port:        <span class="m">0</span>/TCP
+<a name="rest_code_87351950ec6244749de9334f889b7dfc-13"></a>    Environment:
+<a name="rest_code_87351950ec6244749de9334f889b7dfc-14"></a>      BACKEND_HOST:   localhost:8080
+<a name="rest_code_87351950ec6244749de9334f889b7dfc-15"></a>    Mounts:   &lt;none&gt;
+<a name="rest_code_87351950ec6244749de9334f889b7dfc-16"></a>   echo:
+<a name="rest_code_87351950ec6244749de9334f889b7dfc-17"></a>    Image:    gihyodocker/echo:latest
+<a name="rest_code_87351950ec6244749de9334f889b7dfc-18"></a>    Port:     <span class="m">8080</span>/TCP
+<a name="rest_code_87351950ec6244749de9334f889b7dfc-19"></a>    Host Port:        <span class="m">0</span>/TCP
+<a name="rest_code_87351950ec6244749de9334f889b7dfc-20"></a>    Environment:      &lt;none&gt;
+<a name="rest_code_87351950ec6244749de9334f889b7dfc-21"></a>    Mounts:   &lt;none&gt;
+<a name="rest_code_87351950ec6244749de9334f889b7dfc-22"></a>  Volumes:    &lt;none&gt;
+<a name="rest_code_87351950ec6244749de9334f889b7dfc-23"></a>
+<a name="rest_code_87351950ec6244749de9334f889b7dfc-24"></a><span class="c1"># 直前の操作のリビジョンに Deployment をロールバックできる</span>
+<a name="rest_code_87351950ec6244749de9334f889b7dfc-25"></a>$ kubectl rollout undo deployment <span class="nb">echo</span>
+<a name="rest_code_87351950ec6244749de9334f889b7dfc-26"></a>deployment.extensions/echo rolled back
+<a name="rest_code_87351950ec6244749de9334f889b7dfc-27"></a>
+<a name="rest_code_87351950ec6244749de9334f889b7dfc-28"></a><span class="c1"># 削除: 関連する ReplicaSet と Pod もいっしょに削除される</span>
+<a name="rest_code_87351950ec6244749de9334f889b7dfc-29"></a>$ kubectl delete -f simple-deployment.yaml
+<a name="rest_code_87351950ec6244749de9334f889b7dfc-30"></a>deployment.apps <span class="s2">"echo"</span> deleted
+</pre>
+</div>
+</div>
+</div>
+<div class="section" id="service">
+<h2><a class="toc-backref" href="#id18">5.9 Service</a></h2>
+<ul class="simple">
+<li><p>Kubernetes クラスタ内において、 Pod の集合 (主に ReplicaSet) に対する経路やサービスディスカバリを提供するためのリソース</p></li>
+<li><p>Service のターゲットとなる一連の Pod は、 Service で定義するラベルセレクタによって決定される</p></li>
+</ul>
+<p></p>
+<div class="code-block ">
+<div class="code-block-label">simple-replicaset-with-label.yaml</div>
+<div class="highlight"><pre><span></span><span class="c1"># 例として、 release ラベル spring/summer をつけて ReplicaSet を二つ定義する</span>
+<span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">apps/v1</span>
+<span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ReplicaSet</span>
+<span class="nt">metadata</span><span class="p">:</span>
+  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">echo-spring</span>
+  <span class="nt">labels</span><span class="p">:</span>
+    <span class="nt">app</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">echo</span>
+    <span class="nt">release</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">spring</span>
+<span class="nt">spec</span><span class="p">:</span>
+  <span class="nt">replicas</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+  <span class="nt">selector</span><span class="p">:</span>
+    <span class="nt">matchLabels</span><span class="p">:</span>
+      <span class="nt">app</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">echo</span>
+      <span class="nt">release</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">spring</span>
+  <span class="nt">template</span><span class="p">:</span>
+    <span class="nt">metadata</span><span class="p">:</span>
+      <span class="nt">labels</span><span class="p">:</span>
+        <span class="nt">app</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">echo</span>
+        <span class="nt">release</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">spring</span>
+    <span class="nt">spec</span><span class="p">:</span>
+      <span class="nt">containers</span><span class="p">:</span>
+        <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">nginx</span>
+          <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">gihyodocker/nginx-proxy:latest</span>
+          <span class="nt">env</span><span class="p">:</span>
+            <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">BACKEND_HOST</span>
+              <span class="nt">value</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">localhost:8080</span>
+          <span class="nt">ports</span><span class="p">:</span>
+            <span class="p p-Indicator">-</span> <span class="nt">containerPort</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">80</span>
+        <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">echo</span>
+          <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">gihyodocker/echo:latest</span>
+          <span class="nt">ports</span><span class="p">:</span>
+            <span class="p p-Indicator">-</span> <span class="nt">containerPort</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8080</span>
+
+<span class="nn">---</span>
+<span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">apps/v1</span>
+<span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ReplicaSet</span>
+<span class="nt">metadata</span><span class="p">:</span>
+  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">echo-summer</span>
+  <span class="nt">labels</span><span class="p">:</span>
+    <span class="nt">app</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">echo</span>
+    <span class="nt">release</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">summer</span>
+<span class="nt">spec</span><span class="p">:</span>
+  <span class="nt">replicas</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
+  <span class="nt">selector</span><span class="p">:</span>
+    <span class="nt">matchLabels</span><span class="p">:</span>
+      <span class="nt">app</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">echo</span>
+      <span class="nt">release</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">summer</span>
+  <span class="nt">template</span><span class="p">:</span>
+    <span class="nt">metadata</span><span class="p">:</span>
+      <span class="nt">labels</span><span class="p">:</span>
+        <span class="nt">app</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">echo</span>
+        <span class="nt">release</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">summer</span>
+    <span class="nt">spec</span><span class="p">:</span>
+      <span class="nt">containers</span><span class="p">:</span>
+        <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">nginx</span>
+          <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">gihyodocker/nginx-proxy:latest</span>
+          <span class="nt">env</span><span class="p">:</span>
+            <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">BACKEND_HOST</span>
+              <span class="nt">value</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">localhost:8080</span>
+          <span class="nt">ports</span><span class="p">:</span>
+            <span class="p p-Indicator">-</span> <span class="nt">containerPort</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">80</span>
+        <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">echo</span>
+          <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">gihyodocker/echo:latest</span>
+          <span class="nt">ports</span><span class="p">:</span>
+            <span class="p p-Indicator">-</span> <span class="nt">containerPort</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8080</span>
+</pre></div>
+</div>
+<pre class="code bash"><a name="rest_code_4e7212f46dbf407fabaaf32689bad32b-1"></a><span class="c1"># apply</span>
+<a name="rest_code_4e7212f46dbf407fabaaf32689bad32b-2"></a>$ kubectl apply -f simple-replicaset-with-label.yaml
+<a name="rest_code_4e7212f46dbf407fabaaf32689bad32b-3"></a>replicaset.apps/echo-spring created
+<a name="rest_code_4e7212f46dbf407fabaaf32689bad32b-4"></a>replicaset.apps/echo-summer created
+<a name="rest_code_4e7212f46dbf407fabaaf32689bad32b-5"></a>
+<a name="rest_code_4e7212f46dbf407fabaaf32689bad32b-6"></a><span class="c1"># release ラベルに spring/summer を持つ Pod がそれぞれつくられる</span>
+<a name="rest_code_4e7212f46dbf407fabaaf32689bad32b-7"></a><span class="c1"># release ラベルに spring を持つ Pod</span>
+<a name="rest_code_4e7212f46dbf407fabaaf32689bad32b-8"></a>$ kubectl get pod -l <span class="nv">app</span><span class="o">=</span><span class="nb">echo</span> -l <span class="nv">release</span><span class="o">=</span>spring
+<a name="rest_code_4e7212f46dbf407fabaaf32689bad32b-9"></a>NAME                READY   STATUS    RESTARTS   AGE
+<a name="rest_code_4e7212f46dbf407fabaaf32689bad32b-10"></a>echo-spring-67s58   <span class="m">2</span>/2     Running   <span class="m">0</span>          92s
+<a name="rest_code_4e7212f46dbf407fabaaf32689bad32b-11"></a>
+<a name="rest_code_4e7212f46dbf407fabaaf32689bad32b-12"></a><span class="c1"># release ラベルに summer を持つ Pod</span>
+<a name="rest_code_4e7212f46dbf407fabaaf32689bad32b-13"></a>$ kubectl get pod -l <span class="nv">app</span><span class="o">=</span><span class="nb">echo</span> -l <span class="nv">release</span><span class="o">=</span>summer
+<a name="rest_code_4e7212f46dbf407fabaaf32689bad32b-14"></a>NAME                READY   STATUS    RESTARTS   AGE
+<a name="rest_code_4e7212f46dbf407fabaaf32689bad32b-15"></a>echo-summer-tnwb9   <span class="m">2</span>/2     Running   <span class="m">0</span>          110s
+<a name="rest_code_4e7212f46dbf407fabaaf32689bad32b-16"></a>echo-summer-vb44t   <span class="m">2</span>/2     Running   <span class="m">0</span>          110s
+</pre>
+<p></p>
+<div class="code-block ">
+<div class="code-block-label">simple-service.yaml</div>
+<div class="highlight"><pre><span></span><span class="c1"># release=summer を持つ Pod だけにアクセスできる Service をつくる</span>
+<span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>
+<span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Service</span>
+<span class="nt">metadata</span><span class="p">:</span>
+  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">echo</span>
+<span class="nt">spec</span><span class="p">:</span>
+  <span class="nt">selector</span><span class="p">:</span>
+    <span class="nt">app</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">echo</span>
+    <span class="nt">release</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">summer</span>
+  <span class="nt">ports</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">http</span>
+      <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">80</span>
+</pre></div>
+</div>
+<pre class="code bash"><a name="rest_code_c45a41f846674d6495e95b0855bb5944-1"></a><span class="c1"># apply して Service を作成する</span>
+<a name="rest_code_c45a41f846674d6495e95b0855bb5944-2"></a>$ kubectl apply -f simple-service.yaml
+<a name="rest_code_c45a41f846674d6495e95b0855bb5944-3"></a>service/echo created
+<a name="rest_code_c45a41f846674d6495e95b0855bb5944-4"></a>
+<a name="rest_code_c45a41f846674d6495e95b0855bb5944-5"></a>$ kubectl get svc <span class="nb">echo</span>
+<a name="rest_code_c45a41f846674d6495e95b0855bb5944-6"></a>NAME   TYPE        CLUSTER-IP       EXTERNAL-IP   PORT<span class="o">(</span>S<span class="o">)</span>   AGE
+<a name="rest_code_c45a41f846674d6495e95b0855bb5944-7"></a><span class="nb">echo</span>   ClusterIP   <span class="m">10</span>.106.145.240   &lt;none&gt;        <span class="m">80</span>/TCP    51s
+<a name="rest_code_c45a41f846674d6495e95b0855bb5944-8"></a>
+<a name="rest_code_c45a41f846674d6495e95b0855bb5944-9"></a><span class="c1"># 基本的に Service は Kubernetes クラスタの中からしかアクセスできないので、</span>
+<a name="rest_code_c45a41f846674d6495e95b0855bb5944-10"></a><span class="c1"># Kubernetes クラスタ内に一時的なデバッグコンテナをデプロイ</span>
+<a name="rest_code_c45a41f846674d6495e95b0855bb5944-11"></a>$ kubectl run -i --rm --tty debug --image<span class="o">=</span>gihyodocker/fundamental:0.1.0 --restart<span class="o">=</span>Never -- bash -il
+<a name="rest_code_c45a41f846674d6495e95b0855bb5944-12"></a>If you don<span class="err">'</span>t see a <span class="nb">command</span> prompt, try pressing enter.
+<a name="rest_code_c45a41f846674d6495e95b0855bb5944-13"></a>
+<a name="rest_code_c45a41f846674d6495e95b0855bb5944-14"></a><span class="c1"># curl で HTTP リクエストを送信してみる</span>
+<a name="rest_code_c45a41f846674d6495e95b0855bb5944-15"></a>debug:/# curl http://echo/
+<a name="rest_code_c45a41f846674d6495e95b0855bb5944-16"></a>Hello Docker!!debug:/# curl http://echo/
+<a name="rest_code_c45a41f846674d6495e95b0855bb5944-17"></a>Hello Docker!!debug:/# curl http://echo/
+<a name="rest_code_c45a41f846674d6495e95b0855bb5944-18"></a>Hello Docker!!debug:/# curl http://echo/
+<a name="rest_code_c45a41f846674d6495e95b0855bb5944-19"></a>Hello Docker!!debug:/# curl http://echo/
+<a name="rest_code_c45a41f846674d6495e95b0855bb5944-20"></a>Hello Docker!!debug:/#
+<a name="rest_code_c45a41f846674d6495e95b0855bb5944-21"></a>
+<a name="rest_code_c45a41f846674d6495e95b0855bb5944-22"></a><span class="c1"># summer にはリクエストが来ている</span>
+<a name="rest_code_c45a41f846674d6495e95b0855bb5944-23"></a>$ kubectl logs -f echo-summer-vb44t -c <span class="nb">echo</span>
+<a name="rest_code_c45a41f846674d6495e95b0855bb5944-24"></a><span class="m">2019</span>/11/17 <span class="m">06</span>:56:15 start server
+<a name="rest_code_c45a41f846674d6495e95b0855bb5944-25"></a><span class="m">2019</span>/11/17 <span class="m">07</span>:23:53 received request
+<a name="rest_code_c45a41f846674d6495e95b0855bb5944-26"></a><span class="m">2019</span>/11/17 <span class="m">07</span>:23:54 received request
+<a name="rest_code_c45a41f846674d6495e95b0855bb5944-27"></a><span class="m">2019</span>/11/17 <span class="m">07</span>:23:56 received request
+<a name="rest_code_c45a41f846674d6495e95b0855bb5944-28"></a>
+<a name="rest_code_c45a41f846674d6495e95b0855bb5944-29"></a>$ kubectl logs -f echo-summer-tnwb9 -c <span class="nb">echo</span>
+<a name="rest_code_c45a41f846674d6495e95b0855bb5944-30"></a><span class="m">2019</span>/11/17 <span class="m">06</span>:56:12 start server
+<a name="rest_code_c45a41f846674d6495e95b0855bb5944-31"></a><span class="m">2019</span>/11/17 <span class="m">07</span>:18:24 received request
+<a name="rest_code_c45a41f846674d6495e95b0855bb5944-32"></a><span class="m">2019</span>/11/17 <span class="m">07</span>:23:45 received request
+<a name="rest_code_c45a41f846674d6495e95b0855bb5944-33"></a>
+<a name="rest_code_c45a41f846674d6495e95b0855bb5944-34"></a><span class="c1"># spring にはリクエストが来ていない</span>
+<a name="rest_code_c45a41f846674d6495e95b0855bb5944-35"></a>$ kubectl logs -f echo-spring-67s58 -c <span class="nb">echo</span>
+<a name="rest_code_c45a41f846674d6495e95b0855bb5944-36"></a><span class="m">2019</span>/11/17 <span class="m">06</span>:56:09 start server
+</pre>
+<ul class="simple">
+<li><p>Service による名前解決は欠かせません</p></li>
+</ul>
+<div class="section" id="id7">
+<h3><a class="toc-backref" href="#id19">Service の名前解決</a></h3>
+<p>Kubernetes クラスタ内の DNS では、 Service を <code class="docutils literal">Service名.Namespace名.svc.local</code> で名前解決できるようになっている</p>
+<pre class="code bash"><a name="rest_code_2e435b64e50b4527a078bf3e1c6f603a-1"></a><span class="c1"># echo は default の Namespace に配置しているので、</span>
+<a name="rest_code_2e435b64e50b4527a078bf3e1c6f603a-2"></a>$ curl http://echo.default.svc.local
+<a name="rest_code_2e435b64e50b4527a078bf3e1c6f603a-3"></a>
+<a name="rest_code_2e435b64e50b4527a078bf3e1c6f603a-4"></a><span class="c1"># .svc.local は省略可能</span>
+<a name="rest_code_2e435b64e50b4527a078bf3e1c6f603a-5"></a><span class="c1"># 異なる Namespace の Service の名前解決は↓が最短</span>
+<a name="rest_code_2e435b64e50b4527a078bf3e1c6f603a-6"></a>$ curl http://echo.default
+<a name="rest_code_2e435b64e50b4527a078bf3e1c6f603a-7"></a>
+<a name="rest_code_2e435b64e50b4527a078bf3e1c6f603a-8"></a><span class="c1"># 同一の Namespace だと Service 名だけで名前解決できる</span>
+<a name="rest_code_2e435b64e50b4527a078bf3e1c6f603a-9"></a>$ curl http://echo
+</pre>
+</div>
+</div>
+</div>
+    </div>
+  </main>
+</div>
+</div>
+    </div>
+  </body>
+</html>

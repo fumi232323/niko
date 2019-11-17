@@ -531,7 +531,7 @@ a:active {
   padding: 1px 10px;
   background-color: #777;
   color: #fff;
-  font-family: monospace;
+  font-family: inherit;
 }
 .article-content .text .literal-block {
   white-space: pre-wrap /* 連続する空白はそのまま残されます。行の折り返しは、改行文字や <br> 要素のあるときか、行ボックスを埋めるのに必要なときに行います。 */;
