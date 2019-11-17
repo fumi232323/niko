@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<title>Django: settings.py/ふみのて</title>
+<link rel="shortcut icon" href="../../assets/icons/favicon.ico">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Griffy">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Vollkorn:400,700">
+<link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/sawarabimincho.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+<link rel="stylesheet" href="../../assets/css/style.css?20191110">
+</head>
+<body>
+    <div class="container">
+      <div class="header"><header class="item item-header"><h1>
+    <a href="../../">
+      <img class="logo" src="../../assets/images/inuu.png" alt="犬"></a>
+  </h1>
+  <iframe src="../../tags/" class="tags"></iframe>
+</header></div>
+      <div class="main">
+<div class="article-content">
+  <main class="item item-article item-django"><time class="date" datetime="2019-11-17 00:00:00+09:00">
+      2019-11-17 Sun
+    </time><div class="title">Django: settings.py</div>
+    <div class="category">
+      <a href="../../tags/django/">
+          django
+      </a>
+    </div>
+    <div class="text">
+      <div>
+<details><summary>目次</summary><div class="contents topic" id="id1">
+<p class="topic-title first">目次</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#id2" id="id8">書籍/リファレンス</a></p></li>
+<li><p><a class="reference internal" href="#id3" id="id9">概要</a></p></li>
+<li><p><a class="reference internal" href="#id4" id="id10">インストールするアプリケーション一覧</a></p></li>
+<li><p><a class="reference internal" href="#id5" id="id11">デバッグ設定</a></p></li>
+<li><p><a class="reference internal" href="#id6" id="id12">静的ファイル関連の設定</a></p></li>
+<li>
+<p><a class="reference internal" href="#id7" id="id13">メディアファイル関連設定</a></p>
+<ul>
+<li><p><a class="reference internal" href="#runserver" id="id14">runserver でメディアファイルを配信してくれる仕組みがある</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+</details><div class="section" id="id2">
+<h2><a class="toc-backref" href="#id8">書籍/リファレンス</a></h2>
+<ul class="simple">
+<li><p>Djangoの設定: <a class="reference external" href="https://docs.djangoproject.com/ja/2.2/topics/settings/">https://docs.djangoproject.com/ja/2.2/topics/settings/</a></p></li>
+<li><p>設定: <a class="reference external" href="https://docs.djangoproject.com/ja/2.2/ref/settings/">https://docs.djangoproject.com/ja/2.2/ref/settings/</a></p></li>
+<li><p>The staticfiles app: <a class="reference external" href="https://docs.djangoproject.com/ja/2.2/ref/contrib/staticfiles/">https://docs.djangoproject.com/ja/2.2/ref/contrib/staticfiles/</a></p></li>
+<li><p>静的ファイルのデプロイ: <a class="reference external" href="https://docs.djangoproject.com/ja/2.2/howto/static-files/deployment/">https://docs.djangoproject.com/ja/2.2/howto/static-files/deployment/</a></p></li>
+<li><p>ファイルのアップロード: <a class="reference external" href="https://docs.djangoproject.com/ja/2.2/topics/http/file-uploads/">https://docs.djangoproject.com/ja/2.2/topics/http/file-uploads/</a></p></li>
+<li><p><a class="reference external" href="https://booth.pm/ja/items/1059917">現場で使える Django の教科書</a> 第10章</p></li>
+<li><p>Djangoで静的ファイルとうまくやる: <a class="reference external" href="https://tell-k.github.io/djangocongressjp2019/#1">https://tell-k.github.io/djangocongressjp2019/#1</a></p></li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2><a class="toc-backref" href="#id9">概要</a></h2>
+<ul>
+<li>
+<p>設定オブジェクト: <code class="docutils literal">django.conf.settings</code></p>
+<ul>
+<li>
+<p>Django 起動時に次のようにインスタンス化されるシングルトンなグローバルオブジェクト</p>
+<pre class="code python"><a name="rest_code_fcddf7ace831490dba0d72481e93d2a6-1"></a><span class="c1"># django/conf/__init__.py</span>
+<a name="rest_code_fcddf7ace831490dba0d72481e93d2a6-2"></a><span class="n">settings</span> <span class="o">=</span> <span class="n">LazySettings</span><span class="p">()</span>
+</pre>
+</li>
+<li><p>↑ は、Django のデフォルト設定ファイル ( <code class="docutils literal">django.conf.global__settings.py</code> ) を読み込んだ後</p></li>
+<li><p>プロジェクト作成時に生成される設定ファイル ( <code class="docutils literal">settings.py</code> ) を読み込んで設定を上書きされる</p></li>
+</ul>
+</li>
+<li>
+<p>設定ファイル: プロジェクト生成時に生成される <code class="docutils literal">settings.py</code></p>
+<ul class="simple">
+<li><p>Django のデフォルト設定とは異なるプロジェクト固有の設定値や</p></li>
+<li><p>自作のアプリケーションで利用する独自の変数を記述しておく</p></li>
+</ul>
+</li>
+<li><p>Django で利用できる設定変数とそのデフォルト値の一覧 =&gt; <a class="reference external" href="https://docs.djangoproject.com/ja/2.2/ref/settings/">https://docs.djangoproject.com/ja/2.2/ref/settings/</a></p></li>
+<li>
+<p>View や models からアクセスするときは、オブジェクトなので、</p>
+<pre class="code python"><a name="rest_code_e0dfab35a3c5436793d5f0d017d45a67-1"></a><span class="c1"># こんな風に参照しましょう</span>
+<a name="rest_code_e0dfab35a3c5436793d5f0d017d45a67-2"></a><span class="kn">from</span> <span class="nn">django.conf</span> <span class="kn">import</span> <span class="n">settings</span>
+<a name="rest_code_e0dfab35a3c5436793d5f0d017d45a67-3"></a><span class="n">settings</span><span class="o">.</span><span class="n">LOGIN_URL</span>
+</pre>
+</li>
+<li>
+<p>LazySettings ??</p>
+<ul class="simple">
+<li><p>その設定値にアクセスされてから初めてその属性が読み込まれる</p></li>
+<li><p>最初にその属性値にアクセスされるまでは設定を変え放題</p></li>
+<li><p>settings の属性に一度でもアクセスされてしまうと、変更しようとしてもエラーになるので、</p></li>
+<li><p>基本的には、設定ファイルの中で初期設定を済ませよう</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h2><a class="toc-backref" href="#id10">インストールするアプリケーション一覧</a></h2>
+<pre class="code python"><a name="rest_code_413573640ba2481c874d865806dc8e14-1"></a><span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">[</span>
+<a name="rest_code_413573640ba2481c874d865806dc8e14-2"></a>    <span class="c1"># 略</span>
+<a name="rest_code_413573640ba2481c874d865806dc8e14-3"></a>    <span class="c1"># Install するアプリケーションをリスト形式で列挙</span>
+<a name="rest_code_413573640ba2481c874d865806dc8e14-4"></a>    <span class="c1"># 各アプリディレクトリ.apps.py の AppConfig クラスのサブクラスを指定する</span>
+<a name="rest_code_413573640ba2481c874d865806dc8e14-5"></a>    <span class="s1">'accounts.apps.AccountsConfig'</span><span class="p">,</span>
+<a name="rest_code_413573640ba2481c874d865806dc8e14-6"></a>    <span class="s1">'shop.apps.ShopConfig'</span><span class="p">,</span>
+<a name="rest_code_413573640ba2481c874d865806dc8e14-7"></a><span class="p">]</span>
+</pre>
+<ul class="simple">
+<li><p>パッケージ名を書くのは少し古い書き方</p></li>
+<li><p>上に書いた方が優先順位が高い</p></li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h2><a class="toc-backref" href="#id11">デバッグ設定</a></h2>
+<pre class="code python"><a name="rest_code_3aac17b5bf1e4991a1b2770ada1f3add-1"></a><span class="n">DEBUG</span> <span class="o">=</span> <span class="bp">False</span>
+</pre>
+<ul class="simple">
+<li>
+<p>開発時は True にしておくと、いろいろ便利</p>
+<ul>
+<li><p>エラー発生時に画面にデバッグ情報が出力される</p></li>
+<li><p>django-debug-toolbar, SQL 文のロギングは True じゃないと使えない</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id6">
+<h2><a class="toc-backref" href="#id12">静的ファイル関連の設定</a></h2>
+<ul>
+<li>
+<p><code class="docutils literal">静的ファイル (static ファイル)</code>: リクエストに応じて中身を変更せずそのまま配信するファイル</p>
+<ul class="simple">
+<li><p>CSS ファイル</p></li>
+<li><p>JavaScript ファイル</p></li>
+<li><p>画像ファイルに</p></li>
+</ul>
+</li>
+<li>
+<p>単に静的ファイルをブラウザへ返すだけの処理をアプリケーションサーバーで捌くと、無駄が多くなってしまう</p>
+<ul class="simple">
+<li><p>=&gt; アプリケーションサーバーの前段に Nginx に代表される <code class="docutils literal">リバースプロキシ</code> と呼ばれるサーバーを配置し、</p></li>
+<li><p>=&gt; 静的ファイルを返すだけの処理はリバースプロキシが担当し、</p></li>
+<li><p>=&gt; Web application の処理が必要なリクエストだけをアプリケーションサーバーへ振り分けることで、</p></li>
+<li><p>=&gt; 効率よくリクエストを捌けるようにする</p></li>
+</ul>
+</li>
+<li>
+<p>セキュリティの観点から、↓は別々にするケースが多い</p>
+<ul class="simple">
+<li><p>静的ファイルの配信元</p></li>
+<li><p>プロジェクトで静的ファイルをバージョン管理する際のプロジェクト内での置き場所</p></li>
+</ul>
+</li>
+<li>
+<p>最低限↓の３つの設定必要</p>
+<pre class="code python"><a name="rest_code_b5cfe36e480b4df9ac43c49849bbaa6b-1"></a><span class="c1"># これしておくと便利</span>
+<a name="rest_code_b5cfe36e480b4df9ac43c49849bbaa6b-2"></a><span class="n">BASE_DIR</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)))</span>
+<a name="rest_code_b5cfe36e480b4df9ac43c49849bbaa6b-3"></a><span class="n">PROJECT_NAME</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">BASE_DIR</span><span class="p">)</span>
+<a name="rest_code_b5cfe36e480b4df9ac43c49849bbaa6b-4"></a>
+<a name="rest_code_b5cfe36e480b4df9ac43c49849bbaa6b-5"></a><span class="c1"># 静的ファイル配信用のディレクトリ、URL の一部になる</span>
+<a name="rest_code_b5cfe36e480b4df9ac43c49849bbaa6b-6"></a><span class="c1"># 設定値はデフォルトの `/static/` のままでよい</span>
+<a name="rest_code_b5cfe36e480b4df9ac43c49849bbaa6b-7"></a><span class="n">STATIC_URL</span> <span class="o">=</span> <span class="s1">'/static/'</span>
+<a name="rest_code_b5cfe36e480b4df9ac43c49849bbaa6b-8"></a>
+<a name="rest_code_b5cfe36e480b4df9ac43c49849bbaa6b-9"></a><span class="c1"># アプリケーションに紐づかない静的ファイルの置き場</span>
+<a name="rest_code_b5cfe36e480b4df9ac43c49849bbaa6b-10"></a><span class="n">STATICFILES_DIRS</span> <span class="o">=</span> <span class="p">[</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">BASE_DIR</span><span class="p">,</span> <span class="s1">'static'</span><span class="p">)]</span>
+<a name="rest_code_b5cfe36e480b4df9ac43c49849bbaa6b-11"></a>
+<a name="rest_code_b5cfe36e480b4df9ac43c49849bbaa6b-12"></a><span class="c1"># 静的ファイルの配信元</span>
+<a name="rest_code_b5cfe36e480b4df9ac43c49849bbaa6b-13"></a><span class="c1"># collectstatic コマンドで静的ファイルを集約する際のコピー先でもある</span>
+<a name="rest_code_b5cfe36e480b4df9ac43c49849bbaa6b-14"></a><span class="c1"># `STATICFILES_DIRS` とは別のディレクトリを指定する必要がある</span>
+<a name="rest_code_b5cfe36e480b4df9ac43c49849bbaa6b-15"></a><span class="c1"># DEBUG = False のときに必要</span>
+<a name="rest_code_b5cfe36e480b4df9ac43c49849bbaa6b-16"></a><span class="n">STATIC_ROOT</span> <span class="o">=</span> <span class="s1">'/var/www/{}/static'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">PROJECT_NAME</span><span class="p">)</span>
+</pre>
+</li>
+<li>
+<p>静的ファイル集約のための管理コマンド: <code class="docutils literal">collectstatic</code></p>
+<pre class="code bash"><a name="rest_code_d313c9d9468d46cca2dba9760029b5cb-1"></a>$ python3 manage.py collectstatic
+</pre>
+<ul class="simple">
+<li><p><code class="docutils literal">DEBUG = True</code> のときは、 runserver がやってくれるので自分で <code class="docutils literal">collectstatic</code> する必要ない</p></li>
+</ul>
+</li>
+<li>
+<p><code class="docutils literal">STATIC_URL</code> を使って画像を表示するテンプレート実装例</p>
+<pre class="code python"><a name="rest_code_0c99cc5c1e54486f95af3ea31acb3c02-1"></a><span class="p">{</span><span class="o">%</span> <span class="n">load</span> <span class="n">static</span> <span class="o">%</span><span class="p">}</span>
+<a name="rest_code_0c99cc5c1e54486f95af3ea31acb3c02-2"></a><span class="o">&lt;</span><span class="n">img</span> <span class="n">src</span><span class="o">=</span><span class="s2">"{</span><span class="si">% s</span><span class="s2">tatic 'shop/images/no-image.png' %}"</span><span class="o">&gt;</span>
+<a name="rest_code_0c99cc5c1e54486f95af3ea31acb3c02-3"></a><span class="o">&lt;</span><span class="n">img</span> <span class="n">src</span><span class="o">=</span><span class="s2">"{</span><span class="si">% s</span><span class="s2">tatic 'images/logo.png' %}"</span><span class="o">&gt;</span>
+</pre>
+</li>
+</ul>
+</div>
+<div class="section" id="id7">
+<h2><a class="toc-backref" href="#id13">メディアファイル関連設定</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal">メディアファイル</code>: 静的ファイルのうち、 (システム管理者を含めた) ユーザーがサイトを利用してアップロードするファイル</p></li>
+<li><p>本番環境では、メディアファイルもAPサーバーで裁かずにリバースプロキシなどで捌くことで負荷を減らす</p></li>
+</ul>
+<pre class="code python"><a name="rest_code_16c100d7ed29473ab95e2f6fa06e430d-1"></a><span class="c1"># メディアファイルの設定例 (config/settings.py)</span>
+<a name="rest_code_16c100d7ed29473ab95e2f6fa06e430d-2"></a><span class="c1"># DEBUG =  False 時</span>
+<a name="rest_code_16c100d7ed29473ab95e2f6fa06e430d-3"></a><span class="n">MEDIA_URL</span> <span class="o">=</span> <span class="s1">'/media/'</span>
+<a name="rest_code_16c100d7ed29473ab95e2f6fa06e430d-4"></a><span class="n">MEDIA_ROOT</span> <span class="o">=</span> <span class="s1">'/var/www/{}/media'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">PROJECT_NAME</span><span class="p">)</span>
+<a name="rest_code_16c100d7ed29473ab95e2f6fa06e430d-5"></a>
+<a name="rest_code_16c100d7ed29473ab95e2f6fa06e430d-6"></a><span class="c1"># ユニットテスト時 or PaaS ? WhiteNoise 時</span>
+<a name="rest_code_16c100d7ed29473ab95e2f6fa06e430d-7"></a><span class="n">MEDIA_ROOT</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">BASE_DIR</span><span class="p">,</span> <span class="s1">'media_root'</span><span class="p">)</span>
+</pre>
+<ul class="simple">
+<li><p>アップロードを実装するときのコツは P.114 付近に詳しく書いてあるので、実装するときはよく見ること</p></li>
+</ul>
+<div class="section" id="runserver">
+<h3><a class="toc-backref" href="#id14">runserver でメディアファイルを配信してくれる仕組みがある</a></h3>
+<p>動作確認に便利</p>
+<pre class="code python"><a name="rest_code_6937022ea81e459d87868d334616cbbb-1"></a><span class="c1"># config/urls.py</span>
+<a name="rest_code_6937022ea81e459d87868d334616cbbb-2"></a><span class="kn">from</span> <span class="nn">django.conf</span> <span class="kn">import</span> <span class="n">settings</span>
+<a name="rest_code_6937022ea81e459d87868d334616cbbb-3"></a><span class="kn">from</span> <span class="nn">django.conf.urls.static</span> <span class="kn">import</span> <span class="n">static</span>
+<a name="rest_code_6937022ea81e459d87868d334616cbbb-4"></a>
+<a name="rest_code_6937022ea81e459d87868d334616cbbb-5"></a><span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+<a name="rest_code_6937022ea81e459d87868d334616cbbb-6"></a>    <span class="c1"># ...</span>
+<a name="rest_code_6937022ea81e459d87868d334616cbbb-7"></a><span class="p">]</span>
+<a name="rest_code_6937022ea81e459d87868d334616cbbb-8"></a><span class="c1"># static 関数の内部で DEBUG = True でないと動作しないようにチェックしているよ</span>
+<a name="rest_code_6937022ea81e459d87868d334616cbbb-9"></a><span class="n">urlpatterns</span> <span class="o">+=</span> <span class="n">static</span><span class="p">(</span><span class="n">settings</span><span class="o">.</span><span class="n">MEDIA_URL</span><span class="p">,</span> <span class="n">document_root</span><span class="o">=</span><span class="n">settings</span><span class="o">.</span><span class="n">MEDIA_ROOT</span><span class="p">)</span>
+</pre>
+</div>
+</div>
+</div>
+    </div>
+  </main>
+</div>
+</div>
+    </div>
+  </body>
+</html>
