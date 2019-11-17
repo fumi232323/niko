@@ -34,29 +34,88 @@
 <details><summary>目次</summary><div class="contents topic" id="id1">
 <p class="topic-title first">目次</p>
 <ul class="simple">
-<li>
-<p><a class="reference internal" href="#rundeckrun" id="id3">rundeckrun</a></p>
+<li><p><a class="reference internal" href="#python2" id="id2">エキスパートPythonプログラミング改訂２版</a></p></li>
+<li><p><a class="reference internal" href="#rundeckrun" id="id3">rundeckrun</a></p></li>
+<li><p><a class="reference internal" href="#autopep8" id="id4">autopep8</a></p></li>
+</ul>
+</div>
+</details><div class="section" id="python2">
+<h2><a class="toc-backref" href="#id2">エキスパートPythonプログラミング改訂２版</a></h2>
 <ul>
-<li><p><a class="reference internal" href="#id2" id="id4">リファレンス</a></p></li>
+<li>
+<p>辞書型に明示的な名前をつける: P.162</p>
+<pre class="code python"><a name="rest_code_7575c5f920c64c2a9b121aa4ef2bc912-1"></a><span class="c1"># 例えば dict が名前をキーにしてその人の住所を保持する場合には ``person_address``</span>
+<a name="rest_code_7575c5f920c64c2a9b121aa4ef2bc912-2"></a><span class="c1"># これずっと悩んでた!!</span>
+<a name="rest_code_7575c5f920c64c2a9b121aa4ef2bc912-3"></a><span class="n">person_address</span> <span class="o">=</span> <span class="p">{</span>
+<a name="rest_code_7575c5f920c64c2a9b121aa4ef2bc912-4"></a>    <span class="s1">'Bill'</span><span class="p">:</span> <span class="s1">'6565 Monty Road'</span><span class="p">,</span>
+<a name="rest_code_7575c5f920c64c2a9b121aa4ef2bc912-5"></a>    <span class="s1">'Pamela'</span><span class="p">:</span> <span class="s1">'45 Python street'</span><span class="p">,</span>
+<a name="rest_code_7575c5f920c64c2a9b121aa4ef2bc912-6"></a><span class="p">}</span>
+</pre>
+</li>
+<li>
+<p>汎用性の高い名前を避ける: P.163</p>
+<ul class="simple">
+<li>
+<p>関数名やクラス名では避けたほうが良いでしょう</p>
+<ul>
+<li><p>Manager</p></li>
+<li><p>Object</p></li>
+<li><p>Do, handle または perform</p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#autopep8" id="id5">autopep8</a></p></li>
+</ul>
+</li>
+<li>
+<p>クラス名: P.169</p>
+<ul>
+<li><p>名前からクラスが何をするのかが十分に理解できるように簡潔で的確な名前にする</p></li>
+<li>
+<p>その型やその特性について伝える接尾辞を使用する</p>
+<ul class="simple">
+<li><p>SQLEngine</p></li>
+<li><p>MineTypes</p></li>
+<li><p>StringWidget</p></li>
+<li><p>TestCase</p></li>
+</ul>
+</li>
+<li>
+<p>基底クラスのクラス名には <code class="docutils literal">Base</code> や <code class="docutils literal">Abstract</code></p>
+<ul class="simple">
+<li><p>BaseCookie</p></li>
+<li><p>AbstractFormatter</p></li>
+</ul>
+</li>
+<li>
+<p>クラスの属性と一貫性を保つ</p>
+<pre class="code python"><a name="rest_code_03db7cba3567405ebdb8ab5def9132ed-1"></a><span class="n">SMTP</span><span class="o">.</span><span class="n">smtp_send</span><span class="p">()</span>  <span class="c1"># 主語が重複していて冗長!! ですよね!!</span>
+<a name="rest_code_03db7cba3567405ebdb8ab5def9132ed-2"></a><span class="n">SMTP</span><span class="o">.</span><span class="n">send</span><span class="p">()</span>  <span class="c1"># Good</span>
+</pre>
+</li>
+</ul>
+</li>
+<li>
+<p>モジュール名とパッケージ名: P.170</p>
+<ul class="simple">
+<li><p>モジュールやパッケージの名前は、中に含まれる関数やクラスが持っている目的が伝わるような名前にする</p></li>
+<li>
+<p>underscores のない lowercase 形式の短い名前にしましょう</p>
+<ul>
+<li><p>sqlite</p></li>
+<li><p>postgres</p></li>
+<li><p>sha1</p></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </div>
-</details><div class="section" id="rundeckrun">
+<div class="section" id="rundeckrun">
 <h2><a class="toc-backref" href="#id3">rundeckrun</a></h2>
-<p>Python コードから Rundeck を操作できる。</p>
-<div class="section" id="id2">
-<h3><a class="toc-backref" href="#id4">リファレンス</a></h3>
-<p><a class="reference external" href="https://rundeckrun.readthedocs.io/en/latest/index.html">https://rundeckrun.readthedocs.io/en/latest/index.html</a></p>
-</div>
+<p>Python コードから Rundeck を操作できる: <a class="reference external" href="https://rundeckrun.readthedocs.io/en/latest/index.html">https://rundeckrun.readthedocs.io/en/latest/index.html</a></p>
 </div>
 <div class="section" id="autopep8">
-<h2><a class="toc-backref" href="#id5">autopep8</a></h2>
-<p><cite>autopep8 automatically formats Python code to conform to the PEP 8 style guide.</cite></p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://pypi.python.org/pypi/autopep8">https://pypi.python.org/pypi/autopep8</a></p></li>
-</ul>
+<h2><a class="toc-backref" href="#id4">autopep8</a></h2>
+<p><cite>autopep8 automatically formats Python code to conform to the PEP 8 style guide.</cite> : <a class="reference external" href="https://pypi.python.org/pypi/autopep8">https://pypi.python.org/pypi/autopep8</a></p>
 </div>
 </div>
     </div>
