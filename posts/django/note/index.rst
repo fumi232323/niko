@@ -18,6 +18,14 @@
   </details>
 
 
+Djangoで静的ファイルとうまくやる
+=================================
+tell-k さんの Django Con での発表
+
+すごく良かった
+
+https://tell-k.github.io/djangocongressjp2019/#1
+
 Time zones
 ==========
 
