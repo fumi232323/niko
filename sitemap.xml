@@ -31,7 +31,7 @@
  </url>
  <url>
   <loc>https://32imuf.com/archive.html</loc>
-  <lastmod>2019-11-24T12:08:00Z</lastmod>
+  <lastmod>2019-11-24T14:32:00Z</lastmod>
  </url>
  <url>
   <loc>https://32imuf.com/aws/s3-response-error/</loc>
@@ -70,12 +70,20 @@
   <lastmod>2019-10-14T13:08:00Z</lastmod>
  </url>
  <url>
+  <loc>https://32imuf.com/django/migrations/</loc>
+  <lastmod>2019-11-24T12:33:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://32imuf.com/django/model/</loc>
   <lastmod>2019-06-02T07:16:00Z</lastmod>
  </url>
  <url>
   <loc>https://32imuf.com/django/note/</loc>
   <lastmod>2019-06-02T07:16:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://32imuf.com/django/runserver/</loc>
+  <lastmod>2019-11-24T12:52:00Z</lastmod>
  </url>
  <url>
   <loc>https://32imuf.com/django/settings/</loc>
@@ -98,10 +106,6 @@
   <lastmod>2019-06-02T07:16:00Z</lastmod>
  </url>
  <url>
-  <loc>https://32imuf.com/docker/5-kubernetes-getting-started/</loc>
-  <lastmod>2019-11-24T07:01:00Z</lastmod>
- </url>
- <url>
   <loc>https://32imuf.com/docker/connect-from-sqla-to-mysqldb/</loc>
   <lastmod>2019-06-02T07:16:00Z</lastmod>
  </url>
@@ -120,38 +124,6 @@
  <url>
   <loc>https://32imuf.com/docker/create-django-env-with-docker-compose-psql/</loc>
   <lastmod>2019-06-03T13:36:00Z</lastmod>
- </url>
- <url>
-  <loc>https://32imuf.com/docker/introduction-to-practice-container-development/1-%20docker-basics/</loc>
-  <lastmod>2019-11-24T06:58:00Z</lastmod>
- </url>
- <url>
-  <loc>https://32imuf.com/docker/introduction-to-practice-container-development/1/</loc>
-  <lastmod>2019-06-02T07:16:00Z</lastmod>
- </url>
- <url>
-  <loc>https://32imuf.com/docker/introduction-to-practice-container-development/2-docker-container/</loc>
-  <lastmod>2019-11-24T06:59:00Z</lastmod>
- </url>
- <url>
-  <loc>https://32imuf.com/docker/introduction-to-practice-container-development/2/</loc>
-  <lastmod>2019-06-02T07:16:00Z</lastmod>
- </url>
- <url>
-  <loc>https://32imuf.com/docker/introduction-to-practice-container-development/3-docker-volume-etc/</loc>
-  <lastmod>2019-11-24T06:59:00Z</lastmod>
- </url>
- <url>
-  <loc>https://32imuf.com/docker/introduction-to-practice-container-development/3/</loc>
-  <lastmod>2019-06-02T07:39:00Z</lastmod>
- </url>
- <url>
-  <loc>https://32imuf.com/docker/introduction-to-practice-container-development/4/</loc>
-  <lastmod>2019-06-02T07:16:00Z</lastmod>
- </url>
- <url>
-  <loc>https://32imuf.com/docker/kubernetes/</loc>
-  <lastmod>2019-11-16T13:51:00Z</lastmod>
  </url>
  <url>
   <loc>https://32imuf.com/docker/use-volumes-with-docker-compose/</loc>
