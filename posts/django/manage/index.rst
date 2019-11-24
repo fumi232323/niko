@@ -71,6 +71,7 @@ manage.py
 
 マイグレーション
 ----------------
+https://docs.djangoproject.com/en/2.2/topics/migrations/
 
 .. code-block:: bash
 
@@ -92,6 +93,17 @@ manage.py
   # 適用済みとして django_migrations にレコードは INSERT されるけれど、データベーススキーマを変更するために実際にSQLを実行することはありません。
   $ python manage.py migrate --fake
 
+  # 自動生成されるマイグレーション名を任意の名前に変更したい
+  $ python3 manage.py makemigrations book --name add_field_to_book
+
+  # マイグレーションファイルがどこまで migrate されているか確認する
+  $ python3 manage.py showmigrations
+
+  # shop アプリケーション関連のテーブルを 0001_initial 適用直後の状態に戻したい
+  $ python3 manage.py migrate shop 0001_initial
+
+* ``django_migrations`` テーブル: Django がマイグレーション履歴を管理しているテーブル
+
 くろのて
 ^^^^^^^^
 * https://note.crohaco.net/2018/django-migration/
@@ -105,6 +117,11 @@ manage.py
 
   $ python manage.py createsuperuser
 
+* 管理サイト (Django Admin) を使えるユーザー
+
+  * superuser (システム管理者)
+  * ``is_staff = True`` かつ ``is_active = True``
+
 
 runserver
 ---------
@@ -115,9 +132,19 @@ runserver
   # python manage.py runserver [<IPアドレス>:<ポート番号>]
   $ python manage.py runserver 0.0.0.0:8000
 
+  # 自動リロード機能を OFF で起動
+  $ python manage.py runserver 0.0.0.0:8000 --noreload
+
+* ``runserver``: Django に同梱されている軽量の Web サーバー
+
+  * 開発時 (基本は DEBUG = True) のみに使われることを想定した WebServer
+  * 本番環境では絶対使わない
+  * 自動リロード機能
+  * 静的ファイルの自動配信機能
 
 - IPアドレスとポート番号を省略すると ``127.0.0.1:8000`` で起動する
 - Docker 上で runserver => ホストOSのブラウザから ``127.0.0.1:8000`` に接続できないときは、 ``0.0.0.0:8000`` で起動してみる
+
 
 
 インタラクティブモードで実行する
@@ -132,6 +159,7 @@ runserver
   # こう
   $ python manage.py shell --settings=settings._
 
+* Django のプロジェクト設定を読み込んだ REPL を起動してくれる
 
 使用例
 ^^^^^^
@@ -158,6 +186,16 @@ Django の DBシェルでローカルDBにつなぐ
 .. code-block:: console
 
   $ python manage.py dbshell --settings=settings.local
+
+
+静的ファイルを公開用ディレクトリに収集する
+-------------------------------------------
+
+.. code-block:: bash
+
+  $ python3 manage.py collectstatic
+
+* runserver には静的ファイル自動配置機能が備わっているので runserver 時には事前実行不要
 
 
 System check framework を使って、Django プロジェクトの一般的な問題を検査する

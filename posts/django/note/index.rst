@@ -242,6 +242,17 @@ QueryDict オブジェクト
 便利さん
 ========
 
-django に便利コマンド追加してくれるさん
-----------------------------------------
-- `django-extensions <https://django-extensions.readthedocs.io/en/latest/>`_
+* django に便利コマンド追加してくれるさん `django-extensions <https://django-extensions.readthedocs.io/en/latest/>`_
+
+* https://djangopackages.org/
+* https://django.awesome-programming.com/
+
+* django-allauth: 認証系機能の拡充
+
+  * メールアドレスベースのログイン
+  * ログインまわり
+  * Google, Twitter, GitHub などのソーシャルアカウントを利用したサードパーティ認証機能
+
+* django-tables2: テーブル表示とページネーション
+* django-environ
+* django-debug-toolbar: GUI によるデバッグ
