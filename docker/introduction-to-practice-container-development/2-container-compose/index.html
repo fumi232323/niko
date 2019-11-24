@@ -1,0 +1,1474 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<title>Docker/Kubernetes 実践コンテナ開発入門 --- 2. Docker コンテナのデプロイ/ふみのて</title>
+<link rel="shortcut icon" href="../../../assets/icons/favicon.ico">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Griffy">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Vollkorn:400,700">
+<link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/sawarabimincho.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+<link rel="stylesheet" href="../../../assets/css/style.css?20191110">
+</head>
+<body>
+    <div class="container">
+      <div class="header"><header class="item item-header"><h1>
+    <a href="../../../">
+      <img class="logo" src="../../../assets/images/inuu.png" alt="犬"></a>
+  </h1>
+  <iframe src="../../../tags/" class="tags"></iframe>
+</header></div>
+      <div class="main">
+<div class="article-content">
+  <main class="item item-article item-docker"><time class="date" datetime="2018-11-04 00:00:00+09:00">
+      2018-11-04 Sun
+    </time><div class="title">Docker/Kubernetes 実践コンテナ開発入門 --- 2. Docker コンテナのデプロイ</div>
+    <div class="category">
+      <a href="../../../tags/docker/">
+          docker
+      </a>
+    </div>
+    <div class="text">
+      <div>
+<details><summary>目次</summary><div class="contents topic" id="id1">
+<p class="topic-title first">目次</p>
+<ul class="simple">
+<li>
+<p><a class="reference internal" href="#id2" id="id26">2.1 コンテナでアプリケーションを実行する</a></p>
+<ul>
+<li>
+<p><a class="reference internal" href="#docker-docker" id="id27">2.1.1 Docker イメージと Docker コンテナの基本</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id3" id="id28">基本の流れ</a></p></li>
+</ul>
+</li>
+<li>
+<p><a class="reference internal" href="#docker" id="id29">2.1.2 簡単なアプリケーションと Docker イメージをつくる</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id4" id="id30">用意するもの</a></p></li>
+<li><p><a class="reference internal" href="#dockerfile" id="id31">Dockerfileの説明</a></p></li>
+<li><p><a class="reference internal" href="#id5" id="id32">Docker イメージをビルドする</a></p></li>
+</ul>
+</li>
+<li>
+<p><a class="reference internal" href="#id6" id="id33">2.1.3 Docker コンテナを実行する</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id7" id="id34">ポートフォワーディング</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><a class="reference internal" href="#id8" id="id35">2.2 Docker イメージの操作</a></p>
+<ul>
+<li><p><a class="reference internal" href="#docker-image-build" id="id36">2.2.1 docker image build --- イメージのビルド</a></p></li>
+<li>
+<p><a class="reference internal" href="#docker-search" id="id37">2.2.2 docker search --- イメージの検索</a></p>
+<ul>
+<li><p><a class="reference internal" href="#docker-hub" id="id38">Docker Hub</a></p></li>
+<li><p><a class="reference internal" href="#id9" id="id39">検索する</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#docker-image-pull" id="id40">2.2.3 docker image pull --- イメージの取得</a></p></li>
+<li><p><a class="reference internal" href="#docker-image-ls" id="id41">2.2.4 docker image ls --- イメージの一覧</a></p></li>
+<li>
+<p><a class="reference internal" href="#docker-image-tag" id="id42">2.2.5 docker image tag --- イメージのタグ付け</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id10" id="id43">Docker イメージのバージョン</a></p></li>
+<li><p><a class="reference internal" href="#id" id="id44">イメージIDへのタグ付け</a></p></li>
+</ul>
+</li>
+<li>
+<p><a class="reference internal" href="#docker-image-push" id="id45">2.2.6 docker image push --- イメージの公開</a></p>
+<ul>
+<li><p><a class="reference internal" href="#docker-hub-push" id="id46">Docker Hub にイメージを push する</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><a class="reference internal" href="#id11" id="id47">2.3 Docker コンテナの操作</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id12" id="id48">2.3.1 Docker コンテナのライフサイクル</a></p></li>
+<li>
+<p><a class="reference internal" href="#docker-container-run" id="id49">2.3.2 docker container run --- コンテナの作成と実行</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id13" id="id50">docker container run 時に引数を与える</a></p></li>
+<li><p><a class="reference internal" href="#id14" id="id51">名前付きコンテナ</a></p></li>
+<li><p><a class="reference internal" href="#id15" id="id52">コマンド実行時の頻出オプション</a></p></li>
+</ul>
+</li>
+<li>
+<p><a class="reference internal" href="#docker-container-ls" id="id53">2.3.3 docker container ls --- コンテナの一覧</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id16" id="id54">コンテナIDだけを抽出する</a></p></li>
+<li><p><a class="reference internal" href="#filter" id="id55">filter を使う</a></p></li>
+<li><p><a class="reference internal" href="#id17" id="id56">終了したコンテナを取得する</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#docker-container-stop" id="id57">2.3.4 docker container stop --- コンテナの停止</a></p></li>
+<li><p><a class="reference internal" href="#docker-container-restart" id="id58">2.3.5 docker container restart --- コンテナの再起動</a></p></li>
+<li>
+<p><a class="reference internal" href="#docker-container-rm" id="id59">2.3.6 docker container rm --- コンテナの破棄</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id18" id="id60">停止の際にコンテナを破棄する</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#docker-container-logs" id="id61">2.3.7 docker container logs --- 標準出力の取得</a></p></li>
+<li><p><a class="reference internal" href="#docker-container-exec" id="id62">2.3.8 docker container exec --- 実行中コンテナでのコマンド実行</a></p></li>
+<li><p><a class="reference internal" href="#docker-container-cp" id="id63">2.3.9 docker container cp --- ファイルのコピー</a></p></li>
+</ul>
+</li>
+<li>
+<p><a class="reference internal" href="#id19" id="id64">2.4 運用管理向けコマンド</a></p>
+<ul>
+<li>
+<p><a class="reference internal" href="#prune" id="id65">2.4.1 prune --- 破棄</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id20" id="id66">Docker イメージを一括削除する</a></p></li>
+<li><p><a class="reference internal" href="#id21" id="id67">Docker リソースを一括削除する</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#docker-container-stats" id="id68">2.4.2 docker container stats --- 利用状況の取得</a></p></li>
+</ul>
+</li>
+<li>
+<p><a class="reference internal" href="#docker-compose" id="id69">2.5 Docker Compose でマルチコンテナを実行する</a></p>
+<ul>
+<li>
+<p><a class="reference internal" href="#id22" id="id70">2.5.1 docker-compose によるコンテナの実行</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id23" id="id71">使えるかどうか確認する</a></p></li>
+<li><p><a class="reference internal" href="#id24" id="id72">docker-compose でコンテナを実行する</a></p></li>
+<li><p><a class="reference internal" href="#docker-compose-docker" id="id73">docker-compose で Docker イメージをビルドして、そのまま実行する</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><a class="reference internal" href="#compose" id="id74">2.6 Compose による複数コンテナの実行</a></p>
+<ul>
+<li><p><a class="reference internal" href="#jenkins" id="id75">2.6.1 Jenkins コンテナを実行する</a></p></li>
+<li><p><a class="reference internal" href="#master-jenkins-ssh" id="id76">2.6.2 Master Jenkins の SSH 鍵を作る</a></p></li>
+<li>
+<p><a class="reference internal" href="#jenkins-slave" id="id77">2.6.3 Jenkins Slave コンテナを作る</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id25" id="id78">参考サイト</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</details><div class="section" id="id2">
+<h2><a class="toc-backref" href="#id26">2.1 コンテナでアプリケーションを実行する</a></h2>
+<table class="colwidths-auto">
+<caption>Docker イメージと Docker コンテナの関係性</caption>
+<thead><tr>
+<th class="head"><p>名称</p></th>
+<th class="head"><p>役割</p></th>
+</tr></thead>
+<tbody>
+<tr>
+<td><p>Docker イメージ</p></td>
+<td><ul class="simple">
+<li><p>Docker コンテナを構成するファイルシステムや、実行するアプリケーションや設定をまとめたもの</p></li>
+<li><p>コンテナを作成するために利用されるテンプレートとなるもの</p></li>
+</ul></td>
+</tr>
+<tr>
+<td><p>Docker コンテナ</p></td>
+<td><ul class="simple">
+<li><p>Docker イメージを基に作成され、具現化されたファイルシステムとアプリケーションが実行されている状態</p></li>
+<li><p>ひとつの Docker イメージから複数のコンテナを生成できる</p></li>
+</ul></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p>まずは、イメージから作成する</p></li>
+</ul>
+<div class="section" id="docker-docker">
+<h3><a class="toc-backref" href="#id27">2.1.1 Docker イメージと Docker コンテナの基本</a></h3>
+<div class="section" id="id3">
+<h4><a class="toc-backref" href="#id28">基本の流れ</a></h4>
+<ol class="arabic">
+<li>
+<p>Docker イメージをダウンロード</p>
+<blockquote>
+<pre class="code console"><a name="rest_code_673749d2951d4100814b91362fbd4633-1"></a><span class="gp">FumienoMacBook-Pro:docker-work fumi23$</span> docker image pull gihyodocker/echo:latest
+<a name="rest_code_673749d2951d4100814b91362fbd4633-2"></a><span class="go">latest: Pulling from gihyodocker/echo</span>
+<a name="rest_code_673749d2951d4100814b91362fbd4633-3"></a><span class="go">723254a2c089: Pull complete</span>
+<a name="rest_code_673749d2951d4100814b91362fbd4633-4"></a><span class="go">abe15a44e12f: Pull complete</span>
+<a name="rest_code_673749d2951d4100814b91362fbd4633-5"></a><span class="go">409a28e3cc3d: Pull complete</span>
+<a name="rest_code_673749d2951d4100814b91362fbd4633-6"></a><span class="go">503166935590: Pull complete</span>
+<a name="rest_code_673749d2951d4100814b91362fbd4633-7"></a><span class="go">abe52c89597f: Pull complete</span>
+<a name="rest_code_673749d2951d4100814b91362fbd4633-8"></a><span class="go">ce145c5cf4da: Pull complete</span>
+<a name="rest_code_673749d2951d4100814b91362fbd4633-9"></a><span class="go">96e333289084: Pull complete</span>
+<a name="rest_code_673749d2951d4100814b91362fbd4633-10"></a><span class="go">39cd5f38ffb8: Pull complete</span>
+<a name="rest_code_673749d2951d4100814b91362fbd4633-11"></a><span class="go">22860d04f4f1: Pull complete</span>
+<a name="rest_code_673749d2951d4100814b91362fbd4633-12"></a><span class="go">7528760e0a03: Pull complete</span>
+<a name="rest_code_673749d2951d4100814b91362fbd4633-13"></a><span class="go">Digest: sha256:4520b6a66d2659dea2f8be5245eafd5434c954485c6c1ac882c56927fe4cec84</span>
+<a name="rest_code_673749d2951d4100814b91362fbd4633-14"></a><span class="go">Status: Downloaded newer image for gihyodocker/echo:latest</span>
+</pre>
+</blockquote>
+</li>
+<li>
+<p>Docker イメージを実行</p>
+<blockquote>
+<pre class="code console"><a name="rest_code_2820ff4ecc9e49bfb67328437758e2ba-1"></a><span class="gp">FumienoMacBook-Pro:docker-work fumi23$</span> docker container run -t -p <span class="m">9000</span>:8080 gihyodocker/echo:latest
+<a name="rest_code_2820ff4ecc9e49bfb67328437758e2ba-2"></a><span class="go">2018/10/01 13:53:03 start server</span>
+</pre>
+<ul class="simple">
+<li>
+<p>ポートフォワーディング設定をしている</p>
+<ul>
+<li><p>Docker 実行環境の 9000 ポート経由で HTTP リクエストを受けられるようになっている</p></li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</li>
+<li>
+<p>別のターミナルからアクセスしてみる</p>
+<blockquote>
+<pre class="code console"><a name="rest_code_42b01f6d7937446aaa5d4bf3efd0d7e3-1"></a><span class="gp">FumienoMacBook-Pro:~ fumi23$</span> curl http://localhost:9000
+<a name="rest_code_42b01f6d7937446aaa5d4bf3efd0d7e3-2"></a><span class="go">Hello Docker!!</span>
+</pre>
+<pre class="code console"><a name="rest_code_ef995a1232c843be9414815e37e522b9-1"></a><span class="gp">FumienoMacBook-Pro:docker-work fumi23$</span> docker container run -t -p <span class="m">9000</span>:8080 gihyodocker/echo:latest
+<a name="rest_code_ef995a1232c843be9414815e37e522b9-2"></a><span class="go">2018/10/01 13:53:03 start server</span>
+<a name="rest_code_ef995a1232c843be9414815e37e522b9-3"></a><span class="go">2018/10/01 13:56:44 received request</span>
+</pre>
+</blockquote>
+</li>
+<li>
+<p>停止する</p>
+<blockquote>
+<pre class="code console"><a name="rest_code_c7a6809a4c514f13b08e98f14cf3ac00-1"></a><span class="gp">$</span> docker stop <span class="k">$(</span>docker container ls -q<span class="k">)</span>
+</pre>
+</blockquote>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="docker">
+<h3><a class="toc-backref" href="#id29">2.1.2 簡単なアプリケーションと Docker イメージをつくる</a></h3>
+<p>Docker コンテナがどのように作られ、実行されているかのイメージをつかむ。
+Go 言語で簡単な Web サーバーを書き、 Docker コンテナ嬢で動作させてみましょう。</p>
+<div class="section" id="id4">
+<h4><a class="toc-backref" href="#id30">用意するもの</a></h4>
+<ul>
+<li>
+<p>main.go</p>
+<pre class="code go"><a name="rest_code_270e6998bc4e4f6db2aa1a9c08e151cd-1"></a><span class="kn">package</span> <span class="nx">main</span>
+<a name="rest_code_270e6998bc4e4f6db2aa1a9c08e151cd-2"></a>
+<a name="rest_code_270e6998bc4e4f6db2aa1a9c08e151cd-3"></a><span class="kn">import</span> <span class="p">(</span>
+<a name="rest_code_270e6998bc4e4f6db2aa1a9c08e151cd-4"></a>    <span class="s">"fmt"</span>
+<a name="rest_code_270e6998bc4e4f6db2aa1a9c08e151cd-5"></a>    <span class="s">"log"</span>
+<a name="rest_code_270e6998bc4e4f6db2aa1a9c08e151cd-6"></a>    <span class="s">"net/http"</span>
+<a name="rest_code_270e6998bc4e4f6db2aa1a9c08e151cd-7"></a><span class="p">)</span>
+<a name="rest_code_270e6998bc4e4f6db2aa1a9c08e151cd-8"></a>
+<a name="rest_code_270e6998bc4e4f6db2aa1a9c08e151cd-9"></a><span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+<a name="rest_code_270e6998bc4e4f6db2aa1a9c08e151cd-10"></a>    <span class="nx">http</span><span class="p">.</span><span class="nx">HandleFunc</span><span class="p">(</span><span class="s">"/"</span><span class="p">,</span> <span class="kd">func</span><span class="p">(</span><span class="nx">w</span> <span class="nx">http</span><span class="p">.</span><span class="nx">ResponseWriter</span><span class="p">,</span> <span class="nx">r</span> <span class="o">*</span><span class="nx">http</span><span class="p">.</span><span class="nx">Request</span><span class="p">)</span> <span class="p">{</span>
+<a name="rest_code_270e6998bc4e4f6db2aa1a9c08e151cd-11"></a>        <span class="nx">log</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">"received request"</span><span class="p">)</span>
+<a name="rest_code_270e6998bc4e4f6db2aa1a9c08e151cd-12"></a>        <span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span> <span class="s">"Hello Docker!!"</span><span class="p">)</span>
+<a name="rest_code_270e6998bc4e4f6db2aa1a9c08e151cd-13"></a>    <span class="p">})</span>
+<a name="rest_code_270e6998bc4e4f6db2aa1a9c08e151cd-14"></a>
+<a name="rest_code_270e6998bc4e4f6db2aa1a9c08e151cd-15"></a>    <span class="nx">log</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">"start server"</span><span class="p">)</span>
+<a name="rest_code_270e6998bc4e4f6db2aa1a9c08e151cd-16"></a>    <span class="nx">server</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">http</span><span class="p">.</span><span class="nx">Server</span><span class="p">{</span><span class="nx">Addr</span><span class="p">:</span> <span class="s">":8080"</span><span class="p">}</span>
+<a name="rest_code_270e6998bc4e4f6db2aa1a9c08e151cd-17"></a>    <span class="k">if</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">server</span><span class="p">.</span><span class="nx">ListenAndServe</span><span class="p">();</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+<a name="rest_code_270e6998bc4e4f6db2aa1a9c08e151cd-18"></a>        <span class="nx">log</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+<a name="rest_code_270e6998bc4e4f6db2aa1a9c08e151cd-19"></a>    <span class="p">}</span>
+<a name="rest_code_270e6998bc4e4f6db2aa1a9c08e151cd-20"></a><span class="p">}</span>
+</pre>
+</li>
+<li>
+<p>Dockerfile</p>
+<pre class="code docker"><a name="rest_code_dfd5e9f6b685486991aa251a98c969c6-1"></a><span class="k">FROM</span><span class="s"> golang:1.9</span>
+<a name="rest_code_dfd5e9f6b685486991aa251a98c969c6-2"></a>
+<a name="rest_code_dfd5e9f6b685486991aa251a98c969c6-3"></a><span class="k">RUN</span> mkdir /echo
+<a name="rest_code_dfd5e9f6b685486991aa251a98c969c6-4"></a><span class="k">COPY</span> main.go /echo
+<a name="rest_code_dfd5e9f6b685486991aa251a98c969c6-5"></a>
+<a name="rest_code_dfd5e9f6b685486991aa251a98c969c6-6"></a><span class="k">CMD</span> <span class="p">[</span><span class="s2">"go"</span><span class="p">,</span> <span class="s2">"run"</span><span class="p">,</span> <span class="s2">"/echo/main.go"</span><span class="p">]</span>
+</pre>
+</li>
+</ul>
+</div>
+<div class="section" id="dockerfile">
+<h4><a class="toc-backref" href="#id31">Dockerfileの説明</a></h4>
+<ul>
+<li><p>Dockerfile には、 Docker 独自の DSL (ドメイン固有言語) を使ってイメージの構成を定義する。</p></li>
+<li>
+<p><code class="docutils literal">FROM</code> や <code class="docutils literal">RUN</code> といったキーワードは「インストラクション (命令) 」と呼ばれている。</p>
+<table class="colwidths-auto">
+<caption>Dockerfile のインストラクション</caption>
+<thead><tr>
+<th class="head"><p>インストラクション名</p></th>
+<th class="head"><p>説明</p></th>
+</tr></thead>
+<tbody>
+<tr>
+<td><p>FROM</p></td>
+<td><ul class="simple">
+<li><p>作成する Docker イメージのベースとなるイメージを指定する。</p></li>
+<li><p>Dockerfile でイメージをビルドする際、まず最初に <code class="docutils literal">FROM</code> で指定されたイメージをダウンロードしてから実行される。</p></li>
+<li><p>Docker は、デフォルトで <code class="docutils literal">FROM</code> の取得先として <code class="docutils literal">Docker Hub</code> のレジストリを参照する。</p></li>
+</ul></td>
+</tr>
+<tr>
+<td><p>RUN</p></td>
+<td><ul class="simple">
+<li><p>Docker イメージビルド時に、 Docker コンテナで実行するコマンドを定義します。</p></li>
+<li><p><code class="docutils literal">RUN</code> の引数には Docker コンテナ内で実行するコマンドをそのまま指定する。</p></li>
+</ul></td>
+</tr>
+<tr>
+<td><p>COPY</p></td>
+<td><p>Docker を動作させているホストマシン上のファイルやディレクトリを Docker コンテナ内にコピーするためのインストラクション。</p></td>
+</tr>
+<tr>
+<td><p>CMD</p></td>
+<td><ul class="simple">
+<li><p>Docker コンテナとして実行する際に、コンテナ内で実行するプロセスを指定する。</p></li>
+<li><p><code class="docutils literal">CMD</code> はコンテナ起動時に１度実行される。</p></li>
+<li><p><code class="docutils literal">CMD</code> で指定した命令は、 docker container run の指定で実行時に上書きできる。</p></li>
+</ul></td>
+</tr>
+<tr>
+<td><p>LABEL</p></td>
+<td><p>イメージの作者名記入などに使う。</p></td>
+</tr>
+<tr>
+<td><p>ENV</p></td>
+<td><p>Dockerfile をもとに生成した Docker コンテナ内で使える環境変数を指定する。</p></td>
+</tr>
+<tr>
+<td><p>ARG</p></td>
+<td><p>ビルド時に情報を埋め込むために使う。イメージビルドのときだけ使用できる一時的な環境変数。</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h4><a class="toc-backref" href="#id32">Docker イメージをビルドする</a></h4>
+<p>Docker イメージを作成するためのコマンド</p>
+<pre class="code console"><a name="rest_code_09d38db86ca84114a71b653f05b7509f-1"></a><span class="gp">$</span> docker image build -t 名前空間/イメージ名<span class="o">[</span>:タグ名<span class="o">]</span> Dockerfile配置ディレクトリのパス
+</pre>
+<p>実行すると、</p>
+<pre class="code console"><a name="rest_code_70522f7cdbd746c1b0d14dfdd437c430-1"></a><span class="gp">$</span> docker image build -t example/echo:latest .
+<a name="rest_code_70522f7cdbd746c1b0d14dfdd437c430-2"></a><span class="go">Sending build context to Docker daemon  3.072kB</span>
+<a name="rest_code_70522f7cdbd746c1b0d14dfdd437c430-3"></a><span class="go">Step 1/4 : FROM golang:1.9</span>
+<a name="rest_code_70522f7cdbd746c1b0d14dfdd437c430-4"></a><span class="go">1.9: Pulling from library/golang</span>
+<a name="rest_code_70522f7cdbd746c1b0d14dfdd437c430-5"></a><span class="go">55cbf04beb70: Pull complete</span>
+<a name="rest_code_70522f7cdbd746c1b0d14dfdd437c430-6"></a><span class="go">1607093a898c: Pull complete</span>
+<a name="rest_code_70522f7cdbd746c1b0d14dfdd437c430-7"></a><span class="go">9a8ea045c926: Pull complete</span>
+<a name="rest_code_70522f7cdbd746c1b0d14dfdd437c430-8"></a><span class="go">d4eee24d4dac: Pull complete</span>
+<a name="rest_code_70522f7cdbd746c1b0d14dfdd437c430-9"></a><span class="go">9c35c9787a2f: Pull complete</span>
+<a name="rest_code_70522f7cdbd746c1b0d14dfdd437c430-10"></a><span class="go">8b376bbb244f: Pull complete</span>
+<a name="rest_code_70522f7cdbd746c1b0d14dfdd437c430-11"></a><span class="go">0d4eafcc732a: Pull complete</span>
+<a name="rest_code_70522f7cdbd746c1b0d14dfdd437c430-12"></a><span class="go">186b06a99029: Pull complete</span>
+<a name="rest_code_70522f7cdbd746c1b0d14dfdd437c430-13"></a><span class="go">Digest: sha256:8b5968585131604a92af02f5690713efadf029cc8dad53f79280b87a80eb1354</span>
+<a name="rest_code_70522f7cdbd746c1b0d14dfdd437c430-14"></a><span class="go">Status: Downloaded newer image for golang:1.9</span>
+<a name="rest_code_70522f7cdbd746c1b0d14dfdd437c430-15"></a><span class="go"> ---&gt; ef89ef5c42a9</span>
+<a name="rest_code_70522f7cdbd746c1b0d14dfdd437c430-16"></a><span class="go">Step 2/4 : RUN mkdir /echo</span>
+<a name="rest_code_70522f7cdbd746c1b0d14dfdd437c430-17"></a><span class="go"> ---&gt; Running in 4da08e7c5693</span>
+<a name="rest_code_70522f7cdbd746c1b0d14dfdd437c430-18"></a><span class="go">Removing intermediate container 4da08e7c5693</span>
+<a name="rest_code_70522f7cdbd746c1b0d14dfdd437c430-19"></a><span class="go"> ---&gt; 7caf124fb4d3</span>
+<a name="rest_code_70522f7cdbd746c1b0d14dfdd437c430-20"></a><span class="go">Step 3/4 : COPY main.go /echo</span>
+<a name="rest_code_70522f7cdbd746c1b0d14dfdd437c430-21"></a><span class="go"> ---&gt; 73db87b05d43</span>
+<a name="rest_code_70522f7cdbd746c1b0d14dfdd437c430-22"></a><span class="go">Step 4/4 : CMD ["go", "run", "/echo/main.go"]</span>
+<a name="rest_code_70522f7cdbd746c1b0d14dfdd437c430-23"></a><span class="go"> ---&gt; Running in 3db24ec2a7c7</span>
+<a name="rest_code_70522f7cdbd746c1b0d14dfdd437c430-24"></a><span class="go">Removing intermediate container 3db24ec2a7c7</span>
+<a name="rest_code_70522f7cdbd746c1b0d14dfdd437c430-25"></a><span class="go"> ---&gt; 294c33d2b845</span>
+<a name="rest_code_70522f7cdbd746c1b0d14dfdd437c430-26"></a><span class="go">Successfully built 294c33d2b845</span>
+<a name="rest_code_70522f7cdbd746c1b0d14dfdd437c430-27"></a><span class="go">Successfully tagged example/echo:latest</span>
+<a name="rest_code_70522f7cdbd746c1b0d14dfdd437c430-28"></a><span class="gp">$</span> docker image ls
+<a name="rest_code_70522f7cdbd746c1b0d14dfdd437c430-29"></a><span class="go">REPOSITORY                       TAG                 IMAGE ID            CREATED             SIZE</span>
+<a name="rest_code_70522f7cdbd746c1b0d14dfdd437c430-30"></a><span class="go">example/echo                     latest              294c33d2b845        37 seconds ago      750MB</span>
+<a name="rest_code_70522f7cdbd746c1b0d14dfdd437c430-31"></a><span class="go">golang                           1.9                 ef89ef5c42a9        3 months ago        750MB</span>
+</pre>
+<ul class="simple">
+<li><p><code class="docutils literal">ENTRYPOINT</code> というものを使うと、コマンド実行が便利になるらしい</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id6">
+<h3><a class="toc-backref" href="#id33">2.1.3 Docker コンテナを実行する</a></h3>
+<ul>
+<li>
+<p>コンテナを実行する</p>
+<pre class="code console"><a name="rest_code_793b833e31d349d19d4a812776138b93-1"></a><span class="gp">$</span> docker container run example/echo:latest
+<a name="rest_code_793b833e31d349d19d4a812776138b93-2"></a><span class="go">2018/11/04 10:05:45 start server</span>
+</pre>
+<ul class="simple">
+<li><p>終了は、 <code class="docutils literal">Ctrl + C</code> (やってみたけど終わらないな...)</p></li>
+</ul>
+</li>
+<li>
+<p><code class="docutils literal"><span class="pre">-d</span></code>: バックグランドでコンテナを実行させる</p>
+<pre class="code console"><a name="rest_code_b3fe7d78b7fd498999a86be0ba940b59-1"></a><span class="gp">$</span> docker container run -d example/echo:latest
+<a name="rest_code_b3fe7d78b7fd498999a86be0ba940b59-2"></a><span class="go">449ccdc8c99e72ecd791b036417632ec3e7944f1e7ab14c5b96d7e4caec0e58b</span>
+</pre>
+<ul class="simple">
+<li><p>ハッシュ値のような文字列は、 Docker コンテナのID</p></li>
+<li><p>コンテナのID は、コンテナ実行時に付与される一意な ID</p></li>
+</ul>
+</li>
+<li>
+<p>停止する</p>
+<pre class="code console"><a name="rest_code_94c7960a594d4bae8d87ea3ead74950e-1"></a><span class="gp">$</span> docker container stop <span class="k">$(</span>docker container ls --filter <span class="s2">"ancestor=example/echo"</span> -q<span class="k">)</span>
+<a name="rest_code_94c7960a594d4bae8d87ea3ead74950e-2"></a><span class="go">449ccdc8c99e</span>
+</pre>
+</li>
+<li>
+<p>現在実行中のコンテナの一覧を表示する</p>
+<pre class="code console"><a name="rest_code_1a3b9d82d96643d18e4e033b01d7629a-1"></a><span class="gp">$</span> docker container ls
+<a name="rest_code_1a3b9d82d96643d18e4e033b01d7629a-2"></a><span class="go">CONTAINER ID        IMAGE                 COMMAND                  CREATED             STATUS              PORTS               NAMES</span>
+<a name="rest_code_1a3b9d82d96643d18e4e033b01d7629a-3"></a><span class="go">449ccdc8c99e        example/echo:latest   "go run /echo/main.go"   2 minutes ago       Up 2 minutes                            determined_zhukovsky</span>
+</pre>
+</li>
+</ul>
+<div class="section" id="id7">
+<h4><a class="toc-backref" href="#id34">ポートフォワーディング</a></h4>
+<p>ホストマシンのポートをコンテナポートに紐づける。
+コンテナの外から来た通信をコンテナポートに転送することができる。</p>
+<ul>
+<li>
+<p>ホスト側の 9000 番ポートをコンテナ側の 8080 番ポートにポートフォワーディングする。</p>
+<pre class="code console"><a name="rest_code_9f3d7f907ae747c29ceb8ef527ae8370-1"></a><span class="gp">$</span> docker container run -d -p <span class="m">9000</span>:8080 example/echo:latest
+<a name="rest_code_9f3d7f907ae747c29ceb8ef527ae8370-2"></a><span class="go">b113261a42b8fb110cd1984904dccfe859067abd078637ff37804ad5f00c3ff5</span>
+</pre>
+<ul class="simple">
+<li><p><code class="docutils literal"><span class="pre">-p</span> <span class="pre">{ホスト側ポート}:{コンテナポート}</span></code></p></li>
+<li><p>ホスト側のポートは省略できる。省略すると空いているポートが自動的に割り当てられる。</p></li>
+</ul>
+</li>
+<li>
+<p>ホスト側のポートに curl で GET リクエストしてみる</p>
+<pre class="code console"><a name="rest_code_6d5c4e02f80740f897aa0535e722ccfc-1"></a><span class="gp">$</span> curl http://localhost:9000/
+<a name="rest_code_6d5c4e02f80740f897aa0535e722ccfc-2"></a><span class="go">Hello Docker!!</span>
+</pre>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="id8">
+<h2><a class="toc-backref" href="#id35">2.2 Docker イメージの操作</a></h2>
+<dl class="field-list simple">
+<dt>Docker イメージ</dt>
+<dd>
+<p>Docker コンテナを作成するためのテンプレート</p>
+</dd>
+<dt>Dockerfile</dt>
+<dd>
+<p>イメージを構築するための手順を記述したファイル</p>
+</dd>
+<dt>Docker イメージをビルドする</dt>
+<dd>
+<p>イメージを構築する</p>
+</dd>
+</dl>
+<ul>
+<li>
+<p>Docker のヘルプを表示する</p>
+<pre class="code console"><a name="rest_code_90930d730317402fb987831dcdb2c50e-1"></a><span class="gp">$</span> docker <span class="nb">help</span>
+</pre>
+</li>
+<li>
+<p>Docker のイメージ操作に関するコマンドのヘルプを表示する</p>
+<pre class="code console"><a name="rest_code_022278fb351143399a4e46b389c46ad3-1"></a><span class="gp">$</span> docker image --help
+</pre>
+</li>
+</ul>
+<div class="section" id="docker-image-build">
+<h3><a class="toc-backref" href="#id36">2.2.1 docker image build --- イメージのビルド</a></h3>
+<ul>
+<li>
+<p>Dockerfile をもとに Docker イメージを作成する</p>
+<pre class="code console"><a name="rest_code_59aa794bc8bb4345914dd5539be721d2-1"></a><span class="gp">$</span> docker image build -t イメージ名<span class="o">[</span>:タグ名<span class="o">]</span> Dockerfile配置ディレクトリのパス
+</pre>
+<ul class="simple">
+<li><p><code class="docutils literal"><span class="pre">-t</span> <span class="pre">イメージ名[:タグ名]</span></code> : Docker を利用する上でほぼ必須。</p></li>
+</ul>
+</li>
+<li>
+<p>Dockerfile という名前ではない Dockerfile を指定して Docker イメージを作成する</p>
+<pre class="code console"><a name="rest_code_b7281dc2e9ae4902aa1b09c273021156-1"></a><span class="gp">$</span> docker image build -f <span class="o">{</span>Dockerfile名<span class="o">}</span> -t イメージ名<span class="o">[</span>:タグ名<span class="o">]</span> Dockerfile配置ディレクトリのパス
+</pre>
+</li>
+<li>
+<p>イメージをビルド時に、 <code class="docutils literal">FROM</code> で指定したベースイメージを強制的に再取得させる。</p>
+<pre class="code console"><a name="rest_code_1159d5f8a6d547eaba80481241482a5f-1"></a><span class="gp">$</span> docker image build --pull<span class="o">=</span><span class="nb">true</span> -t example/echo:latest
+</pre>
+<ul class="simple">
+<li><p>実際の運用では、 <code class="docutils literal">latest</code> ではなく、タグ付けされたイメージを利用することがほとんど</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="docker-search">
+<h3><a class="toc-backref" href="#id37">2.2.2 docker search --- イメージの検索</a></h3>
+<div class="section" id="docker-hub">
+<h4><a class="toc-backref" href="#id38">Docker Hub</a></h4>
+<ul class="simple">
+<li><p>Docker イメージのレジストリ</p></li>
+<li><p>ユーザーや組織が GitHub と同様にリポジトリを持つことができる</p></li>
+<li><p>リポジトリでそれぞれの Docker イメージを管理していく</p></li>
+<li><p>全てのイメージのベースとなるような OS (CentOS や Ubuntu) のリポジトリ、言語のランタイムや著名なミドルウェアのイメージのリポジトリなどたくさんある</p></li>
+<li><p>全ての Docker イメージを自前で用意する必要はない、ほかの人が作ったものを活用していく</p></li>
+</ul>
+</div>
+<div class="section" id="id9">
+<h4><a class="toc-backref" href="#id39">検索する</a></h4>
+<pre class="code console"><a name="rest_code_b171832207d84e25acb1d3c4f91188b3-1"></a><span class="gp">$</span> docker search <span class="o">[</span>options<span class="o">]</span> 検索キーワード
+</pre>
+<ul>
+<li>
+<p>mysql を検索する</p>
+<pre class="code console"><a name="rest_code_86b884e24aa84ff8bf781d328c688f02-1"></a><span class="gp">$</span> docker search --limit <span class="m">5</span> mysql
+<a name="rest_code_86b884e24aa84ff8bf781d328c688f02-2"></a><span class="go">NAME                         DESCRIPTION                                     STARS               OFFICIAL            AUTOMATED</span>
+<a name="rest_code_86b884e24aa84ff8bf781d328c688f02-3"></a><span class="go">mysql                        MySQL is a widely used, open-source relation…   7249                [OK]</span>
+<a name="rest_code_86b884e24aa84ff8bf781d328c688f02-4"></a><span class="go">mysql/mysql-server           Optimized MySQL Server Docker images. Create…   535                                     [OK]</span>
+<a name="rest_code_86b884e24aa84ff8bf781d328c688f02-5"></a><span class="go">zabbix/zabbix-server-mysql   Zabbix Server with MySQL database support       136                                     [OK]</span>
+<a name="rest_code_86b884e24aa84ff8bf781d328c688f02-6"></a><span class="go">mysql/mysql-cluster          Experimental MySQL Cluster Docker images. Cr…   33</span>
+<a name="rest_code_86b884e24aa84ff8bf781d328c688f02-7"></a><span class="go">circleci/mysql               MySQL is a widely used, open-source relation…   7</span>
+</pre>
+<ul class="simple">
+<li><p>スターの降順で表示される</p></li>
+<li><p><code class="docutils literal"><span class="pre">--limit</span> 5</code> : 表示件数を5件に制限する</p></li>
+<li><p>名前空間はオーナー名</p></li>
+<li><p>公式リポジトリは、名前空間が表示されない</p></li>
+<li><p>公式リポジトリの名前空間には一律で <code class="docutils literal">library</code> がついているので、正式名称は <code class="docutils literal">library/mysql</code></p></li>
+</ul>
+</li>
+<li>
+<p>リリースされているタグの一覧を表示する</p>
+<pre class="code console"><a name="rest_code_77798ba2f99f490e98c68af9c49cfa2b-1"></a><span class="gp">$</span> curl -s <span class="s1">'https://hub.docker.com/v2/repositories/library/golang/tags/?page_size=10'</span> <span class="p">|</span> jq -r <span class="s1">'.results[].name'</span>
+<a name="rest_code_77798ba2f99f490e98c68af9c49cfa2b-2"></a><span class="go">1.10</span>
+<a name="rest_code_77798ba2f99f490e98c68af9c49cfa2b-3"></a><span class="go">1.10.5</span>
+<a name="rest_code_77798ba2f99f490e98c68af9c49cfa2b-4"></a><span class="go">latest</span>
+<a name="rest_code_77798ba2f99f490e98c68af9c49cfa2b-5"></a><span class="go">1</span>
+<a name="rest_code_77798ba2f99f490e98c68af9c49cfa2b-6"></a><span class="go">1.11</span>
+<a name="rest_code_77798ba2f99f490e98c68af9c49cfa2b-7"></a><span class="go">1.11.2</span>
+<a name="rest_code_77798ba2f99f490e98c68af9c49cfa2b-8"></a><span class="go">1.10-alpine3.7</span>
+<a name="rest_code_77798ba2f99f490e98c68af9c49cfa2b-9"></a><span class="go">1.10.5-alpine3.7</span>
+<a name="rest_code_77798ba2f99f490e98c68af9c49cfa2b-10"></a><span class="go">1.10-alpine</span>
+<a name="rest_code_77798ba2f99f490e98c68af9c49cfa2b-11"></a><span class="go">1.10.5-alpine</span>
+</pre>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="docker-image-pull">
+<h3><a class="toc-backref" href="#id40">2.2.3 docker image pull --- イメージの取得</a></h3>
+<p>Docker レジストリから Docker イメージをダウンロードする</p>
+<pre class="code console"><a name="rest_code_76885f342ba740c59b9ff3c6a617e4f0-1"></a><span class="gp">$</span> docker image pull <span class="o">[</span>options<span class="o">]</span> リポジトリ名<span class="o">[</span>:タグ名<span class="o">]</span>
+</pre>
+<ul>
+<li><p>指定するリポジトリ名とタグ名は Docker Hub に存在するものを指定する</p></li>
+<li>
+<p>jenkins の Docker イメージをダウンロードする</p>
+<pre class="code console"><a name="rest_code_451a500dbf0b4d55a8bebab6bc4bd611-1"></a><span class="gp">$</span> docker image pull jenkins:latest
+</pre>
+<ul class="simple">
+<li><p>タグ名を省略した場合は、デフォルトタグ (多くは latest) が利用される</p></li>
+<li><p>ダウンロードしてきたイメージは、そのまま Docker コンテナとして利用できる</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="docker-image-ls">
+<h3><a class="toc-backref" href="#id41">2.2.4 docker image ls --- イメージの一覧</a></h3>
+<p>Docker ホストに保持されているイメージの一覧を表示する</p>
+<pre class="code console"><a name="rest_code_0ba18977536146b8a21d204e3f1fbc8f-1"></a><span class="gp">$</span> docker image ls <span class="o">[</span>options<span class="o">]</span> <span class="o">[</span>リポジトリ名<span class="o">[</span>:タグ名<span class="o">]]</span>
+</pre>
+<ul>
+<li><p>Docker ホスト: Docker デーモンを実行しているホスト環境のこと</p></li>
+<li>
+<p>リモートから pull してきたイメージも、自分でビルドしたイメージも両方表示される</p>
+<pre class="code console"><a name="rest_code_0138e2b5d3684da2b0ce55c179a8e585-1"></a><span class="gp">$</span> docker image ls
+<a name="rest_code_0138e2b5d3684da2b0ce55c179a8e585-2"></a><span class="go">REPOSITORY                       TAG                 IMAGE ID            CREATED             SIZE</span>
+<a name="rest_code_0138e2b5d3684da2b0ce55c179a8e585-3"></a><span class="go">example/echo                     latest              ed899b24590f        3 hours ago         750MB</span>
+<a name="rest_code_0138e2b5d3684da2b0ce55c179a8e585-4"></a><span class="go">jenkins                          latest              cd14cecfdb3a        3 months ago        696MB</span>
+<a name="rest_code_0138e2b5d3684da2b0ce55c179a8e585-5"></a><span class="go">golang                           1.9                 ef89ef5c42a9        3 months ago        750MB</span>
+<a name="rest_code_0138e2b5d3684da2b0ce55c179a8e585-6"></a><span class="go">gihyodocker/echo                 latest              3dbbae6eb30d        10 months ago       733MB</span>
+</pre>
+<ul class="simple">
+<li><p><code class="docutils literal">IMAGE ID</code> : イメージのID。コンテナのIDとは違うものなので、混同しないこと。</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="docker-image-tag">
+<h3><a class="toc-backref" href="#id42">2.2.5 docker image tag --- イメージのタグ付け</a></h3>
+<div class="section" id="id10">
+<h4><a class="toc-backref" href="#id43">Docker イメージのバージョン</a></h4>
+<p>イメージのバージョンとは、正確にはイメージIDのこと</p>
+<ul>
+<li>
+<p>イメージのビルドの度に、別の <code class="docutils literal">IMAGE ID</code> が割り振られる。</p>
+<pre class="code console"><a name="rest_code_66d2ddadb40c4021af94f51d5aac1425-1"></a><span class="gp">$</span> docker image ls
+<a name="rest_code_66d2ddadb40c4021af94f51d5aac1425-2"></a><span class="go">REPOSITORY                       TAG                 IMAGE ID            CREATED             SIZE</span>
+<a name="rest_code_66d2ddadb40c4021af94f51d5aac1425-3"></a><span class="go">example/echo                     latest              ed899b24590f        3 hours ago         750MB</span>
+<a name="rest_code_66d2ddadb40c4021af94f51d5aac1425-4"></a><span class="go">&lt;none&gt;                           &lt;none&gt;              294c33d2b845        3 hours ago         750MB</span>
+</pre>
+<ul class="simple">
+<li><p>ひとつのタグに紐づけられるイメージはひとつまで (上の例だと <code class="docutils literal">latest</code> )</p></li>
+<li><p>古いイメージはタグとの紐づけが解除されて <code class="docutils literal">&lt;none&gt;</code> になる</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id">
+<h4><a class="toc-backref" href="#id44">イメージIDへのタグ付け</a></h4>
+<p>イメージID にタグ名という形で別名をつけることができる</p>
+<pre class="code console"><a name="rest_code_832dff89bd594f9db5470abc1be9b08d-1"></a><span class="gp">$</span> docker image tag 元イメージ名<span class="o">[</span>:タグ<span class="o">]</span> 新イメージ名<span class="o">[</span>:タグ<span class="o">]</span>
+</pre>
+<ul>
+<li><p>ある特定のイメージIDを持つ Docker イメージを識別しやすくするために使う。</p></li>
+<li><p><code class="docutils literal">latest</code> は Git で言うところの master ブランチのようなもの。常に最新のイメージ。</p></li>
+<li>
+<p><code class="docutils literal">example/echo</code> の <code class="docutils literal">latest</code> に 0.1.0 のタグをつける</p>
+<pre class="code console"><a name="rest_code_8131080b20fe40e5a727b31f1f834ded-1"></a><span class="gp">$</span> docker image tag example/echo:latest example/echo:0.1.0
+<a name="rest_code_8131080b20fe40e5a727b31f1f834ded-2"></a><span class="go">REPOSITORY                       TAG                 IMAGE ID            CREATED             SIZE</span>
+<a name="rest_code_8131080b20fe40e5a727b31f1f834ded-3"></a><span class="go">example/echo                     0.1.0               ed899b24590f        3 hours ago         750MB</span>
+<a name="rest_code_8131080b20fe40e5a727b31f1f834ded-4"></a><span class="go">example/echo                     latest              ed899b24590f        3 hours ago         750MB</span>
+<a name="rest_code_8131080b20fe40e5a727b31f1f834ded-5"></a><span class="go">&lt;none&gt;                           &lt;none&gt;              294c33d2b845        3 hours ago         750MB</span>
+</pre>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="docker-image-push">
+<h3><a class="toc-backref" href="#id45">2.2.6 docker image push --- イメージの公開</a></h3>
+<p>Docker イメージを Docker Hub などのレジストリに登録する</p>
+<pre class="code console"><a name="rest_code_1a9f66b920904826a741193aefe15c45-1"></a><span class="gp">$</span> docker image push <span class="o">[</span>options<span class="o">]</span> リポジトリ名<span class="o">[</span>:タグ<span class="o">]</span>
+</pre>
+<div class="section" id="docker-hub-push">
+<h4><a class="toc-backref" href="#id46">Docker Hub にイメージを push する</a></h4>
+<ol class="arabic">
+<li>
+<p>Docker Hub にログインする</p>
+<blockquote>
+<pre class="code console"><a name="rest_code_ab7ddc5e0416452d9905b24cf4e34bac-1"></a><span class="gp">$</span> docker login -u your_docker_id -p your_docker_pw
+</pre>
+</blockquote>
+</li>
+<li>
+<p>名前空間を自分のリポジトリ名にする</p>
+<blockquote>
+<pre class="code console"><a name="rest_code_d8e5ce4b590743eb821995f8ca035225-1"></a><span class="gp">$</span> docker image tag example/echo:latest fumi23/echo:latest
+<a name="rest_code_d8e5ce4b590743eb821995f8ca035225-2"></a><span class="gp">$</span> docker image ls
+<a name="rest_code_d8e5ce4b590743eb821995f8ca035225-3"></a><span class="go">REPOSITORY                       TAG                 IMAGE ID            CREATED             SIZE</span>
+<a name="rest_code_d8e5ce4b590743eb821995f8ca035225-4"></a><span class="go">example/echo                     0.1.0               ed899b24590f        4 hours ago         750MB</span>
+<a name="rest_code_d8e5ce4b590743eb821995f8ca035225-5"></a><span class="go">example/echo                     latest              ed899b24590f        4 hours ago         750MB</span>
+<a name="rest_code_d8e5ce4b590743eb821995f8ca035225-6"></a><span class="go">fumi23/echo                      latest              ed899b24590f        4 hours ago         750MB</span>
+</pre>
+<ul class="simple">
+<li><p>Docker Hub は、自分が所有している、または、所属している organization のリポジトリにしか push できない</p></li>
+</ul>
+</blockquote>
+</li>
+<li>
+<p>Docker Hub に push する</p>
+<blockquote>
+<pre class="code console"><a name="rest_code_c0c0ce7a1bc248fc973d19dae8c51189-1"></a><span class="gp">$</span> docker image push fumi23/echo:latest
+<a name="rest_code_c0c0ce7a1bc248fc973d19dae8c51189-2"></a><span class="go">The push refers to repository [docker.io/fumi23/echo]</span>
+<a name="rest_code_c0c0ce7a1bc248fc973d19dae8c51189-3"></a><span class="go">b2aff6d696c0: Preparing</span>
+<a name="rest_code_c0c0ce7a1bc248fc973d19dae8c51189-4"></a><span class="go">f18abb5d7b45: Preparing</span>
+<a name="rest_code_c0c0ce7a1bc248fc973d19dae8c51189-5"></a><span class="go">f18abb5d7b45: Pushed</span>
+<a name="rest_code_c0c0ce7a1bc248fc973d19dae8c51189-6"></a><span class="go">latest: digest: sha256:834be6348517746b53f3d44c56b580a0cea74161b86426cc006b1c066c48e047 size: 2417</span>
+</pre>
+</blockquote>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="section" id="id11">
+<h2><a class="toc-backref" href="#id47">2.3 Docker コンテナの操作</a></h2>
+<p>Docker コンテナは外から見ると仮想環境、ファイルシステムとアプリケーションが同梱されている箱のようなもの。</p>
+<div class="section" id="id12">
+<h3><a class="toc-backref" href="#id48">2.3.1 Docker コンテナのライフサイクル</a></h3>
+<p>Docker コンテナは、以下の3つの状態のいずれかに分類される。</p>
+<table class="colwidths-auto"><tbody>
+<tr>
+<th class="stub"><p>実行中</p></th>
+<td><p><code class="docutils literal">$ docker container run</code> で起動した状態。</p></td>
+</tr>
+<tr>
+<th class="stub"><p>停止</p></th>
+<td><p>停止しても、ディスクにコンテナ終了時の状態は保持される。停止したコンテナは再実行可能。</p></td>
+</tr>
+<tr>
+<th class="stub"><p>破棄</p></th>
+<td><ul class="simple">
+<li><p>停止したコンテナは明示的に破棄しない限りディスクに残り続ける。どんどんたまる。</p></li>
+<li><p>完全に不要なコンテナは破棄するほうが望ましい。</p></li>
+<li><p>一度破棄したコンテナを再び開始することはできない。</p></li>
+</ul></td>
+</tr>
+</tbody></table>
+</div>
+<div class="section" id="docker-container-run">
+<h3><a class="toc-backref" href="#id49">2.3.2 docker container run --- コンテナの作成と実行</a></h3>
+<p>Docker イメージからコンテナを作成、実行するコマンド。</p>
+<pre class="code console"><a name="rest_code_92a7157c515c43679d43bb88af0cb8d8-1"></a><span class="gp">$</span> docker container run <span class="o">[</span>options<span class="o">]</span> イメージ名<span class="o">[</span>:タグ名<span class="o">]</span> <span class="o">[</span>コマンド<span class="o">]</span> <span class="o">[</span>コマンド引数...<span class="o">]</span>
+</pre>
+<pre class="code console"><a name="rest_code_0c41fc24014c4df894781f20b071700f-1"></a><span class="gp">$</span> docker container run <span class="o">[</span>options<span class="o">]</span> イメージID <span class="o">[</span>コマンド<span class="o">]</span> <span class="o">[</span>コマンド引数...<span class="o">]</span>
+</pre>
+<div class="admonition note">
+<p class="admonition-title">備考</p>
+<p>コンテナをバックグラウンドで実行 → HTTP リクエストしてみる → 停める</p>
+<pre class="code console"><a name="rest_code_6cbc1e1dfd0540aca57da53c12357cff-1"></a><span class="gp">$</span> docker container run -d -p <span class="m">9001</span>:8080 example/echo:latest
+<a name="rest_code_6cbc1e1dfd0540aca57da53c12357cff-2"></a><span class="gp">$</span> curl http://localhost:9001/
+<a name="rest_code_6cbc1e1dfd0540aca57da53c12357cff-3"></a><span class="gp">$</span> docker container stop <span class="k">$(</span>docker container ls --filter <span class="s2">"ancestor=example/echo"</span> -q<span class="k">)</span>
+</pre>
+</div>
+<div class="section" id="id13">
+<h4><a class="toc-backref" href="#id50">docker container run 時に引数を与える</a></h4>
+<pre class="code console"><a name="rest_code_0d046cf676bb44059fca8b2117224b5f-1"></a><span class="gp">$</span> docker image pull alpine:3.7
+<a name="rest_code_0d046cf676bb44059fca8b2117224b5f-2"></a><span class="gp">#</span> docker container run -it alpine:3.7  <span class="c1"># シェルに入る</span>
+<a name="rest_code_0d046cf676bb44059fca8b2117224b5f-3"></a><span class="gp">$</span> docker container run -it alpine:3.7 uname -a
+</pre>
+</div>
+<div class="section" id="id14">
+<h4><a class="toc-backref" href="#id51">名前付きコンテナ</a></h4>
+<p><code class="docutils literal">NAMES</code> は適当な単語で作られた名前が自動でつけられる。</p>
+<pre class="code console"><a name="rest_code_8405b764d69343bfb497c3d0ce47e177-1"></a><span class="gp">$</span> docker container ls
+<a name="rest_code_8405b764d69343bfb497c3d0ce47e177-2"></a><span class="go">CONTAINER ID        IMAGE                 COMMAND                  CREATED             STATUS              PORTS                    NAMES</span>
+<a name="rest_code_8405b764d69343bfb497c3d0ce47e177-3"></a><span class="go">77699bc8d7cd        example/echo:latest   "go run /echo/main.go"   4 seconds ago       Up 2 seconds        0.0.0.0:9001-&gt;8080/tcp   modest_saha</span>
+</pre>
+<p>コンテナに好きな名前をつけられる。</p>
+<pre class="code console"><a name="rest_code_4260aa88b13b46fdb822cd6e0916ddf9-1"></a><span class="gp">$</span> docker container run --name <span class="o">[</span>好きなコンテナ名<span class="o">]</span> <span class="o">[</span>イメージ名<span class="o">]</span>:<span class="o">[</span>タグ<span class="o">]</span>
+</pre>
+<pre class="code console"><a name="rest_code_6745e74b3d00451d98ae51630ec8280d-1"></a><span class="gp">$</span> docker container run -t -d --name gihyo-echo example/echo:latest
+<a name="rest_code_6745e74b3d00451d98ae51630ec8280d-2"></a><span class="go">4864fcaf10802340449f50364891cc48b99e90538f04d8e601c5c0397ff11917</span>
+<a name="rest_code_6745e74b3d00451d98ae51630ec8280d-3"></a><span class="gp">$</span> docker container ls
+<a name="rest_code_6745e74b3d00451d98ae51630ec8280d-4"></a><span class="go">CONTAINER ID        IMAGE                 COMMAND                  CREATED             STATUS              PORTS                    NAMES</span>
+<a name="rest_code_6745e74b3d00451d98ae51630ec8280d-5"></a><span class="go">4864fcaf1080        example/echo:latest   "go run /echo/main.go"   3 seconds ago       Up 2 seconds                                 gihyo-echo</span>
+<a name="rest_code_6745e74b3d00451d98ae51630ec8280d-6"></a><span class="go">77699bc8d7cd        example/echo:latest   "go run /echo/main.go"   4 minutes ago       Up 4 minutes        0.0.0.0:9001-&gt;8080/tcp   modest_saha</span>
+</pre>
+<ul class="simple">
+<li><p>開発時は便利だが、本番環境ではあまり使わない</p></li>
+<li><p>同名のコンテナを新たに実行するには既存の同名コンテナを削除する必要があるため</p></li>
+</ul>
+</div>
+<div class="section" id="id15">
+<h4><a class="toc-backref" href="#id52">コマンド実行時の頻出オプション</a></h4>
+<dl class="field-list simple">
+<dt>-i</dt>
+<dd>
+<p>docker 起動後にコンテナ側の標準入力をつなぎっぱなしにする。シェルに入ってコマンド実行ができる。</p>
+</dd>
+<dt>-t</dt>
+<dd>
+<p>擬似端末を有効にする。</p>
+</dd>
+<dt>-it</dt>
+<dd>
+<p>-i と -t はセットで使うことが多い。</p>
+</dd>
+<dt>--rm</dt>
+<dd>
+<p>コンテナ終了時にコンテナを破棄する。</p>
+</dd>
+<dt>-v</dt>
+<dd>
+<p>ホストとコンテナ間でディレクトリ、ファイルを共有する</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="docker-container-ls">
+<h3><a class="toc-backref" href="#id53">2.3.3 docker container ls --- コンテナの一覧</a></h3>
+<p>実行中及び終了したコンテナの一覧を表示するコマンド</p>
+<pre class="code console"><a name="rest_code_c7e732a467794678bf8426a9c4c4a7b0-1"></a><span class="gp">$</span> docker container ls <span class="o">[</span>options<span class="o">]</span>
+</pre>
+<p>オプションなしで実行すると、実行中のコンテナ一覧が表示される</p>
+<pre class="code console"><a name="rest_code_f2a9b57946ea418f8940fc431be15bdb-1"></a><span class="gp">$</span> docker container run -t -d -p <span class="m">8080</span> --name fumi23 example/echo:latest
+<a name="rest_code_f2a9b57946ea418f8940fc431be15bdb-2"></a><span class="go">81e3a724ae7c730eea14b86edf354c9aad4bced96e272d1fce238760080a23b6</span>
+<a name="rest_code_f2a9b57946ea418f8940fc431be15bdb-3"></a><span class="gp">$</span> docker container run -t -d -p <span class="m">8080</span> --name fumi45 example/echo:latest
+<a name="rest_code_f2a9b57946ea418f8940fc431be15bdb-4"></a><span class="go">db029554bc5fc2e23a724892bef867c613ae5dba861e50de48914bcde23ebaf1</span>
+<a name="rest_code_f2a9b57946ea418f8940fc431be15bdb-5"></a><span class="gp">$</span> docker container ls
+<a name="rest_code_f2a9b57946ea418f8940fc431be15bdb-6"></a><span class="go">CONTAINER ID        IMAGE                 COMMAND                  CREATED             STATUS              PORTS                     NAMES</span>
+<a name="rest_code_f2a9b57946ea418f8940fc431be15bdb-7"></a><span class="go">db029554bc5f        example/echo:latest   "go run /echo/main.go"   21 seconds ago      Up 21 seconds       0.0.0.0:32769-&gt;8080/tcp   fumi45</span>
+<a name="rest_code_f2a9b57946ea418f8940fc431be15bdb-8"></a><span class="go">81e3a724ae7c        example/echo:latest   "go run /echo/main.go"   44 seconds ago      Up 43 seconds       0.0.0.0:32768-&gt;8080/tcp   fumi23</span>
+</pre>
+<table class="colwidths-auto">
+<caption>一覧の表示項目</caption>
+<thead><tr>
+<th class="head"><p>項目</p></th>
+<th class="head"><p>内容</p></th>
+</tr></thead>
+<tbody>
+<tr>
+<td><p>CONTAINER ID</p></td>
+<td><p>コンテナに付与される一意の ID</p></td>
+</tr>
+<tr>
+<td><p>IMAGE</p></td>
+<td><p>コンテナ作成に使用された Docker イメージ</p></td>
+</tr>
+<tr>
+<td><p>COMMAND</p></td>
+<td><p>コンテナで実行されているアプリケーションのプロセス</p></td>
+</tr>
+<tr>
+<td><p>CREATED</p></td>
+<td><p>コンテナが作成されてから経過した時間</p></td>
+</tr>
+<tr>
+<td><p>STATUS</p></td>
+<td><p>Up (実行中), Exited(終了) といったコンテナの実行状態</p></td>
+</tr>
+<tr>
+<td><p>PORTS</p></td>
+<td><p>ホストのポートとコンテナポートの紐づけ (ポートフォワーディング)</p></td>
+</tr>
+<tr>
+<td><p>NAMES</p></td>
+<td><p>コンテナにつけられた名前</p></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="id16">
+<h4><a class="toc-backref" href="#id54">コンテナIDだけを抽出する</a></h4>
+<pre class="code console"><a name="rest_code_960c99c06ff742cab10badfd7563c960-1"></a><span class="gp">$</span> docker container ls -q
+<a name="rest_code_960c99c06ff742cab10badfd7563c960-2"></a><span class="go">db029554bc5f</span>
+<a name="rest_code_960c99c06ff742cab10badfd7563c960-3"></a><span class="go">81e3a724ae7c</span>
+</pre>
+</div>
+<div class="section" id="filter">
+<h4><a class="toc-backref" href="#id55">filter を使う</a></h4>
+<p>特定の条件に一致するものだけを抽出する</p>
+<pre class="code console"><a name="rest_code_71cd7f2bd53f427cb18dbb5012ef7522-1"></a><span class="gp">$</span> docker container ls --filter <span class="s2">"filter名=値"</span>
+</pre>
+<ul>
+<li>
+<p>コンテナ名で抽出する</p>
+<pre class="code console"><a name="rest_code_5f4c0cc3f8c148f4aa511a40a10987b9-1"></a><span class="gp">$</span> docker container ls --filter <span class="s2">"name=fumi45"</span>
+<a name="rest_code_5f4c0cc3f8c148f4aa511a40a10987b9-2"></a><span class="go">CONTAINER ID        IMAGE                 COMMAND                  CREATED             STATUS              PORTS                     NAMES</span>
+<a name="rest_code_5f4c0cc3f8c148f4aa511a40a10987b9-3"></a><span class="go">db029554bc5f        example/echo:latest   "go run /echo/main.go"   5 days ago          Up 5 days           0.0.0.0:32769-&gt;8080/tcp   fumi45</span>
+</pre>
+</li>
+<li>
+<p>イメージ名で抽出する</p>
+<pre class="code console"><a name="rest_code_5aba0204d2b84001b6a5ac2bb4a4f820-1"></a><span class="gp">$</span> docker container ls --filter <span class="s2">"ancestor=example/echo"</span>
+<a name="rest_code_5aba0204d2b84001b6a5ac2bb4a4f820-2"></a><span class="go">CONTAINER ID        IMAGE                 COMMAND                  CREATED             STATUS              PORTS                     NAMES</span>
+<a name="rest_code_5aba0204d2b84001b6a5ac2bb4a4f820-3"></a><span class="go">db029554bc5f        example/echo:latest   "go run /echo/main.go"   5 days ago          Up 5 days           0.0.0.0:32769-&gt;8080/tcp   fumi45</span>
+<a name="rest_code_5aba0204d2b84001b6a5ac2bb4a4f820-4"></a><span class="go">81e3a724ae7c        example/echo:latest   "go run /echo/main.go"   5 days ago          Up 5 days           0.0.0.0:32768-&gt;8080/tcp   fumi23</span>
+</pre>
+</li>
+</ul>
+</div>
+<div class="section" id="id17">
+<h4><a class="toc-backref" href="#id56">終了したコンテナを取得する</a></h4>
+<p>終了したコンテナも含めたコンテナの一覧を取得する</p>
+<blockquote>
+<pre class="code console"><a name="rest_code_7076e7bfdef846bf94d35d94e0952d5e-1"></a><span class="gp">$</span> docker container ls -a
+<a name="rest_code_7076e7bfdef846bf94d35d94e0952d5e-2"></a><span class="go">CONTAINER ID        IMAGE                     COMMAND                  CREATED             STATUS                    PORTS                     NAMES</span>
+<a name="rest_code_7076e7bfdef846bf94d35d94e0952d5e-3"></a><span class="go">db029554bc5f        example/echo:latest       "go run /echo/main.go"   5 days ago          Up 5 days                 0.0.0.0:32769-&gt;8080/tcp   fumi45</span>
+<a name="rest_code_7076e7bfdef846bf94d35d94e0952d5e-4"></a><span class="go">81e3a724ae7c        example/echo:latest       "go run /echo/main.go"   5 days ago          Up 5 days                 0.0.0.0:32768-&gt;8080/tcp   fumi23</span>
+<a name="rest_code_7076e7bfdef846bf94d35d94e0952d5e-5"></a><span class="go">4864fcaf1080        example/echo:latest       "go run /echo/main.go"   5 days ago          Exited (2) 5 days ago                               gihyo-echo</span>
+<a name="rest_code_7076e7bfdef846bf94d35d94e0952d5e-6"></a><span class="go">77699bc8d7cd        example/echo:latest       "go run /echo/main.go"   5 days ago          Exited (2) 5 days ago                               modest_saha</span>
+<a name="rest_code_7076e7bfdef846bf94d35d94e0952d5e-7"></a><span class="go">...</span>
+</pre>
+</blockquote>
+</div>
+</div>
+<div class="section" id="docker-container-stop">
+<h3><a class="toc-backref" href="#id57">2.3.4 docker container stop --- コンテナの停止</a></h3>
+<p>実行しているコンテナを終了する</p>
+<pre class="code console"><a name="rest_code_04f5503be4d5464cab32cbc881d30c28-1"></a><span class="gp">$</span> docker container stop コンテナIDまたはコンテナ名
+</pre>
+<ul>
+<li>
+<p>コンテナ名 <code class="docutils literal">fumi45</code> のコンテナを終了する。</p>
+<pre class="code console"><a name="rest_code_44c1d338a8194e4eb940095d15122553-1"></a><span class="gp">$</span> docker container ls
+<a name="rest_code_44c1d338a8194e4eb940095d15122553-2"></a><span class="go">CONTAINER ID        IMAGE                 COMMAND                  CREATED             STATUS              PORTS                     NAMES</span>
+<a name="rest_code_44c1d338a8194e4eb940095d15122553-3"></a><span class="go">db029554bc5f        example/echo:latest   "go run /echo/main.go"   5 days ago          Up 5 days           0.0.0.0:32769-&gt;8080/tcp   fumi45</span>
+<a name="rest_code_44c1d338a8194e4eb940095d15122553-4"></a><span class="go">81e3a724ae7c        example/echo:latest   "go run /echo/main.go"   5 days ago          Up 5 days           0.0.0.0:32768-&gt;8080/tcp   fumi23</span>
+<a name="rest_code_44c1d338a8194e4eb940095d15122553-5"></a><span class="gp">$</span> docker container stop fumi45
+<a name="rest_code_44c1d338a8194e4eb940095d15122553-6"></a><span class="go">fumi45</span>
+<a name="rest_code_44c1d338a8194e4eb940095d15122553-7"></a><span class="gp">$</span> docker container ls
+<a name="rest_code_44c1d338a8194e4eb940095d15122553-8"></a><span class="go">CONTAINER ID        IMAGE                 COMMAND                  CREATED             STATUS              PORTS                     NAMES</span>
+<a name="rest_code_44c1d338a8194e4eb940095d15122553-9"></a><span class="go">81e3a724ae7c        example/echo:latest   "go run /echo/main.go"   5 days ago          Up 5 days           0.0.0.0:32768-&gt;8080/tcp   fumi23</span>
+</pre>
+</li>
+</ul>
+</div>
+<div class="section" id="docker-container-restart">
+<h3><a class="toc-backref" href="#id58">2.3.5 docker container restart --- コンテナの再起動</a></h3>
+<p>一度停止したコンテナは破棄しない限り、再実行できる。</p>
+<pre class="code console"><a name="rest_code_624f505c9dc24afb94c6c9a742e65873-1"></a><span class="gp">$</span> docker container restart コンテナIDまたはコンテナ名
+</pre>
+<ul>
+<li>
+<p>さっき停止した fumi45 を再実行する</p>
+<pre class="code console"><a name="rest_code_6ebd73377a8b4563ac201fd55adfa02f-1"></a><span class="gp">$</span> docker container restart fumi45
+<a name="rest_code_6ebd73377a8b4563ac201fd55adfa02f-2"></a><span class="go">fumi45</span>
+<a name="rest_code_6ebd73377a8b4563ac201fd55adfa02f-3"></a><span class="gp">$</span> docker container ls
+<a name="rest_code_6ebd73377a8b4563ac201fd55adfa02f-4"></a><span class="go">CONTAINER ID        IMAGE                 COMMAND                  CREATED             STATUS              PORTS                     NAMES</span>
+<a name="rest_code_6ebd73377a8b4563ac201fd55adfa02f-5"></a><span class="go">db029554bc5f        example/echo:latest   "go run /echo/main.go"   5 days ago          Up 3 seconds        0.0.0.0:32770-&gt;8080/tcp   fumi45</span>
+<a name="rest_code_6ebd73377a8b4563ac201fd55adfa02f-6"></a><span class="go">81e3a724ae7c        example/echo:latest   "go run /echo/main.go"   5 days ago          Up 5 days           0.0.0.0:32768-&gt;8080/tcp   fumi23</span>
+</pre>
+</li>
+</ul>
+</div>
+<div class="section" id="docker-container-rm">
+<h3><a class="toc-backref" href="#id59">2.3.6 docker container rm --- コンテナの破棄</a></h3>
+<p>停止したコンテナをディスクから完全に破棄する。 (破棄しない限りはどんどん溜まる)</p>
+<pre class="code console"><a name="rest_code_6db45c9831e2494e89e1d8d58d18deca-1"></a><span class="gp">$</span> docker container rm コンテナIDまたはコンテナ名
+</pre>
+<ul>
+<li>
+<p>コンテナID <code class="docutils literal">4864fcaf1080</code> のコンテナを破棄する。</p>
+<pre class="code console"><a name="rest_code_23c37014984f4832a6738d63d4b15de3-1"></a><span class="gp">$</span> docker container ls -a
+<a name="rest_code_23c37014984f4832a6738d63d4b15de3-2"></a><span class="go">CONTAINER ID        IMAGE                     COMMAND                  CREATED             STATUS                    PORTS                     NAMES</span>
+<a name="rest_code_23c37014984f4832a6738d63d4b15de3-3"></a><span class="go">db029554bc5f        example/echo:latest       "go run /echo/main.go"   5 days ago          Up 5 days                 0.0.0.0:32769-&gt;8080/tcp   fumi45</span>
+<a name="rest_code_23c37014984f4832a6738d63d4b15de3-4"></a><span class="go">81e3a724ae7c        example/echo:latest       "go run /echo/main.go"   5 days ago          Up 5 days                 0.0.0.0:32768-&gt;8080/tcp   fumi23</span>
+<a name="rest_code_23c37014984f4832a6738d63d4b15de3-5"></a><span class="go">4864fcaf1080        example/echo:latest       "go run /echo/main.go"   5 days ago          Exited (2) 5 days ago                               gihyo-echo</span>
+<a name="rest_code_23c37014984f4832a6738d63d4b15de3-6"></a><span class="go">77699bc8d7cd        example/echo:latest       "go run /echo/main.go"   5 days ago          Exited (2) 5 days ago                               modest_saha</span>
+<a name="rest_code_23c37014984f4832a6738d63d4b15de3-7"></a><span class="gp">$</span> docker container rm 4864fcaf1080
+<a name="rest_code_23c37014984f4832a6738d63d4b15de3-8"></a><span class="go">4864fcaf1080</span>
+<a name="rest_code_23c37014984f4832a6738d63d4b15de3-9"></a><span class="gp">$</span> docker container ls -a
+<a name="rest_code_23c37014984f4832a6738d63d4b15de3-10"></a><span class="go">CONTAINER ID        IMAGE                     COMMAND                  CREATED             STATUS                    PORTS                     NAMES</span>
+<a name="rest_code_23c37014984f4832a6738d63d4b15de3-11"></a><span class="go">db029554bc5f        example/echo:latest       "go run /echo/main.go"   5 days ago          Up 5 minutes              0.0.0.0:32770-&gt;8080/tcp   fumi45</span>
+<a name="rest_code_23c37014984f4832a6738d63d4b15de3-12"></a><span class="go">81e3a724ae7c        example/echo:latest       "go run /echo/main.go"   5 days ago          Up 5 days                 0.0.0.0:32768-&gt;8080/tcp   fumi23</span>
+<a name="rest_code_23c37014984f4832a6738d63d4b15de3-13"></a><span class="go">77699bc8d7cd        example/echo:latest       "go run /echo/main.go"   5 days ago          Exited (2) 5 days ago                               modest_saha</span>
+</pre>
+</li>
+<li>
+<p>実行中のコンテナを停止・削除する。</p>
+<pre class="code console"><a name="rest_code_0b9af330470048c4b871c5d128a9244b-1"></a><span class="gp">$</span> docker container ls
+<a name="rest_code_0b9af330470048c4b871c5d128a9244b-2"></a><span class="go">CONTAINER ID        IMAGE                 COMMAND                  CREATED             STATUS              PORTS                     NAMES</span>
+<a name="rest_code_0b9af330470048c4b871c5d128a9244b-3"></a><span class="go">db029554bc5f        example/echo:latest   "go run /echo/main.go"   5 days ago          Up 8 minutes        0.0.0.0:32770-&gt;8080/tcp   fumi45</span>
+<a name="rest_code_0b9af330470048c4b871c5d128a9244b-4"></a><span class="go">81e3a724ae7c        example/echo:latest   "go run /echo/main.go"   5 days ago          Up 5 days           0.0.0.0:32768-&gt;8080/tcp   fumi23</span>
+<a name="rest_code_0b9af330470048c4b871c5d128a9244b-5"></a><span class="gp">$</span> docker container rm -f db029554bc5f
+<a name="rest_code_0b9af330470048c4b871c5d128a9244b-6"></a><span class="go">db029554bc5f</span>
+<a name="rest_code_0b9af330470048c4b871c5d128a9244b-7"></a><span class="gp">$</span> docker container ls
+<a name="rest_code_0b9af330470048c4b871c5d128a9244b-8"></a><span class="go">CONTAINER ID        IMAGE                 COMMAND                  CREATED             STATUS              PORTS                     NAMES</span>
+<a name="rest_code_0b9af330470048c4b871c5d128a9244b-9"></a><span class="go">81e3a724ae7c        example/echo:latest   "go run /echo/main.go"   5 days ago          Up 5 days           0.0.0.0:32768-&gt;8080/tcp   fumi23</span>
+</pre>
+</li>
+</ul>
+<div class="section" id="id18">
+<h4><a class="toc-backref" href="#id60">停止の際にコンテナを破棄する</a></h4>
+<pre class="code console"><a name="rest_code_a62eb0ca3b3144c8b5f646cafdd31de7-1"></a><span class="gp">$</span> docker container run --rm
+</pre>
+<ul>
+<li><p>コマンドラインツールとして利用するときなどに便利</p></li>
+<li><p>停止したあとディスクに保持し続ける必要がないときに利用する</p></li>
+<li>
+<p>例)</p>
+<pre class="code console"><a name="rest_code_d6de667e26ca47f1a96b34cace2dfd56-1"></a><span class="gp">$</span> <span class="nb">echo</span> <span class="s1">'{"version": 100}'</span> <span class="p">|</span> docker container run -i --rm gihyodocker/jq:1.5 <span class="s1">'.version'</span>
+<a name="rest_code_d6de667e26ca47f1a96b34cace2dfd56-2"></a><span class="go">100</span>
+</pre>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="docker-container-logs">
+<h3><a class="toc-backref" href="#id61">2.3.7 docker container logs --- 標準出力の取得</a></h3>
+<p>実行している特定のコンテナの標準出力を表示する。</p>
+<pre class="code console"><a name="rest_code_1d443008c19f40a9bb04254d40dfb014-1"></a><span class="gp">$</span> docker container logs <span class="o">[</span>options<span class="o">]</span> コンテナIDまたはコンテナ名
+</pre>
+<ul class="simple">
+<li><p>標準出力されているものだけが表示される。</p></li>
+<li><p>コンテナ内でアプリケーションがファイルに出力したようなログは表示されない</p></li>
+</ul>
+</div>
+<div class="section" id="docker-container-exec">
+<h3><a class="toc-backref" href="#id62">2.3.8 docker container exec --- 実行中コンテナでのコマンド実行</a></h3>
+<p>実行中の Docker コンテナの中で、任意のコマンドを実行できる。</p>
+<pre class="code console"><a name="rest_code_1c75784b60364eaa92e1753e6e5b14f4-1"></a><span class="gp">$</span> docker container <span class="nb">exec</span> <span class="o">[</span>options<span class="o">]</span> コンテナIDまたはコンテナ名 コンテナ内で実行するコマンド
+</pre>
+<ul>
+<li>
+<p>実行中のコンテナ <code class="docutils literal">fumi23</code> 内で <code class="docutils literal">pwd</code> コマンドを実行する。</p>
+<pre class="code console"><a name="rest_code_85b362f7ce6c478cbed2bdf98dd28a36-1"></a><span class="gp">$</span> docker container <span class="nb">exec</span> fumi23 <span class="nb">pwd</span>
+<a name="rest_code_85b362f7ce6c478cbed2bdf98dd28a36-2"></a><span class="go">/go</span>
+</pre>
+</li>
+<li>
+<p>コンテナをシェル経由で操作する。</p>
+<pre class="code console"><a name="rest_code_5034d1757792490da164d131d1c553f4-1"></a><span class="gp">$</span> docker container <span class="nb">exec</span> -it fumi23 sh
+<a name="rest_code_5034d1757792490da164d131d1c553f4-2"></a><span class="gp">#</span> <span class="nb">pwd</span>
+<a name="rest_code_5034d1757792490da164d131d1c553f4-3"></a><span class="go">/go</span>
+<a name="rest_code_5034d1757792490da164d131d1c553f4-4"></a><span class="gp">#</span> <span class="nb">exit</span>
+</pre>
+<ul class="simple">
+<li><p>本番環境ではやらないほうがよい</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="docker-container-cp">
+<h3><a class="toc-backref" href="#id63">2.3.9 docker container cp --- ファイルのコピー</a></h3>
+<p>コンテナ間、コンテナ・ホスト間でファイルをコピーできる。</p>
+<pre class="code console"><a name="rest_code_df72c024af794835a373c2edb7c49314-1"></a><span class="gp">$</span> docker container cp <span class="o">[</span>options<span class="o">]</span> コンテナIDまたはコンテナ名:コンテナ内のコピー元 ホストのコピー先
+</pre>
+<pre class="code console"><a name="rest_code_cf817f2d3cbb4eb28a4263d5b6bebbb7-1"></a><span class="gp">$</span> docker container cp <span class="o">[</span>options<span class="o">]</span> ホストのコピー元 コンテナIDまたはコンテナ名:コンテナ内のコピー先
+</pre>
+<ul>
+<li>
+<p>実行中のコンテナ <code class="docutils literal">fumi23</code> からホストのカレントディレクトリに <code class="docutils literal">main.go</code> をコピーする。</p>
+<pre class="code console"><a name="rest_code_89bdd3bd70c04d2bbf15fe6ba2b6d939-1"></a><span class="gp">$</span> docker container cp fumi23:/echo/main.go .
+</pre>
+</li>
+<li>
+<p>ホストのカレントディレクトリから、実行中のコンテナ <code class="docutils literal">fumi23</code> に <code class="docutils literal">dummy.txt</code> をコピーする。</p>
+<pre class="code console"><a name="rest_code_e9778c36079049a09c4f4707b703cd5b-1"></a><span class="gp">$</span> docker container cp dummy.txt fumi23:tmp
+<a name="rest_code_e9778c36079049a09c4f4707b703cd5b-2"></a><span class="gp">$</span> docker container <span class="nb">exec</span> fumi23 ls /tmp <span class="p">|</span> grep dummy
+<a name="rest_code_e9778c36079049a09c4f4707b703cd5b-3"></a><span class="go">dummy.txt</span>
+</pre>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">備考</p>
+<ul class="simple">
+<li><p>コンテナ内で生成されたファイルをホストにコピーしてきて確認するようなデバッグ用途で使ったりする。</p></li>
+<li><p>破棄されていない終了したコンテナに対しても実行できる。</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="id19">
+<h2><a class="toc-backref" href="#id64">2.4 運用管理向けコマンド</a></h2>
+<div class="section" id="prune">
+<h3><a class="toc-backref" href="#id65">2.4.1 prune --- 破棄</a></h3>
+<p>停止しているコンテナを一括で削除する。</p>
+<pre class="code console"><a name="rest_code_d2c7c19ec83f4c53b69d3e42094acbe3-1"></a><span class="gp">$</span> docker container prune <span class="o">[</span>options<span class="o">]</span>
+</pre>
+<ul>
+<li>
+<p>途中で 確認を求められるので <code class="docutils literal">y</code> と回答する。</p>
+<pre class="code console"><a name="rest_code_8c83ea9bdf72406a9764ae4c4494a3c1-1"></a><span class="gp">$</span> docker container ls -a
+<a name="rest_code_8c83ea9bdf72406a9764ae4c4494a3c1-2"></a><span class="go">CONTAINER ID        IMAGE                     COMMAND                  CREATED             STATUS                    PORTS                     NAMES</span>
+<a name="rest_code_8c83ea9bdf72406a9764ae4c4494a3c1-3"></a><span class="go">81e3a724ae7c        example/echo:latest       "go run /echo/main.go"   5 days ago          Up 5 days                 0.0.0.0:32768-&gt;8080/tcp   fumi23</span>
+<a name="rest_code_8c83ea9bdf72406a9764ae4c4494a3c1-4"></a><span class="go">77699bc8d7cd        example/echo:latest       "go run /echo/main.go"   5 days ago          Exited (2) 5 days ago                               modest_saha</span>
+<a name="rest_code_8c83ea9bdf72406a9764ae4c4494a3c1-5"></a><span class="go">9a5c3a822e39        example/echo:latest       "go run /echo/main.go"   5 days ago          Exited (2) 5 days ago                               inspiring_goldstine</span>
+<a name="rest_code_8c83ea9bdf72406a9764ae4c4494a3c1-6"></a><span class="go">f4e8a963eae4        example/echo:latest       "go run /echo/main.go"   5 days ago          Created                                             affectionate_curie</span>
+<a name="rest_code_8c83ea9bdf72406a9764ae4c4494a3c1-7"></a><span class="go">b113261a42b8        example/echo:latest       "go run /echo/main.go"   6 days ago          Exited (2) 5 days ago                               ecstatic_tesla</span>
+<a name="rest_code_8c83ea9bdf72406a9764ae4c4494a3c1-8"></a><span class="go">449ccdc8c99e        example/echo:latest       "go run /echo/main.go"   6 days ago          Exited (2) 6 days ago                               determined_zhukovsky</span>
+<a name="rest_code_8c83ea9bdf72406a9764ae4c4494a3c1-9"></a><span class="go">a11a7535307a        example/echo:latest       "go run /echo/main.go"   6 days ago          Exited (2) 6 days ago                               vibrant_borg</span>
+<a name="rest_code_8c83ea9bdf72406a9764ae4c4494a3c1-10"></a><span class="go">b8c42ba791e7        294c33d2b845              "go run /echo/main.go"   6 days ago          Exited (2) 6 days ago                               admiring_lalande</span>
+<a name="rest_code_8c83ea9bdf72406a9764ae4c4494a3c1-11"></a><span class="go">9cd48659badb        gihyodocker/echo:latest   "go run /echo/main.go"   7 days ago          Exited (2) 7 days ago                               dreamy_saha</span>
+<a name="rest_code_8c83ea9bdf72406a9764ae4c4494a3c1-12"></a><span class="go">fe9ad59901bb        gihyodocker/echo:latest   "go run /echo/main.go"   5 weeks ago         Exited (255) 7 days ago   0.0.0.0:9000-&gt;8080/tcp    vigilant_snyder</span>
+<a name="rest_code_8c83ea9bdf72406a9764ae4c4494a3c1-13"></a><span class="gp">$</span> docker container prune
+<a name="rest_code_8c83ea9bdf72406a9764ae4c4494a3c1-14"></a><span class="go">WARNING! This will remove all stopped containers.</span>
+<a name="rest_code_8c83ea9bdf72406a9764ae4c4494a3c1-15"></a><span class="go">Are you sure you want to continue? [y/N] y</span>
+<a name="rest_code_8c83ea9bdf72406a9764ae4c4494a3c1-16"></a><span class="go">Deleted Containers:</span>
+<a name="rest_code_8c83ea9bdf72406a9764ae4c4494a3c1-17"></a><span class="go">77699bc8d7cd6992526da9171db5d10b511f46f4b12b8d68706825fddf8b7a18</span>
+<a name="rest_code_8c83ea9bdf72406a9764ae4c4494a3c1-18"></a><span class="go">9a5c3a822e39ee5f811f21634c38cd4918a35e2e1ca0f680d170576fe98e7f33</span>
+<a name="rest_code_8c83ea9bdf72406a9764ae4c4494a3c1-19"></a><span class="go">f4e8a963eae40f539e92b95b14236af8e614977d20bd80d11e0f870e6bfcdb0c</span>
+<a name="rest_code_8c83ea9bdf72406a9764ae4c4494a3c1-20"></a><span class="go">b113261a42b8fb110cd1984904dccfe859067abd078637ff37804ad5f00c3ff5</span>
+<a name="rest_code_8c83ea9bdf72406a9764ae4c4494a3c1-21"></a><span class="go">449ccdc8c99e72ecd791b036417632ec3e7944f1e7ab14c5b96d7e4caec0e58b</span>
+<a name="rest_code_8c83ea9bdf72406a9764ae4c4494a3c1-22"></a><span class="go">a11a7535307a23a8121c7ac241e4df40f125a3187f556451e9014aa4f710046f</span>
+<a name="rest_code_8c83ea9bdf72406a9764ae4c4494a3c1-23"></a><span class="go">b8c42ba791e7f266451bddc6d74b1eb196bf3b55d072bc8ff2f64a7f9c096648</span>
+<a name="rest_code_8c83ea9bdf72406a9764ae4c4494a3c1-24"></a><span class="go">9cd48659badb6c5e8add684becbc91bae8fbeb6a928ae93618d8ff9fe3d36a6d</span>
+<a name="rest_code_8c83ea9bdf72406a9764ae4c4494a3c1-25"></a><span class="go">fe9ad59901bbdd5dbad274eddc2def85fc49361a6299a7ae02f7693944c928ef</span>
+<a name="rest_code_8c83ea9bdf72406a9764ae4c4494a3c1-26"></a>
+<a name="rest_code_8c83ea9bdf72406a9764ae4c4494a3c1-27"></a><span class="go">Total reclaimed space: 29.41MB</span>
+<a name="rest_code_8c83ea9bdf72406a9764ae4c4494a3c1-28"></a><span class="gp">$</span> docker container ls -a
+<a name="rest_code_8c83ea9bdf72406a9764ae4c4494a3c1-29"></a><span class="go">CONTAINER ID        IMAGE                 COMMAND                  CREATED             STATUS              PORTS                     NAMES</span>
+<a name="rest_code_8c83ea9bdf72406a9764ae4c4494a3c1-30"></a><span class="go">81e3a724ae7c        example/echo:latest   "go run /echo/main.go"   5 days ago          Up 5 days           0.0.0.0:32768-&gt;8080/tcp   fumi23</span>
+</pre>
+</li>
+</ul>
+<div class="section" id="id20">
+<h4><a class="toc-backref" href="#id66">Docker イメージを一括削除する</a></h4>
+<p>Docker イメージも一括で削除できる。</p>
+<pre class="code console"><a name="rest_code_cbfa27adc89148c78fb11fa7029ea157-1"></a><span class="gp">$</span> docker image prune <span class="o">[</span>options<span class="o">]</span>
+</pre>
+<ul>
+<li>
+<p>途中で 確認を求められるので <code class="docutils literal">y</code> と回答する。</p>
+<pre class="code console"><a name="rest_code_1c28693b9cac4063b30e230b490551cb-1"></a><span class="gp">$</span> docker image ls
+<a name="rest_code_1c28693b9cac4063b30e230b490551cb-2"></a><span class="go">REPOSITORY                       TAG                 IMAGE ID            CREATED             SIZE</span>
+<a name="rest_code_1c28693b9cac4063b30e230b490551cb-3"></a><span class="go">example/echo                     0.1.0               ed899b24590f        6 days ago          750MB</span>
+<a name="rest_code_1c28693b9cac4063b30e230b490551cb-4"></a><span class="go">example/echo                     latest              ed899b24590f        6 days ago          750MB</span>
+<a name="rest_code_1c28693b9cac4063b30e230b490551cb-5"></a><span class="go">fumi23/echo                      latest              ed899b24590f        6 days ago          750MB</span>
+<a name="rest_code_1c28693b9cac4063b30e230b490551cb-6"></a><span class="go">&lt;none&gt;                           &lt;none&gt;              294c33d2b845        7 days ago          750MB</span>
+<a name="rest_code_1c28693b9cac4063b30e230b490551cb-7"></a><span class="go">jenkins                          latest              cd14cecfdb3a        3 months ago        696MB</span>
+<a name="rest_code_1c28693b9cac4063b30e230b490551cb-8"></a><span class="go">golang                           1.9                 ef89ef5c42a9        3 months ago        750MB</span>
+<a name="rest_code_1c28693b9cac4063b30e230b490551cb-9"></a><span class="go">gihyodocker/jq                   1.5                 fb12c33cec33        10 months ago       5.31MB</span>
+<a name="rest_code_1c28693b9cac4063b30e230b490551cb-10"></a><span class="go">gihyodocker/echo                 latest              3dbbae6eb30d        10 months ago       733MB</span>
+<a name="rest_code_1c28693b9cac4063b30e230b490551cb-11"></a><span class="gp">$</span> docker image prune
+<a name="rest_code_1c28693b9cac4063b30e230b490551cb-12"></a><span class="go">WARNING! This will remove all dangling images.</span>
+<a name="rest_code_1c28693b9cac4063b30e230b490551cb-13"></a><span class="go">Are you sure you want to continue? [y/N] y</span>
+<a name="rest_code_1c28693b9cac4063b30e230b490551cb-14"></a><span class="go">Deleted Images:</span>
+<a name="rest_code_1c28693b9cac4063b30e230b490551cb-15"></a><span class="go">deleted: sha256:294c33d2b8454edba3e291fff2e2e477b287df30c13734a72fd8018cc4b4be9b</span>
+<a name="rest_code_1c28693b9cac4063b30e230b490551cb-16"></a><span class="go">deleted: sha256:73db87b05d43898a40665c4a8614bb383fc6bf050a37601e29da0fdb3f71e724</span>
+<a name="rest_code_1c28693b9cac4063b30e230b490551cb-17"></a><span class="go">deleted: sha256:8b7b14181869de8ccf721f5fc57b37b9d9ff533dc4c67201ff7b78862a67553c</span>
+<a name="rest_code_1c28693b9cac4063b30e230b490551cb-18"></a>
+<a name="rest_code_1c28693b9cac4063b30e230b490551cb-19"></a><span class="go">Total reclaimed space: 395B</span>
+<a name="rest_code_1c28693b9cac4063b30e230b490551cb-20"></a><span class="gp">$</span> docker image ls
+<a name="rest_code_1c28693b9cac4063b30e230b490551cb-21"></a><span class="go">REPOSITORY                       TAG                 IMAGE ID            CREATED             SIZE</span>
+<a name="rest_code_1c28693b9cac4063b30e230b490551cb-22"></a><span class="go">example/echo                     0.1.0               ed899b24590f        6 days ago          750MB</span>
+<a name="rest_code_1c28693b9cac4063b30e230b490551cb-23"></a><span class="go">example/echo                     latest              ed899b24590f        6 days ago          750MB</span>
+<a name="rest_code_1c28693b9cac4063b30e230b490551cb-24"></a><span class="go">fumi23/echo                      latest              ed899b24590f        6 days ago          750MB</span>
+<a name="rest_code_1c28693b9cac4063b30e230b490551cb-25"></a><span class="go">jenkins                          latest              cd14cecfdb3a        3 months ago        696MB</span>
+<a name="rest_code_1c28693b9cac4063b30e230b490551cb-26"></a><span class="go">golang                           1.9                 ef89ef5c42a9        3 months ago        750MB</span>
+<a name="rest_code_1c28693b9cac4063b30e230b490551cb-27"></a><span class="go">gihyodocker/jq                   1.5                 fb12c33cec33        10 months ago       5.31MB</span>
+<a name="rest_code_1c28693b9cac4063b30e230b490551cb-28"></a><span class="go">gihyodocker/echo                 latest              3dbbae6eb30d        10 months ago       733MB</span>
+</pre>
+<ul class="simple">
+<li><p>残っているイメージは、 Docker が自動で判断して残しているもの。実行中のコンテナのイメージであるなど理由がある。</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id21">
+<h4><a class="toc-backref" href="#id67">Docker リソースを一括削除する</a></h4>
+<p>利用されていない Docker コンテナやイメージ、ボリューム、ネットワークといった全ての Docker リソースを一括で削除する。</p>
+<pre class="code console"><a name="rest_code_1b2f226f496d4893994dd05c3e6b0663-1"></a><span class="gp">$</span> docker system prune <span class="o">[</span>options<span class="o">]</span>
+</pre>
+</div>
+</div>
+<div class="section" id="docker-container-stats">
+<h3><a class="toc-backref" href="#id68">2.4.2 docker container stats --- 利用状況の取得</a></h3>
+<p>コンテナ単位でシステムリソースの利用状況を取得する。</p>
+<pre class="code console"><a name="rest_code_700297bc1ddc479088d3f3aa4e1f8a0f-1"></a><span class="gp">$</span> docker container stats <span class="o">[</span>options<span class="o">]</span> <span class="o">[</span>表示するコンテナID...<span class="o">]</span>
+</pre>
+<ul class="simple">
+<li><p>実行例</p></li>
+</ul>
+<pre class="code console"><a name="rest_code_eb461c03006f4b1292c8634a061bc820-1"></a><span class="gp">$</span> docker container stats
+<a name="rest_code_eb461c03006f4b1292c8634a061bc820-2"></a><span class="go">CONTAINER ID        NAME                CPU %               MEM USAGE / LIMIT     MEM %               NET I/O             BLOCK I/O           PIDS</span>
+<a name="rest_code_eb461c03006f4b1292c8634a061bc820-3"></a><span class="go">81e3a724ae7c        fumi23              0.00%               8.012MiB / 1.952GiB   0.40%               19.1kB / 0B         1.21MB / 8.19kB     17</span>
+</pre>
+</div>
+</div>
+<div class="section" id="docker-compose">
+<h2><a class="toc-backref" href="#id69">2.5 Docker Compose でマルチコンテナを実行する</a></h2>
+<ul class="simple">
+<li><p>Docker コンテナ = 単一のアプリケーションと言い換えることができる</p></li>
+<li><p>仮想サーバとっは対象とする粒度が異なる</p></li>
+<li>
+<p>複数存在するコンテナ同士が通信し、かつ、コンテナがコンテナの依存関係を持つはず</p>
+<ul>
+<li><p>コンテナの挙動を制御するための設定ファイルや環境変数の与え方</p></li>
+<li><p>コンテナ同士の依存関係</p></li>
+<li><p>ポートフォワーディング</p></li>
+</ul>
+</li>
+</ul>
+<div class="section" id="id22">
+<h3><a class="toc-backref" href="#id70">2.5.1 docker-compose によるコンテナの実行</a></h3>
+<p>Compose: yaml 形式の設定ファイルで、複数のコンテナ実行を一括で管理できる。</p>
+<ul class="simple">
+<li><p>Docker コマンドで行なっていたコンテナの実行構成を設定ファイルで管理できるようになる</p></li>
+</ul>
+<div class="section" id="id23">
+<h4><a class="toc-backref" href="#id71">使えるかどうか確認する</a></h4>
+<pre class="code console"><a name="rest_code_ed60f007e611431bbfffc929ff6b8f03-1"></a><span class="gp">$</span> docker-compose version
+<a name="rest_code_ed60f007e611431bbfffc929ff6b8f03-2"></a><span class="go">docker-compose version 1.22.0, build f46880f</span>
+<a name="rest_code_ed60f007e611431bbfffc929ff6b8f03-3"></a><span class="go">docker-py version: 3.4.1</span>
+<a name="rest_code_ed60f007e611431bbfffc929ff6b8f03-4"></a><span class="go">CPython version: 3.6.4</span>
+<a name="rest_code_ed60f007e611431bbfffc929ff6b8f03-5"></a><span class="go">OpenSSL version: OpenSSL 1.0.2o  27 Mar 2018</span>
+</pre>
+</div>
+<div class="section" id="id24">
+<h4><a class="toc-backref" href="#id72">docker-compose でコンテナを実行する</a></h4>
+<ol class="arabic">
+<li>
+<p>docker-compose.yml を用意する。</p>
+<blockquote>
+<pre class="code yaml"><a name="rest_code_44bba933641642f6a3da4f7c2492eaea-1"></a><span class="c1"># ===========================================================</span>
+<a name="rest_code_44bba933641642f6a3da4f7c2492eaea-2"></a><span class="c1"># $ docker container run -d -p 9000:8080 example/echo:latest</span>
+<a name="rest_code_44bba933641642f6a3da4f7c2492eaea-3"></a><span class="c1"># と同等の振る舞いを docker-compose で定義する</span>
+<a name="rest_code_44bba933641642f6a3da4f7c2492eaea-4"></a><span class="c1"># ===========================================================</span>
+<a name="rest_code_44bba933641642f6a3da4f7c2492eaea-5"></a><span class="c1"># docker-compose.yml ファイルフォーマットのバージョンを宣言</span>
+<a name="rest_code_44bba933641642f6a3da4f7c2492eaea-6"></a><span class="nt">version</span><span class="p">:</span> <span class="s">"3"</span>
+<a name="rest_code_44bba933641642f6a3da4f7c2492eaea-7"></a><span class="nt">services</span><span class="p">:</span>
+<a name="rest_code_44bba933641642f6a3da4f7c2492eaea-8"></a>  <span class="nt">echo</span><span class="p">:</span>  <span class="c1"># コンテナの名前の定義</span>
+<a name="rest_code_44bba933641642f6a3da4f7c2492eaea-9"></a>    <span class="c1"># ここから下は実行するコンテナの定義</span>
+<a name="rest_code_44bba933641642f6a3da4f7c2492eaea-10"></a>    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">example/echo:latest</span>  <span class="c1"># 使用する Docker イメージ</span>
+<a name="rest_code_44bba933641642f6a3da4f7c2492eaea-11"></a>    <span class="nt">ports</span><span class="p">:</span>                      <span class="c1"># ポートフォワーディングを指定</span>
+<a name="rest_code_44bba933641642f6a3da4f7c2492eaea-12"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">9000:8080</span>
+</pre>
+</blockquote>
+</li>
+<li>
+<p>docker-compose.yml を作成したディレクトリで実行する。</p>
+<blockquote>
+<pre class="code bash"><a name="rest_code_d3624c7e8ed448348be30d0c1376fbb7-1"></a><span class="c1"># コンテナ群を実行する</span>
+<a name="rest_code_d3624c7e8ed448348be30d0c1376fbb7-2"></a>$ docker-compose up -d
+<a name="rest_code_d3624c7e8ed448348be30d0c1376fbb7-3"></a>Creating work_echo_1 ... <span class="k">done</span>
+<a name="rest_code_d3624c7e8ed448348be30d0c1376fbb7-4"></a>
+<a name="rest_code_d3624c7e8ed448348be30d0c1376fbb7-5"></a><span class="c1"># 実行中のコンテナを一覧表示する</span>
+<a name="rest_code_d3624c7e8ed448348be30d0c1376fbb7-6"></a>$ docker container ls
+<a name="rest_code_d3624c7e8ed448348be30d0c1376fbb7-7"></a>CONTAINER ID        IMAGE                 COMMAND                  CREATED             STATUS              PORTS                     NAMES
+<a name="rest_code_d3624c7e8ed448348be30d0c1376fbb7-8"></a>6287a2890ccb        example/echo:latest   <span class="s2">"go run /echo/main.go"</span>   <span class="m">8</span> seconds ago       Up <span class="m">8</span> seconds        <span class="m">0</span>.0.0.0:9000-&gt;8080/tcp    work_echo_1
+<a name="rest_code_d3624c7e8ed448348be30d0c1376fbb7-9"></a>81e3a724ae7c        example/echo:latest   <span class="s2">"go run /echo/main.go"</span>   <span class="m">6</span> days ago          Up <span class="m">6</span> days           <span class="m">0</span>.0.0.0:32768-&gt;8080/tcp   fumi23
+<a name="rest_code_d3624c7e8ed448348be30d0c1376fbb7-10"></a>
+<a name="rest_code_d3624c7e8ed448348be30d0c1376fbb7-11"></a><span class="c1"># コンテナを停止・削除する</span>
+<a name="rest_code_d3624c7e8ed448348be30d0c1376fbb7-12"></a>$ docker-compose down
+<a name="rest_code_d3624c7e8ed448348be30d0c1376fbb7-13"></a>Stopping work_echo_1 ... <span class="k">done</span>
+<a name="rest_code_d3624c7e8ed448348be30d0c1376fbb7-14"></a>Removing work_echo_1 ... <span class="k">done</span>
+<a name="rest_code_d3624c7e8ed448348be30d0c1376fbb7-15"></a>Removing network work_default
+</pre>
+</blockquote>
+</li>
+</ol>
+</div>
+<div class="section" id="docker-compose-docker">
+<h4><a class="toc-backref" href="#id73">docker-compose で Docker イメージをビルドして、そのまま実行する</a></h4>
+<ol class="arabic">
+<li>
+<p>docker-compose.yml を用意する。</p>
+<blockquote>
+<pre class="code yaml"><a name="rest_code_94b43effa5d344708aa689dd10755db0-1"></a><span class="c1"># ===========================================================</span>
+<a name="rest_code_94b43effa5d344708aa689dd10755db0-2"></a><span class="c1"># docker-compose で、イメージのビルドと実行を一緒にやる</span>
+<a name="rest_code_94b43effa5d344708aa689dd10755db0-3"></a><span class="c1"># ===========================================================</span>
+<a name="rest_code_94b43effa5d344708aa689dd10755db0-4"></a><span class="nt">version</span><span class="p">:</span> <span class="s">"3"</span>
+<a name="rest_code_94b43effa5d344708aa689dd10755db0-5"></a><span class="nt">services</span><span class="p">:</span>
+<a name="rest_code_94b43effa5d344708aa689dd10755db0-6"></a>  <span class="nt">echo</span><span class="p">:</span>  <span class="c1"># コンテナの名前の定義</span>
+<a name="rest_code_94b43effa5d344708aa689dd10755db0-7"></a>    <span class="c1"># ここ↓から実行するコンテナの定義</span>
+<a name="rest_code_94b43effa5d344708aa689dd10755db0-8"></a>    <span class="nt">build</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">.</span>                    <span class="c1"># Dockerfile が存在するディレクトリの相対パスを指定する</span>
+<a name="rest_code_94b43effa5d344708aa689dd10755db0-9"></a>    <span class="nt">ports</span><span class="p">:</span>                      <span class="c1"># ポートフォワーディングを指定する</span>
+<a name="rest_code_94b43effa5d344708aa689dd10755db0-10"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">9000:8080</span>
+</pre>
+</blockquote>
+</li>
+<li>
+<p>docker-compose.yml があるディレクトリで実行する。</p>
+<blockquote>
+<pre class="code bash"><a name="rest_code_68627520cb074e609346c176f5fc3195-1"></a><span class="c1"># コンテナ群を実行する</span>
+<a name="rest_code_68627520cb074e609346c176f5fc3195-2"></a><span class="c1"># --build: up 時に Docker イメージを必ずビルドするオプション</span>
+<a name="rest_code_68627520cb074e609346c176f5fc3195-3"></a>$ docker-compose up -d --build
+<a name="rest_code_68627520cb074e609346c176f5fc3195-4"></a>Creating network <span class="s2">"echo_default"</span> with the default driver
+<a name="rest_code_68627520cb074e609346c176f5fc3195-5"></a>Building <span class="nb">echo</span>
+<a name="rest_code_68627520cb074e609346c176f5fc3195-6"></a>Step <span class="m">1</span>/4 : FROM golang:1.9
+<a name="rest_code_68627520cb074e609346c176f5fc3195-7"></a> ---&gt; ef89ef5c42a9
+<a name="rest_code_68627520cb074e609346c176f5fc3195-8"></a>Step <span class="m">2</span>/4 : RUN mkdir /echo
+<a name="rest_code_68627520cb074e609346c176f5fc3195-9"></a> ---&gt; Using cache
+<a name="rest_code_68627520cb074e609346c176f5fc3195-10"></a> ---&gt; 7caf124fb4d3
+<a name="rest_code_68627520cb074e609346c176f5fc3195-11"></a>Step <span class="m">3</span>/4 : COPY main.go /echo
+<a name="rest_code_68627520cb074e609346c176f5fc3195-12"></a> ---&gt; 15b6deaeb7ce
+<a name="rest_code_68627520cb074e609346c176f5fc3195-13"></a>Step <span class="m">4</span>/4 : CMD <span class="o">[</span><span class="s2">"go"</span>, <span class="s2">"run"</span>, <span class="s2">"/echo/main.go"</span><span class="o">]</span>
+<a name="rest_code_68627520cb074e609346c176f5fc3195-14"></a> ---&gt; Running in a9b3b311fdc9
+<a name="rest_code_68627520cb074e609346c176f5fc3195-15"></a>Removing intermediate container a9b3b311fdc9
+<a name="rest_code_68627520cb074e609346c176f5fc3195-16"></a> ---&gt; 291b78994229
+<a name="rest_code_68627520cb074e609346c176f5fc3195-17"></a>Successfully built 291b78994229
+<a name="rest_code_68627520cb074e609346c176f5fc3195-18"></a>Successfully tagged echo_echo:latest
+<a name="rest_code_68627520cb074e609346c176f5fc3195-19"></a>Creating echo_echo_1 ... <span class="k">done</span>
+<a name="rest_code_68627520cb074e609346c176f5fc3195-20"></a>
+<a name="rest_code_68627520cb074e609346c176f5fc3195-21"></a><span class="c1"># 起動したことを確認する</span>
+<a name="rest_code_68627520cb074e609346c176f5fc3195-22"></a>$ docker container ls
+<a name="rest_code_68627520cb074e609346c176f5fc3195-23"></a>CONTAINER ID        IMAGE                 COMMAND                  CREATED             STATUS              PORTS                     NAMES
+<a name="rest_code_68627520cb074e609346c176f5fc3195-24"></a>6f0571015a21        echo_echo             <span class="s2">"go run /echo/main.go"</span>   <span class="m">39</span> seconds ago      Up <span class="m">38</span> seconds       <span class="m">0</span>.0.0.0:9000-&gt;8080/tcp    echo_echo_1
+<a name="rest_code_68627520cb074e609346c176f5fc3195-25"></a>81e3a724ae7c        example/echo:latest   <span class="s2">"go run /echo/main.go"</span>   <span class="m">6</span> days ago          Up <span class="m">6</span> days           <span class="m">0</span>.0.0.0:32768-&gt;8080/tcp   fumi23
+</pre>
+</blockquote>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="section" id="compose">
+<h2><a class="toc-backref" href="#id74">2.6 Compose による複数コンテナの実行</a></h2>
+<div class="section" id="jenkins">
+<h3><a class="toc-backref" href="#id75">2.6.1 Jenkins コンテナを実行する</a></h3>
+<ol class="arabic">
+<li>
+<p><code class="docutils literal"><span class="pre">docker-compose.yml</span></code></p>
+<blockquote>
+<pre class="code yaml"><a name="rest_code_0c35abd3a45b4158974787fc0b7d90f0-1"></a><span class="c1"># ================================</span>
+<a name="rest_code_0c35abd3a45b4158974787fc0b7d90f0-2"></a><span class="c1"># 2.6.1 Jenkins コンテナを実行する</span>
+<a name="rest_code_0c35abd3a45b4158974787fc0b7d90f0-3"></a><span class="c1"># ================================</span>
+<a name="rest_code_0c35abd3a45b4158974787fc0b7d90f0-4"></a><span class="nt">version</span><span class="p">:</span> <span class="s">"3"</span>
+<a name="rest_code_0c35abd3a45b4158974787fc0b7d90f0-5"></a><span class="nt">services</span><span class="p">:</span>
+<a name="rest_code_0c35abd3a45b4158974787fc0b7d90f0-6"></a>  <span class="nt">master</span><span class="p">:</span>  <span class="c1"># コンテナの名前</span>
+<a name="rest_code_0c35abd3a45b4158974787fc0b7d90f0-7"></a>    <span class="c1"># 実行するコンテナの定義</span>
+<a name="rest_code_0c35abd3a45b4158974787fc0b7d90f0-8"></a>    <span class="c1"># ======================</span>
+<a name="rest_code_0c35abd3a45b4158974787fc0b7d90f0-9"></a>    <span class="nt">container_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">master</span>
+<a name="rest_code_0c35abd3a45b4158974787fc0b7d90f0-10"></a>    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">jenkins:latest</span>      <span class="c1"># Docker Hub に登録されている Jenkins の公式イメージを利用する</span>
+<a name="rest_code_0c35abd3a45b4158974787fc0b7d90f0-11"></a>    <span class="nt">ports</span><span class="p">:</span>                      <span class="c1"># ポートフォワーディングを指定する</span>
+<a name="rest_code_0c35abd3a45b4158974787fc0b7d90f0-12"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">9000:8080</span>
+<a name="rest_code_0c35abd3a45b4158974787fc0b7d90f0-13"></a>    <span class="nt">volumes</span><span class="p">:</span>                    <span class="c1"># ホスト・コンテナ間でファイルを共有する仕組み</span>
+<a name="rest_code_0c35abd3a45b4158974787fc0b7d90f0-14"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">./jenkins_home:/var/jenkins_home</span>    <span class="c1"># ホストの `./jenkins_home` に、Jenkins コンテナの `/var/jenkins_home` をマウント</span>
+</pre>
+</blockquote>
+</li>
+<li>
+<p>Compose で実行する。</p>
+<blockquote>
+<pre class="code bash"><a name="rest_code_0ae2442d347c46ebaab9d7bc31d7be59-1"></a><span class="c1"># docker-compose.yml のあるディレクトリで実行する</span>
+<a name="rest_code_0ae2442d347c46ebaab9d7bc31d7be59-2"></a>$ docker-compose up
+</pre>
+</blockquote>
+</li>
+<li><p><code class="docutils literal"><span class="pre">http://localhost:9000/</span></code> にアクセスして Jenkins の初期設定をする。</p></li>
+</ol>
+</div>
+<div class="section" id="master-jenkins-ssh">
+<h3><a class="toc-backref" href="#id76">2.6.2 Master Jenkins の SSH 鍵を作る</a></h3>
+<pre class="code bash"><a name="rest_code_6e10e5c3bcee402faa508eba0c27d03d-1"></a>$ docker container <span class="nb">exec</span> -it master ssh-keygen -t rsa -C <span class="s2">""</span>
+<a name="rest_code_6e10e5c3bcee402faa508eba0c27d03d-2"></a>Generating public/private rsa key pair.
+<a name="rest_code_6e10e5c3bcee402faa508eba0c27d03d-3"></a>Enter file in which to save the key <span class="o">(</span>/var/jenkins_home/.ssh/id_rsa<span class="o">)</span>:
+<a name="rest_code_6e10e5c3bcee402faa508eba0c27d03d-4"></a>Created directory <span class="s1">'/var/jenkins_home/.ssh'</span>.
+<a name="rest_code_6e10e5c3bcee402faa508eba0c27d03d-5"></a>Enter passphrase <span class="o">(</span>empty <span class="k">for</span> no passphrase<span class="o">)</span>:
+<a name="rest_code_6e10e5c3bcee402faa508eba0c27d03d-6"></a>Enter same passphrase again:
+<a name="rest_code_6e10e5c3bcee402faa508eba0c27d03d-7"></a>Your identification has been saved in /var/jenkins_home/.ssh/id_rsa.
+<a name="rest_code_6e10e5c3bcee402faa508eba0c27d03d-8"></a>Your public key has been saved in /var/jenkins_home/.ssh/id_rsa.pub.
+<a name="rest_code_6e10e5c3bcee402faa508eba0c27d03d-9"></a>The key fingerprint is:
+<a name="rest_code_6e10e5c3bcee402faa508eba0c27d03d-10"></a>SHA256:Ee3KESkiYjH4QoZBZqPie9PH5rZ9GsVBfUaUAuXwXaY
+<a name="rest_code_6e10e5c3bcee402faa508eba0c27d03d-11"></a>The key<span class="err">'</span>s randomart image is:
+<a name="rest_code_6e10e5c3bcee402faa508eba0c27d03d-12"></a>+---<span class="o">[</span>RSA <span class="m">2048</span><span class="o">]</span>----+
+<a name="rest_code_6e10e5c3bcee402faa508eba0c27d03d-13"></a><span class="p">|</span><span class="o">=</span>O.     .o ++.oo+<span class="p">|</span>
+<a name="rest_code_6e10e5c3bcee402faa508eba0c27d03d-14"></a><span class="p">|</span>B++ . . o.o +o.*.<span class="p">|</span>
+<a name="rest_code_6e10e5c3bcee402faa508eba0c27d03d-15"></a><span class="p">|</span>*o . . ..o . oE. <span class="p">|</span>
+<a name="rest_code_6e10e5c3bcee402faa508eba0c27d03d-16"></a><span class="p">|</span>+ .     ..o .    <span class="p">|</span>
+<a name="rest_code_6e10e5c3bcee402faa508eba0c27d03d-17"></a><span class="p">|</span> o     .So o     <span class="p">|</span>
+<a name="rest_code_6e10e5c3bcee402faa508eba0c27d03d-18"></a><span class="p">|</span>  . . . o .      <span class="p">|</span>
+<a name="rest_code_6e10e5c3bcee402faa508eba0c27d03d-19"></a><span class="p">|</span> . o . + .       <span class="p">|</span>
+<a name="rest_code_6e10e5c3bcee402faa508eba0c27d03d-20"></a><span class="p">|</span>  . . +.. ..     <span class="p">|</span>
+<a name="rest_code_6e10e5c3bcee402faa508eba0c27d03d-21"></a><span class="p">|</span>      .o.oo      <span class="p">|</span>
+<a name="rest_code_6e10e5c3bcee402faa508eba0c27d03d-22"></a>+----<span class="o">[</span>SHA256<span class="o">]</span>-----+
+</pre>
+</div>
+<div class="section" id="jenkins-slave">
+<h3><a class="toc-backref" href="#id77">2.6.3 Jenkins Slave コンテナを作る</a></h3>
+<ol class="arabic">
+<li>
+<p><code class="docutils literal"><span class="pre">docker-compose.yml</span></code></p>
+<blockquote>
+<pre class="code yaml"><a name="rest_code_dd3de062588e4a8488e0bb65122f2d6d-1"></a><span class="c1"># ===================================</span>
+<a name="rest_code_dd3de062588e4a8488e0bb65122f2d6d-2"></a><span class="c1"># 2.6.3 Jenkins Slave コンテナを作る</span>
+<a name="rest_code_dd3de062588e4a8488e0bb65122f2d6d-3"></a><span class="c1"># ===================================</span>
+<a name="rest_code_dd3de062588e4a8488e0bb65122f2d6d-4"></a><span class="nt">version</span><span class="p">:</span> <span class="s">"3"</span>
+<a name="rest_code_dd3de062588e4a8488e0bb65122f2d6d-5"></a><span class="nt">services</span><span class="p">:</span>
+<a name="rest_code_dd3de062588e4a8488e0bb65122f2d6d-6"></a>  <span class="c1"># Master コンテナ</span>
+<a name="rest_code_dd3de062588e4a8488e0bb65122f2d6d-7"></a>  <span class="nt">master</span><span class="p">:</span>
+<a name="rest_code_dd3de062588e4a8488e0bb65122f2d6d-8"></a>    <span class="nt">container_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">master</span>
+<a name="rest_code_dd3de062588e4a8488e0bb65122f2d6d-9"></a>    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">jenkins:latest</span>       <span class="c1"># Docker Hub に登録されている Jenkins の公式イメージを利用する</span>
+<a name="rest_code_dd3de062588e4a8488e0bb65122f2d6d-10"></a>    <span class="nt">ports</span><span class="p">:</span>                      <span class="c1"># ポートフォワーディングを指定する</span>
+<a name="rest_code_dd3de062588e4a8488e0bb65122f2d6d-11"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">9000:8080</span>
+<a name="rest_code_dd3de062588e4a8488e0bb65122f2d6d-12"></a>    <span class="nt">volumes</span><span class="p">:</span>                    <span class="c1"># ホスト・コンテナ間でファイルを共有する仕組み</span>
+<a name="rest_code_dd3de062588e4a8488e0bb65122f2d6d-13"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">./jenkins_home:/var/jenkins_home</span>    <span class="c1"># ホストの `./jenkins_home` に、Jenkins コンテナの `/var/jenkins_home` をマウント</span>
+<a name="rest_code_dd3de062588e4a8488e0bb65122f2d6d-14"></a>    <span class="nt">links</span><span class="p">:</span>
+<a name="rest_code_dd3de062588e4a8488e0bb65122f2d6d-15"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">slave01</span>                 <span class="c1"># これで、 master から slave01 で名前解決できるようになる</span>
+<a name="rest_code_dd3de062588e4a8488e0bb65122f2d6d-16"></a>    <span class="c1"># pw: bb91ef8ec2e74cc3a99802a79a84df6b</span>
+<a name="rest_code_dd3de062588e4a8488e0bb65122f2d6d-17"></a>
+<a name="rest_code_dd3de062588e4a8488e0bb65122f2d6d-18"></a>  <span class="c1"># Slave コンテナ</span>
+<a name="rest_code_dd3de062588e4a8488e0bb65122f2d6d-19"></a>  <span class="nt">slave01</span><span class="p">:</span>
+<a name="rest_code_dd3de062588e4a8488e0bb65122f2d6d-20"></a>    <span class="nt">container_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">slave01</span>
+<a name="rest_code_dd3de062588e4a8488e0bb65122f2d6d-21"></a>    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">jenkinsci/ssh-slave</span>    <span class="c1"># SSH 接続する Slave 用途の Docker イメージを利用する</span>
+<a name="rest_code_dd3de062588e4a8488e0bb65122f2d6d-22"></a>    <span class="nt">environment</span><span class="p">:</span>
+<a name="rest_code_dd3de062588e4a8488e0bb65122f2d6d-23"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">JENKINS_SLAVE_SSH_PUBKEY=ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCd2Nn7oT9F9JoWCWuTyjkmADAMrNZzZGCBZjT118QD3518CsaTlLmE8ikqloO9rCi58Vgi9nBhSJ0SGGG+Vx8mBZlG5V/ucq3TlbHq9Epdr8mJAaJ44F3CWNso97WIBzDEdtCAYQPRO1kEjlGBOr2JAAkYPyNEDe9o2Ta02FzqLu4WpqmqopgS6xsDWqj3BfQoJ+MCLeej865zSETyFojz8BbYH03LMhzBUeb6Yfa9LtIJgpp0KMab9p3hKlV5Es6jIVhYlVBw2NokWkOaq7KjlwTj0pmUGYIBNpgg+POpkaMt42dVNiqYxvbEzz9ZaejM3T/DIORIhKtYnnANwN4b</span>
+<a name="rest_code_dd3de062588e4a8488e0bb65122f2d6d-24"></a>      <span class="c1"># ↑これで Master からの SSH 接続が許可された状態になる</span>
+<a name="rest_code_dd3de062588e4a8488e0bb65122f2d6d-25"></a>      <span class="c1"># Slave コンテナの `~/.ssh/authorized_keys ` ファイルに Master コンテナの SSH 公開鍵が追加される。</span>
+</pre>
+</blockquote>
+</li>
+<li>
+<p>Compose で実行する。</p>
+<blockquote>
+<pre class="code console"><a name="rest_code_3e4b44efaaa349579c269065bf4ba5a9-1"></a><span class="gp">$</span> docker-compose up -d
+<a name="rest_code_3e4b44efaaa349579c269065bf4ba5a9-2"></a><span class="go">Creating slave01 ... done</span>
+<a name="rest_code_3e4b44efaaa349579c269065bf4ba5a9-3"></a><span class="go">Creating master  ... done</span>
+<a name="rest_code_3e4b44efaaa349579c269065bf4ba5a9-4"></a><span class="gp">$</span> docker-compose ps
+<a name="rest_code_3e4b44efaaa349579c269065bf4ba5a9-5"></a><span class="go"> Name                Command               State                 Ports</span>
+<a name="rest_code_3e4b44efaaa349579c269065bf4ba5a9-6"></a><span class="go">------------------------------------------------------------------------------------</span>
+<a name="rest_code_3e4b44efaaa349579c269065bf4ba5a9-7"></a><span class="go">master    /bin/tini -- /usr/local/bi ...   Up      50000/tcp, 0.0.0.0:9000-&gt;8080/tcp</span>
+<a name="rest_code_3e4b44efaaa349579c269065bf4ba5a9-8"></a><span class="go">slave01   setup-sshd                       Up      22/tcp</span>
+<a name="rest_code_3e4b44efaaa349579c269065bf4ba5a9-9"></a><span class="go">(venv) FumienoMacBook-Pro:2.6.1 fumi23$ docker container ls -a</span>
+<a name="rest_code_3e4b44efaaa349579c269065bf4ba5a9-10"></a><span class="go">CONTAINER ID        IMAGE                 COMMAND                  CREATED             STATUS                    PORTS                               NAMES</span>
+<a name="rest_code_3e4b44efaaa349579c269065bf4ba5a9-11"></a><span class="go">91ede878960a        jenkins:latest        "/bin/tini -- /usr/l…"   42 minutes ago      Up 42 minutes             50000/tcp, 0.0.0.0:9000-&gt;8080/tcp   master</span>
+<a name="rest_code_3e4b44efaaa349579c269065bf4ba5a9-12"></a><span class="go">5fc916903044        jenkinsci/ssh-slave   "setup-sshd"             42 minutes ago      Up 42 minutes             22/tcp                              slave01</span>
+<a name="rest_code_3e4b44efaaa349579c269065bf4ba5a9-13"></a><span class="go">6f0571015a21        echo_echo             "go run /echo/main.go"   6 days ago          Exited (2) 15 hours ago                                       echo_echo_1</span>
+<a name="rest_code_3e4b44efaaa349579c269065bf4ba5a9-14"></a><span class="go">81e3a724ae7c        example/echo:latest   "go run /echo/main.go"   12 days ago         Exited (2) 15 hours ago                                       fumi23</span>
+<a name="rest_code_3e4b44efaaa349579c269065bf4ba5a9-15"></a><span class="gp">$</span> docker container <span class="nb">exec</span> master ls /usr/share/jenkins
+<a name="rest_code_3e4b44efaaa349579c269065bf4ba5a9-16"></a><span class="go">jenkins.war</span>
+<a name="rest_code_3e4b44efaaa349579c269065bf4ba5a9-17"></a><span class="go">ref</span>
+</pre>
+</blockquote>
+</li>
+<li>
+<p>Jenkins のバージョンが古く、SSH Slaves plugin が使えなかったので、 Docker コンテナ内の Jenkins をバージョンアップする。</p>
+<blockquote>
+<pre class="code console"><a name="rest_code_f433bc08a9524d46a9fac9f59a0c0ad1-1"></a><span class="gp">$</span> docker container <span class="nb">exec</span> -u <span class="m">0</span> -it master bash
+<a name="rest_code_f433bc08a9524d46a9fac9f59a0c0ad1-2"></a><span class="gp">root@91ede878960a:/#</span> wget http://updates.jenkins-ci.org/download/war/2.138.3/jenkins.war
+<a name="rest_code_f433bc08a9524d46a9fac9f59a0c0ad1-3"></a><span class="go">--2018-11-18 06:21:47--  http://updates.jenkins-ci.org/download/war/2.138.3/jenkins.war</span>
+<a name="rest_code_f433bc08a9524d46a9fac9f59a0c0ad1-4"></a><span class="go">Resolving updates.jenkins-ci.org (updates.jenkins-ci.org)... 52.202.51.185</span>
+<a name="rest_code_f433bc08a9524d46a9fac9f59a0c0ad1-5"></a><span class="go">Connecting to updates.jenkins-ci.org (updates.jenkins-ci.org)|52.202.51.185|:80... connected.</span>
+<a name="rest_code_f433bc08a9524d46a9fac9f59a0c0ad1-6"></a><span class="go">HTTP request sent, awaiting response... 302 Found</span>
+<a name="rest_code_f433bc08a9524d46a9fac9f59a0c0ad1-7"></a><span class="go">Location: http://mirrors.jenkins-ci.org/war-stable/2.138.3/jenkins.war [following]</span>
+<a name="rest_code_f433bc08a9524d46a9fac9f59a0c0ad1-8"></a><span class="go">--2018-11-18 06:21:47--  http://mirrors.jenkins-ci.org/war-stable/2.138.3/jenkins.war</span>
+<a name="rest_code_f433bc08a9524d46a9fac9f59a0c0ad1-9"></a><span class="go">Resolving mirrors.jenkins-ci.org (mirrors.jenkins-ci.org)... 52.202.51.185</span>
+<a name="rest_code_f433bc08a9524d46a9fac9f59a0c0ad1-10"></a><span class="go">Reusing existing connection to updates.jenkins-ci.org:80.</span>
+<a name="rest_code_f433bc08a9524d46a9fac9f59a0c0ad1-11"></a><span class="go">HTTP request sent, awaiting response... 302 Found</span>
+<a name="rest_code_f433bc08a9524d46a9fac9f59a0c0ad1-12"></a><span class="go">Location: http://ftp.yz.yamagata-u.ac.jp/pub/misc/jenkins/war-stable/2.138.3/jenkins.war [following]</span>
+<a name="rest_code_f433bc08a9524d46a9fac9f59a0c0ad1-13"></a><span class="go">--2018-11-18 06:21:48--  http://ftp.yz.yamagata-u.ac.jp/pub/misc/jenkins/war-stable/2.138.3/jenkins.war</span>
+<a name="rest_code_f433bc08a9524d46a9fac9f59a0c0ad1-14"></a><span class="go">Resolving ftp.yz.yamagata-u.ac.jp (ftp.yz.yamagata-u.ac.jp)... 133.24.248.18, 133.24.248.16, 133.24.248.19, ...</span>
+<a name="rest_code_f433bc08a9524d46a9fac9f59a0c0ad1-15"></a><span class="go">Connecting to ftp.yz.yamagata-u.ac.jp (ftp.yz.yamagata-u.ac.jp)|133.24.248.18|:80... connected.</span>
+<a name="rest_code_f433bc08a9524d46a9fac9f59a0c0ad1-16"></a><span class="go">HTTP request sent, awaiting response... 200 OK</span>
+<a name="rest_code_f433bc08a9524d46a9fac9f59a0c0ad1-17"></a><span class="go">Length: 75733340 (72M)</span>
+<a name="rest_code_f433bc08a9524d46a9fac9f59a0c0ad1-18"></a><span class="go">Saving to: ‘jenkins.war’</span>
+<a name="rest_code_f433bc08a9524d46a9fac9f59a0c0ad1-19"></a>
+<a name="rest_code_f433bc08a9524d46a9fac9f59a0c0ad1-20"></a><span class="go">jenkins.war                                        100%[===============================================================================================================&gt;]  72.22M  3.97MB/s    in 14s</span>
+<a name="rest_code_f433bc08a9524d46a9fac9f59a0c0ad1-21"></a>
+<a name="rest_code_f433bc08a9524d46a9fac9f59a0c0ad1-22"></a><span class="go">2018-11-18 06:22:01 (5.30 MB/s) - ‘jenkins.war’ saved [75733340/75733340]</span>
+<a name="rest_code_f433bc08a9524d46a9fac9f59a0c0ad1-23"></a>
+<a name="rest_code_f433bc08a9524d46a9fac9f59a0c0ad1-24"></a><span class="gp">root@91ede878960a:/#</span> ls -la
+<a name="rest_code_f433bc08a9524d46a9fac9f59a0c0ad1-25"></a><span class="go">total 74032</span>
+<a name="rest_code_f433bc08a9524d46a9fac9f59a0c0ad1-26"></a><span class="go">drwxr-xr-x   1 root root     4096 Nov 18 06:21 .</span>
+<a name="rest_code_f433bc08a9524d46a9fac9f59a0c0ad1-27"></a><span class="go">drwxr-xr-x   1 root root     4096 Nov 18 06:21 ..</span>
+<a name="rest_code_f433bc08a9524d46a9fac9f59a0c0ad1-28"></a><span class="go">-rwxr-xr-x   1 root root        0 Nov 18 05:03 .dockerenv</span>
+<a name="rest_code_f433bc08a9524d46a9fac9f59a0c0ad1-29"></a><span class="go">drwxr-xr-x   1 root root     4096 Jul 17 16:20 bin</span>
+<a name="rest_code_f433bc08a9524d46a9fac9f59a0c0ad1-30"></a><span class="go">drwxr-xr-x   2 root root     4096 Jun 26 12:03 boot</span>
+<a name="rest_code_f433bc08a9524d46a9fac9f59a0c0ad1-31"></a><span class="go">drwxr-xr-x   5 root root      340 Nov 18 05:03 dev</span>
+<a name="rest_code_f433bc08a9524d46a9fac9f59a0c0ad1-32"></a><span class="go">lrwxrwxrwx   1 root root       33 Jul 17 06:16 docker-java-home -&gt; /usr/lib/jvm/java-8-openjdk-amd64</span>
+<a name="rest_code_f433bc08a9524d46a9fac9f59a0c0ad1-33"></a><span class="go">drwxr-xr-x   1 root root     4096 Nov 18 05:03 etc</span>
+<a name="rest_code_f433bc08a9524d46a9fac9f59a0c0ad1-34"></a><span class="go">drwxr-xr-x   2 root root     4096 Jun 26 12:03 home</span>
+<a name="rest_code_f433bc08a9524d46a9fac9f59a0c0ad1-35"></a><span class="go">-rw-r--r--   1 root root 75733340 Nov  9 01:03 jenkins.war</span>
+<a name="rest_code_f433bc08a9524d46a9fac9f59a0c0ad1-36"></a><span class="go">drwxr-xr-x   1 root root     4096 Jul 16 00:00 lib</span>
+<a name="rest_code_f433bc08a9524d46a9fac9f59a0c0ad1-37"></a><span class="go">drwxr-xr-x   2 root root     4096 Jul 16 00:00 lib64</span>
+<a name="rest_code_f433bc08a9524d46a9fac9f59a0c0ad1-38"></a><span class="go">drwxr-xr-x   2 root root     4096 Jul 16 00:00 media</span>
+<a name="rest_code_f433bc08a9524d46a9fac9f59a0c0ad1-39"></a><span class="go">drwxr-xr-x   2 root root     4096 Jul 16 00:00 mnt</span>
+<a name="rest_code_f433bc08a9524d46a9fac9f59a0c0ad1-40"></a><span class="go">drwxr-xr-x   2 root root     4096 Jul 16 00:00 opt</span>
+<a name="rest_code_f433bc08a9524d46a9fac9f59a0c0ad1-41"></a><span class="go">dr-xr-xr-x 187 root root        0 Nov 18 05:03 proc</span>
+<a name="rest_code_f433bc08a9524d46a9fac9f59a0c0ad1-42"></a><span class="go">drwx------   2 root root     4096 Jul 16 00:00 root</span>
+<a name="rest_code_f433bc08a9524d46a9fac9f59a0c0ad1-43"></a><span class="go">drwxr-xr-x   3 root root     4096 Jul 16 00:00 run</span>
+<a name="rest_code_f433bc08a9524d46a9fac9f59a0c0ad1-44"></a><span class="go">drwxr-xr-x   1 root root     4096 Jul 17 03:13 sbin</span>
+<a name="rest_code_f433bc08a9524d46a9fac9f59a0c0ad1-45"></a><span class="go">drwxr-xr-x   2 root root     4096 Jul 16 00:00 srv</span>
+<a name="rest_code_f433bc08a9524d46a9fac9f59a0c0ad1-46"></a><span class="go">dr-xr-xr-x  13 root root        0 Nov 18 05:03 sys</span>
+<a name="rest_code_f433bc08a9524d46a9fac9f59a0c0ad1-47"></a><span class="go">drwxrwxrwt   1 root root     4096 Nov 18 05:04 tmp</span>
+<a name="rest_code_f433bc08a9524d46a9fac9f59a0c0ad1-48"></a><span class="go">drwxr-xr-x   1 root root     4096 Jul 16 00:00 usr</span>
+<a name="rest_code_f433bc08a9524d46a9fac9f59a0c0ad1-49"></a><span class="go">drwxr-xr-x   1 root root     4096 Jul 17 16:20 var</span>
+<a name="rest_code_f433bc08a9524d46a9fac9f59a0c0ad1-50"></a><span class="gp">root@91ede878960a:/#</span> mv ./jenkins.war /usr/share/jenkins
+<a name="rest_code_f433bc08a9524d46a9fac9f59a0c0ad1-51"></a><span class="gp">root@91ede878960a:/#</span> chown jenkins:jenkins /usr/share/jenkins/jenkins.war
+<a name="rest_code_f433bc08a9524d46a9fac9f59a0c0ad1-52"></a><span class="gp">root@91ede878960a:/#</span> <span class="nb">exit</span>
+<a name="rest_code_f433bc08a9524d46a9fac9f59a0c0ad1-53"></a><span class="go">exit</span>
+<a name="rest_code_f433bc08a9524d46a9fac9f59a0c0ad1-54"></a><span class="gp">$</span> docker-compose restart
+<a name="rest_code_f433bc08a9524d46a9fac9f59a0c0ad1-55"></a><span class="go">Restarting master  ... done</span>
+<a name="rest_code_f433bc08a9524d46a9fac9f59a0c0ad1-56"></a><span class="go">Restarting slave01 ... done</span>
+</pre>
+</blockquote>
+</li>
+<li><p><code class="docutils literal">slave01</code> ノードを追加して、 SSH の設定をする。</p></li>
+</ol>
+<div class="section" id="id25">
+<h4><a class="toc-backref" href="#id78">参考サイト</a></h4>
+<p>ありがとうございました!!</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://medium.com/@jimkang/how-to-start-a-new-jenkins-container-and-update-jenkins-with-docker-cf628aa495e9">https://medium.com/@jimkang/how-to-start-a-new-jenkins-container-and-update-jenkins-with-docker-cf628aa495e9</a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+    </div>
+  </main>
+</div>
+</div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<title>Docker/Kubernetes 実践コンテナ開発入門 --- 4. Swarm による実践的なアプリケーションの構築/ふみのて</title>
+<link rel="shortcut icon" href="../../../assets/icons/favicon.ico">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Griffy">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Vollkorn:400,700">
+<link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/sawarabimincho.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+<link rel="stylesheet" href="../../../assets/css/style.css?20191110">
+</head>
+<body>
+    <div class="container">
+      <div class="header"><header class="item item-header"><h1>
+    <a href="../../../">
+      <img class="logo" src="../../../assets/images/inuu.png" alt="犬"></a>
+  </h1>
+  <iframe src="../../../tags/" class="tags"></iframe>
+</header></div>
+      <div class="main">
+<div class="article-content">
+  <main class="item item-article item-docker"><time class="date" datetime="2018-11-25 00:00:00+09:00">
+      2018-11-25 Sun
+    </time><div class="title">Docker/Kubernetes 実践コンテナ開発入門 --- 4. Swarm による実践的なアプリケーションの構築</div>
+    <div class="category">
+      <a href="../../../tags/docker/">
+          docker
+      </a>
+    </div>
+    <div class="text">
+      <div>
+<details><summary>目次</summary><div class="contents topic" id="id1">
+<p class="topic-title first">目次</p>
+<ul class="simple">
+<li>
+<p><a class="reference internal" href="#web" id="id5">4.1 Web アプリケーションの構成</a></p>
+<ul>
+<li><p><a class="reference internal" href="#todo" id="id6">4.1.3 TODO アプリケーション構築の全体像</a></p></li>
+</ul>
+</li>
+<li>
+<p><a class="reference internal" href="#mysql-service" id="id7">4.2 MySQL Service の構築</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id2" id="id8">4.2.1 データベースコンテナ構成</a></p></li>
+<li><p><a class="reference internal" href="#id3" id="id9">4.2.2 認証情報</a></p></li>
+<li>
+<p><a class="reference internal" href="#mysql-dockerfile" id="id10">4.2.5 MySQL の Dockerfile</a></p>
+<ul>
+<li><p><a class="reference internal" href="#swarm" id="id11">ビルドと Swarm クラスタとしての利用</a></p></li>
+</ul>
+</li>
+<li>
+<p><a class="reference internal" href="#swarm-master-slave" id="id12">4.2.6 Swarm 上で Master/Slave サービスを実行する</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id4" id="id13">Swarm によるデプロイ</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#mysql" id="id14">4.2.7 MySQL コンテナを確認し、初期データを投入する</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#api-service" id="id15">4.3 API Service の構築</a></p></li>
+</ul>
+</div>
+</details><div class="section" id="web">
+<h2><a class="toc-backref" href="#id5">4.1 Web アプリケーションの構成</a></h2>
+<p>つくるもの: TODO アプリ</p>
+<table class="colwidths-auto">
+<caption>アーキテクチャの構成要素</caption>
+<thead><tr>
+<th class="head"><p>イメージ名</p></th>
+<th class="head"><p>用途</p></th>
+<th class="head"><p>Service 名</p></th>
+<th class="head"><p>Stack 名</p></th>
+</tr></thead>
+<tbody>
+<tr>
+<td><p>MySQL</p></td>
+<td><p>データストア</p></td>
+<td><p>mysql_master, mysql_slave</p></td>
+<td><p>MySQL</p></td>
+</tr>
+<tr>
+<td><p>API</p></td>
+<td><p>データストアを操作するAPIサーバー</p></td>
+<td><p>app_api</p></td>
+<td><p>Application</p></td>
+</tr>
+<tr>
+<td><p>Web</p></td>
+<td><p>ビューを生成するアプリケーションサーバー</p></td>
+<td><p>frontend_web</p></td>
+<td><p>Frontend</p></td>
+</tr>
+<tr>
+<td><p>Nginx</p></td>
+<td><p>プロキシサーバー</p></td>
+<td><p>app_nginx, frontend_nginx</p></td>
+<td><p>Application Frontend</p></td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic">
+<li>
+<p>第３章で作成した Swarm 環境を利用する。</p>
+<blockquote>
+<pre class="code bash"><a name="rest_code_d514fbea00344a1aa97c7029fb5fbe09-1"></a><span class="c1"># 4つのノードで Swarm クラスタが実行されていることを確認しておく。</span>
+<a name="rest_code_d514fbea00344a1aa97c7029fb5fbe09-2"></a>$ docker container <span class="nb">exec</span> -it manager docker node ls
+<a name="rest_code_d514fbea00344a1aa97c7029fb5fbe09-3"></a>ID                            HOSTNAME            STATUS              AVAILABILITY        MANAGER STATUS      ENGINE VERSION
+<a name="rest_code_d514fbea00344a1aa97c7029fb5fbe09-4"></a>u8crbubyz85jmnpou9zgnc1wf     272227e51007        Ready               Active                                  <span class="m">18</span>.05.0-ce
+<a name="rest_code_d514fbea00344a1aa97c7029fb5fbe09-5"></a>ww80hcmlzbga1cprtz0cmmuu2     7190447651de        Ready               Active                                  <span class="m">18</span>.05.0-ce
+<a name="rest_code_d514fbea00344a1aa97c7029fb5fbe09-6"></a>7f20ikf4s04lp9abasnvm8euz *   a7e4b99c1ee7        Ready               Active              Leader              <span class="m">18</span>.05.0-ce
+<a name="rest_code_d514fbea00344a1aa97c7029fb5fbe09-7"></a>j91gerxg4um0r05wukdfoqwo1     cfffba103c8c        Ready               Active                                  <span class="m">18</span>.05.0-ce
+</pre>
+</blockquote>
+</li>
+<li>
+<p>専用の overlay ネットワークを構築する。</p>
+<blockquote>
+<pre class="code bash"><a name="rest_code_222d3a29f006490cbe9c1f36ef9f4e56-1"></a>$ docker container <span class="nb">exec</span> -it manager <span class="se">\</span>
+<a name="rest_code_222d3a29f006490cbe9c1f36ef9f4e56-2"></a>  docker network create --driver<span class="o">=</span>overlay --attachable todoapp
+<a name="rest_code_222d3a29f006490cbe9c1f36ef9f4e56-3"></a>  306ohjb606wx9atd7kxh0lf3a
+</pre>
+</blockquote>
+</li>
+</ol>
+<div class="section" id="todo">
+<h3><a class="toc-backref" href="#id6">4.1.3 TODO アプリケーション構築の全体像</a></h3>
+<ol class="arabic simple">
+<li><p>データストアとなる Master/Slave 構成の MySQL Service の構築</p></li>
+<li><p>MySQL とデータのやり取りをするための API 実装</p></li>
+<li><p>ウェブアプリケーションと API 間にリバースプロキシとなる Nginx を通じてアクセスできるように設定</p></li>
+<li><p>APIを利用してサーバーサイドレンダリングをする Web アプリケーションを実装</p></li>
+<li><p>フロント側にリバースプロキシ (Nginx) を置く</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="mysql-service">
+<h2><a class="toc-backref" href="#id7">4.2 MySQL Service の構築</a></h2>
+<p><a class="reference external" href="https://github.com/gihyodocker/tododb">https://github.com/gihyodocker/tododb</a> からクローン</p>
+<div class="section" id="id2">
+<h3><a class="toc-backref" href="#id8">4.2.1 データベースコンテナ構成</a></h3>
+</div>
+<div class="section" id="id3">
+<h3><a class="toc-backref" href="#id9">4.2.2 認証情報</a></h3>
+</div>
+<div class="section" id="mysql-dockerfile">
+<h3><a class="toc-backref" href="#id10">4.2.5 MySQL の Dockerfile</a></h3>
+<div class="section" id="swarm">
+<h4><a class="toc-backref" href="#id11">ビルドと Swarm クラスタとしての利用</a></h4>
+<p>Docker イメージを <code class="docutils literal">ch04/tododb:latest</code> という名前でビルドする。</p>
+<pre class="code bash"><a name="rest_code_360d5149848f4859a39648945b1aeca0-1"></a><span class="c1"># tododb ディレクトリで実行する</span>
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-2"></a>$ docker image build -t ch04/tododb:latest .
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-3"></a>Sending build context to Docker daemon  <span class="m">111</span>.6kB
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-4"></a>Step <span class="m">1</span>/16 : FROM mysql:5.7
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-5"></a> ---&gt; ae6b78bedf88
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-6"></a>Step <span class="m">2</span>/16 : RUN apt-get update
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-7"></a> ---&gt; Running in 7ac5673dbad1
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-8"></a>Get:1 http://repo.mysql.com/apt/debian stretch InRelease <span class="o">[</span><span class="m">19</span>.2 kB<span class="o">]</span>
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-9"></a>Get:2 http://security-cdn.debian.org/debian-security stretch/updates InRelease <span class="o">[</span><span class="m">94</span>.3 kB<span class="o">]</span>
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-10"></a>Get:5 http://repo.mysql.com/apt/debian stretch/mysql-5.7 amd64 Packages <span class="o">[</span><span class="m">5675</span> B<span class="o">]</span>
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-11"></a>Ign:3 http://cdn-fastly.deb.debian.org/debian stretch InRelease
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-12"></a>Get:4 http://cdn-fastly.deb.debian.org/debian stretch-updates InRelease <span class="o">[</span><span class="m">91</span>.0 kB<span class="o">]</span>
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-13"></a>Get:7 http://security-cdn.debian.org/debian-security stretch/updates/main amd64 Packages <span class="o">[</span><span class="m">460</span> kB<span class="o">]</span>
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-14"></a>Get:6 http://cdn-fastly.deb.debian.org/debian stretch Release <span class="o">[</span><span class="m">118</span> kB<span class="o">]</span>
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-15"></a>Get:8 http://cdn-fastly.deb.debian.org/debian stretch-updates/main amd64 Packages <span class="o">[</span><span class="m">5152</span> B<span class="o">]</span>
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-16"></a>Get:9 http://cdn-fastly.deb.debian.org/debian stretch Release.gpg <span class="o">[</span><span class="m">2434</span> B<span class="o">]</span>
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-17"></a>Get:10 http://cdn-fastly.deb.debian.org/debian stretch/main amd64 Packages <span class="o">[</span><span class="m">7089</span> kB<span class="o">]</span>
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-18"></a>Fetched <span class="m">7885</span> kB in 6s <span class="o">(</span><span class="m">1146</span> kB/s<span class="o">)</span>
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-19"></a>Reading package lists...
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-20"></a>Removing intermediate container 7ac5673dbad1
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-21"></a> ---&gt; d6b3838b06ce
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-22"></a>Step <span class="m">3</span>/16 : RUN apt-get install -y wget
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-23"></a> ---&gt; Running in 2879665e7c48
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-24"></a>Reading package lists...
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-25"></a>Building dependency tree...
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-26"></a>Reading state information...
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-27"></a>The following additional packages will be installed:
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-28"></a>  ca-certificates libidn2-0 libpsl5 libunistring0 publicsuffix
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-29"></a>The following NEW packages will be installed:
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-30"></a>  ca-certificates libidn2-0 libpsl5 libunistring0 publicsuffix wget
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-31"></a><span class="m">0</span> upgraded, <span class="m">6</span> newly installed, <span class="m">0</span> to remove and <span class="m">0</span> not upgraded.
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-32"></a>Need to get <span class="m">1466</span> kB of archives.
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-33"></a>After this operation, <span class="m">4977</span> kB of additional disk space will be used.
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-34"></a>Get:1 http://cdn-fastly.deb.debian.org/debian stretch/main amd64 libunistring0 amd64 <span class="m">0</span>.9.6+really0.9.3-0.1 <span class="o">[</span><span class="m">279</span> kB<span class="o">]</span>
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-35"></a>Get:2 http://cdn-fastly.deb.debian.org/debian stretch/main amd64 libidn2-0 amd64 <span class="m">0</span>.16-1+deb9u1 <span class="o">[</span><span class="m">60</span>.7 kB<span class="o">]</span>
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-36"></a>Get:3 http://cdn-fastly.deb.debian.org/debian stretch/main amd64 libpsl5 amd64 <span class="m">0</span>.17.0-3 <span class="o">[</span><span class="m">41</span>.8 kB<span class="o">]</span>
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-37"></a>Get:4 http://cdn-fastly.deb.debian.org/debian stretch/main amd64 wget amd64 <span class="m">1</span>.18-5+deb9u2 <span class="o">[</span><span class="m">799</span> kB<span class="o">]</span>
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-38"></a>Get:5 http://cdn-fastly.deb.debian.org/debian stretch/main amd64 ca-certificates all <span class="m">20161130</span>+nmu1+deb9u1 <span class="o">[</span><span class="m">182</span> kB<span class="o">]</span>
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-39"></a>Get:6 http://cdn-fastly.deb.debian.org/debian stretch/main amd64 publicsuffix all <span class="m">20181003</span>.1334-0+deb9u1 <span class="o">[</span><span class="m">104</span> kB<span class="o">]</span>
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-40"></a>debconf: delaying package configuration, since apt-utils is not installed
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-41"></a>Fetched <span class="m">1466</span> kB in 2s <span class="o">(</span><span class="m">608</span> kB/s<span class="o">)</span>
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-42"></a>Selecting previously unselected package libunistring0:amd64.
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-43"></a><span class="o">(</span>Reading database ... <span class="m">8857</span> files and directories currently installed.<span class="o">)</span>
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-44"></a>Preparing to unpack .../0-libunistring0_0.9.6+really0.9.3-0.1_amd64.deb ...
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-45"></a>Unpacking libunistring0:amd64 <span class="o">(</span><span class="m">0</span>.9.6+really0.9.3-0.1<span class="o">)</span> ...
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-46"></a>Selecting previously unselected package libidn2-0:amd64.
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-47"></a>Preparing to unpack .../1-libidn2-0_0.16-1+deb9u1_amd64.deb ...
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-48"></a>Unpacking libidn2-0:amd64 <span class="o">(</span><span class="m">0</span>.16-1+deb9u1<span class="o">)</span> ...
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-49"></a>Selecting previously unselected package libpsl5:amd64.
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-50"></a>Preparing to unpack .../2-libpsl5_0.17.0-3_amd64.deb ...
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-51"></a>Unpacking libpsl5:amd64 <span class="o">(</span><span class="m">0</span>.17.0-3<span class="o">)</span> ...
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-52"></a>Selecting previously unselected package wget.
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-53"></a>Preparing to unpack .../3-wget_1.18-5+deb9u2_amd64.deb ...
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-54"></a>Unpacking wget <span class="o">(</span><span class="m">1</span>.18-5+deb9u2<span class="o">)</span> ...
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-55"></a>Selecting previously unselected package ca-certificates.
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-56"></a>Preparing to unpack .../4-ca-certificates_20161130+nmu1+deb9u1_all.deb ...
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-57"></a>Unpacking ca-certificates <span class="o">(</span><span class="m">20161130</span>+nmu1+deb9u1<span class="o">)</span> ...
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-58"></a>Selecting previously unselected package publicsuffix.
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-59"></a>Preparing to unpack .../5-publicsuffix_20181003.1334-0+deb9u1_all.deb ...
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-60"></a>Unpacking publicsuffix <span class="o">(</span><span class="m">20181003</span>.1334-0+deb9u1<span class="o">)</span> ...
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-61"></a>Processing triggers <span class="k">for</span> libc-bin <span class="o">(</span><span class="m">2</span>.24-11+deb9u3<span class="o">)</span> ...
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-62"></a>Setting up publicsuffix <span class="o">(</span><span class="m">20181003</span>.1334-0+deb9u1<span class="o">)</span> ...
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-63"></a>Setting up libunistring0:amd64 <span class="o">(</span><span class="m">0</span>.9.6+really0.9.3-0.1<span class="o">)</span> ...
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-64"></a>Setting up ca-certificates <span class="o">(</span><span class="m">20161130</span>+nmu1+deb9u1<span class="o">)</span> ...
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-65"></a>debconf: unable to initialize frontend: Dialog
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-66"></a>debconf: <span class="o">(</span>TERM is not set, so the dialog frontend is not usable.<span class="o">)</span>
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-67"></a>debconf: falling back to frontend: Readline
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-68"></a>Updating certificates in /etc/ssl/certs...
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-69"></a><span class="m">151</span> added, <span class="m">0</span> removed<span class="p">;</span> <span class="k">done</span>.
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-70"></a>Setting up libidn2-0:amd64 <span class="o">(</span><span class="m">0</span>.16-1+deb9u1<span class="o">)</span> ...
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-71"></a>Setting up libpsl5:amd64 <span class="o">(</span><span class="m">0</span>.17.0-3<span class="o">)</span> ...
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-72"></a>Setting up wget <span class="o">(</span><span class="m">1</span>.18-5+deb9u2<span class="o">)</span> ...
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-73"></a>Processing triggers <span class="k">for</span> libc-bin <span class="o">(</span><span class="m">2</span>.24-11+deb9u3<span class="o">)</span> ...
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-74"></a>Processing triggers <span class="k">for</span> ca-certificates <span class="o">(</span><span class="m">20161130</span>+nmu1+deb9u1<span class="o">)</span> ...
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-75"></a>Updating certificates in /etc/ssl/certs...
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-76"></a><span class="m">0</span> added, <span class="m">0</span> removed<span class="p">;</span> <span class="k">done</span>.
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-77"></a>Running hooks in /etc/ca-certificates/update.d...
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-78"></a><span class="k">done</span>.
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-79"></a>Removing intermediate container 2879665e7c48
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-80"></a> ---&gt; 740ce65c1344
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-81"></a>Step <span class="m">4</span>/16 : RUN wget https://github.com/progrium/entrykit/releases/download/v0.4.0/entrykit_0.4.0_linux_x86_64.tgz
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-82"></a> ---&gt; Running in dea73313bc77
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-83"></a>--2018-11-25 <span class="m">10</span>:38:18--  https://github.com/progrium/entrykit/releases/download/v0.4.0/entrykit_0.4.0_linux_x86_64.tgz
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-84"></a>Resolving github.com <span class="o">(</span>github.com<span class="o">)</span>... <span class="m">192</span>.30.255.113, <span class="m">192</span>.30.255.112
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-85"></a>Connecting to github.com <span class="o">(</span>github.com<span class="o">)</span><span class="p">|</span><span class="m">192</span>.30.255.113<span class="p">|</span>:443... connected.
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-86"></a>HTTP request sent, awaiting response... <span class="m">302</span> Found
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-87"></a>Location: https://github-production-release-asset-2e65be.s3.amazonaws.com/33640915/e0224de0-c059-11e5-9b10-fbf7cc7e9fe2?X-Amz-Algorithm<span class="o">=</span>AWS4-HMAC-SHA256<span class="p">&amp;</span>X-Amz-Credential<span class="o">=</span>AKIAIWNJYAX4CSVEH53A%2F20181125%2Fus-east-1%2Fs3%2Faws4_request<span class="p">&amp;</span>X-Amz-Date<span class="o">=</span>20181125T103818Z<span class="p">&amp;</span>X-Amz-Expires<span class="o">=</span><span class="m">300</span><span class="p">&amp;</span>X-Amz-Signature<span class="o">=</span>3c4428bc3152d45efa3580ef6cfed18acadafa072d2bb49101f7fc86e1f7561f<span class="p">&amp;</span>X-Amz-SignedHeaders<span class="o">=</span>host<span class="p">&amp;</span><span class="nv">actor_id</span><span class="o">=</span><span class="m">0</span><span class="p">&amp;</span>response-content-disposition<span class="o">=</span>attachment%3B%20filename%3Dentrykit_0.4.0_Linux_x86_64.tgz<span class="p">&amp;</span>response-content-type<span class="o">=</span>application%2Foctet-stream <span class="o">[</span>following<span class="o">]</span>
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-88"></a>--2018-11-25 <span class="m">10</span>:38:18--  https://github-production-release-asset-2e65be.s3.amazonaws.com/33640915/e0224de0-c059-11e5-9b10-fbf7cc7e9fe2?X-Amz-Algorithm<span class="o">=</span>AWS4-HMAC-SHA256<span class="p">&amp;</span>X-Amz-Credential<span class="o">=</span>AKIAIWNJYAX4CSVEH53A%2F20181125%2Fus-east-1%2Fs3%2Faws4_request<span class="p">&amp;</span>X-Amz-Date<span class="o">=</span>20181125T103818Z<span class="p">&amp;</span>X-Amz-Expires<span class="o">=</span><span class="m">300</span><span class="p">&amp;</span>X-Amz-Signature<span class="o">=</span>3c4428bc3152d45efa3580ef6cfed18acadafa072d2bb49101f7fc86e1f7561f<span class="p">&amp;</span>X-Amz-SignedHeaders<span class="o">=</span>host<span class="p">&amp;</span><span class="nv">actor_id</span><span class="o">=</span><span class="m">0</span><span class="p">&amp;</span>response-content-disposition<span class="o">=</span>attachment%3B%20filename%3Dentrykit_0.4.0_Linux_x86_64.tgz<span class="p">&amp;</span>response-content-type<span class="o">=</span>application%2Foctet-stream
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-89"></a>Resolving github-production-release-asset-2e65be.s3.amazonaws.com <span class="o">(</span>github-production-release-asset-2e65be.s3.amazonaws.com<span class="o">)</span>... <span class="m">54</span>.231.82.178
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-90"></a>Connecting to github-production-release-asset-2e65be.s3.amazonaws.com <span class="o">(</span>github-production-release-asset-2e65be.s3.amazonaws.com<span class="o">)</span><span class="p">|</span><span class="m">54</span>.231.82.178<span class="p">|</span>:443... connected.
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-91"></a>HTTP request sent, awaiting response... <span class="m">200</span> OK
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-92"></a>Length: <span class="m">2708228</span> <span class="o">(</span><span class="m">2</span>.6M<span class="o">)</span> <span class="o">[</span>application/octet-stream<span class="o">]</span>
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-93"></a>Saving to: <span class="s1">'entrykit_0.4.0_linux_x86_64.tgz'</span>
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-94"></a>
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-95"></a>     0K .......... .......... .......... .......... ..........  <span class="m">1</span>%  130K 20s
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-96"></a>    50K .......... .......... .......... .......... ..........  <span class="m">3</span>%  258K 15s
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-97"></a>   100K .......... .......... .......... .......... ..........  <span class="m">5</span>% <span class="m">5</span>.08M 10s
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-98"></a>   150K .......... .......... .......... .......... ..........  <span class="m">7</span>% <span class="m">9</span>.96M 7s
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-99"></a>   200K .......... .......... .......... .......... ..........  <span class="m">9</span>%  263K 8s
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-100"></a>   250K .......... .......... .......... .......... .......... <span class="m">11</span>% <span class="m">16</span>.9M 6s
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-101"></a>   300K .......... .......... .......... .......... .......... <span class="m">13</span>% <span class="m">3</span>.89M 5s
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-102"></a>   350K .......... .......... .......... .......... .......... <span class="m">15</span>% <span class="m">18</span>.3M 4s
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-103"></a>   400K .......... .......... .......... .......... .......... <span class="m">17</span>%  289K 5s
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-104"></a>   450K .......... .......... .......... .......... .......... <span class="m">18</span>% <span class="m">4</span>.30M 4s
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-105"></a>   500K .......... .......... .......... .......... .......... <span class="m">20</span>% <span class="m">15</span>.1M 4s
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-106"></a>   550K .......... .......... .......... .......... .......... <span class="m">22</span>% <span class="m">6</span>.33M 3s
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-107"></a>   600K .......... .......... .......... .......... .......... <span class="m">24</span>% <span class="m">12</span>.3M 3s
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-108"></a>   650K .......... .......... .......... .......... .......... <span class="m">26</span>%  302K 3s
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-109"></a>   700K .......... .......... .......... .......... .......... <span class="m">28</span>% <span class="m">13</span>.0M 3s
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-110"></a>   750K .......... .......... .......... .......... .......... <span class="m">30</span>% <span class="m">8</span>.68M 3s
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-111"></a>   800K .......... .......... .......... .......... .......... <span class="m">32</span>% <span class="m">8</span>.68M 2s
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-112"></a>   850K .......... .......... .......... .......... .......... <span class="m">34</span>% <span class="m">6</span>.06M 2s
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-113"></a>   900K .......... .......... .......... .......... .......... <span class="m">35</span>% <span class="m">17</span>.0M 2s
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-114"></a>   950K .......... .......... .......... .......... .......... <span class="m">37</span>% <span class="m">13</span>.8M 2s
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-115"></a>  1000K .......... .......... .......... .......... .......... <span class="m">39</span>% <span class="m">7</span>.66M 2s
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-116"></a>  1050K .......... .......... .......... .......... .......... <span class="m">41</span>% <span class="m">9</span>.07M 2s
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-117"></a>  1100K .......... .......... .......... .......... .......... <span class="m">43</span>% <span class="m">8</span>.67M 2s
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-118"></a>  1150K .......... .......... .......... .......... .......... <span class="m">45</span>% <span class="m">5</span>.36M 1s
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-119"></a>  1200K .......... .......... .......... .......... .......... <span class="m">47</span>% <span class="m">13</span>.5M 1s
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-120"></a>  1250K .......... .......... .......... .......... .......... <span class="m">49</span>% <span class="m">13</span>.4M 1s
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-121"></a>  1300K .......... .......... .......... .......... .......... <span class="m">51</span>% <span class="m">8</span>.32M 1s
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-122"></a>  1350K .......... .......... .......... .......... .......... <span class="m">52</span>%  376K 1s
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-123"></a>  1400K .......... .......... .......... .......... .......... <span class="m">54</span>% <span class="m">22</span>.0M 1s
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-124"></a>  1450K .......... .......... .......... .......... .......... <span class="m">56</span>% <span class="m">24</span>.1M 1s
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-125"></a>  1500K .......... .......... .......... .......... .......... <span class="m">58</span>% <span class="m">11</span>.8M 1s
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-126"></a>  1550K .......... .......... .......... .......... .......... <span class="m">60</span>% <span class="m">8</span>.20M 1s
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-127"></a>  1600K .......... .......... .......... .......... .......... <span class="m">62</span>% <span class="m">12</span>.2M 1s
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-128"></a>  1650K .......... .......... .......... .......... .......... <span class="m">64</span>% <span class="m">5</span>.29M 1s
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-129"></a>  1700K .......... .......... .......... .......... .......... <span class="m">66</span>% <span class="m">14</span>.0M 1s
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-130"></a>  1750K .......... .......... .......... .......... .......... <span class="m">68</span>% <span class="m">9</span>.22M 1s
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-131"></a>  1800K .......... .......... .......... .......... .......... <span class="m">69</span>% <span class="m">13</span>.6M 1s
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-132"></a>  1850K .......... .......... .......... .......... .......... <span class="m">71</span>% <span class="m">7</span>.55M 1s
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-133"></a>  1900K .......... .......... .......... .......... .......... <span class="m">73</span>% <span class="m">7</span>.35M 1s
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-134"></a>  1950K .......... .......... .......... .......... .......... <span class="m">75</span>% <span class="m">9</span>.59M 0s
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-135"></a>  2000K .......... .......... .......... .......... .......... <span class="m">77</span>% <span class="m">8</span>.86M 0s
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-136"></a>  2050K .......... .......... .......... .......... .......... <span class="m">79</span>% <span class="m">10</span>.8M 0s
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-137"></a>  2100K .......... .......... .......... .......... .......... <span class="m">81</span>% <span class="m">7</span>.26M 0s
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-138"></a>  2150K .......... .......... .......... .......... .......... <span class="m">83</span>% <span class="m">10</span>.7M 0s
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-139"></a>  2200K .......... .......... .......... .......... .......... <span class="m">85</span>% <span class="m">11</span>.6M 0s
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-140"></a>  2250K .......... .......... .......... .......... .......... <span class="m">86</span>% <span class="m">6</span>.88M 0s
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-141"></a>  2300K .......... .......... .......... .......... .......... <span class="m">88</span>% <span class="m">12</span>.3M 0s
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-142"></a>  2350K .......... .......... .......... .......... .......... <span class="m">90</span>%  480K 0s
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-143"></a>  2400K .......... .......... .......... .......... .......... <span class="m">92</span>% <span class="m">8</span>.43M 0s
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-144"></a>  2450K .......... .......... .......... .......... .......... <span class="m">94</span>% <span class="m">6</span>.35M 0s
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-145"></a>  2500K .......... .......... .......... .......... .......... <span class="m">96</span>% <span class="m">11</span>.6M 0s
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-146"></a>  2550K .......... .......... .......... .......... .......... <span class="m">98</span>% <span class="m">6</span>.34M 0s
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-147"></a>  2600K .......... .......... .......... .......... ....      <span class="m">100</span>% <span class="m">15</span>.2M<span class="o">=</span><span class="m">1</span>.6s
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-148"></a>
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-149"></a><span class="m">2018</span>-11-25 <span class="m">10</span>:38:21 <span class="o">(</span><span class="m">1</span>.62 MB/s<span class="o">)</span> - <span class="s1">'entrykit_0.4.0_linux_x86_64.tgz'</span> saved <span class="o">[</span><span class="m">2708228</span>/2708228<span class="o">]</span>
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-150"></a>
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-151"></a>Removing intermediate container dea73313bc77
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-152"></a> ---&gt; 2c98967c1774
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-153"></a>Step <span class="m">5</span>/16 : RUN tar -xvzf entrykit_0.4.0_linux_x86_64.tgz
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-154"></a> ---&gt; Running in ff7abe00309c
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-155"></a>entrykit
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-156"></a>Removing intermediate container ff7abe00309c
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-157"></a> ---&gt; addb23c07603
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-158"></a>Step <span class="m">6</span>/16 : RUN rm entrykit_0.4.0_linux_x86_64.tgz
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-159"></a> ---&gt; Running in 22f15256cab4
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-160"></a>Removing intermediate container 22f15256cab4
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-161"></a> ---&gt; 3e734f4463ea
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-162"></a>Step <span class="m">7</span>/16 : RUN mv entrykit /usr/local/bin/
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-163"></a> ---&gt; Running in 8282d8355551
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-164"></a>Removing intermediate container 8282d8355551
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-165"></a> ---&gt; 15c3a13a9dbf
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-166"></a>Step <span class="m">8</span>/16 : RUN entrykit --symlink
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-167"></a> ---&gt; Running in ce5b7cf07987
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-168"></a>Creating symlink /usr/local/bin/entrykit ...
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-169"></a>Creating symlink /usr/local/bin/codep ...
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-170"></a>Creating symlink /usr/local/bin/prehook ...
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-171"></a>Creating symlink /usr/local/bin/render ...
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-172"></a>Creating symlink /usr/local/bin/switch ...
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-173"></a>Removing intermediate container ce5b7cf07987
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-174"></a> ---&gt; 4db462ea1227
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-175"></a>Step <span class="m">9</span>/16 : COPY add-server-id.sh /usr/local/bin/
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-176"></a> ---&gt; 2302bd5ce059
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-177"></a>Step <span class="m">10</span>/16 : COPY etc/mysql/mysql.conf.d/mysqld.cnf /etc/mysql/mysql.conf.d/
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-178"></a> ---&gt; 22546372bdd1
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-179"></a>Step <span class="m">11</span>/16 : COPY etc/mysql/conf.d/mysql.cnf /etc/mysql/conf.d/
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-180"></a> ---&gt; cefe14b8ebd9
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-181"></a>Step <span class="m">12</span>/16 : COPY prepare.sh /docker-entrypoint-initdb.d
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-182"></a> ---&gt; 1c5e3d21135f
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-183"></a>Step <span class="m">13</span>/16 : COPY init-data.sh /usr/local/bin/
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-184"></a> ---&gt; 9063c3add476
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-185"></a>Step <span class="m">14</span>/16 : COPY sql /sql
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-186"></a> ---&gt; bc4b49fcff4a
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-187"></a>Step <span class="m">15</span>/16 : ENTRYPOINT <span class="o">[</span>   <span class="s2">"prehook"</span>,     <span class="s2">"add-server-id.sh"</span>,     <span class="s2">"--"</span>,   <span class="s2">"docker-entrypoint.sh"</span> <span class="o">]</span>
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-188"></a> ---&gt; Running in a719ec77bf52
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-189"></a>Removing intermediate container a719ec77bf52
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-190"></a> ---&gt; 81427966d5ba
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-191"></a>Step <span class="m">16</span>/16 : CMD <span class="o">[</span><span class="s2">"mysqld"</span><span class="o">]</span>
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-192"></a> ---&gt; Running in f7e703b2ecee
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-193"></a>Removing intermediate container f7e703b2ecee
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-194"></a> ---&gt; e8a9a539cdd7
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-195"></a>Successfully built e8a9a539cdd7
+<a name="rest_code_360d5149848f4859a39648945b1aeca0-196"></a>Successfully tagged ch04/tododb:latest
+</pre>
+<p>タグ名をつける。</p>
+<pre class="code bash"><a name="rest_code_67577f8394704309a005017123fc80b0-1"></a>$ docker image tag ch04/tododb:latest localhost:5000/ch04/tododb:latest
+</pre>
+<p>Swarm クラスタの worker ノードで利用できるように、 <code class="docutils literal">localhost:5000/ch04/tododb:latest</code> という名前で registry に push しておく。</p>
+<pre class="code bash"><a name="rest_code_687e4cae640b4932bfdb7b71a98bc11b-1"></a>$ docker image push localhost:5000/ch04/tododb:latest
+<a name="rest_code_687e4cae640b4932bfdb7b71a98bc11b-2"></a>The push refers to repository <span class="o">[</span>localhost:5000/ch04/tododb<span class="o">]</span>
+<a name="rest_code_687e4cae640b4932bfdb7b71a98bc11b-3"></a>7145c9f07816: Preparing
+<a name="rest_code_687e4cae640b4932bfdb7b71a98bc11b-4"></a>f31f10668bad: Preparing
+<a name="rest_code_687e4cae640b4932bfdb7b71a98bc11b-5"></a>18b21f6c50ce: Preparing
+<a name="rest_code_687e4cae640b4932bfdb7b71a98bc11b-6"></a>2ad5fd0a3131: Preparing
+<a name="rest_code_687e4cae640b4932bfdb7b71a98bc11b-7"></a>1f22bafd4a4b: Preparing
+<a name="rest_code_687e4cae640b4932bfdb7b71a98bc11b-8"></a>f208eba8785e: Preparing
+<a name="rest_code_687e4cae640b4932bfdb7b71a98bc11b-9"></a>eb3efcf4de85: Preparing
+<a name="rest_code_687e4cae640b4932bfdb7b71a98bc11b-10"></a>77cc7b793ed5: Preparing
+<a name="rest_code_687e4cae640b4932bfdb7b71a98bc11b-11"></a>09c90391a311: Preparing
+<a name="rest_code_687e4cae640b4932bfdb7b71a98bc11b-12"></a>e9651980f89e: Preparing
+<a name="rest_code_687e4cae640b4932bfdb7b71a98bc11b-13"></a>1e9b0de5a957: Preparing
+<a name="rest_code_687e4cae640b4932bfdb7b71a98bc11b-14"></a>9adbc7c066aa: Preparing
+<a name="rest_code_687e4cae640b4932bfdb7b71a98bc11b-15"></a>e618193140e0: Preparing
+<a name="rest_code_687e4cae640b4932bfdb7b71a98bc11b-16"></a>0d954c604c76: Preparing
+<a name="rest_code_687e4cae640b4932bfdb7b71a98bc11b-17"></a>ceb15396dc26: Preparing
+<a name="rest_code_687e4cae640b4932bfdb7b71a98bc11b-18"></a>347571a8da20: Pushed
+<a name="rest_code_687e4cae640b4932bfdb7b71a98bc11b-19"></a>ea66b8e6103f: Pushed
+<a name="rest_code_687e4cae640b4932bfdb7b71a98bc11b-20"></a>3d4164460bf0: Pushed
+<a name="rest_code_687e4cae640b4932bfdb7b71a98bc11b-21"></a>783b13a988e3: Pushed
+<a name="rest_code_687e4cae640b4932bfdb7b71a98bc11b-22"></a>2566141f200b: Pushed
+<a name="rest_code_687e4cae640b4932bfdb7b71a98bc11b-23"></a>0ad177796f33: Pushed
+<a name="rest_code_687e4cae640b4932bfdb7b71a98bc11b-24"></a>0f1205f1cd43: Pushed
+<a name="rest_code_687e4cae640b4932bfdb7b71a98bc11b-25"></a>a588c986cf97: Pushed
+<a name="rest_code_687e4cae640b4932bfdb7b71a98bc11b-26"></a>ef68f6734aa4: Pushed
+<a name="rest_code_687e4cae640b4932bfdb7b71a98bc11b-27"></a>latest: digest: sha256:d2108914ffdc5e80d08fa4e07067c7872dc427c6f0ef7df208de05e3f5fecd91 size: <span class="m">5334</span>
+</pre>
+</div>
+</div>
+<div class="section" id="swarm-master-slave">
+<h3><a class="toc-backref" href="#id12">4.2.6 Swarm 上で Master/Slave サービスを実行する</a></h3>
+<p><code class="docutils literal"><span class="pre">todo-mysql.yml</span></code> を作成する。</p>
+<pre class="code yaml"><a name="rest_code_f3f63120d45b46d4a97717edf029782a-1"></a><span class="nt">version</span><span class="p">:</span> <span class="s">"3"</span>
+<a name="rest_code_f3f63120d45b46d4a97717edf029782a-2"></a>
+<a name="rest_code_f3f63120d45b46d4a97717edf029782a-3"></a><span class="nt">services</span><span class="p">:</span>
+<a name="rest_code_f3f63120d45b46d4a97717edf029782a-4"></a>  <span class="nt">master</span><span class="p">:</span>
+<a name="rest_code_f3f63120d45b46d4a97717edf029782a-5"></a>    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">registry:5000/ch04/tododb:latest</span>
+<a name="rest_code_f3f63120d45b46d4a97717edf029782a-6"></a>    <span class="nt">deploy</span><span class="p">:</span>
+<a name="rest_code_f3f63120d45b46d4a97717edf029782a-7"></a>      <span class="nt">replicas</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+<a name="rest_code_f3f63120d45b46d4a97717edf029782a-8"></a>      <span class="nt">placement</span><span class="p">:</span>
+<a name="rest_code_f3f63120d45b46d4a97717edf029782a-9"></a>        <span class="nt">constraints</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">node.role != manager</span><span class="p p-Indicator">]</span>  <span class="c1"># manager ノード以外に配置する</span>
+<a name="rest_code_f3f63120d45b46d4a97717edf029782a-10"></a>    <span class="nt">environment</span><span class="p">:</span>
+<a name="rest_code_f3f63120d45b46d4a97717edf029782a-11"></a>      <span class="nt">MYSQL_ROOT_PASSWORD</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">gihyo</span>
+<a name="rest_code_f3f63120d45b46d4a97717edf029782a-12"></a>      <span class="nt">MYSQL_DATABASE</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">tododb</span>
+<a name="rest_code_f3f63120d45b46d4a97717edf029782a-13"></a>      <span class="nt">MYSQL_USER</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">gihyo</span>
+<a name="rest_code_f3f63120d45b46d4a97717edf029782a-14"></a>      <span class="nt">MYSQL_PASSWORD</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">gihyo</span>
+<a name="rest_code_f3f63120d45b46d4a97717edf029782a-15"></a>      <span class="nt">MYSQL_MASTER</span><span class="p">:</span> <span class="s">"true"</span>
+<a name="rest_code_f3f63120d45b46d4a97717edf029782a-16"></a>    <span class="nt">networks</span><span class="p">:</span>
+<a name="rest_code_f3f63120d45b46d4a97717edf029782a-17"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">todoapp</span>
+<a name="rest_code_f3f63120d45b46d4a97717edf029782a-18"></a>
+<a name="rest_code_f3f63120d45b46d4a97717edf029782a-19"></a>  <span class="nt">slave</span><span class="p">:</span>
+<a name="rest_code_f3f63120d45b46d4a97717edf029782a-20"></a>    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">registry:5000/ch04/tododb:latest</span>
+<a name="rest_code_f3f63120d45b46d4a97717edf029782a-21"></a>    <span class="nt">deploy</span><span class="p">:</span>
+<a name="rest_code_f3f63120d45b46d4a97717edf029782a-22"></a>      <span class="nt">replicas</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
+<a name="rest_code_f3f63120d45b46d4a97717edf029782a-23"></a>      <span class="nt">placement</span><span class="p">:</span>
+<a name="rest_code_f3f63120d45b46d4a97717edf029782a-24"></a>        <span class="nt">constraints</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">node.role != manager</span><span class="p p-Indicator">]</span>  <span class="c1"># manager ノード以外に配置する</span>
+<a name="rest_code_f3f63120d45b46d4a97717edf029782a-25"></a>    <span class="nt">depends_on</span><span class="p">:</span>
+<a name="rest_code_f3f63120d45b46d4a97717edf029782a-26"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">master</span>
+<a name="rest_code_f3f63120d45b46d4a97717edf029782a-27"></a>    <span class="nt">environment</span><span class="p">:</span>
+<a name="rest_code_f3f63120d45b46d4a97717edf029782a-28"></a>      <span class="nt">MYSQL_MASTER_HOST</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">master</span>
+<a name="rest_code_f3f63120d45b46d4a97717edf029782a-29"></a>      <span class="nt">MYSQL_ROOT_PASSWORD</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">gihyo</span>
+<a name="rest_code_f3f63120d45b46d4a97717edf029782a-30"></a>      <span class="nt">MYSQL_DATABASE</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">tododb</span>
+<a name="rest_code_f3f63120d45b46d4a97717edf029782a-31"></a>      <span class="nt">MYSQL_USER</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">gihyo</span>
+<a name="rest_code_f3f63120d45b46d4a97717edf029782a-32"></a>      <span class="nt">MYSQL_PASSWORD</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">gihyo</span>
+<a name="rest_code_f3f63120d45b46d4a97717edf029782a-33"></a>      <span class="nt">MYSQL_REPL_USER</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">repl</span>
+<a name="rest_code_f3f63120d45b46d4a97717edf029782a-34"></a>      <span class="nt">MYSQL_REPL_PASSWORD</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">gihyo</span>
+<a name="rest_code_f3f63120d45b46d4a97717edf029782a-35"></a>    <span class="nt">networks</span><span class="p">:</span>
+<a name="rest_code_f3f63120d45b46d4a97717edf029782a-36"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">todoapp</span>
+<a name="rest_code_f3f63120d45b46d4a97717edf029782a-37"></a>
+<a name="rest_code_f3f63120d45b46d4a97717edf029782a-38"></a><span class="nt">networks</span><span class="p">:</span>
+<a name="rest_code_f3f63120d45b46d4a97717edf029782a-39"></a>  <span class="nt">todoapp</span><span class="p">:</span>            <span class="c1"># overlay ネットワーク</span>
+<a name="rest_code_f3f63120d45b46d4a97717edf029782a-40"></a>    <span class="nt">external</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>    <span class="c1"># 各 Service をこのネットワークに所属させる</span>
+</pre>
+<div class="section" id="id4">
+<h4><a class="toc-backref" href="#id13">Swarm によるデプロイ</a></h4>
+<p>manager コンテナに、 <code class="docutils literal"><span class="pre">todo-mysql.yml</span></code> を <code class="docutils literal">todo_mysql</code> スタックとしてデプロイする。</p>
+<pre class="code bash"><a name="rest_code_4ba813462fba402baac129138f69058e-1"></a>$ docker container <span class="nb">exec</span> -it manager docker stack deploy -c /stack/todo-mysql.yml todo-mysql
+<a name="rest_code_4ba813462fba402baac129138f69058e-2"></a>Creating service todo-mysql_master
+<a name="rest_code_4ba813462fba402baac129138f69058e-3"></a>Creating service todo-mysql_slave
+<a name="rest_code_4ba813462fba402baac129138f69058e-4"></a>
+<a name="rest_code_4ba813462fba402baac129138f69058e-5"></a><span class="c1"># デプロイされているサービス一覧を確認する。</span>
+<a name="rest_code_4ba813462fba402baac129138f69058e-6"></a>$ docker container <span class="nb">exec</span> -it manager docker service ls
+<a name="rest_code_4ba813462fba402baac129138f69058e-7"></a>ID                  NAME                MODE                REPLICAS            IMAGE                              PORTS
+<a name="rest_code_4ba813462fba402baac129138f69058e-8"></a>wx74zcnjz77k        todo-mysql_master   replicated          <span class="m">1</span>/1                 registry:5000/ch04/tododb:latest
+<a name="rest_code_4ba813462fba402baac129138f69058e-9"></a>3r61ptmsixr5        todo-mysql_slave    replicated          <span class="m">2</span>/2                 registry:5000/ch04/tododb:latest
+</pre>
+</div>
+</div>
+<div class="section" id="mysql">
+<h3><a class="toc-backref" href="#id14">4.2.7 MySQL コンテナを確認し、初期データを投入する</a></h3>
+<p>Master コンテナが Swarm のどのノードに配置されたか調べる。</p>
+<ul class="simple">
+<li><p>ノードの ID と Task ID がわかれば <code class="docutils literal">docker container exec</code> を多段で実行することで目的のコンテナの中にはいることができる。</p></li>
+</ul>
+<pre class="code console"><a name="rest_code_6ce2bdb62c5d4ac3b29541fc5aac7457-1"></a><span class="gp">$</span> docker container <span class="nb">exec</span> -it manager docker service ps todo-mysql_master --no-trunc --filter <span class="s2">"desired-state=running"</span>
+<a name="rest_code_6ce2bdb62c5d4ac3b29541fc5aac7457-2"></a><span class="go">ID                          NAME                  IMAGE                                                                                                      NODE                DESIRED STATE       CURRENT STATE           ERROR               PORTS</span>
+<a name="rest_code_6ce2bdb62c5d4ac3b29541fc5aac7457-3"></a><span class="go">pitobepehy19jm3v7pfe2cavo   todo-mysql_master.1   registry:5000/ch04/tododb:latest@sha256:d2108914ffdc5e80d08fa4e07067c7872dc427c6f0ef7df208de05e3f5fecd91   7190447651de        Running             Running 9 minutes ago</span>
+</pre>
+<p>ノードの ID と Task ID を調べるのと同時に、 <code class="docutils literal"><span class="pre">--format</span></code> を使って多段用のコマンドも作っちゃう。</p>
+<pre class="code console"><a name="rest_code_89e08a330b1844439a9a9aa3d7126c39-1"></a><span class="gp">$</span> docker container <span class="nb">exec</span> -it manager <span class="se">\</span>
+<a name="rest_code_89e08a330b1844439a9a9aa3d7126c39-2"></a>  docker service ps todo-mysql_master <span class="se">\</span>
+<a name="rest_code_89e08a330b1844439a9a9aa3d7126c39-3"></a>  --no-trunc <span class="se">\</span>
+<a name="rest_code_89e08a330b1844439a9a9aa3d7126c39-4"></a>  --filter <span class="s2">"desired-state=running"</span> <span class="se">\</span>
+<a name="rest_code_89e08a330b1844439a9a9aa3d7126c39-5"></a>  --format <span class="s2">"docker container exec -it {{.Node}} docker container exec -it {{.Name}}.{{.ID}} bash"</span>
+</pre>
+<p>master コンテナで <code class="docutils literal"><span class="pre">init-data.sh</span></code> を実行してテーブルとデータを作成します。</p>
+<pre class="code bash"><a name="rest_code_20935b7f083a484eb469b7046ef99f54-1"></a><span class="c1"># 初期データ投入スクリプトを実行する</span>
+<a name="rest_code_20935b7f083a484eb469b7046ef99f54-2"></a>$ docker container <span class="nb">exec</span> -it 7190447651de docker container <span class="nb">exec</span> -it todo-mysql_master.1.pitobepehy19jm3v7pfe2cavo init-data.sh
+<a name="rest_code_20935b7f083a484eb469b7046ef99f54-3"></a>
+<a name="rest_code_20935b7f083a484eb469b7046ef99f54-4"></a><span class="c1"># データが正常に投入できたか確認する</span>
+<a name="rest_code_20935b7f083a484eb469b7046ef99f54-5"></a>$ docker container <span class="nb">exec</span> -it 7190447651de docker container <span class="nb">exec</span> -it todo-mysql_master.1.pitobepehy19jm3v7pfe2cavo <span class="se">\</span>
+<a name="rest_code_20935b7f083a484eb469b7046ef99f54-6"></a>&gt;   mysql -u gihyo -pgihyo tododb
+<a name="rest_code_20935b7f083a484eb469b7046ef99f54-7"></a>mysql: <span class="o">[</span>Warning<span class="o">]</span> Using a password on the <span class="nb">command</span> line interface can be insecure.
+<a name="rest_code_20935b7f083a484eb469b7046ef99f54-8"></a>Reading table information <span class="k">for</span> completion of table and column names
+<a name="rest_code_20935b7f083a484eb469b7046ef99f54-9"></a>You can turn off this feature to get a quicker startup with -A
+<a name="rest_code_20935b7f083a484eb469b7046ef99f54-10"></a>
+<a name="rest_code_20935b7f083a484eb469b7046ef99f54-11"></a>Welcome to the MySQL monitor.  Commands end with <span class="p">;</span> or <span class="se">\g</span>.
+<a name="rest_code_20935b7f083a484eb469b7046ef99f54-12"></a>Your MySQL connection id is <span class="m">16</span>
+<a name="rest_code_20935b7f083a484eb469b7046ef99f54-13"></a>Server version: <span class="m">5</span>.7.24-log MySQL Community Server <span class="o">(</span>GPL<span class="o">)</span>
+<a name="rest_code_20935b7f083a484eb469b7046ef99f54-14"></a>
+<a name="rest_code_20935b7f083a484eb469b7046ef99f54-15"></a>Copyright <span class="o">(</span>c<span class="o">)</span> <span class="m">2000</span>, <span class="m">2018</span>, Oracle and/or its affiliates. All rights reserved.
+<a name="rest_code_20935b7f083a484eb469b7046ef99f54-16"></a>
+<a name="rest_code_20935b7f083a484eb469b7046ef99f54-17"></a>Oracle is a registered trademark of Oracle Corporation and/or its
+<a name="rest_code_20935b7f083a484eb469b7046ef99f54-18"></a>affiliates. Other names may be trademarks of their respective
+<a name="rest_code_20935b7f083a484eb469b7046ef99f54-19"></a>owners.
+<a name="rest_code_20935b7f083a484eb469b7046ef99f54-20"></a>
+<a name="rest_code_20935b7f083a484eb469b7046ef99f54-21"></a>Type <span class="s1">'help;'</span> or <span class="s1">'\h'</span> <span class="k">for</span> help. Type <span class="s1">'\c'</span> to clear the current input statement.
+<a name="rest_code_20935b7f083a484eb469b7046ef99f54-22"></a>
+<a name="rest_code_20935b7f083a484eb469b7046ef99f54-23"></a>mysql&gt; SELECT * FROM todo LIMIT <span class="m">1</span><span class="se">\G</span>
+<a name="rest_code_20935b7f083a484eb469b7046ef99f54-24"></a>*************************** <span class="m">1</span>. row ***************************
+<a name="rest_code_20935b7f083a484eb469b7046ef99f54-25"></a>     id: <span class="m">1</span>
+<a name="rest_code_20935b7f083a484eb469b7046ef99f54-26"></a>  title: MySQLのDockerイメージを作成する
+<a name="rest_code_20935b7f083a484eb469b7046ef99f54-27"></a>content: MySQLのMaster、Slaveそれぞれで利用できるように、環境変数で役割を制御できるMySQLイメージを作成する
+<a name="rest_code_20935b7f083a484eb469b7046ef99f54-28"></a> status: DONE
+<a name="rest_code_20935b7f083a484eb469b7046ef99f54-29"></a>created: <span class="m">2018</span>-11-25 <span class="m">11</span>:34:16
+<a name="rest_code_20935b7f083a484eb469b7046ef99f54-30"></a>updated: <span class="m">2018</span>-11-25 <span class="m">11</span>:34:16
+<a name="rest_code_20935b7f083a484eb469b7046ef99f54-31"></a><span class="m">1</span> row in <span class="nb">set</span> <span class="o">(</span><span class="m">0</span>.00 sec<span class="o">)</span>
+</pre>
+<p>Master に登録したデータが Slave にも反映されていることを確認する。</p>
+<pre class="code bash"><a name="rest_code_1c7157d5c72646dfaee1d2f66386f62f-1"></a><span class="c1"># ノードの ID と Task ID を調べる</span>
+<a name="rest_code_1c7157d5c72646dfaee1d2f66386f62f-2"></a>$ docker container <span class="nb">exec</span> -it manager <span class="se">\</span>
+<a name="rest_code_1c7157d5c72646dfaee1d2f66386f62f-3"></a>  docker service ps todo-mysql_slave <span class="se">\</span>
+<a name="rest_code_1c7157d5c72646dfaee1d2f66386f62f-4"></a>  --no-trunc <span class="se">\</span>
+<a name="rest_code_1c7157d5c72646dfaee1d2f66386f62f-5"></a>  --filter <span class="s2">"desired-state=running"</span> <span class="se">\</span>
+<a name="rest_code_1c7157d5c72646dfaee1d2f66386f62f-6"></a>  --format <span class="s2">"docker container exec -it {{.Node}} docker container exec -it {{.Name}}.{{.ID}} bash"</span>
+<a name="rest_code_1c7157d5c72646dfaee1d2f66386f62f-7"></a>  docker container <span class="nb">exec</span> -it 272227e51007 docker container <span class="nb">exec</span> -it todo-mysql_slave.1.xd9oxztk61ogea9duail6yhv0 bash
+<a name="rest_code_1c7157d5c72646dfaee1d2f66386f62f-8"></a>  docker container <span class="nb">exec</span> -it cfffba103c8c docker container <span class="nb">exec</span> -it todo-mysql_slave.2.rk8cm47671v1ah04s9teajft1 bash
+<a name="rest_code_1c7157d5c72646dfaee1d2f66386f62f-9"></a>
+<a name="rest_code_1c7157d5c72646dfaee1d2f66386f62f-10"></a><span class="c1"># データが反映できたことを確認する (slave1)</span>
+<a name="rest_code_1c7157d5c72646dfaee1d2f66386f62f-11"></a>$ docker container <span class="nb">exec</span> -it 272227e51007 docker container <span class="nb">exec</span> -it todo-mysql_slave.1.xd9oxztk61ogea9duail6yhv0 mysql -u gihyo -pgihyo tododb
+<a name="rest_code_1c7157d5c72646dfaee1d2f66386f62f-12"></a>mysql: <span class="o">[</span>Warning<span class="o">]</span> Using a password on the <span class="nb">command</span> line interface can be insecure.
+<a name="rest_code_1c7157d5c72646dfaee1d2f66386f62f-13"></a>Reading table information <span class="k">for</span> completion of table and column names
+<a name="rest_code_1c7157d5c72646dfaee1d2f66386f62f-14"></a>You can turn off this feature to get a quicker startup with -A
+<a name="rest_code_1c7157d5c72646dfaee1d2f66386f62f-15"></a>
+<a name="rest_code_1c7157d5c72646dfaee1d2f66386f62f-16"></a>Welcome to the MySQL monitor.  Commands end with <span class="p">;</span> or <span class="se">\g</span>.
+<a name="rest_code_1c7157d5c72646dfaee1d2f66386f62f-17"></a>Your MySQL connection id is <span class="m">4</span>
+<a name="rest_code_1c7157d5c72646dfaee1d2f66386f62f-18"></a>Server version: <span class="m">5</span>.7.24-log MySQL Community Server <span class="o">(</span>GPL<span class="o">)</span>
+<a name="rest_code_1c7157d5c72646dfaee1d2f66386f62f-19"></a>
+<a name="rest_code_1c7157d5c72646dfaee1d2f66386f62f-20"></a>Copyright <span class="o">(</span>c<span class="o">)</span> <span class="m">2000</span>, <span class="m">2018</span>, Oracle and/or its affiliates. All rights reserved.
+<a name="rest_code_1c7157d5c72646dfaee1d2f66386f62f-21"></a>
+<a name="rest_code_1c7157d5c72646dfaee1d2f66386f62f-22"></a>Oracle is a registered trademark of Oracle Corporation and/or its
+<a name="rest_code_1c7157d5c72646dfaee1d2f66386f62f-23"></a>affiliates. Other names may be trademarks of their respective
+<a name="rest_code_1c7157d5c72646dfaee1d2f66386f62f-24"></a>owners.
+<a name="rest_code_1c7157d5c72646dfaee1d2f66386f62f-25"></a>
+<a name="rest_code_1c7157d5c72646dfaee1d2f66386f62f-26"></a>Type <span class="s1">'help;'</span> or <span class="s1">'\h'</span> <span class="k">for</span> help. Type <span class="s1">'\c'</span> to clear the current input statement.
+<a name="rest_code_1c7157d5c72646dfaee1d2f66386f62f-27"></a>
+<a name="rest_code_1c7157d5c72646dfaee1d2f66386f62f-28"></a>mysql&gt; SELECT * FROM todo LIMIT <span class="m">1</span><span class="se">\G</span>
+<a name="rest_code_1c7157d5c72646dfaee1d2f66386f62f-29"></a>*************************** <span class="m">1</span>. row ***************************
+<a name="rest_code_1c7157d5c72646dfaee1d2f66386f62f-30"></a>     id: <span class="m">1</span>
+<a name="rest_code_1c7157d5c72646dfaee1d2f66386f62f-31"></a>  title: MySQLのDockerイメージを作成する
+<a name="rest_code_1c7157d5c72646dfaee1d2f66386f62f-32"></a>content: MySQLのMaster、Slaveそれぞれで利用できるように、環境変数で役割を制御できるMySQLイメージを作成する
+<a name="rest_code_1c7157d5c72646dfaee1d2f66386f62f-33"></a> status: DONE
+<a name="rest_code_1c7157d5c72646dfaee1d2f66386f62f-34"></a>created: <span class="m">2018</span>-11-25 <span class="m">11</span>:34:16
+<a name="rest_code_1c7157d5c72646dfaee1d2f66386f62f-35"></a>updated: <span class="m">2018</span>-11-25 <span class="m">11</span>:34:16
+<a name="rest_code_1c7157d5c72646dfaee1d2f66386f62f-36"></a><span class="m">1</span> row in <span class="nb">set</span> <span class="o">(</span><span class="m">0</span>.00 sec<span class="o">)</span>
+<a name="rest_code_1c7157d5c72646dfaee1d2f66386f62f-37"></a>
+<a name="rest_code_1c7157d5c72646dfaee1d2f66386f62f-38"></a>mysql&gt; <span class="nb">exit</span>
+<a name="rest_code_1c7157d5c72646dfaee1d2f66386f62f-39"></a>Bye
+<a name="rest_code_1c7157d5c72646dfaee1d2f66386f62f-40"></a>
+<a name="rest_code_1c7157d5c72646dfaee1d2f66386f62f-41"></a><span class="c1"># データが反映できたことを確認する (slave2)</span>
+<a name="rest_code_1c7157d5c72646dfaee1d2f66386f62f-42"></a>$ docker container <span class="nb">exec</span> -it cfffba103c8c docker container <span class="nb">exec</span> -it todo-mysql_slave.2.rk8cm47671v1ah04s9teajft1 mysql -u gihyo -pgihyo tododb
+<a name="rest_code_1c7157d5c72646dfaee1d2f66386f62f-43"></a>mysql: <span class="o">[</span>Warning<span class="o">]</span> Using a password on the <span class="nb">command</span> line interface can be insecure.
+<a name="rest_code_1c7157d5c72646dfaee1d2f66386f62f-44"></a>Reading table information <span class="k">for</span> completion of table and column names
+<a name="rest_code_1c7157d5c72646dfaee1d2f66386f62f-45"></a>You can turn off this feature to get a quicker startup with -A
+<a name="rest_code_1c7157d5c72646dfaee1d2f66386f62f-46"></a>
+<a name="rest_code_1c7157d5c72646dfaee1d2f66386f62f-47"></a>Welcome to the MySQL monitor.  Commands end with <span class="p">;</span> or <span class="se">\g</span>.
+<a name="rest_code_1c7157d5c72646dfaee1d2f66386f62f-48"></a>Your MySQL connection id is <span class="m">4</span>
+<a name="rest_code_1c7157d5c72646dfaee1d2f66386f62f-49"></a>Server version: <span class="m">5</span>.7.24-log MySQL Community Server <span class="o">(</span>GPL<span class="o">)</span>
+<a name="rest_code_1c7157d5c72646dfaee1d2f66386f62f-50"></a>
+<a name="rest_code_1c7157d5c72646dfaee1d2f66386f62f-51"></a>Copyright <span class="o">(</span>c<span class="o">)</span> <span class="m">2000</span>, <span class="m">2018</span>, Oracle and/or its affiliates. All rights reserved.
+<a name="rest_code_1c7157d5c72646dfaee1d2f66386f62f-52"></a>
+<a name="rest_code_1c7157d5c72646dfaee1d2f66386f62f-53"></a>Oracle is a registered trademark of Oracle Corporation and/or its
+<a name="rest_code_1c7157d5c72646dfaee1d2f66386f62f-54"></a>affiliates. Other names may be trademarks of their respective
+<a name="rest_code_1c7157d5c72646dfaee1d2f66386f62f-55"></a>owners.
+<a name="rest_code_1c7157d5c72646dfaee1d2f66386f62f-56"></a>
+<a name="rest_code_1c7157d5c72646dfaee1d2f66386f62f-57"></a>Type <span class="s1">'help;'</span> or <span class="s1">'\h'</span> <span class="k">for</span> help. Type <span class="s1">'\c'</span> to clear the current input statement.
+<a name="rest_code_1c7157d5c72646dfaee1d2f66386f62f-58"></a>
+<a name="rest_code_1c7157d5c72646dfaee1d2f66386f62f-59"></a>mysql&gt; SELECT * FROM todo LIMIT <span class="m">1</span><span class="se">\G</span>
+<a name="rest_code_1c7157d5c72646dfaee1d2f66386f62f-60"></a>*************************** <span class="m">1</span>. row ***************************
+<a name="rest_code_1c7157d5c72646dfaee1d2f66386f62f-61"></a>     id: <span class="m">1</span>
+<a name="rest_code_1c7157d5c72646dfaee1d2f66386f62f-62"></a>  title: MySQLのDockerイメージを作成する
+<a name="rest_code_1c7157d5c72646dfaee1d2f66386f62f-63"></a>content: MySQLのMaster、Slaveそれぞれで利用できるように、環境変数で役割を制御できるMySQLイメージを作成する
+<a name="rest_code_1c7157d5c72646dfaee1d2f66386f62f-64"></a> status: DONE
+<a name="rest_code_1c7157d5c72646dfaee1d2f66386f62f-65"></a>created: <span class="m">2018</span>-11-25 <span class="m">11</span>:34:16
+<a name="rest_code_1c7157d5c72646dfaee1d2f66386f62f-66"></a>updated: <span class="m">2018</span>-11-25 <span class="m">11</span>:34:16
+<a name="rest_code_1c7157d5c72646dfaee1d2f66386f62f-67"></a><span class="m">1</span> row in <span class="nb">set</span> <span class="o">(</span><span class="m">0</span>.01 sec<span class="o">)</span>
+</pre>
+</div>
+</div>
+<div class="section" id="api-service">
+<h2><a class="toc-backref" href="#id15">4.3 API Service の構築</a></h2>
+<p>やりとちゅう</p>
+</div>
+</div>
+    </div>
+  </main>
+</div>
+</div>
+    </div>
+  </body>
+</html>
