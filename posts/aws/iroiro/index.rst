@@ -153,6 +153,7 @@ AWS CodeBuild は完全マネージド型のビルドサービスです。ソー
 
 AWS Lambda
 ==========
+* AWS Lambda ドキュメント: https://docs.aws.amazon.com/ja_jp/lambda/
 
 AWS Lambda はサーバーをプロビジョニングしたり管理する必要なくコードを実行できるコンピューティングサービスです。
 
@@ -162,9 +163,3 @@ AWS Serverless Application Repository
 https://aws.amazon.com/jp/serverless/serverlessrepo/
 
 * Serverless Application Repository の使用に追加料金はかかりません。デプロイするアプリケーションで使用する AWS リソースに対してのみ料金をお支払いいただきます。
-
-
-* AWS のいろいろなサービスについて知りたいなあ
-  * 全体を俯瞰して
-  * こんなんあるんだなあと、ちょっとした使い方使い道を知りたい
-  * いざ使うとなったら詳しく調べて使えるように
