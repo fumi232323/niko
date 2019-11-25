@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<title>エキスパートPythonプログラミング改訂2版 気になったことメモ/ふみのて</title>
+<link rel="shortcut icon" href="../../assets/icons/favicon.ico">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Griffy">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Vollkorn:400,700">
+<link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/sawarabimincho.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+<link rel="stylesheet" href="../../assets/css/style.css?20191110">
+</head>
+<body>
+    <div class="container">
+      <div class="header"><header class="item item-header"><h1>
+    <a href="../../">
+      <img class="logo" src="../../assets/images/inuu.png" alt="犬"></a>
+  </h1>
+  <iframe src="../../tags/" class="tags"></iframe>
+</header></div>
+      <div class="main">
+<div class="article-content">
+  <main class="item item-article item-python"><time class="date" datetime="2019-11-24 00:00:00+09:00">
+      2019-11-24 Sun
+    </time><div class="title">エキスパートPythonプログラミング改訂2版 気になったことメモ</div>
+    <div class="category">
+      <a href="../../tags/python/">
+          python
+      </a>
+    </div>
+    <div class="text">
+      <div>
+<details><summary>目次</summary><div class="contents topic" id="id1">
+<p class="topic-title first">目次</p>
+<ul class="simple">
+<li>
+<p><a class="reference internal" href="#id2" id="id5">第4章 良い名前を選ぶ</a></p>
+<ul>
+<li>
+<p><a class="reference internal" href="#p-154" id="id6">定数: P.154</a></p>
+<ul>
+<li><p><a class="reference internal" href="#p-155" id="id7">命名規則と使用例: P.155</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#p-162" id="id8">辞書型に明示的な名前をつける: P.162</a></p></li>
+<li><p><a class="reference internal" href="#p-163" id="id9">汎用性の高い名前を避ける: P.163</a></p></li>
+<li><p><a class="reference internal" href="#args-kwargs-p-167" id="id10">魔法の引数である*args と**kwargs は注意して使用する: P.167</a></p></li>
+<li><p><a class="reference internal" href="#p-169" id="id11">クラス名: P.169</a></p></li>
+<li><p><a class="reference internal" href="#p-170" id="id12">モジュール名とパッケージ名: P.170</a></p></li>
+</ul>
+</li>
+<li>
+<p><a class="reference internal" href="#id3" id="id13">第2章 構文ベストプラクティス — クラス以外</a></p>
+<ul>
+<li><p><a class="reference internal" href="#pythonic-p-64" id="id14">Pythonic なパターン: P.64</a></p></li>
+<li><p><a class="reference internal" href="#p-67" id="id15">文字列の結合について: P.67</a></p></li>
+<li><p><a class="reference internal" href="#python-p-69" id="id16">Pythonのリスト: P.69</a></p></li>
+<li><p><a class="reference internal" href="#p-70" id="id17">リスト内包表記: P.70</a></p></li>
+<li><p><a class="reference internal" href="#p-73" id="id18">辞書: P.73</a></p></li>
+<li><p><a class="reference internal" href="#p-74" id="id19">辞書の実装詳細: P.74</a></p></li>
+<li><p><a class="reference internal" href="#p-77" id="id20">集合: P.77</a></p></li>
+<li><p><a class="reference internal" href="#p-78" id="id21">集合の実装詳細: P.78</a></p></li>
+<li><p><a class="reference internal" href="#cllections-p-78" id="id22">cllections モジュール: P.78</a></p></li>
+<li><p><a class="reference internal" href="#p-79" id="id23">イテレータ: P.79</a></p></li>
+<li><p><a class="reference internal" href="#yield-p-81" id="id24">yield文（ジェネレータ）: P.81</a></p></li>
+<li><p><a class="reference internal" href="#p-85" id="id25">ジェネレータ式: P.85</a></p></li>
+<li><p><a class="reference internal" href="#id4" id="id26">デコレータ: P.85</a></p></li>
+<li><p><a class="reference internal" href="#p-90" id="id27">デコレータの活用例: P.90</a></p></li>
+<li><p><a class="reference internal" href="#with-p-98" id="id28">コンテキストマネージャー --- with 構文: P.98</a></p></li>
+<li><p><a class="reference internal" href="#p-100" id="id29">クラスとしてコンテキストマネージャーを実装: P.100</a></p></li>
+<li><p><a class="reference internal" href="#p-102" id="id30">関数としてコンテキストマネージャーを実装: P.102</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#python" id="id31">第1章 現在の Python のステータス</a></p></li>
+</ul>
+</div>
+</details><div class="section" id="id2">
+<h2><a class="toc-backref" href="#id5">第4章 良い名前を選ぶ</a></h2>
+<div class="section" id="p-154">
+<h3><a class="toc-backref" href="#id6">定数: P.154</a></h3>
+<p>短くするよりも意図をわかりやすく表現するほうが大切</p>
+<div class="section" id="p-155">
+<h4><a class="toc-backref" href="#id7">命名規則と使用例: P.155</a></h4>
+<p>デフォルト値や初期値を設定するためにも使用される</p>
+<ul class="simple">
+<li><p>ユーザーが必要な設定をすべて行わなくてもライブラリが動作する、という設計のほうが扱いやすい</p></li>
+<li><p>設定として使用する際の良いプラクティスは、パッケージ内の1つのファイルにすべての定数を集めること (Django の settings とか)</p></li>
+<li>
+<p>モジュール内にグループとなる定数がある場合を除いて、定数名の先頭に共通の名前をつける必要はない</p>
+<ul>
+<li><p>Python ではモジュール名そのものが接頭辞としての役割を果たすから</p></li>
+</ul>
+</li>
+<li><p>組み込みの <a class="reference external" href="https://docs.python.org/ja/3/library/enum.html#enum.Enum">https://docs.python.org/ja/3/library/enum.html#enum.Enum</a> を使う</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="p-162">
+<h3><a class="toc-backref" href="#id8">辞書型に明示的な名前をつける: P.162</a></h3>
+<pre class="code python"><a name="rest_code_79e06314914143b8abd7e07e99e21b64-1"></a><span class="c1"># 例えば dict が名前をキーにしてその人の住所を保持する場合には ``person_address``</span>
+<a name="rest_code_79e06314914143b8abd7e07e99e21b64-2"></a><span class="c1"># これずっと悩んでた!!</span>
+<a name="rest_code_79e06314914143b8abd7e07e99e21b64-3"></a><span class="n">person_address</span> <span class="o">=</span> <span class="p">{</span>
+<a name="rest_code_79e06314914143b8abd7e07e99e21b64-4"></a>    <span class="s1">'Bill'</span><span class="p">:</span> <span class="s1">'6565 Monty Road'</span><span class="p">,</span>
+<a name="rest_code_79e06314914143b8abd7e07e99e21b64-5"></a>    <span class="s1">'Pamela'</span><span class="p">:</span> <span class="s1">'45 Python street'</span><span class="p">,</span>
+<a name="rest_code_79e06314914143b8abd7e07e99e21b64-6"></a><span class="p">}</span>
+</pre>
+</div>
+<div class="section" id="p-163">
+<h3><a class="toc-backref" href="#id9">汎用性の高い名前を避ける: P.163</a></h3>
+<p>関数名やクラス名では避けたほうが良いでしょう</p>
+<ul class="simple">
+<li><p>Manager</p></li>
+<li><p>Object</p></li>
+<li><p>Do, handle または perform</p></li>
+</ul>
+</div>
+<div class="section" id="args-kwargs-p-167">
+<h3><a class="toc-backref" href="#id10">魔法の引数である*args と**kwargs は注意して使用する: P.167</a></h3>
+<ul>
+<li><p>可変引数である <code class="docutils literal">*args</code> と <code class="docutils literal">**kwargs</code> は、関数やメソッドの堅牢性を低下させる</p></li>
+<li><p>メソッドの引数情報を意味のある名前つき引数に固定すべき</p></li>
+<li>
+<p>別のアプローチとしては、関連する引数をグループ化して実行コンテキストに渡すためのコンテナクラスを作る</p>
+<ul class="simple">
+<li><p>内部情報を保持したり、独立して拡張できる</p></li>
+<li><p>コンテナを引数として使用するコードは、そのコンテナの内部構造を気にする必要がなくなる</p></li>
+</ul>
+<pre class="code python"><a name="rest_code_5378eff6ff8e46e791ceaa7261d35bc8-1"></a><span class="k">def</span> <span class="nf">log_request</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<a name="rest_code_5378eff6ff8e46e791ceaa7261d35bc8-2"></a>    <span class="k">print</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'HTTP_REFERER'</span><span class="p">,</span> <span class="s1">'No referer'</span><span class="p">))</span>
+</pre>
+</li>
+</ul>
+</div>
+<div class="section" id="p-169">
+<h3><a class="toc-backref" href="#id11">クラス名: P.169</a></h3>
+<ul>
+<li><p>名前からクラスが何をするのかが十分に理解できるように簡潔で的確な名前にする</p></li>
+<li>
+<p>その型やその特性について伝える接尾辞を使用する</p>
+<ul class="simple">
+<li><p>SQLEngine</p></li>
+<li><p>MineTypes</p></li>
+<li><p>StringWidget</p></li>
+<li><p>TestCase</p></li>
+</ul>
+</li>
+<li>
+<p>基底クラスのクラス名には <code class="docutils literal">Base</code> や <code class="docutils literal">Abstract</code></p>
+<ul class="simple">
+<li><p>BaseCookie</p></li>
+<li><p>AbstractFormatter</p></li>
+</ul>
+</li>
+<li>
+<p>クラスの属性と一貫性を保つ</p>
+<pre class="code python"><a name="rest_code_f2e9db5cc4dd4d0b93ac5d1628495fa6-1"></a><span class="n">SMTP</span><span class="o">.</span><span class="n">smtp_send</span><span class="p">()</span>  <span class="c1"># 主語が重複していて冗長!! ですよね!!</span>
+<a name="rest_code_f2e9db5cc4dd4d0b93ac5d1628495fa6-2"></a><span class="n">SMTP</span><span class="o">.</span><span class="n">send</span><span class="p">()</span>  <span class="c1"># Good</span>
+</pre>
+</li>
+</ul>
+</div>
+<div class="section" id="p-170">
+<h3><a class="toc-backref" href="#id12">モジュール名とパッケージ名: P.170</a></h3>
+<ul class="simple">
+<li><p>モジュールやパッケージの名前は、中に含まれる関数やクラスが持っている目的が伝わるような名前にする</p></li>
+<li>
+<p>underscores のない lowercase 形式の短い名前にしましょう</p>
+<ul>
+<li><p>sqlite</p></li>
+<li><p>postgres</p></li>
+<li><p>sha1</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id3">
+<h2><a class="toc-backref" href="#id13">第2章 構文ベストプラクティス — クラス以外</a></h2>
+<div class="section" id="pythonic-p-64">
+<h3><a class="toc-backref" href="#id14">Pythonic なパターン: P.64</a></h3>
+<p>自分自身で真実を深く掘り下げていくことでしか、Pythonの人気のある書き方のどれが本当に正しいかを知ることはできません。</p>
+</div>
+<div class="section" id="p-67">
+<h3><a class="toc-backref" href="#id15">文字列の結合について: P.67</a></h3>
+<p>場合に応じて使い分ける</p>
+<dl class="field-list simple">
+<dt>s += substring</dt>
+<dd>
+<p>文字列の長さに比例した実行コスト</p>
+</dd>
+<dt>str.join()</dt>
+<dd>
+<p>結合したい文字列の数が多い、すでに <code class="docutils literal">iterable</code> に格納されている</p>
+</dd>
+<dt>str.format()</dt>
+<dd>
+<p>事前に文字列数がわかっている</p>
+</dd>
+<dt>%演算子</dt>
+<dd>
+<p>事前に文字列数がわかっている</p>
+</dd>
+<dt>リテラル文字列補完</dt>
+<dd>
+<p>事前に文字列数がわかっている</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="python-p-69">
+<h3><a class="toc-backref" href="#id16">Pythonのリスト: P.69</a></h3>
+<ul class="simple">
+<li><p>Javaとかの <code class="docutils literal">LinkedList</code> を使って実装されていると勘違いされがちだけど違うよー</p></li>
+<li><p>CPython のリストは可変長の配列として実装されている。</p></li>
+<li><p>Python のリストは他のオブジェクトへの参照を持った、連続した配列</p></li>
+<li><p>リストの先頭の構造体がこの配列へのポインタと長さを格納している</p></li>
+<li>
+<p>計算量</p>
+<dl class="field-list simple">
+<dt>追加、取得</dt>
+<dd>
+<p>O(1)</p>
+</dd>
+<dt>挿入、削除</dt>
+<dd>
+<p>O(n)</p>
+</dd>
+<dt>サイズ変更、再割り当てが発生する操作</dt>
+<dd>
+<p>O(n)</p>
+</dd>
+</dl>
+</li>
+<li><p>要素の先頭と末尾への append と pop が O(1) の計算量のリンクリストが必要な場合は、 <code class="docutils literal">collections.deque</code> を使用するとよい。</p></li>
+</ul>
+</div>
+<div class="section" id="p-70">
+<h3><a class="toc-backref" href="#id17">リスト内包表記: P.70</a></h3>
+<p>for ループ内で <code class="docutils literal">list.appned()</code> するような場合は、リスト内包表記を使用したほうが処理が速くなる。</p>
+<pre class="code python"><a name="rest_code_3e8ba88262014fe69f35b2f63e24fd7f-1"></a><span class="c1"># これは遅くなる</span>
+<a name="rest_code_3e8ba88262014fe69f35b2f63e24fd7f-2"></a><span class="c1"># リストを操作するコードをループごとにインタープリタ上で処理する必要がある</span>
+<a name="rest_code_3e8ba88262014fe69f35b2f63e24fd7f-3"></a><span class="c1"># append() はリストのメソッドであるため、イテレーションごとに関数ルックアップの追加のコストが必要になる</span>
+<a name="rest_code_3e8ba88262014fe69f35b2f63e24fd7f-4"></a><span class="n">events</span> <span class="o">=</span> <span class="p">[]</span>
+<a name="rest_code_3e8ba88262014fe69f35b2f63e24fd7f-5"></a><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+<a name="rest_code_3e8ba88262014fe69f35b2f63e24fd7f-6"></a>    <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<a name="rest_code_3e8ba88262014fe69f35b2f63e24fd7f-7"></a>        <span class="n">events</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre>
+<pre class="code python"><a name="rest_code_869ff612e4e1487599bf014fe9f0da02-1"></a><span class="c1"># これは速くなる</span>
+<a name="rest_code_869ff612e4e1487599bf014fe9f0da02-2"></a><span class="c1"># 処理の一部がインタープリタ内部で実行されるようになるので、速くなるとのこと</span>
+<a name="rest_code_869ff612e4e1487599bf014fe9f0da02-3"></a><span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+</pre>
+</div>
+<div class="section" id="p-73">
+<h3><a class="toc-backref" href="#id18">辞書: P.73</a></h3>
+<ul>
+<li>
+<p>辞書内包表記</p>
+<pre class="code python"><a name="rest_code_3ca33c7e6035486998d71616bcac27ee-1"></a><span class="n">squares</span> <span class="o">=</span> <span class="p">{</span><span class="n">number</span><span class="p">:</span> <span class="n">number</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">)}</span>
+</pre>
+</li>
+<li><p>辞書内包表記には、リスト内包表記と同じメリットがある。</p></li>
+<li>
+<p><code class="docutils literal">keys()</code> とか、 Python2 と Python3 では返ってくるもの違うので注意</p>
+<ul class="simple">
+<li><p>Python2: リスト</p></li>
+<li><p>Python3: ビューオブジェクト</p></li>
+</ul>
+</li>
+<li>
+<p>ビューオブジェクトは辞書の内容のスナップショットではなく、現在の内容を見せるビューを提供する。辞書の内容が変化するとビューはその変化を反映した結果を返す。</p>
+<ul class="simple">
+<li><p>Python2 と Python3 とで動きが結構違う感じするので、使うとき注意だなぁ・・・</p></li>
+</ul>
+</li>
+<li><p>辞書のコピーとイテレーションにおける最悪のケースの計算量の n の数値は、現在格納されている要素数ではなく、辞書が今まで格納してきた最大数とのこと</p></li>
+<li>
+<p>平均計算量</p>
+<dl class="field-list simple">
+<dt>要素取得</dt>
+<dd>
+<p>O(1)</p>
+</dd>
+<dt>要素追加</dt>
+<dd>
+<p>O(1)</p>
+</dd>
+<dt>要素削除</dt>
+<dd>
+<p>O(1)</p>
+</dd>
+<dt>コピー</dt>
+<dd>
+<p>O(n)</p>
+</dd>
+<dt>イテレーション</dt>
+<dd>
+<p>O(n)</p>
+</dd>
+</dl>
+</li>
+<li><p>以前に大量の要素を格納し、その後要素を減らして現在の要素数がすごく少ない辞書でも、イテレーションすると極めて長い処理時間がかかる！</p></li>
+<li><p>何度もイテレーションされる辞書の場合は、要素を削除する代わりに新しい辞書オブジェクトを作る方が良いこともある。</p></li>
+<li>
+<p>順序</p>
+<ul class="simple">
+<li><p>Python3.7より前までは、順序を保持しない</p></li>
+<li><p>Python3.7 以降は、辞書のキーが登録した順序で保持される</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="p-74">
+<h3><a class="toc-backref" href="#id19">辞書の実装詳細: P.74</a></h3>
+<ul class="simple">
+<li><p>hashable オブジェクトのみがキーとして使える。</p></li>
+<li><p>オブジェクトが hashable であるということは、オブジェクトが生存する期間中ハッシュ値が変わらず、他のオブジェクトと比較が行えるということ。</p></li>
+<li><p>Python の組み込み型のうち、 immutable なものはすべて hashable ですと。</p></li>
+<li>
+<p>型が hashable な場合には、次の2つのメソッドを持つプロトコルをサポートすべきであると決められています。</p>
+<ul>
+<li><p><code class="docutils literal">__hash__</code></p></li>
+<li><p><code class="docutils literal">__eq__</code></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="p-77">
+<h3><a class="toc-backref" href="#id20">集合: P.77</a></h3>
+<ul class="simple">
+<li>
+<p><code class="docutils literal">set()</code></p>
+<ul>
+<li><p>mutable</p></li>
+<li><p>順序がない有限集合</p></li>
+<li><p>要素はユニークかつ immutable かつ hashable</p></li>
+<li><p>空の集合を作るときは <code class="docutils literal">set()</code></p></li>
+<li><p>setリテラルは <code class="docutils literal">{1, 2, 3}</code></p></li>
+</ul>
+</li>
+<li>
+<p><code class="docutils literal">frozenset()</code></p>
+<ul>
+<li><p>immutable かつ hashable</p></li>
+<li><p>順序がない有限集合</p></li>
+<li><p>要素はユニークかつ immutable かつ hashable</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="p-78">
+<h3><a class="toc-backref" href="#id21">集合の実装詳細: P.78</a></h3>
+<ul class="simple">
+<li><p>CPython実装は辞書に似ている</p></li>
+<li>
+<p>要素の削除、追加、存在チェックは非常に高速</p>
+<dl class="field-list simple">
+<dt>平均計算量</dt>
+<dd>
+<p>O(1)</p>
+</dd>
+<dt>最悪計算量</dt>
+<dd>
+<p>O(n)</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="cllections-p-78">
+<h3><a class="toc-backref" href="#id22">cllections モジュール: P.78</a></h3>
+<dl class="field-list simple">
+<dt>namedtuple()</dt>
+<dd>
+<p>タプルのサブクラスを作成するファクトリ関数。名前つきの属性としても要素にアクセスできる。</p>
+</dd>
+<dt>deque</dt>
+<dd><ul class="simple">
+<li><p>スタックとキューに必要な操作を備えた両端キュー。</p></li>
+<li><p>先頭と末尾への高速な追加、削除ができる</p></li>
+</ul></dd>
+<dt>ChainMap</dt>
+<dd><ul class="simple">
+<li><p>辞書のようなクラス</p></li>
+<li><p>複数の辞書をまとめて1つの辞書に見せるビューを作成する。</p></li>
+</ul></dd>
+<dt>OrderedDict</dt>
+<dd>
+<p>要素が追加された順序を保証する辞書のサブクラス</p>
+</dd>
+<dt>defaultdict</dt>
+<dd>
+<p>要素が見つからなかったときに、指定された関数を呼び出して初期値を自動作成する辞書のサブクラス</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="p-79">
+<h3><a class="toc-backref" href="#id23">イテレータ: P.79</a></h3>
+<ul>
+<li><p>イテレータプロトコルを実装したコンテナオブジェクト</p></li>
+<li>
+<p>イテレータプロトコル</p>
+<blockquote>
+<ul class="simple">
+<li><p><code class="docutils literal">__next__()</code>: コンテナの次の要素を返す</p></li>
+<li><p><code class="docutils literal">__iter__()</code>: イテレータ自身を返す</p></li>
+</ul>
+</blockquote>
+</li>
+<li><p>シーケンスの要素をすべて取り出し終わると <code class="docutils literal">StopIteration</code> 例外が発生する。</p></li>
+<li><p>カスタムイテレータを作成するときは、クラス内に↑のふたつを実装する。</p></li>
+<li><p>itertools: 使ってください、だそうです。</p></li>
+</ul>
+</div>
+<div class="section" id="yield-p-81">
+<h3><a class="toc-backref" href="#id24">yield文（ジェネレータ）: P.81</a></h3>
+<ul class="simple">
+<li><p>関数を一時的に停止させ、途中経過の結果を返す。</p></li>
+<li><p>一時停止中も実行コンテキストが保存されているため、必要であれば止まった場所から再実行できる</p></li>
+<li><p><code class="docutils literal">next()</code> 関数呼び出し、あるいは for ループを使って、イテレータと同じようにジェネレータから新しい値を取得できる</p></li>
+<li>
+<p>ループ処理やシーケンスを返す関数を実装するときには、まずジェネレータの利用を検討すべき</p>
+<ul>
+<li><p>1つずつ要素を返すことで、その要素を使用する他の関数へ渡す場合に全体のパフォーマンスを向上させる。</p></li>
+</ul>
+</li>
+<li>
+<p>複数のデータ群を使用するような、データ変換アルゴリズムの効率が向上する。</p>
+<ul>
+<li><p>それぞれのデータ群を１つのイテレータとして実装し、高レベル関数の中にそれらを組み込むことで、巨大で読みにくい関数にになるのを防ぐことができる。</p></li>
+<li><p>一度に１つの結果を算出する複雑な関数よりも、シーケンス上で動作可能な、シンプルな関数をたくさん作る方が良い手法と言える。</p></li>
+</ul>
+</li>
+<li>
+<p><code class="docutils literal">send()</code>, <code class="docutils literal">throw()</code>, <code class="docutils literal">close()</code></p>
+<ul>
+<li><p>外部のクライアントコードからジェネレータ内にデータを送ることができる</p></li>
+<li><p>動作を変更できる</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="p-85">
+<h3><a class="toc-backref" href="#id25">ジェネレータ式: P.85</a></h3>
+<pre class="code python"><a name="rest_code_da4056df647b4f8da3c3b713c4c63650-1"></a><span class="nb">iter</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+<a name="rest_code_da4056df647b4f8da3c3b713c4c63650-2"></a><span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="nb">iter</span><span class="p">:</span>
+<a name="rest_code_da4056df647b4f8da3c3b713c4c63650-3"></a>    <span class="k">print</span><span class="p">(</span><span class="n">el</span><span class="p">)</span>
+</pre>
+<ul class="simple">
+<li><p>リスト内包表記に似てる</p></li>
+<li><p>丸括弧をブラケットの代わりに使用するんだよ</p></li>
+<li><p><code class="docutils literal">yield</code> を使用したシンプルなループや、イテレータのように動作するリスト内包表記は、積極的にジェネレーター式に置き換えるべき</p></li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h3><a class="toc-backref" href="#id26">デコレータ: P.85</a></h3>
+<ul>
+<li><p>関数やメソッドのラッピング（受け取った関数を拡張して返す）処理の見た目をわかりやすくする</p></li>
+<li><p>デコレータとして使用できるのは、一般的に、１つの引数（デコレーション対象）を受け取れる、名前付きの callable （呼び出し可能）オブジェクト</p></li>
+<li><p>返り値として、他の callable オブジェクト（デコレーションした結果）を返す。</p></li>
+<li><p>メソッドと関数に限定されない</p></li>
+<li><p><code class="docutils literal">__call__()</code> メソッドが定義され、 callable とみなせる任意のオブジェクトをデコレータとして使用できる。</p></li>
+<li>
+<p>実装例はP.87参照のこと</p>
+<pre class="code python"><a name="rest_code_3100614f2be44bc499e35564ecf7f2da-1"></a><span class="c1"># 関数として実装する例</span>
+<a name="rest_code_3100614f2be44bc499e35564ecf7f2da-2"></a><span class="k">def</span> <span class="nf">mydecorator</span><span class="p">(</span><span class="n">function</span><span class="p">):</span>
+<a name="rest_code_3100614f2be44bc499e35564ecf7f2da-3"></a>  <span class="k">def</span> <span class="nf">wrapped</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<a name="rest_code_3100614f2be44bc499e35564ecf7f2da-4"></a>    <span class="c1"># 実際の関数を呼び出す前に行う処理</span>
+<a name="rest_code_3100614f2be44bc499e35564ecf7f2da-5"></a>    <span class="n">result</span> <span class="o">=</span> <span class="n">function</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<a name="rest_code_3100614f2be44bc499e35564ecf7f2da-6"></a>    <span class="c1"># 呼び出し後に行う処理</span>
+<a name="rest_code_3100614f2be44bc499e35564ecf7f2da-7"></a>    <span class="k">return</span> <span class="n">result</span>
+<a name="rest_code_3100614f2be44bc499e35564ecf7f2da-8"></a>  <span class="c1"># ラッパーをでデコレート済み関数として返す</span>
+<a name="rest_code_3100614f2be44bc499e35564ecf7f2da-9"></a>  <span class="k">return</span> <span class="n">wrapped</span>
+</pre>
+<pre class="code python"><a name="rest_code_6dbd201ebbdc4aa88408f19d0aafd30b-1"></a><span class="c1"># クラスとして実装する例</span>
+<a name="rest_code_6dbd201ebbdc4aa88408f19d0aafd30b-2"></a><span class="k">class</span> <span class="nc">DecoratorAsClass</span><span class="p">:</span>
+<a name="rest_code_6dbd201ebbdc4aa88408f19d0aafd30b-3"></a>  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">function</span><span class="p">):</span>
+<a name="rest_code_6dbd201ebbdc4aa88408f19d0aafd30b-4"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">function</span> <span class="o">=</span> <span class="n">function</span>
+<a name="rest_code_6dbd201ebbdc4aa88408f19d0aafd30b-5"></a>
+<a name="rest_code_6dbd201ebbdc4aa88408f19d0aafd30b-6"></a>  <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<a name="rest_code_6dbd201ebbdc4aa88408f19d0aafd30b-7"></a>    <span class="c1"># 実際の関数を呼び出す前に行う処理</span>
+<a name="rest_code_6dbd201ebbdc4aa88408f19d0aafd30b-8"></a>    <span class="n">result</span> <span class="o">=</span> <span class="n">function</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<a name="rest_code_6dbd201ebbdc4aa88408f19d0aafd30b-9"></a>    <span class="c1"># 呼び出し後に行う処理</span>
+<a name="rest_code_6dbd201ebbdc4aa88408f19d0aafd30b-10"></a>    <span class="k">return</span> <span class="n">result</span>
+</pre>
+</li>
+<li><p>パラメータも受け取れる =&gt; 2回ラップが行われる</p></li>
+<li><p>メタ情報を保持するデコレータ =&gt; <code class="docutils literal">functools.wraps()</code> デコレータを使う</p></li>
+</ul>
+</div>
+<div class="section" id="p-90">
+<h3><a class="toc-backref" href="#id27">デコレータの活用例: P.90</a></h3>
+<ul class="simple">
+<li><p>引数チェック</p></li>
+<li><p>キャッシュ</p></li>
+<li>
+<p>プロキシ</p>
+<ul>
+<li><p>プロキシデコレータは関数にタグをつけたり、グローバルな仕組みへ登録したりする</p></li>
+<li><p>たとえば、実行中のユーザーごとにコードへのアクセスを保護するセキュリティレイヤは、呼び出し可能オブジェクトに関連づけられたアクセス許可情報を利用する、集中制御型チェッカーとして実装することができます</p></li>
+</ul>
+</li>
+<li>
+<p>コンテキストプロバイダ</p>
+<ul>
+<li><p><code class="docutils literal">@synchronized</code> とか</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="with-p-98">
+<h3><a class="toc-backref" href="#id28">コンテキストマネージャー --- with 構文: P.98</a></h3>
+<ul class="simple">
+<li>
+<p><code class="docutils literal"><span class="pre">try..finally</span></code></p>
+<ul>
+<li><p>エラー発生時のクリーンアップ処理</p></li>
+<li><p>ファイルを閉じる</p></li>
+<li><p>ロックを解除する</p></li>
+<li><p>一時的にコードにパッチを当てる</p></li>
+<li><p>特定環境で保護されたコードを実行する</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal">with</code> 文はコードブロックの前後で何らかの処理を呼び出すためのシンプルな方法を提供している</p></li>
+<li><p><code class="docutils literal"><span class="pre">try..finally</span></code> 文の代わりに使用できる</p></li>
+</ul>
+</div>
+<div class="section" id="p-100">
+<h3><a class="toc-backref" href="#id29">クラスとしてコンテキストマネージャーを実装: P.100</a></h3>
+<ul class="simple">
+<li><p>コンテキストマネージャープロトコルを実装したオブジェクトはコンテキストマネージャーとして使用できる</p></li>
+<li>
+<p>このプロトコルを含むこと</p>
+<ul>
+<li><p><code class="docutils literal">__enter__(self)</code></p></li>
+<li><p><code class="docutils literal">__exit__(self, exc_type, exc_value, traceback)</code></p></li>
+</ul>
+</li>
+<li>
+<p><code class="docutils literal">with</code> 構文の実行順序</p>
+<ul>
+<li><p><code class="docutils literal">__enter__()</code> メソッドが実行されます。メソッドの返り値は <code class="docutils literal">as</code> 節で指定されたターゲットに束縛されます。</p></li>
+<li><p><code class="docutils literal">with</code> 文内のコードブロックが実行されます。</p></li>
+<li>
+<p><code class="docutils literal">__exit__()</code> メソッドが実行されます。</p>
+<ul>
+<li><p><code class="docutils literal">finally</code> 節のように後処理を行うために使われるべきです</p></li>
+<li><p>エラーが発生したときには、その例外を上げ直すべきではありません</p></li>
+<li><p>それは呼び出し側の責任です</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="p-102">
+<h3><a class="toc-backref" href="#id30">関数としてコンテキストマネージャーを実装: P.102</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal">contextlib</code> モジュール</p></li>
+<li><p>コンテキストマネージャーと一緒に使うためにある</p></li>
+<li><p><code class="docutils literal">contextmanager</code> デコレータが便利らしい</p></li>
+<li><p>詳しくは P.102 を見てください（あんまりわかってない）</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="python">
+<h2><a class="toc-backref" href="#id31">第1章 現在の Python のステータス</a></h2>
+<ul class="simple">
+<li><p>選択したプログラミング言語を深く理解することは、エキスパートとしてその言語を利用する上でもっとも大切です。これはどの技術においても常に真です。そして、言語コミュニティ内で一般的に使われているツールやプラクティスを知らずに本当に良いソフトウェアを開発するのは困難です。</p></li>
+<li><p><code class="docutils literal">venv</code>: 新しいバージョンのPythonを使用しているのであれば、virtualenvの代わりにvenvを使う方がよい</p></li>
+<li><p><code class="docutils literal"><span class="pre">Awesome-python</span></code>: 人気のパッケージ情報やフレームワーク情報をまとめたリストを提供しています</p></li>
+<li><p><code class="docutils literal">Python Weekly</code>: とても人気のあるメールマガジンです。興味深いPythonパッケージやリソースについて毎週10本以上の記事を読者に配信しています。</p></li>
+<li><p>プロフェッショナルな開発者の多くは何かしらの種類のデバッガを使うのを好みます。だって。</p></li>
+</ul>
+</div>
+</div>
+    </div>
+  </main>
+</div>
+</div>
+    </div>
+  </body>
+</html>
