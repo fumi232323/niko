@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}{% endblock %}</title>
+  {% block extra_css %}{% endblock %}
+</head>
+<body>
+  <main class="container">
+    {% block content %}{% endblock %}
+  </main>
+</body>
+</html>
