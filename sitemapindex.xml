@@ -7,11 +7,11 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <sitemap>
   <loc>https://32imuf.com/atom.xml</loc>
-  <lastmod>2019-11-24T16:11:00Z</lastmod>
+  <lastmod>2019-12-01T13:59:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://32imuf.com/sitemap.xml</loc>
-  <lastmod>2019-11-24T16:11:00Z</lastmod>
+  <lastmod>2019-12-01T13:59:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://32imuf.com/tags/aws.xml</loc>
@@ -35,11 +35,11 @@
  </sitemap>
  <sitemap>
   <loc>https://32imuf.com/tags/django.xml</loc>
-  <lastmod>2019-11-24T14:32:00Z</lastmod>
+  <lastmod>2019-12-01T13:59:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://32imuf.com/tags/docker.xml</loc>
-  <lastmod>2019-11-24T12:08:00Z</lastmod>
+  <lastmod>2019-12-01T13:56:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://32imuf.com/tags/git.xml</loc>
@@ -79,7 +79,7 @@
  </sitemap>
  <sitemap>
   <loc>https://32imuf.com/tags/python.xml</loc>
-  <lastmod>2019-11-24T16:11:00Z</lastmod>
+  <lastmod>2019-12-01T13:57:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://32imuf.com/tags/redshift.xml</loc>
