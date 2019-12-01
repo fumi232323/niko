@@ -2,7 +2,7 @@
 .. tags: docker
 .. date: 2019-11-16
 .. slug: index
-.. status: draft
+.. status: published
 
 
 .. raw:: html

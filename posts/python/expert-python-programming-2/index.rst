@@ -2,7 +2,7 @@
 .. tags: python
 .. date: 2019-11-24
 .. slug: index
-.. status: draft
+.. status: published
 
 
 .. raw:: html
