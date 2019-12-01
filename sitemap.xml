@@ -31,7 +31,7 @@
  </url>
  <url>
   <loc>https://32imuf.com/archive.html</loc>
-  <lastmod>2019-12-01T13:59:00Z</lastmod>
+  <lastmod>2019-12-01T17:00:00Z</lastmod>
  </url>
  <url>
   <loc>https://32imuf.com/aws/s3-response-error/</loc>
@@ -96,6 +96,10 @@
  <url>
   <loc>https://32imuf.com/django/view/</loc>
   <lastmod>2019-06-02T07:16:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://32imuf.com/django/xxx/</loc>
+  <lastmod>2019-11-26T13:07:00Z</lastmod>
  </url>
  <url>
   <loc>https://32imuf.com/docker/connect-from-sqla-to-mysqldb/</loc>
