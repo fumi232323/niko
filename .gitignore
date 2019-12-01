@@ -6,3 +6,5 @@ output
 
 .idea
 venv
+db.sqlite3
+.doit.db.db
