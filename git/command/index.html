@@ -73,29 +73,29 @@
 <ul>
 <li>
 <p>新しいブランチを作成して、新しいブランチにチェックアウト</p>
-<pre class="code console"><a name="rest_code_97e5dd6aab004fa3b3991ea6d8a9c3d2-1"></a><span class="gp">$</span> git checkout &lt;元にしたいブランチ&gt;
-<a name="rest_code_97e5dd6aab004fa3b3991ea6d8a9c3d2-2"></a><span class="gp">$</span> git checkout -b &lt;new-branch-name&gt;
+<pre class="code console"><a name="rest_code_2de383893d9e4bab8da00eeeadaaa8ef-1"></a><span class="gp">$</span> git checkout &lt;元にしたいブランチ&gt;
+<a name="rest_code_2de383893d9e4bab8da00eeeadaaa8ef-2"></a><span class="gp">$</span> git checkout -b &lt;new-branch-name&gt;
 </pre>
 </li>
 <li>
 <p>ブランチ名を変更</p>
-<pre class="code console"><a name="rest_code_f1b1911fcb9c4149a5b1af72b1bbc85f-1"></a><span class="gp">$</span> git branch -m &lt;old-branch-name&gt; &lt;new-branch-name&gt;
+<pre class="code console"><a name="rest_code_7ed0356100784f34b7f244ce85e8e647-1"></a><span class="gp">$</span> git branch -m &lt;old-branch-name&gt; &lt;new-branch-name&gt;
 </pre>
 </li>
 <li>
 <p>ブランチを削除</p>
-<pre class="code console"><a name="rest_code_75b2107c4b72431dbd25fc9ae8e6a2d4-1"></a><span class="gp">$</span> git checkout &lt;違うブランチ&gt;
-<a name="rest_code_75b2107c4b72431dbd25fc9ae8e6a2d4-2"></a><span class="gp">$</span> git branch -D &lt;branch-you-want-to-delete&gt;
+<pre class="code console"><a name="rest_code_d36b6e392d054b0aa0e0bcb3b3ea1a34-1"></a><span class="gp">$</span> git checkout &lt;違うブランチ&gt;
+<a name="rest_code_d36b6e392d054b0aa0e0bcb3b3ea1a34-2"></a><span class="gp">$</span> git branch -D &lt;branch-you-want-to-delete&gt;
 </pre>
 </li>
 <li>
 <p>ブランチを強制チェックアウト（ローカル変更はなくなる）</p>
-<pre class="code console"><a name="rest_code_683bd0a1fb2d42b2a386e9547c73b05f-1"></a><span class="gp">$</span> git checkout --force &lt;branch-you-want-to-checkout&gt;
+<pre class="code console"><a name="rest_code_79204e51eccc4268b8836a0733312942-1"></a><span class="gp">$</span> git checkout --force &lt;branch-you-want-to-checkout&gt;
 </pre>
 </li>
 <li>
 <p>ブランチをプッシュ（初回）</p>
-<pre class="code console"><a name="rest_code_9afefb1567c3412f9e00a840544ac418-1"></a><span class="gp">$</span> git push -u origin &lt;branch-you-want-to-push&gt;
+<pre class="code console"><a name="rest_code_40a6254fda464904b284821d4358b243-1"></a><span class="gp">$</span> git push -u origin &lt;branch-you-want-to-push&gt;
 </pre>
 </li>
 </ul>
@@ -105,12 +105,12 @@
 <ul>
 <li>
 <p>リモートブランチをチェックアウト</p>
-<pre class="code bash"><a name="rest_code_2203825cd13241dd9490fde8b43fae59-1"></a>$ git checkout -b &lt;branch-you-want-to-checkout&gt; origin/&lt;branch-you-want-to-checkout&gt;
+<pre class="code bash"><a name="rest_code_1c4dc27987a24a8ea46bcca6cbe9b8c7-1"></a>$ git checkout -b &lt;branch-you-want-to-checkout&gt; origin/&lt;branch-you-want-to-checkout&gt;
 </pre>
 </li>
 <li>
 <p>リモートブランチの一覧を表示</p>
-<pre class="code console"><a name="rest_code_0b3c7032128146f699a8ab362efc97b2-1"></a><span class="gp">$</span> git branch -a
+<pre class="code console"><a name="rest_code_b370628d24b044faafe6a9af1ec24408-1"></a><span class="gp">$</span> git branch -a
 </pre>
 </li>
 </ul>
@@ -122,22 +122,22 @@
 <ul>
 <li>
 <p>git commit だけ取り消し</p>
-<pre class="code console"><a name="rest_code_9e2e76051213453abb685efb626ee1ad-1"></a><span class="gp">$</span> git reset --soft
+<pre class="code console"><a name="rest_code_c8a69f4a273b44b59b2630de60b6cd90-1"></a><span class="gp">$</span> git reset --soft
 </pre>
 </li>
 <li>
 <p>git add と git commit を取り消し、ファイルの変更は保持する</p>
-<pre class="code console"><a name="rest_code_e8864d93fa504baa8a82c13b2eebfdd0-1"></a><span class="gp">$</span> git reset --mixed
+<pre class="code console"><a name="rest_code_6f280bc44bce48e588b33a1c05bc715c-1"></a><span class="gp">$</span> git reset --mixed
 </pre>
 </li>
 <li>
 <p>git add と git commit を取り消して、ファイルの変更も削除する</p>
-<pre class="code console"><a name="rest_code_2dff88b41f68412088aa771c0848ef76-1"></a><span class="gp">$</span> git reset --hard
+<pre class="code console"><a name="rest_code_1930af3a153241deab6a13e50ca4fdc8-1"></a><span class="gp">$</span> git reset --hard
 </pre>
 </li>
 <li>
 <p>コミットを取り消し（直前のコミットまで戻す。 git commit を取り消し、ファイルの変更は保持する。）</p>
-<pre class="code console"><a name="rest_code_d393a3b6678b4bb59683625a6bdd9a24-1"></a><span class="gp">$</span> git reset --mixed HEAD^
+<pre class="code console"><a name="rest_code_25cf221eb97142839221e66526fc7ef4-1"></a><span class="gp">$</span> git reset --mixed HEAD^
 </pre>
 </li>
 </ul>
@@ -147,23 +147,23 @@
 <ul>
 <li>
 <p>コミットをもう一度やりなおす</p>
-<pre class="code console"><a name="rest_code_996ac60b4bdb4ddd8643106996264b3b-1"></a><span class="gp">$</span> git commit --amend
+<pre class="code console"><a name="rest_code_15b2f5727f754512b1821751aa6a8232-1"></a><span class="gp">$</span> git commit --amend
 </pre>
 </li>
 <li>
 <p>コミットメッセージの修正</p>
-<pre class="code console"><a name="rest_code_d12fbfbbf7014a81b4e5a6390f73eeb5-1"></a><span class="gp">$</span> git commit --amend -m <span class="s2">"new commit message"</span>
+<pre class="code console"><a name="rest_code_9648fd516e7e4e148c15e47366be97a2-1"></a><span class="gp">$</span> git commit --amend -m <span class="s2">"new commit message"</span>
 </pre>
 </li>
 <li>
 <p>いったんコミットした後、 add 忘れに気づいた</p>
-<pre class="code console"><a name="rest_code_faecd5bc398c41bda5db96dac9f5f9d2-1"></a><span class="gp">$</span> git add &lt;わすれもの&gt;
-<a name="rest_code_faecd5bc398c41bda5db96dac9f5f9d2-2"></a><span class="gp">$</span> git commit --amend
+<pre class="code console"><a name="rest_code_54cf1b93d4b74e65a99da10a543aaa90-1"></a><span class="gp">$</span> git add &lt;わすれもの&gt;
+<a name="rest_code_54cf1b93d4b74e65a99da10a543aaa90-2"></a><span class="gp">$</span> git commit --amend
 </pre>
 </li>
 <li>
 <p>空コミット</p>
-<pre class="code console"><a name="rest_code_c666c1036d584ac8bc87fe8cad0d55d6-1"></a><span class="gp">$</span> git commit --allow-empty -m <span class="s2">"commit message"</span>
+<pre class="code console"><a name="rest_code_edfb0ce6c53b41c881c5a0a578dbbcca-1"></a><span class="gp">$</span> git commit --allow-empty -m <span class="s2">"commit message"</span>
 </pre>
 </li>
 </ul>
@@ -182,12 +182,12 @@
 <ul>
 <li>
 <p>各コミットを 1 行ずつ表示</p>
-<pre class="code console"><a name="rest_code_2a5c5f05de2e46ee92f5734b423d2b85-1"></a><span class="gp">$</span> git log --oneline
+<pre class="code console"><a name="rest_code_2325ae4e3f684fd4b928bf025e53a6c9-1"></a><span class="gp">$</span> git log --oneline
 </pre>
 </li>
 <li>
 <p>master と topic の共通の祖先がわかる</p>
-<pre class="code console"><a name="rest_code_556d9d97d95b43999e2566e3b4c25323-1"></a><span class="gp">$</span> git log -1 <span class="k">$(</span>git merge-base origin/master origin/topic<span class="k">)</span>
+<pre class="code console"><a name="rest_code_c939da36e08841e39dabbfba0f74e4ec-1"></a><span class="gp">$</span> git log -1 <span class="k">$(</span>git merge-base origin/master origin/topic<span class="k">)</span>
 </pre>
 </li>
 <li>
@@ -204,10 +204,10 @@
 <li>
 <p>force push する</p>
 <blockquote>
-<pre class="code bash"><a name="rest_code_f168d223e9de49ee82540fec9804984b-1"></a>$ git add *
-<a name="rest_code_f168d223e9de49ee82540fec9804984b-2"></a>$ git commit -m <span class="err">'</span>initialize
-<a name="rest_code_f168d223e9de49ee82540fec9804984b-3"></a>$ git remote add origin <span class="o">{</span>URL<span class="o">}</span>
-<a name="rest_code_f168d223e9de49ee82540fec9804984b-4"></a>$ git push origin master --force
+<pre class="code bash"><a name="rest_code_f20e16516e854f4c81b52f37a6d0c160-1"></a>$ git add *
+<a name="rest_code_f20e16516e854f4c81b52f37a6d0c160-2"></a>$ git commit -m <span class="err">'</span>initialize
+<a name="rest_code_f20e16516e854f4c81b52f37a6d0c160-3"></a>$ git remote add origin <span class="o">{</span>URL<span class="o">}</span>
+<a name="rest_code_f20e16516e854f4c81b52f37a6d0c160-4"></a>$ git push origin master --force
 </pre>
 </blockquote>
 </li>

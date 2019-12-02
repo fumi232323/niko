@@ -61,18 +61,18 @@
 <li>
 <p>ガイドに書いてある通りにコマンドを実行する。</p>
 <blockquote>
-<pre class="code console"><a name="rest_code_5b22ad23648046b49a6902bc5fe94aaf-1"></a><span class="gp">$</span> sudo npm install stylus -g
-<a name="rest_code_5b22ad23648046b49a6902bc5fe94aaf-2"></a><span class="go">/usr/local/bin/stylus -&gt; /usr/local/lib/node_modules/stylus/bin/stylus</span>
-<a name="rest_code_5b22ad23648046b49a6902bc5fe94aaf-3"></a><span class="go">+ stylus@0.54.5</span>
-<a name="rest_code_5b22ad23648046b49a6902bc5fe94aaf-4"></a><span class="go">added 20 packages from 46 contributors in 1.399s</span>
+<pre class="code console"><a name="rest_code_eb72ae0642e94b9eb396106da5590777-1"></a><span class="gp">$</span> sudo npm install stylus -g
+<a name="rest_code_eb72ae0642e94b9eb396106da5590777-2"></a><span class="go">/usr/local/bin/stylus -&gt; /usr/local/lib/node_modules/stylus/bin/stylus</span>
+<a name="rest_code_eb72ae0642e94b9eb396106da5590777-3"></a><span class="go">+ stylus@0.54.5</span>
+<a name="rest_code_eb72ae0642e94b9eb396106da5590777-4"></a><span class="go">added 20 packages from 46 contributors in 1.399s</span>
 </pre>
 </blockquote>
 </li>
 <li>
 <p>インストールできたか確認する。</p>
 <blockquote>
-<pre class="code console"><a name="rest_code_4f4eb8ab950140198115ef77b33de80e-1"></a><span class="gp">$</span> stylus -V
-<a name="rest_code_4f4eb8ab950140198115ef77b33de80e-2"></a><span class="go">0.54.5</span>
+<pre class="code console"><a name="rest_code_e97c211d910e4990b15d86ec463e7fb3-1"></a><span class="gp">$</span> stylus -V
+<a name="rest_code_e97c211d910e4990b15d86ec463e7fb3-2"></a><span class="go">0.54.5</span>
 </pre>
 </blockquote>
 </li>
@@ -88,10 +88,10 @@
 <ul>
 <li>
 <p>ログ</p>
-<pre class="code console"><a name="rest_code_1435c6e970c7459b9da1a48960fe18c1-1"></a><span class="go">...</span>
-<a name="rest_code_1435c6e970c7459b9da1a48960fe18c1-2"></a><span class="go">2018-10-18 22:14:19,451 INFO Building files/static/css/style-sp.css</span>
-<a name="rest_code_1435c6e970c7459b9da1a48960fe18c1-3"></a><span class="go">2018-10-18 22:14:19,454 INFO Building files/static/css/style-sp.styl</span>
-<a name="rest_code_1435c6e970c7459b9da1a48960fe18c1-4"></a><span class="go">...</span>
+<pre class="code console"><a name="rest_code_6d170ae861084680bc67a0c4b27a41ad-1"></a><span class="go">...</span>
+<a name="rest_code_6d170ae861084680bc67a0c4b27a41ad-2"></a><span class="go">2018-10-18 22:14:19,451 INFO Building files/static/css/style-sp.css</span>
+<a name="rest_code_6d170ae861084680bc67a0c4b27a41ad-3"></a><span class="go">2018-10-18 22:14:19,454 INFO Building files/static/css/style-sp.styl</span>
+<a name="rest_code_6d170ae861084680bc67a0c4b27a41ad-4"></a><span class="go">...</span>
 </pre>
 </li>
 <li>
@@ -112,7 +112,7 @@
 </li>
 <li>
 <p>HTML の <code class="docutils literal"><span class="pre">&lt;head&gt;&lt;/head&gt;</span></code> には、こう書く</p>
-<pre class="code html"><a name="rest_code_0079b929808b4a7d90f61e380e963647-1"></a><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">"stylesheet"</span> <span class="na">href</span><span class="o">=</span><span class="s">"/static/css/style-sp.css"</span><span class="p">&gt;</span>
+<pre class="code html"><a name="rest_code_9d9e3a9ab76d4ff6baf2924cbc30f5ab-1"></a><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">"stylesheet"</span> <span class="na">href</span><span class="o">=</span><span class="s">"/static/css/style-sp.css"</span><span class="p">&gt;</span>
 </pre>
 <ul class="simple">
 <li><p><code class="docutils literal"><span class="pre">style-sp.styl</span></code> と書いても認識してくれない</p></li>
@@ -123,37 +123,37 @@
 <ul>
 <li>
 <p><code class="docutils literal"><span class="pre">style-sp.styl</span></code> にこう書くと、</p>
-<pre class="code css"><a name="rest_code_b7f203ca6e004182a9f1c162ebe6e741-1"></a><span class="p">@</span><span class="k">charset</span> <span class="s2">"UTF-8"</span>
-<a name="rest_code_b7f203ca6e004182a9f1c162ebe6e741-2"></a>
-<a name="rest_code_b7f203ca6e004182a9f1c162ebe6e741-3"></a><span class="c">/* --------------------------------</span>
-<a name="rest_code_b7f203ca6e004182a9f1c162ebe6e741-4"></a><span class="c"> * Stylus の書き方</span>
-<a name="rest_code_b7f203ca6e004182a9f1c162ebe6e741-5"></a><span class="c"> * -------------------------------- */</span>
-<a name="rest_code_b7f203ca6e004182a9f1c162ebe6e741-6"></a><span class="nt">body</span>
-<a name="rest_code_b7f203ca6e004182a9f1c162ebe6e741-7"></a>  <span class="nt">background-color</span> <span class="p">#</span><span class="nn">f8b500</span>
-<a name="rest_code_b7f203ca6e004182a9f1c162ebe6e741-8"></a>
-<a name="rest_code_b7f203ca6e004182a9f1c162ebe6e741-9"></a><span class="c">/* --------------------------------</span>
-<a name="rest_code_b7f203ca6e004182a9f1c162ebe6e741-10"></a><span class="c"> * CSS の書き方</span>
-<a name="rest_code_b7f203ca6e004182a9f1c162ebe6e741-11"></a><span class="c"> * -------------------------------- */</span>
-<a name="rest_code_b7f203ca6e004182a9f1c162ebe6e741-12"></a><span class="nt">body</span> <span class="p">{</span>
-<a name="rest_code_b7f203ca6e004182a9f1c162ebe6e741-13"></a>  <span class="nt">background-color</span><span class="o">:</span> <span class="p">#</span><span class="nn">ed6d3d</span><span class="o">;</span>
-<a name="rest_code_b7f203ca6e004182a9f1c162ebe6e741-14"></a><span class="p">}</span>
+<pre class="code css"><a name="rest_code_1ab174272570403fa15fb92220bc7ccb-1"></a><span class="p">@</span><span class="k">charset</span> <span class="s2">"UTF-8"</span>
+<a name="rest_code_1ab174272570403fa15fb92220bc7ccb-2"></a>
+<a name="rest_code_1ab174272570403fa15fb92220bc7ccb-3"></a><span class="c">/* --------------------------------</span>
+<a name="rest_code_1ab174272570403fa15fb92220bc7ccb-4"></a><span class="c"> * Stylus の書き方</span>
+<a name="rest_code_1ab174272570403fa15fb92220bc7ccb-5"></a><span class="c"> * -------------------------------- */</span>
+<a name="rest_code_1ab174272570403fa15fb92220bc7ccb-6"></a><span class="nt">body</span>
+<a name="rest_code_1ab174272570403fa15fb92220bc7ccb-7"></a>  <span class="nt">background-color</span> <span class="p">#</span><span class="nn">f8b500</span>
+<a name="rest_code_1ab174272570403fa15fb92220bc7ccb-8"></a>
+<a name="rest_code_1ab174272570403fa15fb92220bc7ccb-9"></a><span class="c">/* --------------------------------</span>
+<a name="rest_code_1ab174272570403fa15fb92220bc7ccb-10"></a><span class="c"> * CSS の書き方</span>
+<a name="rest_code_1ab174272570403fa15fb92220bc7ccb-11"></a><span class="c"> * -------------------------------- */</span>
+<a name="rest_code_1ab174272570403fa15fb92220bc7ccb-12"></a><span class="nt">body</span> <span class="p">{</span>
+<a name="rest_code_1ab174272570403fa15fb92220bc7ccb-13"></a>  <span class="nt">background-color</span><span class="o">:</span> <span class="p">#</span><span class="nn">ed6d3d</span><span class="o">;</span>
+<a name="rest_code_1ab174272570403fa15fb92220bc7ccb-14"></a><span class="p">}</span>
 </pre>
 </li>
 <li>
 <p><code class="docutils literal"><span class="pre">style-sp.css</span></code> にこう出力される</p>
-<pre class="code css"><a name="rest_code_1f2f1aa3a9d844609345164f2709adfc-1"></a><span class="p">@</span><span class="k">charset</span> <span class="s2">"UTF-8"</span><span class="p">;</span>
-<a name="rest_code_1f2f1aa3a9d844609345164f2709adfc-2"></a><span class="c">/* --------------------------------</span>
-<a name="rest_code_1f2f1aa3a9d844609345164f2709adfc-3"></a><span class="c"> * Stylus の書き方</span>
-<a name="rest_code_1f2f1aa3a9d844609345164f2709adfc-4"></a><span class="c"> * -------------------------------- */</span>
-<a name="rest_code_1f2f1aa3a9d844609345164f2709adfc-5"></a><span class="nt">body</span> <span class="p">{</span>
-<a name="rest_code_1f2f1aa3a9d844609345164f2709adfc-6"></a>  <span class="k">background-color</span><span class="p">:</span> <span class="mh">#f8b500</span><span class="p">;</span>
-<a name="rest_code_1f2f1aa3a9d844609345164f2709adfc-7"></a><span class="p">}</span>
-<a name="rest_code_1f2f1aa3a9d844609345164f2709adfc-8"></a><span class="c">/* --------------------------------</span>
-<a name="rest_code_1f2f1aa3a9d844609345164f2709adfc-9"></a><span class="c"> * CSS の書き方</span>
-<a name="rest_code_1f2f1aa3a9d844609345164f2709adfc-10"></a><span class="c"> * -------------------------------- */</span>
-<a name="rest_code_1f2f1aa3a9d844609345164f2709adfc-11"></a><span class="nt">body</span> <span class="p">{</span>
-<a name="rest_code_1f2f1aa3a9d844609345164f2709adfc-12"></a>  <span class="k">background-color</span><span class="p">:</span> <span class="mh">#ed6d3d</span><span class="p">;</span>
-<a name="rest_code_1f2f1aa3a9d844609345164f2709adfc-13"></a><span class="p">}</span>
+<pre class="code css"><a name="rest_code_820ed96104564528b78324ba486dc17a-1"></a><span class="p">@</span><span class="k">charset</span> <span class="s2">"UTF-8"</span><span class="p">;</span>
+<a name="rest_code_820ed96104564528b78324ba486dc17a-2"></a><span class="c">/* --------------------------------</span>
+<a name="rest_code_820ed96104564528b78324ba486dc17a-3"></a><span class="c"> * Stylus の書き方</span>
+<a name="rest_code_820ed96104564528b78324ba486dc17a-4"></a><span class="c"> * -------------------------------- */</span>
+<a name="rest_code_820ed96104564528b78324ba486dc17a-5"></a><span class="nt">body</span> <span class="p">{</span>
+<a name="rest_code_820ed96104564528b78324ba486dc17a-6"></a>  <span class="k">background-color</span><span class="p">:</span> <span class="mh">#f8b500</span><span class="p">;</span>
+<a name="rest_code_820ed96104564528b78324ba486dc17a-7"></a><span class="p">}</span>
+<a name="rest_code_820ed96104564528b78324ba486dc17a-8"></a><span class="c">/* --------------------------------</span>
+<a name="rest_code_820ed96104564528b78324ba486dc17a-9"></a><span class="c"> * CSS の書き方</span>
+<a name="rest_code_820ed96104564528b78324ba486dc17a-10"></a><span class="c"> * -------------------------------- */</span>
+<a name="rest_code_820ed96104564528b78324ba486dc17a-11"></a><span class="nt">body</span> <span class="p">{</span>
+<a name="rest_code_820ed96104564528b78324ba486dc17a-12"></a>  <span class="k">background-color</span><span class="p">:</span> <span class="mh">#ed6d3d</span><span class="p">;</span>
+<a name="rest_code_820ed96104564528b78324ba486dc17a-13"></a><span class="p">}</span>
 </pre>
 </li>
 </ul>

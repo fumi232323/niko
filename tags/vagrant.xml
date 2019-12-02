@@ -1,52 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ふみのて (vagrantについての文書)</title><link>https://32imuf.com/</link><description></description><atom:link href="https://32imuf.com/tags/vagrant.xml" rel="self" type="application/rss+xml"></atom:link><language>ja</language><copyright>Contents © 2019 &lt;a href="mailto:fumi232323fumi2016@gmail.com"&gt;fumi23&lt;/a&gt; </copyright><lastBuildDate>Sun, 10 Nov 2019 13:51:11 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Vagrant のメモ</title><link>https://32imuf.com/vagrant/note/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;div class="section" id="synced-folder"&gt;
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ふみのて (vagrantについての文書)</title><link>https://32imuf.com/</link><description></description><atom:link href="https://32imuf.com/tags/vagrant.xml" rel="self" type="application/rss+xml"></atom:link><language>ja</language><copyright>Contents © 2019 &lt;a href="mailto:fumi232323fumi2016@gmail.com"&gt;fumi23&lt;/a&gt; </copyright><lastBuildDate>Sun, 01 Dec 2019 17:10:20 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Vagrant のメモ</title><link>https://32imuf.com/vagrant/note/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;div class="section" id="synced-folder"&gt;
 &lt;h2&gt;synced_folder が効かなくなった&lt;/h2&gt;
 &lt;div class="section" id="id1"&gt;
 &lt;h3&gt;現象&lt;/h3&gt;
 &lt;p&gt;ホスト OS 側のディレクトリ構成を変えたので、 &lt;code class="docutils literal"&gt;_repo_file&lt;/code&gt; を書き換えて、 &lt;code class="docutils literal"&gt;vagrant reload&lt;/code&gt; したのに、エラーになった。&lt;/p&gt;
 &lt;div class="section" id="id2"&gt;
 &lt;h4&gt;エラー内容&lt;/h4&gt;
-&lt;pre class="code console"&gt;&lt;a name="rest_code_7852f39c98e34b2a8d1ca36379954d44-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;FumienoMacBook-Pro:ansible fumi23$&lt;/span&gt; vagrant reload
-&lt;a name="rest_code_7852f39c98e34b2a8d1ca36379954d44-2"&gt;&lt;/a&gt;&lt;span class="go"&gt;==&amp;gt; default: Attempting graceful shutdown of VM...&lt;/span&gt;
-&lt;a name="rest_code_7852f39c98e34b2a8d1ca36379954d44-3"&gt;&lt;/a&gt;&lt;span class="go"&gt;==&amp;gt; default: Clearing any previously set forwarded ports...&lt;/span&gt;
-&lt;a name="rest_code_7852f39c98e34b2a8d1ca36379954d44-4"&gt;&lt;/a&gt;&lt;span class="go"&gt;==&amp;gt; default: Pruning invalid NFS exports. Administrator privileges will be required...&lt;/span&gt;
-&lt;a name="rest_code_7852f39c98e34b2a8d1ca36379954d44-5"&gt;&lt;/a&gt;&lt;span class="go"&gt;Password:&lt;/span&gt;
-&lt;a name="rest_code_7852f39c98e34b2a8d1ca36379954d44-6"&gt;&lt;/a&gt;&lt;span class="go"&gt;==&amp;gt; default: Clearing any previously set network interfaces...&lt;/span&gt;
-&lt;a name="rest_code_7852f39c98e34b2a8d1ca36379954d44-7"&gt;&lt;/a&gt;&lt;span class="go"&gt;==&amp;gt; default: Preparing network interfaces based on configuration...&lt;/span&gt;
-&lt;a name="rest_code_7852f39c98e34b2a8d1ca36379954d44-8"&gt;&lt;/a&gt;&lt;span class="go"&gt;    default: Adapter 1: nat&lt;/span&gt;
-&lt;a name="rest_code_7852f39c98e34b2a8d1ca36379954d44-9"&gt;&lt;/a&gt;&lt;span class="go"&gt;    default: Adapter 2: hostonly&lt;/span&gt;
-&lt;a name="rest_code_7852f39c98e34b2a8d1ca36379954d44-10"&gt;&lt;/a&gt;&lt;span class="go"&gt;==&amp;gt; default: Forwarding ports...&lt;/span&gt;
-&lt;a name="rest_code_7852f39c98e34b2a8d1ca36379954d44-11"&gt;&lt;/a&gt;&lt;span class="go"&gt;    default: 22 (guest) =&amp;gt; 2222 (host) (adapter 1)&lt;/span&gt;
-&lt;a name="rest_code_7852f39c98e34b2a8d1ca36379954d44-12"&gt;&lt;/a&gt;&lt;span class="go"&gt;==&amp;gt; default: Running 'pre-boot' VM customizations...&lt;/span&gt;
-&lt;a name="rest_code_7852f39c98e34b2a8d1ca36379954d44-13"&gt;&lt;/a&gt;&lt;span class="go"&gt;==&amp;gt; default: Booting VM...&lt;/span&gt;
-&lt;a name="rest_code_7852f39c98e34b2a8d1ca36379954d44-14"&gt;&lt;/a&gt;&lt;span class="go"&gt;==&amp;gt; default: Waiting for machine to boot. This may take a few minutes...&lt;/span&gt;
-&lt;a name="rest_code_7852f39c98e34b2a8d1ca36379954d44-15"&gt;&lt;/a&gt;&lt;span class="go"&gt;    default: SSH address: 127.0.0.1:2222&lt;/span&gt;
-&lt;a name="rest_code_7852f39c98e34b2a8d1ca36379954d44-16"&gt;&lt;/a&gt;&lt;span class="go"&gt;    default: SSH username: vagrant&lt;/span&gt;
-&lt;a name="rest_code_7852f39c98e34b2a8d1ca36379954d44-17"&gt;&lt;/a&gt;&lt;span class="go"&gt;    default: SSH auth method: private key&lt;/span&gt;
-&lt;a name="rest_code_7852f39c98e34b2a8d1ca36379954d44-18"&gt;&lt;/a&gt;&lt;span class="go"&gt;==&amp;gt; default: Machine booted and ready!&lt;/span&gt;
-&lt;a name="rest_code_7852f39c98e34b2a8d1ca36379954d44-19"&gt;&lt;/a&gt;&lt;span class="go"&gt;==&amp;gt; default: Checking for guest additions in VM...&lt;/span&gt;
-&lt;a name="rest_code_7852f39c98e34b2a8d1ca36379954d44-20"&gt;&lt;/a&gt;&lt;span class="go"&gt;    default: The guest additions on this VM do not match the installed version of&lt;/span&gt;
-&lt;a name="rest_code_7852f39c98e34b2a8d1ca36379954d44-21"&gt;&lt;/a&gt;&lt;span class="go"&gt;    default: VirtualBox! In most cases this is fine, but in rare cases it can&lt;/span&gt;
-&lt;a name="rest_code_7852f39c98e34b2a8d1ca36379954d44-22"&gt;&lt;/a&gt;&lt;span class="go"&gt;    default: prevent things such as shared folders from working properly. If you see&lt;/span&gt;
-&lt;a name="rest_code_7852f39c98e34b2a8d1ca36379954d44-23"&gt;&lt;/a&gt;&lt;span class="go"&gt;    default: shared folder errors, please make sure the guest additions within the&lt;/span&gt;
-&lt;a name="rest_code_7852f39c98e34b2a8d1ca36379954d44-24"&gt;&lt;/a&gt;&lt;span class="go"&gt;    default: virtual machine match the version of VirtualBox you have installed on&lt;/span&gt;
-&lt;a name="rest_code_7852f39c98e34b2a8d1ca36379954d44-25"&gt;&lt;/a&gt;&lt;span class="go"&gt;    default: your host and reload your VM.&lt;/span&gt;
-&lt;a name="rest_code_7852f39c98e34b2a8d1ca36379954d44-26"&gt;&lt;/a&gt;&lt;span class="go"&gt;    default:&lt;/span&gt;
-&lt;a name="rest_code_7852f39c98e34b2a8d1ca36379954d44-27"&gt;&lt;/a&gt;&lt;span class="go"&gt;    default: Guest Additions Version: 4.3.8&lt;/span&gt;
-&lt;a name="rest_code_7852f39c98e34b2a8d1ca36379954d44-28"&gt;&lt;/a&gt;&lt;span class="go"&gt;    default: VirtualBox Version: 5.1&lt;/span&gt;
-&lt;a name="rest_code_7852f39c98e34b2a8d1ca36379954d44-29"&gt;&lt;/a&gt;&lt;span class="go"&gt;==&amp;gt; default: Configuring and enabling network interfaces...&lt;/span&gt;
-&lt;a name="rest_code_7852f39c98e34b2a8d1ca36379954d44-30"&gt;&lt;/a&gt;&lt;span class="go"&gt;    default: SSH address: 127.0.0.1:2222&lt;/span&gt;
-&lt;a name="rest_code_7852f39c98e34b2a8d1ca36379954d44-31"&gt;&lt;/a&gt;&lt;span class="go"&gt;    default: SSH username: vagrant&lt;/span&gt;
-&lt;a name="rest_code_7852f39c98e34b2a8d1ca36379954d44-32"&gt;&lt;/a&gt;&lt;span class="go"&gt;    default: SSH auth method: private key&lt;/span&gt;
-&lt;a name="rest_code_7852f39c98e34b2a8d1ca36379954d44-33"&gt;&lt;/a&gt;&lt;span class="go"&gt;==&amp;gt; default: Exporting NFS shared folders...&lt;/span&gt;
-&lt;a name="rest_code_7852f39c98e34b2a8d1ca36379954d44-34"&gt;&lt;/a&gt;&lt;span class="go"&gt;NFS is reporting that your exports file is invalid. Vagrant does&lt;/span&gt;
-&lt;a name="rest_code_7852f39c98e34b2a8d1ca36379954d44-35"&gt;&lt;/a&gt;&lt;span class="go"&gt;this check before making any changes to the file. Please correct&lt;/span&gt;
-&lt;a name="rest_code_7852f39c98e34b2a8d1ca36379954d44-36"&gt;&lt;/a&gt;&lt;span class="go"&gt;the issues below and execute "vagrant reload":&lt;/span&gt;
-&lt;a name="rest_code_7852f39c98e34b2a8d1ca36379954d44-37"&gt;&lt;/a&gt;
-&lt;a name="rest_code_7852f39c98e34b2a8d1ca36379954d44-38"&gt;&lt;/a&gt;&lt;span class="go"&gt;exports:2: path contains non-directory or non-existent components: /Users/fumi23/my-projects/my-project-1&lt;/span&gt;
-&lt;a name="rest_code_7852f39c98e34b2a8d1ca36379954d44-39"&gt;&lt;/a&gt;&lt;span class="go"&gt;exports:2: path contains non-directory or non-existent components: /Users/fumi23/my-projects/my-project-2&lt;/span&gt;
-&lt;a name="rest_code_7852f39c98e34b2a8d1ca36379954d44-40"&gt;&lt;/a&gt;&lt;span class="go"&gt;exports:2: no usable directories in export entry&lt;/span&gt;
-&lt;a name="rest_code_7852f39c98e34b2a8d1ca36379954d44-41"&gt;&lt;/a&gt;&lt;span class="go"&gt;exports:2: using fallback (marked offline): /&lt;/span&gt;
+&lt;pre class="code console"&gt;&lt;a name="rest_code_a53d9205b93149539066f9ee6e805f0a-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;FumienoMacBook-Pro:ansible fumi23$&lt;/span&gt; vagrant reload
+&lt;a name="rest_code_a53d9205b93149539066f9ee6e805f0a-2"&gt;&lt;/a&gt;&lt;span class="go"&gt;==&amp;gt; default: Attempting graceful shutdown of VM...&lt;/span&gt;
+&lt;a name="rest_code_a53d9205b93149539066f9ee6e805f0a-3"&gt;&lt;/a&gt;&lt;span class="go"&gt;==&amp;gt; default: Clearing any previously set forwarded ports...&lt;/span&gt;
+&lt;a name="rest_code_a53d9205b93149539066f9ee6e805f0a-4"&gt;&lt;/a&gt;&lt;span class="go"&gt;==&amp;gt; default: Pruning invalid NFS exports. Administrator privileges will be required...&lt;/span&gt;
+&lt;a name="rest_code_a53d9205b93149539066f9ee6e805f0a-5"&gt;&lt;/a&gt;&lt;span class="go"&gt;Password:&lt;/span&gt;
+&lt;a name="rest_code_a53d9205b93149539066f9ee6e805f0a-6"&gt;&lt;/a&gt;&lt;span class="go"&gt;==&amp;gt; default: Clearing any previously set network interfaces...&lt;/span&gt;
+&lt;a name="rest_code_a53d9205b93149539066f9ee6e805f0a-7"&gt;&lt;/a&gt;&lt;span class="go"&gt;==&amp;gt; default: Preparing network interfaces based on configuration...&lt;/span&gt;
+&lt;a name="rest_code_a53d9205b93149539066f9ee6e805f0a-8"&gt;&lt;/a&gt;&lt;span class="go"&gt;    default: Adapter 1: nat&lt;/span&gt;
+&lt;a name="rest_code_a53d9205b93149539066f9ee6e805f0a-9"&gt;&lt;/a&gt;&lt;span class="go"&gt;    default: Adapter 2: hostonly&lt;/span&gt;
+&lt;a name="rest_code_a53d9205b93149539066f9ee6e805f0a-10"&gt;&lt;/a&gt;&lt;span class="go"&gt;==&amp;gt; default: Forwarding ports...&lt;/span&gt;
+&lt;a name="rest_code_a53d9205b93149539066f9ee6e805f0a-11"&gt;&lt;/a&gt;&lt;span class="go"&gt;    default: 22 (guest) =&amp;gt; 2222 (host) (adapter 1)&lt;/span&gt;
+&lt;a name="rest_code_a53d9205b93149539066f9ee6e805f0a-12"&gt;&lt;/a&gt;&lt;span class="go"&gt;==&amp;gt; default: Running 'pre-boot' VM customizations...&lt;/span&gt;
+&lt;a name="rest_code_a53d9205b93149539066f9ee6e805f0a-13"&gt;&lt;/a&gt;&lt;span class="go"&gt;==&amp;gt; default: Booting VM...&lt;/span&gt;
+&lt;a name="rest_code_a53d9205b93149539066f9ee6e805f0a-14"&gt;&lt;/a&gt;&lt;span class="go"&gt;==&amp;gt; default: Waiting for machine to boot. This may take a few minutes...&lt;/span&gt;
+&lt;a name="rest_code_a53d9205b93149539066f9ee6e805f0a-15"&gt;&lt;/a&gt;&lt;span class="go"&gt;    default: SSH address: 127.0.0.1:2222&lt;/span&gt;
+&lt;a name="rest_code_a53d9205b93149539066f9ee6e805f0a-16"&gt;&lt;/a&gt;&lt;span class="go"&gt;    default: SSH username: vagrant&lt;/span&gt;
+&lt;a name="rest_code_a53d9205b93149539066f9ee6e805f0a-17"&gt;&lt;/a&gt;&lt;span class="go"&gt;    default: SSH auth method: private key&lt;/span&gt;
+&lt;a name="rest_code_a53d9205b93149539066f9ee6e805f0a-18"&gt;&lt;/a&gt;&lt;span class="go"&gt;==&amp;gt; default: Machine booted and ready!&lt;/span&gt;
+&lt;a name="rest_code_a53d9205b93149539066f9ee6e805f0a-19"&gt;&lt;/a&gt;&lt;span class="go"&gt;==&amp;gt; default: Checking for guest additions in VM...&lt;/span&gt;
+&lt;a name="rest_code_a53d9205b93149539066f9ee6e805f0a-20"&gt;&lt;/a&gt;&lt;span class="go"&gt;    default: The guest additions on this VM do not match the installed version of&lt;/span&gt;
+&lt;a name="rest_code_a53d9205b93149539066f9ee6e805f0a-21"&gt;&lt;/a&gt;&lt;span class="go"&gt;    default: VirtualBox! In most cases this is fine, but in rare cases it can&lt;/span&gt;
+&lt;a name="rest_code_a53d9205b93149539066f9ee6e805f0a-22"&gt;&lt;/a&gt;&lt;span class="go"&gt;    default: prevent things such as shared folders from working properly. If you see&lt;/span&gt;
+&lt;a name="rest_code_a53d9205b93149539066f9ee6e805f0a-23"&gt;&lt;/a&gt;&lt;span class="go"&gt;    default: shared folder errors, please make sure the guest additions within the&lt;/span&gt;
+&lt;a name="rest_code_a53d9205b93149539066f9ee6e805f0a-24"&gt;&lt;/a&gt;&lt;span class="go"&gt;    default: virtual machine match the version of VirtualBox you have installed on&lt;/span&gt;
+&lt;a name="rest_code_a53d9205b93149539066f9ee6e805f0a-25"&gt;&lt;/a&gt;&lt;span class="go"&gt;    default: your host and reload your VM.&lt;/span&gt;
+&lt;a name="rest_code_a53d9205b93149539066f9ee6e805f0a-26"&gt;&lt;/a&gt;&lt;span class="go"&gt;    default:&lt;/span&gt;
+&lt;a name="rest_code_a53d9205b93149539066f9ee6e805f0a-27"&gt;&lt;/a&gt;&lt;span class="go"&gt;    default: Guest Additions Version: 4.3.8&lt;/span&gt;
+&lt;a name="rest_code_a53d9205b93149539066f9ee6e805f0a-28"&gt;&lt;/a&gt;&lt;span class="go"&gt;    default: VirtualBox Version: 5.1&lt;/span&gt;
+&lt;a name="rest_code_a53d9205b93149539066f9ee6e805f0a-29"&gt;&lt;/a&gt;&lt;span class="go"&gt;==&amp;gt; default: Configuring and enabling network interfaces...&lt;/span&gt;
+&lt;a name="rest_code_a53d9205b93149539066f9ee6e805f0a-30"&gt;&lt;/a&gt;&lt;span class="go"&gt;    default: SSH address: 127.0.0.1:2222&lt;/span&gt;
+&lt;a name="rest_code_a53d9205b93149539066f9ee6e805f0a-31"&gt;&lt;/a&gt;&lt;span class="go"&gt;    default: SSH username: vagrant&lt;/span&gt;
+&lt;a name="rest_code_a53d9205b93149539066f9ee6e805f0a-32"&gt;&lt;/a&gt;&lt;span class="go"&gt;    default: SSH auth method: private key&lt;/span&gt;
+&lt;a name="rest_code_a53d9205b93149539066f9ee6e805f0a-33"&gt;&lt;/a&gt;&lt;span class="go"&gt;==&amp;gt; default: Exporting NFS shared folders...&lt;/span&gt;
+&lt;a name="rest_code_a53d9205b93149539066f9ee6e805f0a-34"&gt;&lt;/a&gt;&lt;span class="go"&gt;NFS is reporting that your exports file is invalid. Vagrant does&lt;/span&gt;
+&lt;a name="rest_code_a53d9205b93149539066f9ee6e805f0a-35"&gt;&lt;/a&gt;&lt;span class="go"&gt;this check before making any changes to the file. Please correct&lt;/span&gt;
+&lt;a name="rest_code_a53d9205b93149539066f9ee6e805f0a-36"&gt;&lt;/a&gt;&lt;span class="go"&gt;the issues below and execute "vagrant reload":&lt;/span&gt;
+&lt;a name="rest_code_a53d9205b93149539066f9ee6e805f0a-37"&gt;&lt;/a&gt;
+&lt;a name="rest_code_a53d9205b93149539066f9ee6e805f0a-38"&gt;&lt;/a&gt;&lt;span class="go"&gt;exports:2: path contains non-directory or non-existent components: /Users/fumi23/my-projects/my-project-1&lt;/span&gt;
+&lt;a name="rest_code_a53d9205b93149539066f9ee6e805f0a-39"&gt;&lt;/a&gt;&lt;span class="go"&gt;exports:2: path contains non-directory or non-existent components: /Users/fumi23/my-projects/my-project-2&lt;/span&gt;
+&lt;a name="rest_code_a53d9205b93149539066f9ee6e805f0a-40"&gt;&lt;/a&gt;&lt;span class="go"&gt;exports:2: no usable directories in export entry&lt;/span&gt;
+&lt;a name="rest_code_a53d9205b93149539066f9ee6e805f0a-41"&gt;&lt;/a&gt;&lt;span class="go"&gt;exports:2: using fallback (marked offline): /&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id3"&gt;
@@ -54,16 +54,16 @@
 &lt;p&gt;&lt;code class="docutils literal"&gt;/etc/exports&lt;/code&gt; を新しい情報に書き変えた。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;元の /etc/exports&lt;/p&gt;
-&lt;pre class="code console"&gt;&lt;a name="rest_code_da51a8a457d24a419f3785857373ddef-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;FumienoMacBook-Pro:ansible fumi23$&lt;/span&gt; cat /etc/exports.bk
-&lt;a name="rest_code_da51a8a457d24a419f3785857373ddef-2"&gt;&lt;/a&gt;&lt;span class="gp"&gt;#&lt;/span&gt; VAGRANT-BEGIN: &lt;span class="m"&gt;501&lt;/span&gt; e9fe3cbf-63c6-48a1-beca-2702bc2527e4
-&lt;a name="rest_code_da51a8a457d24a419f3785857373ddef-3"&gt;&lt;/a&gt;&lt;span class="go"&gt;"/Users/fumi23/my-projects/my-project-1" "/Users/fumi23/my-projects/my-project-2" 192.168.34.10 -alldirs -mapall=501:20&lt;/span&gt;
-&lt;a name="rest_code_da51a8a457d24a419f3785857373ddef-4"&gt;&lt;/a&gt;&lt;span class="gp"&gt;#&lt;/span&gt; VAGRANT-END: &lt;span class="m"&gt;501&lt;/span&gt; e9fe3cbf-63c6-48a1-beca-2702bc2527e4
+&lt;pre class="code console"&gt;&lt;a name="rest_code_185cb128921d41b5b990c0b152da2005-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;FumienoMacBook-Pro:ansible fumi23$&lt;/span&gt; cat /etc/exports.bk
+&lt;a name="rest_code_185cb128921d41b5b990c0b152da2005-2"&gt;&lt;/a&gt;&lt;span class="gp"&gt;#&lt;/span&gt; VAGRANT-BEGIN: &lt;span class="m"&gt;501&lt;/span&gt; e9fe3cbf-63c6-48a1-beca-2702bc2527e4
+&lt;a name="rest_code_185cb128921d41b5b990c0b152da2005-3"&gt;&lt;/a&gt;&lt;span class="go"&gt;"/Users/fumi23/my-projects/my-project-1" "/Users/fumi23/my-projects/my-project-2" 192.168.34.10 -alldirs -mapall=501:20&lt;/span&gt;
+&lt;a name="rest_code_185cb128921d41b5b990c0b152da2005-4"&gt;&lt;/a&gt;&lt;span class="gp"&gt;#&lt;/span&gt; VAGRANT-END: &lt;span class="m"&gt;501&lt;/span&gt; e9fe3cbf-63c6-48a1-beca-2702bc2527e4
 &lt;/pre&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;今の /etc/exports&lt;/p&gt;
-&lt;pre class="code console"&gt;&lt;a name="rest_code_346aea4fb0a44a0999c1a2c23f3e4ba2-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;FumienoMacBook-Pro:ansible fumi23$&lt;/span&gt; cat /etc/exports
-&lt;a name="rest_code_346aea4fb0a44a0999c1a2c23f3e4ba2-2"&gt;&lt;/a&gt;&lt;span class="gp"&gt;#&lt;/span&gt; VAGRANT-BEGIN: &lt;span class="m"&gt;501&lt;/span&gt; e9fe3cbf-63c6-48a1-beca-2702bc2527e4
-&lt;a name="rest_code_346aea4fb0a44a0999c1a2c23f3e4ba2-3"&gt;&lt;/a&gt;&lt;span class="go"&gt;"/Users/fumi23/new-my-projects/my-project-1" "/Users/fumi23/new-my-projects/my-project-2" 192.168.34.10 -alldirs -mapall=501:20&lt;/span&gt;
-&lt;a name="rest_code_346aea4fb0a44a0999c1a2c23f3e4ba2-4"&gt;&lt;/a&gt;&lt;span class="gp"&gt;#&lt;/span&gt; VAGRANT-END: &lt;span class="m"&gt;501&lt;/span&gt; e9fe3cbf-63c6-48a1-beca-2702bc2527e4
+&lt;pre class="code console"&gt;&lt;a name="rest_code_63b9f1eae92c4962847f2e58fff6fa85-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;FumienoMacBook-Pro:ansible fumi23$&lt;/span&gt; cat /etc/exports
+&lt;a name="rest_code_63b9f1eae92c4962847f2e58fff6fa85-2"&gt;&lt;/a&gt;&lt;span class="gp"&gt;#&lt;/span&gt; VAGRANT-BEGIN: &lt;span class="m"&gt;501&lt;/span&gt; e9fe3cbf-63c6-48a1-beca-2702bc2527e4
+&lt;a name="rest_code_63b9f1eae92c4962847f2e58fff6fa85-3"&gt;&lt;/a&gt;&lt;span class="go"&gt;"/Users/fumi23/new-my-projects/my-project-1" "/Users/fumi23/new-my-projects/my-project-2" 192.168.34.10 -alldirs -mapall=501:20&lt;/span&gt;
+&lt;a name="rest_code_63b9f1eae92c4962847f2e58fff6fa85-4"&gt;&lt;/a&gt;&lt;span class="gp"&gt;#&lt;/span&gt; VAGRANT-END: &lt;span class="m"&gt;501&lt;/span&gt; e9fe3cbf-63c6-48a1-beca-2702bc2527e4
 &lt;/pre&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
@@ -77,7 +77,7 @@
 &lt;/div&gt;
 &lt;div class="section" id="id5"&gt;
 &lt;h2&gt;ログを詳細に出す&lt;/h2&gt;
-&lt;pre class="code shell"&gt;&lt;a name="rest_code_5eb59a7454fc44caa99e49712feeac49-1"&gt;&lt;/a&gt;$ &lt;span class="nv"&gt;VAGRANT_LOG&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;DEBUG vagrant &lt;span class="o"&gt;[&lt;/span&gt;command&lt;span class="o"&gt;]&lt;/span&gt;
+&lt;pre class="code shell"&gt;&lt;a name="rest_code_2edbe27b517f4ea49f41daa368cbe604-1"&gt;&lt;/a&gt;$ &lt;span class="nv"&gt;VAGRANT_LOG&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;DEBUG vagrant &lt;span class="o"&gt;[&lt;/span&gt;command&lt;span class="o"&gt;]&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;div class="section" id="virtualbox"&gt;
 &lt;h2&gt;VirtualBox の仮想マシンの保存先を変更する&lt;/h2&gt;
@@ -96,7 +96,7 @@
 &lt;/div&gt;
 &lt;div class="section" id="ssh"&gt;
 &lt;h2&gt;ハイフンふたつの後は、普通にSSHのオプションを指定できる。&lt;/h2&gt;
-&lt;pre class="code shell"&gt;&lt;a name="rest_code_f2a3026dbcbf4400a5399ebe0dc8aabe-1"&gt;&lt;/a&gt;$ vagrant ssh -- -A
+&lt;pre class="code shell"&gt;&lt;a name="rest_code_4f726e62658648ab9dda02376e26b494-1"&gt;&lt;/a&gt;$ vagrant ssh -- -A
 &lt;/pre&gt;&lt;/div&gt;
 &lt;div class="section" id="vmbox"&gt;
 &lt;h2&gt;VMとboxは違う&lt;/h2&gt;

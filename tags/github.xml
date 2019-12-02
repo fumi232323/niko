@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ふみのて (githubについての文書)</title><link>https://32imuf.com/</link><description></description><atom:link href="https://32imuf.com/tags/github.xml" rel="self" type="application/rss+xml"></atom:link><language>ja</language><copyright>Contents © 2019 &lt;a href="mailto:fumi232323fumi2016@gmail.com"&gt;fumi23&lt;/a&gt; </copyright><lastBuildDate>Sun, 10 Nov 2019 13:51:11 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>GitHub に新しいリポジトリを作成して、pushする</title><link>https://32imuf.com/github/how-to-create-new-repository/</link><dc:creator>fumi23</dc:creator><description>&lt;div class="section" id="github-push"&gt;
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ふみのて (githubについての文書)</title><link>https://32imuf.com/</link><description></description><atom:link href="https://32imuf.com/tags/github.xml" rel="self" type="application/rss+xml"></atom:link><language>ja</language><copyright>Contents © 2019 &lt;a href="mailto:fumi232323fumi2016@gmail.com"&gt;fumi23&lt;/a&gt; </copyright><lastBuildDate>Sun, 01 Dec 2019 17:10:20 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>GitHub に新しいリポジトリを作成して、pushする</title><link>https://32imuf.com/github/how-to-create-new-repository/</link><dc:creator>fumi23</dc:creator><description>&lt;div class="section" id="github-push"&gt;
 &lt;h2&gt;GitHub に新しいリポジトリを作成して、pushする&lt;/h2&gt;
 &lt;ol class="arabic"&gt;
 &lt;li&gt;&lt;p&gt;GitHub の右上の &lt;code class="docutils literal"&gt;+&lt;/code&gt; ボタンから、 &lt;code class="docutils literal"&gt;New repository&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;リポジトリ名を入力して、作成&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;こうするといいよ、というページが表示されるので、それに従う&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;pre class="code console"&gt;&lt;a name="rest_code_87b049d1d3794dee85f4e07dc42ab123-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; git remote add origin git@github.com:fumi232323/miya.git
-&lt;a name="rest_code_87b049d1d3794dee85f4e07dc42ab123-2"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; git push -u origin master
+&lt;pre class="code console"&gt;&lt;a name="rest_code_709c5c6891454e848736ea18f695bff0-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; git remote add origin git@github.com:fumi232323/miya.git
+&lt;a name="rest_code_709c5c6891454e848736ea18f695bff0-2"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; git push -u origin master
 &lt;/pre&gt;&lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;/ol&gt;

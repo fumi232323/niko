@@ -56,12 +56,12 @@
 <ul>
 <li>
 <p>リモートホストに接続する</p>
-<pre class="code console"><a name="rest_code_96dc5b936dbe4c9fb1c3a283f5039147-1"></a><span class="gp">$</span> ssh &lt;hostname&gt;
+<pre class="code console"><a name="rest_code_6966bde2d0d94fcfbaadd7211a1d64c1-1"></a><span class="gp">$</span> ssh &lt;hostname&gt;
 </pre>
 </li>
 <li>
 <p>秘密鍵を指定して接続する</p>
-<pre class="code console"><a name="rest_code_f4761922c8514fbe858710af0e40bc33-1"></a><span class="gp">$</span> ssh -i &lt;identity_file&gt; &lt;user&gt;@&lt;hostname&gt;
+<pre class="code console"><a name="rest_code_eb1e03e42e554d3ba13e639af12de259-1"></a><span class="gp">$</span> ssh -i &lt;identity_file&gt; &lt;user&gt;@&lt;hostname&gt;
 </pre>
 <ul class="simple">
 <li><p><code class="docutils literal"><span class="pre">-i</span> &lt;identity_file&gt;</code> : 公開鍵認証のためのID（秘密鍵）ファイルを指定する</p></li>
@@ -93,7 +93,7 @@
 <h2>ssh トンネル (Port forwardings)</h2>
 <p>ローカルに対するアクセスをリモートに受け流す。</p>
 <p>ファイアウォールの中にあって直接接続できない DB1 に、 server1 を介して接続するときに使う。</p>
-<pre class="code console"><a name="rest_code_9540a3d8a65d44b0a3f7d15353bc9d14-1"></a><span class="gp">$</span> ssh -fN &lt;踏み台ホスト&gt; -L &lt;ローカルのポート&gt;:&lt;リモートホスト&gt;:&lt;リモートホストのポート&gt;
+<pre class="code console"><a name="rest_code_b469434d469f48ebb563f71a81a9c447-1"></a><span class="gp">$</span> ssh -fN &lt;踏み台ホスト&gt; -L &lt;ローカルのポート&gt;:&lt;リモートホスト&gt;:&lt;リモートホストのポート&gt;
 </pre>
 <ul class="simple">
 <li><p><code class="docutils literal"><span class="pre">-L</span> <span class="pre">[bind_address:]port:host:hostport</span></code> : ローカルへの通信をリモートにバインドする</p></li>

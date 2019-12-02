@@ -75,32 +75,32 @@ TODO: ssh config のメモとして整理しようと思う</p>
 <div class="section" id="proxycommand">
 <h2><a class="toc-backref" href="#id10">ProxyCommand</a></h2>
 <p>ローカルから、B へ ssh する</p>
-<pre class="code bash"><a name="rest_code_6dbee4a84c98495496b2a7434d0f76d3-1"></a>$ ssh-add ~/.ssh/id_rsa
-<a name="rest_code_6dbee4a84c98495496b2a7434d0f76d3-2"></a>$ ssh my-host
-<a name="rest_code_6dbee4a84c98495496b2a7434d0f76d3-3"></a>
-<a name="rest_code_6dbee4a84c98495496b2a7434d0f76d3-4"></a><span class="m">1</span>. まず、<span class="o">(</span><span class="m">1</span><span class="o">)</span> の <span class="sb">``</span>ssh -W %h:%p my-gateway<span class="sb">``</span> が実行される
-<a name="rest_code_6dbee4a84c98495496b2a7434d0f76d3-5"></a><span class="m">2</span>. <span class="sb">``</span>$ ssh my-gateway<span class="sb">``</span> が実行される
-<a name="rest_code_6dbee4a84c98495496b2a7434d0f76d3-6"></a>  - HostName, User, IdentityFile は <span class="o">(</span><span class="m">3</span><span class="o">)</span> に記述のものが使用される
-<a name="rest_code_6dbee4a84c98495496b2a7434d0f76d3-7"></a>  -
-<a name="rest_code_6dbee4a84c98495496b2a7434d0f76d3-8"></a><span class="m">3</span>. <span class="sb">``</span>my-gateway<span class="sb">``</span> から <span class="sb">``</span>$ ssh my-host<span class="sb">``</span> が実行される
-<a name="rest_code_6dbee4a84c98495496b2a7434d0f76d3-9"></a>  - <span class="sb">``</span>ForwardAgent yes<span class="sb">``</span> のため、 <span class="sb">``</span>IdentityFile<span class="sb">``</span> は、 <span class="o">(</span><span class="m">3</span><span class="o">)</span> で指定されたものが使用される
+<pre class="code bash"><a name="rest_code_1c2b5d9fb2b547f581beaab173be7494-1"></a>$ ssh-add ~/.ssh/id_rsa
+<a name="rest_code_1c2b5d9fb2b547f581beaab173be7494-2"></a>$ ssh my-host
+<a name="rest_code_1c2b5d9fb2b547f581beaab173be7494-3"></a>
+<a name="rest_code_1c2b5d9fb2b547f581beaab173be7494-4"></a><span class="m">1</span>. まず、<span class="o">(</span><span class="m">1</span><span class="o">)</span> の <span class="sb">``</span>ssh -W %h:%p my-gateway<span class="sb">``</span> が実行される
+<a name="rest_code_1c2b5d9fb2b547f581beaab173be7494-5"></a><span class="m">2</span>. <span class="sb">``</span>$ ssh my-gateway<span class="sb">``</span> が実行される
+<a name="rest_code_1c2b5d9fb2b547f581beaab173be7494-6"></a>  - HostName, User, IdentityFile は <span class="o">(</span><span class="m">3</span><span class="o">)</span> に記述のものが使用される
+<a name="rest_code_1c2b5d9fb2b547f581beaab173be7494-7"></a>  -
+<a name="rest_code_1c2b5d9fb2b547f581beaab173be7494-8"></a><span class="m">3</span>. <span class="sb">``</span>my-gateway<span class="sb">``</span> から <span class="sb">``</span>$ ssh my-host<span class="sb">``</span> が実行される
+<a name="rest_code_1c2b5d9fb2b547f581beaab173be7494-9"></a>  - <span class="sb">``</span>ForwardAgent yes<span class="sb">``</span> のため、 <span class="sb">``</span>IdentityFile<span class="sb">``</span> は、 <span class="o">(</span><span class="m">3</span><span class="o">)</span> で指定されたものが使用される
 </pre>
 <p><code class="docutils literal"><span class="pre">~/.ssh/config</span></code></p>
 <blockquote>
-<pre class="code console"><a name="rest_code_7801b4c3d9764d0896abf28442abbfe8-1"></a><span class="gp">#</span> エージェント転送を行う
-<a name="rest_code_7801b4c3d9764d0896abf28442abbfe8-2"></a><span class="go">ForwardAgent yes</span>
-<a name="rest_code_7801b4c3d9764d0896abf28442abbfe8-3"></a>
-<a name="rest_code_7801b4c3d9764d0896abf28442abbfe8-4"></a><span class="gp">#</span> A: gateway
-<a name="rest_code_7801b4c3d9764d0896abf28442abbfe8-5"></a><span class="go">Host my-gateway                                 # (3)</span>
-<a name="rest_code_7801b4c3d9764d0896abf28442abbfe8-6"></a><span class="go">  HostName      my-gateway.com</span>
-<a name="rest_code_7801b4c3d9764d0896abf28442abbfe8-7"></a><span class="go">  User          my-user                         # (2)</span>
-<a name="rest_code_7801b4c3d9764d0896abf28442abbfe8-8"></a><span class="go">  IdentityFile  ~/.ssh/id_rsa</span>
-<a name="rest_code_7801b4c3d9764d0896abf28442abbfe8-9"></a>
-<a name="rest_code_7801b4c3d9764d0896abf28442abbfe8-10"></a><span class="gp">#</span> B: アプリケーションがデプロイしてあるサーバー
-<a name="rest_code_7801b4c3d9764d0896abf28442abbfe8-11"></a><span class="go">Host my-host</span>
-<a name="rest_code_7801b4c3d9764d0896abf28442abbfe8-12"></a><span class="go">  HostName      my-host-name</span>
-<a name="rest_code_7801b4c3d9764d0896abf28442abbfe8-13"></a><span class="go">  User          my-user                         # (2)</span>
-<a name="rest_code_7801b4c3d9764d0896abf28442abbfe8-14"></a><span class="go">  ProxyCommand  ssh -W %h:%p my-gateway         # (1)</span>
+<pre class="code console"><a name="rest_code_deefcf2ca1624772ab6ef1e6e40bb1e6-1"></a><span class="gp">#</span> エージェント転送を行う
+<a name="rest_code_deefcf2ca1624772ab6ef1e6e40bb1e6-2"></a><span class="go">ForwardAgent yes</span>
+<a name="rest_code_deefcf2ca1624772ab6ef1e6e40bb1e6-3"></a>
+<a name="rest_code_deefcf2ca1624772ab6ef1e6e40bb1e6-4"></a><span class="gp">#</span> A: gateway
+<a name="rest_code_deefcf2ca1624772ab6ef1e6e40bb1e6-5"></a><span class="go">Host my-gateway                                 # (3)</span>
+<a name="rest_code_deefcf2ca1624772ab6ef1e6e40bb1e6-6"></a><span class="go">  HostName      my-gateway.com</span>
+<a name="rest_code_deefcf2ca1624772ab6ef1e6e40bb1e6-7"></a><span class="go">  User          my-user                         # (2)</span>
+<a name="rest_code_deefcf2ca1624772ab6ef1e6e40bb1e6-8"></a><span class="go">  IdentityFile  ~/.ssh/id_rsa</span>
+<a name="rest_code_deefcf2ca1624772ab6ef1e6e40bb1e6-9"></a>
+<a name="rest_code_deefcf2ca1624772ab6ef1e6e40bb1e6-10"></a><span class="gp">#</span> B: アプリケーションがデプロイしてあるサーバー
+<a name="rest_code_deefcf2ca1624772ab6ef1e6e40bb1e6-11"></a><span class="go">Host my-host</span>
+<a name="rest_code_deefcf2ca1624772ab6ef1e6e40bb1e6-12"></a><span class="go">  HostName      my-host-name</span>
+<a name="rest_code_deefcf2ca1624772ab6ef1e6e40bb1e6-13"></a><span class="go">  User          my-user                         # (2)</span>
+<a name="rest_code_deefcf2ca1624772ab6ef1e6e40bb1e6-14"></a><span class="go">  ProxyCommand  ssh -W %h:%p my-gateway         # (1)</span>
 </pre>
 </blockquote>
 <ol class="arabic simple"><li>

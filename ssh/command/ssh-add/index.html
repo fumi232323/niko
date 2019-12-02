@@ -57,28 +57,28 @@
 <ul>
 <li>
 <p>ssh-agent に秘密鍵を登録する</p>
-<pre class="code console"><a name="rest_code_d7d4f3cd6ade498daa8a7459c8cd1b01-1"></a><span class="gp">$</span> ssh-add ~/.ssh/id_rsa
-<a name="rest_code_d7d4f3cd6ade498daa8a7459c8cd1b01-2"></a><span class="gp">$</span> ssh-add &lt;秘密鍵のパス&gt;
+<pre class="code console"><a name="rest_code_903a5f58342f42d08c2bd13910465f30-1"></a><span class="gp">$</span> ssh-add ~/.ssh/id_rsa
+<a name="rest_code_903a5f58342f42d08c2bd13910465f30-2"></a><span class="gp">$</span> ssh-add &lt;秘密鍵のパス&gt;
 </pre>
 </li>
 <li>
 <p>ssh-agent に登録されている鍵を一覧表示する</p>
-<pre class="code console"><a name="rest_code_f66a0db2cdb74fe7b4b229d211856611-1"></a><span class="gp">$</span> ssh-add -l
+<pre class="code console"><a name="rest_code_c8819f06d6f14f5695d43b46f1090170-1"></a><span class="gp">$</span> ssh-add -l
 </pre>
 </li>
 <li>
 <p>ssh-agent に登録されている鍵をすべて削除する</p>
-<pre class="code console"><a name="rest_code_cb378f80cb4e41e0bf12e0fd58522903-1"></a><span class="gp">$</span> ssh-add -D
+<pre class="code console"><a name="rest_code_78a1c37ae3f04a66960eaa99315886e6-1"></a><span class="gp">$</span> ssh-add -D
 </pre>
 </li>
 <li>
 <p>ssh-agent 登録されている鍵から、指定した鍵を削除する</p>
-<pre class="code console"><a name="rest_code_0368ec5c391247ed85ba8bcb6a1b5fa7-1"></a><span class="gp">$</span> ssh-add -d &lt;削除したい秘密鍵のパス&gt;
+<pre class="code console"><a name="rest_code_9dafb4d2869845fba464a57687f4c131-1"></a><span class="gp">$</span> ssh-add -d &lt;削除したい秘密鍵のパス&gt;
 </pre>
 </li>
 <li>
 <p>ssh-agent のキーチェーンに秘密鍵を登録する</p>
-<pre class="code console"><a name="rest_code_3b478ddf32d84828a1483e106b1eff21-1"></a><span class="gp">$</span> ssh-add -K &lt;秘密鍵のパス&gt;
+<pre class="code console"><a name="rest_code_8c5507d4da1e4700847dbfbfd1fe1111-1"></a><span class="gp">$</span> ssh-add -K &lt;秘密鍵のパス&gt;
 </pre>
 <ul class="simple">
 <li><p><code class="docutils literal"><span class="pre">-K</span></code> をつけると電源を落としても消えない。</p></li>

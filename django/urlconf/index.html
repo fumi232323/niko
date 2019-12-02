@@ -72,33 +72,33 @@
 <ul>
 <li>
 <p>config/urls.py</p>
-<pre class="code python"><a name="rest_code_985de5af764a49b9bef26feb075aface-1"></a><span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
-<a name="rest_code_985de5af764a49b9bef26feb075aface-2"></a>    <span class="c1"># Django2.0 から path になった</span>
-<a name="rest_code_985de5af764a49b9bef26feb075aface-3"></a>    <span class="c1"># 後ろには / つける、前にはつけないのが慣習</span>
-<a name="rest_code_985de5af764a49b9bef26feb075aface-4"></a>    <span class="n">path</span><span class="p">(</span><span class="s1">'admin/'</span><span class="p">,</span> <span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">urls</span><span class="p">),</span>
-<a name="rest_code_985de5af764a49b9bef26feb075aface-5"></a>    <span class="n">path</span><span class="p">(</span><span class="s1">''</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'index'</span><span class="p">),</span>
-<a name="rest_code_985de5af764a49b9bef26feb075aface-6"></a>    <span class="c1"># アプリケーションディレクトリごとに１つずつ urls.py を配置するのがベストプラクティス</span>
-<a name="rest_code_985de5af764a49b9bef26feb075aface-7"></a>    <span class="n">path</span><span class="p">(</span><span class="s1">'accounts/'</span><span class="p">,</span> <span class="n">include</span><span class="p">(</span><span class="s1">'accounts.urls'</span><span class="p">)),</span>  <span class="c1"># /accounts/ で始まるURLパターンは accounts.urls 見てね</span>
-<a name="rest_code_985de5af764a49b9bef26feb075aface-8"></a>    <span class="n">path</span><span class="p">(</span><span class="s1">'shop/'</span><span class="p">,</span> <span class="n">include</span><span class="p">(</span><span class="s1">'shop.urls'</span><span class="p">)),</span>          <span class="c1"># /shop/ で始まるURLパターンは shop.urls 見てね</span>
-<a name="rest_code_985de5af764a49b9bef26feb075aface-9"></a>    <span class="c1"># GenericView: 短いので、URLconf に直接書くこともある</span>
-<a name="rest_code_985de5af764a49b9bef26feb075aface-10"></a>    <span class="n">path</span><span class="p">(</span><span class="sa">r</span><span class="s1">'^$'</span><span class="p">,</span> <span class="n">TemplateView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(</span><span class="n">template_name</span><span class="o">=</span><span class="s1">'index.html'</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="s1">'index'</span><span class="p">),</span>  <span class="c1"># TemplateView</span>
-<a name="rest_code_985de5af764a49b9bef26feb075aface-11"></a>    <span class="n">path</span><span class="p">(</span><span class="sa">r</span><span class="s1">'^$'</span><span class="p">,</span> <span class="n">RedirectView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(</span><span class="n">template_name</span><span class="o">=</span><span class="s1">'index.html'</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="s1">'index'</span><span class="p">),</span>  <span class="c1"># RedirectView</span>
-<a name="rest_code_985de5af764a49b9bef26feb075aface-12"></a><span class="p">]</span>
+<pre class="code python"><a name="rest_code_8b49f2cc2ae04920bb17b73c363af5f5-1"></a><span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+<a name="rest_code_8b49f2cc2ae04920bb17b73c363af5f5-2"></a>    <span class="c1"># Django2.0 から path になった</span>
+<a name="rest_code_8b49f2cc2ae04920bb17b73c363af5f5-3"></a>    <span class="c1"># 後ろには / つける、前にはつけないのが慣習</span>
+<a name="rest_code_8b49f2cc2ae04920bb17b73c363af5f5-4"></a>    <span class="n">path</span><span class="p">(</span><span class="s1">'admin/'</span><span class="p">,</span> <span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">urls</span><span class="p">),</span>
+<a name="rest_code_8b49f2cc2ae04920bb17b73c363af5f5-5"></a>    <span class="n">path</span><span class="p">(</span><span class="s1">''</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'index'</span><span class="p">),</span>
+<a name="rest_code_8b49f2cc2ae04920bb17b73c363af5f5-6"></a>    <span class="c1"># アプリケーションディレクトリごとに１つずつ urls.py を配置するのがベストプラクティス</span>
+<a name="rest_code_8b49f2cc2ae04920bb17b73c363af5f5-7"></a>    <span class="n">path</span><span class="p">(</span><span class="s1">'accounts/'</span><span class="p">,</span> <span class="n">include</span><span class="p">(</span><span class="s1">'accounts.urls'</span><span class="p">)),</span>  <span class="c1"># /accounts/ で始まるURLパターンは accounts.urls 見てね</span>
+<a name="rest_code_8b49f2cc2ae04920bb17b73c363af5f5-8"></a>    <span class="n">path</span><span class="p">(</span><span class="s1">'shop/'</span><span class="p">,</span> <span class="n">include</span><span class="p">(</span><span class="s1">'shop.urls'</span><span class="p">)),</span>          <span class="c1"># /shop/ で始まるURLパターンは shop.urls 見てね</span>
+<a name="rest_code_8b49f2cc2ae04920bb17b73c363af5f5-9"></a>    <span class="c1"># GenericView: 短いので、URLconf に直接書くこともある</span>
+<a name="rest_code_8b49f2cc2ae04920bb17b73c363af5f5-10"></a>    <span class="n">path</span><span class="p">(</span><span class="sa">r</span><span class="s1">'^$'</span><span class="p">,</span> <span class="n">TemplateView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(</span><span class="n">template_name</span><span class="o">=</span><span class="s1">'index.html'</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="s1">'index'</span><span class="p">),</span>  <span class="c1"># TemplateView</span>
+<a name="rest_code_8b49f2cc2ae04920bb17b73c363af5f5-11"></a>    <span class="n">path</span><span class="p">(</span><span class="sa">r</span><span class="s1">'^$'</span><span class="p">,</span> <span class="n">RedirectView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(</span><span class="n">template_name</span><span class="o">=</span><span class="s1">'index.html'</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="s1">'index'</span><span class="p">),</span>  <span class="c1"># RedirectView</span>
+<a name="rest_code_8b49f2cc2ae04920bb17b73c363af5f5-12"></a><span class="p">]</span>
 </pre>
 </li>
 <li>
 <p>shop/urls.py</p>
-<pre class="code python"><a name="rest_code_c13e9ca4e95e47e6b2e6ae66ab03ee85-1"></a><span class="c1"># app_name:</span>
-<a name="rest_code_c13e9ca4e95e47e6b2e6ae66ab03ee85-2"></a>  <span class="c1"># * 必ず設定する、アプリケーション名と同じにする</span>
-<a name="rest_code_c13e9ca4e95e47e6b2e6ae66ab03ee85-3"></a>  <span class="c1"># * reverse メソッドや url タグから `名前空間名.名前空間内の name&gt;` で逆引きできるようにするため</span>
-<a name="rest_code_c13e9ca4e95e47e6b2e6ae66ab03ee85-4"></a><span class="n">app_name</span> <span class="o">=</span> <span class="s1">'shop'</span>
-<a name="rest_code_c13e9ca4e95e47e6b2e6ae66ab03ee85-5"></a><span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
-<a name="rest_code_c13e9ca4e95e47e6b2e6ae66ab03ee85-6"></a>    <span class="n">path</span><span class="p">(</span><span class="s1">''</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'index'</span><span class="p">),</span>
-<a name="rest_code_c13e9ca4e95e47e6b2e6ae66ab03ee85-7"></a>    <span class="c1"># パスコンバーター:</span>
-<a name="rest_code_c13e9ca4e95e47e6b2e6ae66ab03ee85-8"></a>      <span class="c1"># * ビュー関数を呼び出すときのキーワード引数として使われる</span>
-<a name="rest_code_c13e9ca4e95e47e6b2e6ae66ab03ee85-9"></a>      <span class="c1"># * int, str, path, slug, uuid の 5種類がある、自作も可</span>
-<a name="rest_code_c13e9ca4e95e47e6b2e6ae66ab03ee85-10"></a>    <span class="n">path</span><span class="p">(</span><span class="s1">'&lt;int:book_id&gt;/'</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">detail</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'detail'</span><span class="p">),</span>
-<a name="rest_code_c13e9ca4e95e47e6b2e6ae66ab03ee85-11"></a><span class="p">]</span>
+<pre class="code python"><a name="rest_code_81b7843050d3422da12569b0544dd8d0-1"></a><span class="c1"># app_name:</span>
+<a name="rest_code_81b7843050d3422da12569b0544dd8d0-2"></a>  <span class="c1"># * 必ず設定する、アプリケーション名と同じにする</span>
+<a name="rest_code_81b7843050d3422da12569b0544dd8d0-3"></a>  <span class="c1"># * reverse メソッドや url タグから `名前空間名.名前空間内の name&gt;` で逆引きできるようにするため</span>
+<a name="rest_code_81b7843050d3422da12569b0544dd8d0-4"></a><span class="n">app_name</span> <span class="o">=</span> <span class="s1">'shop'</span>
+<a name="rest_code_81b7843050d3422da12569b0544dd8d0-5"></a><span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+<a name="rest_code_81b7843050d3422da12569b0544dd8d0-6"></a>    <span class="n">path</span><span class="p">(</span><span class="s1">''</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'index'</span><span class="p">),</span>
+<a name="rest_code_81b7843050d3422da12569b0544dd8d0-7"></a>    <span class="c1"># パスコンバーター:</span>
+<a name="rest_code_81b7843050d3422da12569b0544dd8d0-8"></a>      <span class="c1"># * ビュー関数を呼び出すときのキーワード引数として使われる</span>
+<a name="rest_code_81b7843050d3422da12569b0544dd8d0-9"></a>      <span class="c1"># * int, str, path, slug, uuid の 5種類がある、自作も可</span>
+<a name="rest_code_81b7843050d3422da12569b0544dd8d0-10"></a>    <span class="n">path</span><span class="p">(</span><span class="s1">'&lt;int:book_id&gt;/'</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">detail</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'detail'</span><span class="p">),</span>
+<a name="rest_code_81b7843050d3422da12569b0544dd8d0-11"></a><span class="p">]</span>
 </pre>
 </li>
 </ul>

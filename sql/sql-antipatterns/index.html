@@ -99,17 +99,17 @@
 <p>再帰クエリめちゃくちゃ便利だな</p>
 </dd>
 </dl>
-<pre class="code mysql"><a name="rest_code_28480ffe171946b1b8dddfb6b9046b9f-1"></a><span class="c1">-- ※ 再帰クエリの例</span>
-<a name="rest_code_28480ffe171946b1b8dddfb6b9046b9f-2"></a><span class="k">WITH</span> <span class="n">RECURSIVE</span> <span class="nf">CommentTree</span>
-<a name="rest_code_28480ffe171946b1b8dddfb6b9046b9f-3"></a>  <span class="p">(</span><span class="n">comment_id</span><span class="p">,</span> <span class="n">bug_id</span><span class="p">,</span> <span class="n">parent_id</span><span class="p">,</span> <span class="n">author</span><span class="p">,</span> <span class="n">comment</span><span class="p">,</span> <span class="n">depth</span><span class="p">)</span>
-<a name="rest_code_28480ffe171946b1b8dddfb6b9046b9f-4"></a><span class="k">AS</span> <span class="p">(</span>
-<a name="rest_code_28480ffe171946b1b8dddfb6b9046b9f-5"></a>    <span class="k">SELECT</span> <span class="o">*</span><span class="p">,</span> <span class="mi">0</span> <span class="k">AS</span> <span class="n">depth</span> <span class="k">FROM</span> <span class="n">Comments</span>
-<a name="rest_code_28480ffe171946b1b8dddfb6b9046b9f-6"></a>    <span class="k">WHERE</span> <span class="n">parent_id</span> <span class="k">IS</span> <span class="no">NULL</span>
-<a name="rest_code_28480ffe171946b1b8dddfb6b9046b9f-7"></a>  <span class="k">UNION</span> <span class="k">ALL</span>
-<a name="rest_code_28480ffe171946b1b8dddfb6b9046b9f-8"></a>    <span class="k">SELECT</span> <span class="n">c</span><span class="p">.</span><span class="o">*</span><span class="p">,</span> <span class="n">ct</span><span class="p">.</span><span class="n">depth</span><span class="o">+</span><span class="mi">1</span> <span class="k">AS</span> <span class="n">depth</span> <span class="k">FROM</span> <span class="n">CommentTree</span> <span class="n">ct</span>
-<a name="rest_code_28480ffe171946b1b8dddfb6b9046b9f-9"></a>    <span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">Comments</span> <span class="n">c</span> <span class="k">ON</span> <span class="n">ct</span><span class="p">.</span><span class="n">comment_id</span> <span class="o">=</span> <span class="n">c</span><span class="p">.</span><span class="n">parent_id</span>
-<a name="rest_code_28480ffe171946b1b8dddfb6b9046b9f-10"></a><span class="p">)</span>
-<a name="rest_code_28480ffe171946b1b8dddfb6b9046b9f-11"></a><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">CommentTree</span> <span class="k">WHERE</span> <span class="n">bug_id</span> <span class="o">=</span> <span class="mi">1234</span><span class="p">;</span>
+<pre class="code mysql"><a name="rest_code_736682a07cfa4f5b8ab9da95d5f48329-1"></a><span class="c1">-- ※ 再帰クエリの例</span>
+<a name="rest_code_736682a07cfa4f5b8ab9da95d5f48329-2"></a><span class="k">WITH</span> <span class="n">RECURSIVE</span> <span class="nf">CommentTree</span>
+<a name="rest_code_736682a07cfa4f5b8ab9da95d5f48329-3"></a>  <span class="p">(</span><span class="n">comment_id</span><span class="p">,</span> <span class="n">bug_id</span><span class="p">,</span> <span class="n">parent_id</span><span class="p">,</span> <span class="n">author</span><span class="p">,</span> <span class="n">comment</span><span class="p">,</span> <span class="n">depth</span><span class="p">)</span>
+<a name="rest_code_736682a07cfa4f5b8ab9da95d5f48329-4"></a><span class="k">AS</span> <span class="p">(</span>
+<a name="rest_code_736682a07cfa4f5b8ab9da95d5f48329-5"></a>    <span class="k">SELECT</span> <span class="o">*</span><span class="p">,</span> <span class="mi">0</span> <span class="k">AS</span> <span class="n">depth</span> <span class="k">FROM</span> <span class="n">Comments</span>
+<a name="rest_code_736682a07cfa4f5b8ab9da95d5f48329-6"></a>    <span class="k">WHERE</span> <span class="n">parent_id</span> <span class="k">IS</span> <span class="no">NULL</span>
+<a name="rest_code_736682a07cfa4f5b8ab9da95d5f48329-7"></a>  <span class="k">UNION</span> <span class="k">ALL</span>
+<a name="rest_code_736682a07cfa4f5b8ab9da95d5f48329-8"></a>    <span class="k">SELECT</span> <span class="n">c</span><span class="p">.</span><span class="o">*</span><span class="p">,</span> <span class="n">ct</span><span class="p">.</span><span class="n">depth</span><span class="o">+</span><span class="mi">1</span> <span class="k">AS</span> <span class="n">depth</span> <span class="k">FROM</span> <span class="n">CommentTree</span> <span class="n">ct</span>
+<a name="rest_code_736682a07cfa4f5b8ab9da95d5f48329-9"></a>    <span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">Comments</span> <span class="n">c</span> <span class="k">ON</span> <span class="n">ct</span><span class="p">.</span><span class="n">comment_id</span> <span class="o">=</span> <span class="n">c</span><span class="p">.</span><span class="n">parent_id</span>
+<a name="rest_code_736682a07cfa4f5b8ab9da95d5f48329-10"></a><span class="p">)</span>
+<a name="rest_code_736682a07cfa4f5b8ab9da95d5f48329-11"></a><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">CommentTree</span> <span class="k">WHERE</span> <span class="n">bug_id</span> <span class="o">=</span> <span class="mi">1234</span><span class="p">;</span>
 </pre>
 <ul class="simple">
 <li><p>MySQL 8.0 ~ , PostgreSQL 8.4 ~ ... はサポートしている</p></li>

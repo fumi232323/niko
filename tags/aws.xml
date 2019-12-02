@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ふみのて (awsについての文書)</title><link>https://32imuf.com/</link><description></description><atom:link href="https://32imuf.com/tags/aws.xml" rel="self" type="application/rss+xml"></atom:link><language>ja</language><copyright>Contents © 2019 &lt;a href="mailto:fumi232323fumi2016@gmail.com"&gt;fumi23&lt;/a&gt; </copyright><lastBuildDate>Sun, 10 Nov 2019 13:51:11 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Amazon Aurora とはなんですか？</title><link>https://32imuf.com/aws/what-is-amazon-aurora/</link><dc:creator>fumi23</dc:creator><description>&lt;div class="section" id="amazon-aurora"&gt;
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ふみのて (awsについての文書)</title><link>https://32imuf.com/</link><description></description><atom:link href="https://32imuf.com/tags/aws.xml" rel="self" type="application/rss+xml"></atom:link><language>ja</language><copyright>Contents © 2019 &lt;a href="mailto:fumi232323fumi2016@gmail.com"&gt;fumi23&lt;/a&gt; </copyright><lastBuildDate>Sun, 01 Dec 2019 17:10:24 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Amazon Aurora とはなんですか？</title><link>https://32imuf.com/aws/what-is-amazon-aurora/</link><dc:creator>fumi23</dc:creator><description>&lt;div class="section" id="amazon-aurora"&gt;
 &lt;h2&gt;Amazon Aurora とは？&lt;/h2&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://aws.amazon.com/jp/rds/aurora/"&gt;Amazon Aurora&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
@@ -22,17 +22,17 @@
 &lt;blockquote&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;エラーメッセージ&lt;/p&gt;
-&lt;pre class="code shell"&gt;&lt;a name="rest_code_fb24f4ae292d4e688ad2f3a4d5ee7753-1"&gt;&lt;/a&gt;S3ResponseError: S3ResponseError: &lt;span class="m"&gt;403&lt;/span&gt; Forbidden
-&lt;a name="rest_code_fb24f4ae292d4e688ad2f3a4d5ee7753-2"&gt;&lt;/a&gt;&amp;lt;?xml &lt;span class="nv"&gt;version&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"1.0"&lt;/span&gt; &lt;span class="nv"&gt;encoding&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"UTF-8"&lt;/span&gt;?&amp;gt;
-&lt;a name="rest_code_fb24f4ae292d4e688ad2f3a4d5ee7753-3"&gt;&lt;/a&gt;&amp;lt;Error&amp;gt;
-&lt;a name="rest_code_fb24f4ae292d4e688ad2f3a4d5ee7753-4"&gt;&lt;/a&gt;  &amp;lt;Code&amp;gt;RequestTimeTooSkewed&amp;lt;/Code&amp;gt;
-&lt;a name="rest_code_fb24f4ae292d4e688ad2f3a4d5ee7753-5"&gt;&lt;/a&gt;  &amp;lt;Message&amp;gt;The difference between the request &lt;span class="nb"&gt;time&lt;/span&gt; and the current &lt;span class="nb"&gt;time&lt;/span&gt; is too large.&amp;lt;/Message&amp;gt;
-&lt;a name="rest_code_fb24f4ae292d4e688ad2f3a4d5ee7753-6"&gt;&lt;/a&gt;  &amp;lt;RequestTime&amp;gt;Tue, &lt;span class="m"&gt;31&lt;/span&gt; Jul &lt;span class="m"&gt;2018&lt;/span&gt; &lt;span class="m"&gt;07&lt;/span&gt;:40:44 GMT&amp;lt;/RequestTime&amp;gt;
-&lt;a name="rest_code_fb24f4ae292d4e688ad2f3a4d5ee7753-7"&gt;&lt;/a&gt;  &amp;lt;ServerTime&amp;gt;2018-07-31T07:58:01Z&amp;lt;/ServerTime&amp;gt;
-&lt;a name="rest_code_fb24f4ae292d4e688ad2f3a4d5ee7753-8"&gt;&lt;/a&gt;  &amp;lt;MaxAllowedSkewMilliseconds&amp;gt;900000&amp;lt;/MaxAllowedSkewMilliseconds&amp;gt;
-&lt;a name="rest_code_fb24f4ae292d4e688ad2f3a4d5ee7753-9"&gt;&lt;/a&gt;  &amp;lt;RequestId&amp;gt;428DE174AE9C91AA&amp;lt;/RequestId&amp;gt;
-&lt;a name="rest_code_fb24f4ae292d4e688ad2f3a4d5ee7753-10"&gt;&lt;/a&gt;  &amp;lt;HostId&amp;gt;VOjhVVVSgfq6rfE6Eh9pWr0+7bJGV9+4/sXeTeNnTVFi7JYAH5ZArd2NEP/hsgpgyJkMm/fNeCM&lt;span class="o"&gt;=&lt;/span&gt;&amp;lt;/HostId&amp;gt;
-&lt;a name="rest_code_fb24f4ae292d4e688ad2f3a4d5ee7753-11"&gt;&lt;/a&gt;&amp;lt;/Error&amp;gt;
+&lt;pre class="code shell"&gt;&lt;a name="rest_code_197a769b3db3470e9f7accdebfbb2744-1"&gt;&lt;/a&gt;S3ResponseError: S3ResponseError: &lt;span class="m"&gt;403&lt;/span&gt; Forbidden
+&lt;a name="rest_code_197a769b3db3470e9f7accdebfbb2744-2"&gt;&lt;/a&gt;&amp;lt;?xml &lt;span class="nv"&gt;version&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"1.0"&lt;/span&gt; &lt;span class="nv"&gt;encoding&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"UTF-8"&lt;/span&gt;?&amp;gt;
+&lt;a name="rest_code_197a769b3db3470e9f7accdebfbb2744-3"&gt;&lt;/a&gt;&amp;lt;Error&amp;gt;
+&lt;a name="rest_code_197a769b3db3470e9f7accdebfbb2744-4"&gt;&lt;/a&gt;  &amp;lt;Code&amp;gt;RequestTimeTooSkewed&amp;lt;/Code&amp;gt;
+&lt;a name="rest_code_197a769b3db3470e9f7accdebfbb2744-5"&gt;&lt;/a&gt;  &amp;lt;Message&amp;gt;The difference between the request &lt;span class="nb"&gt;time&lt;/span&gt; and the current &lt;span class="nb"&gt;time&lt;/span&gt; is too large.&amp;lt;/Message&amp;gt;
+&lt;a name="rest_code_197a769b3db3470e9f7accdebfbb2744-6"&gt;&lt;/a&gt;  &amp;lt;RequestTime&amp;gt;Tue, &lt;span class="m"&gt;31&lt;/span&gt; Jul &lt;span class="m"&gt;2018&lt;/span&gt; &lt;span class="m"&gt;07&lt;/span&gt;:40:44 GMT&amp;lt;/RequestTime&amp;gt;
+&lt;a name="rest_code_197a769b3db3470e9f7accdebfbb2744-7"&gt;&lt;/a&gt;  &amp;lt;ServerTime&amp;gt;2018-07-31T07:58:01Z&amp;lt;/ServerTime&amp;gt;
+&lt;a name="rest_code_197a769b3db3470e9f7accdebfbb2744-8"&gt;&lt;/a&gt;  &amp;lt;MaxAllowedSkewMilliseconds&amp;gt;900000&amp;lt;/MaxAllowedSkewMilliseconds&amp;gt;
+&lt;a name="rest_code_197a769b3db3470e9f7accdebfbb2744-9"&gt;&lt;/a&gt;  &amp;lt;RequestId&amp;gt;428DE174AE9C91AA&amp;lt;/RequestId&amp;gt;
+&lt;a name="rest_code_197a769b3db3470e9f7accdebfbb2744-10"&gt;&lt;/a&gt;  &amp;lt;HostId&amp;gt;VOjhVVVSgfq6rfE6Eh9pWr0+7bJGV9+4/sXeTeNnTVFi7JYAH5ZArd2NEP/hsgpgyJkMm/fNeCM&lt;span class="o"&gt;=&lt;/span&gt;&amp;lt;/HostId&amp;gt;
+&lt;a name="rest_code_197a769b3db3470e9f7accdebfbb2744-11"&gt;&lt;/a&gt;&amp;lt;/Error&amp;gt;
 &lt;/pre&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/blockquote&gt;
@@ -40,11 +40,11 @@
 &lt;blockquote&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;settings.py&lt;/p&gt;
-&lt;pre class="code python"&gt;&lt;a name="rest_code_1879811b51044fbd9448b3bee3068cf1-1"&gt;&lt;/a&gt;&lt;span class="n"&gt;MY_BUCKET_NAME&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'my_bucket_name'&lt;/span&gt;
-&lt;a name="rest_code_1879811b51044fbd9448b3bee3068cf1-2"&gt;&lt;/a&gt;&lt;span class="n"&gt;DEFAULT_FILE_STORAGE&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'storages.backends.s3boto.S3BotoStorage'&lt;/span&gt;
-&lt;a name="rest_code_1879811b51044fbd9448b3bee3068cf1-3"&gt;&lt;/a&gt;&lt;span class="n"&gt;AWS_STORAGE_BUCKET_NAME&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;MY_BUCKET_NAME&lt;/span&gt;
-&lt;a name="rest_code_1879811b51044fbd9448b3bee3068cf1-4"&gt;&lt;/a&gt;&lt;span class="n"&gt;AWS_ACCESS_KEY_ID&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'ひみつ'&lt;/span&gt;
-&lt;a name="rest_code_1879811b51044fbd9448b3bee3068cf1-5"&gt;&lt;/a&gt;&lt;span class="n"&gt;AWS_SECRET_ACCESS_KEY&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'ひみつ'&lt;/span&gt;
+&lt;pre class="code python"&gt;&lt;a name="rest_code_f7e88e93d2494dda83b7db2b3e50bda5-1"&gt;&lt;/a&gt;&lt;span class="n"&gt;MY_BUCKET_NAME&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'my_bucket_name'&lt;/span&gt;
+&lt;a name="rest_code_f7e88e93d2494dda83b7db2b3e50bda5-2"&gt;&lt;/a&gt;&lt;span class="n"&gt;DEFAULT_FILE_STORAGE&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'storages.backends.s3boto.S3BotoStorage'&lt;/span&gt;
+&lt;a name="rest_code_f7e88e93d2494dda83b7db2b3e50bda5-3"&gt;&lt;/a&gt;&lt;span class="n"&gt;AWS_STORAGE_BUCKET_NAME&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;MY_BUCKET_NAME&lt;/span&gt;
+&lt;a name="rest_code_f7e88e93d2494dda83b7db2b3e50bda5-4"&gt;&lt;/a&gt;&lt;span class="n"&gt;AWS_ACCESS_KEY_ID&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'ひみつ'&lt;/span&gt;
+&lt;a name="rest_code_f7e88e93d2494dda83b7db2b3e50bda5-5"&gt;&lt;/a&gt;&lt;span class="n"&gt;AWS_SECRET_ACCESS_KEY&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'ひみつ'&lt;/span&gt;
 &lt;/pre&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/blockquote&gt;
@@ -55,24 +55,24 @@
 &lt;p&gt;ここ↓（秒とかはてきとう）&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;エラーメッセージ&lt;/p&gt;
-&lt;pre class="code shell"&gt;&lt;a name="rest_code_9779bd2147ea44dfa5b45c09e4ecb7e9-1"&gt;&lt;/a&gt;&amp;lt;Message&amp;gt;The difference between the request &lt;span class="nb"&gt;time&lt;/span&gt; and the current &lt;span class="nb"&gt;time&lt;/span&gt; is too large.&amp;lt;/Message&amp;gt;
-&lt;a name="rest_code_9779bd2147ea44dfa5b45c09e4ecb7e9-2"&gt;&lt;/a&gt;&amp;lt;RequestTime&amp;gt;Tue, &lt;span class="m"&gt;31&lt;/span&gt; Jul &lt;span class="m"&gt;2018&lt;/span&gt; &lt;span class="m"&gt;07&lt;/span&gt;:40:00 GMT&amp;lt;/RequestTime&amp;gt;
-&lt;a name="rest_code_9779bd2147ea44dfa5b45c09e4ecb7e9-3"&gt;&lt;/a&gt;&amp;lt;ServerTime&amp;gt;2018-07-31T07:58:01Z&amp;lt;/ServerTime&amp;gt;
+&lt;pre class="code shell"&gt;&lt;a name="rest_code_b9cce44c30814586a5679b5aede16c6a-1"&gt;&lt;/a&gt;&amp;lt;Message&amp;gt;The difference between the request &lt;span class="nb"&gt;time&lt;/span&gt; and the current &lt;span class="nb"&gt;time&lt;/span&gt; is too large.&amp;lt;/Message&amp;gt;
+&lt;a name="rest_code_b9cce44c30814586a5679b5aede16c6a-2"&gt;&lt;/a&gt;&amp;lt;RequestTime&amp;gt;Tue, &lt;span class="m"&gt;31&lt;/span&gt; Jul &lt;span class="m"&gt;2018&lt;/span&gt; &lt;span class="m"&gt;07&lt;/span&gt;:40:00 GMT&amp;lt;/RequestTime&amp;gt;
+&lt;a name="rest_code_b9cce44c30814586a5679b5aede16c6a-3"&gt;&lt;/a&gt;&amp;lt;ServerTime&amp;gt;2018-07-31T07:58:01Z&amp;lt;/ServerTime&amp;gt;
 &lt;/pre&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;ゲストOSの日時&lt;/p&gt;
-&lt;pre class="code shell"&gt;&lt;a name="rest_code_915095c22d2d46fa977850979a50862c-1"&gt;&lt;/a&gt;&lt;span class="o"&gt;(&lt;/span&gt;venv&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt;vagrant@localhost fumi23&lt;span class="o"&gt;]&lt;/span&gt;$ date
-&lt;a name="rest_code_915095c22d2d46fa977850979a50862c-2"&gt;&lt;/a&gt;Tue Jul &lt;span class="m"&gt;31&lt;/span&gt; &lt;span class="m"&gt;16&lt;/span&gt;:40:00 JST &lt;span class="m"&gt;2018&lt;/span&gt;
+&lt;pre class="code shell"&gt;&lt;a name="rest_code_b7c69d91f5e54324a3a41140beb7fafd-1"&gt;&lt;/a&gt;&lt;span class="o"&gt;(&lt;/span&gt;venv&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt;vagrant@localhost fumi23&lt;span class="o"&gt;]&lt;/span&gt;$ date
+&lt;a name="rest_code_b7c69d91f5e54324a3a41140beb7fafd-2"&gt;&lt;/a&gt;Tue Jul &lt;span class="m"&gt;31&lt;/span&gt; &lt;span class="m"&gt;16&lt;/span&gt;:40:00 JST &lt;span class="m"&gt;2018&lt;/span&gt;
 &lt;/pre&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;ホストOSの日時&lt;/p&gt;
-&lt;pre class="code shell"&gt;&lt;a name="rest_code_cd6c627e594a42eb9da0f34803743adc-1"&gt;&lt;/a&gt;host-machine:~ fumi23$ date
-&lt;a name="rest_code_cd6c627e594a42eb9da0f34803743adc-2"&gt;&lt;/a&gt;2018年 7月 31日 火曜日 16時58分00秒 JST
+&lt;pre class="code shell"&gt;&lt;a name="rest_code_fa2661b780df448fa75e3196535230c8-1"&gt;&lt;/a&gt;host-machine:~ fumi23$ date
+&lt;a name="rest_code_fa2661b780df448fa75e3196535230c8-2"&gt;&lt;/a&gt;2018年 7月 31日 火曜日 16時58分00秒 JST
 &lt;/pre&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id3"&gt;
 &lt;h2&gt;時刻のなおしかた&lt;/h2&gt;
-&lt;pre class="code shell"&gt;&lt;a name="rest_code_c27b637da9cc442abec318d5a53d48fe-1"&gt;&lt;/a&gt;&lt;span class="o"&gt;(&lt;/span&gt;venv&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt;vagrant@localhost fumi23&lt;span class="o"&gt;]&lt;/span&gt;$ sudo date -s &lt;span class="s2"&gt;"07/31 17:02 2018"&lt;/span&gt;
-&lt;a name="rest_code_c27b637da9cc442abec318d5a53d48fe-2"&gt;&lt;/a&gt;Tue Jul &lt;span class="m"&gt;31&lt;/span&gt; &lt;span class="m"&gt;17&lt;/span&gt;:02:00 JST &lt;span class="m"&gt;2018&lt;/span&gt;
+&lt;pre class="code shell"&gt;&lt;a name="rest_code_3372ce2b5f994051b652c56e07732f3b-1"&gt;&lt;/a&gt;&lt;span class="o"&gt;(&lt;/span&gt;venv&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt;vagrant@localhost fumi23&lt;span class="o"&gt;]&lt;/span&gt;$ sudo date -s &lt;span class="s2"&gt;"07/31 17:02 2018"&lt;/span&gt;
+&lt;a name="rest_code_3372ce2b5f994051b652c56e07732f3b-2"&gt;&lt;/a&gt;Tue Jul &lt;span class="m"&gt;31&lt;/span&gt; &lt;span class="m"&gt;17&lt;/span&gt;:02:00 JST &lt;span class="m"&gt;2018&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;div class="section" id="id4"&gt;
 &lt;h2&gt;わかったこと&lt;/h2&gt;

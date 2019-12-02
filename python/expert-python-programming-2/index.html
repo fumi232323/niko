@@ -98,12 +98,12 @@
 </div>
 <div class="section" id="p-162">
 <h3><a class="toc-backref" href="#id8">辞書型に明示的な名前をつける: P.162</a></h3>
-<pre class="code python"><a name="rest_code_a29ce1535eac4f5ca4d805d7804821bc-1"></a><span class="c1"># 例えば dict が名前をキーにしてその人の住所を保持する場合には ``person_address``</span>
-<a name="rest_code_a29ce1535eac4f5ca4d805d7804821bc-2"></a><span class="c1"># これずっと悩んでた!!</span>
-<a name="rest_code_a29ce1535eac4f5ca4d805d7804821bc-3"></a><span class="n">person_address</span> <span class="o">=</span> <span class="p">{</span>
-<a name="rest_code_a29ce1535eac4f5ca4d805d7804821bc-4"></a>    <span class="s1">'Bill'</span><span class="p">:</span> <span class="s1">'6565 Monty Road'</span><span class="p">,</span>
-<a name="rest_code_a29ce1535eac4f5ca4d805d7804821bc-5"></a>    <span class="s1">'Pamela'</span><span class="p">:</span> <span class="s1">'45 Python street'</span><span class="p">,</span>
-<a name="rest_code_a29ce1535eac4f5ca4d805d7804821bc-6"></a><span class="p">}</span>
+<pre class="code python"><a name="rest_code_77e6727ac58441be8d09f6a7eec70a53-1"></a><span class="c1"># 例えば dict が名前をキーにしてその人の住所を保持する場合には ``person_address``</span>
+<a name="rest_code_77e6727ac58441be8d09f6a7eec70a53-2"></a><span class="c1"># これずっと悩んでた!!</span>
+<a name="rest_code_77e6727ac58441be8d09f6a7eec70a53-3"></a><span class="n">person_address</span> <span class="o">=</span> <span class="p">{</span>
+<a name="rest_code_77e6727ac58441be8d09f6a7eec70a53-4"></a>    <span class="s1">'Bill'</span><span class="p">:</span> <span class="s1">'6565 Monty Road'</span><span class="p">,</span>
+<a name="rest_code_77e6727ac58441be8d09f6a7eec70a53-5"></a>    <span class="s1">'Pamela'</span><span class="p">:</span> <span class="s1">'45 Python street'</span><span class="p">,</span>
+<a name="rest_code_77e6727ac58441be8d09f6a7eec70a53-6"></a><span class="p">}</span>
 </pre>
 </div>
 <div class="section" id="p-163">
@@ -126,8 +126,8 @@
 <li><p>内部情報を保持したり、独立して拡張できる</p></li>
 <li><p>コンテナを引数として使用するコードは、そのコンテナの内部構造を気にする必要がなくなる</p></li>
 </ul>
-<pre class="code python"><a name="rest_code_bb334fac9faa4026931d65aedecf159e-1"></a><span class="k">def</span> <span class="nf">log_request</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
-<a name="rest_code_bb334fac9faa4026931d65aedecf159e-2"></a>    <span class="k">print</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'HTTP_REFERER'</span><span class="p">,</span> <span class="s1">'No referer'</span><span class="p">))</span>
+<pre class="code python"><a name="rest_code_c7b18fbeea0e49028c3b911e84403e57-1"></a><span class="k">def</span> <span class="nf">log_request</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<a name="rest_code_c7b18fbeea0e49028c3b911e84403e57-2"></a>    <span class="k">print</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'HTTP_REFERER'</span><span class="p">,</span> <span class="s1">'No referer'</span><span class="p">))</span>
 </pre>
 </li>
 </ul>
@@ -154,8 +154,8 @@
 </li>
 <li>
 <p>クラスの属性と一貫性を保つ</p>
-<pre class="code python"><a name="rest_code_b59cecf2373941c3b71a367e59b14a6b-1"></a><span class="n">SMTP</span><span class="o">.</span><span class="n">smtp_send</span><span class="p">()</span>  <span class="c1"># 主語が重複していて冗長!! ですよね!!</span>
-<a name="rest_code_b59cecf2373941c3b71a367e59b14a6b-2"></a><span class="n">SMTP</span><span class="o">.</span><span class="n">send</span><span class="p">()</span>  <span class="c1"># Good</span>
+<pre class="code python"><a name="rest_code_68eef781825546d0bb0696109920224a-1"></a><span class="n">SMTP</span><span class="o">.</span><span class="n">smtp_send</span><span class="p">()</span>  <span class="c1"># 主語が重複していて冗長!! ですよね!!</span>
+<a name="rest_code_68eef781825546d0bb0696109920224a-2"></a><span class="n">SMTP</span><span class="o">.</span><span class="n">send</span><span class="p">()</span>  <span class="c1"># Good</span>
 </pre>
 </li>
 </ul>
@@ -237,17 +237,17 @@
 <div class="section" id="p-70">
 <h3><a class="toc-backref" href="#id17">リスト内包表記: P.70</a></h3>
 <p>for ループ内で <code class="docutils literal">list.appned()</code> するような場合は、リスト内包表記を使用したほうが処理が速くなる。</p>
-<pre class="code python"><a name="rest_code_564e348a4f484aa1ab59380298767b1d-1"></a><span class="c1"># これは遅くなる</span>
-<a name="rest_code_564e348a4f484aa1ab59380298767b1d-2"></a><span class="c1"># リストを操作するコードをループごとにインタープリタ上で処理する必要がある</span>
-<a name="rest_code_564e348a4f484aa1ab59380298767b1d-3"></a><span class="c1"># append() はリストのメソッドであるため、イテレーションごとに関数ルックアップの追加のコストが必要になる</span>
-<a name="rest_code_564e348a4f484aa1ab59380298767b1d-4"></a><span class="n">events</span> <span class="o">=</span> <span class="p">[]</span>
-<a name="rest_code_564e348a4f484aa1ab59380298767b1d-5"></a><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
-<a name="rest_code_564e348a4f484aa1ab59380298767b1d-6"></a>    <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-<a name="rest_code_564e348a4f484aa1ab59380298767b1d-7"></a>        <span class="n">events</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<pre class="code python"><a name="rest_code_929aa6e722d046ca97e44e3eff94c244-1"></a><span class="c1"># これは遅くなる</span>
+<a name="rest_code_929aa6e722d046ca97e44e3eff94c244-2"></a><span class="c1"># リストを操作するコードをループごとにインタープリタ上で処理する必要がある</span>
+<a name="rest_code_929aa6e722d046ca97e44e3eff94c244-3"></a><span class="c1"># append() はリストのメソッドであるため、イテレーションごとに関数ルックアップの追加のコストが必要になる</span>
+<a name="rest_code_929aa6e722d046ca97e44e3eff94c244-4"></a><span class="n">events</span> <span class="o">=</span> <span class="p">[]</span>
+<a name="rest_code_929aa6e722d046ca97e44e3eff94c244-5"></a><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+<a name="rest_code_929aa6e722d046ca97e44e3eff94c244-6"></a>    <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<a name="rest_code_929aa6e722d046ca97e44e3eff94c244-7"></a>        <span class="n">events</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 </pre>
-<pre class="code python"><a name="rest_code_2e2ca3211596428685b799fa5445858d-1"></a><span class="c1"># これは速くなる</span>
-<a name="rest_code_2e2ca3211596428685b799fa5445858d-2"></a><span class="c1"># 処理の一部がインタープリタ内部で実行されるようになるので、速くなるとのこと</span>
-<a name="rest_code_2e2ca3211596428685b799fa5445858d-3"></a><span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+<pre class="code python"><a name="rest_code_460e367ac9a74317938bea00ca55807c-1"></a><span class="c1"># これは速くなる</span>
+<a name="rest_code_460e367ac9a74317938bea00ca55807c-2"></a><span class="c1"># 処理の一部がインタープリタ内部で実行されるようになるので、速くなるとのこと</span>
+<a name="rest_code_460e367ac9a74317938bea00ca55807c-3"></a><span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
 </pre>
 </div>
 <div class="section" id="p-73">
@@ -255,7 +255,7 @@
 <ul>
 <li>
 <p>辞書内包表記</p>
-<pre class="code python"><a name="rest_code_c49d2e01dcb249ccb9eff145c2b73681-1"></a><span class="n">squares</span> <span class="o">=</span> <span class="p">{</span><span class="n">number</span><span class="p">:</span> <span class="n">number</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">)}</span>
+<pre class="code python"><a name="rest_code_d709f82b701040df8096ff1e0648ac87-1"></a><span class="n">squares</span> <span class="o">=</span> <span class="p">{</span><span class="n">number</span><span class="p">:</span> <span class="n">number</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">)}</span>
 </pre>
 </li>
 <li><p>辞書内包表記には、リスト内包表記と同じメリットがある。</p></li>
@@ -441,9 +441,9 @@
 </div>
 <div class="section" id="p-85">
 <h3><a class="toc-backref" href="#id25">ジェネレータ式: P.85</a></h3>
-<pre class="code python"><a name="rest_code_a94f0dae46fd4565b0202ba6b72eb182-1"></a><span class="nb">iter</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
-<a name="rest_code_a94f0dae46fd4565b0202ba6b72eb182-2"></a><span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="nb">iter</span><span class="p">:</span>
-<a name="rest_code_a94f0dae46fd4565b0202ba6b72eb182-3"></a>    <span class="k">print</span><span class="p">(</span><span class="n">el</span><span class="p">)</span>
+<pre class="code python"><a name="rest_code_160a4f25b8c0474abbd8eceebd435fc9-1"></a><span class="nb">iter</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+<a name="rest_code_160a4f25b8c0474abbd8eceebd435fc9-2"></a><span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="nb">iter</span><span class="p">:</span>
+<a name="rest_code_160a4f25b8c0474abbd8eceebd435fc9-3"></a>    <span class="k">print</span><span class="p">(</span><span class="n">el</span><span class="p">)</span>
 </pre>
 <ul class="simple">
 <li><p>リスト内包表記に似てる</p></li>
@@ -461,26 +461,26 @@
 <li><p><code class="docutils literal">__call__()</code> メソッドが定義され、 callable とみなせる任意のオブジェクトをデコレータとして使用できる。</p></li>
 <li>
 <p>実装例はP.87参照のこと</p>
-<pre class="code python"><a name="rest_code_43d370ff3f4846ef91144e2d233a5ed7-1"></a><span class="c1"># 関数として実装する例</span>
-<a name="rest_code_43d370ff3f4846ef91144e2d233a5ed7-2"></a><span class="k">def</span> <span class="nf">mydecorator</span><span class="p">(</span><span class="n">function</span><span class="p">):</span>
-<a name="rest_code_43d370ff3f4846ef91144e2d233a5ed7-3"></a>  <span class="k">def</span> <span class="nf">wrapped</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<a name="rest_code_43d370ff3f4846ef91144e2d233a5ed7-4"></a>    <span class="c1"># 実際の関数を呼び出す前に行う処理</span>
-<a name="rest_code_43d370ff3f4846ef91144e2d233a5ed7-5"></a>    <span class="n">result</span> <span class="o">=</span> <span class="n">function</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<a name="rest_code_43d370ff3f4846ef91144e2d233a5ed7-6"></a>    <span class="c1"># 呼び出し後に行う処理</span>
-<a name="rest_code_43d370ff3f4846ef91144e2d233a5ed7-7"></a>    <span class="k">return</span> <span class="n">result</span>
-<a name="rest_code_43d370ff3f4846ef91144e2d233a5ed7-8"></a>  <span class="c1"># ラッパーをでデコレート済み関数として返す</span>
-<a name="rest_code_43d370ff3f4846ef91144e2d233a5ed7-9"></a>  <span class="k">return</span> <span class="n">wrapped</span>
+<pre class="code python"><a name="rest_code_d7e3e22f523d4bfe853b6fadaf0d6684-1"></a><span class="c1"># 関数として実装する例</span>
+<a name="rest_code_d7e3e22f523d4bfe853b6fadaf0d6684-2"></a><span class="k">def</span> <span class="nf">mydecorator</span><span class="p">(</span><span class="n">function</span><span class="p">):</span>
+<a name="rest_code_d7e3e22f523d4bfe853b6fadaf0d6684-3"></a>  <span class="k">def</span> <span class="nf">wrapped</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<a name="rest_code_d7e3e22f523d4bfe853b6fadaf0d6684-4"></a>    <span class="c1"># 実際の関数を呼び出す前に行う処理</span>
+<a name="rest_code_d7e3e22f523d4bfe853b6fadaf0d6684-5"></a>    <span class="n">result</span> <span class="o">=</span> <span class="n">function</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<a name="rest_code_d7e3e22f523d4bfe853b6fadaf0d6684-6"></a>    <span class="c1"># 呼び出し後に行う処理</span>
+<a name="rest_code_d7e3e22f523d4bfe853b6fadaf0d6684-7"></a>    <span class="k">return</span> <span class="n">result</span>
+<a name="rest_code_d7e3e22f523d4bfe853b6fadaf0d6684-8"></a>  <span class="c1"># ラッパーをでデコレート済み関数として返す</span>
+<a name="rest_code_d7e3e22f523d4bfe853b6fadaf0d6684-9"></a>  <span class="k">return</span> <span class="n">wrapped</span>
 </pre>
-<pre class="code python"><a name="rest_code_056e895aeac94706b0278e6da750a8ac-1"></a><span class="c1"># クラスとして実装する例</span>
-<a name="rest_code_056e895aeac94706b0278e6da750a8ac-2"></a><span class="k">class</span> <span class="nc">DecoratorAsClass</span><span class="p">:</span>
-<a name="rest_code_056e895aeac94706b0278e6da750a8ac-3"></a>  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">function</span><span class="p">):</span>
-<a name="rest_code_056e895aeac94706b0278e6da750a8ac-4"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">function</span> <span class="o">=</span> <span class="n">function</span>
-<a name="rest_code_056e895aeac94706b0278e6da750a8ac-5"></a>
-<a name="rest_code_056e895aeac94706b0278e6da750a8ac-6"></a>  <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<a name="rest_code_056e895aeac94706b0278e6da750a8ac-7"></a>    <span class="c1"># 実際の関数を呼び出す前に行う処理</span>
-<a name="rest_code_056e895aeac94706b0278e6da750a8ac-8"></a>    <span class="n">result</span> <span class="o">=</span> <span class="n">function</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<a name="rest_code_056e895aeac94706b0278e6da750a8ac-9"></a>    <span class="c1"># 呼び出し後に行う処理</span>
-<a name="rest_code_056e895aeac94706b0278e6da750a8ac-10"></a>    <span class="k">return</span> <span class="n">result</span>
+<pre class="code python"><a name="rest_code_f644f53d2f1743f39f1a71866c270e69-1"></a><span class="c1"># クラスとして実装する例</span>
+<a name="rest_code_f644f53d2f1743f39f1a71866c270e69-2"></a><span class="k">class</span> <span class="nc">DecoratorAsClass</span><span class="p">:</span>
+<a name="rest_code_f644f53d2f1743f39f1a71866c270e69-3"></a>  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">function</span><span class="p">):</span>
+<a name="rest_code_f644f53d2f1743f39f1a71866c270e69-4"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">function</span> <span class="o">=</span> <span class="n">function</span>
+<a name="rest_code_f644f53d2f1743f39f1a71866c270e69-5"></a>
+<a name="rest_code_f644f53d2f1743f39f1a71866c270e69-6"></a>  <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<a name="rest_code_f644f53d2f1743f39f1a71866c270e69-7"></a>    <span class="c1"># 実際の関数を呼び出す前に行う処理</span>
+<a name="rest_code_f644f53d2f1743f39f1a71866c270e69-8"></a>    <span class="n">result</span> <span class="o">=</span> <span class="n">function</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<a name="rest_code_f644f53d2f1743f39f1a71866c270e69-9"></a>    <span class="c1"># 呼び出し後に行う処理</span>
+<a name="rest_code_f644f53d2f1743f39f1a71866c270e69-10"></a>    <span class="k">return</span> <span class="n">result</span>
 </pre>
 </li>
 <li><p>パラメータも受け取れる =&gt; 2回ラップが行われる</p></li>

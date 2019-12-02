@@ -86,8 +86,8 @@
 <ul>
 <li>
 <p>Django 起動時に次のようにインスタンス化されるシングルトンなグローバルオブジェクト</p>
-<pre class="code python"><a name="rest_code_7b3f200a739443dc93c88de98383f784-1"></a><span class="c1"># django/conf/__init__.py</span>
-<a name="rest_code_7b3f200a739443dc93c88de98383f784-2"></a><span class="n">settings</span> <span class="o">=</span> <span class="n">LazySettings</span><span class="p">()</span>
+<pre class="code python"><a name="rest_code_c53e1abd029c4355a62f448e83b97afd-1"></a><span class="c1"># django/conf/__init__.py</span>
+<a name="rest_code_c53e1abd029c4355a62f448e83b97afd-2"></a><span class="n">settings</span> <span class="o">=</span> <span class="n">LazySettings</span><span class="p">()</span>
 </pre>
 </li>
 <li><p>↑ は、Django のデフォルト設定ファイル ( <code class="docutils literal">django.conf.global__settings.py</code> ) を読み込んだ後</p></li>
@@ -104,9 +104,9 @@
 <li><p>Django で利用できる設定変数とそのデフォルト値の一覧 =&gt; <a class="reference external" href="https://docs.djangoproject.com/ja/2.2/ref/settings/">https://docs.djangoproject.com/ja/2.2/ref/settings/</a></p></li>
 <li>
 <p>View や models からアクセスするときは、オブジェクトなので、</p>
-<pre class="code python"><a name="rest_code_91146bf423964593b58f90ac75d59cee-1"></a><span class="c1"># こんな風に参照しましょう</span>
-<a name="rest_code_91146bf423964593b58f90ac75d59cee-2"></a><span class="kn">from</span> <span class="nn">django.conf</span> <span class="kn">import</span> <span class="n">settings</span>
-<a name="rest_code_91146bf423964593b58f90ac75d59cee-3"></a><span class="n">settings</span><span class="o">.</span><span class="n">LOGIN_URL</span>
+<pre class="code python"><a name="rest_code_b07b59142b3d444cafcdadeba25e3775-1"></a><span class="c1"># こんな風に参照しましょう</span>
+<a name="rest_code_b07b59142b3d444cafcdadeba25e3775-2"></a><span class="kn">from</span> <span class="nn">django.conf</span> <span class="kn">import</span> <span class="n">settings</span>
+<a name="rest_code_b07b59142b3d444cafcdadeba25e3775-3"></a><span class="n">settings</span><span class="o">.</span><span class="n">LOGIN_URL</span>
 </pre>
 </li>
 <li>
@@ -122,13 +122,13 @@
 </div>
 <div class="section" id="id4">
 <h2><a class="toc-backref" href="#id19">インストールするアプリケーション一覧</a></h2>
-<pre class="code python"><a name="rest_code_1ac8fa56b31f4458895abe117fc92bcd-1"></a><span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">[</span>
-<a name="rest_code_1ac8fa56b31f4458895abe117fc92bcd-2"></a>    <span class="c1"># 略</span>
-<a name="rest_code_1ac8fa56b31f4458895abe117fc92bcd-3"></a>    <span class="c1"># Install するアプリケーションをリスト形式で列挙</span>
-<a name="rest_code_1ac8fa56b31f4458895abe117fc92bcd-4"></a>    <span class="c1"># 各アプリディレクトリ.apps.py の AppConfig クラスのサブクラスを指定する</span>
-<a name="rest_code_1ac8fa56b31f4458895abe117fc92bcd-5"></a>    <span class="s1">'accounts.apps.AccountsConfig'</span><span class="p">,</span>
-<a name="rest_code_1ac8fa56b31f4458895abe117fc92bcd-6"></a>    <span class="s1">'shop.apps.ShopConfig'</span><span class="p">,</span>
-<a name="rest_code_1ac8fa56b31f4458895abe117fc92bcd-7"></a><span class="p">]</span>
+<pre class="code python"><a name="rest_code_bdd0ec8ad9ef4da29abac05098799338-1"></a><span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">[</span>
+<a name="rest_code_bdd0ec8ad9ef4da29abac05098799338-2"></a>    <span class="c1"># 略</span>
+<a name="rest_code_bdd0ec8ad9ef4da29abac05098799338-3"></a>    <span class="c1"># Install するアプリケーションをリスト形式で列挙</span>
+<a name="rest_code_bdd0ec8ad9ef4da29abac05098799338-4"></a>    <span class="c1"># 各アプリディレクトリ.apps.py の AppConfig クラスのサブクラスを指定する</span>
+<a name="rest_code_bdd0ec8ad9ef4da29abac05098799338-5"></a>    <span class="s1">'accounts.apps.AccountsConfig'</span><span class="p">,</span>
+<a name="rest_code_bdd0ec8ad9ef4da29abac05098799338-6"></a>    <span class="s1">'shop.apps.ShopConfig'</span><span class="p">,</span>
+<a name="rest_code_bdd0ec8ad9ef4da29abac05098799338-7"></a><span class="p">]</span>
 </pre>
 <ul class="simple">
 <li><p>パッケージ名を書くのは少し古い書き方</p></li>
@@ -137,7 +137,7 @@
 </div>
 <div class="section" id="id5">
 <h2><a class="toc-backref" href="#id20">デバッグ設定</a></h2>
-<pre class="code python"><a name="rest_code_aea0a6ba7c434324a069fb73e64cc3ca-1"></a><span class="n">DEBUG</span> <span class="o">=</span> <span class="bp">False</span>
+<pre class="code python"><a name="rest_code_a6893ec182f841acbcf9262af96d5a37-1"></a><span class="n">DEBUG</span> <span class="o">=</span> <span class="bp">False</span>
 </pre>
 <ul class="simple">
 <li>
@@ -186,27 +186,27 @@
 </li>
 <li>
 <p>最低限↓の３つの設定必要</p>
-<pre class="code python"><a name="rest_code_6b94d060edde42a5ba8f39df46be49ef-1"></a><span class="c1"># これしておくと便利</span>
-<a name="rest_code_6b94d060edde42a5ba8f39df46be49ef-2"></a><span class="n">BASE_DIR</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)))</span>
-<a name="rest_code_6b94d060edde42a5ba8f39df46be49ef-3"></a><span class="n">PROJECT_NAME</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">BASE_DIR</span><span class="p">)</span>
-<a name="rest_code_6b94d060edde42a5ba8f39df46be49ef-4"></a>
-<a name="rest_code_6b94d060edde42a5ba8f39df46be49ef-5"></a><span class="c1"># 静的ファイル配信用のディレクトリ、URL の一部になる</span>
-<a name="rest_code_6b94d060edde42a5ba8f39df46be49ef-6"></a><span class="c1"># 設定値はデフォルトの `/static/` のままでよい</span>
-<a name="rest_code_6b94d060edde42a5ba8f39df46be49ef-7"></a><span class="n">STATIC_URL</span> <span class="o">=</span> <span class="s1">'/static/'</span>
-<a name="rest_code_6b94d060edde42a5ba8f39df46be49ef-8"></a>
-<a name="rest_code_6b94d060edde42a5ba8f39df46be49ef-9"></a><span class="c1"># アプリケーションに紐づかない静的ファイルの置き場</span>
-<a name="rest_code_6b94d060edde42a5ba8f39df46be49ef-10"></a><span class="n">STATICFILES_DIRS</span> <span class="o">=</span> <span class="p">[</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">BASE_DIR</span><span class="p">,</span> <span class="s1">'static'</span><span class="p">)]</span>
-<a name="rest_code_6b94d060edde42a5ba8f39df46be49ef-11"></a>
-<a name="rest_code_6b94d060edde42a5ba8f39df46be49ef-12"></a><span class="c1"># 静的ファイルの配信元</span>
-<a name="rest_code_6b94d060edde42a5ba8f39df46be49ef-13"></a><span class="c1"># collectstatic コマンドで静的ファイルを集約する際のコピー先でもある</span>
-<a name="rest_code_6b94d060edde42a5ba8f39df46be49ef-14"></a><span class="c1"># `STATICFILES_DIRS` とは別のディレクトリを指定する必要がある</span>
-<a name="rest_code_6b94d060edde42a5ba8f39df46be49ef-15"></a><span class="c1"># DEBUG = False のときに必要</span>
-<a name="rest_code_6b94d060edde42a5ba8f39df46be49ef-16"></a><span class="n">STATIC_ROOT</span> <span class="o">=</span> <span class="s1">'/var/www/{}/static'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">PROJECT_NAME</span><span class="p">)</span>
+<pre class="code python"><a name="rest_code_bf232b3b044348f58469c32e33875481-1"></a><span class="c1"># これしておくと便利</span>
+<a name="rest_code_bf232b3b044348f58469c32e33875481-2"></a><span class="n">BASE_DIR</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)))</span>
+<a name="rest_code_bf232b3b044348f58469c32e33875481-3"></a><span class="n">PROJECT_NAME</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">BASE_DIR</span><span class="p">)</span>
+<a name="rest_code_bf232b3b044348f58469c32e33875481-4"></a>
+<a name="rest_code_bf232b3b044348f58469c32e33875481-5"></a><span class="c1"># 静的ファイル配信用のディレクトリ、URL の一部になる</span>
+<a name="rest_code_bf232b3b044348f58469c32e33875481-6"></a><span class="c1"># 設定値はデフォルトの `/static/` のままでよい</span>
+<a name="rest_code_bf232b3b044348f58469c32e33875481-7"></a><span class="n">STATIC_URL</span> <span class="o">=</span> <span class="s1">'/static/'</span>
+<a name="rest_code_bf232b3b044348f58469c32e33875481-8"></a>
+<a name="rest_code_bf232b3b044348f58469c32e33875481-9"></a><span class="c1"># アプリケーションに紐づかない静的ファイルの置き場</span>
+<a name="rest_code_bf232b3b044348f58469c32e33875481-10"></a><span class="n">STATICFILES_DIRS</span> <span class="o">=</span> <span class="p">[</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">BASE_DIR</span><span class="p">,</span> <span class="s1">'static'</span><span class="p">)]</span>
+<a name="rest_code_bf232b3b044348f58469c32e33875481-11"></a>
+<a name="rest_code_bf232b3b044348f58469c32e33875481-12"></a><span class="c1"># 静的ファイルの配信元</span>
+<a name="rest_code_bf232b3b044348f58469c32e33875481-13"></a><span class="c1"># collectstatic コマンドで静的ファイルを集約する際のコピー先でもある</span>
+<a name="rest_code_bf232b3b044348f58469c32e33875481-14"></a><span class="c1"># `STATICFILES_DIRS` とは別のディレクトリを指定する必要がある</span>
+<a name="rest_code_bf232b3b044348f58469c32e33875481-15"></a><span class="c1"># DEBUG = False のときに必要</span>
+<a name="rest_code_bf232b3b044348f58469c32e33875481-16"></a><span class="n">STATIC_ROOT</span> <span class="o">=</span> <span class="s1">'/var/www/{}/static'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">PROJECT_NAME</span><span class="p">)</span>
 </pre>
 </li>
 <li>
 <p>静的ファイル集約のための管理コマンド: <code class="docutils literal">collectstatic</code></p>
-<pre class="code bash"><a name="rest_code_239bcbd24ba549288ccbfe160f4b94dc-1"></a>$ python3 manage.py collectstatic
+<pre class="code bash"><a name="rest_code_c8112ca2d680451ba907fd6c92908469-1"></a>$ python3 manage.py collectstatic
 </pre>
 <ul class="simple">
 <li><p><code class="docutils literal">DEBUG = True</code> のときは、 runserver がやってくれるので自分で <code class="docutils literal">collectstatic</code> する必要ない</p></li>
@@ -214,9 +214,9 @@
 </li>
 <li>
 <p><code class="docutils literal">STATIC_URL</code> を使って画像を表示するテンプレート実装例</p>
-<pre class="code python"><a name="rest_code_292b2efc82ab4032bcca917cea15b1df-1"></a><span class="p">{</span><span class="o">%</span> <span class="n">load</span> <span class="n">static</span> <span class="o">%</span><span class="p">}</span>
-<a name="rest_code_292b2efc82ab4032bcca917cea15b1df-2"></a><span class="o">&lt;</span><span class="n">img</span> <span class="n">src</span><span class="o">=</span><span class="s2">"{</span><span class="si">% s</span><span class="s2">tatic 'shop/images/no-image.png' %}"</span><span class="o">&gt;</span>
-<a name="rest_code_292b2efc82ab4032bcca917cea15b1df-3"></a><span class="o">&lt;</span><span class="n">img</span> <span class="n">src</span><span class="o">=</span><span class="s2">"{</span><span class="si">% s</span><span class="s2">tatic 'images/logo.png' %}"</span><span class="o">&gt;</span>
+<pre class="code python"><a name="rest_code_5d4dc909d86549f8b2233a0f2c61cdeb-1"></a><span class="p">{</span><span class="o">%</span> <span class="n">load</span> <span class="n">static</span> <span class="o">%</span><span class="p">}</span>
+<a name="rest_code_5d4dc909d86549f8b2233a0f2c61cdeb-2"></a><span class="o">&lt;</span><span class="n">img</span> <span class="n">src</span><span class="o">=</span><span class="s2">"{</span><span class="si">% s</span><span class="s2">tatic 'shop/images/no-image.png' %}"</span><span class="o">&gt;</span>
+<a name="rest_code_5d4dc909d86549f8b2233a0f2c61cdeb-3"></a><span class="o">&lt;</span><span class="n">img</span> <span class="n">src</span><span class="o">=</span><span class="s2">"{</span><span class="si">% s</span><span class="s2">tatic 'images/logo.png' %}"</span><span class="o">&gt;</span>
 </pre>
 </li>
 </ul>
@@ -227,13 +227,13 @@
 <li><p><code class="docutils literal">メディアファイル</code>: 静的ファイルのうち、 (システム管理者を含めた) ユーザーがサイトを利用してアップロードするファイル</p></li>
 <li><p>本番環境では、メディアファイルもAPサーバーで裁かずにリバースプロキシなどで捌くことで負荷を減らす</p></li>
 </ul>
-<pre class="code python"><a name="rest_code_1c7a4013294043abadb047f50f1353ea-1"></a><span class="c1"># メディアファイルの設定例 (config/settings.py)</span>
-<a name="rest_code_1c7a4013294043abadb047f50f1353ea-2"></a><span class="c1"># DEBUG =  False 時</span>
-<a name="rest_code_1c7a4013294043abadb047f50f1353ea-3"></a><span class="n">MEDIA_URL</span> <span class="o">=</span> <span class="s1">'/media/'</span>
-<a name="rest_code_1c7a4013294043abadb047f50f1353ea-4"></a><span class="n">MEDIA_ROOT</span> <span class="o">=</span> <span class="s1">'/var/www/{}/media'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">PROJECT_NAME</span><span class="p">)</span>
-<a name="rest_code_1c7a4013294043abadb047f50f1353ea-5"></a>
-<a name="rest_code_1c7a4013294043abadb047f50f1353ea-6"></a><span class="c1"># ユニットテスト時 or PaaS ? WhiteNoise 時</span>
-<a name="rest_code_1c7a4013294043abadb047f50f1353ea-7"></a><span class="n">MEDIA_ROOT</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">BASE_DIR</span><span class="p">,</span> <span class="s1">'media_root'</span><span class="p">)</span>
+<pre class="code python"><a name="rest_code_37d2aa207801466282ee703d3be3f9e4-1"></a><span class="c1"># メディアファイルの設定例 (config/settings.py)</span>
+<a name="rest_code_37d2aa207801466282ee703d3be3f9e4-2"></a><span class="c1"># DEBUG =  False 時</span>
+<a name="rest_code_37d2aa207801466282ee703d3be3f9e4-3"></a><span class="n">MEDIA_URL</span> <span class="o">=</span> <span class="s1">'/media/'</span>
+<a name="rest_code_37d2aa207801466282ee703d3be3f9e4-4"></a><span class="n">MEDIA_ROOT</span> <span class="o">=</span> <span class="s1">'/var/www/{}/media'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">PROJECT_NAME</span><span class="p">)</span>
+<a name="rest_code_37d2aa207801466282ee703d3be3f9e4-5"></a>
+<a name="rest_code_37d2aa207801466282ee703d3be3f9e4-6"></a><span class="c1"># ユニットテスト時 or PaaS ? WhiteNoise 時</span>
+<a name="rest_code_37d2aa207801466282ee703d3be3f9e4-7"></a><span class="n">MEDIA_ROOT</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">BASE_DIR</span><span class="p">,</span> <span class="s1">'media_root'</span><span class="p">)</span>
 </pre>
 <ul class="simple">
 <li><p>アップロードを実装するときのコツは P.114 付近に詳しく書いてあるので、実装するときはよく見ること</p></li>
@@ -241,15 +241,15 @@
 <div class="section" id="runserver">
 <h4><a class="toc-backref" href="#id24">runserver でメディアファイルを配信してくれる仕組みがある</a></h4>
 <p>動作確認に便利</p>
-<pre class="code python"><a name="rest_code_fca2bfdc863f4b9a99907acb724604a7-1"></a><span class="c1"># config/urls.py</span>
-<a name="rest_code_fca2bfdc863f4b9a99907acb724604a7-2"></a><span class="kn">from</span> <span class="nn">django.conf</span> <span class="kn">import</span> <span class="n">settings</span>
-<a name="rest_code_fca2bfdc863f4b9a99907acb724604a7-3"></a><span class="kn">from</span> <span class="nn">django.conf.urls.static</span> <span class="kn">import</span> <span class="n">static</span>
-<a name="rest_code_fca2bfdc863f4b9a99907acb724604a7-4"></a>
-<a name="rest_code_fca2bfdc863f4b9a99907acb724604a7-5"></a><span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
-<a name="rest_code_fca2bfdc863f4b9a99907acb724604a7-6"></a>    <span class="c1"># ...</span>
-<a name="rest_code_fca2bfdc863f4b9a99907acb724604a7-7"></a><span class="p">]</span>
-<a name="rest_code_fca2bfdc863f4b9a99907acb724604a7-8"></a><span class="c1"># static 関数の内部で DEBUG = True でないと動作しないようにチェックしているよ</span>
-<a name="rest_code_fca2bfdc863f4b9a99907acb724604a7-9"></a><span class="n">urlpatterns</span> <span class="o">+=</span> <span class="n">static</span><span class="p">(</span><span class="n">settings</span><span class="o">.</span><span class="n">MEDIA_URL</span><span class="p">,</span> <span class="n">document_root</span><span class="o">=</span><span class="n">settings</span><span class="o">.</span><span class="n">MEDIA_ROOT</span><span class="p">)</span>
+<pre class="code python"><a name="rest_code_9b199c283c294d81aaa3409a95ab4b38-1"></a><span class="c1"># config/urls.py</span>
+<a name="rest_code_9b199c283c294d81aaa3409a95ab4b38-2"></a><span class="kn">from</span> <span class="nn">django.conf</span> <span class="kn">import</span> <span class="n">settings</span>
+<a name="rest_code_9b199c283c294d81aaa3409a95ab4b38-3"></a><span class="kn">from</span> <span class="nn">django.conf.urls.static</span> <span class="kn">import</span> <span class="n">static</span>
+<a name="rest_code_9b199c283c294d81aaa3409a95ab4b38-4"></a>
+<a name="rest_code_9b199c283c294d81aaa3409a95ab4b38-5"></a><span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+<a name="rest_code_9b199c283c294d81aaa3409a95ab4b38-6"></a>    <span class="c1"># ...</span>
+<a name="rest_code_9b199c283c294d81aaa3409a95ab4b38-7"></a><span class="p">]</span>
+<a name="rest_code_9b199c283c294d81aaa3409a95ab4b38-8"></a><span class="c1"># static 関数の内部で DEBUG = True でないと動作しないようにチェックしているよ</span>
+<a name="rest_code_9b199c283c294d81aaa3409a95ab4b38-9"></a><span class="n">urlpatterns</span> <span class="o">+=</span> <span class="n">static</span><span class="p">(</span><span class="n">settings</span><span class="o">.</span><span class="n">MEDIA_URL</span><span class="p">,</span> <span class="n">document_root</span><span class="o">=</span><span class="n">settings</span><span class="o">.</span><span class="n">MEDIA_ROOT</span><span class="p">)</span>
 </pre>
 </div>
 </div>
@@ -294,10 +294,10 @@
 <ul>
 <li>
 <p>SQLモードを「厳密モード」にしておかないと振る舞いが微妙なので、設定しておいたほうがよい</p>
-<pre class="code python"><a name="rest_code_54399ce2f2914870afe279613e9ac28f-1"></a><span class="c1"># 最も厳しく設定するとこうなる</span>
-<a name="rest_code_54399ce2f2914870afe279613e9ac28f-2"></a><span class="s1">'OPTIONS'</span><span class="p">:</span> <span class="p">{</span>
-<a name="rest_code_54399ce2f2914870afe279613e9ac28f-3"></a>    <span class="s1">'sql_mode'</span><span class="p">:</span> <span class="s1">'TRADITIONAL,NO_AUTO_VALUE_ON_ZERO'</span>
-<a name="rest_code_54399ce2f2914870afe279613e9ac28f-4"></a><span class="p">}</span>
+<pre class="code python"><a name="rest_code_b1098d2f79934304ab19be3ad425a1e9-1"></a><span class="c1"># 最も厳しく設定するとこうなる</span>
+<a name="rest_code_b1098d2f79934304ab19be3ad425a1e9-2"></a><span class="s1">'OPTIONS'</span><span class="p">:</span> <span class="p">{</span>
+<a name="rest_code_b1098d2f79934304ab19be3ad425a1e9-3"></a>    <span class="s1">'sql_mode'</span><span class="p">:</span> <span class="s1">'TRADITIONAL,NO_AUTO_VALUE_ON_ZERO'</span>
+<a name="rest_code_b1098d2f79934304ab19be3ad425a1e9-4"></a><span class="p">}</span>
 </pre>
 </li>
 <li><p>MySQL を利用する際はドライバーが必要: Django 推奨は <code class="docutils literal">mysqlclient</code></p></li>
@@ -313,104 +313,104 @@
 </ul>
 <div class="section" id="logging">
 <h3><a class="toc-backref" href="#id30">本番稼働時の LOGGING 設定例</a></h3>
-<pre class="code python"><a name="rest_code_873ab88da5884d66a24279c00cca0ec2-1"></a><span class="n">LOGGING</span> <span class="o">=</span> <span class="p">{</span>
-<a name="rest_code_873ab88da5884d66a24279c00cca0ec2-2"></a>    <span class="c1"># バージョンは「1」固定</span>
-<a name="rest_code_873ab88da5884d66a24279c00cca0ec2-3"></a>    <span class="s1">'version'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-<a name="rest_code_873ab88da5884d66a24279c00cca0ec2-4"></a>    <span class="c1"># 既存のログ設定を無効化しない</span>
-<a name="rest_code_873ab88da5884d66a24279c00cca0ec2-5"></a>    <span class="s1">'disable_existing_loggers'</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
-<a name="rest_code_873ab88da5884d66a24279c00cca0ec2-6"></a>    <span class="c1"># ログフォーマット</span>
-<a name="rest_code_873ab88da5884d66a24279c00cca0ec2-7"></a>    <span class="s1">'formatters'</span><span class="p">:</span> <span class="p">{</span>
-<a name="rest_code_873ab88da5884d66a24279c00cca0ec2-8"></a>        <span class="c1"># 本番用</span>
-<a name="rest_code_873ab88da5884d66a24279c00cca0ec2-9"></a>        <span class="s1">'production'</span><span class="p">:</span> <span class="p">{</span>
-<a name="rest_code_873ab88da5884d66a24279c00cca0ec2-10"></a>            <span class="s1">'format'</span><span class="p">:</span> <span class="s1">'</span><span class="si">%(asctime)s</span><span class="s1"> [</span><span class="si">%(levelname)s</span><span class="s1">] </span><span class="si">%(name)s</span><span class="s1"> </span><span class="si">%(process)d</span><span class="s1"> </span><span class="si">%(thread)d</span><span class="s1"> '</span>
-<a name="rest_code_873ab88da5884d66a24279c00cca0ec2-11"></a>            <span class="s1">'</span><span class="si">%(pathname)s</span><span class="s1"> </span><span class="si">%(lineno)d</span><span class="s1"> </span><span class="si">%(message)s</span><span class="s1">'</span>
-<a name="rest_code_873ab88da5884d66a24279c00cca0ec2-12"></a>        <span class="p">},</span>
-<a name="rest_code_873ab88da5884d66a24279c00cca0ec2-13"></a>    <span class="p">},</span>
-<a name="rest_code_873ab88da5884d66a24279c00cca0ec2-14"></a>    <span class="c1"># ハンドラ</span>
-<a name="rest_code_873ab88da5884d66a24279c00cca0ec2-15"></a>    <span class="s1">'handlers'</span><span class="p">:</span> <span class="p">{</span>
-<a name="rest_code_873ab88da5884d66a24279c00cca0ec2-16"></a>        <span class="c1"># ファイル出力用ハンドラ</span>
-<a name="rest_code_873ab88da5884d66a24279c00cca0ec2-17"></a>        <span class="s1">'file'</span><span class="p">:</span> <span class="p">{</span>
-<a name="rest_code_873ab88da5884d66a24279c00cca0ec2-18"></a>            <span class="s1">'level'</span><span class="p">:</span> <span class="s1">'INFO'</span><span class="p">,</span>
-<a name="rest_code_873ab88da5884d66a24279c00cca0ec2-19"></a>            <span class="c1"># logging.handlers.RotatingFileHandler, logging.handlers.TimeRotatingFileHandler</span>
-<a name="rest_code_873ab88da5884d66a24279c00cca0ec2-20"></a>            <span class="c1"># を使うとログファイルをローテーションできて便利</span>
-<a name="rest_code_873ab88da5884d66a24279c00cca0ec2-21"></a>            <span class="s1">'class'</span><span class="p">:</span> <span class="s1">'logging.FileHandler'</span><span class="p">,</span>
-<a name="rest_code_873ab88da5884d66a24279c00cca0ec2-22"></a>            <span class="s1">'filename'</span><span class="p">:</span> <span class="s1">'var/log/{}.log'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">PROJECT_NAME</span><span class="p">),</span>
-<a name="rest_code_873ab88da5884d66a24279c00cca0ec2-23"></a>            <span class="s1">'formatter'</span><span class="p">:</span> <span class="s1">'production'</span><span class="p">,</span>
-<a name="rest_code_873ab88da5884d66a24279c00cca0ec2-24"></a>        <span class="p">},</span>
-<a name="rest_code_873ab88da5884d66a24279c00cca0ec2-25"></a>    <span class="p">},</span>
-<a name="rest_code_873ab88da5884d66a24279c00cca0ec2-26"></a>    <span class="c1"># ロガー</span>
-<a name="rest_code_873ab88da5884d66a24279c00cca0ec2-27"></a>    <span class="s1">'loggers'</span><span class="p">:</span> <span class="p">{</span>
-<a name="rest_code_873ab88da5884d66a24279c00cca0ec2-28"></a>        <span class="c1"># 自作アプリケーション全般のログを拾うロガー</span>
-<a name="rest_code_873ab88da5884d66a24279c00cca0ec2-29"></a>        <span class="c1"># '' と書くと、独自に追加したアプリケーションのログを拾うことができる</span>
-<a name="rest_code_873ab88da5884d66a24279c00cca0ec2-30"></a>        <span class="s1">''</span><span class="p">:</span> <span class="p">{</span>
-<a name="rest_code_873ab88da5884d66a24279c00cca0ec2-31"></a>            <span class="s1">'handlers'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'file'</span><span class="p">]</span>
-<a name="rest_code_873ab88da5884d66a24279c00cca0ec2-32"></a>            <span class="s1">'level'</span><span class="p">:</span> <span class="s1">'INFO'</span><span class="p">,</span>
-<a name="rest_code_873ab88da5884d66a24279c00cca0ec2-33"></a>            <span class="s1">'propagate'</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
-<a name="rest_code_873ab88da5884d66a24279c00cca0ec2-34"></a>        <span class="p">},</span>
-<a name="rest_code_873ab88da5884d66a24279c00cca0ec2-35"></a>        <span class="c1"># Django 本体が出すログ全般を拾うロガー</span>
-<a name="rest_code_873ab88da5884d66a24279c00cca0ec2-36"></a>        <span class="s1">'django'</span><span class="p">:</span> <span class="p">{</span>
-<a name="rest_code_873ab88da5884d66a24279c00cca0ec2-37"></a>            <span class="s1">'handlers'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'file'</span><span class="p">]</span>
-<a name="rest_code_873ab88da5884d66a24279c00cca0ec2-38"></a>            <span class="s1">'level'</span><span class="p">:</span> <span class="s1">'INFO'</span><span class="p">,</span>
-<a name="rest_code_873ab88da5884d66a24279c00cca0ec2-39"></a>            <span class="s1">'propagate'</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
-<a name="rest_code_873ab88da5884d66a24279c00cca0ec2-40"></a>        <span class="p">},</span>
-<a name="rest_code_873ab88da5884d66a24279c00cca0ec2-41"></a>    <span class="p">},</span>
-<a name="rest_code_873ab88da5884d66a24279c00cca0ec2-42"></a><span class="p">}</span>
+<pre class="code python"><a name="rest_code_94ec71a2aebc412f9e20ca5930d6e0ce-1"></a><span class="n">LOGGING</span> <span class="o">=</span> <span class="p">{</span>
+<a name="rest_code_94ec71a2aebc412f9e20ca5930d6e0ce-2"></a>    <span class="c1"># バージョンは「1」固定</span>
+<a name="rest_code_94ec71a2aebc412f9e20ca5930d6e0ce-3"></a>    <span class="s1">'version'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+<a name="rest_code_94ec71a2aebc412f9e20ca5930d6e0ce-4"></a>    <span class="c1"># 既存のログ設定を無効化しない</span>
+<a name="rest_code_94ec71a2aebc412f9e20ca5930d6e0ce-5"></a>    <span class="s1">'disable_existing_loggers'</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
+<a name="rest_code_94ec71a2aebc412f9e20ca5930d6e0ce-6"></a>    <span class="c1"># ログフォーマット</span>
+<a name="rest_code_94ec71a2aebc412f9e20ca5930d6e0ce-7"></a>    <span class="s1">'formatters'</span><span class="p">:</span> <span class="p">{</span>
+<a name="rest_code_94ec71a2aebc412f9e20ca5930d6e0ce-8"></a>        <span class="c1"># 本番用</span>
+<a name="rest_code_94ec71a2aebc412f9e20ca5930d6e0ce-9"></a>        <span class="s1">'production'</span><span class="p">:</span> <span class="p">{</span>
+<a name="rest_code_94ec71a2aebc412f9e20ca5930d6e0ce-10"></a>            <span class="s1">'format'</span><span class="p">:</span> <span class="s1">'</span><span class="si">%(asctime)s</span><span class="s1"> [</span><span class="si">%(levelname)s</span><span class="s1">] </span><span class="si">%(name)s</span><span class="s1"> </span><span class="si">%(process)d</span><span class="s1"> </span><span class="si">%(thread)d</span><span class="s1"> '</span>
+<a name="rest_code_94ec71a2aebc412f9e20ca5930d6e0ce-11"></a>            <span class="s1">'</span><span class="si">%(pathname)s</span><span class="s1"> </span><span class="si">%(lineno)d</span><span class="s1"> </span><span class="si">%(message)s</span><span class="s1">'</span>
+<a name="rest_code_94ec71a2aebc412f9e20ca5930d6e0ce-12"></a>        <span class="p">},</span>
+<a name="rest_code_94ec71a2aebc412f9e20ca5930d6e0ce-13"></a>    <span class="p">},</span>
+<a name="rest_code_94ec71a2aebc412f9e20ca5930d6e0ce-14"></a>    <span class="c1"># ハンドラ</span>
+<a name="rest_code_94ec71a2aebc412f9e20ca5930d6e0ce-15"></a>    <span class="s1">'handlers'</span><span class="p">:</span> <span class="p">{</span>
+<a name="rest_code_94ec71a2aebc412f9e20ca5930d6e0ce-16"></a>        <span class="c1"># ファイル出力用ハンドラ</span>
+<a name="rest_code_94ec71a2aebc412f9e20ca5930d6e0ce-17"></a>        <span class="s1">'file'</span><span class="p">:</span> <span class="p">{</span>
+<a name="rest_code_94ec71a2aebc412f9e20ca5930d6e0ce-18"></a>            <span class="s1">'level'</span><span class="p">:</span> <span class="s1">'INFO'</span><span class="p">,</span>
+<a name="rest_code_94ec71a2aebc412f9e20ca5930d6e0ce-19"></a>            <span class="c1"># logging.handlers.RotatingFileHandler, logging.handlers.TimeRotatingFileHandler</span>
+<a name="rest_code_94ec71a2aebc412f9e20ca5930d6e0ce-20"></a>            <span class="c1"># を使うとログファイルをローテーションできて便利</span>
+<a name="rest_code_94ec71a2aebc412f9e20ca5930d6e0ce-21"></a>            <span class="s1">'class'</span><span class="p">:</span> <span class="s1">'logging.FileHandler'</span><span class="p">,</span>
+<a name="rest_code_94ec71a2aebc412f9e20ca5930d6e0ce-22"></a>            <span class="s1">'filename'</span><span class="p">:</span> <span class="s1">'var/log/{}.log'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">PROJECT_NAME</span><span class="p">),</span>
+<a name="rest_code_94ec71a2aebc412f9e20ca5930d6e0ce-23"></a>            <span class="s1">'formatter'</span><span class="p">:</span> <span class="s1">'production'</span><span class="p">,</span>
+<a name="rest_code_94ec71a2aebc412f9e20ca5930d6e0ce-24"></a>        <span class="p">},</span>
+<a name="rest_code_94ec71a2aebc412f9e20ca5930d6e0ce-25"></a>    <span class="p">},</span>
+<a name="rest_code_94ec71a2aebc412f9e20ca5930d6e0ce-26"></a>    <span class="c1"># ロガー</span>
+<a name="rest_code_94ec71a2aebc412f9e20ca5930d6e0ce-27"></a>    <span class="s1">'loggers'</span><span class="p">:</span> <span class="p">{</span>
+<a name="rest_code_94ec71a2aebc412f9e20ca5930d6e0ce-28"></a>        <span class="c1"># 自作アプリケーション全般のログを拾うロガー</span>
+<a name="rest_code_94ec71a2aebc412f9e20ca5930d6e0ce-29"></a>        <span class="c1"># '' と書くと、独自に追加したアプリケーションのログを拾うことができる</span>
+<a name="rest_code_94ec71a2aebc412f9e20ca5930d6e0ce-30"></a>        <span class="s1">''</span><span class="p">:</span> <span class="p">{</span>
+<a name="rest_code_94ec71a2aebc412f9e20ca5930d6e0ce-31"></a>            <span class="s1">'handlers'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'file'</span><span class="p">]</span>
+<a name="rest_code_94ec71a2aebc412f9e20ca5930d6e0ce-32"></a>            <span class="s1">'level'</span><span class="p">:</span> <span class="s1">'INFO'</span><span class="p">,</span>
+<a name="rest_code_94ec71a2aebc412f9e20ca5930d6e0ce-33"></a>            <span class="s1">'propagate'</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
+<a name="rest_code_94ec71a2aebc412f9e20ca5930d6e0ce-34"></a>        <span class="p">},</span>
+<a name="rest_code_94ec71a2aebc412f9e20ca5930d6e0ce-35"></a>        <span class="c1"># Django 本体が出すログ全般を拾うロガー</span>
+<a name="rest_code_94ec71a2aebc412f9e20ca5930d6e0ce-36"></a>        <span class="s1">'django'</span><span class="p">:</span> <span class="p">{</span>
+<a name="rest_code_94ec71a2aebc412f9e20ca5930d6e0ce-37"></a>            <span class="s1">'handlers'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'file'</span><span class="p">]</span>
+<a name="rest_code_94ec71a2aebc412f9e20ca5930d6e0ce-38"></a>            <span class="s1">'level'</span><span class="p">:</span> <span class="s1">'INFO'</span><span class="p">,</span>
+<a name="rest_code_94ec71a2aebc412f9e20ca5930d6e0ce-39"></a>            <span class="s1">'propagate'</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
+<a name="rest_code_94ec71a2aebc412f9e20ca5930d6e0ce-40"></a>        <span class="p">},</span>
+<a name="rest_code_94ec71a2aebc412f9e20ca5930d6e0ce-41"></a>    <span class="p">},</span>
+<a name="rest_code_94ec71a2aebc412f9e20ca5930d6e0ce-42"></a><span class="p">}</span>
 </pre>
 </div>
 <div class="section" id="id13">
 <h3><a class="toc-backref" href="#id31">開発時の LOGGING 設定例</a></h3>
-<pre class="code python"><a name="rest_code_b857e9aadcaf463e8c3b0e228cf1a61e-1"></a><span class="n">LOGGING</span> <span class="o">=</span> <span class="p">{</span>
-<a name="rest_code_b857e9aadcaf463e8c3b0e228cf1a61e-2"></a>    <span class="c1"># バージョンは「1」固定</span>
-<a name="rest_code_b857e9aadcaf463e8c3b0e228cf1a61e-3"></a>    <span class="s1">'version'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-<a name="rest_code_b857e9aadcaf463e8c3b0e228cf1a61e-4"></a>    <span class="c1"># 既存のログ設定を無効化しない</span>
-<a name="rest_code_b857e9aadcaf463e8c3b0e228cf1a61e-5"></a>    <span class="s1">'disable_existing_loggers'</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
-<a name="rest_code_b857e9aadcaf463e8c3b0e228cf1a61e-6"></a>    <span class="c1"># ログフォーマット</span>
-<a name="rest_code_b857e9aadcaf463e8c3b0e228cf1a61e-7"></a>    <span class="s1">'formatters'</span><span class="p">:</span> <span class="p">{</span>
-<a name="rest_code_b857e9aadcaf463e8c3b0e228cf1a61e-8"></a>        <span class="c1"># 開発用</span>
-<a name="rest_code_b857e9aadcaf463e8c3b0e228cf1a61e-9"></a>        <span class="s1">'develop'</span><span class="p">:</span> <span class="p">{</span>
-<a name="rest_code_b857e9aadcaf463e8c3b0e228cf1a61e-10"></a>            <span class="s1">'format'</span><span class="p">:</span> <span class="s1">'</span><span class="si">%(asctime)s</span><span class="s1"> [</span><span class="si">%(levelname)s</span><span class="s1">] </span><span class="si">%(pathname)s</span><span class="s1"> </span><span class="si">%(lineno)d</span><span class="s1"> </span><span class="si">%(message)s</span><span class="s1">'</span>
-<a name="rest_code_b857e9aadcaf463e8c3b0e228cf1a61e-11"></a>        <span class="p">},</span>
-<a name="rest_code_b857e9aadcaf463e8c3b0e228cf1a61e-12"></a>    <span class="p">},</span>
-<a name="rest_code_b857e9aadcaf463e8c3b0e228cf1a61e-13"></a>    <span class="c1"># ハンドラ</span>
-<a name="rest_code_b857e9aadcaf463e8c3b0e228cf1a61e-14"></a>    <span class="s1">'handlers'</span><span class="p">:</span> <span class="p">{</span>
-<a name="rest_code_b857e9aadcaf463e8c3b0e228cf1a61e-15"></a>        <span class="c1"># コンソール出力用ハンドラ</span>
-<a name="rest_code_b857e9aadcaf463e8c3b0e228cf1a61e-16"></a>        <span class="s1">'console'</span><span class="p">:</span> <span class="p">{</span>
-<a name="rest_code_b857e9aadcaf463e8c3b0e228cf1a61e-17"></a>            <span class="s1">'level'</span><span class="p">:</span> <span class="s1">'DEBUG'</span><span class="p">,</span>
-<a name="rest_code_b857e9aadcaf463e8c3b0e228cf1a61e-18"></a>            <span class="c1"># logging.handlers.RotatingFileHandler, logging.handlers.TimeRotatingFileHandler</span>
-<a name="rest_code_b857e9aadcaf463e8c3b0e228cf1a61e-19"></a>            <span class="c1"># を使うとログファイルをローテーションできて便利</span>
-<a name="rest_code_b857e9aadcaf463e8c3b0e228cf1a61e-20"></a>            <span class="s1">'class'</span><span class="p">:</span> <span class="s1">'logging.StreamHandler'</span><span class="p">,</span>
-<a name="rest_code_b857e9aadcaf463e8c3b0e228cf1a61e-21"></a>            <span class="s1">'filename'</span><span class="p">:</span> <span class="s1">'var/log/{}.log'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">PROJECT_NAME</span><span class="p">),</span>
-<a name="rest_code_b857e9aadcaf463e8c3b0e228cf1a61e-22"></a>            <span class="s1">'formatter'</span><span class="p">:</span> <span class="s1">'develop'</span><span class="p">,</span>
-<a name="rest_code_b857e9aadcaf463e8c3b0e228cf1a61e-23"></a>        <span class="p">},</span>
-<a name="rest_code_b857e9aadcaf463e8c3b0e228cf1a61e-24"></a>    <span class="p">},</span>
-<a name="rest_code_b857e9aadcaf463e8c3b0e228cf1a61e-25"></a>    <span class="c1"># ロガー</span>
-<a name="rest_code_b857e9aadcaf463e8c3b0e228cf1a61e-26"></a>    <span class="s1">'loggers'</span><span class="p">:</span> <span class="p">{</span>
-<a name="rest_code_b857e9aadcaf463e8c3b0e228cf1a61e-27"></a>        <span class="c1"># 自作アプリケーション全般のログを拾うロガー</span>
-<a name="rest_code_b857e9aadcaf463e8c3b0e228cf1a61e-28"></a>        <span class="s1">''</span><span class="p">:</span> <span class="p">{</span>
-<a name="rest_code_b857e9aadcaf463e8c3b0e228cf1a61e-29"></a>            <span class="s1">'handlers'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'console'</span><span class="p">]</span>
-<a name="rest_code_b857e9aadcaf463e8c3b0e228cf1a61e-30"></a>            <span class="s1">'level'</span><span class="p">:</span> <span class="s1">'DEBUG'</span><span class="p">,</span>
-<a name="rest_code_b857e9aadcaf463e8c3b0e228cf1a61e-31"></a>            <span class="s1">'propagate'</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
-<a name="rest_code_b857e9aadcaf463e8c3b0e228cf1a61e-32"></a>        <span class="p">},</span>
-<a name="rest_code_b857e9aadcaf463e8c3b0e228cf1a61e-33"></a>        <span class="c1"># Django 本体が出すログ全般を拾うロガー</span>
-<a name="rest_code_b857e9aadcaf463e8c3b0e228cf1a61e-34"></a>        <span class="s1">'django'</span><span class="p">:</span> <span class="p">{</span>
-<a name="rest_code_b857e9aadcaf463e8c3b0e228cf1a61e-35"></a>            <span class="s1">'handlers'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'console'</span><span class="p">]</span>
-<a name="rest_code_b857e9aadcaf463e8c3b0e228cf1a61e-36"></a>            <span class="s1">'level'</span><span class="p">:</span> <span class="s1">'INFO'</span><span class="p">,</span>
-<a name="rest_code_b857e9aadcaf463e8c3b0e228cf1a61e-37"></a>            <span class="s1">'propagate'</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
-<a name="rest_code_b857e9aadcaf463e8c3b0e228cf1a61e-38"></a>        <span class="p">},</span>
-<a name="rest_code_b857e9aadcaf463e8c3b0e228cf1a61e-39"></a>        <span class="c1"># 発行される SQL 文を出力するための設定</span>
-<a name="rest_code_b857e9aadcaf463e8c3b0e228cf1a61e-40"></a>        <span class="c1"># パフォーマンスの観点から DEBUG = True でないと出力されないようになっている</span>
-<a name="rest_code_b857e9aadcaf463e8c3b0e228cf1a61e-41"></a>        <span class="s1">'django.db.backends'</span><span class="p">:</span> <span class="p">{</span>
-<a name="rest_code_b857e9aadcaf463e8c3b0e228cf1a61e-42"></a>            <span class="s1">'handlers'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'console'</span><span class="p">]</span>
-<a name="rest_code_b857e9aadcaf463e8c3b0e228cf1a61e-43"></a>            <span class="s1">'level'</span><span class="p">:</span> <span class="s1">'DEBUG'</span><span class="p">,</span>
-<a name="rest_code_b857e9aadcaf463e8c3b0e228cf1a61e-44"></a>            <span class="s1">'propagate'</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
-<a name="rest_code_b857e9aadcaf463e8c3b0e228cf1a61e-45"></a>        <span class="p">},</span>
-<a name="rest_code_b857e9aadcaf463e8c3b0e228cf1a61e-46"></a>    <span class="p">},</span>
-<a name="rest_code_b857e9aadcaf463e8c3b0e228cf1a61e-47"></a><span class="p">}</span>
+<pre class="code python"><a name="rest_code_3503c8975d4545f292aac66bfc931ef3-1"></a><span class="n">LOGGING</span> <span class="o">=</span> <span class="p">{</span>
+<a name="rest_code_3503c8975d4545f292aac66bfc931ef3-2"></a>    <span class="c1"># バージョンは「1」固定</span>
+<a name="rest_code_3503c8975d4545f292aac66bfc931ef3-3"></a>    <span class="s1">'version'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+<a name="rest_code_3503c8975d4545f292aac66bfc931ef3-4"></a>    <span class="c1"># 既存のログ設定を無効化しない</span>
+<a name="rest_code_3503c8975d4545f292aac66bfc931ef3-5"></a>    <span class="s1">'disable_existing_loggers'</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
+<a name="rest_code_3503c8975d4545f292aac66bfc931ef3-6"></a>    <span class="c1"># ログフォーマット</span>
+<a name="rest_code_3503c8975d4545f292aac66bfc931ef3-7"></a>    <span class="s1">'formatters'</span><span class="p">:</span> <span class="p">{</span>
+<a name="rest_code_3503c8975d4545f292aac66bfc931ef3-8"></a>        <span class="c1"># 開発用</span>
+<a name="rest_code_3503c8975d4545f292aac66bfc931ef3-9"></a>        <span class="s1">'develop'</span><span class="p">:</span> <span class="p">{</span>
+<a name="rest_code_3503c8975d4545f292aac66bfc931ef3-10"></a>            <span class="s1">'format'</span><span class="p">:</span> <span class="s1">'</span><span class="si">%(asctime)s</span><span class="s1"> [</span><span class="si">%(levelname)s</span><span class="s1">] </span><span class="si">%(pathname)s</span><span class="s1"> </span><span class="si">%(lineno)d</span><span class="s1"> </span><span class="si">%(message)s</span><span class="s1">'</span>
+<a name="rest_code_3503c8975d4545f292aac66bfc931ef3-11"></a>        <span class="p">},</span>
+<a name="rest_code_3503c8975d4545f292aac66bfc931ef3-12"></a>    <span class="p">},</span>
+<a name="rest_code_3503c8975d4545f292aac66bfc931ef3-13"></a>    <span class="c1"># ハンドラ</span>
+<a name="rest_code_3503c8975d4545f292aac66bfc931ef3-14"></a>    <span class="s1">'handlers'</span><span class="p">:</span> <span class="p">{</span>
+<a name="rest_code_3503c8975d4545f292aac66bfc931ef3-15"></a>        <span class="c1"># コンソール出力用ハンドラ</span>
+<a name="rest_code_3503c8975d4545f292aac66bfc931ef3-16"></a>        <span class="s1">'console'</span><span class="p">:</span> <span class="p">{</span>
+<a name="rest_code_3503c8975d4545f292aac66bfc931ef3-17"></a>            <span class="s1">'level'</span><span class="p">:</span> <span class="s1">'DEBUG'</span><span class="p">,</span>
+<a name="rest_code_3503c8975d4545f292aac66bfc931ef3-18"></a>            <span class="c1"># logging.handlers.RotatingFileHandler, logging.handlers.TimeRotatingFileHandler</span>
+<a name="rest_code_3503c8975d4545f292aac66bfc931ef3-19"></a>            <span class="c1"># を使うとログファイルをローテーションできて便利</span>
+<a name="rest_code_3503c8975d4545f292aac66bfc931ef3-20"></a>            <span class="s1">'class'</span><span class="p">:</span> <span class="s1">'logging.StreamHandler'</span><span class="p">,</span>
+<a name="rest_code_3503c8975d4545f292aac66bfc931ef3-21"></a>            <span class="s1">'filename'</span><span class="p">:</span> <span class="s1">'var/log/{}.log'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">PROJECT_NAME</span><span class="p">),</span>
+<a name="rest_code_3503c8975d4545f292aac66bfc931ef3-22"></a>            <span class="s1">'formatter'</span><span class="p">:</span> <span class="s1">'develop'</span><span class="p">,</span>
+<a name="rest_code_3503c8975d4545f292aac66bfc931ef3-23"></a>        <span class="p">},</span>
+<a name="rest_code_3503c8975d4545f292aac66bfc931ef3-24"></a>    <span class="p">},</span>
+<a name="rest_code_3503c8975d4545f292aac66bfc931ef3-25"></a>    <span class="c1"># ロガー</span>
+<a name="rest_code_3503c8975d4545f292aac66bfc931ef3-26"></a>    <span class="s1">'loggers'</span><span class="p">:</span> <span class="p">{</span>
+<a name="rest_code_3503c8975d4545f292aac66bfc931ef3-27"></a>        <span class="c1"># 自作アプリケーション全般のログを拾うロガー</span>
+<a name="rest_code_3503c8975d4545f292aac66bfc931ef3-28"></a>        <span class="s1">''</span><span class="p">:</span> <span class="p">{</span>
+<a name="rest_code_3503c8975d4545f292aac66bfc931ef3-29"></a>            <span class="s1">'handlers'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'console'</span><span class="p">]</span>
+<a name="rest_code_3503c8975d4545f292aac66bfc931ef3-30"></a>            <span class="s1">'level'</span><span class="p">:</span> <span class="s1">'DEBUG'</span><span class="p">,</span>
+<a name="rest_code_3503c8975d4545f292aac66bfc931ef3-31"></a>            <span class="s1">'propagate'</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
+<a name="rest_code_3503c8975d4545f292aac66bfc931ef3-32"></a>        <span class="p">},</span>
+<a name="rest_code_3503c8975d4545f292aac66bfc931ef3-33"></a>        <span class="c1"># Django 本体が出すログ全般を拾うロガー</span>
+<a name="rest_code_3503c8975d4545f292aac66bfc931ef3-34"></a>        <span class="s1">'django'</span><span class="p">:</span> <span class="p">{</span>
+<a name="rest_code_3503c8975d4545f292aac66bfc931ef3-35"></a>            <span class="s1">'handlers'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'console'</span><span class="p">]</span>
+<a name="rest_code_3503c8975d4545f292aac66bfc931ef3-36"></a>            <span class="s1">'level'</span><span class="p">:</span> <span class="s1">'INFO'</span><span class="p">,</span>
+<a name="rest_code_3503c8975d4545f292aac66bfc931ef3-37"></a>            <span class="s1">'propagate'</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
+<a name="rest_code_3503c8975d4545f292aac66bfc931ef3-38"></a>        <span class="p">},</span>
+<a name="rest_code_3503c8975d4545f292aac66bfc931ef3-39"></a>        <span class="c1"># 発行される SQL 文を出力するための設定</span>
+<a name="rest_code_3503c8975d4545f292aac66bfc931ef3-40"></a>        <span class="c1"># パフォーマンスの観点から DEBUG = True でないと出力されないようになっている</span>
+<a name="rest_code_3503c8975d4545f292aac66bfc931ef3-41"></a>        <span class="s1">'django.db.backends'</span><span class="p">:</span> <span class="p">{</span>
+<a name="rest_code_3503c8975d4545f292aac66bfc931ef3-42"></a>            <span class="s1">'handlers'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'console'</span><span class="p">]</span>
+<a name="rest_code_3503c8975d4545f292aac66bfc931ef3-43"></a>            <span class="s1">'level'</span><span class="p">:</span> <span class="s1">'DEBUG'</span><span class="p">,</span>
+<a name="rest_code_3503c8975d4545f292aac66bfc931ef3-44"></a>            <span class="s1">'propagate'</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
+<a name="rest_code_3503c8975d4545f292aac66bfc931ef3-45"></a>        <span class="p">},</span>
+<a name="rest_code_3503c8975d4545f292aac66bfc931ef3-46"></a>    <span class="p">},</span>
+<a name="rest_code_3503c8975d4545f292aac66bfc931ef3-47"></a><span class="p">}</span>
 </pre>
 </div>
 <div class="section" id="id14">
 <h3><a class="toc-backref" href="#id32">ロガーを取得する</a></h3>
-<pre class="code python"><a name="rest_code_ffbf8d82a9034d4aa9b9e7424eb45431-1"></a><span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+<pre class="code python"><a name="rest_code_7806e96c043d4272a6cf0350c7591ec2-1"></a><span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 </pre>
 </div>
 </div>
@@ -419,39 +419,39 @@
 <ul>
 <li>
 <p><code class="docutils literal">TEMPLATES</code> テンプレートに関する設定: <a class="reference external" href="https://docs.djangoproject.com/ja/2.2/ref/settings/#std:setting-TEMPLATES">https://docs.djangoproject.com/ja/2.2/ref/settings/#std:setting-TEMPLATES</a></p>
-<pre class="code python"><a name="rest_code_87e34f3c99054fe2bcaa685291fdefed-1"></a><span class="n">TEMPLATES</span> <span class="o">=</span> <span class="p">[</span>
-<a name="rest_code_87e34f3c99054fe2bcaa685291fdefed-2"></a>    <span class="p">{</span>
-<a name="rest_code_87e34f3c99054fe2bcaa685291fdefed-3"></a>        <span class="c1"># テンプレートエンジン</span>
-<a name="rest_code_87e34f3c99054fe2bcaa685291fdefed-4"></a>        <span class="s1">'BACKEND'</span><span class="p">:</span> <span class="s1">'django.template.backends.django.DjangoTemplates'</span><span class="p">,</span>
-<a name="rest_code_87e34f3c99054fe2bcaa685291fdefed-5"></a>        <span class="c1"># ビューから指定されるテンプレート名に対してどのディレクトリを優先してテンプレートを探しに行くかの順番を指定する</span>
-<a name="rest_code_87e34f3c99054fe2bcaa685291fdefed-6"></a>        <span class="s1">'DIRS'</span><span class="p">:</span> <span class="p">[</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">BASE_DIR</span><span class="p">,</span> <span class="s1">'templates'</span><span class="p">)],</span>
-<a name="rest_code_87e34f3c99054fe2bcaa685291fdefed-7"></a>        <span class="c1"># テンプートを探す際に、各アプリケーションディレクトリ直下の templates を優先する場合 True</span>
-<a name="rest_code_87e34f3c99054fe2bcaa685291fdefed-8"></a>        <span class="s1">'APP_DIRS'</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
-<a name="rest_code_87e34f3c99054fe2bcaa685291fdefed-9"></a>        <span class="s1">'OPTIONS'</span><span class="p">:</span> <span class="p">{</span>
-<a name="rest_code_87e34f3c99054fe2bcaa685291fdefed-10"></a>            <span class="c1"># テンプレートから参照できる変数を渡すための context_processors</span>
-<a name="rest_code_87e34f3c99054fe2bcaa685291fdefed-11"></a>            <span class="s1">'context_processors'</span><span class="p">:</span> <span class="p">[</span>
-<a name="rest_code_87e34f3c99054fe2bcaa685291fdefed-12"></a>                <span class="s1">'django.template.context_processors.debug'</span><span class="p">,</span>
-<a name="rest_code_87e34f3c99054fe2bcaa685291fdefed-13"></a>                <span class="s1">'django.template.context_processors.request'</span><span class="p">,</span>
-<a name="rest_code_87e34f3c99054fe2bcaa685291fdefed-14"></a>                <span class="s1">'django.contrib.auth.context_processors.auth'</span><span class="p">,</span>
-<a name="rest_code_87e34f3c99054fe2bcaa685291fdefed-15"></a>                <span class="s1">'django.contrib.messages.context_processors.messages'</span><span class="p">,</span>
-<a name="rest_code_87e34f3c99054fe2bcaa685291fdefed-16"></a>            <span class="p">],</span>
-<a name="rest_code_87e34f3c99054fe2bcaa685291fdefed-17"></a>        <span class="p">},</span>
-<a name="rest_code_87e34f3c99054fe2bcaa685291fdefed-18"></a>    <span class="p">},</span>
-<a name="rest_code_87e34f3c99054fe2bcaa685291fdefed-19"></a><span class="p">]</span>
+<pre class="code python"><a name="rest_code_9ce299dbeddb402dba2ab7c636a17a98-1"></a><span class="n">TEMPLATES</span> <span class="o">=</span> <span class="p">[</span>
+<a name="rest_code_9ce299dbeddb402dba2ab7c636a17a98-2"></a>    <span class="p">{</span>
+<a name="rest_code_9ce299dbeddb402dba2ab7c636a17a98-3"></a>        <span class="c1"># テンプレートエンジン</span>
+<a name="rest_code_9ce299dbeddb402dba2ab7c636a17a98-4"></a>        <span class="s1">'BACKEND'</span><span class="p">:</span> <span class="s1">'django.template.backends.django.DjangoTemplates'</span><span class="p">,</span>
+<a name="rest_code_9ce299dbeddb402dba2ab7c636a17a98-5"></a>        <span class="c1"># ビューから指定されるテンプレート名に対してどのディレクトリを優先してテンプレートを探しに行くかの順番を指定する</span>
+<a name="rest_code_9ce299dbeddb402dba2ab7c636a17a98-6"></a>        <span class="s1">'DIRS'</span><span class="p">:</span> <span class="p">[</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">BASE_DIR</span><span class="p">,</span> <span class="s1">'templates'</span><span class="p">)],</span>
+<a name="rest_code_9ce299dbeddb402dba2ab7c636a17a98-7"></a>        <span class="c1"># テンプートを探す際に、各アプリケーションディレクトリ直下の templates を優先する場合 True</span>
+<a name="rest_code_9ce299dbeddb402dba2ab7c636a17a98-8"></a>        <span class="s1">'APP_DIRS'</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+<a name="rest_code_9ce299dbeddb402dba2ab7c636a17a98-9"></a>        <span class="s1">'OPTIONS'</span><span class="p">:</span> <span class="p">{</span>
+<a name="rest_code_9ce299dbeddb402dba2ab7c636a17a98-10"></a>            <span class="c1"># テンプレートから参照できる変数を渡すための context_processors</span>
+<a name="rest_code_9ce299dbeddb402dba2ab7c636a17a98-11"></a>            <span class="s1">'context_processors'</span><span class="p">:</span> <span class="p">[</span>
+<a name="rest_code_9ce299dbeddb402dba2ab7c636a17a98-12"></a>                <span class="s1">'django.template.context_processors.debug'</span><span class="p">,</span>
+<a name="rest_code_9ce299dbeddb402dba2ab7c636a17a98-13"></a>                <span class="s1">'django.template.context_processors.request'</span><span class="p">,</span>
+<a name="rest_code_9ce299dbeddb402dba2ab7c636a17a98-14"></a>                <span class="s1">'django.contrib.auth.context_processors.auth'</span><span class="p">,</span>
+<a name="rest_code_9ce299dbeddb402dba2ab7c636a17a98-15"></a>                <span class="s1">'django.contrib.messages.context_processors.messages'</span><span class="p">,</span>
+<a name="rest_code_9ce299dbeddb402dba2ab7c636a17a98-16"></a>            <span class="p">],</span>
+<a name="rest_code_9ce299dbeddb402dba2ab7c636a17a98-17"></a>        <span class="p">},</span>
+<a name="rest_code_9ce299dbeddb402dba2ab7c636a17a98-18"></a>    <span class="p">},</span>
+<a name="rest_code_9ce299dbeddb402dba2ab7c636a17a98-19"></a><span class="p">]</span>
 </pre>
 </li>
 <li>
 <p><code class="docutils literal">LANGUAGE_CODE</code> 言語コード: <a class="reference external" href="https://docs.djangoproject.com/ja/2.2/ref/settings/#language-code">https://docs.djangoproject.com/ja/2.2/ref/settings/#language-code</a></p>
-<pre class="code python"><a name="rest_code_73557f5c05434eaab7e3d3ebfa964ccd-1"></a><span class="c1"># デフォルトは 'en-us'</span>
-<a name="rest_code_73557f5c05434eaab7e3d3ebfa964ccd-2"></a><span class="c1"># 管理サイトの表示もここで指定した言語に</span>
-<a name="rest_code_73557f5c05434eaab7e3d3ebfa964ccd-3"></a><span class="n">LANGUAGE_CODE</span> <span class="o">=</span> <span class="s1">'ja'</span>  <span class="c1"># 日本語</span>
+<pre class="code python"><a name="rest_code_eadaf4ea8b884889918e6a0e8e9687b0-1"></a><span class="c1"># デフォルトは 'en-us'</span>
+<a name="rest_code_eadaf4ea8b884889918e6a0e8e9687b0-2"></a><span class="c1"># 管理サイトの表示もここで指定した言語に</span>
+<a name="rest_code_eadaf4ea8b884889918e6a0e8e9687b0-3"></a><span class="n">LANGUAGE_CODE</span> <span class="o">=</span> <span class="s1">'ja'</span>  <span class="c1"># 日本語</span>
 </pre>
 </li>
 <li>
 <p><code class="docutils literal">TIME_ZONE</code> タイムゾーン: <a class="reference external" href="https://docs.djangoproject.com/ja/2.2/ref/settings/#std:setting-TIME_ZONE">https://docs.djangoproject.com/ja/2.2/ref/settings/#std:setting-TIME_ZONE</a></p>
-<pre class="code python"><a name="rest_code_0197fafeda9c4d26bcbf8d8d85e4e314-1"></a><span class="c1"># 時刻を表示する際のタイムゾーンを指定</span>
-<a name="rest_code_0197fafeda9c4d26bcbf8d8d85e4e314-2"></a><span class="c1"># デフォルトは 'UTC'</span>
-<a name="rest_code_0197fafeda9c4d26bcbf8d8d85e4e314-3"></a><span class="n">TIME_ZONE</span> <span class="o">=</span> <span class="s1">'Asia/Tokyo'</span>  <span class="c1"># 日本</span>
+<pre class="code python"><a name="rest_code_14fb02e7aed34269b560e86a1564227e-1"></a><span class="c1"># 時刻を表示する際のタイムゾーンを指定</span>
+<a name="rest_code_14fb02e7aed34269b560e86a1564227e-2"></a><span class="c1"># デフォルトは 'UTC'</span>
+<a name="rest_code_14fb02e7aed34269b560e86a1564227e-3"></a><span class="n">TIME_ZONE</span> <span class="o">=</span> <span class="s1">'Asia/Tokyo'</span>  <span class="c1"># 日本</span>
 </pre>
 </li>
 <li><p><code class="docutils literal">MIDDLEWARE</code> ミドルウェアの設定: <a class="reference external" href="https://docs.djangoproject.com/ja/2.2/ref/settings/#middleware">https://docs.djangoproject.com/ja/2.2/ref/settings/#middleware</a></p></li>
@@ -473,11 +473,11 @@
 <ul>
 <li>
 <p>個人の開発環境の設定は <code class="docutils literal">local_settings.py</code> に書く</p>
-<pre class="code bash"><a name="rest_code_d6d738b2cef84f16832b20087496827d-1"></a>$ python3 manage.py runserver <span class="m">0</span>.0.0.0:8000 --settings config.local_settings
-<a name="rest_code_d6d738b2cef84f16832b20087496827d-2"></a>
-<a name="rest_code_d6d738b2cef84f16832b20087496827d-3"></a><span class="c1"># もしくは</span>
-<a name="rest_code_d6d738b2cef84f16832b20087496827d-4"></a>$ <span class="nb">export</span> <span class="nv">DJANGO_SETTINGS_MODULE</span><span class="o">=</span>config.local_settings
-<a name="rest_code_d6d738b2cef84f16832b20087496827d-5"></a>$ python3 manage.py runserver <span class="m">0</span>.0.0.0:8000
+<pre class="code bash"><a name="rest_code_e2914b85233d43438e587427017680f0-1"></a>$ python3 manage.py runserver <span class="m">0</span>.0.0.0:8000 --settings config.local_settings
+<a name="rest_code_e2914b85233d43438e587427017680f0-2"></a>
+<a name="rest_code_e2914b85233d43438e587427017680f0-3"></a><span class="c1"># もしくは</span>
+<a name="rest_code_e2914b85233d43438e587427017680f0-4"></a>$ <span class="nb">export</span> <span class="nv">DJANGO_SETTINGS_MODULE</span><span class="o">=</span>config.local_settings
+<a name="rest_code_e2914b85233d43438e587427017680f0-5"></a>$ python3 manage.py runserver <span class="m">0</span>.0.0.0:8000
 </pre>
 </li>
 <li>

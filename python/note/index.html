@@ -97,12 +97,12 @@
 <div class="section" id="http">
 <h3><a class="toc-backref" href="#id26">ローカルに HTTP サーバーを立てる</a></h3>
 <p><a class="reference external" href="https://docs.python.org/ja/3/library/http.server.html">http.server --- HTTP サーバ</a></p>
-<pre class="code python"><a name="rest_code_cc59932478a84195aa99005b76258e63-1"></a><span class="c1"># ポートを指定 (現在のディレクトリのファイルを提供)</span>
-<a name="rest_code_cc59932478a84195aa99005b76258e63-2"></a><span class="err">$</span> <span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">http</span><span class="o">.</span><span class="n">server</span> <span class="mi">8000</span>
-<a name="rest_code_cc59932478a84195aa99005b76258e63-3"></a><span class="c1"># バインドするアドレスを指定 (現在のディレクトリのファイルを提供)</span>
-<a name="rest_code_cc59932478a84195aa99005b76258e63-4"></a><span class="err">$</span> <span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">http</span><span class="o">.</span><span class="n">server</span> <span class="mi">8000</span> <span class="o">--</span><span class="n">bind</span> <span class="mf">127.0</span><span class="o">.</span><span class="mf">0.1</span>
-<a name="rest_code_cc59932478a84195aa99005b76258e63-5"></a><span class="c1"># ファイルを提供するディレクトリを指定</span>
-<a name="rest_code_cc59932478a84195aa99005b76258e63-6"></a><span class="err">$</span> <span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">http</span><span class="o">.</span><span class="n">server</span> <span class="o">--</span><span class="n">directory</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span>
+<pre class="code python"><a name="rest_code_2341d5bd19f945d5a64e980b9343c075-1"></a><span class="c1"># ポートを指定 (現在のディレクトリのファイルを提供)</span>
+<a name="rest_code_2341d5bd19f945d5a64e980b9343c075-2"></a><span class="err">$</span> <span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">http</span><span class="o">.</span><span class="n">server</span> <span class="mi">8000</span>
+<a name="rest_code_2341d5bd19f945d5a64e980b9343c075-3"></a><span class="c1"># バインドするアドレスを指定 (現在のディレクトリのファイルを提供)</span>
+<a name="rest_code_2341d5bd19f945d5a64e980b9343c075-4"></a><span class="err">$</span> <span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">http</span><span class="o">.</span><span class="n">server</span> <span class="mi">8000</span> <span class="o">--</span><span class="n">bind</span> <span class="mf">127.0</span><span class="o">.</span><span class="mf">0.1</span>
+<a name="rest_code_2341d5bd19f945d5a64e980b9343c075-5"></a><span class="c1"># ファイルを提供するディレクトリを指定</span>
+<a name="rest_code_2341d5bd19f945d5a64e980b9343c075-6"></a><span class="err">$</span> <span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">http</span><span class="o">.</span><span class="n">server</span> <span class="o">--</span><span class="n">directory</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span>
 </pre>
 </div>
 <div class="section" id="id7">
@@ -142,72 +142,72 @@
 </ul>
 </li>
 </ul>
-<pre class="code python"><a name="rest_code_541fa61939f048fabae437bc352db209-1"></a><span class="kn">from</span> <span class="nn">abc</span> <span class="kn">import</span> <span class="n">ABCMeta</span><span class="p">,</span> <span class="n">abstractmethod</span>
-<a name="rest_code_541fa61939f048fabae437bc352db209-2"></a>
-<a name="rest_code_541fa61939f048fabae437bc352db209-3"></a>
-<a name="rest_code_541fa61939f048fabae437bc352db209-4"></a><span class="k">class</span> <span class="nc">Pushable</span><span class="p">(</span><span class="n">metaclass</span><span class="o">=</span><span class="n">ABCMeta</span><span class="p">):</span>
-<a name="rest_code_541fa61939f048fabae437bc352db209-5"></a>    <span class="nd">@abstractmethod</span>
-<a name="rest_code_541fa61939f048fabae437bc352db209-6"></a>    <span class="k">def</span> <span class="nf">push</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-<a name="rest_code_541fa61939f048fabae437bc352db209-7"></a>        <span class="sd">"""何でも push"""</span>
-<a name="rest_code_541fa61939f048fabae437bc352db209-8"></a>
-<a name="rest_code_541fa61939f048fabae437bc352db209-9"></a>    <span class="nd">@classmethod</span>
-<a name="rest_code_541fa61939f048fabae437bc352db209-10"></a>    <span class="k">def</span> <span class="nf">__subclasshook__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">subclass</span><span class="p">):</span>
-<a name="rest_code_541fa61939f048fabae437bc352db209-11"></a>        <span class="c1"># これを実装しておくと、暗黙的にインターフェイスを実装しているインスタンスも</span>
-<a name="rest_code_541fa61939f048fabae437bc352db209-12"></a>        <span class="c1"># インターフェイスのインスタンスだと確認できる</span>
-<a name="rest_code_541fa61939f048fabae437bc352db209-13"></a>        <span class="k">if</span> <span class="bp">cls</span> <span class="ow">is</span> <span class="n">Pushable</span><span class="p">:</span>
-<a name="rest_code_541fa61939f048fabae437bc352db209-14"></a>            <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="s1">'push'</span> <span class="ow">in</span> <span class="n">B</span><span class="o">.</span><span class="vm">__dict__</span> <span class="k">for</span> <span class="n">B</span> <span class="ow">in</span> <span class="n">subclass</span><span class="o">.</span><span class="vm">__mro__</span><span class="p">):</span>
-<a name="rest_code_541fa61939f048fabae437bc352db209-15"></a>                <span class="k">return</span> <span class="bp">True</span>
-<a name="rest_code_541fa61939f048fabae437bc352db209-16"></a>        <span class="k">return</span> <span class="bp">NotImplemented</span>
-<a name="rest_code_541fa61939f048fabae437bc352db209-17"></a>
-<a name="rest_code_541fa61939f048fabae437bc352db209-18"></a>
-<a name="rest_code_541fa61939f048fabae437bc352db209-19"></a><span class="k">class</span> <span class="nc">HeyPushable</span><span class="p">(</span><span class="n">Pushable</span><span class="p">):</span>
-<a name="rest_code_541fa61939f048fabae437bc352db209-20"></a>    <span class="k">def</span> <span class="nf">push</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-<a name="rest_code_541fa61939f048fabae437bc352db209-21"></a>        <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">'Hey {x} push.'</span><span class="p">)</span>
-<a name="rest_code_541fa61939f048fabae437bc352db209-22"></a>
-<a name="rest_code_541fa61939f048fabae437bc352db209-23"></a>
-<a name="rest_code_541fa61939f048fabae437bc352db209-24"></a><span class="k">class</span> <span class="nc">HoyPushable</span><span class="p">(</span><span class="n">Pushable</span><span class="p">):</span>
-<a name="rest_code_541fa61939f048fabae437bc352db209-25"></a>    <span class="k">def</span> <span class="nf">pull</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-<a name="rest_code_541fa61939f048fabae437bc352db209-26"></a>        <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">'Hoy {x} pull.'</span><span class="p">)</span>
-<a name="rest_code_541fa61939f048fabae437bc352db209-27"></a>
-<a name="rest_code_541fa61939f048fabae437bc352db209-28"></a>
-<a name="rest_code_541fa61939f048fabae437bc352db209-29"></a><span class="k">class</span> <span class="nc">PoyPushable</span><span class="p">:</span>
-<a name="rest_code_541fa61939f048fabae437bc352db209-30"></a>    <span class="k">def</span> <span class="nf">push</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-<a name="rest_code_541fa61939f048fabae437bc352db209-31"></a>        <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">'Poy {x} push.'</span><span class="p">)</span>
-<a name="rest_code_541fa61939f048fabae437bc352db209-32"></a>
-<a name="rest_code_541fa61939f048fabae437bc352db209-33"></a>
-<a name="rest_code_541fa61939f048fabae437bc352db209-34"></a><span class="k">class</span> <span class="nc">NyaPushable</span><span class="p">:</span>
-<a name="rest_code_541fa61939f048fabae437bc352db209-35"></a>    <span class="k">def</span> <span class="nf">pull</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-<a name="rest_code_541fa61939f048fabae437bc352db209-36"></a>        <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">'Nya {x} pull.'</span><span class="p">)</span>
-<a name="rest_code_541fa61939f048fabae437bc352db209-37"></a>
-<a name="rest_code_541fa61939f048fabae437bc352db209-38"></a>
-<a name="rest_code_541fa61939f048fabae437bc352db209-39"></a><span class="k">class</span> <span class="nc">HeyHeyPushable</span><span class="p">(</span><span class="n">Pushable</span><span class="p">):</span>
-<a name="rest_code_541fa61939f048fabae437bc352db209-40"></a>    <span class="k">def</span> <span class="nf">push</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-<a name="rest_code_541fa61939f048fabae437bc352db209-41"></a>        <span class="c1"># 引数違いも互換性ありとみなされる</span>
-<a name="rest_code_541fa61939f048fabae437bc352db209-42"></a>        <span class="c1"># (PyCharm では警告出る)</span>
-<a name="rest_code_541fa61939f048fabae437bc352db209-43"></a>        <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">'Hey hey {x}, {y} push.'</span><span class="p">)</span>
+<pre class="code python"><a name="rest_code_1c0728663c824060822f763f600988ac-1"></a><span class="kn">from</span> <span class="nn">abc</span> <span class="kn">import</span> <span class="n">ABCMeta</span><span class="p">,</span> <span class="n">abstractmethod</span>
+<a name="rest_code_1c0728663c824060822f763f600988ac-2"></a>
+<a name="rest_code_1c0728663c824060822f763f600988ac-3"></a>
+<a name="rest_code_1c0728663c824060822f763f600988ac-4"></a><span class="k">class</span> <span class="nc">Pushable</span><span class="p">(</span><span class="n">metaclass</span><span class="o">=</span><span class="n">ABCMeta</span><span class="p">):</span>
+<a name="rest_code_1c0728663c824060822f763f600988ac-5"></a>    <span class="nd">@abstractmethod</span>
+<a name="rest_code_1c0728663c824060822f763f600988ac-6"></a>    <span class="k">def</span> <span class="nf">push</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<a name="rest_code_1c0728663c824060822f763f600988ac-7"></a>        <span class="sd">"""何でも push"""</span>
+<a name="rest_code_1c0728663c824060822f763f600988ac-8"></a>
+<a name="rest_code_1c0728663c824060822f763f600988ac-9"></a>    <span class="nd">@classmethod</span>
+<a name="rest_code_1c0728663c824060822f763f600988ac-10"></a>    <span class="k">def</span> <span class="nf">__subclasshook__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">subclass</span><span class="p">):</span>
+<a name="rest_code_1c0728663c824060822f763f600988ac-11"></a>        <span class="c1"># これを実装しておくと、暗黙的にインターフェイスを実装しているインスタンスも</span>
+<a name="rest_code_1c0728663c824060822f763f600988ac-12"></a>        <span class="c1"># インターフェイスのインスタンスだと確認できる</span>
+<a name="rest_code_1c0728663c824060822f763f600988ac-13"></a>        <span class="k">if</span> <span class="bp">cls</span> <span class="ow">is</span> <span class="n">Pushable</span><span class="p">:</span>
+<a name="rest_code_1c0728663c824060822f763f600988ac-14"></a>            <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="s1">'push'</span> <span class="ow">in</span> <span class="n">B</span><span class="o">.</span><span class="vm">__dict__</span> <span class="k">for</span> <span class="n">B</span> <span class="ow">in</span> <span class="n">subclass</span><span class="o">.</span><span class="vm">__mro__</span><span class="p">):</span>
+<a name="rest_code_1c0728663c824060822f763f600988ac-15"></a>                <span class="k">return</span> <span class="bp">True</span>
+<a name="rest_code_1c0728663c824060822f763f600988ac-16"></a>        <span class="k">return</span> <span class="bp">NotImplemented</span>
+<a name="rest_code_1c0728663c824060822f763f600988ac-17"></a>
+<a name="rest_code_1c0728663c824060822f763f600988ac-18"></a>
+<a name="rest_code_1c0728663c824060822f763f600988ac-19"></a><span class="k">class</span> <span class="nc">HeyPushable</span><span class="p">(</span><span class="n">Pushable</span><span class="p">):</span>
+<a name="rest_code_1c0728663c824060822f763f600988ac-20"></a>    <span class="k">def</span> <span class="nf">push</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<a name="rest_code_1c0728663c824060822f763f600988ac-21"></a>        <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">'Hey {x} push.'</span><span class="p">)</span>
+<a name="rest_code_1c0728663c824060822f763f600988ac-22"></a>
+<a name="rest_code_1c0728663c824060822f763f600988ac-23"></a>
+<a name="rest_code_1c0728663c824060822f763f600988ac-24"></a><span class="k">class</span> <span class="nc">HoyPushable</span><span class="p">(</span><span class="n">Pushable</span><span class="p">):</span>
+<a name="rest_code_1c0728663c824060822f763f600988ac-25"></a>    <span class="k">def</span> <span class="nf">pull</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<a name="rest_code_1c0728663c824060822f763f600988ac-26"></a>        <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">'Hoy {x} pull.'</span><span class="p">)</span>
+<a name="rest_code_1c0728663c824060822f763f600988ac-27"></a>
+<a name="rest_code_1c0728663c824060822f763f600988ac-28"></a>
+<a name="rest_code_1c0728663c824060822f763f600988ac-29"></a><span class="k">class</span> <span class="nc">PoyPushable</span><span class="p">:</span>
+<a name="rest_code_1c0728663c824060822f763f600988ac-30"></a>    <span class="k">def</span> <span class="nf">push</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<a name="rest_code_1c0728663c824060822f763f600988ac-31"></a>        <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">'Poy {x} push.'</span><span class="p">)</span>
+<a name="rest_code_1c0728663c824060822f763f600988ac-32"></a>
+<a name="rest_code_1c0728663c824060822f763f600988ac-33"></a>
+<a name="rest_code_1c0728663c824060822f763f600988ac-34"></a><span class="k">class</span> <span class="nc">NyaPushable</span><span class="p">:</span>
+<a name="rest_code_1c0728663c824060822f763f600988ac-35"></a>    <span class="k">def</span> <span class="nf">pull</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<a name="rest_code_1c0728663c824060822f763f600988ac-36"></a>        <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">'Nya {x} pull.'</span><span class="p">)</span>
+<a name="rest_code_1c0728663c824060822f763f600988ac-37"></a>
+<a name="rest_code_1c0728663c824060822f763f600988ac-38"></a>
+<a name="rest_code_1c0728663c824060822f763f600988ac-39"></a><span class="k">class</span> <span class="nc">HeyHeyPushable</span><span class="p">(</span><span class="n">Pushable</span><span class="p">):</span>
+<a name="rest_code_1c0728663c824060822f763f600988ac-40"></a>    <span class="k">def</span> <span class="nf">push</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<a name="rest_code_1c0728663c824060822f763f600988ac-41"></a>        <span class="c1"># 引数違いも互換性ありとみなされる</span>
+<a name="rest_code_1c0728663c824060822f763f600988ac-42"></a>        <span class="c1"># (PyCharm では警告出る)</span>
+<a name="rest_code_1c0728663c824060822f763f600988ac-43"></a>        <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">'Hey hey {x}, {y} push.'</span><span class="p">)</span>
 </pre>
-<pre class="code python"><a name="rest_code_c0d4e639cf55430da6d282eafaa830c0-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">hey</span> <span class="o">=</span> <span class="n">HeyPushable</span><span class="p">()</span>
-<a name="rest_code_c0d4e639cf55430da6d282eafaa830c0-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">hey</span><span class="p">,</span> <span class="n">Pushable</span><span class="p">)</span>
-<a name="rest_code_c0d4e639cf55430da6d282eafaa830c0-3"></a><span class="bp">True</span>
-<a name="rest_code_c0d4e639cf55430da6d282eafaa830c0-4"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">hey</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="s1">'husky'</span><span class="p">)</span>
-<a name="rest_code_c0d4e639cf55430da6d282eafaa830c0-5"></a><span class="n">Hey</span> <span class="n">husky</span> <span class="n">push</span><span class="o">.</span>
-<a name="rest_code_c0d4e639cf55430da6d282eafaa830c0-6"></a>
-<a name="rest_code_c0d4e639cf55430da6d282eafaa830c0-7"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">hoy</span> <span class="o">=</span> <span class="n">HoyPushable</span><span class="p">()</span>
-<a name="rest_code_c0d4e639cf55430da6d282eafaa830c0-8"></a><span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
-<a name="rest_code_c0d4e639cf55430da6d282eafaa830c0-9"></a>  <span class="n">File</span> <span class="s2">"&lt;console&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<a name="rest_code_c0d4e639cf55430da6d282eafaa830c0-10"></a><span class="ne">TypeError</span><span class="p">:</span> <span class="n">Can</span><span class="s1">'t instantiate abstract class HoyPushable with abstract methods push</span>
-<a name="rest_code_c0d4e639cf55430da6d282eafaa830c0-11"></a>
-<a name="rest_code_c0d4e639cf55430da6d282eafaa830c0-12"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">poy</span> <span class="o">=</span> <span class="n">PoyPushable</span><span class="p">()</span>
-<a name="rest_code_c0d4e639cf55430da6d282eafaa830c0-13"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">poy</span><span class="p">,</span> <span class="n">Pushable</span><span class="p">)</span>
-<a name="rest_code_c0d4e639cf55430da6d282eafaa830c0-14"></a><span class="bp">True</span>
-<a name="rest_code_c0d4e639cf55430da6d282eafaa830c0-15"></a>
-<a name="rest_code_c0d4e639cf55430da6d282eafaa830c0-16"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">nya</span> <span class="o">=</span> <span class="n">NyaPushable</span><span class="p">()</span>
-<a name="rest_code_c0d4e639cf55430da6d282eafaa830c0-17"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">nya</span><span class="p">,</span> <span class="n">Pushable</span><span class="p">)</span>
-<a name="rest_code_c0d4e639cf55430da6d282eafaa830c0-18"></a><span class="bp">False</span>
-<a name="rest_code_c0d4e639cf55430da6d282eafaa830c0-19"></a>
-<a name="rest_code_c0d4e639cf55430da6d282eafaa830c0-20"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">heyhey</span> <span class="o">=</span> <span class="n">HeyHeyPushable</span><span class="p">()</span>
-<a name="rest_code_c0d4e639cf55430da6d282eafaa830c0-21"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">heyhey</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="s1">'husky'</span><span class="p">,</span> <span class="s1">'shiba'</span><span class="p">)</span>
-<a name="rest_code_c0d4e639cf55430da6d282eafaa830c0-22"></a><span class="n">Hey</span> <span class="n">hey</span> <span class="n">husky</span><span class="p">,</span> <span class="n">shiba</span> <span class="n">push</span><span class="o">.</span>
+<pre class="code python"><a name="rest_code_9f44755fc64c4588894a9f9b8e9e3503-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">hey</span> <span class="o">=</span> <span class="n">HeyPushable</span><span class="p">()</span>
+<a name="rest_code_9f44755fc64c4588894a9f9b8e9e3503-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">hey</span><span class="p">,</span> <span class="n">Pushable</span><span class="p">)</span>
+<a name="rest_code_9f44755fc64c4588894a9f9b8e9e3503-3"></a><span class="bp">True</span>
+<a name="rest_code_9f44755fc64c4588894a9f9b8e9e3503-4"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">hey</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="s1">'husky'</span><span class="p">)</span>
+<a name="rest_code_9f44755fc64c4588894a9f9b8e9e3503-5"></a><span class="n">Hey</span> <span class="n">husky</span> <span class="n">push</span><span class="o">.</span>
+<a name="rest_code_9f44755fc64c4588894a9f9b8e9e3503-6"></a>
+<a name="rest_code_9f44755fc64c4588894a9f9b8e9e3503-7"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">hoy</span> <span class="o">=</span> <span class="n">HoyPushable</span><span class="p">()</span>
+<a name="rest_code_9f44755fc64c4588894a9f9b8e9e3503-8"></a><span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+<a name="rest_code_9f44755fc64c4588894a9f9b8e9e3503-9"></a>  <span class="n">File</span> <span class="s2">"&lt;console&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<a name="rest_code_9f44755fc64c4588894a9f9b8e9e3503-10"></a><span class="ne">TypeError</span><span class="p">:</span> <span class="n">Can</span><span class="s1">'t instantiate abstract class HoyPushable with abstract methods push</span>
+<a name="rest_code_9f44755fc64c4588894a9f9b8e9e3503-11"></a>
+<a name="rest_code_9f44755fc64c4588894a9f9b8e9e3503-12"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">poy</span> <span class="o">=</span> <span class="n">PoyPushable</span><span class="p">()</span>
+<a name="rest_code_9f44755fc64c4588894a9f9b8e9e3503-13"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">poy</span><span class="p">,</span> <span class="n">Pushable</span><span class="p">)</span>
+<a name="rest_code_9f44755fc64c4588894a9f9b8e9e3503-14"></a><span class="bp">True</span>
+<a name="rest_code_9f44755fc64c4588894a9f9b8e9e3503-15"></a>
+<a name="rest_code_9f44755fc64c4588894a9f9b8e9e3503-16"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">nya</span> <span class="o">=</span> <span class="n">NyaPushable</span><span class="p">()</span>
+<a name="rest_code_9f44755fc64c4588894a9f9b8e9e3503-17"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">nya</span><span class="p">,</span> <span class="n">Pushable</span><span class="p">)</span>
+<a name="rest_code_9f44755fc64c4588894a9f9b8e9e3503-18"></a><span class="bp">False</span>
+<a name="rest_code_9f44755fc64c4588894a9f9b8e9e3503-19"></a>
+<a name="rest_code_9f44755fc64c4588894a9f9b8e9e3503-20"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">heyhey</span> <span class="o">=</span> <span class="n">HeyHeyPushable</span><span class="p">()</span>
+<a name="rest_code_9f44755fc64c4588894a9f9b8e9e3503-21"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">heyhey</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="s1">'husky'</span><span class="p">,</span> <span class="s1">'shiba'</span><span class="p">)</span>
+<a name="rest_code_9f44755fc64c4588894a9f9b8e9e3503-22"></a><span class="n">Hey</span> <span class="n">hey</span> <span class="n">husky</span><span class="p">,</span> <span class="n">shiba</span> <span class="n">push</span><span class="o">.</span>
 </pre>
 </div>
 <div class="section" id="protocol">
@@ -239,13 +239,13 @@
 </div>
 <div class="section" id="yield-dict-zip-columns-data">
 <h3><a class="toc-backref" href="#id34">yield dict(zip(columns, data))</a></h3>
-<pre class="code python"><a name="rest_code_a276261c2f1f49a4ae25de594d07fcca-1"></a><span class="c1"># これは、</span>
-<a name="rest_code_a276261c2f1f49a4ae25de594d07fcca-2"></a><span class="k">for</span> <span class="n">column</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">columns</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
-<a name="rest_code_a276261c2f1f49a4ae25de594d07fcca-3"></a>    <span class="n">row_dict</span><span class="p">[</span><span class="n">column</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
-<a name="rest_code_a276261c2f1f49a4ae25de594d07fcca-4"></a>    <span class="k">yield</span> <span class="n">row_dict</span>
-<a name="rest_code_a276261c2f1f49a4ae25de594d07fcca-5"></a>
-<a name="rest_code_a276261c2f1f49a4ae25de594d07fcca-6"></a><span class="c1"># こう書ける。</span>
-<a name="rest_code_a276261c2f1f49a4ae25de594d07fcca-7"></a><span class="k">yield</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">columns</span><span class="p">,</span> <span class="n">data</span><span class="p">))</span>
+<pre class="code python"><a name="rest_code_4e1754c33b5f464c95d4299f4014597d-1"></a><span class="c1"># これは、</span>
+<a name="rest_code_4e1754c33b5f464c95d4299f4014597d-2"></a><span class="k">for</span> <span class="n">column</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">columns</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+<a name="rest_code_4e1754c33b5f464c95d4299f4014597d-3"></a>    <span class="n">row_dict</span><span class="p">[</span><span class="n">column</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+<a name="rest_code_4e1754c33b5f464c95d4299f4014597d-4"></a>    <span class="k">yield</span> <span class="n">row_dict</span>
+<a name="rest_code_4e1754c33b5f464c95d4299f4014597d-5"></a>
+<a name="rest_code_4e1754c33b5f464c95d4299f4014597d-6"></a><span class="c1"># こう書ける。</span>
+<a name="rest_code_4e1754c33b5f464c95d4299f4014597d-7"></a><span class="k">yield</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">columns</span><span class="p">,</span> <span class="n">data</span><span class="p">))</span>
 </pre>
 <ul class="simple">
 <li><p><code class="docutils literal">zip</code> はタプルのイテレータを返す -&gt; タプルから辞書を作れる</p></li>
@@ -297,17 +297,17 @@
 <ul class="simple">
 <li><p><a class="reference external" href="https://docs.python.org/ja/3/library/stdtypes.html#tuples">タプル型 (tuple)</a> : <code class="docutils literal">タプルはイミュータブルなシーケンス</code> なので、 ソートできる。</p></li>
 </ul>
-<pre class="code python"><a name="rest_code_f8e0e9f8bd2b43eebd080c42e66c5f48-1"></a><span class="c1"># これは、</span>
-<a name="rest_code_f8e0e9f8bd2b43eebd080c42e66c5f48-2"></a><span class="n">summary_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">summary_dict</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
-<a name="rest_code_f8e0e9f8bd2b43eebd080c42e66c5f48-3"></a><span class="n">summary_list</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s1">'sort_key'</span><span class="p">])</span>
-<a name="rest_code_f8e0e9f8bd2b43eebd080c42e66c5f48-4"></a>
-<a name="rest_code_f8e0e9f8bd2b43eebd080c42e66c5f48-5"></a><span class="c1"># ``sorted`` という関数を使って以下のように書ける。</span>
-<a name="rest_code_f8e0e9f8bd2b43eebd080c42e66c5f48-6"></a><span class="n">summary_list</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">summary_dict</span><span class="o">.</span><span class="n">values</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s1">'sort_key'</span><span class="p">])</span>
-<a name="rest_code_f8e0e9f8bd2b43eebd080c42e66c5f48-7"></a>
-<a name="rest_code_f8e0e9f8bd2b43eebd080c42e66c5f48-8"></a>
-<a name="rest_code_f8e0e9f8bd2b43eebd080c42e66c5f48-9"></a><span class="c1"># さらに、for文をこんなふうに書くと ``summary_list`` を作る工程が不要。</span>
-<a name="rest_code_f8e0e9f8bd2b43eebd080c42e66c5f48-10"></a><span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">summary</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">summary_dict</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
-<a name="rest_code_f8e0e9f8bd2b43eebd080c42e66c5f48-11"></a>    <span class="c1"># ....</span>
+<pre class="code python"><a name="rest_code_0a71bf9e99f148099348619ab44e00f0-1"></a><span class="c1"># これは、</span>
+<a name="rest_code_0a71bf9e99f148099348619ab44e00f0-2"></a><span class="n">summary_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">summary_dict</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+<a name="rest_code_0a71bf9e99f148099348619ab44e00f0-3"></a><span class="n">summary_list</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s1">'sort_key'</span><span class="p">])</span>
+<a name="rest_code_0a71bf9e99f148099348619ab44e00f0-4"></a>
+<a name="rest_code_0a71bf9e99f148099348619ab44e00f0-5"></a><span class="c1"># ``sorted`` という関数を使って以下のように書ける。</span>
+<a name="rest_code_0a71bf9e99f148099348619ab44e00f0-6"></a><span class="n">summary_list</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">summary_dict</span><span class="o">.</span><span class="n">values</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s1">'sort_key'</span><span class="p">])</span>
+<a name="rest_code_0a71bf9e99f148099348619ab44e00f0-7"></a>
+<a name="rest_code_0a71bf9e99f148099348619ab44e00f0-8"></a>
+<a name="rest_code_0a71bf9e99f148099348619ab44e00f0-9"></a><span class="c1"># さらに、for文をこんなふうに書くと ``summary_list`` を作る工程が不要。</span>
+<a name="rest_code_0a71bf9e99f148099348619ab44e00f0-10"></a><span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">summary</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">summary_dict</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
+<a name="rest_code_0a71bf9e99f148099348619ab44e00f0-11"></a>    <span class="c1"># ....</span>
 </pre>
 </div>
 <div class="section" id="property">
@@ -317,13 +317,13 @@
 <li><p><code class="docutils literal">@property</code> デコレータ を付けると、プロパティのように呼び出せる。</p></li>
 <li>
 <p>同じ名前のまま 読み出し専用属性の <code class="docutils literal">getter</code> にしてくれる</p>
-<pre class="code python"><a name="rest_code_423aff473f4845799957ac983a8c825b-1"></a><span class="c1"># 付けるとき</span>
-<a name="rest_code_423aff473f4845799957ac983a8c825b-2"></a><span class="err">@</span> <span class="nb">property</span>
-<a name="rest_code_423aff473f4845799957ac983a8c825b-3"></a><span class="k">def</span> <span class="nf">husky</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a name="rest_code_423aff473f4845799957ac983a8c825b-4"></a>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">access_datetime</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">'%Y/%m/</span><span class="si">%d</span><span class="s1"> %H'</span><span class="p">)</span>
+<pre class="code python"><a name="rest_code_caa3eec762434b5d92022ba3c558744a-1"></a><span class="c1"># 付けるとき</span>
+<a name="rest_code_caa3eec762434b5d92022ba3c558744a-2"></a><span class="err">@</span> <span class="nb">property</span>
+<a name="rest_code_caa3eec762434b5d92022ba3c558744a-3"></a><span class="k">def</span> <span class="nf">husky</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a name="rest_code_caa3eec762434b5d92022ba3c558744a-4"></a>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">access_datetime</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">'%Y/%m/</span><span class="si">%d</span><span class="s1"> %H'</span><span class="p">)</span>
 </pre>
-<pre class="code python"><a name="rest_code_7eda5c1f49bf45e48fdd806964ca6726-1"></a><span class="c1"># 呼び出すとき</span>
-<a name="rest_code_7eda5c1f49bf45e48fdd806964ca6726-2"></a><span class="n">xxx</span><span class="o">.</span><span class="n">husky</span>
+<pre class="code python"><a name="rest_code_68cdb193104f4c9d8a5a170a0b37168f-1"></a><span class="c1"># 呼び出すとき</span>
+<a name="rest_code_68cdb193104f4c9d8a5a170a0b37168f-2"></a><span class="n">xxx</span><span class="o">.</span><span class="n">husky</span>
 </pre>
 </li>
 </ul>
@@ -334,8 +334,8 @@
 <div class="section" id="id19">
 <h3><a class="toc-backref" href="#id44">バックスラッシュ感染症</a></h3>
 <p><a class="reference external" href="https://docs.python.org/ja/3.7/howto/regex.html#the-backslash-plague">バックスラッシュ感染症</a></p>
-<pre class="code python"><a name="rest_code_7484b7ab00dc4d66a941b9d1e0682cdb-1"></a><span class="c1"># こんなふうに書く</span>
-<a name="rest_code_7484b7ab00dc4d66a941b9d1e0682cdb-2"></a><span class="sa">r</span><span class="s2">"ab*"</span>
+<pre class="code python"><a name="rest_code_b696099cb88440589246f95c874f6f98-1"></a><span class="c1"># こんなふうに書く</span>
+<a name="rest_code_b696099cb88440589246f95c874f6f98-2"></a><span class="sa">r</span><span class="s2">"ab*"</span>
 </pre>
 <ul class="simple">
 <li><p><code class="docutils literal">r</code> を文字列リテラルの先頭に書くことでバックスラッシュは特別扱いされなくなる</p></li>
@@ -367,12 +367,12 @@
 <div class="section" id="unicode-str">
 <h3><a class="toc-backref" href="#id49">unicode と str</a></h3>
 <p><a class="reference external" href="https://docs.python.org/ja/2.7/tutorial/introduction.html#unicode-strings">3.1.3. Unicode 文字列</a></p>
-<pre class="code python"><a name="rest_code_89e8da6a777b4685ae08518309443aac-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="c1"># -*- coding: utf-8 -*-</span>
-<a name="rest_code_89e8da6a777b4685ae08518309443aac-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="s1">'ふみ'</span> <span class="o">==</span> <span class="sa">u</span><span class="s1">'ふみ'</span>
-<a name="rest_code_89e8da6a777b4685ae08518309443aac-3"></a><span class="bp">False</span>
-<a name="rest_code_89e8da6a777b4685ae08518309443aac-4"></a><span class="o">&gt;&gt;&gt;</span> <span class="s1">'fumi23'</span> <span class="o">==</span> <span class="sa">u</span><span class="s1">'fumi23'</span>
-<a name="rest_code_89e8da6a777b4685ae08518309443aac-5"></a><span class="bp">True</span>
-<a name="rest_code_89e8da6a777b4685ae08518309443aac-6"></a><span class="o">&gt;&gt;&gt;</span>
+<pre class="code python"><a name="rest_code_6ab4bddd36c04a67a4778d4b194998ae-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="c1"># -*- coding: utf-8 -*-</span>
+<a name="rest_code_6ab4bddd36c04a67a4778d4b194998ae-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="s1">'ふみ'</span> <span class="o">==</span> <span class="sa">u</span><span class="s1">'ふみ'</span>
+<a name="rest_code_6ab4bddd36c04a67a4778d4b194998ae-3"></a><span class="bp">False</span>
+<a name="rest_code_6ab4bddd36c04a67a4778d4b194998ae-4"></a><span class="o">&gt;&gt;&gt;</span> <span class="s1">'fumi23'</span> <span class="o">==</span> <span class="sa">u</span><span class="s1">'fumi23'</span>
+<a name="rest_code_6ab4bddd36c04a67a4778d4b194998ae-5"></a><span class="bp">True</span>
+<a name="rest_code_6ab4bddd36c04a67a4778d4b194998ae-6"></a><span class="o">&gt;&gt;&gt;</span>
 </pre>
 <ul class="simple">
 <li><p>python2 の場合、マルチバイトを含むと <code class="docutils literal">u</code> の有無で違うオブジェクトとして判定される。</p></li>
@@ -382,7 +382,7 @@
 <div class="section" id="coding-utf-8">
 <h3><a class="toc-backref" href="#id50">coding: utf-8</a></h3>
 <p>ソースコードの文字エンコーディングを指定する</p>
-<pre class="code python"><a name="rest_code_ee5c6e288d274f0fae2494e49a2f857d-1"></a><span class="c1"># -*- coding: utf-8 -*-</span>
+<pre class="code python"><a name="rest_code_9c52e78376b849eb8451d10fdc1c0c2a-1"></a><span class="c1"># -*- coding: utf-8 -*-</span>
 </pre>
 <ul class="simple">
 <li><p>ファイルの先頭に記述する</p></li>

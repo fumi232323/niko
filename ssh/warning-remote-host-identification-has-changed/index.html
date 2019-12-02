@@ -39,21 +39,21 @@
 <ul>
 <li>
 <p>エラーメッセージ(だいたいこんな感じ)</p>
-<pre class="code bash"><a name="rest_code_c14a8ee34a574e118f1b7f8e4df340d9-1"></a>$ ssh <span class="o">{</span>接続先サーバー<span class="o">}</span>
-<a name="rest_code_c14a8ee34a574e118f1b7f8e4df340d9-2"></a>@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-<a name="rest_code_c14a8ee34a574e118f1b7f8e4df340d9-3"></a>@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
-<a name="rest_code_c14a8ee34a574e118f1b7f8e4df340d9-4"></a>@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-<a name="rest_code_c14a8ee34a574e118f1b7f8e4df340d9-5"></a>IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
-<a name="rest_code_c14a8ee34a574e118f1b7f8e4df340d9-6"></a>Someone could be eavesdropping on you right now <span class="o">(</span>man-in-the-middle attack<span class="o">)</span>!
-<a name="rest_code_c14a8ee34a574e118f1b7f8e4df340d9-7"></a>It is also possible that a host key has just been changed.
-<a name="rest_code_c14a8ee34a574e118f1b7f8e4df340d9-8"></a>The fingerprint <span class="k">for</span> the RSA key sent by the remote host is
-<a name="rest_code_c14a8ee34a574e118f1b7f8e4df340d9-9"></a>SHA256:<span class="o">{</span>ここに fingerprint <span class="o">}</span>.
-<a name="rest_code_c14a8ee34a574e118f1b7f8e4df340d9-10"></a>Please contact your system administrator.
-<a name="rest_code_c14a8ee34a574e118f1b7f8e4df340d9-11"></a>Add correct host key in /Users/fumi23/.ssh/known_hosts to get rid of this message.
-<a name="rest_code_c14a8ee34a574e118f1b7f8e4df340d9-12"></a>Offending RSA key in /Users/fumi23/.ssh/known_hosts:3
-<a name="rest_code_c14a8ee34a574e118f1b7f8e4df340d9-13"></a>RSA host key <span class="k">for</span> <span class="o">{</span>ここに 接続先サーバーの HostName <span class="o">}</span> has changed and you have requested strict checking.
-<a name="rest_code_c14a8ee34a574e118f1b7f8e4df340d9-14"></a>Host key verification failed.
-<a name="rest_code_c14a8ee34a574e118f1b7f8e4df340d9-15"></a>ssh_exchange_identification: Connection closed by remote host
+<pre class="code bash"><a name="rest_code_0171032334d84fb8a6fda9372e6ff4ed-1"></a>$ ssh <span class="o">{</span>接続先サーバー<span class="o">}</span>
+<a name="rest_code_0171032334d84fb8a6fda9372e6ff4ed-2"></a>@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+<a name="rest_code_0171032334d84fb8a6fda9372e6ff4ed-3"></a>@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
+<a name="rest_code_0171032334d84fb8a6fda9372e6ff4ed-4"></a>@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+<a name="rest_code_0171032334d84fb8a6fda9372e6ff4ed-5"></a>IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
+<a name="rest_code_0171032334d84fb8a6fda9372e6ff4ed-6"></a>Someone could be eavesdropping on you right now <span class="o">(</span>man-in-the-middle attack<span class="o">)</span>!
+<a name="rest_code_0171032334d84fb8a6fda9372e6ff4ed-7"></a>It is also possible that a host key has just been changed.
+<a name="rest_code_0171032334d84fb8a6fda9372e6ff4ed-8"></a>The fingerprint <span class="k">for</span> the RSA key sent by the remote host is
+<a name="rest_code_0171032334d84fb8a6fda9372e6ff4ed-9"></a>SHA256:<span class="o">{</span>ここに fingerprint <span class="o">}</span>.
+<a name="rest_code_0171032334d84fb8a6fda9372e6ff4ed-10"></a>Please contact your system administrator.
+<a name="rest_code_0171032334d84fb8a6fda9372e6ff4ed-11"></a>Add correct host key in /Users/fumi23/.ssh/known_hosts to get rid of this message.
+<a name="rest_code_0171032334d84fb8a6fda9372e6ff4ed-12"></a>Offending RSA key in /Users/fumi23/.ssh/known_hosts:3
+<a name="rest_code_0171032334d84fb8a6fda9372e6ff4ed-13"></a>RSA host key <span class="k">for</span> <span class="o">{</span>ここに 接続先サーバーの HostName <span class="o">}</span> has changed and you have requested strict checking.
+<a name="rest_code_0171032334d84fb8a6fda9372e6ff4ed-14"></a>Host key verification failed.
+<a name="rest_code_0171032334d84fb8a6fda9372e6ff4ed-15"></a>ssh_exchange_identification: Connection closed by remote host
 </pre>
 </li>
 </ul>
@@ -79,10 +79,10 @@
 <li>
 <p>known_hostsファイルから、接続先サーバーの HostName に属する鍵をすべて取り除く。</p>
 <blockquote>
-<pre class="code bash"><a name="rest_code_291256f0496549d68780712fe7e5835f-1"></a>$ ssh-keygen -R <span class="o">{</span>ここに 接続先サーバーの HostName <span class="o">}</span>
-<a name="rest_code_291256f0496549d68780712fe7e5835f-2"></a><span class="c1"># Host {ここに 接続先サーバーの HostName } found: line 3</span>
-<a name="rest_code_291256f0496549d68780712fe7e5835f-3"></a>/Users/fumi23/.ssh/known_hosts updated.
-<a name="rest_code_291256f0496549d68780712fe7e5835f-4"></a>Original contents retained as /Users/fumi23/.ssh/known_hosts.old
+<pre class="code bash"><a name="rest_code_ad46a30e323d49d1b68b686f27d87b79-1"></a>$ ssh-keygen -R <span class="o">{</span>ここに 接続先サーバーの HostName <span class="o">}</span>
+<a name="rest_code_ad46a30e323d49d1b68b686f27d87b79-2"></a><span class="c1"># Host {ここに 接続先サーバーの HostName } found: line 3</span>
+<a name="rest_code_ad46a30e323d49d1b68b686f27d87b79-3"></a>/Users/fumi23/.ssh/known_hosts updated.
+<a name="rest_code_ad46a30e323d49d1b68b686f27d87b79-4"></a>Original contents retained as /Users/fumi23/.ssh/known_hosts.old
 </pre>
 </blockquote>
 </li>
@@ -90,16 +90,16 @@
 <li>
 <p>「あなたが接続しようとしているサーバーの fingerprint はこれか？」と尋ねられるので、 <code class="docutils literal">yes</code> と答える。</p>
 <blockquote>
-<pre class="code bash"><a name="rest_code_6e7e8dd330e740fa9f2ec709a505be1f-1"></a>$ ssh <span class="o">{</span>接続先サーバー<span class="o">}</span>
-<a name="rest_code_6e7e8dd330e740fa9f2ec709a505be1f-2"></a>The authenticity of host <span class="s1">'{ここに 接続先サーバーの HostName } ({ここに 接続先サーバーの IPアドレス })'</span> can<span class="s1">'t be established.</span>
-<a name="rest_code_6e7e8dd330e740fa9f2ec709a505be1f-3"></a><span class="s1">ECDSA key fingerprint is SHA256:(ここに 新しい fingerprint ).</span>
-<a name="rest_code_6e7e8dd330e740fa9f2ec709a505be1f-4"></a><span class="s1">Are you sure you want to continue connecting (yes/no)? yes</span>
-<a name="rest_code_6e7e8dd330e740fa9f2ec709a505be1f-5"></a><span class="s1">Warning: Permanently added '</span><span class="o">{</span>ここに 接続先サーバーの HostName <span class="o">}</span>,<span class="o">{</span>ここに 接続先サーバーの IPアドレス <span class="o">}</span><span class="s1">' (ECDSA) to the list of known hosts.</span>
-<a name="rest_code_6e7e8dd330e740fa9f2ec709a505be1f-6"></a><span class="s1">The authenticity of host '</span><span class="o">{</span>ここに 接続先サーバーその2の HostName <span class="o">}</span> <span class="o">(</span>&lt;no hostip <span class="k">for</span> proxy command&gt;<span class="o">)</span><span class="s1">' can'</span>t be established.
-<a name="rest_code_6e7e8dd330e740fa9f2ec709a505be1f-7"></a>RSA key fingerprint is SHA256:<span class="o">(</span>ここに 新しい fingerprint その2 <span class="o">)</span>.
-<a name="rest_code_6e7e8dd330e740fa9f2ec709a505be1f-8"></a>Are you sure you want to <span class="k">continue</span> connecting <span class="o">(</span>yes/no<span class="o">)</span>? yes
-<a name="rest_code_6e7e8dd330e740fa9f2ec709a505be1f-9"></a>Warning: Permanently added <span class="s1">'{ここに 接続先サーバーその2の HostName }'</span> <span class="o">(</span>RSA<span class="o">)</span> to the list of known hosts.
-<a name="rest_code_6e7e8dd330e740fa9f2ec709a505be1f-10"></a>Last login: Fri Jul <span class="m">13</span> <span class="m">15</span>:43:09 <span class="m">2018</span> from <span class="m">172</span>.31.7.69
+<pre class="code bash"><a name="rest_code_6e9175cde3d549778adf6733291c2cd0-1"></a>$ ssh <span class="o">{</span>接続先サーバー<span class="o">}</span>
+<a name="rest_code_6e9175cde3d549778adf6733291c2cd0-2"></a>The authenticity of host <span class="s1">'{ここに 接続先サーバーの HostName } ({ここに 接続先サーバーの IPアドレス })'</span> can<span class="s1">'t be established.</span>
+<a name="rest_code_6e9175cde3d549778adf6733291c2cd0-3"></a><span class="s1">ECDSA key fingerprint is SHA256:(ここに 新しい fingerprint ).</span>
+<a name="rest_code_6e9175cde3d549778adf6733291c2cd0-4"></a><span class="s1">Are you sure you want to continue connecting (yes/no)? yes</span>
+<a name="rest_code_6e9175cde3d549778adf6733291c2cd0-5"></a><span class="s1">Warning: Permanently added '</span><span class="o">{</span>ここに 接続先サーバーの HostName <span class="o">}</span>,<span class="o">{</span>ここに 接続先サーバーの IPアドレス <span class="o">}</span><span class="s1">' (ECDSA) to the list of known hosts.</span>
+<a name="rest_code_6e9175cde3d549778adf6733291c2cd0-6"></a><span class="s1">The authenticity of host '</span><span class="o">{</span>ここに 接続先サーバーその2の HostName <span class="o">}</span> <span class="o">(</span>&lt;no hostip <span class="k">for</span> proxy command&gt;<span class="o">)</span><span class="s1">' can'</span>t be established.
+<a name="rest_code_6e9175cde3d549778adf6733291c2cd0-7"></a>RSA key fingerprint is SHA256:<span class="o">(</span>ここに 新しい fingerprint その2 <span class="o">)</span>.
+<a name="rest_code_6e9175cde3d549778adf6733291c2cd0-8"></a>Are you sure you want to <span class="k">continue</span> connecting <span class="o">(</span>yes/no<span class="o">)</span>? yes
+<a name="rest_code_6e9175cde3d549778adf6733291c2cd0-9"></a>Warning: Permanently added <span class="s1">'{ここに 接続先サーバーその2の HostName }'</span> <span class="o">(</span>RSA<span class="o">)</span> to the list of known hosts.
+<a name="rest_code_6e9175cde3d549778adf6733291c2cd0-10"></a>Last login: Fri Jul <span class="m">13</span> <span class="m">15</span>:43:09 <span class="m">2018</span> from <span class="m">172</span>.31.7.69
 </pre>
 </blockquote>
 </li>
@@ -120,7 +120,7 @@
 <ul>
 <li>
 <p><code class="docutils literal">known_hosts</code> ファイルに、</p>
-<pre class="code bash"><a name="rest_code_cb15f6a3b0f14c599b056321a68df394-1"></a>サーバーのHostName 鍵のタイプ 謎の文字列
+<pre class="code bash"><a name="rest_code_ef1118ceefba45cab273aad8255234e2-1"></a>サーバーのHostName 鍵のタイプ 謎の文字列
 </pre>
 <p>の形式で書かれる。</p>
 </li>

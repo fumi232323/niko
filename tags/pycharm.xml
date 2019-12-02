@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ふみのて (pycharmについての文書)</title><link>https://32imuf.com/</link><description></description><atom:link href="https://32imuf.com/tags/pycharm.xml" rel="self" type="application/rss+xml"></atom:link><language>ja</language><copyright>Contents © 2019 &lt;a href="mailto:fumi232323fumi2016@gmail.com"&gt;fumi23&lt;/a&gt; </copyright><lastBuildDate>Sun, 10 Nov 2019 13:51:09 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Pycharm の Tox support を使う</title><link>https://32imuf.com/pycharm/tox-support/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;details&gt;&lt;summary&gt;目次&lt;/summary&gt;&lt;div class="contents topic" id="id1"&gt;
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ふみのて (pycharmについての文書)</title><link>https://32imuf.com/</link><description></description><atom:link href="https://32imuf.com/tags/pycharm.xml" rel="self" type="application/rss+xml"></atom:link><language>ja</language><copyright>Contents © 2019 &lt;a href="mailto:fumi232323fumi2016@gmail.com"&gt;fumi23&lt;/a&gt; </copyright><lastBuildDate>Sun, 01 Dec 2019 17:10:24 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Pycharm の Tox support を使う</title><link>https://32imuf.com/pycharm/tox-support/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;details&gt;&lt;summary&gt;目次&lt;/summary&gt;&lt;div class="contents topic" id="id1"&gt;
 &lt;p class="topic-title first"&gt;目次&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/pycharm/tox-support/#id2" id="id6"&gt;ガイド/リファレンスなど&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
@@ -438,8 +438,8 @@ Build #PY-192.6817.19, built on September 25, 2019&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;code class="docutils literal"&gt;Apply&lt;/code&gt; ボタン押下&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;code class="docutils literal"&gt;add&lt;/code&gt; と &lt;code class="docutils literal"&gt;commit&lt;/code&gt; は自分でやる&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;pre class="code console"&gt;&lt;a name="rest_code_6b42d4296f434210b3502c9794f5fe7c-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; git add .
-&lt;a name="rest_code_6b42d4296f434210b3502c9794f5fe7c-2"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; git commit -m &lt;span class="s2"&gt;"Merge branch 'topic-branch-name' into acceptance"&lt;/span&gt;
+&lt;pre class="code console"&gt;&lt;a name="rest_code_25d8e71fd11d4da78f5fd2a01300fe1a-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; git add .
+&lt;a name="rest_code_25d8e71fd11d4da78f5fd2a01300fe1a-2"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; git commit -m &lt;span class="s2"&gt;"Merge branch 'topic-branch-name' into acceptance"&lt;/span&gt;
 &lt;/pre&gt;&lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;/ol&gt;

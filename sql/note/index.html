@@ -36,32 +36,32 @@
 <ul>
 <li>
 <p>検索 CASE 式: NULL 判定できる</p>
-<pre class="code sql"><a name="rest_code_baa270eb50e34232aa36018215f8f530-1"></a><span class="k">CASE</span>
-<a name="rest_code_baa270eb50e34232aa36018215f8f530-2"></a>  <span class="k">WHEN</span> <span class="n">d</span><span class="p">.</span><span class="n">name</span> <span class="k">IS</span> <span class="k">NULL</span> <span class="k">THEN</span>
-<a name="rest_code_baa270eb50e34232aa36018215f8f530-3"></a>    <span class="k">CASE</span> <span class="n">d</span><span class="p">.</span><span class="k">type</span>
-<a name="rest_code_baa270eb50e34232aa36018215f8f530-4"></a>      <span class="k">WHEN</span> <span class="s1">'husky'</span> <span class="k">THEN</span> <span class="s1">'risa'</span>
-<a name="rest_code_baa270eb50e34232aa36018215f8f530-5"></a>      <span class="k">WHEN</span> <span class="s1">'shiba'</span> <span class="k">THEN</span> <span class="s1">'natsu'</span>
-<a name="rest_code_baa270eb50e34232aa36018215f8f530-6"></a>      <span class="k">WHEN</span> <span class="s1">'border collie'</span> <span class="k">THEN</span> <span class="s1">'chon'</span>
-<a name="rest_code_baa270eb50e34232aa36018215f8f530-7"></a>      <span class="k">WHEN</span> <span class="s1">'labrador retriever'</span> <span class="k">THEN</span> <span class="s1">'robo'</span>
-<a name="rest_code_baa270eb50e34232aa36018215f8f530-8"></a>      <span class="k">ELSE</span> <span class="k">NULL</span>
-<a name="rest_code_baa270eb50e34232aa36018215f8f530-9"></a>    <span class="k">END</span>
-<a name="rest_code_baa270eb50e34232aa36018215f8f530-10"></a>  <span class="k">ELSE</span> <span class="n">d</span><span class="p">.</span><span class="n">name</span>
-<a name="rest_code_baa270eb50e34232aa36018215f8f530-11"></a><span class="k">END</span> <span class="k">AS</span> <span class="n">name</span>
+<pre class="code sql"><a name="rest_code_e03c1c8b3873469b99d4670f81614ae6-1"></a><span class="k">CASE</span>
+<a name="rest_code_e03c1c8b3873469b99d4670f81614ae6-2"></a>  <span class="k">WHEN</span> <span class="n">d</span><span class="p">.</span><span class="n">name</span> <span class="k">IS</span> <span class="k">NULL</span> <span class="k">THEN</span>
+<a name="rest_code_e03c1c8b3873469b99d4670f81614ae6-3"></a>    <span class="k">CASE</span> <span class="n">d</span><span class="p">.</span><span class="k">type</span>
+<a name="rest_code_e03c1c8b3873469b99d4670f81614ae6-4"></a>      <span class="k">WHEN</span> <span class="s1">'husky'</span> <span class="k">THEN</span> <span class="s1">'risa'</span>
+<a name="rest_code_e03c1c8b3873469b99d4670f81614ae6-5"></a>      <span class="k">WHEN</span> <span class="s1">'shiba'</span> <span class="k">THEN</span> <span class="s1">'natsu'</span>
+<a name="rest_code_e03c1c8b3873469b99d4670f81614ae6-6"></a>      <span class="k">WHEN</span> <span class="s1">'border collie'</span> <span class="k">THEN</span> <span class="s1">'chon'</span>
+<a name="rest_code_e03c1c8b3873469b99d4670f81614ae6-7"></a>      <span class="k">WHEN</span> <span class="s1">'labrador retriever'</span> <span class="k">THEN</span> <span class="s1">'robo'</span>
+<a name="rest_code_e03c1c8b3873469b99d4670f81614ae6-8"></a>      <span class="k">ELSE</span> <span class="k">NULL</span>
+<a name="rest_code_e03c1c8b3873469b99d4670f81614ae6-9"></a>    <span class="k">END</span>
+<a name="rest_code_e03c1c8b3873469b99d4670f81614ae6-10"></a>  <span class="k">ELSE</span> <span class="n">d</span><span class="p">.</span><span class="n">name</span>
+<a name="rest_code_e03c1c8b3873469b99d4670f81614ae6-11"></a><span class="k">END</span> <span class="k">AS</span> <span class="n">name</span>
 </pre>
 </li>
 <li>
 <p>簡易 CASE 式: NULL 判定できない</p>
-<pre class="code sql"><a name="rest_code_14ab0bbdeaba4c90ad4374de6175302b-1"></a><span class="k">CASE</span> <span class="n">d</span><span class="p">.</span><span class="n">name</span>
-<a name="rest_code_14ab0bbdeaba4c90ad4374de6175302b-2"></a>  <span class="k">WHEN</span> <span class="k">NULL</span> <span class="k">THEN</span>
-<a name="rest_code_14ab0bbdeaba4c90ad4374de6175302b-3"></a>    <span class="k">CASE</span> <span class="n">d</span><span class="p">.</span><span class="k">type</span>
-<a name="rest_code_14ab0bbdeaba4c90ad4374de6175302b-4"></a>      <span class="k">WHEN</span> <span class="s1">'husky'</span> <span class="k">THEN</span> <span class="s1">'risa'</span>
-<a name="rest_code_14ab0bbdeaba4c90ad4374de6175302b-5"></a>      <span class="k">WHEN</span> <span class="s1">'shiba'</span> <span class="k">THEN</span> <span class="s1">'natsu'</span>
-<a name="rest_code_14ab0bbdeaba4c90ad4374de6175302b-6"></a>      <span class="k">WHEN</span> <span class="s1">'border collie'</span> <span class="k">THEN</span> <span class="s1">'chon'</span>
-<a name="rest_code_14ab0bbdeaba4c90ad4374de6175302b-7"></a>      <span class="k">WHEN</span> <span class="s1">'labrador retriever'</span> <span class="k">THEN</span> <span class="s1">'robo'</span>
-<a name="rest_code_14ab0bbdeaba4c90ad4374de6175302b-8"></a>      <span class="k">ELSE</span> <span class="k">NULL</span>
-<a name="rest_code_14ab0bbdeaba4c90ad4374de6175302b-9"></a>    <span class="k">END</span>
-<a name="rest_code_14ab0bbdeaba4c90ad4374de6175302b-10"></a>  <span class="k">ELSE</span> <span class="n">d</span><span class="p">.</span><span class="n">name</span>
-<a name="rest_code_14ab0bbdeaba4c90ad4374de6175302b-11"></a><span class="k">END</span> <span class="k">AS</span> <span class="n">name</span>
+<pre class="code sql"><a name="rest_code_05475ea74b7942d59adc53a9b32b8e33-1"></a><span class="k">CASE</span> <span class="n">d</span><span class="p">.</span><span class="n">name</span>
+<a name="rest_code_05475ea74b7942d59adc53a9b32b8e33-2"></a>  <span class="k">WHEN</span> <span class="k">NULL</span> <span class="k">THEN</span>
+<a name="rest_code_05475ea74b7942d59adc53a9b32b8e33-3"></a>    <span class="k">CASE</span> <span class="n">d</span><span class="p">.</span><span class="k">type</span>
+<a name="rest_code_05475ea74b7942d59adc53a9b32b8e33-4"></a>      <span class="k">WHEN</span> <span class="s1">'husky'</span> <span class="k">THEN</span> <span class="s1">'risa'</span>
+<a name="rest_code_05475ea74b7942d59adc53a9b32b8e33-5"></a>      <span class="k">WHEN</span> <span class="s1">'shiba'</span> <span class="k">THEN</span> <span class="s1">'natsu'</span>
+<a name="rest_code_05475ea74b7942d59adc53a9b32b8e33-6"></a>      <span class="k">WHEN</span> <span class="s1">'border collie'</span> <span class="k">THEN</span> <span class="s1">'chon'</span>
+<a name="rest_code_05475ea74b7942d59adc53a9b32b8e33-7"></a>      <span class="k">WHEN</span> <span class="s1">'labrador retriever'</span> <span class="k">THEN</span> <span class="s1">'robo'</span>
+<a name="rest_code_05475ea74b7942d59adc53a9b32b8e33-8"></a>      <span class="k">ELSE</span> <span class="k">NULL</span>
+<a name="rest_code_05475ea74b7942d59adc53a9b32b8e33-9"></a>    <span class="k">END</span>
+<a name="rest_code_05475ea74b7942d59adc53a9b32b8e33-10"></a>  <span class="k">ELSE</span> <span class="n">d</span><span class="p">.</span><span class="n">name</span>
+<a name="rest_code_05475ea74b7942d59adc53a9b32b8e33-11"></a><span class="k">END</span> <span class="k">AS</span> <span class="n">name</span>
 </pre>
 <ul class="simple">
 <li><p><code class="docutils literal">d.name</code> が NULL の場合は、 <code class="docutils literal">FALSE</code> と評価されてしまう ( <code class="docutils literal">ELSE</code> 句に入ってしまう)</p></li>
@@ -73,12 +73,12 @@
 <div class="section" id="count-distinct-case-when">
 <h2>COUNT(DISTINCT CASE WHEN ...)</h2>
 <p>こういう書き方ができる</p>
-<pre class="code sql"><a name="rest_code_5ca69443bd6f45889f3a313b24ebbea4-1"></a><span class="k">COUNT</span><span class="p">(</span>
-<a name="rest_code_5ca69443bd6f45889f3a313b24ebbea4-2"></a>  <span class="k">DISTINCT</span> <span class="k">CASE</span>
-<a name="rest_code_5ca69443bd6f45889f3a313b24ebbea4-3"></a>    <span class="k">WHEN</span> <span class="n">l</span><span class="p">.</span><span class="k">type</span> <span class="o">=</span> <span class="mi">2</span> <span class="k">THEN</span> <span class="n">l</span><span class="p">.</span><span class="n">user_id</span>
-<a name="rest_code_5ca69443bd6f45889f3a313b24ebbea4-4"></a>    <span class="k">ELSE</span> <span class="k">NULL</span>
-<a name="rest_code_5ca69443bd6f45889f3a313b24ebbea4-5"></a>  <span class="k">END</span>
-<a name="rest_code_5ca69443bd6f45889f3a313b24ebbea4-6"></a><span class="p">)</span> <span class="k">as</span> <span class="n">num_unique_users</span><span class="p">,</span>
+<pre class="code sql"><a name="rest_code_1b37afdf4b3a42159c3fa3a88a779a63-1"></a><span class="k">COUNT</span><span class="p">(</span>
+<a name="rest_code_1b37afdf4b3a42159c3fa3a88a779a63-2"></a>  <span class="k">DISTINCT</span> <span class="k">CASE</span>
+<a name="rest_code_1b37afdf4b3a42159c3fa3a88a779a63-3"></a>    <span class="k">WHEN</span> <span class="n">l</span><span class="p">.</span><span class="k">type</span> <span class="o">=</span> <span class="mi">2</span> <span class="k">THEN</span> <span class="n">l</span><span class="p">.</span><span class="n">user_id</span>
+<a name="rest_code_1b37afdf4b3a42159c3fa3a88a779a63-4"></a>    <span class="k">ELSE</span> <span class="k">NULL</span>
+<a name="rest_code_1b37afdf4b3a42159c3fa3a88a779a63-5"></a>  <span class="k">END</span>
+<a name="rest_code_1b37afdf4b3a42159c3fa3a88a779a63-6"></a><span class="p">)</span> <span class="k">as</span> <span class="n">num_unique_users</span><span class="p">,</span>
 </pre>
 </div>
 <div class="section" id="select">

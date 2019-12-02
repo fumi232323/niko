@@ -129,130 +129,130 @@
 <li>
 <p>ジョブ <code class="docutils literal">task.sh</code> を作る</p>
 <blockquote>
-<pre class="code sh"><a name="rest_code_9bd65476f1b9455d9eb73a86a48ef121-1"></a><span class="ch">#!/bin/sh</span>
-<a name="rest_code_9bd65476f1b9455d9eb73a86a48ef121-2"></a><span class="nb">echo</span> <span class="s2">"[`date`] Hello!"</span> &gt;&gt; /var/log/cron.log
+<pre class="code sh"><a name="rest_code_02e04dca53c64522917459456dbeacd6-1"></a><span class="ch">#!/bin/sh</span>
+<a name="rest_code_02e04dca53c64522917459456dbeacd6-2"></a><span class="nb">echo</span> <span class="s2">"[`date`] Hello!"</span> &gt;&gt; /var/log/cron.log
 </pre>
 </blockquote>
 </li>
 <li>
 <p>cron の定義ファイル <code class="docutils literal"><span class="pre">cron-example</span></code> を作る</p>
 <blockquote>
-<pre class="code sh"><a name="rest_code_15e1b54f56eb4c79b0c932cb7aefb5b5-1"></a>* * * * *       root sh /usr/local/bin/task.sh
+<pre class="code sh"><a name="rest_code_00cac69aa26743d78cf73854468be5ae-1"></a>* * * * *       root sh /usr/local/bin/task.sh
 </pre>
 </blockquote>
 </li>
 <li>
 <p>Dockerfile を作る</p>
 <blockquote>
-<pre class="code docker"><a name="rest_code_18c2c352a917427aa8b136f8a51e8c9b-1"></a><span class="c"># ubuntu:16.04 イメージをベースにイメージをビルドする</span>
-<a name="rest_code_18c2c352a917427aa8b136f8a51e8c9b-2"></a><span class="k">FROM</span><span class="s"> ubuntu:16.04</span>
-<a name="rest_code_18c2c352a917427aa8b136f8a51e8c9b-3"></a>
-<a name="rest_code_18c2c352a917427aa8b136f8a51e8c9b-4"></a><span class="c"># apt で cron をインストールする</span>
-<a name="rest_code_18c2c352a917427aa8b136f8a51e8c9b-5"></a><span class="k">RUN</span> apt update
-<a name="rest_code_18c2c352a917427aa8b136f8a51e8c9b-6"></a><span class="k">RUN</span> apt install -y cron
-<a name="rest_code_18c2c352a917427aa8b136f8a51e8c9b-7"></a>
-<a name="rest_code_18c2c352a917427aa8b136f8a51e8c9b-8"></a><span class="c"># task.sh と cron-example を追加する</span>
-<a name="rest_code_18c2c352a917427aa8b136f8a51e8c9b-9"></a><span class="k">COPY</span> task.sh /usr/local/bin/
-<a name="rest_code_18c2c352a917427aa8b136f8a51e8c9b-10"></a><span class="k">COPY</span> cron-example /etc/cron.d/
-<a name="rest_code_18c2c352a917427aa8b136f8a51e8c9b-11"></a><span class="c"># cron-example に 644 パーミッションを設定する</span>
-<a name="rest_code_18c2c352a917427aa8b136f8a51e8c9b-12"></a><span class="k">RUN</span> chmod <span class="m">0644</span> /etc/cron.d/cron-example
-<a name="rest_code_18c2c352a917427aa8b136f8a51e8c9b-13"></a>
-<a name="rest_code_18c2c352a917427aa8b136f8a51e8c9b-14"></a><span class="c"># cron を実行</span>
-<a name="rest_code_18c2c352a917427aa8b136f8a51e8c9b-15"></a><span class="k">CMD</span> <span class="p">[</span><span class="s2">"cron"</span><span class="p">,</span> <span class="s2">"-f"</span><span class="p">]</span>
+<pre class="code docker"><a name="rest_code_84e2a934821a4b44ac6e1c40f722d88b-1"></a><span class="c"># ubuntu:16.04 イメージをベースにイメージをビルドする</span>
+<a name="rest_code_84e2a934821a4b44ac6e1c40f722d88b-2"></a><span class="k">FROM</span><span class="s"> ubuntu:16.04</span>
+<a name="rest_code_84e2a934821a4b44ac6e1c40f722d88b-3"></a>
+<a name="rest_code_84e2a934821a4b44ac6e1c40f722d88b-4"></a><span class="c"># apt で cron をインストールする</span>
+<a name="rest_code_84e2a934821a4b44ac6e1c40f722d88b-5"></a><span class="k">RUN</span> apt update
+<a name="rest_code_84e2a934821a4b44ac6e1c40f722d88b-6"></a><span class="k">RUN</span> apt install -y cron
+<a name="rest_code_84e2a934821a4b44ac6e1c40f722d88b-7"></a>
+<a name="rest_code_84e2a934821a4b44ac6e1c40f722d88b-8"></a><span class="c"># task.sh と cron-example を追加する</span>
+<a name="rest_code_84e2a934821a4b44ac6e1c40f722d88b-9"></a><span class="k">COPY</span> task.sh /usr/local/bin/
+<a name="rest_code_84e2a934821a4b44ac6e1c40f722d88b-10"></a><span class="k">COPY</span> cron-example /etc/cron.d/
+<a name="rest_code_84e2a934821a4b44ac6e1c40f722d88b-11"></a><span class="c"># cron-example に 644 パーミッションを設定する</span>
+<a name="rest_code_84e2a934821a4b44ac6e1c40f722d88b-12"></a><span class="k">RUN</span> chmod <span class="m">0644</span> /etc/cron.d/cron-example
+<a name="rest_code_84e2a934821a4b44ac6e1c40f722d88b-13"></a>
+<a name="rest_code_84e2a934821a4b44ac6e1c40f722d88b-14"></a><span class="c"># cron を実行</span>
+<a name="rest_code_84e2a934821a4b44ac6e1c40f722d88b-15"></a><span class="k">CMD</span> <span class="p">[</span><span class="s2">"cron"</span><span class="p">,</span> <span class="s2">"-f"</span><span class="p">]</span>
 </pre>
 </blockquote>
 </li>
 <li>
 <p>Docker イメージをビルドする</p>
 <blockquote>
-<pre class="code console"><a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-1"></a><span class="gp">$</span> docker image build -t example/cronjob:latest .
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-2"></a><span class="go">Sending build context to Docker daemon  4.096kB</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-3"></a><span class="go">Step 1/7 : FROM ubuntu:16.04</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-4"></a><span class="go">16.04: Pulling from library/ubuntu</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-5"></a><span class="go">18d680d61657: Pull complete</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-6"></a><span class="go">0addb6fece63: Pull complete</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-7"></a><span class="go">78e58219b215: Pull complete</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-8"></a><span class="go">eb6959a66df2: Pull complete</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-9"></a><span class="go">Digest: sha256:76702ec53c5e7771ba3f2c4f6152c3796c142af2b3cb1a02fce66c697db24f12</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-10"></a><span class="go">Status: Downloaded newer image for ubuntu:16.04</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-11"></a><span class="go"> ---&gt; 4a689991aa24</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-12"></a><span class="go">Step 2/7 : RUN apt update</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-13"></a><span class="go"> ---&gt; Running in f1a3582eabce</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-14"></a>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-15"></a><span class="go">WARNING: apt does not have a stable CLI interface. Use with caution in scripts.</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-16"></a>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-17"></a><span class="go">Get:1 http://security.ubuntu.com/ubuntu xenial-security InRelease [107 kB]</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-18"></a><span class="go">Get:2 http://archive.ubuntu.com/ubuntu xenial InRelease [247 kB]</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-19"></a><span class="go">Get:3 http://security.ubuntu.com/ubuntu xenial-security/main amd64 Packages [745 kB]</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-20"></a><span class="go">Get:4 http://archive.ubuntu.com/ubuntu xenial-updates InRelease [109 kB]</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-21"></a><span class="go">Get:5 http://archive.ubuntu.com/ubuntu xenial-backports InRelease [107 kB]</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-22"></a><span class="go">Get:6 http://archive.ubuntu.com/ubuntu xenial/main amd64 Packages [1558 kB]</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-23"></a><span class="go">Get:7 http://security.ubuntu.com/ubuntu xenial-security/restricted amd64 Packages [12.7 kB]</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-24"></a><span class="go">Get:8 http://security.ubuntu.com/ubuntu xenial-security/universe amd64 Packages [507 kB]</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-25"></a><span class="go">Get:9 http://security.ubuntu.com/ubuntu xenial-security/multiverse amd64 Packages [4027 B]</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-26"></a><span class="go">Get:10 http://archive.ubuntu.com/ubuntu xenial/restricted amd64 Packages [14.1 kB]</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-27"></a><span class="go">Get:11 http://archive.ubuntu.com/ubuntu xenial/universe amd64 Packages [9827 kB]</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-28"></a><span class="go">Get:12 http://archive.ubuntu.com/ubuntu xenial/multiverse amd64 Packages [176 kB]</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-29"></a><span class="go">Get:13 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 Packages [1139 kB]</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-30"></a><span class="go">Get:14 http://archive.ubuntu.com/ubuntu xenial-updates/restricted amd64 Packages [13.1 kB]</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-31"></a><span class="go">Get:15 http://archive.ubuntu.com/ubuntu xenial-updates/universe amd64 Packages [906 kB]</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-32"></a><span class="go">Get:16 http://archive.ubuntu.com/ubuntu xenial-updates/multiverse amd64 Packages [19.0 kB]</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-33"></a><span class="go">Get:17 http://archive.ubuntu.com/ubuntu xenial-backports/main amd64 Packages [7959 B]</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-34"></a><span class="go">Get:18 http://archive.ubuntu.com/ubuntu xenial-backports/universe amd64 Packages [8532 B]</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-35"></a><span class="go">Fetched 15.5 MB in 7s (2058 kB/s)</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-36"></a><span class="go">Reading package lists...</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-37"></a><span class="go">Building dependency tree...</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-38"></a><span class="go">Reading state information...</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-39"></a><span class="go">8 packages can be upgraded. Run 'apt list --upgradable' to see them.</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-40"></a><span class="go">Removing intermediate container f1a3582eabce</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-41"></a><span class="go"> ---&gt; 830dd5ddc59f</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-42"></a><span class="go">Step 3/7 : RUN apt install -y cron</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-43"></a><span class="go"> ---&gt; Running in 422f3c36a217</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-44"></a>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-45"></a><span class="go">WARNING: apt does not have a stable CLI interface. Use with caution in scripts.</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-46"></a>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-47"></a><span class="go">Reading package lists...</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-48"></a><span class="go">Building dependency tree...</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-49"></a><span class="go">Reading state information...</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-50"></a><span class="go">Suggested packages:</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-51"></a><span class="go">  anacron logrotate checksecurity exim4 | postfix | mail-transport-agent</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-52"></a><span class="go">The following NEW packages will be installed:</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-53"></a><span class="go">  cron</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-54"></a><span class="go">0 upgraded, 1 newly installed, 0 to remove and 8 not upgraded.</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-55"></a><span class="go">Need to get 68.4 kB of archives.</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-56"></a><span class="go">After this operation, 249 kB of additional disk space will be used.</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-57"></a><span class="go">Get:1 http://archive.ubuntu.com/ubuntu xenial/main amd64 cron amd64 3.0pl1-128ubuntu2 [68.4 kB]</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-58"></a><span class="go">debconf: delaying package configuration, since apt-utils is not installed</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-59"></a><span class="go">Fetched 68.4 kB in 1s (46.3 kB/s)</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-60"></a><span class="go">Selecting previously unselected package cron.</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-61"></a><span class="go">(Reading database ... 4768 files and directories currently installed.)</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-62"></a><span class="go">Preparing to unpack .../cron_3.0pl1-128ubuntu2_amd64.deb ...</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-63"></a><span class="go">Unpacking cron (3.0pl1-128ubuntu2) ...</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-64"></a><span class="go">Processing triggers for systemd (229-4ubuntu21.4) ...</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-65"></a><span class="go">Setting up cron (3.0pl1-128ubuntu2) ...</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-66"></a><span class="go">Adding group `crontab' (GID 106) ...</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-67"></a><span class="go">Done.</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-68"></a><span class="go">update-rc.d: warning: start and stop actions are no longer supported; falling back to defaults</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-69"></a><span class="go">update-rc.d: warning: stop runlevel arguments (1) do not match cron Default-Stop values (none)</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-70"></a><span class="go">invoke-rc.d: could not determine current runlevel</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-71"></a><span class="go">invoke-rc.d: policy-rc.d denied execution of start.</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-72"></a><span class="go">Processing triggers for systemd (229-4ubuntu21.4) ...</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-73"></a><span class="go">Removing intermediate container 422f3c36a217</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-74"></a><span class="go"> ---&gt; 26f4442bdb46</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-75"></a><span class="go">Step 4/7 : COPY task.sh /usr/local/bin/</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-76"></a><span class="go"> ---&gt; 19ffed305de1</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-77"></a><span class="go">Step 5/7 : COPY cron-example /etc/cron.d/</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-78"></a><span class="go"> ---&gt; 5c668e8b7598</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-79"></a><span class="go">Step 6/7 : RUN chmod 0644 /etc/cron.d/cron-example</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-80"></a><span class="go"> ---&gt; Running in 359ef325d9f4</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-81"></a><span class="go">Removing intermediate container 359ef325d9f4</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-82"></a><span class="go"> ---&gt; 50c072151bea</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-83"></a><span class="go">Step 7/7 : CMD ["cron", "-f"]</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-84"></a><span class="go"> ---&gt; Running in b459df083f79</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-85"></a><span class="go">Removing intermediate container b459df083f79</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-86"></a><span class="go"> ---&gt; 83bf96fc9d27</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-87"></a><span class="go">Successfully built 83bf96fc9d27</span>
-<a name="rest_code_768183ee9c3244c6abaeb1b7eb5aaae0-88"></a><span class="go">Successfully tagged example/cronjob:latest</span>
+<pre class="code console"><a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-1"></a><span class="gp">$</span> docker image build -t example/cronjob:latest .
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-2"></a><span class="go">Sending build context to Docker daemon  4.096kB</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-3"></a><span class="go">Step 1/7 : FROM ubuntu:16.04</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-4"></a><span class="go">16.04: Pulling from library/ubuntu</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-5"></a><span class="go">18d680d61657: Pull complete</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-6"></a><span class="go">0addb6fece63: Pull complete</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-7"></a><span class="go">78e58219b215: Pull complete</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-8"></a><span class="go">eb6959a66df2: Pull complete</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-9"></a><span class="go">Digest: sha256:76702ec53c5e7771ba3f2c4f6152c3796c142af2b3cb1a02fce66c697db24f12</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-10"></a><span class="go">Status: Downloaded newer image for ubuntu:16.04</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-11"></a><span class="go"> ---&gt; 4a689991aa24</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-12"></a><span class="go">Step 2/7 : RUN apt update</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-13"></a><span class="go"> ---&gt; Running in f1a3582eabce</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-14"></a>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-15"></a><span class="go">WARNING: apt does not have a stable CLI interface. Use with caution in scripts.</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-16"></a>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-17"></a><span class="go">Get:1 http://security.ubuntu.com/ubuntu xenial-security InRelease [107 kB]</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-18"></a><span class="go">Get:2 http://archive.ubuntu.com/ubuntu xenial InRelease [247 kB]</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-19"></a><span class="go">Get:3 http://security.ubuntu.com/ubuntu xenial-security/main amd64 Packages [745 kB]</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-20"></a><span class="go">Get:4 http://archive.ubuntu.com/ubuntu xenial-updates InRelease [109 kB]</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-21"></a><span class="go">Get:5 http://archive.ubuntu.com/ubuntu xenial-backports InRelease [107 kB]</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-22"></a><span class="go">Get:6 http://archive.ubuntu.com/ubuntu xenial/main amd64 Packages [1558 kB]</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-23"></a><span class="go">Get:7 http://security.ubuntu.com/ubuntu xenial-security/restricted amd64 Packages [12.7 kB]</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-24"></a><span class="go">Get:8 http://security.ubuntu.com/ubuntu xenial-security/universe amd64 Packages [507 kB]</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-25"></a><span class="go">Get:9 http://security.ubuntu.com/ubuntu xenial-security/multiverse amd64 Packages [4027 B]</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-26"></a><span class="go">Get:10 http://archive.ubuntu.com/ubuntu xenial/restricted amd64 Packages [14.1 kB]</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-27"></a><span class="go">Get:11 http://archive.ubuntu.com/ubuntu xenial/universe amd64 Packages [9827 kB]</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-28"></a><span class="go">Get:12 http://archive.ubuntu.com/ubuntu xenial/multiverse amd64 Packages [176 kB]</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-29"></a><span class="go">Get:13 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 Packages [1139 kB]</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-30"></a><span class="go">Get:14 http://archive.ubuntu.com/ubuntu xenial-updates/restricted amd64 Packages [13.1 kB]</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-31"></a><span class="go">Get:15 http://archive.ubuntu.com/ubuntu xenial-updates/universe amd64 Packages [906 kB]</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-32"></a><span class="go">Get:16 http://archive.ubuntu.com/ubuntu xenial-updates/multiverse amd64 Packages [19.0 kB]</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-33"></a><span class="go">Get:17 http://archive.ubuntu.com/ubuntu xenial-backports/main amd64 Packages [7959 B]</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-34"></a><span class="go">Get:18 http://archive.ubuntu.com/ubuntu xenial-backports/universe amd64 Packages [8532 B]</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-35"></a><span class="go">Fetched 15.5 MB in 7s (2058 kB/s)</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-36"></a><span class="go">Reading package lists...</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-37"></a><span class="go">Building dependency tree...</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-38"></a><span class="go">Reading state information...</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-39"></a><span class="go">8 packages can be upgraded. Run 'apt list --upgradable' to see them.</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-40"></a><span class="go">Removing intermediate container f1a3582eabce</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-41"></a><span class="go"> ---&gt; 830dd5ddc59f</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-42"></a><span class="go">Step 3/7 : RUN apt install -y cron</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-43"></a><span class="go"> ---&gt; Running in 422f3c36a217</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-44"></a>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-45"></a><span class="go">WARNING: apt does not have a stable CLI interface. Use with caution in scripts.</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-46"></a>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-47"></a><span class="go">Reading package lists...</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-48"></a><span class="go">Building dependency tree...</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-49"></a><span class="go">Reading state information...</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-50"></a><span class="go">Suggested packages:</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-51"></a><span class="go">  anacron logrotate checksecurity exim4 | postfix | mail-transport-agent</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-52"></a><span class="go">The following NEW packages will be installed:</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-53"></a><span class="go">  cron</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-54"></a><span class="go">0 upgraded, 1 newly installed, 0 to remove and 8 not upgraded.</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-55"></a><span class="go">Need to get 68.4 kB of archives.</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-56"></a><span class="go">After this operation, 249 kB of additional disk space will be used.</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-57"></a><span class="go">Get:1 http://archive.ubuntu.com/ubuntu xenial/main amd64 cron amd64 3.0pl1-128ubuntu2 [68.4 kB]</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-58"></a><span class="go">debconf: delaying package configuration, since apt-utils is not installed</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-59"></a><span class="go">Fetched 68.4 kB in 1s (46.3 kB/s)</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-60"></a><span class="go">Selecting previously unselected package cron.</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-61"></a><span class="go">(Reading database ... 4768 files and directories currently installed.)</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-62"></a><span class="go">Preparing to unpack .../cron_3.0pl1-128ubuntu2_amd64.deb ...</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-63"></a><span class="go">Unpacking cron (3.0pl1-128ubuntu2) ...</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-64"></a><span class="go">Processing triggers for systemd (229-4ubuntu21.4) ...</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-65"></a><span class="go">Setting up cron (3.0pl1-128ubuntu2) ...</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-66"></a><span class="go">Adding group `crontab' (GID 106) ...</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-67"></a><span class="go">Done.</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-68"></a><span class="go">update-rc.d: warning: start and stop actions are no longer supported; falling back to defaults</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-69"></a><span class="go">update-rc.d: warning: stop runlevel arguments (1) do not match cron Default-Stop values (none)</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-70"></a><span class="go">invoke-rc.d: could not determine current runlevel</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-71"></a><span class="go">invoke-rc.d: policy-rc.d denied execution of start.</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-72"></a><span class="go">Processing triggers for systemd (229-4ubuntu21.4) ...</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-73"></a><span class="go">Removing intermediate container 422f3c36a217</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-74"></a><span class="go"> ---&gt; 26f4442bdb46</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-75"></a><span class="go">Step 4/7 : COPY task.sh /usr/local/bin/</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-76"></a><span class="go"> ---&gt; 19ffed305de1</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-77"></a><span class="go">Step 5/7 : COPY cron-example /etc/cron.d/</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-78"></a><span class="go"> ---&gt; 5c668e8b7598</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-79"></a><span class="go">Step 6/7 : RUN chmod 0644 /etc/cron.d/cron-example</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-80"></a><span class="go"> ---&gt; Running in 359ef325d9f4</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-81"></a><span class="go">Removing intermediate container 359ef325d9f4</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-82"></a><span class="go"> ---&gt; 50c072151bea</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-83"></a><span class="go">Step 7/7 : CMD ["cron", "-f"]</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-84"></a><span class="go"> ---&gt; Running in b459df083f79</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-85"></a><span class="go">Removing intermediate container b459df083f79</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-86"></a><span class="go"> ---&gt; 83bf96fc9d27</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-87"></a><span class="go">Successfully built 83bf96fc9d27</span>
+<a name="rest_code_cea1c65d6dd24a2e9d086b6cdd5bc072-88"></a><span class="go">Successfully tagged example/cronjob:latest</span>
 </pre>
 </blockquote>
 </li>
@@ -261,17 +261,17 @@
 <li>
 <p>Docker イメージを実行する</p>
 <blockquote>
-<pre class="code console"><a name="rest_code_7d160a44a4c74d578f70e13212aa1654-1"></a><span class="gp">$</span> docker container run -d --rm --name cronjob example/cronjob:latest
-<a name="rest_code_7d160a44a4c74d578f70e13212aa1654-2"></a><span class="go">05bb3788a766a415b3d888480faf7854351f1c39317deaeeff6aef8ce9f4c9c9</span>
+<pre class="code console"><a name="rest_code_a8fd54b0ef7b4b2b9c3456170678b951-1"></a><span class="gp">$</span> docker container run -d --rm --name cronjob example/cronjob:latest
+<a name="rest_code_a8fd54b0ef7b4b2b9c3456170678b951-2"></a><span class="go">05bb3788a766a415b3d888480faf7854351f1c39317deaeeff6aef8ce9f4c9c9</span>
 </pre>
 </blockquote>
 </li>
 <li>
 <p>ジョブが実行されているところを見てみる</p>
 <blockquote>
-<pre class="code console"><a name="rest_code_d0b9b028815f4049a7f7fefb5af267d0-1"></a><span class="gp">$</span> docker container <span class="nb">exec</span> -it cronjob tail -f /var/log/cron.log
-<a name="rest_code_d0b9b028815f4049a7f7fefb5af267d0-2"></a><span class="go">tail: cannot open '/var/log/cron.log' for reading: No such file or directory</span>
-<a name="rest_code_d0b9b028815f4049a7f7fefb5af267d0-3"></a><span class="go">tail: no files remaining</span>
+<pre class="code console"><a name="rest_code_9a0afe155aaa409f9c695462a925b949-1"></a><span class="gp">$</span> docker container <span class="nb">exec</span> -it cronjob tail -f /var/log/cron.log
+<a name="rest_code_9a0afe155aaa409f9c695462a925b949-2"></a><span class="go">tail: cannot open '/var/log/cron.log' for reading: No such file or directory</span>
+<a name="rest_code_9a0afe155aaa409f9c695462a925b949-3"></a><span class="go">tail: no files remaining</span>
 </pre>
 </blockquote>
 </li>
@@ -279,45 +279,45 @@
 <p>実行されていなかった。。</p>
 <blockquote>
 <p>cron 自体は動いていて、</p>
-<pre class="code console"><a name="rest_code_8fc04825715042bb8b42f90eb3fb4fbd-1"></a><span class="gp">$</span> docker container <span class="nb">exec</span> -it cronjob sh
-<a name="rest_code_8fc04825715042bb8b42f90eb3fb4fbd-2"></a><span class="gp">#</span> /etc/init.d/cron status
-<a name="rest_code_8fc04825715042bb8b42f90eb3fb4fbd-3"></a><span class="go"> * cron is running</span>
+<pre class="code console"><a name="rest_code_68728effb89f462f84b07570a48b911a-1"></a><span class="gp">$</span> docker container <span class="nb">exec</span> -it cronjob sh
+<a name="rest_code_68728effb89f462f84b07570a48b911a-2"></a><span class="gp">#</span> /etc/init.d/cron status
+<a name="rest_code_68728effb89f462f84b07570a48b911a-3"></a><span class="go"> * cron is running</span>
 </pre>
 <p><code class="docutils literal">task.sh</code> 単体では正常動作するので、</p>
-<pre class="code console"><a name="rest_code_b0d9ca01d3c647068844e7313ec1484d-1"></a><span class="gp">#</span> sh /usr/local/bin/task.sh
-<a name="rest_code_b0d9ca01d3c647068844e7313ec1484d-2"></a><span class="gp">#</span> cat /var/log/cron.log
-<a name="rest_code_b0d9ca01d3c647068844e7313ec1484d-3"></a><span class="go">[Sun Nov 18 10:20:18 UTC 2018] Hello</span>
-<a name="rest_code_b0d9ca01d3c647068844e7313ec1484d-4"></a><span class="go">[Sun Nov 18 10:30:22 UTC 2018] Hello</span>
+<pre class="code console"><a name="rest_code_2620fbac70aa4920879a776c60c75dc9-1"></a><span class="gp">#</span> sh /usr/local/bin/task.sh
+<a name="rest_code_2620fbac70aa4920879a776c60c75dc9-2"></a><span class="gp">#</span> cat /var/log/cron.log
+<a name="rest_code_2620fbac70aa4920879a776c60c75dc9-3"></a><span class="go">[Sun Nov 18 10:20:18 UTC 2018] Hello</span>
+<a name="rest_code_2620fbac70aa4920879a776c60c75dc9-4"></a><span class="go">[Sun Nov 18 10:30:22 UTC 2018] Hello</span>
 </pre>
 <p>たぶん、 cron の設定がよくないんだと思う。</p>
 <p><code class="docutils literal">/etc/crontab</code> と同じ書式で書けば良い、とのことなので、</p>
-<pre class="code console"><a name="rest_code_3de155321e0649db8eb0d64d63ae3e66-1"></a><span class="gp">#</span> cat /etc/crontab
-<a name="rest_code_3de155321e0649db8eb0d64d63ae3e66-2"></a><span class="gp">#</span> /etc/crontab: system-wide crontab
-<a name="rest_code_3de155321e0649db8eb0d64d63ae3e66-3"></a><span class="gp">#</span> Unlike any other crontab you don<span class="s1">'t have to run the `crontab'</span>
-<a name="rest_code_3de155321e0649db8eb0d64d63ae3e66-4"></a><span class="gp">#</span> <span class="nb">command</span> to install the new version when you edit this file
-<a name="rest_code_3de155321e0649db8eb0d64d63ae3e66-5"></a><span class="gp">#</span> and files in /etc/cron.d. These files also have username fields,
-<a name="rest_code_3de155321e0649db8eb0d64d63ae3e66-6"></a><span class="gp">#</span> that none of the other crontabs <span class="k">do</span>.
-<a name="rest_code_3de155321e0649db8eb0d64d63ae3e66-7"></a>
-<a name="rest_code_3de155321e0649db8eb0d64d63ae3e66-8"></a><span class="go">SHELL=/bin/sh</span>
-<a name="rest_code_3de155321e0649db8eb0d64d63ae3e66-9"></a><span class="go">PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin</span>
-<a name="rest_code_3de155321e0649db8eb0d64d63ae3e66-10"></a>
-<a name="rest_code_3de155321e0649db8eb0d64d63ae3e66-11"></a><span class="gp">#</span> m h dom mon dow user  <span class="nb">command</span>
-<a name="rest_code_3de155321e0649db8eb0d64d63ae3e66-12"></a><span class="go">17 *    * * *   root    cd / &amp;&amp; run-parts --report /etc/cron.hourly</span>
-<a name="rest_code_3de155321e0649db8eb0d64d63ae3e66-13"></a><span class="go">25 6    * * *   root    test -x /usr/sbin/anacron || ( cd / &amp;&amp; run-parts --report /etc/cron.daily )</span>
-<a name="rest_code_3de155321e0649db8eb0d64d63ae3e66-14"></a><span class="go">...</span>
+<pre class="code console"><a name="rest_code_425ae7d30c0c4b389e9bfa1012fd7b6c-1"></a><span class="gp">#</span> cat /etc/crontab
+<a name="rest_code_425ae7d30c0c4b389e9bfa1012fd7b6c-2"></a><span class="gp">#</span> /etc/crontab: system-wide crontab
+<a name="rest_code_425ae7d30c0c4b389e9bfa1012fd7b6c-3"></a><span class="gp">#</span> Unlike any other crontab you don<span class="s1">'t have to run the `crontab'</span>
+<a name="rest_code_425ae7d30c0c4b389e9bfa1012fd7b6c-4"></a><span class="gp">#</span> <span class="nb">command</span> to install the new version when you edit this file
+<a name="rest_code_425ae7d30c0c4b389e9bfa1012fd7b6c-5"></a><span class="gp">#</span> and files in /etc/cron.d. These files also have username fields,
+<a name="rest_code_425ae7d30c0c4b389e9bfa1012fd7b6c-6"></a><span class="gp">#</span> that none of the other crontabs <span class="k">do</span>.
+<a name="rest_code_425ae7d30c0c4b389e9bfa1012fd7b6c-7"></a>
+<a name="rest_code_425ae7d30c0c4b389e9bfa1012fd7b6c-8"></a><span class="go">SHELL=/bin/sh</span>
+<a name="rest_code_425ae7d30c0c4b389e9bfa1012fd7b6c-9"></a><span class="go">PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin</span>
+<a name="rest_code_425ae7d30c0c4b389e9bfa1012fd7b6c-10"></a>
+<a name="rest_code_425ae7d30c0c4b389e9bfa1012fd7b6c-11"></a><span class="gp">#</span> m h dom mon dow user  <span class="nb">command</span>
+<a name="rest_code_425ae7d30c0c4b389e9bfa1012fd7b6c-12"></a><span class="go">17 *    * * *   root    cd / &amp;&amp; run-parts --report /etc/cron.hourly</span>
+<a name="rest_code_425ae7d30c0c4b389e9bfa1012fd7b6c-13"></a><span class="go">25 6    * * *   root    test -x /usr/sbin/anacron || ( cd / &amp;&amp; run-parts --report /etc/cron.daily )</span>
+<a name="rest_code_425ae7d30c0c4b389e9bfa1012fd7b6c-14"></a><span class="go">...</span>
 </pre>
 <p>まねをして、 <code class="docutils literal"><span class="pre">cron-example</span></code> を更新した</p>
-<pre class="code sh"><a name="rest_code_653b8150713c45e6a189949df83e84aa-1"></a><span class="nv">SHELL</span><span class="o">=</span>/bin/sh                                                      <span class="c1"># これと</span>
-<a name="rest_code_653b8150713c45e6a189949df83e84aa-2"></a><span class="nv">PATH</span><span class="o">=</span>/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin  <span class="c1"># これを追記</span>
-<a name="rest_code_653b8150713c45e6a189949df83e84aa-3"></a>
-<a name="rest_code_653b8150713c45e6a189949df83e84aa-4"></a>* *    * * *   root    sh /usr/local/bin/task.sh                   <span class="c1"># ここのスペースの空け方もそっくり同じに変えた</span>
+<pre class="code sh"><a name="rest_code_dc9e58ada97d4d43921607a44d8299dc-1"></a><span class="nv">SHELL</span><span class="o">=</span>/bin/sh                                                      <span class="c1"># これと</span>
+<a name="rest_code_dc9e58ada97d4d43921607a44d8299dc-2"></a><span class="nv">PATH</span><span class="o">=</span>/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin  <span class="c1"># これを追記</span>
+<a name="rest_code_dc9e58ada97d4d43921607a44d8299dc-3"></a>
+<a name="rest_code_dc9e58ada97d4d43921607a44d8299dc-4"></a>* *    * * *   root    sh /usr/local/bin/task.sh                   <span class="c1"># ここのスペースの空け方もそっくり同じに変えた</span>
 </pre>
 <p><code class="docutils literal">docker container stop</code> -&gt; 再度 <code class="docutils literal">docker image build</code> -&gt; <code class="docutils literal">docker container run</code></p>
 <p>動いた.......</p>
-<pre class="code console"><a name="rest_code_93e423897b284b2fbb94c2a937b4168b-1"></a><span class="gp">$</span> docker container <span class="nb">exec</span> -it cronjob tail -f /var/log/cron.log
-<a name="rest_code_93e423897b284b2fbb94c2a937b4168b-2"></a><span class="go">[Sun Nov 18 11:24:01 UTC 2018] Hello</span>
-<a name="rest_code_93e423897b284b2fbb94c2a937b4168b-3"></a><span class="go">[Sun Nov 18 11:25:01 UTC 2018] Hello</span>
-<a name="rest_code_93e423897b284b2fbb94c2a937b4168b-4"></a><span class="go">[Sun Nov 18 11:26:01 UTC 2018] Hello</span>
+<pre class="code console"><a name="rest_code_9f8c1537679942c1be37a20ef519b6f2-1"></a><span class="gp">$</span> docker container <span class="nb">exec</span> -it cronjob tail -f /var/log/cron.log
+<a name="rest_code_9f8c1537679942c1be37a20ef519b6f2-2"></a><span class="go">[Sun Nov 18 11:24:01 UTC 2018] Hello</span>
+<a name="rest_code_9f8c1537679942c1be37a20ef519b6f2-3"></a><span class="go">[Sun Nov 18 11:25:01 UTC 2018] Hello</span>
+<a name="rest_code_9f8c1537679942c1be37a20ef519b6f2-4"></a><span class="go">[Sun Nov 18 11:26:01 UTC 2018] Hello</span>
 </pre>
 <p>本の見本はきっと、「そんなのわかってるよね」で省略したんだな...</p>
 </blockquote>
@@ -401,19 +401,19 @@
 </ul>
 <div class="section" id="id11">
 <h4><a class="toc-backref" href="#id33">Data Volume の作成</a></h4>
-<pre class="code console"><a name="rest_code_1a4dbb8b7c0d4223814981da3f0413f3-1"></a><span class="gp">$</span> docker container run <span class="o">[</span>options<span class="o">]</span> -v ホスト側ディレクトリ:コンテナ側ディレクトリ リポジトリ名<span class="o">[</span>:タグ<span class="o">]</span> <span class="o">[</span>コマンド<span class="o">]</span> <span class="o">[</span>コマンド引数<span class="o">]</span>
+<pre class="code console"><a name="rest_code_d96360bce6db4e83b47165dda8ea95d4-1"></a><span class="gp">$</span> docker container run <span class="o">[</span>options<span class="o">]</span> -v ホスト側ディレクトリ:コンテナ側ディレクトリ リポジトリ名<span class="o">[</span>:タグ<span class="o">]</span> <span class="o">[</span>コマンド<span class="o">]</span> <span class="o">[</span>コマンド引数<span class="o">]</span>
 </pre>
 <ul>
 <li>
 <p>コンテナの中で画像ファイルを作成する。</p>
-<pre class="code console"><a name="rest_code_819a90635b0f45fa808f9da325baeda1-1"></a><span class="gp">$</span> docker container run -v <span class="si">${</span><span class="nv">PWD</span><span class="si">}</span>:/workspace gihyodocker/imagemagick:latest convert -size 100x100 xc:#000000 /workspace/gihyo.jpg
-<a name="rest_code_819a90635b0f45fa808f9da325baeda1-2"></a><span class="go">Unable to find image 'gihyodocker/imagemagick:latest' locally</span>
-<a name="rest_code_819a90635b0f45fa808f9da325baeda1-3"></a><span class="go">latest: Pulling from gihyodocker/imagemagick</span>
-<a name="rest_code_819a90635b0f45fa808f9da325baeda1-4"></a><span class="go">ff3a5c916c92: Pull complete</span>
-<a name="rest_code_819a90635b0f45fa808f9da325baeda1-5"></a><span class="go">9a79e6da4633: Pull complete</span>
-<a name="rest_code_819a90635b0f45fa808f9da325baeda1-6"></a><span class="go">d46751c713a4: Pull complete</span>
-<a name="rest_code_819a90635b0f45fa808f9da325baeda1-7"></a><span class="go">Digest: sha256:883299973ff2e6183ddc7e042d5b44e5c0bbe24b746ab382fba558a42284cb02</span>
-<a name="rest_code_819a90635b0f45fa808f9da325baeda1-8"></a><span class="go">Status: Downloaded newer image for gihyodocker/imagemagick:latest</span>
+<pre class="code console"><a name="rest_code_e8eb8db163a84e7697e24eef4c87cb30-1"></a><span class="gp">$</span> docker container run -v <span class="si">${</span><span class="nv">PWD</span><span class="si">}</span>:/workspace gihyodocker/imagemagick:latest convert -size 100x100 xc:#000000 /workspace/gihyo.jpg
+<a name="rest_code_e8eb8db163a84e7697e24eef4c87cb30-2"></a><span class="go">Unable to find image 'gihyodocker/imagemagick:latest' locally</span>
+<a name="rest_code_e8eb8db163a84e7697e24eef4c87cb30-3"></a><span class="go">latest: Pulling from gihyodocker/imagemagick</span>
+<a name="rest_code_e8eb8db163a84e7697e24eef4c87cb30-4"></a><span class="go">ff3a5c916c92: Pull complete</span>
+<a name="rest_code_e8eb8db163a84e7697e24eef4c87cb30-5"></a><span class="go">9a79e6da4633: Pull complete</span>
+<a name="rest_code_e8eb8db163a84e7697e24eef4c87cb30-6"></a><span class="go">d46751c713a4: Pull complete</span>
+<a name="rest_code_e8eb8db163a84e7697e24eef4c87cb30-7"></a><span class="go">Digest: sha256:883299973ff2e6183ddc7e042d5b44e5c0bbe24b746ab382fba558a42284cb02</span>
+<a name="rest_code_e8eb8db163a84e7697e24eef4c87cb30-8"></a><span class="go">Status: Downloaded newer image for gihyodocker/imagemagick:latest</span>
 </pre>
 <ul class="simple">
 <li><p>Data Volume を通じて、イメージを更新することなく、ホスト側で編集したファイルをコンテナに共有できる</p></li>
@@ -449,161 +449,161 @@
 <li>
 <p>Data Volume コンテナの Dockerfile を用意する</p>
 <blockquote>
-<pre class="code docker"><a name="rest_code_a8caabe61f62459da6ddded8fe20fb1f-1"></a><span class="c"># 最小限のOSの機能を備えた非常に軽量なOS。しばしばベースのDockerイメージとして利用される</span>
-<a name="rest_code_a8caabe61f62459da6ddded8fe20fb1f-2"></a><span class="k">FROM</span><span class="s"> busybox</span>
-<a name="rest_code_a8caabe61f62459da6ddded8fe20fb1f-3"></a>
-<a name="rest_code_a8caabe61f62459da6ddded8fe20fb1f-4"></a><span class="k">VOLUME</span><span class="s"> /var/lib/mysql</span>
-<a name="rest_code_a8caabe61f62459da6ddded8fe20fb1f-5"></a>
-<a name="rest_code_a8caabe61f62459da6ddded8fe20fb1f-6"></a><span class="k">CMD</span> <span class="p">[</span><span class="s2">"bin/true"</span><span class="p">]</span>
+<pre class="code docker"><a name="rest_code_f123de65832b4eb7ad649f08e560f0e7-1"></a><span class="c"># 最小限のOSの機能を備えた非常に軽量なOS。しばしばベースのDockerイメージとして利用される</span>
+<a name="rest_code_f123de65832b4eb7ad649f08e560f0e7-2"></a><span class="k">FROM</span><span class="s"> busybox</span>
+<a name="rest_code_f123de65832b4eb7ad649f08e560f0e7-3"></a>
+<a name="rest_code_f123de65832b4eb7ad649f08e560f0e7-4"></a><span class="k">VOLUME</span><span class="s"> /var/lib/mysql</span>
+<a name="rest_code_f123de65832b4eb7ad649f08e560f0e7-5"></a>
+<a name="rest_code_f123de65832b4eb7ad649f08e560f0e7-6"></a><span class="k">CMD</span> <span class="p">[</span><span class="s2">"bin/true"</span><span class="p">]</span>
 </pre>
 </blockquote>
 </li>
 <li>
 <p>Data Volume コンテナのイメージをビルドする</p>
 <blockquote>
-<pre class="code bash"><a name="rest_code_bf22372e578e414f9e9e8daf8fe9ebb2-1"></a><span class="c1"># Dockerfile のあるディレクトリで実行する</span>
-<a name="rest_code_bf22372e578e414f9e9e8daf8fe9ebb2-2"></a>$ docker image build -t example/mysql-data:latest .
-<a name="rest_code_bf22372e578e414f9e9e8daf8fe9ebb2-3"></a>Sending build context to Docker daemon  <span class="m">2</span>.048kB
-<a name="rest_code_bf22372e578e414f9e9e8daf8fe9ebb2-4"></a>Step <span class="m">1</span>/3 : FROM busybox
-<a name="rest_code_bf22372e578e414f9e9e8daf8fe9ebb2-5"></a>latest: Pulling from library/busybox
-<a name="rest_code_bf22372e578e414f9e9e8daf8fe9ebb2-6"></a>90e01955edcd: Pull <span class="nb">complete</span>
-<a name="rest_code_bf22372e578e414f9e9e8daf8fe9ebb2-7"></a>Digest: sha256:2a03a6059f21e150ae84b0973863609494aad70f0a80eaeb64bddd8d92465812
-<a name="rest_code_bf22372e578e414f9e9e8daf8fe9ebb2-8"></a>Status: Downloaded newer image <span class="k">for</span> busybox:latest
-<a name="rest_code_bf22372e578e414f9e9e8daf8fe9ebb2-9"></a> ---&gt; 59788edf1f3e
-<a name="rest_code_bf22372e578e414f9e9e8daf8fe9ebb2-10"></a>Step <span class="m">2</span>/3 : VOLUME /var/lib/mysql
-<a name="rest_code_bf22372e578e414f9e9e8daf8fe9ebb2-11"></a> ---&gt; Running in 1ab0898c94a2
-<a name="rest_code_bf22372e578e414f9e9e8daf8fe9ebb2-12"></a>Removing intermediate container 1ab0898c94a2
-<a name="rest_code_bf22372e578e414f9e9e8daf8fe9ebb2-13"></a> ---&gt; 1f5d663c0ce1
-<a name="rest_code_bf22372e578e414f9e9e8daf8fe9ebb2-14"></a>Step <span class="m">3</span>/3 : CMD <span class="o">[</span><span class="s2">"bin/true"</span><span class="o">]</span>
-<a name="rest_code_bf22372e578e414f9e9e8daf8fe9ebb2-15"></a> ---&gt; Running in 1fddf68af7c2
-<a name="rest_code_bf22372e578e414f9e9e8daf8fe9ebb2-16"></a>Removing intermediate container 1fddf68af7c2
-<a name="rest_code_bf22372e578e414f9e9e8daf8fe9ebb2-17"></a> ---&gt; e4bdb5df5b5d
-<a name="rest_code_bf22372e578e414f9e9e8daf8fe9ebb2-18"></a>Successfully built e4bdb5df5b5d
-<a name="rest_code_bf22372e578e414f9e9e8daf8fe9ebb2-19"></a>Successfully tagged example/mysql-data:latest
+<pre class="code bash"><a name="rest_code_f232eec86c5149d4b0ffae5b3a7ebb9c-1"></a><span class="c1"># Dockerfile のあるディレクトリで実行する</span>
+<a name="rest_code_f232eec86c5149d4b0ffae5b3a7ebb9c-2"></a>$ docker image build -t example/mysql-data:latest .
+<a name="rest_code_f232eec86c5149d4b0ffae5b3a7ebb9c-3"></a>Sending build context to Docker daemon  <span class="m">2</span>.048kB
+<a name="rest_code_f232eec86c5149d4b0ffae5b3a7ebb9c-4"></a>Step <span class="m">1</span>/3 : FROM busybox
+<a name="rest_code_f232eec86c5149d4b0ffae5b3a7ebb9c-5"></a>latest: Pulling from library/busybox
+<a name="rest_code_f232eec86c5149d4b0ffae5b3a7ebb9c-6"></a>90e01955edcd: Pull <span class="nb">complete</span>
+<a name="rest_code_f232eec86c5149d4b0ffae5b3a7ebb9c-7"></a>Digest: sha256:2a03a6059f21e150ae84b0973863609494aad70f0a80eaeb64bddd8d92465812
+<a name="rest_code_f232eec86c5149d4b0ffae5b3a7ebb9c-8"></a>Status: Downloaded newer image <span class="k">for</span> busybox:latest
+<a name="rest_code_f232eec86c5149d4b0ffae5b3a7ebb9c-9"></a> ---&gt; 59788edf1f3e
+<a name="rest_code_f232eec86c5149d4b0ffae5b3a7ebb9c-10"></a>Step <span class="m">2</span>/3 : VOLUME /var/lib/mysql
+<a name="rest_code_f232eec86c5149d4b0ffae5b3a7ebb9c-11"></a> ---&gt; Running in 1ab0898c94a2
+<a name="rest_code_f232eec86c5149d4b0ffae5b3a7ebb9c-12"></a>Removing intermediate container 1ab0898c94a2
+<a name="rest_code_f232eec86c5149d4b0ffae5b3a7ebb9c-13"></a> ---&gt; 1f5d663c0ce1
+<a name="rest_code_f232eec86c5149d4b0ffae5b3a7ebb9c-14"></a>Step <span class="m">3</span>/3 : CMD <span class="o">[</span><span class="s2">"bin/true"</span><span class="o">]</span>
+<a name="rest_code_f232eec86c5149d4b0ffae5b3a7ebb9c-15"></a> ---&gt; Running in 1fddf68af7c2
+<a name="rest_code_f232eec86c5149d4b0ffae5b3a7ebb9c-16"></a>Removing intermediate container 1fddf68af7c2
+<a name="rest_code_f232eec86c5149d4b0ffae5b3a7ebb9c-17"></a> ---&gt; e4bdb5df5b5d
+<a name="rest_code_f232eec86c5149d4b0ffae5b3a7ebb9c-18"></a>Successfully built e4bdb5df5b5d
+<a name="rest_code_f232eec86c5149d4b0ffae5b3a7ebb9c-19"></a>Successfully tagged example/mysql-data:latest
 </pre>
 </blockquote>
 </li>
 <li>
 <p>Data Volume コンテナを実行する (コンテナは廃棄されない限りディスクに保持される)</p>
 <blockquote>
-<pre class="code console"><a name="rest_code_44c02ed67a874b7b8af2b78bb5434d3a-1"></a><span class="gp">$</span> docker container run -d --name mysql-data example/mysql-data:latest
-<a name="rest_code_44c02ed67a874b7b8af2b78bb5434d3a-2"></a><span class="go">edaab85b9b7e3505c93d8d8947ef2b868cd620765a439bbb77a93c92cfa96373</span>
+<pre class="code console"><a name="rest_code_72bf41fa6476468190bf7e6bcd6d02bd-1"></a><span class="gp">$</span> docker container run -d --name mysql-data example/mysql-data:latest
+<a name="rest_code_72bf41fa6476468190bf7e6bcd6d02bd-2"></a><span class="go">edaab85b9b7e3505c93d8d8947ef2b868cd620765a439bbb77a93c92cfa96373</span>
 </pre>
 </blockquote>
 </li>
 <li>
 <p>MySQL コンテナを実行する</p>
 <blockquote>
-<pre class="code console"><a name="rest_code_29fd4e6f56f148cc970aaff68c1c835f-1"></a><span class="gp">$</span> docker container run -d --rm --name mysql <span class="se">\</span>
-<a name="rest_code_29fd4e6f56f148cc970aaff68c1c835f-2"></a>  -e <span class="s2">"MYSQL_ALLOW_EMPTY_PASSWORD=yes"</span> <span class="se">\</span>
-<a name="rest_code_29fd4e6f56f148cc970aaff68c1c835f-3"></a>  -e <span class="s2">"MYSQL_DATABASE=volume_test"</span> <span class="se">\</span>
-<a name="rest_code_29fd4e6f56f148cc970aaff68c1c835f-4"></a>  -e <span class="s2">"MYSQL_USER=example"</span> <span class="se">\</span>
-<a name="rest_code_29fd4e6f56f148cc970aaff68c1c835f-5"></a>  -e <span class="s2">"MYSQL_PASSWORD=example"</span> <span class="se">\</span>
-<a name="rest_code_29fd4e6f56f148cc970aaff68c1c835f-6"></a>  --volumes-from mysql-data <span class="se">\</span>
-<a name="rest_code_29fd4e6f56f148cc970aaff68c1c835f-7"></a>  mysql:5.7
-<a name="rest_code_29fd4e6f56f148cc970aaff68c1c835f-8"></a>
-<a name="rest_code_29fd4e6f56f148cc970aaff68c1c835f-9"></a><span class="go">Unable to find image 'mysql:5.7' locally</span>
-<a name="rest_code_29fd4e6f56f148cc970aaff68c1c835f-10"></a><span class="go">5.7: Pulling from library/mysql</span>
-<a name="rest_code_29fd4e6f56f148cc970aaff68c1c835f-11"></a><span class="go">a5a6f2f73cd8: Pulling fs layer</span>
-<a name="rest_code_29fd4e6f56f148cc970aaff68c1c835f-12"></a><span class="go">936836019e67: Pulling fs layer</span>
-<a name="rest_code_29fd4e6f56f148cc970aaff68c1c835f-13"></a><span class="go">283fa4c95fb4: Pull complete</span>
-<a name="rest_code_29fd4e6f56f148cc970aaff68c1c835f-14"></a><span class="go">1f212fb371f9: Pull complete</span>
-<a name="rest_code_29fd4e6f56f148cc970aaff68c1c835f-15"></a><span class="go">e2ae0d063e89: Pull complete</span>
-<a name="rest_code_29fd4e6f56f148cc970aaff68c1c835f-16"></a><span class="go">5ed0ae805b65: Pull complete</span>
-<a name="rest_code_29fd4e6f56f148cc970aaff68c1c835f-17"></a><span class="go">0283dc49ef4e: Pull complete</span>
-<a name="rest_code_29fd4e6f56f148cc970aaff68c1c835f-18"></a><span class="go">a7905d9fbbea: Pull complete</span>
-<a name="rest_code_29fd4e6f56f148cc970aaff68c1c835f-19"></a><span class="go">cd2a65837235: Pull complete</span>
-<a name="rest_code_29fd4e6f56f148cc970aaff68c1c835f-20"></a><span class="go">5f906b8da5fe: Pull complete</span>
-<a name="rest_code_29fd4e6f56f148cc970aaff68c1c835f-21"></a><span class="go">e81e51815567: Pull complete</span>
-<a name="rest_code_29fd4e6f56f148cc970aaff68c1c835f-22"></a><span class="go">Digest: sha256:c23e9bfe66eeffc990cf6bce4bb0e9c5c85eb908170f3b3dde3e9a12c5a91689</span>
-<a name="rest_code_29fd4e6f56f148cc970aaff68c1c835f-23"></a><span class="go">Status: Downloaded newer image for mysql:5.7</span>
-<a name="rest_code_29fd4e6f56f148cc970aaff68c1c835f-24"></a><span class="go">f702db74f9156b20595fe04d3df09b2f0008bf707bb9b2c32db593fd33941342</span>
+<pre class="code console"><a name="rest_code_4fafe7643b4646018303faa18bac6d3c-1"></a><span class="gp">$</span> docker container run -d --rm --name mysql <span class="se">\</span>
+<a name="rest_code_4fafe7643b4646018303faa18bac6d3c-2"></a>  -e <span class="s2">"MYSQL_ALLOW_EMPTY_PASSWORD=yes"</span> <span class="se">\</span>
+<a name="rest_code_4fafe7643b4646018303faa18bac6d3c-3"></a>  -e <span class="s2">"MYSQL_DATABASE=volume_test"</span> <span class="se">\</span>
+<a name="rest_code_4fafe7643b4646018303faa18bac6d3c-4"></a>  -e <span class="s2">"MYSQL_USER=example"</span> <span class="se">\</span>
+<a name="rest_code_4fafe7643b4646018303faa18bac6d3c-5"></a>  -e <span class="s2">"MYSQL_PASSWORD=example"</span> <span class="se">\</span>
+<a name="rest_code_4fafe7643b4646018303faa18bac6d3c-6"></a>  --volumes-from mysql-data <span class="se">\</span>
+<a name="rest_code_4fafe7643b4646018303faa18bac6d3c-7"></a>  mysql:5.7
+<a name="rest_code_4fafe7643b4646018303faa18bac6d3c-8"></a>
+<a name="rest_code_4fafe7643b4646018303faa18bac6d3c-9"></a><span class="go">Unable to find image 'mysql:5.7' locally</span>
+<a name="rest_code_4fafe7643b4646018303faa18bac6d3c-10"></a><span class="go">5.7: Pulling from library/mysql</span>
+<a name="rest_code_4fafe7643b4646018303faa18bac6d3c-11"></a><span class="go">a5a6f2f73cd8: Pulling fs layer</span>
+<a name="rest_code_4fafe7643b4646018303faa18bac6d3c-12"></a><span class="go">936836019e67: Pulling fs layer</span>
+<a name="rest_code_4fafe7643b4646018303faa18bac6d3c-13"></a><span class="go">283fa4c95fb4: Pull complete</span>
+<a name="rest_code_4fafe7643b4646018303faa18bac6d3c-14"></a><span class="go">1f212fb371f9: Pull complete</span>
+<a name="rest_code_4fafe7643b4646018303faa18bac6d3c-15"></a><span class="go">e2ae0d063e89: Pull complete</span>
+<a name="rest_code_4fafe7643b4646018303faa18bac6d3c-16"></a><span class="go">5ed0ae805b65: Pull complete</span>
+<a name="rest_code_4fafe7643b4646018303faa18bac6d3c-17"></a><span class="go">0283dc49ef4e: Pull complete</span>
+<a name="rest_code_4fafe7643b4646018303faa18bac6d3c-18"></a><span class="go">a7905d9fbbea: Pull complete</span>
+<a name="rest_code_4fafe7643b4646018303faa18bac6d3c-19"></a><span class="go">cd2a65837235: Pull complete</span>
+<a name="rest_code_4fafe7643b4646018303faa18bac6d3c-20"></a><span class="go">5f906b8da5fe: Pull complete</span>
+<a name="rest_code_4fafe7643b4646018303faa18bac6d3c-21"></a><span class="go">e81e51815567: Pull complete</span>
+<a name="rest_code_4fafe7643b4646018303faa18bac6d3c-22"></a><span class="go">Digest: sha256:c23e9bfe66eeffc990cf6bce4bb0e9c5c85eb908170f3b3dde3e9a12c5a91689</span>
+<a name="rest_code_4fafe7643b4646018303faa18bac6d3c-23"></a><span class="go">Status: Downloaded newer image for mysql:5.7</span>
+<a name="rest_code_4fafe7643b4646018303faa18bac6d3c-24"></a><span class="go">f702db74f9156b20595fe04d3df09b2f0008bf707bb9b2c32db593fd33941342</span>
 </pre>
 </blockquote>
 </li>
 <li>
 <p>実行中の mysql コンテナに root アカウントでログイン (パスワードは空)</p>
 <blockquote>
-<pre class="code console"><a name="rest_code_35778797049e41afa096a63d7766e73c-1"></a><span class="gp">$</span> docker container <span class="nb">exec</span> -it mysql mysql -u root -p volume_test
-<a name="rest_code_35778797049e41afa096a63d7766e73c-2"></a>
-<a name="rest_code_35778797049e41afa096a63d7766e73c-3"></a><span class="go">Enter password:</span>
-<a name="rest_code_35778797049e41afa096a63d7766e73c-4"></a><span class="go">Welcome to the MySQL monitor.  Commands end with ; or \g.</span>
-<a name="rest_code_35778797049e41afa096a63d7766e73c-5"></a><span class="go">Your MySQL connection id is 2</span>
-<a name="rest_code_35778797049e41afa096a63d7766e73c-6"></a><span class="go">Server version: 5.7.24 MySQL Community Server (GPL)</span>
-<a name="rest_code_35778797049e41afa096a63d7766e73c-7"></a>
-<a name="rest_code_35778797049e41afa096a63d7766e73c-8"></a><span class="go">Copyright (c) 2000, 2018, Oracle and/or its affiliates. All rights reserved.</span>
-<a name="rest_code_35778797049e41afa096a63d7766e73c-9"></a>
-<a name="rest_code_35778797049e41afa096a63d7766e73c-10"></a><span class="go">Oracle is a registered trademark of Oracle Corporation and/or its</span>
-<a name="rest_code_35778797049e41afa096a63d7766e73c-11"></a><span class="go">affiliates. Other names may be trademarks of their respective</span>
-<a name="rest_code_35778797049e41afa096a63d7766e73c-12"></a><span class="go">owners.</span>
-<a name="rest_code_35778797049e41afa096a63d7766e73c-13"></a>
-<a name="rest_code_35778797049e41afa096a63d7766e73c-14"></a><span class="go">Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.</span>
-<a name="rest_code_35778797049e41afa096a63d7766e73c-15"></a>
-<a name="rest_code_35778797049e41afa096a63d7766e73c-16"></a><span class="go">mysql&gt; CREATE TABLE user(</span>
-<a name="rest_code_35778797049e41afa096a63d7766e73c-17"></a><span class="go">    -&gt;   id int PRIMARY KEY AUTO_INCREMENT,</span>
-<a name="rest_code_35778797049e41afa096a63d7766e73c-18"></a><span class="go">    -&gt;   name VARCHAR(255)</span>
-<a name="rest_code_35778797049e41afa096a63d7766e73c-19"></a><span class="go">    -&gt; ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE utf8mb4_unicode_ci;</span>
-<a name="rest_code_35778797049e41afa096a63d7766e73c-20"></a><span class="go">Query OK, 0 rows affected (0.01 sec)</span>
-<a name="rest_code_35778797049e41afa096a63d7766e73c-21"></a>
-<a name="rest_code_35778797049e41afa096a63d7766e73c-22"></a><span class="go">mysql&gt; INSERT INTO user (name) VALUES ('gihyo'), ('docker'), ('Solomon Hykes');</span>
-<a name="rest_code_35778797049e41afa096a63d7766e73c-23"></a><span class="go">Query OK, 3 rows affected (0.01 sec)</span>
-<a name="rest_code_35778797049e41afa096a63d7766e73c-24"></a><span class="go">Records: 3  Duplicates: 0  Warnings: 0</span>
+<pre class="code console"><a name="rest_code_504b0629f19a41c381dbe2d11a46eb1f-1"></a><span class="gp">$</span> docker container <span class="nb">exec</span> -it mysql mysql -u root -p volume_test
+<a name="rest_code_504b0629f19a41c381dbe2d11a46eb1f-2"></a>
+<a name="rest_code_504b0629f19a41c381dbe2d11a46eb1f-3"></a><span class="go">Enter password:</span>
+<a name="rest_code_504b0629f19a41c381dbe2d11a46eb1f-4"></a><span class="go">Welcome to the MySQL monitor.  Commands end with ; or \g.</span>
+<a name="rest_code_504b0629f19a41c381dbe2d11a46eb1f-5"></a><span class="go">Your MySQL connection id is 2</span>
+<a name="rest_code_504b0629f19a41c381dbe2d11a46eb1f-6"></a><span class="go">Server version: 5.7.24 MySQL Community Server (GPL)</span>
+<a name="rest_code_504b0629f19a41c381dbe2d11a46eb1f-7"></a>
+<a name="rest_code_504b0629f19a41c381dbe2d11a46eb1f-8"></a><span class="go">Copyright (c) 2000, 2018, Oracle and/or its affiliates. All rights reserved.</span>
+<a name="rest_code_504b0629f19a41c381dbe2d11a46eb1f-9"></a>
+<a name="rest_code_504b0629f19a41c381dbe2d11a46eb1f-10"></a><span class="go">Oracle is a registered trademark of Oracle Corporation and/or its</span>
+<a name="rest_code_504b0629f19a41c381dbe2d11a46eb1f-11"></a><span class="go">affiliates. Other names may be trademarks of their respective</span>
+<a name="rest_code_504b0629f19a41c381dbe2d11a46eb1f-12"></a><span class="go">owners.</span>
+<a name="rest_code_504b0629f19a41c381dbe2d11a46eb1f-13"></a>
+<a name="rest_code_504b0629f19a41c381dbe2d11a46eb1f-14"></a><span class="go">Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.</span>
+<a name="rest_code_504b0629f19a41c381dbe2d11a46eb1f-15"></a>
+<a name="rest_code_504b0629f19a41c381dbe2d11a46eb1f-16"></a><span class="go">mysql&gt; CREATE TABLE user(</span>
+<a name="rest_code_504b0629f19a41c381dbe2d11a46eb1f-17"></a><span class="go">    -&gt;   id int PRIMARY KEY AUTO_INCREMENT,</span>
+<a name="rest_code_504b0629f19a41c381dbe2d11a46eb1f-18"></a><span class="go">    -&gt;   name VARCHAR(255)</span>
+<a name="rest_code_504b0629f19a41c381dbe2d11a46eb1f-19"></a><span class="go">    -&gt; ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE utf8mb4_unicode_ci;</span>
+<a name="rest_code_504b0629f19a41c381dbe2d11a46eb1f-20"></a><span class="go">Query OK, 0 rows affected (0.01 sec)</span>
+<a name="rest_code_504b0629f19a41c381dbe2d11a46eb1f-21"></a>
+<a name="rest_code_504b0629f19a41c381dbe2d11a46eb1f-22"></a><span class="go">mysql&gt; INSERT INTO user (name) VALUES ('gihyo'), ('docker'), ('Solomon Hykes');</span>
+<a name="rest_code_504b0629f19a41c381dbe2d11a46eb1f-23"></a><span class="go">Query OK, 3 rows affected (0.01 sec)</span>
+<a name="rest_code_504b0629f19a41c381dbe2d11a46eb1f-24"></a><span class="go">Records: 3  Duplicates: 0  Warnings: 0</span>
 </pre>
 </blockquote>
 </li>
 <li>
 <p>mysql コンテナを停止する ( --rm オプションをつけて実行したため、停止すると廃棄される)</p>
 <blockquote>
-<pre class="code console"><a name="rest_code_a41aa28690704676a65208ab5d769ae5-1"></a><span class="gp">$</span> docker container stop mysql
-<a name="rest_code_a41aa28690704676a65208ab5d769ae5-2"></a><span class="go">mysql</span>
+<pre class="code console"><a name="rest_code_c8f31f66859d4c47bd4fa6f3c78f7b33-1"></a><span class="gp">$</span> docker container stop mysql
+<a name="rest_code_c8f31f66859d4c47bd4fa6f3c78f7b33-2"></a><span class="go">mysql</span>
 </pre>
 </blockquote>
 </li>
 <li>
 <p>再度、新しい mysql コンテナを実行する。</p>
 <blockquote>
-<pre class="code console"><a name="rest_code_7f393796078f433c9a6129f4c1ba24c7-1"></a><span class="gp">$</span> docker container run -d --rm --name mysql <span class="se">\</span>
-<a name="rest_code_7f393796078f433c9a6129f4c1ba24c7-2"></a>  -e <span class="s2">"MYSQL_ALLOW_EMPTY_PASSWORD=yes"</span> <span class="se">\</span>
-<a name="rest_code_7f393796078f433c9a6129f4c1ba24c7-3"></a>  -e <span class="s2">"MYSQL_DATABASE=volume_test"</span> <span class="se">\</span>
-<a name="rest_code_7f393796078f433c9a6129f4c1ba24c7-4"></a>  -e <span class="s2">"MYSQL_USER=example"</span> <span class="se">\</span>
-<a name="rest_code_7f393796078f433c9a6129f4c1ba24c7-5"></a>  -e <span class="s2">"MYSQL_PASSWORD=example"</span> <span class="se">\</span>
-<a name="rest_code_7f393796078f433c9a6129f4c1ba24c7-6"></a>  --volumes-from mysql-data <span class="se">\</span>
-<a name="rest_code_7f393796078f433c9a6129f4c1ba24c7-7"></a>  mysql:5.7
-<a name="rest_code_7f393796078f433c9a6129f4c1ba24c7-8"></a>
-<a name="rest_code_7f393796078f433c9a6129f4c1ba24c7-9"></a><span class="go">f180d4063914b43b7d522324eb5abf5640b67d6342cb353b04ea77f85d347dcb</span>
+<pre class="code console"><a name="rest_code_316f46ebc0404a4ea806797b91653028-1"></a><span class="gp">$</span> docker container run -d --rm --name mysql <span class="se">\</span>
+<a name="rest_code_316f46ebc0404a4ea806797b91653028-2"></a>  -e <span class="s2">"MYSQL_ALLOW_EMPTY_PASSWORD=yes"</span> <span class="se">\</span>
+<a name="rest_code_316f46ebc0404a4ea806797b91653028-3"></a>  -e <span class="s2">"MYSQL_DATABASE=volume_test"</span> <span class="se">\</span>
+<a name="rest_code_316f46ebc0404a4ea806797b91653028-4"></a>  -e <span class="s2">"MYSQL_USER=example"</span> <span class="se">\</span>
+<a name="rest_code_316f46ebc0404a4ea806797b91653028-5"></a>  -e <span class="s2">"MYSQL_PASSWORD=example"</span> <span class="se">\</span>
+<a name="rest_code_316f46ebc0404a4ea806797b91653028-6"></a>  --volumes-from mysql-data <span class="se">\</span>
+<a name="rest_code_316f46ebc0404a4ea806797b91653028-7"></a>  mysql:5.7
+<a name="rest_code_316f46ebc0404a4ea806797b91653028-8"></a>
+<a name="rest_code_316f46ebc0404a4ea806797b91653028-9"></a><span class="go">f180d4063914b43b7d522324eb5abf5640b67d6342cb353b04ea77f85d347dcb</span>
 </pre>
 </blockquote>
 </li>
 <li>
 <p>実行中の mysql コンテナに root アカウントでログイン (パスワードは空) すると、先ほどのデータが残っている!!</p>
 <blockquote>
-<pre class="code console"><a name="rest_code_3336f176788e41b69384ef8f2f7f2a9c-1"></a><span class="gp">$</span> docker container <span class="nb">exec</span> -it mysql mysql -u root -p volume_test
-<a name="rest_code_3336f176788e41b69384ef8f2f7f2a9c-2"></a>
-<a name="rest_code_3336f176788e41b69384ef8f2f7f2a9c-3"></a><span class="go">Enter password:</span>
-<a name="rest_code_3336f176788e41b69384ef8f2f7f2a9c-4"></a><span class="go">Reading table information for completion of table and column names</span>
-<a name="rest_code_3336f176788e41b69384ef8f2f7f2a9c-5"></a><span class="go">You can turn off this feature to get a quicker startup with -A</span>
-<a name="rest_code_3336f176788e41b69384ef8f2f7f2a9c-6"></a>
-<a name="rest_code_3336f176788e41b69384ef8f2f7f2a9c-7"></a><span class="go">Welcome to the MySQL monitor.  Commands end with ; or \g.</span>
-<a name="rest_code_3336f176788e41b69384ef8f2f7f2a9c-8"></a><span class="go">Your MySQL connection id is 2</span>
-<a name="rest_code_3336f176788e41b69384ef8f2f7f2a9c-9"></a><span class="go">Server version: 5.7.24 MySQL Community Server (GPL)</span>
-<a name="rest_code_3336f176788e41b69384ef8f2f7f2a9c-10"></a>
-<a name="rest_code_3336f176788e41b69384ef8f2f7f2a9c-11"></a><span class="go">Copyright (c) 2000, 2018, Oracle and/or its affiliates. All rights reserved.</span>
-<a name="rest_code_3336f176788e41b69384ef8f2f7f2a9c-12"></a>
-<a name="rest_code_3336f176788e41b69384ef8f2f7f2a9c-13"></a><span class="go">Oracle is a registered trademark of Oracle Corporation and/or its</span>
-<a name="rest_code_3336f176788e41b69384ef8f2f7f2a9c-14"></a><span class="go">affiliates. Other names may be trademarks of their respective</span>
-<a name="rest_code_3336f176788e41b69384ef8f2f7f2a9c-15"></a><span class="go">owners.</span>
-<a name="rest_code_3336f176788e41b69384ef8f2f7f2a9c-16"></a>
-<a name="rest_code_3336f176788e41b69384ef8f2f7f2a9c-17"></a><span class="go">Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.</span>
-<a name="rest_code_3336f176788e41b69384ef8f2f7f2a9c-18"></a>
-<a name="rest_code_3336f176788e41b69384ef8f2f7f2a9c-19"></a><span class="go">mysql&gt; SELECT * FROM user;</span>
-<a name="rest_code_3336f176788e41b69384ef8f2f7f2a9c-20"></a><span class="go">+----+---------------+</span>
-<a name="rest_code_3336f176788e41b69384ef8f2f7f2a9c-21"></a><span class="go">| id | name          |</span>
-<a name="rest_code_3336f176788e41b69384ef8f2f7f2a9c-22"></a><span class="go">+----+---------------+</span>
-<a name="rest_code_3336f176788e41b69384ef8f2f7f2a9c-23"></a><span class="go">|  1 | gihyo         |</span>
-<a name="rest_code_3336f176788e41b69384ef8f2f7f2a9c-24"></a><span class="go">|  2 | docker        |</span>
-<a name="rest_code_3336f176788e41b69384ef8f2f7f2a9c-25"></a><span class="go">|  3 | Solomon Hykes |</span>
-<a name="rest_code_3336f176788e41b69384ef8f2f7f2a9c-26"></a><span class="go">+----+---------------+</span>
-<a name="rest_code_3336f176788e41b69384ef8f2f7f2a9c-27"></a><span class="go">3 rows in set (0.00 sec)</span>
+<pre class="code console"><a name="rest_code_61b29ae047bc4fd09db5aa2bfe5d6d3a-1"></a><span class="gp">$</span> docker container <span class="nb">exec</span> -it mysql mysql -u root -p volume_test
+<a name="rest_code_61b29ae047bc4fd09db5aa2bfe5d6d3a-2"></a>
+<a name="rest_code_61b29ae047bc4fd09db5aa2bfe5d6d3a-3"></a><span class="go">Enter password:</span>
+<a name="rest_code_61b29ae047bc4fd09db5aa2bfe5d6d3a-4"></a><span class="go">Reading table information for completion of table and column names</span>
+<a name="rest_code_61b29ae047bc4fd09db5aa2bfe5d6d3a-5"></a><span class="go">You can turn off this feature to get a quicker startup with -A</span>
+<a name="rest_code_61b29ae047bc4fd09db5aa2bfe5d6d3a-6"></a>
+<a name="rest_code_61b29ae047bc4fd09db5aa2bfe5d6d3a-7"></a><span class="go">Welcome to the MySQL monitor.  Commands end with ; or \g.</span>
+<a name="rest_code_61b29ae047bc4fd09db5aa2bfe5d6d3a-8"></a><span class="go">Your MySQL connection id is 2</span>
+<a name="rest_code_61b29ae047bc4fd09db5aa2bfe5d6d3a-9"></a><span class="go">Server version: 5.7.24 MySQL Community Server (GPL)</span>
+<a name="rest_code_61b29ae047bc4fd09db5aa2bfe5d6d3a-10"></a>
+<a name="rest_code_61b29ae047bc4fd09db5aa2bfe5d6d3a-11"></a><span class="go">Copyright (c) 2000, 2018, Oracle and/or its affiliates. All rights reserved.</span>
+<a name="rest_code_61b29ae047bc4fd09db5aa2bfe5d6d3a-12"></a>
+<a name="rest_code_61b29ae047bc4fd09db5aa2bfe5d6d3a-13"></a><span class="go">Oracle is a registered trademark of Oracle Corporation and/or its</span>
+<a name="rest_code_61b29ae047bc4fd09db5aa2bfe5d6d3a-14"></a><span class="go">affiliates. Other names may be trademarks of their respective</span>
+<a name="rest_code_61b29ae047bc4fd09db5aa2bfe5d6d3a-15"></a><span class="go">owners.</span>
+<a name="rest_code_61b29ae047bc4fd09db5aa2bfe5d6d3a-16"></a>
+<a name="rest_code_61b29ae047bc4fd09db5aa2bfe5d6d3a-17"></a><span class="go">Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.</span>
+<a name="rest_code_61b29ae047bc4fd09db5aa2bfe5d6d3a-18"></a>
+<a name="rest_code_61b29ae047bc4fd09db5aa2bfe5d6d3a-19"></a><span class="go">mysql&gt; SELECT * FROM user;</span>
+<a name="rest_code_61b29ae047bc4fd09db5aa2bfe5d6d3a-20"></a><span class="go">+----+---------------+</span>
+<a name="rest_code_61b29ae047bc4fd09db5aa2bfe5d6d3a-21"></a><span class="go">| id | name          |</span>
+<a name="rest_code_61b29ae047bc4fd09db5aa2bfe5d6d3a-22"></a><span class="go">+----+---------------+</span>
+<a name="rest_code_61b29ae047bc4fd09db5aa2bfe5d6d3a-23"></a><span class="go">|  1 | gihyo         |</span>
+<a name="rest_code_61b29ae047bc4fd09db5aa2bfe5d6d3a-24"></a><span class="go">|  2 | docker        |</span>
+<a name="rest_code_61b29ae047bc4fd09db5aa2bfe5d6d3a-25"></a><span class="go">|  3 | Solomon Hykes |</span>
+<a name="rest_code_61b29ae047bc4fd09db5aa2bfe5d6d3a-26"></a><span class="go">+----+---------------+</span>
+<a name="rest_code_61b29ae047bc4fd09db5aa2bfe5d6d3a-27"></a><span class="go">3 rows in set (0.00 sec)</span>
 </pre>
 </blockquote>
 </li>
@@ -615,10 +615,10 @@
 <li><p>Data Volume は同一 Docker ホスト内でのみ有効</p></li>
 <li>
 <p>他の Docker ホストで使いたいときは、 Data Volume コンテナからデータをファイルとしてホストにエクスポートする</p>
-<pre class="code console"><a name="rest_code_c08f43b5f9d04d849bc7ac7eeb6be8be-1"></a><span class="gp">$</span> docker container run -v <span class="sb">`</span><span class="si">${</span><span class="nv">PWD</span><span class="si">}</span><span class="sb">`</span>:/tmp <span class="se">\</span>
-<a name="rest_code_c08f43b5f9d04d849bc7ac7eeb6be8be-2"></a>  --volumes-from mysql-data <span class="se">\</span>
-<a name="rest_code_c08f43b5f9d04d849bc7ac7eeb6be8be-3"></a>  busybox <span class="se">\</span>
-<a name="rest_code_c08f43b5f9d04d849bc7ac7eeb6be8be-4"></a>  tar cvzf /tmp/mysql-backup.tar.gz /var/lib/mysql
+<pre class="code console"><a name="rest_code_ec12b13a94bd43248c2c5e66532d900d-1"></a><span class="gp">$</span> docker container run -v <span class="sb">`</span><span class="si">${</span><span class="nv">PWD</span><span class="si">}</span><span class="sb">`</span>:/tmp <span class="se">\</span>
+<a name="rest_code_ec12b13a94bd43248c2c5e66532d900d-2"></a>  --volumes-from mysql-data <span class="se">\</span>
+<a name="rest_code_ec12b13a94bd43248c2c5e66532d900d-3"></a>  busybox <span class="se">\</span>
+<a name="rest_code_ec12b13a94bd43248c2c5e66532d900d-4"></a>  tar cvzf /tmp/mysql-backup.tar.gz /var/lib/mysql
 </pre>
 <ul class="simple">
 <li><p>これ (できなかったけど) はちょっと不便なので、Volume Plugins がいろいろある</p></li>
@@ -684,135 +684,135 @@
 <li>
 <p><code class="docutils literal"><span class="pre">docker-compose.yml</span></code> を作成する。</p>
 <blockquote>
-<pre class="code yaml"><a name="rest_code_9e5017193f5a4ac9ab50239100e6bc32-1"></a><span class="nt">version</span><span class="p">:</span> <span class="s">"3"</span>
-<a name="rest_code_9e5017193f5a4ac9ab50239100e6bc32-2"></a><span class="nt">services</span><span class="p">:</span>
-<a name="rest_code_9e5017193f5a4ac9ab50239100e6bc32-3"></a>  <span class="nt">registry</span><span class="p">:</span>  <span class="c1"># Docker レジストリ役のコンテナ</span>
-<a name="rest_code_9e5017193f5a4ac9ab50239100e6bc32-4"></a>    <span class="nt">container_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">registry</span>
-<a name="rest_code_9e5017193f5a4ac9ab50239100e6bc32-5"></a>    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">registry:2.6</span>
-<a name="rest_code_9e5017193f5a4ac9ab50239100e6bc32-6"></a>    <span class="nt">ports</span><span class="p">:</span>
-<a name="rest_code_9e5017193f5a4ac9ab50239100e6bc32-7"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">5000:5000</span>
-<a name="rest_code_9e5017193f5a4ac9ab50239100e6bc32-8"></a>    <span class="nt">volumes</span><span class="p">:</span>
-<a name="rest_code_9e5017193f5a4ac9ab50239100e6bc32-9"></a>      <span class="p p-Indicator">-</span> <span class="s">"./registry-data:/var/lib/registry"</span>  <span class="c1"># 永続化のため、ホストにマウント</span>
-<a name="rest_code_9e5017193f5a4ac9ab50239100e6bc32-10"></a>
-<a name="rest_code_9e5017193f5a4ac9ab50239100e6bc32-11"></a>  <span class="nt">manager</span><span class="p">:</span>  <span class="c1"># Swarm クラスタ全体を制御する役割</span>
-<a name="rest_code_9e5017193f5a4ac9ab50239100e6bc32-12"></a>    <span class="nt">container_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">manager</span>
-<a name="rest_code_9e5017193f5a4ac9ab50239100e6bc32-13"></a>    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">docker:18.05.0-ce-dind</span>
-<a name="rest_code_9e5017193f5a4ac9ab50239100e6bc32-14"></a>    <span class="nt">privileged</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-<a name="rest_code_9e5017193f5a4ac9ab50239100e6bc32-15"></a>    <span class="nt">tty</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-<a name="rest_code_9e5017193f5a4ac9ab50239100e6bc32-16"></a>    <span class="nt">ports</span><span class="p">:</span>
-<a name="rest_code_9e5017193f5a4ac9ab50239100e6bc32-17"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">8000:80</span>
-<a name="rest_code_9e5017193f5a4ac9ab50239100e6bc32-18"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">9000:9000</span>
-<a name="rest_code_9e5017193f5a4ac9ab50239100e6bc32-19"></a>    <span class="nt">depends_on</span><span class="p">:</span>
-<a name="rest_code_9e5017193f5a4ac9ab50239100e6bc32-20"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">registry</span>
-<a name="rest_code_9e5017193f5a4ac9ab50239100e6bc32-21"></a>    <span class="nt">expose</span><span class="p">:</span>
-<a name="rest_code_9e5017193f5a4ac9ab50239100e6bc32-22"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">3375</span>
-<a name="rest_code_9e5017193f5a4ac9ab50239100e6bc32-23"></a>    <span class="nt">command</span><span class="p">:</span> <span class="s">"--insecure-registry</span><span class="nv"> </span><span class="s">registry:5000"</span>  <span class="c1"># HTTP でも利用できるようにしている</span>
-<a name="rest_code_9e5017193f5a4ac9ab50239100e6bc32-24"></a>    <span class="nt">volumes</span><span class="p">:</span>
-<a name="rest_code_9e5017193f5a4ac9ab50239100e6bc32-25"></a>      <span class="p p-Indicator">-</span> <span class="s">"./stack:/stack"</span>
-<a name="rest_code_9e5017193f5a4ac9ab50239100e6bc32-26"></a>
-<a name="rest_code_9e5017193f5a4ac9ab50239100e6bc32-27"></a>  <span class="nt">worker01</span><span class="p">:</span>  <span class="c1"># ノードの役割</span>
-<a name="rest_code_9e5017193f5a4ac9ab50239100e6bc32-28"></a>    <span class="nt">container_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">worker01</span>
-<a name="rest_code_9e5017193f5a4ac9ab50239100e6bc32-29"></a>    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">docker:18.05.0-ce-dind</span>
-<a name="rest_code_9e5017193f5a4ac9ab50239100e6bc32-30"></a>    <span class="nt">privileged</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-<a name="rest_code_9e5017193f5a4ac9ab50239100e6bc32-31"></a>    <span class="nt">tty</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-<a name="rest_code_9e5017193f5a4ac9ab50239100e6bc32-32"></a>    <span class="nt">depends_on</span><span class="p">:</span>
-<a name="rest_code_9e5017193f5a4ac9ab50239100e6bc32-33"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">manager</span>
-<a name="rest_code_9e5017193f5a4ac9ab50239100e6bc32-34"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">registry</span>
-<a name="rest_code_9e5017193f5a4ac9ab50239100e6bc32-35"></a>    <span class="nt">expose</span><span class="p">:</span>
-<a name="rest_code_9e5017193f5a4ac9ab50239100e6bc32-36"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">7946</span>
-<a name="rest_code_9e5017193f5a4ac9ab50239100e6bc32-37"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">7946/udp</span>
-<a name="rest_code_9e5017193f5a4ac9ab50239100e6bc32-38"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">4789/udp</span>
-<a name="rest_code_9e5017193f5a4ac9ab50239100e6bc32-39"></a>    <span class="nt">command</span><span class="p">:</span> <span class="s">"--insecure-registry</span><span class="nv"> </span><span class="s">registry:5000"</span>
-<a name="rest_code_9e5017193f5a4ac9ab50239100e6bc32-40"></a>
-<a name="rest_code_9e5017193f5a4ac9ab50239100e6bc32-41"></a>  <span class="nt">worker02</span><span class="p">:</span>  <span class="c1"># ノードの役割</span>
-<a name="rest_code_9e5017193f5a4ac9ab50239100e6bc32-42"></a>    <span class="nt">container_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">worker02</span>
-<a name="rest_code_9e5017193f5a4ac9ab50239100e6bc32-43"></a>    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">docker:18.05.0-ce-dind</span>
-<a name="rest_code_9e5017193f5a4ac9ab50239100e6bc32-44"></a>    <span class="nt">privileged</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-<a name="rest_code_9e5017193f5a4ac9ab50239100e6bc32-45"></a>    <span class="nt">tty</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-<a name="rest_code_9e5017193f5a4ac9ab50239100e6bc32-46"></a>    <span class="nt">depends_on</span><span class="p">:</span>
-<a name="rest_code_9e5017193f5a4ac9ab50239100e6bc32-47"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">manager</span>
-<a name="rest_code_9e5017193f5a4ac9ab50239100e6bc32-48"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">registry</span>
-<a name="rest_code_9e5017193f5a4ac9ab50239100e6bc32-49"></a>    <span class="nt">expose</span><span class="p">:</span>
-<a name="rest_code_9e5017193f5a4ac9ab50239100e6bc32-50"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">7946</span>
-<a name="rest_code_9e5017193f5a4ac9ab50239100e6bc32-51"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">7946/udp</span>
-<a name="rest_code_9e5017193f5a4ac9ab50239100e6bc32-52"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">4789/udp</span>
-<a name="rest_code_9e5017193f5a4ac9ab50239100e6bc32-53"></a>    <span class="nt">command</span><span class="p">:</span> <span class="s">"--insecure-registry</span><span class="nv"> </span><span class="s">registry:5000"</span>
-<a name="rest_code_9e5017193f5a4ac9ab50239100e6bc32-54"></a>
-<a name="rest_code_9e5017193f5a4ac9ab50239100e6bc32-55"></a>  <span class="nt">worker03</span><span class="p">:</span>  <span class="c1"># ノードの役割</span>
-<a name="rest_code_9e5017193f5a4ac9ab50239100e6bc32-56"></a>    <span class="nt">container_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">worker03</span>
-<a name="rest_code_9e5017193f5a4ac9ab50239100e6bc32-57"></a>    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">docker:18.05.0-ce-dind</span>
-<a name="rest_code_9e5017193f5a4ac9ab50239100e6bc32-58"></a>    <span class="nt">privileged</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-<a name="rest_code_9e5017193f5a4ac9ab50239100e6bc32-59"></a>    <span class="nt">tty</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-<a name="rest_code_9e5017193f5a4ac9ab50239100e6bc32-60"></a>    <span class="nt">depends_on</span><span class="p">:</span>
-<a name="rest_code_9e5017193f5a4ac9ab50239100e6bc32-61"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">manager</span>
-<a name="rest_code_9e5017193f5a4ac9ab50239100e6bc32-62"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">registry</span>
-<a name="rest_code_9e5017193f5a4ac9ab50239100e6bc32-63"></a>    <span class="nt">expose</span><span class="p">:</span>
-<a name="rest_code_9e5017193f5a4ac9ab50239100e6bc32-64"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">7946</span>
-<a name="rest_code_9e5017193f5a4ac9ab50239100e6bc32-65"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">7946/udp</span>
-<a name="rest_code_9e5017193f5a4ac9ab50239100e6bc32-66"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">4789/udp</span>
-<a name="rest_code_9e5017193f5a4ac9ab50239100e6bc32-67"></a>    <span class="nt">command</span><span class="p">:</span> <span class="s">"--insecure-registry</span><span class="nv"> </span><span class="s">registry:5000"</span>
+<pre class="code yaml"><a name="rest_code_25aa9c383949448dbfedbe01b571b569-1"></a><span class="nt">version</span><span class="p">:</span> <span class="s">"3"</span>
+<a name="rest_code_25aa9c383949448dbfedbe01b571b569-2"></a><span class="nt">services</span><span class="p">:</span>
+<a name="rest_code_25aa9c383949448dbfedbe01b571b569-3"></a>  <span class="nt">registry</span><span class="p">:</span>  <span class="c1"># Docker レジストリ役のコンテナ</span>
+<a name="rest_code_25aa9c383949448dbfedbe01b571b569-4"></a>    <span class="nt">container_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">registry</span>
+<a name="rest_code_25aa9c383949448dbfedbe01b571b569-5"></a>    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">registry:2.6</span>
+<a name="rest_code_25aa9c383949448dbfedbe01b571b569-6"></a>    <span class="nt">ports</span><span class="p">:</span>
+<a name="rest_code_25aa9c383949448dbfedbe01b571b569-7"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">5000:5000</span>
+<a name="rest_code_25aa9c383949448dbfedbe01b571b569-8"></a>    <span class="nt">volumes</span><span class="p">:</span>
+<a name="rest_code_25aa9c383949448dbfedbe01b571b569-9"></a>      <span class="p p-Indicator">-</span> <span class="s">"./registry-data:/var/lib/registry"</span>  <span class="c1"># 永続化のため、ホストにマウント</span>
+<a name="rest_code_25aa9c383949448dbfedbe01b571b569-10"></a>
+<a name="rest_code_25aa9c383949448dbfedbe01b571b569-11"></a>  <span class="nt">manager</span><span class="p">:</span>  <span class="c1"># Swarm クラスタ全体を制御する役割</span>
+<a name="rest_code_25aa9c383949448dbfedbe01b571b569-12"></a>    <span class="nt">container_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">manager</span>
+<a name="rest_code_25aa9c383949448dbfedbe01b571b569-13"></a>    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">docker:18.05.0-ce-dind</span>
+<a name="rest_code_25aa9c383949448dbfedbe01b571b569-14"></a>    <span class="nt">privileged</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+<a name="rest_code_25aa9c383949448dbfedbe01b571b569-15"></a>    <span class="nt">tty</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+<a name="rest_code_25aa9c383949448dbfedbe01b571b569-16"></a>    <span class="nt">ports</span><span class="p">:</span>
+<a name="rest_code_25aa9c383949448dbfedbe01b571b569-17"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">8000:80</span>
+<a name="rest_code_25aa9c383949448dbfedbe01b571b569-18"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">9000:9000</span>
+<a name="rest_code_25aa9c383949448dbfedbe01b571b569-19"></a>    <span class="nt">depends_on</span><span class="p">:</span>
+<a name="rest_code_25aa9c383949448dbfedbe01b571b569-20"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">registry</span>
+<a name="rest_code_25aa9c383949448dbfedbe01b571b569-21"></a>    <span class="nt">expose</span><span class="p">:</span>
+<a name="rest_code_25aa9c383949448dbfedbe01b571b569-22"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">3375</span>
+<a name="rest_code_25aa9c383949448dbfedbe01b571b569-23"></a>    <span class="nt">command</span><span class="p">:</span> <span class="s">"--insecure-registry</span><span class="nv"> </span><span class="s">registry:5000"</span>  <span class="c1"># HTTP でも利用できるようにしている</span>
+<a name="rest_code_25aa9c383949448dbfedbe01b571b569-24"></a>    <span class="nt">volumes</span><span class="p">:</span>
+<a name="rest_code_25aa9c383949448dbfedbe01b571b569-25"></a>      <span class="p p-Indicator">-</span> <span class="s">"./stack:/stack"</span>
+<a name="rest_code_25aa9c383949448dbfedbe01b571b569-26"></a>
+<a name="rest_code_25aa9c383949448dbfedbe01b571b569-27"></a>  <span class="nt">worker01</span><span class="p">:</span>  <span class="c1"># ノードの役割</span>
+<a name="rest_code_25aa9c383949448dbfedbe01b571b569-28"></a>    <span class="nt">container_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">worker01</span>
+<a name="rest_code_25aa9c383949448dbfedbe01b571b569-29"></a>    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">docker:18.05.0-ce-dind</span>
+<a name="rest_code_25aa9c383949448dbfedbe01b571b569-30"></a>    <span class="nt">privileged</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+<a name="rest_code_25aa9c383949448dbfedbe01b571b569-31"></a>    <span class="nt">tty</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+<a name="rest_code_25aa9c383949448dbfedbe01b571b569-32"></a>    <span class="nt">depends_on</span><span class="p">:</span>
+<a name="rest_code_25aa9c383949448dbfedbe01b571b569-33"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">manager</span>
+<a name="rest_code_25aa9c383949448dbfedbe01b571b569-34"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">registry</span>
+<a name="rest_code_25aa9c383949448dbfedbe01b571b569-35"></a>    <span class="nt">expose</span><span class="p">:</span>
+<a name="rest_code_25aa9c383949448dbfedbe01b571b569-36"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">7946</span>
+<a name="rest_code_25aa9c383949448dbfedbe01b571b569-37"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">7946/udp</span>
+<a name="rest_code_25aa9c383949448dbfedbe01b571b569-38"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">4789/udp</span>
+<a name="rest_code_25aa9c383949448dbfedbe01b571b569-39"></a>    <span class="nt">command</span><span class="p">:</span> <span class="s">"--insecure-registry</span><span class="nv"> </span><span class="s">registry:5000"</span>
+<a name="rest_code_25aa9c383949448dbfedbe01b571b569-40"></a>
+<a name="rest_code_25aa9c383949448dbfedbe01b571b569-41"></a>  <span class="nt">worker02</span><span class="p">:</span>  <span class="c1"># ノードの役割</span>
+<a name="rest_code_25aa9c383949448dbfedbe01b571b569-42"></a>    <span class="nt">container_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">worker02</span>
+<a name="rest_code_25aa9c383949448dbfedbe01b571b569-43"></a>    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">docker:18.05.0-ce-dind</span>
+<a name="rest_code_25aa9c383949448dbfedbe01b571b569-44"></a>    <span class="nt">privileged</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+<a name="rest_code_25aa9c383949448dbfedbe01b571b569-45"></a>    <span class="nt">tty</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+<a name="rest_code_25aa9c383949448dbfedbe01b571b569-46"></a>    <span class="nt">depends_on</span><span class="p">:</span>
+<a name="rest_code_25aa9c383949448dbfedbe01b571b569-47"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">manager</span>
+<a name="rest_code_25aa9c383949448dbfedbe01b571b569-48"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">registry</span>
+<a name="rest_code_25aa9c383949448dbfedbe01b571b569-49"></a>    <span class="nt">expose</span><span class="p">:</span>
+<a name="rest_code_25aa9c383949448dbfedbe01b571b569-50"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">7946</span>
+<a name="rest_code_25aa9c383949448dbfedbe01b571b569-51"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">7946/udp</span>
+<a name="rest_code_25aa9c383949448dbfedbe01b571b569-52"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">4789/udp</span>
+<a name="rest_code_25aa9c383949448dbfedbe01b571b569-53"></a>    <span class="nt">command</span><span class="p">:</span> <span class="s">"--insecure-registry</span><span class="nv"> </span><span class="s">registry:5000"</span>
+<a name="rest_code_25aa9c383949448dbfedbe01b571b569-54"></a>
+<a name="rest_code_25aa9c383949448dbfedbe01b571b569-55"></a>  <span class="nt">worker03</span><span class="p">:</span>  <span class="c1"># ノードの役割</span>
+<a name="rest_code_25aa9c383949448dbfedbe01b571b569-56"></a>    <span class="nt">container_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">worker03</span>
+<a name="rest_code_25aa9c383949448dbfedbe01b571b569-57"></a>    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">docker:18.05.0-ce-dind</span>
+<a name="rest_code_25aa9c383949448dbfedbe01b571b569-58"></a>    <span class="nt">privileged</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+<a name="rest_code_25aa9c383949448dbfedbe01b571b569-59"></a>    <span class="nt">tty</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+<a name="rest_code_25aa9c383949448dbfedbe01b571b569-60"></a>    <span class="nt">depends_on</span><span class="p">:</span>
+<a name="rest_code_25aa9c383949448dbfedbe01b571b569-61"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">manager</span>
+<a name="rest_code_25aa9c383949448dbfedbe01b571b569-62"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">registry</span>
+<a name="rest_code_25aa9c383949448dbfedbe01b571b569-63"></a>    <span class="nt">expose</span><span class="p">:</span>
+<a name="rest_code_25aa9c383949448dbfedbe01b571b569-64"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">7946</span>
+<a name="rest_code_25aa9c383949448dbfedbe01b571b569-65"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">7946/udp</span>
+<a name="rest_code_25aa9c383949448dbfedbe01b571b569-66"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">4789/udp</span>
+<a name="rest_code_25aa9c383949448dbfedbe01b571b569-67"></a>    <span class="nt">command</span><span class="p">:</span> <span class="s">"--insecure-registry</span><span class="nv"> </span><span class="s">registry:5000"</span>
 </pre>
 </blockquote>
 </li>
 <li>
 <p>Compose を実行する。</p>
 <blockquote>
-<pre class="code bash"><a name="rest_code_eeae812d58f04b9ca1a650f874ae2ff5-1"></a>$ docker-compose up -d
-<a name="rest_code_eeae812d58f04b9ca1a650f874ae2ff5-2"></a>...
-<a name="rest_code_eeae812d58f04b9ca1a650f874ae2ff5-3"></a>Creating registry ... <span class="k">done</span>
-<a name="rest_code_eeae812d58f04b9ca1a650f874ae2ff5-4"></a>Creating manager  ... <span class="k">done</span>
-<a name="rest_code_eeae812d58f04b9ca1a650f874ae2ff5-5"></a>Creating worker03 ... <span class="k">done</span>
-<a name="rest_code_eeae812d58f04b9ca1a650f874ae2ff5-6"></a>Creating worker01 ... <span class="k">done</span>
-<a name="rest_code_eeae812d58f04b9ca1a650f874ae2ff5-7"></a>Creating worker02 ... <span class="k">done</span>
-<a name="rest_code_eeae812d58f04b9ca1a650f874ae2ff5-8"></a>
-<a name="rest_code_eeae812d58f04b9ca1a650f874ae2ff5-9"></a><span class="c1"># 実行中のコンテナを確認する</span>
-<a name="rest_code_eeae812d58f04b9ca1a650f874ae2ff5-10"></a>$ docker container ls
-<a name="rest_code_eeae812d58f04b9ca1a650f874ae2ff5-11"></a>CONTAINER ID        IMAGE                    COMMAND                  CREATED             STATUS              PORTS                                                              NAMES
-<a name="rest_code_eeae812d58f04b9ca1a650f874ae2ff5-12"></a>cfffba103c8c        docker:18.05.0-ce-dind   <span class="s2">"dockerd-entrypoint.…"</span>   <span class="m">5</span> seconds ago       Up <span class="m">4</span> seconds        <span class="m">2375</span>/tcp, <span class="m">4789</span>/udp, <span class="m">7946</span>/tcp, <span class="m">7946</span>/udp                             worker03
-<a name="rest_code_eeae812d58f04b9ca1a650f874ae2ff5-13"></a>272227e51007        docker:18.05.0-ce-dind   <span class="s2">"dockerd-entrypoint.…"</span>   <span class="m">5</span> seconds ago       Up <span class="m">4</span> seconds        <span class="m">2375</span>/tcp, <span class="m">4789</span>/udp, <span class="m">7946</span>/tcp, <span class="m">7946</span>/udp                             worker02
-<a name="rest_code_eeae812d58f04b9ca1a650f874ae2ff5-14"></a>7190447651de        docker:18.05.0-ce-dind   <span class="s2">"dockerd-entrypoint.…"</span>   <span class="m">5</span> seconds ago       Up <span class="m">4</span> seconds        <span class="m">2375</span>/tcp, <span class="m">4789</span>/udp, <span class="m">7946</span>/tcp, <span class="m">7946</span>/udp                             worker01
-<a name="rest_code_eeae812d58f04b9ca1a650f874ae2ff5-15"></a>a7e4b99c1ee7        docker:18.05.0-ce-dind   <span class="s2">"dockerd-entrypoint.…"</span>   <span class="m">6</span> seconds ago       Up <span class="m">5</span> seconds        <span class="m">2375</span>/tcp, <span class="m">3375</span>/tcp, <span class="m">0</span>.0.0.0:9000-&gt;9000/tcp, <span class="m">0</span>.0.0.0:8000-&gt;80/tcp   manager
-<a name="rest_code_eeae812d58f04b9ca1a650f874ae2ff5-16"></a>3c0a564dbbac        registry:2.6             <span class="s2">"/entrypoint.sh /etc…"</span>   <span class="m">7</span> seconds ago       Up <span class="m">6</span> seconds        <span class="m">0</span>.0.0.0:5000-&gt;5000/tcp                                             registry
+<pre class="code bash"><a name="rest_code_5c2d2900ff214e3490a9019d79d43ff6-1"></a>$ docker-compose up -d
+<a name="rest_code_5c2d2900ff214e3490a9019d79d43ff6-2"></a>...
+<a name="rest_code_5c2d2900ff214e3490a9019d79d43ff6-3"></a>Creating registry ... <span class="k">done</span>
+<a name="rest_code_5c2d2900ff214e3490a9019d79d43ff6-4"></a>Creating manager  ... <span class="k">done</span>
+<a name="rest_code_5c2d2900ff214e3490a9019d79d43ff6-5"></a>Creating worker03 ... <span class="k">done</span>
+<a name="rest_code_5c2d2900ff214e3490a9019d79d43ff6-6"></a>Creating worker01 ... <span class="k">done</span>
+<a name="rest_code_5c2d2900ff214e3490a9019d79d43ff6-7"></a>Creating worker02 ... <span class="k">done</span>
+<a name="rest_code_5c2d2900ff214e3490a9019d79d43ff6-8"></a>
+<a name="rest_code_5c2d2900ff214e3490a9019d79d43ff6-9"></a><span class="c1"># 実行中のコンテナを確認する</span>
+<a name="rest_code_5c2d2900ff214e3490a9019d79d43ff6-10"></a>$ docker container ls
+<a name="rest_code_5c2d2900ff214e3490a9019d79d43ff6-11"></a>CONTAINER ID        IMAGE                    COMMAND                  CREATED             STATUS              PORTS                                                              NAMES
+<a name="rest_code_5c2d2900ff214e3490a9019d79d43ff6-12"></a>cfffba103c8c        docker:18.05.0-ce-dind   <span class="s2">"dockerd-entrypoint.…"</span>   <span class="m">5</span> seconds ago       Up <span class="m">4</span> seconds        <span class="m">2375</span>/tcp, <span class="m">4789</span>/udp, <span class="m">7946</span>/tcp, <span class="m">7946</span>/udp                             worker03
+<a name="rest_code_5c2d2900ff214e3490a9019d79d43ff6-13"></a>272227e51007        docker:18.05.0-ce-dind   <span class="s2">"dockerd-entrypoint.…"</span>   <span class="m">5</span> seconds ago       Up <span class="m">4</span> seconds        <span class="m">2375</span>/tcp, <span class="m">4789</span>/udp, <span class="m">7946</span>/tcp, <span class="m">7946</span>/udp                             worker02
+<a name="rest_code_5c2d2900ff214e3490a9019d79d43ff6-14"></a>7190447651de        docker:18.05.0-ce-dind   <span class="s2">"dockerd-entrypoint.…"</span>   <span class="m">5</span> seconds ago       Up <span class="m">4</span> seconds        <span class="m">2375</span>/tcp, <span class="m">4789</span>/udp, <span class="m">7946</span>/tcp, <span class="m">7946</span>/udp                             worker01
+<a name="rest_code_5c2d2900ff214e3490a9019d79d43ff6-15"></a>a7e4b99c1ee7        docker:18.05.0-ce-dind   <span class="s2">"dockerd-entrypoint.…"</span>   <span class="m">6</span> seconds ago       Up <span class="m">5</span> seconds        <span class="m">2375</span>/tcp, <span class="m">3375</span>/tcp, <span class="m">0</span>.0.0.0:9000-&gt;9000/tcp, <span class="m">0</span>.0.0.0:8000-&gt;80/tcp   manager
+<a name="rest_code_5c2d2900ff214e3490a9019d79d43ff6-16"></a>3c0a564dbbac        registry:2.6             <span class="s2">"/entrypoint.sh /etc…"</span>   <span class="m">7</span> seconds ago       Up <span class="m">6</span> seconds        <span class="m">0</span>.0.0.0:5000-&gt;5000/tcp                                             registry
 </pre>
 </blockquote>
 </li>
 <li>
 <p>manager コンテナを、 Swarm の manager に設定する。</p>
 <blockquote>
-<pre class="code bash"><a name="rest_code_23e351b90a5d4b8e83ac6b882cc10e5a-1"></a>$ docker container <span class="nb">exec</span> -it manager docker swarm init
-<a name="rest_code_23e351b90a5d4b8e83ac6b882cc10e5a-2"></a><span class="c1"># JOIN トークンが発行される</span>
-<a name="rest_code_23e351b90a5d4b8e83ac6b882cc10e5a-3"></a><span class="c1"># Docker ホストを Swarm クラスタの worker として登録するには、この JOIN トークンが必要</span>
-<a name="rest_code_23e351b90a5d4b8e83ac6b882cc10e5a-4"></a>Swarm initialized: current node <span class="o">(</span>7f20ikf4s04lp9abasnvm8euz<span class="o">)</span> is now a manager.
-<a name="rest_code_23e351b90a5d4b8e83ac6b882cc10e5a-5"></a>
-<a name="rest_code_23e351b90a5d4b8e83ac6b882cc10e5a-6"></a>To add a worker to this swarm, run the following command:
-<a name="rest_code_23e351b90a5d4b8e83ac6b882cc10e5a-7"></a>
-<a name="rest_code_23e351b90a5d4b8e83ac6b882cc10e5a-8"></a>    docker swarm join --token SWMTKN-1-55tobs2vcs0odcbd40q5m42y9obs08wgm4200q9udctpv25gu6-4oy23esi800n14wwoddl7ma4n <span class="m">172</span>.27.0.3:2377
-<a name="rest_code_23e351b90a5d4b8e83ac6b882cc10e5a-9"></a>
-<a name="rest_code_23e351b90a5d4b8e83ac6b882cc10e5a-10"></a>To add a manager to this swarm, run <span class="s1">'docker swarm join-token manager'</span> and follow the instructions.
+<pre class="code bash"><a name="rest_code_b9eecad81ef540eb9b067d10d970ba01-1"></a>$ docker container <span class="nb">exec</span> -it manager docker swarm init
+<a name="rest_code_b9eecad81ef540eb9b067d10d970ba01-2"></a><span class="c1"># JOIN トークンが発行される</span>
+<a name="rest_code_b9eecad81ef540eb9b067d10d970ba01-3"></a><span class="c1"># Docker ホストを Swarm クラスタの worker として登録するには、この JOIN トークンが必要</span>
+<a name="rest_code_b9eecad81ef540eb9b067d10d970ba01-4"></a>Swarm initialized: current node <span class="o">(</span>7f20ikf4s04lp9abasnvm8euz<span class="o">)</span> is now a manager.
+<a name="rest_code_b9eecad81ef540eb9b067d10d970ba01-5"></a>
+<a name="rest_code_b9eecad81ef540eb9b067d10d970ba01-6"></a>To add a worker to this swarm, run the following command:
+<a name="rest_code_b9eecad81ef540eb9b067d10d970ba01-7"></a>
+<a name="rest_code_b9eecad81ef540eb9b067d10d970ba01-8"></a>    docker swarm join --token SWMTKN-1-55tobs2vcs0odcbd40q5m42y9obs08wgm4200q9udctpv25gu6-4oy23esi800n14wwoddl7ma4n <span class="m">172</span>.27.0.3:2377
+<a name="rest_code_b9eecad81ef540eb9b067d10d970ba01-9"></a>
+<a name="rest_code_b9eecad81ef540eb9b067d10d970ba01-10"></a>To add a manager to this swarm, run <span class="s1">'docker swarm join-token manager'</span> and follow the instructions.
 </pre>
 </blockquote>
 </li>
 <li>
 <p>JOIN トークンを利用して、3つのノードを Swarm クラスタに worker として登録する。</p>
 <blockquote>
-<pre class="code bash"><a name="rest_code_85a869ea80f744e2862f955136d00218-1"></a><span class="c1"># manager と全ての worker コンテナは Compose で作成されたデフォルトネットワーク上で実行されているので、お互いをコンテナ名で名前解決できる</span>
-<a name="rest_code_85a869ea80f744e2862f955136d00218-2"></a>$ docker container <span class="nb">exec</span> -it worker01 docker swarm join <span class="se">\</span>
-<a name="rest_code_85a869ea80f744e2862f955136d00218-3"></a>  --token SWMTKN-1-55tobs2vcs0odcbd40q5m42y9obs08wgm4200q9udctpv25gu6-4oy23esi800n14wwoddl7ma4n manager:2377
-<a name="rest_code_85a869ea80f744e2862f955136d00218-4"></a>This node joined a swarm as a worker.
-<a name="rest_code_85a869ea80f744e2862f955136d00218-5"></a>$ docker container <span class="nb">exec</span> -it worker02 docker swarm join <span class="se">\</span>
-<a name="rest_code_85a869ea80f744e2862f955136d00218-6"></a>  --token SWMTKN-1-55tobs2vcs0odcbd40q5m42y9obs08wgm4200q9udctpv25gu6-4oy23esi800n14wwoddl7ma4n manager:2377
-<a name="rest_code_85a869ea80f744e2862f955136d00218-7"></a>This node joined a swarm as a worker.
-<a name="rest_code_85a869ea80f744e2862f955136d00218-8"></a>$ docker container <span class="nb">exec</span> -it worker03 docker swarm join <span class="se">\</span>
-<a name="rest_code_85a869ea80f744e2862f955136d00218-9"></a>  --token SWMTKN-1-55tobs2vcs0odcbd40q5m42y9obs08wgm4200q9udctpv25gu6-4oy23esi800n14wwoddl7ma4n manager:2377
-<a name="rest_code_85a869ea80f744e2862f955136d00218-10"></a>This node joined a swarm as a worker.
-<a name="rest_code_85a869ea80f744e2862f955136d00218-11"></a>
-<a name="rest_code_85a869ea80f744e2862f955136d00218-12"></a><span class="c1"># ノードが追加されたか確認する。</span>
-<a name="rest_code_85a869ea80f744e2862f955136d00218-13"></a>$ docker container <span class="nb">exec</span> -it manager docker node ls
-<a name="rest_code_85a869ea80f744e2862f955136d00218-14"></a>ID                            HOSTNAME            STATUS              AVAILABILITY        MANAGER STATUS      ENGINE VERSION
-<a name="rest_code_85a869ea80f744e2862f955136d00218-15"></a>u8crbubyz85jmnpou9zgnc1wf     272227e51007        Ready               Active                                  <span class="m">18</span>.05.0-ce
-<a name="rest_code_85a869ea80f744e2862f955136d00218-16"></a>ww80hcmlzbga1cprtz0cmmuu2     7190447651de        Ready               Active                                  <span class="m">18</span>.05.0-ce
-<a name="rest_code_85a869ea80f744e2862f955136d00218-17"></a>7f20ikf4s04lp9abasnvm8euz *   a7e4b99c1ee7        Ready               Active              Leader              <span class="m">18</span>.05.0-ce
-<a name="rest_code_85a869ea80f744e2862f955136d00218-18"></a>j91gerxg4um0r05wukdfoqwo1     cfffba103c8c        Ready               Active                                  <span class="m">18</span>.05.0-ce
+<pre class="code bash"><a name="rest_code_5df1c07653d141beaadff980f4727e95-1"></a><span class="c1"># manager と全ての worker コンテナは Compose で作成されたデフォルトネットワーク上で実行されているので、お互いをコンテナ名で名前解決できる</span>
+<a name="rest_code_5df1c07653d141beaadff980f4727e95-2"></a>$ docker container <span class="nb">exec</span> -it worker01 docker swarm join <span class="se">\</span>
+<a name="rest_code_5df1c07653d141beaadff980f4727e95-3"></a>  --token SWMTKN-1-55tobs2vcs0odcbd40q5m42y9obs08wgm4200q9udctpv25gu6-4oy23esi800n14wwoddl7ma4n manager:2377
+<a name="rest_code_5df1c07653d141beaadff980f4727e95-4"></a>This node joined a swarm as a worker.
+<a name="rest_code_5df1c07653d141beaadff980f4727e95-5"></a>$ docker container <span class="nb">exec</span> -it worker02 docker swarm join <span class="se">\</span>
+<a name="rest_code_5df1c07653d141beaadff980f4727e95-6"></a>  --token SWMTKN-1-55tobs2vcs0odcbd40q5m42y9obs08wgm4200q9udctpv25gu6-4oy23esi800n14wwoddl7ma4n manager:2377
+<a name="rest_code_5df1c07653d141beaadff980f4727e95-7"></a>This node joined a swarm as a worker.
+<a name="rest_code_5df1c07653d141beaadff980f4727e95-8"></a>$ docker container <span class="nb">exec</span> -it worker03 docker swarm join <span class="se">\</span>
+<a name="rest_code_5df1c07653d141beaadff980f4727e95-9"></a>  --token SWMTKN-1-55tobs2vcs0odcbd40q5m42y9obs08wgm4200q9udctpv25gu6-4oy23esi800n14wwoddl7ma4n manager:2377
+<a name="rest_code_5df1c07653d141beaadff980f4727e95-10"></a>This node joined a swarm as a worker.
+<a name="rest_code_5df1c07653d141beaadff980f4727e95-11"></a>
+<a name="rest_code_5df1c07653d141beaadff980f4727e95-12"></a><span class="c1"># ノードが追加されたか確認する。</span>
+<a name="rest_code_5df1c07653d141beaadff980f4727e95-13"></a>$ docker container <span class="nb">exec</span> -it manager docker node ls
+<a name="rest_code_5df1c07653d141beaadff980f4727e95-14"></a>ID                            HOSTNAME            STATUS              AVAILABILITY        MANAGER STATUS      ENGINE VERSION
+<a name="rest_code_5df1c07653d141beaadff980f4727e95-15"></a>u8crbubyz85jmnpou9zgnc1wf     272227e51007        Ready               Active                                  <span class="m">18</span>.05.0-ce
+<a name="rest_code_5df1c07653d141beaadff980f4727e95-16"></a>ww80hcmlzbga1cprtz0cmmuu2     7190447651de        Ready               Active                                  <span class="m">18</span>.05.0-ce
+<a name="rest_code_5df1c07653d141beaadff980f4727e95-17"></a>7f20ikf4s04lp9abasnvm8euz *   a7e4b99c1ee7        Ready               Active              Leader              <span class="m">18</span>.05.0-ce
+<a name="rest_code_5df1c07653d141beaadff980f4727e95-18"></a>j91gerxg4um0r05wukdfoqwo1     cfffba103c8c        Ready               Active                                  <span class="m">18</span>.05.0-ce
 </pre>
 </blockquote>
 </li>
@@ -824,40 +824,40 @@
 <li>
 <p>Docker イメージにタグをつける</p>
 <blockquote>
-<pre class="code bash"><a name="rest_code_a5db09f935024075b2157604e433c727-1"></a><span class="c1"># docker image tag example/echo:latest [レジストリのホスト/]リポジトリ名[:タグ]</span>
-<a name="rest_code_a5db09f935024075b2157604e433c727-2"></a><span class="c1"># レジストリのホスト = イメージの push 先および pull 先のレジストリ</span>
-<a name="rest_code_a5db09f935024075b2157604e433c727-3"></a>$ docker image tag example/echo:latest localhost:5000/example/echo:latest
+<pre class="code bash"><a name="rest_code_433e42fe9b6b4d5b9e3ed8579b5692c0-1"></a><span class="c1"># docker image tag example/echo:latest [レジストリのホスト/]リポジトリ名[:タグ]</span>
+<a name="rest_code_433e42fe9b6b4d5b9e3ed8579b5692c0-2"></a><span class="c1"># レジストリのホスト = イメージの push 先および pull 先のレジストリ</span>
+<a name="rest_code_433e42fe9b6b4d5b9e3ed8579b5692c0-3"></a>$ docker image tag example/echo:latest localhost:5000/example/echo:latest
 </pre>
 </blockquote>
 </li>
 <li>
 <p>ホストから、 registry コンテナにイメージを push する</p>
 <blockquote>
-<pre class="code bash"><a name="rest_code_14e6c7a28f344d5ca6467fe491b6ebf8-1"></a><span class="c1"># 2章で作ったイメージを push する</span>
-<a name="rest_code_14e6c7a28f344d5ca6467fe491b6ebf8-2"></a>$ docker image push localhost:5000/example/echo:latest
-<a name="rest_code_14e6c7a28f344d5ca6467fe491b6ebf8-3"></a>The push refers to repository <span class="o">[</span>localhost:5000/example/echo<span class="o">]</span>
-<a name="rest_code_14e6c7a28f344d5ca6467fe491b6ebf8-4"></a>b2aff6d696c0: Preparing
-<a name="rest_code_14e6c7a28f344d5ca6467fe491b6ebf8-5"></a>f18abb5d7b45: Preparing
-<a name="rest_code_14e6c7a28f344d5ca6467fe491b6ebf8-6"></a>186d94bd2c62: Preparing
-<a name="rest_code_14e6c7a28f344d5ca6467fe491b6ebf8-7"></a>b2aff6d696c0: Pushed
-<a name="rest_code_14e6c7a28f344d5ca6467fe491b6ebf8-8"></a>e7dc337030ba: Pushed
-<a name="rest_code_14e6c7a28f344d5ca6467fe491b6ebf8-9"></a>920961b94eb3: Pushed
-<a name="rest_code_14e6c7a28f344d5ca6467fe491b6ebf8-10"></a>fa0c3f992cbd: Pushed
-<a name="rest_code_14e6c7a28f344d5ca6467fe491b6ebf8-11"></a>ce6466f43b11: Pushed
-<a name="rest_code_14e6c7a28f344d5ca6467fe491b6ebf8-12"></a>719d45669b35: Pushed
-<a name="rest_code_14e6c7a28f344d5ca6467fe491b6ebf8-13"></a>3b10514a95be: Pushed
-<a name="rest_code_14e6c7a28f344d5ca6467fe491b6ebf8-14"></a>latest: digest: sha256:834be6348517746b53f3d44c56b580a0cea74161b86426cc006b1c066c48e047 size: <span class="m">2417</span>
+<pre class="code bash"><a name="rest_code_5f639cf73539447d923b6bb89ce49cd5-1"></a><span class="c1"># 2章で作ったイメージを push する</span>
+<a name="rest_code_5f639cf73539447d923b6bb89ce49cd5-2"></a>$ docker image push localhost:5000/example/echo:latest
+<a name="rest_code_5f639cf73539447d923b6bb89ce49cd5-3"></a>The push refers to repository <span class="o">[</span>localhost:5000/example/echo<span class="o">]</span>
+<a name="rest_code_5f639cf73539447d923b6bb89ce49cd5-4"></a>b2aff6d696c0: Preparing
+<a name="rest_code_5f639cf73539447d923b6bb89ce49cd5-5"></a>f18abb5d7b45: Preparing
+<a name="rest_code_5f639cf73539447d923b6bb89ce49cd5-6"></a>186d94bd2c62: Preparing
+<a name="rest_code_5f639cf73539447d923b6bb89ce49cd5-7"></a>b2aff6d696c0: Pushed
+<a name="rest_code_5f639cf73539447d923b6bb89ce49cd5-8"></a>e7dc337030ba: Pushed
+<a name="rest_code_5f639cf73539447d923b6bb89ce49cd5-9"></a>920961b94eb3: Pushed
+<a name="rest_code_5f639cf73539447d923b6bb89ce49cd5-10"></a>fa0c3f992cbd: Pushed
+<a name="rest_code_5f639cf73539447d923b6bb89ce49cd5-11"></a>ce6466f43b11: Pushed
+<a name="rest_code_5f639cf73539447d923b6bb89ce49cd5-12"></a>719d45669b35: Pushed
+<a name="rest_code_5f639cf73539447d923b6bb89ce49cd5-13"></a>3b10514a95be: Pushed
+<a name="rest_code_5f639cf73539447d923b6bb89ce49cd5-14"></a>latest: digest: sha256:834be6348517746b53f3d44c56b580a0cea74161b86426cc006b1c066c48e047 size: <span class="m">2417</span>
 </pre>
 </blockquote>
 </li>
 <li>
 <p>worker01 コンテナ上で registry コンテナから Docker イメージを pull する。</p>
 <blockquote>
-<pre class="code bash"><a name="rest_code_2d0bd4480e8e45be84cf2d1e4588aca3-1"></a><span class="c1"># worker01 から registry で名前解決できる</span>
-<a name="rest_code_2d0bd4480e8e45be84cf2d1e4588aca3-2"></a>$ docker container <span class="nb">exec</span> -it worker01 docker image pull registry:5000/example/echo:latest
-<a name="rest_code_2d0bd4480e8e45be84cf2d1e4588aca3-3"></a>
-<a name="rest_code_2d0bd4480e8e45be84cf2d1e4588aca3-4"></a><span class="c1"># イメージを pull できたか確認する。</span>
-<a name="rest_code_2d0bd4480e8e45be84cf2d1e4588aca3-5"></a>$ docker container <span class="nb">exec</span> -it worker01 docker image ls
+<pre class="code bash"><a name="rest_code_1493023d902344eaac08e037ea7d135e-1"></a><span class="c1"># worker01 から registry で名前解決できる</span>
+<a name="rest_code_1493023d902344eaac08e037ea7d135e-2"></a>$ docker container <span class="nb">exec</span> -it worker01 docker image pull registry:5000/example/echo:latest
+<a name="rest_code_1493023d902344eaac08e037ea7d135e-3"></a>
+<a name="rest_code_1493023d902344eaac08e037ea7d135e-4"></a><span class="c1"># イメージを pull できたか確認する。</span>
+<a name="rest_code_1493023d902344eaac08e037ea7d135e-5"></a>$ docker container <span class="nb">exec</span> -it worker01 docker image ls
 </pre>
 </blockquote>
 </li>
@@ -872,41 +872,41 @@
 <li><p><code class="docutils literal">docker container run</code> の代わりにこれ</p></li>
 </ul>
 <p>Service を作成する。</p>
-<pre class="code console"><a name="rest_code_9632990942c3496d96a7d50f84ade91d-1"></a><span class="gp">$</span> docker container <span class="nb">exec</span> -it manager <span class="se">\</span>
-<a name="rest_code_9632990942c3496d96a7d50f84ade91d-2"></a>  docker service create --replicas <span class="m">1</span> --publish <span class="m">8000</span>:8000 --name <span class="nb">echo</span> registry:5000/example/echo:latest
+<pre class="code console"><a name="rest_code_9eb5f89007e7414faacab4fba29c589d-1"></a><span class="gp">$</span> docker container <span class="nb">exec</span> -it manager <span class="se">\</span>
+<a name="rest_code_9eb5f89007e7414faacab4fba29c589d-2"></a>  docker service create --replicas <span class="m">1</span> --publish <span class="m">8000</span>:8000 --name <span class="nb">echo</span> registry:5000/example/echo:latest
 </pre>
 <p>Service の一覧を表示する。</p>
-<pre class="code console"><a name="rest_code_ab52ce05a3f9415cb8d58554ae9ec6d5-1"></a><span class="gp">$</span> docker container <span class="nb">exec</span> -it manager docker service ls
-<a name="rest_code_ab52ce05a3f9415cb8d58554ae9ec6d5-2"></a><span class="go">ID                  NAME                MODE                REPLICAS            IMAGE                               PORTS</span>
-<a name="rest_code_ab52ce05a3f9415cb8d58554ae9ec6d5-3"></a><span class="go">uurtfoiovt5t        echo                replicated          1/1                 registry:5000/example/echo:latest   *:8000-&gt;8000/tcp</span>
+<pre class="code console"><a name="rest_code_418fc77d61514891b40cd93489f5c1e4-1"></a><span class="gp">$</span> docker container <span class="nb">exec</span> -it manager docker service ls
+<a name="rest_code_418fc77d61514891b40cd93489f5c1e4-2"></a><span class="go">ID                  NAME                MODE                REPLICAS            IMAGE                               PORTS</span>
+<a name="rest_code_418fc77d61514891b40cd93489f5c1e4-3"></a><span class="go">uurtfoiovt5t        echo                replicated          1/1                 registry:5000/example/echo:latest   *:8000-&gt;8000/tcp</span>
 </pre>
 <p>該当サービスのコンテナ数を増減できる。</p>
-<pre class="code console"><a name="rest_code_c6ad8ec41796421db99d7f9af7d84394-1"></a><span class="gp">$</span> docker container <span class="nb">exec</span> -it manager docker service scale <span class="nv">echo</span><span class="o">=</span><span class="m">6</span>
-<a name="rest_code_c6ad8ec41796421db99d7f9af7d84394-2"></a><span class="go">echo scaled to 6</span>
-<a name="rest_code_c6ad8ec41796421db99d7f9af7d84394-3"></a><span class="go">overall progress: 6 out of 6 tasks</span>
-<a name="rest_code_c6ad8ec41796421db99d7f9af7d84394-4"></a><span class="go">1/6: running   [==================================================&gt;]</span>
-<a name="rest_code_c6ad8ec41796421db99d7f9af7d84394-5"></a><span class="go">2/6: running   [==================================================&gt;]</span>
-<a name="rest_code_c6ad8ec41796421db99d7f9af7d84394-6"></a><span class="go">3/6: running   [==================================================&gt;]</span>
-<a name="rest_code_c6ad8ec41796421db99d7f9af7d84394-7"></a><span class="go">4/6: running   [==================================================&gt;]</span>
-<a name="rest_code_c6ad8ec41796421db99d7f9af7d84394-8"></a><span class="go">5/6: running   [==================================================&gt;]</span>
-<a name="rest_code_c6ad8ec41796421db99d7f9af7d84394-9"></a><span class="go">6/6: running   [==================================================&gt;]</span>
-<a name="rest_code_c6ad8ec41796421db99d7f9af7d84394-10"></a><span class="go">verify: Service converged</span>
+<pre class="code console"><a name="rest_code_3de7bf11301c4b92be145c2a6f447863-1"></a><span class="gp">$</span> docker container <span class="nb">exec</span> -it manager docker service scale <span class="nv">echo</span><span class="o">=</span><span class="m">6</span>
+<a name="rest_code_3de7bf11301c4b92be145c2a6f447863-2"></a><span class="go">echo scaled to 6</span>
+<a name="rest_code_3de7bf11301c4b92be145c2a6f447863-3"></a><span class="go">overall progress: 6 out of 6 tasks</span>
+<a name="rest_code_3de7bf11301c4b92be145c2a6f447863-4"></a><span class="go">1/6: running   [==================================================&gt;]</span>
+<a name="rest_code_3de7bf11301c4b92be145c2a6f447863-5"></a><span class="go">2/6: running   [==================================================&gt;]</span>
+<a name="rest_code_3de7bf11301c4b92be145c2a6f447863-6"></a><span class="go">3/6: running   [==================================================&gt;]</span>
+<a name="rest_code_3de7bf11301c4b92be145c2a6f447863-7"></a><span class="go">4/6: running   [==================================================&gt;]</span>
+<a name="rest_code_3de7bf11301c4b92be145c2a6f447863-8"></a><span class="go">5/6: running   [==================================================&gt;]</span>
+<a name="rest_code_3de7bf11301c4b92be145c2a6f447863-9"></a><span class="go">6/6: running   [==================================================&gt;]</span>
+<a name="rest_code_3de7bf11301c4b92be145c2a6f447863-10"></a><span class="go">verify: Service converged</span>
 </pre>
 <p>Swarm クラスタ上で実行されているコンテナを確認する。</p>
-<pre class="code bash"><a name="rest_code_544f096c451f418d9c48e0b76908f322-1"></a>$ docker container <span class="nb">exec</span> -it manager docker service ps <span class="nb">echo</span> <span class="p">|</span> grep Running
-<a name="rest_code_544f096c451f418d9c48e0b76908f322-2"></a><span class="c1"># Service によって Swarm クラスタのノードに分散して配置されていることがわかる</span>
-<a name="rest_code_544f096c451f418d9c48e0b76908f322-3"></a>q5rd4bezklf2        echo.1              registry:5000/example/echo:latest   a7e4b99c1ee7        Running             Running <span class="m">8</span> minutes ago
-<a name="rest_code_544f096c451f418d9c48e0b76908f322-4"></a>cgt98m1d4395        echo.2              registry:5000/example/echo:latest   cfffba103c8c        Running             Running about a minute ago
-<a name="rest_code_544f096c451f418d9c48e0b76908f322-5"></a>u5120nxk830w        echo.3              registry:5000/example/echo:latest   7190447651de        Running             Running <span class="m">2</span> minutes ago
-<a name="rest_code_544f096c451f418d9c48e0b76908f322-6"></a>9ejgtkum844u        echo.4              registry:5000/example/echo:latest   272227e51007        Running             Running about a minute ago
-<a name="rest_code_544f096c451f418d9c48e0b76908f322-7"></a>mqkivzbb5j3e        echo.5              registry:5000/example/echo:latest   272227e51007        Running             Running about a minute ago
-<a name="rest_code_544f096c451f418d9c48e0b76908f322-8"></a>7xdlngpoid1i        echo.6              registry:5000/example/echo:latest   a7e4b99c1ee7        Running             Running <span class="m">2</span> minutes ago
+<pre class="code bash"><a name="rest_code_90f8150241a04ac1aba1a3891aafff8d-1"></a>$ docker container <span class="nb">exec</span> -it manager docker service ps <span class="nb">echo</span> <span class="p">|</span> grep Running
+<a name="rest_code_90f8150241a04ac1aba1a3891aafff8d-2"></a><span class="c1"># Service によって Swarm クラスタのノードに分散して配置されていることがわかる</span>
+<a name="rest_code_90f8150241a04ac1aba1a3891aafff8d-3"></a>q5rd4bezklf2        echo.1              registry:5000/example/echo:latest   a7e4b99c1ee7        Running             Running <span class="m">8</span> minutes ago
+<a name="rest_code_90f8150241a04ac1aba1a3891aafff8d-4"></a>cgt98m1d4395        echo.2              registry:5000/example/echo:latest   cfffba103c8c        Running             Running about a minute ago
+<a name="rest_code_90f8150241a04ac1aba1a3891aafff8d-5"></a>u5120nxk830w        echo.3              registry:5000/example/echo:latest   7190447651de        Running             Running <span class="m">2</span> minutes ago
+<a name="rest_code_90f8150241a04ac1aba1a3891aafff8d-6"></a>9ejgtkum844u        echo.4              registry:5000/example/echo:latest   272227e51007        Running             Running about a minute ago
+<a name="rest_code_90f8150241a04ac1aba1a3891aafff8d-7"></a>mqkivzbb5j3e        echo.5              registry:5000/example/echo:latest   272227e51007        Running             Running about a minute ago
+<a name="rest_code_90f8150241a04ac1aba1a3891aafff8d-8"></a>7xdlngpoid1i        echo.6              registry:5000/example/echo:latest   a7e4b99c1ee7        Running             Running <span class="m">2</span> minutes ago
 </pre>
 <p>デプロイした service は <code class="docutils literal">docker service rm</code> サービス名 で削除できる。</p>
-<pre class="code console"><a name="rest_code_34278fda6d5d496db9c9b67d99790a41-1"></a><span class="gp">$</span> docker container <span class="nb">exec</span> -it manager docker service rm <span class="nb">echo</span>
-<a name="rest_code_34278fda6d5d496db9c9b67d99790a41-2"></a><span class="go">echo</span>
-<a name="rest_code_34278fda6d5d496db9c9b67d99790a41-3"></a><span class="gp">$</span> docker container <span class="nb">exec</span> -it manager docker service ls
-<a name="rest_code_34278fda6d5d496db9c9b67d99790a41-4"></a><span class="go">ID                  NAME                MODE                REPLICAS            IMAGE               PORTS</span>
+<pre class="code console"><a name="rest_code_efd933b2761c40c1967b69c57bc3aa77-1"></a><span class="gp">$</span> docker container <span class="nb">exec</span> -it manager docker service rm <span class="nb">echo</span>
+<a name="rest_code_efd933b2761c40c1967b69c57bc3aa77-2"></a><span class="go">echo</span>
+<a name="rest_code_efd933b2761c40c1967b69c57bc3aa77-3"></a><span class="gp">$</span> docker container <span class="nb">exec</span> -it manager docker service ls
+<a name="rest_code_efd933b2761c40c1967b69c57bc3aa77-4"></a><span class="go">ID                  NAME                MODE                REPLICAS            IMAGE               PORTS</span>
 </pre>
 </div>
 <div class="section" id="stack">
@@ -926,41 +926,41 @@
 <li>
 <p>overlay ネットワークを作成する。</p>
 <blockquote>
-<pre class="code bash"><a name="rest_code_2059f4b16c43432abf8e97900ad6812c-1"></a><span class="c1"># ch03 という名前にする</span>
-<a name="rest_code_2059f4b16c43432abf8e97900ad6812c-2"></a>$ docker container <span class="nb">exec</span> -it manager docker network create --driver<span class="o">=</span>overlay --attachable ch03
-<a name="rest_code_2059f4b16c43432abf8e97900ad6812c-3"></a>ts9rcnez3tl5oi4z9p0qbc030
+<pre class="code bash"><a name="rest_code_5d2bbc891caf4de3b499ba8509f11fb3-1"></a><span class="c1"># ch03 という名前にする</span>
+<a name="rest_code_5d2bbc891caf4de3b499ba8509f11fb3-2"></a>$ docker container <span class="nb">exec</span> -it manager docker network create --driver<span class="o">=</span>overlay --attachable ch03
+<a name="rest_code_5d2bbc891caf4de3b499ba8509f11fb3-3"></a>ts9rcnez3tl5oi4z9p0qbc030
 </pre>
 </blockquote>
 </li>
 <li>
 <p>Stack を作成する。</p>
 <blockquote>
-<pre class="code yaml"><a name="rest_code_3fec74eac03b433cb44cbab2e3303f08-1"></a><span class="nt">version</span><span class="p">:</span> <span class="s">"3"</span>
-<a name="rest_code_3fec74eac03b433cb44cbab2e3303f08-2"></a><span class="nt">services</span><span class="p">:</span>
-<a name="rest_code_3fec74eac03b433cb44cbab2e3303f08-3"></a>  <span class="nt">nginx</span><span class="p">:</span>
-<a name="rest_code_3fec74eac03b433cb44cbab2e3303f08-4"></a>    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">gihyodocker/nginx-proxy:latest</span>
-<a name="rest_code_3fec74eac03b433cb44cbab2e3303f08-5"></a>    <span class="nt">deploy</span><span class="p">:</span>
-<a name="rest_code_3fec74eac03b433cb44cbab2e3303f08-6"></a>      <span class="nt">replicas</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3</span>                  <span class="c1"># レプリカ数</span>
-<a name="rest_code_3fec74eac03b433cb44cbab2e3303f08-7"></a>      <span class="nt">placement</span><span class="p">:</span>                   <span class="c1"># コンテナの配置戦略</span>
-<a name="rest_code_3fec74eac03b433cb44cbab2e3303f08-8"></a>        <span class="nt">constraints</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">node.role != manager</span><span class="p p-Indicator">]</span>  <span class="c1"># manager 以外のノードにコンテナを配置する</span>
-<a name="rest_code_3fec74eac03b433cb44cbab2e3303f08-9"></a>    <span class="nt">environment</span><span class="p">:</span>
-<a name="rest_code_3fec74eac03b433cb44cbab2e3303f08-10"></a>      <span class="nt">BACKEND_HOST</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">echo_api:8080</span>  <span class="c1"># リクエストの転送先</span>
-<a name="rest_code_3fec74eac03b433cb44cbab2e3303f08-11"></a>    <span class="nt">depends_on</span><span class="p">:</span>
-<a name="rest_code_3fec74eac03b433cb44cbab2e3303f08-12"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">api</span>
-<a name="rest_code_3fec74eac03b433cb44cbab2e3303f08-13"></a>    <span class="nt">networks</span><span class="p">:</span>
-<a name="rest_code_3fec74eac03b433cb44cbab2e3303f08-14"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ch03</span>
-<a name="rest_code_3fec74eac03b433cb44cbab2e3303f08-15"></a>  <span class="nt">api</span><span class="p">:</span>
-<a name="rest_code_3fec74eac03b433cb44cbab2e3303f08-16"></a>    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">registry:5000/example/echo:latest</span>
-<a name="rest_code_3fec74eac03b433cb44cbab2e3303f08-17"></a>    <span class="nt">deploy</span><span class="p">:</span>
-<a name="rest_code_3fec74eac03b433cb44cbab2e3303f08-18"></a>      <span class="nt">replicas</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3</span>                  <span class="c1"># レプリカ数</span>
-<a name="rest_code_3fec74eac03b433cb44cbab2e3303f08-19"></a>      <span class="nt">placement</span><span class="p">:</span>                   <span class="c1"># コンテナの配置戦略</span>
-<a name="rest_code_3fec74eac03b433cb44cbab2e3303f08-20"></a>        <span class="nt">constraints</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">node.role != manager</span><span class="p p-Indicator">]</span>  <span class="c1"># manager 以外のノードにコンテナを配置する</span>
-<a name="rest_code_3fec74eac03b433cb44cbab2e3303f08-21"></a>    <span class="nt">networks</span><span class="p">:</span>
-<a name="rest_code_3fec74eac03b433cb44cbab2e3303f08-22"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ch03</span>
-<a name="rest_code_3fec74eac03b433cb44cbab2e3303f08-23"></a>
-<a name="rest_code_3fec74eac03b433cb44cbab2e3303f08-24"></a><span class="nt">networks</span><span class="p">:</span>
-<a name="rest_code_3fec74eac03b433cb44cbab2e3303f08-25"></a>  <span class="nt">ch03</span><span class="p">:</span>
-<a name="rest_code_3fec74eac03b433cb44cbab2e3303f08-26"></a>    <span class="nt">external</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+<pre class="code yaml"><a name="rest_code_85b338d400d1458ab60aab68d0c138da-1"></a><span class="nt">version</span><span class="p">:</span> <span class="s">"3"</span>
+<a name="rest_code_85b338d400d1458ab60aab68d0c138da-2"></a><span class="nt">services</span><span class="p">:</span>
+<a name="rest_code_85b338d400d1458ab60aab68d0c138da-3"></a>  <span class="nt">nginx</span><span class="p">:</span>
+<a name="rest_code_85b338d400d1458ab60aab68d0c138da-4"></a>    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">gihyodocker/nginx-proxy:latest</span>
+<a name="rest_code_85b338d400d1458ab60aab68d0c138da-5"></a>    <span class="nt">deploy</span><span class="p">:</span>
+<a name="rest_code_85b338d400d1458ab60aab68d0c138da-6"></a>      <span class="nt">replicas</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3</span>                  <span class="c1"># レプリカ数</span>
+<a name="rest_code_85b338d400d1458ab60aab68d0c138da-7"></a>      <span class="nt">placement</span><span class="p">:</span>                   <span class="c1"># コンテナの配置戦略</span>
+<a name="rest_code_85b338d400d1458ab60aab68d0c138da-8"></a>        <span class="nt">constraints</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">node.role != manager</span><span class="p p-Indicator">]</span>  <span class="c1"># manager 以外のノードにコンテナを配置する</span>
+<a name="rest_code_85b338d400d1458ab60aab68d0c138da-9"></a>    <span class="nt">environment</span><span class="p">:</span>
+<a name="rest_code_85b338d400d1458ab60aab68d0c138da-10"></a>      <span class="nt">BACKEND_HOST</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">echo_api:8080</span>  <span class="c1"># リクエストの転送先</span>
+<a name="rest_code_85b338d400d1458ab60aab68d0c138da-11"></a>    <span class="nt">depends_on</span><span class="p">:</span>
+<a name="rest_code_85b338d400d1458ab60aab68d0c138da-12"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">api</span>
+<a name="rest_code_85b338d400d1458ab60aab68d0c138da-13"></a>    <span class="nt">networks</span><span class="p">:</span>
+<a name="rest_code_85b338d400d1458ab60aab68d0c138da-14"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ch03</span>
+<a name="rest_code_85b338d400d1458ab60aab68d0c138da-15"></a>  <span class="nt">api</span><span class="p">:</span>
+<a name="rest_code_85b338d400d1458ab60aab68d0c138da-16"></a>    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">registry:5000/example/echo:latest</span>
+<a name="rest_code_85b338d400d1458ab60aab68d0c138da-17"></a>    <span class="nt">deploy</span><span class="p">:</span>
+<a name="rest_code_85b338d400d1458ab60aab68d0c138da-18"></a>      <span class="nt">replicas</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3</span>                  <span class="c1"># レプリカ数</span>
+<a name="rest_code_85b338d400d1458ab60aab68d0c138da-19"></a>      <span class="nt">placement</span><span class="p">:</span>                   <span class="c1"># コンテナの配置戦略</span>
+<a name="rest_code_85b338d400d1458ab60aab68d0c138da-20"></a>        <span class="nt">constraints</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">node.role != manager</span><span class="p p-Indicator">]</span>  <span class="c1"># manager 以外のノードにコンテナを配置する</span>
+<a name="rest_code_85b338d400d1458ab60aab68d0c138da-21"></a>    <span class="nt">networks</span><span class="p">:</span>
+<a name="rest_code_85b338d400d1458ab60aab68d0c138da-22"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ch03</span>
+<a name="rest_code_85b338d400d1458ab60aab68d0c138da-23"></a>
+<a name="rest_code_85b338d400d1458ab60aab68d0c138da-24"></a><span class="nt">networks</span><span class="p">:</span>
+<a name="rest_code_85b338d400d1458ab60aab68d0c138da-25"></a>  <span class="nt">ch03</span><span class="p">:</span>
+<a name="rest_code_85b338d400d1458ab60aab68d0c138da-26"></a>    <span class="nt">external</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
 </pre>
 <table class="colwidths-auto">
 <caption>docker stack のサブコマンド</caption>
@@ -996,7 +996,7 @@
 </ol>
 <div class="section" id="id16">
 <h4><a class="toc-backref" href="#id43">Stack をデプロイする</a></h4>
-<pre class="code console"><a name="rest_code_de8f8faba90f4d0997329e922ea5bc6d-1"></a><span class="gp">$</span> docker stack deploy <span class="o">[</span>options<span class="o">]</span> stack名
+<pre class="code console"><a name="rest_code_3d903d88bb7442658874ef9ae5c80edc-1"></a><span class="gp">$</span> docker stack deploy <span class="o">[</span>options<span class="o">]</span> stack名
 </pre>
 <ul class="simple">
 <li><p><code class="docutils literal"><span class="pre">-c</span></code>: Stack 定義ファイルへのパス</p></li>
@@ -1005,10 +1005,10 @@
 <li>
 <p>stack を echo という Stack 名でデプロイする。</p>
 <blockquote>
-<pre class="code bash"><a name="rest_code_7ab69db100384e0688a9defdcf8e0e2e-1"></a><span class="c1"># stack ディレクトリは manager コンテナの /stack にマウントされている</span>
-<a name="rest_code_7ab69db100384e0688a9defdcf8e0e2e-2"></a>$ docker container <span class="nb">exec</span> -it manager docker stack deploy -c /stack/ch03-webapi.yml <span class="nb">echo</span>
-<a name="rest_code_7ab69db100384e0688a9defdcf8e0e2e-3"></a>Creating service echo_nginx
-<a name="rest_code_7ab69db100384e0688a9defdcf8e0e2e-4"></a>Creating service echo_api
+<pre class="code bash"><a name="rest_code_2cd716c1ad324f75a66ab535f5a64cee-1"></a><span class="c1"># stack ディレクトリは manager コンテナの /stack にマウントされている</span>
+<a name="rest_code_2cd716c1ad324f75a66ab535f5a64cee-2"></a>$ docker container <span class="nb">exec</span> -it manager docker stack deploy -c /stack/ch03-webapi.yml <span class="nb">echo</span>
+<a name="rest_code_2cd716c1ad324f75a66ab535f5a64cee-3"></a>Creating service echo_nginx
+<a name="rest_code_2cd716c1ad324f75a66ab535f5a64cee-4"></a>Creating service echo_api
 </pre>
 </blockquote>
 </li>
@@ -1016,16 +1016,16 @@
 </div>
 <div class="section" id="id17">
 <h4><a class="toc-backref" href="#id44">デプロイされた Stack を確認する</a></h4>
-<pre class="code console"><a name="rest_code_2ab9589365f3470fa1dc3a7212f99b87-1"></a><span class="gp">$</span> docker stack services <span class="o">[</span>options<span class="o">]</span> Stack名
+<pre class="code console"><a name="rest_code_b41387194c9f4dee8286e3a672987de4-1"></a><span class="gp">$</span> docker stack services <span class="o">[</span>options<span class="o">]</span> Stack名
 </pre>
 <ol class="arabic" start="4">
 <li>
 <p>echo スタックの Service 一覧を表示する。</p>
 <blockquote>
-<pre class="code console"><a name="rest_code_e89803002a344c4e97412fde6508bf24-1"></a><span class="gp">$</span> docker container <span class="nb">exec</span> -it manager docker stack services <span class="nb">echo</span>
-<a name="rest_code_e89803002a344c4e97412fde6508bf24-2"></a><span class="go">ID                  NAME                MODE                REPLICAS            IMAGE                               PORTS</span>
-<a name="rest_code_e89803002a344c4e97412fde6508bf24-3"></a><span class="go">lbomogfj0q65        echo_nginx          replicated          3/3                 gihyodocker/nginx-proxy:latest</span>
-<a name="rest_code_e89803002a344c4e97412fde6508bf24-4"></a><span class="go">wh6ddqk6q4zj        echo_api            replicated          3/3                 registry:5000/example/echo:latest</span>
+<pre class="code console"><a name="rest_code_0e8158d99a284e43b2f7cd4b81278393-1"></a><span class="gp">$</span> docker container <span class="nb">exec</span> -it manager docker stack services <span class="nb">echo</span>
+<a name="rest_code_0e8158d99a284e43b2f7cd4b81278393-2"></a><span class="go">ID                  NAME                MODE                REPLICAS            IMAGE                               PORTS</span>
+<a name="rest_code_0e8158d99a284e43b2f7cd4b81278393-3"></a><span class="go">lbomogfj0q65        echo_nginx          replicated          3/3                 gihyodocker/nginx-proxy:latest</span>
+<a name="rest_code_0e8158d99a284e43b2f7cd4b81278393-4"></a><span class="go">wh6ddqk6q4zj        echo_api            replicated          3/3                 registry:5000/example/echo:latest</span>
 </pre>
 </blockquote>
 </li>
@@ -1033,13 +1033,13 @@
 </div>
 <div class="section" id="id18">
 <h4><a class="toc-backref" href="#id45">Stack でデプロイされたコンテナを確認する</a></h4>
-<pre class="code console"><a name="rest_code_b37f4d60a8e4495caf2fd3daad0b1c05-1"></a><span class="gp">$</span> docker stack ps <span class="o">[</span>options<span class="o">]</span> Stack名
+<pre class="code console"><a name="rest_code_513c1b93dc9b42069b806f89421a7289-1"></a><span class="gp">$</span> docker stack ps <span class="o">[</span>options<span class="o">]</span> Stack名
 </pre>
 <ol class="arabic" start="5">
 <li>
 <p>echo スタックでデプロイされたコンテナの一覧を表示する。</p>
 <blockquote>
-<pre class="code console"><a name="rest_code_fe48b9276f1f4524adaf1c57171acb79-1"></a><span class="gp">$</span> docker container <span class="nb">exec</span> -it manager docker stack ps <span class="nb">echo</span>
+<pre class="code console"><a name="rest_code_9dd05695c20d47ed8c599aebf86f7f71-1"></a><span class="gp">$</span> docker container <span class="nb">exec</span> -it manager docker stack ps <span class="nb">echo</span>
 </pre>
 </blockquote>
 </li>
@@ -1051,28 +1051,28 @@
 <li>
 <p><code class="docutils literal">visualizer.yml</code> を作成する。</p>
 <blockquote>
-<pre class="code yaml"><a name="rest_code_5ee1286b17744d77bb62693cc52aba19-1"></a><span class="nt">version</span><span class="p">:</span> <span class="s">"3"</span>
-<a name="rest_code_5ee1286b17744d77bb62693cc52aba19-2"></a>
-<a name="rest_code_5ee1286b17744d77bb62693cc52aba19-3"></a><span class="nt">services</span><span class="p">:</span>
-<a name="rest_code_5ee1286b17744d77bb62693cc52aba19-4"></a>  <span class="nt">app</span><span class="p">:</span>
-<a name="rest_code_5ee1286b17744d77bb62693cc52aba19-5"></a>    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">dockersamples/visualizer</span>
-<a name="rest_code_5ee1286b17744d77bb62693cc52aba19-6"></a>    <span class="nt">ports</span><span class="p">:</span>
-<a name="rest_code_5ee1286b17744d77bb62693cc52aba19-7"></a>      <span class="p p-Indicator">-</span> <span class="s">"9000:8080"</span>                          <span class="c1"># ポートフォワード (manager &lt;=&gt; visualizer)</span>
-<a name="rest_code_5ee1286b17744d77bb62693cc52aba19-8"></a>    <span class="nt">volumes</span><span class="p">:</span>
-<a name="rest_code_5ee1286b17744d77bb62693cc52aba19-9"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">/var/run/docker.sock:/var/run/docker.sock</span>
-<a name="rest_code_5ee1286b17744d77bb62693cc52aba19-10"></a>    <span class="nt">deploy</span><span class="p">:</span>
-<a name="rest_code_5ee1286b17744d77bb62693cc52aba19-11"></a>      <span class="nt">mode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">global</span>                           <span class="c1"># 特定のコンテナをクラスタ上の全ノードに配置できる設定</span>
-<a name="rest_code_5ee1286b17744d77bb62693cc52aba19-12"></a>      <span class="nt">placement</span><span class="p">:</span>
-<a name="rest_code_5ee1286b17744d77bb62693cc52aba19-13"></a>        <span class="nt">constraints</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">node.role == manager</span><span class="p p-Indicator">]</span>  <span class="c1"># manager ノードだけに配置する</span>
+<pre class="code yaml"><a name="rest_code_daeca72529874d8e8becd1a946efa24d-1"></a><span class="nt">version</span><span class="p">:</span> <span class="s">"3"</span>
+<a name="rest_code_daeca72529874d8e8becd1a946efa24d-2"></a>
+<a name="rest_code_daeca72529874d8e8becd1a946efa24d-3"></a><span class="nt">services</span><span class="p">:</span>
+<a name="rest_code_daeca72529874d8e8becd1a946efa24d-4"></a>  <span class="nt">app</span><span class="p">:</span>
+<a name="rest_code_daeca72529874d8e8becd1a946efa24d-5"></a>    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">dockersamples/visualizer</span>
+<a name="rest_code_daeca72529874d8e8becd1a946efa24d-6"></a>    <span class="nt">ports</span><span class="p">:</span>
+<a name="rest_code_daeca72529874d8e8becd1a946efa24d-7"></a>      <span class="p p-Indicator">-</span> <span class="s">"9000:8080"</span>                          <span class="c1"># ポートフォワード (manager &lt;=&gt; visualizer)</span>
+<a name="rest_code_daeca72529874d8e8becd1a946efa24d-8"></a>    <span class="nt">volumes</span><span class="p">:</span>
+<a name="rest_code_daeca72529874d8e8becd1a946efa24d-9"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">/var/run/docker.sock:/var/run/docker.sock</span>
+<a name="rest_code_daeca72529874d8e8becd1a946efa24d-10"></a>    <span class="nt">deploy</span><span class="p">:</span>
+<a name="rest_code_daeca72529874d8e8becd1a946efa24d-11"></a>      <span class="nt">mode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">global</span>                           <span class="c1"># 特定のコンテナをクラスタ上の全ノードに配置できる設定</span>
+<a name="rest_code_daeca72529874d8e8becd1a946efa24d-12"></a>      <span class="nt">placement</span><span class="p">:</span>
+<a name="rest_code_daeca72529874d8e8becd1a946efa24d-13"></a>        <span class="nt">constraints</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">node.role == manager</span><span class="p p-Indicator">]</span>  <span class="c1"># manager ノードだけに配置する</span>
 </pre>
 </blockquote>
 </li>
 <li>
 <p>Stack としてデプロイする。</p>
 <blockquote>
-<pre class="code console"><a name="rest_code_f7f2788f929548c3bff9d7b731e902a8-1"></a><span class="gp">$</span> docker container <span class="nb">exec</span> -it manager docker stack deploy -c /stack/visualizer.yml visualizer
-<a name="rest_code_f7f2788f929548c3bff9d7b731e902a8-2"></a><span class="go">Creating network visualizer_default</span>
-<a name="rest_code_f7f2788f929548c3bff9d7b731e902a8-3"></a><span class="go">Creating service visualizer_app</span>
+<pre class="code console"><a name="rest_code_c41f075d41f3420dba88e736bdcb0e57-1"></a><span class="gp">$</span> docker container <span class="nb">exec</span> -it manager docker stack deploy -c /stack/visualizer.yml visualizer
+<a name="rest_code_c41f075d41f3420dba88e736bdcb0e57-2"></a><span class="go">Creating network visualizer_default</span>
+<a name="rest_code_c41f075d41f3420dba88e736bdcb0e57-3"></a><span class="go">Creating service visualizer_app</span>
 </pre>
 </blockquote>
 </li>
@@ -1090,9 +1090,9 @@
 <div class="section" id="id19">
 <h4><a class="toc-backref" href="#id47">Stack の削除</a></h4>
 <p>デプロイした Stack を Service ごと削除する。</p>
-<pre class="code console"><a name="rest_code_471cf0333451423880becf03f4b5640f-1"></a><span class="gp">$</span> docker container <span class="nb">exec</span> -it manager docker stack rm <span class="nb">echo</span>
-<a name="rest_code_471cf0333451423880becf03f4b5640f-2"></a><span class="go">Removing service echo_api</span>
-<a name="rest_code_471cf0333451423880becf03f4b5640f-3"></a><span class="go">Removing service echo_nginx</span>
+<pre class="code console"><a name="rest_code_8a21abdf3d78455e9a7b93e5f4d973f0-1"></a><span class="gp">$</span> docker container <span class="nb">exec</span> -it manager docker stack rm <span class="nb">echo</span>
+<a name="rest_code_8a21abdf3d78455e9a7b93e5f4d973f0-2"></a><span class="go">Removing service echo_api</span>
+<a name="rest_code_8a21abdf3d78455e9a7b93e5f4d973f0-3"></a><span class="go">Removing service echo_nginx</span>
 </pre>
 </div>
 </div>
@@ -1120,97 +1120,97 @@
 <li>
 <p><code class="docutils literal"><span class="pre">ch03-ingress.yml</span></code> を作成する。</p>
 <blockquote>
-<pre class="code yaml"><a name="rest_code_9f4087e866fb416488cd2d8c6c458213-1"></a><span class="nt">version</span><span class="p">:</span> <span class="s">"3"</span>
-<a name="rest_code_9f4087e866fb416488cd2d8c6c458213-2"></a>
-<a name="rest_code_9f4087e866fb416488cd2d8c6c458213-3"></a><span class="nt">services</span><span class="p">:</span>
-<a name="rest_code_9f4087e866fb416488cd2d8c6c458213-4"></a>  <span class="nt">haproxy</span><span class="p">:</span>
-<a name="rest_code_9f4087e866fb416488cd2d8c6c458213-5"></a>    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">dockercloud/haproxy</span>
-<a name="rest_code_9f4087e866fb416488cd2d8c6c458213-6"></a>    <span class="nt">networks</span><span class="p">:</span>
-<a name="rest_code_9f4087e866fb416488cd2d8c6c458213-7"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ch03</span>
-<a name="rest_code_9f4087e866fb416488cd2d8c6c458213-8"></a>    <span class="nt">volumes</span><span class="p">:</span>
-<a name="rest_code_9f4087e866fb416488cd2d8c6c458213-9"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">/var/run/docker.sock:/var/run/docker.sock</span>
-<a name="rest_code_9f4087e866fb416488cd2d8c6c458213-10"></a>    <span class="nt">deploy</span><span class="p">:</span>
-<a name="rest_code_9f4087e866fb416488cd2d8c6c458213-11"></a>      <span class="nt">mode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">global</span>                           <span class="c1"># 特定のコンテナをクラスタ上の全ノードに配置できる設定</span>
-<a name="rest_code_9f4087e866fb416488cd2d8c6c458213-12"></a>      <span class="nt">placement</span><span class="p">:</span>
-<a name="rest_code_9f4087e866fb416488cd2d8c6c458213-13"></a>        <span class="nt">constraints</span><span class="p">:</span>
-<a name="rest_code_9f4087e866fb416488cd2d8c6c458213-14"></a>          <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">node.role == manager</span>  <span class="c1"># manager ノードだけに配置する</span>
-<a name="rest_code_9f4087e866fb416488cd2d8c6c458213-15"></a>    <span class="nt">ports</span><span class="p">:</span>
-<a name="rest_code_9f4087e866fb416488cd2d8c6c458213-16"></a>      <span class="p p-Indicator">-</span> <span class="s">"80:80"</span>                          <span class="c1"># ポートフォワード</span>
-<a name="rest_code_9f4087e866fb416488cd2d8c6c458213-17"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">1936:1936</span>  <span class="c1"># for stats page (basic auth. stats:stats)</span>
-<a name="rest_code_9f4087e866fb416488cd2d8c6c458213-18"></a>
-<a name="rest_code_9f4087e866fb416488cd2d8c6c458213-19"></a><span class="nt">networks</span><span class="p">:</span>
-<a name="rest_code_9f4087e866fb416488cd2d8c6c458213-20"></a>  <span class="nt">ch03</span><span class="p">:</span>
-<a name="rest_code_9f4087e866fb416488cd2d8c6c458213-21"></a>    <span class="nt">external</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+<pre class="code yaml"><a name="rest_code_74603dbdcd7745e88c9dbee9f9ad529e-1"></a><span class="nt">version</span><span class="p">:</span> <span class="s">"3"</span>
+<a name="rest_code_74603dbdcd7745e88c9dbee9f9ad529e-2"></a>
+<a name="rest_code_74603dbdcd7745e88c9dbee9f9ad529e-3"></a><span class="nt">services</span><span class="p">:</span>
+<a name="rest_code_74603dbdcd7745e88c9dbee9f9ad529e-4"></a>  <span class="nt">haproxy</span><span class="p">:</span>
+<a name="rest_code_74603dbdcd7745e88c9dbee9f9ad529e-5"></a>    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">dockercloud/haproxy</span>
+<a name="rest_code_74603dbdcd7745e88c9dbee9f9ad529e-6"></a>    <span class="nt">networks</span><span class="p">:</span>
+<a name="rest_code_74603dbdcd7745e88c9dbee9f9ad529e-7"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ch03</span>
+<a name="rest_code_74603dbdcd7745e88c9dbee9f9ad529e-8"></a>    <span class="nt">volumes</span><span class="p">:</span>
+<a name="rest_code_74603dbdcd7745e88c9dbee9f9ad529e-9"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">/var/run/docker.sock:/var/run/docker.sock</span>
+<a name="rest_code_74603dbdcd7745e88c9dbee9f9ad529e-10"></a>    <span class="nt">deploy</span><span class="p">:</span>
+<a name="rest_code_74603dbdcd7745e88c9dbee9f9ad529e-11"></a>      <span class="nt">mode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">global</span>                           <span class="c1"># 特定のコンテナをクラスタ上の全ノードに配置できる設定</span>
+<a name="rest_code_74603dbdcd7745e88c9dbee9f9ad529e-12"></a>      <span class="nt">placement</span><span class="p">:</span>
+<a name="rest_code_74603dbdcd7745e88c9dbee9f9ad529e-13"></a>        <span class="nt">constraints</span><span class="p">:</span>
+<a name="rest_code_74603dbdcd7745e88c9dbee9f9ad529e-14"></a>          <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">node.role == manager</span>  <span class="c1"># manager ノードだけに配置する</span>
+<a name="rest_code_74603dbdcd7745e88c9dbee9f9ad529e-15"></a>    <span class="nt">ports</span><span class="p">:</span>
+<a name="rest_code_74603dbdcd7745e88c9dbee9f9ad529e-16"></a>      <span class="p p-Indicator">-</span> <span class="s">"80:80"</span>                          <span class="c1"># ポートフォワード</span>
+<a name="rest_code_74603dbdcd7745e88c9dbee9f9ad529e-17"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">1936:1936</span>  <span class="c1"># for stats page (basic auth. stats:stats)</span>
+<a name="rest_code_74603dbdcd7745e88c9dbee9f9ad529e-18"></a>
+<a name="rest_code_74603dbdcd7745e88c9dbee9f9ad529e-19"></a><span class="nt">networks</span><span class="p">:</span>
+<a name="rest_code_74603dbdcd7745e88c9dbee9f9ad529e-20"></a>  <span class="nt">ch03</span><span class="p">:</span>
+<a name="rest_code_74603dbdcd7745e88c9dbee9f9ad529e-21"></a>    <span class="nt">external</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
 </pre>
 </blockquote>
 </li>
 <li>
 <p><code class="docutils literal"><span class="pre">ch03-webapi.yml</span></code> の、 nginx の環境変数に <code class="docutils literal">SERVICE_PORTS</code> を追加する。</p>
 <blockquote>
-<pre class="code yaml"><a name="rest_code_c455bcb730704045b29293d474729fe1-1"></a><span class="nt">version</span><span class="p">:</span> <span class="s">"3"</span>
-<a name="rest_code_c455bcb730704045b29293d474729fe1-2"></a><span class="nt">services</span><span class="p">:</span>
-<a name="rest_code_c455bcb730704045b29293d474729fe1-3"></a>  <span class="nt">nginx</span><span class="p">:</span>
-<a name="rest_code_c455bcb730704045b29293d474729fe1-4"></a>    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">gihyodocker/nginx-proxy:latest</span>
-<a name="rest_code_c455bcb730704045b29293d474729fe1-5"></a>    <span class="nt">deploy</span><span class="p">:</span>
-<a name="rest_code_c455bcb730704045b29293d474729fe1-6"></a>      <span class="nt">replicas</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3</span>                  <span class="c1"># レプリカ数</span>
-<a name="rest_code_c455bcb730704045b29293d474729fe1-7"></a>      <span class="nt">placement</span><span class="p">:</span>                   <span class="c1"># コンテナの配置戦略</span>
-<a name="rest_code_c455bcb730704045b29293d474729fe1-8"></a>        <span class="nt">constraints</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">node.role != manager</span><span class="p p-Indicator">]</span>  <span class="c1"># manager 以外のノードにコンテナを配置する</span>
-<a name="rest_code_c455bcb730704045b29293d474729fe1-9"></a>    <span class="nt">environment</span><span class="p">:</span>
-<a name="rest_code_c455bcb730704045b29293d474729fe1-10"></a>      <span class="nt">SERVICE_PORTS</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">80</span>            <span class="c1"># HAProxy が Service を見つけ出すため</span>
-<a name="rest_code_c455bcb730704045b29293d474729fe1-11"></a>      <span class="nt">BACKEND_HOST</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">echo_api:8080</span>  <span class="c1"># リクエストの転送先</span>
-<a name="rest_code_c455bcb730704045b29293d474729fe1-12"></a>    <span class="nt">depends_on</span><span class="p">:</span>
-<a name="rest_code_c455bcb730704045b29293d474729fe1-13"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">api</span>
-<a name="rest_code_c455bcb730704045b29293d474729fe1-14"></a>    <span class="nt">networks</span><span class="p">:</span>
-<a name="rest_code_c455bcb730704045b29293d474729fe1-15"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ch03</span>
-<a name="rest_code_c455bcb730704045b29293d474729fe1-16"></a>  <span class="nt">api</span><span class="p">:</span>
-<a name="rest_code_c455bcb730704045b29293d474729fe1-17"></a>    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">registry:5000/example/echo:latest</span>
-<a name="rest_code_c455bcb730704045b29293d474729fe1-18"></a>    <span class="nt">deploy</span><span class="p">:</span>
-<a name="rest_code_c455bcb730704045b29293d474729fe1-19"></a>      <span class="nt">replicas</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3</span>                  <span class="c1"># レプリカ数</span>
-<a name="rest_code_c455bcb730704045b29293d474729fe1-20"></a>      <span class="nt">placement</span><span class="p">:</span>                   <span class="c1"># コンテナの配置戦略</span>
-<a name="rest_code_c455bcb730704045b29293d474729fe1-21"></a>        <span class="nt">constraints</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">node.role != manager</span><span class="p p-Indicator">]</span>  <span class="c1"># manager 以外のノードにコンテナを配置する</span>
-<a name="rest_code_c455bcb730704045b29293d474729fe1-22"></a>    <span class="nt">networks</span><span class="p">:</span>
-<a name="rest_code_c455bcb730704045b29293d474729fe1-23"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ch03</span>
-<a name="rest_code_c455bcb730704045b29293d474729fe1-24"></a>
-<a name="rest_code_c455bcb730704045b29293d474729fe1-25"></a><span class="nt">networks</span><span class="p">:</span>
-<a name="rest_code_c455bcb730704045b29293d474729fe1-26"></a>  <span class="nt">ch03</span><span class="p">:</span>
-<a name="rest_code_c455bcb730704045b29293d474729fe1-27"></a>    <span class="nt">external</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+<pre class="code yaml"><a name="rest_code_08df68d133f040129718738411ecd5ea-1"></a><span class="nt">version</span><span class="p">:</span> <span class="s">"3"</span>
+<a name="rest_code_08df68d133f040129718738411ecd5ea-2"></a><span class="nt">services</span><span class="p">:</span>
+<a name="rest_code_08df68d133f040129718738411ecd5ea-3"></a>  <span class="nt">nginx</span><span class="p">:</span>
+<a name="rest_code_08df68d133f040129718738411ecd5ea-4"></a>    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">gihyodocker/nginx-proxy:latest</span>
+<a name="rest_code_08df68d133f040129718738411ecd5ea-5"></a>    <span class="nt">deploy</span><span class="p">:</span>
+<a name="rest_code_08df68d133f040129718738411ecd5ea-6"></a>      <span class="nt">replicas</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3</span>                  <span class="c1"># レプリカ数</span>
+<a name="rest_code_08df68d133f040129718738411ecd5ea-7"></a>      <span class="nt">placement</span><span class="p">:</span>                   <span class="c1"># コンテナの配置戦略</span>
+<a name="rest_code_08df68d133f040129718738411ecd5ea-8"></a>        <span class="nt">constraints</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">node.role != manager</span><span class="p p-Indicator">]</span>  <span class="c1"># manager 以外のノードにコンテナを配置する</span>
+<a name="rest_code_08df68d133f040129718738411ecd5ea-9"></a>    <span class="nt">environment</span><span class="p">:</span>
+<a name="rest_code_08df68d133f040129718738411ecd5ea-10"></a>      <span class="nt">SERVICE_PORTS</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">80</span>            <span class="c1"># HAProxy が Service を見つけ出すため</span>
+<a name="rest_code_08df68d133f040129718738411ecd5ea-11"></a>      <span class="nt">BACKEND_HOST</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">echo_api:8080</span>  <span class="c1"># リクエストの転送先</span>
+<a name="rest_code_08df68d133f040129718738411ecd5ea-12"></a>    <span class="nt">depends_on</span><span class="p">:</span>
+<a name="rest_code_08df68d133f040129718738411ecd5ea-13"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">api</span>
+<a name="rest_code_08df68d133f040129718738411ecd5ea-14"></a>    <span class="nt">networks</span><span class="p">:</span>
+<a name="rest_code_08df68d133f040129718738411ecd5ea-15"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ch03</span>
+<a name="rest_code_08df68d133f040129718738411ecd5ea-16"></a>  <span class="nt">api</span><span class="p">:</span>
+<a name="rest_code_08df68d133f040129718738411ecd5ea-17"></a>    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">registry:5000/example/echo:latest</span>
+<a name="rest_code_08df68d133f040129718738411ecd5ea-18"></a>    <span class="nt">deploy</span><span class="p">:</span>
+<a name="rest_code_08df68d133f040129718738411ecd5ea-19"></a>      <span class="nt">replicas</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3</span>                  <span class="c1"># レプリカ数</span>
+<a name="rest_code_08df68d133f040129718738411ecd5ea-20"></a>      <span class="nt">placement</span><span class="p">:</span>                   <span class="c1"># コンテナの配置戦略</span>
+<a name="rest_code_08df68d133f040129718738411ecd5ea-21"></a>        <span class="nt">constraints</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">node.role != manager</span><span class="p p-Indicator">]</span>  <span class="c1"># manager 以外のノードにコンテナを配置する</span>
+<a name="rest_code_08df68d133f040129718738411ecd5ea-22"></a>    <span class="nt">networks</span><span class="p">:</span>
+<a name="rest_code_08df68d133f040129718738411ecd5ea-23"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ch03</span>
+<a name="rest_code_08df68d133f040129718738411ecd5ea-24"></a>
+<a name="rest_code_08df68d133f040129718738411ecd5ea-25"></a><span class="nt">networks</span><span class="p">:</span>
+<a name="rest_code_08df68d133f040129718738411ecd5ea-26"></a>  <span class="nt">ch03</span><span class="p">:</span>
+<a name="rest_code_08df68d133f040129718738411ecd5ea-27"></a>    <span class="nt">external</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
 </pre>
 </blockquote>
 </li>
 <li>
 <p><code class="docutils literal"><span class="pre">ch03-webapi.yml</span></code> を echo Stack としてデプロイする。</p>
 <blockquote>
-<pre class="code console"><a name="rest_code_88cc3af7e7e74921a1a7f9b0f726b7d0-1"></a><span class="gp">$</span> docker container <span class="nb">exec</span> -it manager docker stack deploy -c /stack/ch03-webapi.yml <span class="nb">echo</span>
-<a name="rest_code_88cc3af7e7e74921a1a7f9b0f726b7d0-2"></a><span class="go">Creating service echo_nginx</span>
-<a name="rest_code_88cc3af7e7e74921a1a7f9b0f726b7d0-3"></a><span class="go">Creating service echo_api</span>
+<pre class="code console"><a name="rest_code_c45235d1c1db4fbc93b81e5e9f5fc506-1"></a><span class="gp">$</span> docker container <span class="nb">exec</span> -it manager docker stack deploy -c /stack/ch03-webapi.yml <span class="nb">echo</span>
+<a name="rest_code_c45235d1c1db4fbc93b81e5e9f5fc506-2"></a><span class="go">Creating service echo_nginx</span>
+<a name="rest_code_c45235d1c1db4fbc93b81e5e9f5fc506-3"></a><span class="go">Creating service echo_api</span>
 </pre>
 </blockquote>
 </li>
 <li>
 <p><code class="docutils literal"><span class="pre">ch03-ingress.yml</span></code> を ingress Stack としてデプロイする。</p>
 <blockquote>
-<pre class="code console"><a name="rest_code_a112088d13d14a1b821e624d4124ce31-1"></a><span class="gp">$</span> docker container <span class="nb">exec</span> -it manager docker stack deploy -c /stack/ch03-ingress.yml ingress
-<a name="rest_code_a112088d13d14a1b821e624d4124ce31-2"></a><span class="go">Creating service ingress_haproxy</span>
+<pre class="code console"><a name="rest_code_b63229788ff14f34ac6a6571aae04ecc-1"></a><span class="gp">$</span> docker container <span class="nb">exec</span> -it manager docker stack deploy -c /stack/ch03-ingress.yml ingress
+<a name="rest_code_b63229788ff14f34ac6a6571aae04ecc-2"></a><span class="go">Creating service ingress_haproxy</span>
 </pre>
 </blockquote>
 </li>
 <li>
 <p>Service の配置を確認する。</p>
 <blockquote>
-<pre class="code console"><a name="rest_code_8f4f11be784e4ce6a6d7deac272513b2-1"></a><span class="gp">$</span> docker container <span class="nb">exec</span> -it manager docker service ls
-<a name="rest_code_8f4f11be784e4ce6a6d7deac272513b2-2"></a><span class="go">ID                  NAME                MODE                REPLICAS            IMAGE                               PORTS</span>
-<a name="rest_code_8f4f11be784e4ce6a6d7deac272513b2-3"></a><span class="go">11wu48dvb9s0        echo_api            replicated          3/3                 registry:5000/example/echo:latest</span>
-<a name="rest_code_8f4f11be784e4ce6a6d7deac272513b2-4"></a><span class="go">pyov2dftee9g        echo_nginx          replicated          3/3                 gihyodocker/nginx-proxy:latest</span>
-<a name="rest_code_8f4f11be784e4ce6a6d7deac272513b2-5"></a><span class="go">nxxu04tsdqql        ingress_haproxy     global              1/1                 dockercloud/haproxy:latest          *:80-&gt;80/tcp, *:1936-&gt;1936/tcp</span>
-<a name="rest_code_8f4f11be784e4ce6a6d7deac272513b2-6"></a><span class="go">sqoaqpzkr2g5        visualizer_app      global              1/1                 dockersamples/visualizer:latest     *:9000-&gt;8080/tcp</span>
+<pre class="code console"><a name="rest_code_8a7e4c7e85954b60bda2984c782c63f4-1"></a><span class="gp">$</span> docker container <span class="nb">exec</span> -it manager docker service ls
+<a name="rest_code_8a7e4c7e85954b60bda2984c782c63f4-2"></a><span class="go">ID                  NAME                MODE                REPLICAS            IMAGE                               PORTS</span>
+<a name="rest_code_8a7e4c7e85954b60bda2984c782c63f4-3"></a><span class="go">11wu48dvb9s0        echo_api            replicated          3/3                 registry:5000/example/echo:latest</span>
+<a name="rest_code_8a7e4c7e85954b60bda2984c782c63f4-4"></a><span class="go">pyov2dftee9g        echo_nginx          replicated          3/3                 gihyodocker/nginx-proxy:latest</span>
+<a name="rest_code_8a7e4c7e85954b60bda2984c782c63f4-5"></a><span class="go">nxxu04tsdqql        ingress_haproxy     global              1/1                 dockercloud/haproxy:latest          *:80-&gt;80/tcp, *:1936-&gt;1936/tcp</span>
+<a name="rest_code_8a7e4c7e85954b60bda2984c782c63f4-6"></a><span class="go">sqoaqpzkr2g5        visualizer_app      global              1/1                 dockersamples/visualizer:latest     *:9000-&gt;8080/tcp</span>
 </pre>
 </blockquote>
 </li>
 <li>
 <p>echo_nginx にアクセスできるようになる。</p>
 <blockquote>
-<pre class="code console"><a name="rest_code_ae94ce4ff3b54071ad16b3cc01c7e768-1"></a><span class="gp">$</span> curl http://localhost:8000/
-<a name="rest_code_ae94ce4ff3b54071ad16b3cc01c7e768-2"></a><span class="go">Hello Docker!!</span>
+<pre class="code console"><a name="rest_code_9c0d3971c1f046b0bb97c9b13c8f1131-1"></a><span class="gp">$</span> curl http://localhost:8000/
+<a name="rest_code_9c0d3971c1f046b0bb97c9b13c8f1131-2"></a><span class="go">Hello Docker!!</span>
 </pre>
 </blockquote>
 </li>

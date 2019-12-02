@@ -88,17 +88,17 @@
 </div>
 <div class="section" id="id5">
 <h2><a class="toc-backref" href="#id24">変数表示</a></h2>
-<pre class="code django"><a name="rest_code_39fbfa0ba0c9476a90c9afcfe24d0968-1"></a><span class="c">{# __str__() の結果を表示してくれる #}</span><span class="x"></span>
-<a name="rest_code_39fbfa0ba0c9476a90c9afcfe24d0968-2"></a><span class="cp">{{</span> <span class="nv">user</span> <span class="cp">}}</span><span class="x"></span>
-<a name="rest_code_39fbfa0ba0c9476a90c9afcfe24d0968-3"></a>
-<a name="rest_code_39fbfa0ba0c9476a90c9afcfe24d0968-4"></a><span class="c">{# このように書くと #}</span><span class="x"></span>
-<a name="rest_code_39fbfa0ba0c9476a90c9afcfe24d0968-5"></a><span class="cp">{{</span> <span class="nv">user.username</span> <span class="cp">}}</span><span class="x"></span>
-<a name="rest_code_39fbfa0ba0c9476a90c9afcfe24d0968-6"></a><span class="cp">{%</span> <span class="k">comment</span> <span class="s2">"以下の順番に値を取得しようとして、一番先に取得できた値を表示してくれる"</span> <span class="cp">%}</span><span class="x"></span>
-<a name="rest_code_39fbfa0ba0c9476a90c9afcfe24d0968-7"></a><span class="x">  user['username']  # 1. 辞書としての照合</span>
-<a name="rest_code_39fbfa0ba0c9476a90c9afcfe24d0968-8"></a><span class="x">  user.username     # 2. 属性値の照合</span>
-<a name="rest_code_39fbfa0ba0c9476a90c9afcfe24d0968-9"></a><span class="x">  user.username()   # 3. メソッド呼び出し</span>
-<a name="rest_code_39fbfa0ba0c9476a90c9afcfe24d0968-10"></a><span class="x">  user[username]    # 4. リストやタプルの添字指定</span>
-<a name="rest_code_39fbfa0ba0c9476a90c9afcfe24d0968-11"></a><span class="cp">{%</span> <span class="k">endcomment</span> <span class="cp">%}</span><span class="x"></span>
+<pre class="code django"><a name="rest_code_7ab1d0ec5ab9469b8b670c0ee5884ca3-1"></a><span class="c">{# __str__() の結果を表示してくれる #}</span><span class="x"></span>
+<a name="rest_code_7ab1d0ec5ab9469b8b670c0ee5884ca3-2"></a><span class="cp">{{</span> <span class="nv">user</span> <span class="cp">}}</span><span class="x"></span>
+<a name="rest_code_7ab1d0ec5ab9469b8b670c0ee5884ca3-3"></a>
+<a name="rest_code_7ab1d0ec5ab9469b8b670c0ee5884ca3-4"></a><span class="c">{# このように書くと #}</span><span class="x"></span>
+<a name="rest_code_7ab1d0ec5ab9469b8b670c0ee5884ca3-5"></a><span class="cp">{{</span> <span class="nv">user.username</span> <span class="cp">}}</span><span class="x"></span>
+<a name="rest_code_7ab1d0ec5ab9469b8b670c0ee5884ca3-6"></a><span class="cp">{%</span> <span class="k">comment</span> <span class="s2">"以下の順番に値を取得しようとして、一番先に取得できた値を表示してくれる"</span> <span class="cp">%}</span><span class="x"></span>
+<a name="rest_code_7ab1d0ec5ab9469b8b670c0ee5884ca3-7"></a><span class="x">  user['username']  # 1. 辞書としての照合</span>
+<a name="rest_code_7ab1d0ec5ab9469b8b670c0ee5884ca3-8"></a><span class="x">  user.username     # 2. 属性値の照合</span>
+<a name="rest_code_7ab1d0ec5ab9469b8b670c0ee5884ca3-9"></a><span class="x">  user.username()   # 3. メソッド呼び出し</span>
+<a name="rest_code_7ab1d0ec5ab9469b8b670c0ee5884ca3-10"></a><span class="x">  user[username]    # 4. リストやタプルの添字指定</span>
+<a name="rest_code_7ab1d0ec5ab9469b8b670c0ee5884ca3-11"></a><span class="cp">{%</span> <span class="k">endcomment</span> <span class="cp">%}</span><span class="x"></span>
 </pre>
 <ul class="simple">
 <li>
@@ -127,18 +127,18 @@
 </div>
 <div class="section" id="id6">
 <h2><a class="toc-backref" href="#id25">フィルタ</a></h2>
-<pre class="code django"><a name="rest_code_0bc1013084124fdcbb5226b16ef578ba-1"></a><span class="c">{# 変数名の直後に ``|`` (パイプ) を使って繋げる #}</span><span class="x"></span>
-<a name="rest_code_0bc1013084124fdcbb5226b16ef578ba-2"></a><span class="cp">{{</span> <span class="o">&lt;</span><span class="err">変数名</span><span class="o">&gt;</span><span class="err">|</span><span class="o">&lt;</span><span class="err">フィルタ名</span><span class="o">&gt;</span> <span class="cp">}}</span><span class="x"></span>
-<a name="rest_code_0bc1013084124fdcbb5226b16ef578ba-3"></a>
-<a name="rest_code_0bc1013084124fdcbb5226b16ef578ba-4"></a><span class="c">{# フィルタによっては引数もとれる、 ``:`` で繋げる #}</span><span class="x"></span>
-<a name="rest_code_0bc1013084124fdcbb5226b16ef578ba-5"></a><span class="cp">{{</span> <span class="o">&lt;</span><span class="err">変数名</span><span class="o">&gt;</span><span class="err">|</span><span class="o">&lt;</span><span class="err">フィルタ名</span><span class="o">&gt;</span><span class="s2">:"&lt;引数&gt;"</span> <span class="cp">}}</span><span class="x"></span>
-<a name="rest_code_0bc1013084124fdcbb5226b16ef578ba-6"></a>
-<a name="rest_code_0bc1013084124fdcbb5226b16ef578ba-7"></a><span class="c">{# フィルタは ``|`` で連結できる #}</span><span class="x"></span>
-<a name="rest_code_0bc1013084124fdcbb5226b16ef578ba-8"></a><span class="cp">{{</span> <span class="o">&lt;</span><span class="err">変数名</span><span class="o">&gt;</span><span class="err">|</span><span class="o">&lt;</span><span class="err">フィルタ名</span><span class="m">1</span><span class="o">&gt;</span><span class="s2">:"&lt;引数&gt;"</span><span class="err">|</span><span class="o">&lt;</span><span class="err">フィルタ名</span><span class="m">2</span><span class="o">&gt;</span><span class="s2">:"&lt;引数&gt;"</span> <span class="cp">}}</span><span class="x"></span>
+<pre class="code django"><a name="rest_code_6fc3e5206be14223bf4cd2246e7a1643-1"></a><span class="c">{# 変数名の直後に ``|`` (パイプ) を使って繋げる #}</span><span class="x"></span>
+<a name="rest_code_6fc3e5206be14223bf4cd2246e7a1643-2"></a><span class="cp">{{</span> <span class="o">&lt;</span><span class="err">変数名</span><span class="o">&gt;</span><span class="err">|</span><span class="o">&lt;</span><span class="err">フィルタ名</span><span class="o">&gt;</span> <span class="cp">}}</span><span class="x"></span>
+<a name="rest_code_6fc3e5206be14223bf4cd2246e7a1643-3"></a>
+<a name="rest_code_6fc3e5206be14223bf4cd2246e7a1643-4"></a><span class="c">{# フィルタによっては引数もとれる、 ``:`` で繋げる #}</span><span class="x"></span>
+<a name="rest_code_6fc3e5206be14223bf4cd2246e7a1643-5"></a><span class="cp">{{</span> <span class="o">&lt;</span><span class="err">変数名</span><span class="o">&gt;</span><span class="err">|</span><span class="o">&lt;</span><span class="err">フィルタ名</span><span class="o">&gt;</span><span class="s2">:"&lt;引数&gt;"</span> <span class="cp">}}</span><span class="x"></span>
+<a name="rest_code_6fc3e5206be14223bf4cd2246e7a1643-6"></a>
+<a name="rest_code_6fc3e5206be14223bf4cd2246e7a1643-7"></a><span class="c">{# フィルタは ``|`` で連結できる #}</span><span class="x"></span>
+<a name="rest_code_6fc3e5206be14223bf4cd2246e7a1643-8"></a><span class="cp">{{</span> <span class="o">&lt;</span><span class="err">変数名</span><span class="o">&gt;</span><span class="err">|</span><span class="o">&lt;</span><span class="err">フィルタ名</span><span class="m">1</span><span class="o">&gt;</span><span class="s2">:"&lt;引数&gt;"</span><span class="err">|</span><span class="o">&lt;</span><span class="err">フィルタ名</span><span class="m">2</span><span class="o">&gt;</span><span class="s2">:"&lt;引数&gt;"</span> <span class="cp">}}</span><span class="x"></span>
 </pre>
 <div class="section" id="id7">
 <h3><a class="toc-backref" href="#id26">デフォルト表示</a></h3>
-<pre class="code django"><a name="rest_code_bdc3ff47bb5245e5927ffaddb69e0450-1"></a><span class="cp">{{</span> <span class="nv">user.first_name</span><span class="o">|</span><span class="nf">default</span><span class="s2">:""</span> <span class="cp">}}</span><span class="x"> </span><span class="cp">{{</span> <span class="nv">user.first_name</span><span class="o">|</span><span class="nf">default</span><span class="s2">:""</span> <span class="cp">}}</span><span class="x"></span>
+<pre class="code django"><a name="rest_code_292704551c944601add8af126ffc6717-1"></a><span class="cp">{{</span> <span class="nv">user.first_name</span><span class="o">|</span><span class="nf">default</span><span class="s2">:""</span> <span class="cp">}}</span><span class="x"> </span><span class="cp">{{</span> <span class="nv">user.first_name</span><span class="o">|</span><span class="nf">default</span><span class="s2">:""</span> <span class="cp">}}</span><span class="x"></span>
 </pre>
 <ul class="simple">
 <li><p>変数が存在しない場合、あるいは変数の値が <code class="docutils literal">None</code>, <code class="docutils literal">''</code>, <code class="docutils literal">0</code>, <code class="docutils literal">False</code>, <code class="docutils literal">[]</code> などの場合に指定した文字列を表示する</p></li>
@@ -146,12 +146,12 @@
 </div>
 <div class="section" id="id8">
 <h3><a class="toc-backref" href="#id27">文字列長を表示</a></h3>
-<pre class="code django"><a name="rest_code_671429afea7b426ba6b43192d735c044-1"></a><span class="cp">{{</span> <span class="nv">user.username</span><span class="o">|</span><span class="nf">length</span> <span class="cp">}}</span><span class="x"></span>
+<pre class="code django"><a name="rest_code_6f8b4a544f314d1caff33d4cd7b755ea-1"></a><span class="cp">{{</span> <span class="nv">user.username</span><span class="o">|</span><span class="nf">length</span> <span class="cp">}}</span><span class="x"></span>
 </pre>
 </div>
 <div class="section" id="id9">
 <h3><a class="toc-backref" href="#id28">エスケープの無効化</a></h3>
-<pre class="code django"><a name="rest_code_18207cfae3e0498b9b71689b50dc176a-1"></a><span class="cp">{{</span> <span class="nv">book.description</span><span class="o">|</span><span class="nf">safe</span> <span class="cp">}}</span><span class="x"></span>
+<pre class="code django"><a name="rest_code_b2fb1ea31fb443b3904c736fdc71f4bd-1"></a><span class="cp">{{</span> <span class="nv">book.description</span><span class="o">|</span><span class="nf">safe</span> <span class="cp">}}</span><span class="x"></span>
 </pre>
 <ul class="simple">
 <li><p>XSS 対策として自動でエスケープしてくれる <code class="docutils literal">&lt;</code>, <code class="docutils literal">&gt;</code>, <code class="docutils literal">'</code>, <code class="docutils literal">"</code>, <code class="docutils literal">&amp;</code> をエスケープしない</p></li>
@@ -160,12 +160,12 @@
 </div>
 <div class="section" id="id10">
 <h3><a class="toc-backref" href="#id29">日時フォーマット</a></h3>
-<pre class="code django"><a name="rest_code_2965b57e41d94daba7e14e11fb65a8f5-1"></a><span class="cp">{{</span> <span class="nv">user.last_login</span><span class="o">|</span><span class="nf">date</span><span class="s2">:"Y-m-d H:i:s"</span> <span class="cp">}}</span><span class="x"></span>
+<pre class="code django"><a name="rest_code_893ab3b88e834f648291882d9f306fed-1"></a><span class="cp">{{</span> <span class="nv">user.last_login</span><span class="o">|</span><span class="nf">date</span><span class="s2">:"Y-m-d H:i:s"</span> <span class="cp">}}</span><span class="x"></span>
 </pre>
 </div>
 <div class="section" id="id11">
 <h3><a class="toc-backref" href="#id30">改行タグの変換</a></h3>
-<pre class="code django"><a name="rest_code_ea3a7ef61a2d49368487981f339abab6-1"></a><span class="cp">{{</span> <span class="nv">book.description</span><span class="o">|</span><span class="nf">linebreaksbr</span> <span class="cp">}}</span><span class="x"></span>
+<pre class="code django"><a name="rest_code_5a562a526e5c422db09c3521d33b5131-1"></a><span class="cp">{{</span> <span class="nv">book.description</span><span class="o">|</span><span class="nf">linebreaksbr</span> <span class="cp">}}</span><span class="x"></span>
 </pre>
 <ul class="simple">
 <li><p><code class="docutils literal">\n</code> を <code class="docutils literal">&lt;br&gt;</code> に変換してくれる</p></li>
@@ -174,7 +174,7 @@
 </div>
 <div class="section" id="id12">
 <h3><a class="toc-backref" href="#id31">リンク変換</a></h3>
-<pre class="code django"><a name="rest_code_0863d13ab5f94da38c8768133a359ae6-1"></a><span class="cp">{{</span> <span class="nv">book.description</span><span class="o">|</span><span class="nf">urlize</span> <span class="cp">}}</span><span class="x"></span>
+<pre class="code django"><a name="rest_code_fe339c11529f44208555cd3e3af3ea1c-1"></a><span class="cp">{{</span> <span class="nv">book.description</span><span class="o">|</span><span class="nf">urlize</span> <span class="cp">}}</span><span class="x"></span>
 </pre>
 <ul class="simple">
 <li><p>URL と メールアドレスの部分だけをアンカータグで囲んでクリック可能なリンクに変換してくれる</p></li>
@@ -183,7 +183,7 @@
 </div>
 <div class="section" id="id13">
 <h3><a class="toc-backref" href="#id32">文字の切り詰め</a></h3>
-<pre class="code django"><a name="rest_code_c633c226703243f0b4840f29ff8de20b-1"></a><span class="cp">{{</span> <span class="nv">book.description</span><span class="o">|</span><span class="nf">truncatechars_html</span><span class="o">:</span><span class="m">5</span> <span class="cp">}}</span><span class="x"></span>
+<pre class="code django"><a name="rest_code_8a3039d5901f4d42a27f93d8008bb458-1"></a><span class="cp">{{</span> <span class="nv">book.description</span><span class="o">|</span><span class="nf">truncatechars_html</span><span class="o">:</span><span class="m">5</span> <span class="cp">}}</span><span class="x"></span>
 </pre>
 <ul class="simple">
 <li><p>指定した文字数まで切り詰めて <code class="docutils literal">...</code> をくっつけてくれる</p></li>
@@ -196,37 +196,37 @@
 <h2><a class="toc-backref" href="#id33">テンプレートタグ</a></h2>
 <div class="section" id="if">
 <h3><a class="toc-backref" href="#id34">if</a></h3>
-<pre class="code django"><a name="rest_code_367307b6e2ce4d7097359bb669c77ac9-1"></a><span class="cp">{%</span> <span class="k">if</span> <span class="nv">user.is_superuser</span> <span class="cp">%}</span><span class="x"></span>
-<a name="rest_code_367307b6e2ce4d7097359bb669c77ac9-2"></a><span class="x">  システム管理者です。</span>
-<a name="rest_code_367307b6e2ce4d7097359bb669c77ac9-3"></a><span class="cp">{%</span> <span class="k">elif</span> <span class="nv">user.is_staff</span> <span class="cp">%}</span><span class="x"></span>
-<a name="rest_code_367307b6e2ce4d7097359bb669c77ac9-4"></a><span class="x">  スタッフです。</span>
-<a name="rest_code_367307b6e2ce4d7097359bb669c77ac9-5"></a><span class="cp">{%</span> <span class="k">else</span> <span class="cp">%}</span><span class="x"></span>
-<a name="rest_code_367307b6e2ce4d7097359bb669c77ac9-6"></a><span class="x">  一般ユーザーだよ。</span>
-<a name="rest_code_367307b6e2ce4d7097359bb669c77ac9-7"></a><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"></span>
+<pre class="code django"><a name="rest_code_460349dc04624cc485714a9a7ccbc397-1"></a><span class="cp">{%</span> <span class="k">if</span> <span class="nv">user.is_superuser</span> <span class="cp">%}</span><span class="x"></span>
+<a name="rest_code_460349dc04624cc485714a9a7ccbc397-2"></a><span class="x">  システム管理者です。</span>
+<a name="rest_code_460349dc04624cc485714a9a7ccbc397-3"></a><span class="cp">{%</span> <span class="k">elif</span> <span class="nv">user.is_staff</span> <span class="cp">%}</span><span class="x"></span>
+<a name="rest_code_460349dc04624cc485714a9a7ccbc397-4"></a><span class="x">  スタッフです。</span>
+<a name="rest_code_460349dc04624cc485714a9a7ccbc397-5"></a><span class="cp">{%</span> <span class="k">else</span> <span class="cp">%}</span><span class="x"></span>
+<a name="rest_code_460349dc04624cc485714a9a7ccbc397-6"></a><span class="x">  一般ユーザーだよ。</span>
+<a name="rest_code_460349dc04624cc485714a9a7ccbc397-7"></a><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"></span>
 </pre>
-<pre class="code django"><a name="rest_code_3923b74a918f4c2792bc281656975db4-1"></a><span class="c">{# フィルタと組み合わせることもできる #}</span><span class="x"></span>
-<a name="rest_code_3923b74a918f4c2792bc281656975db4-2"></a><span class="cp">{%</span> <span class="k">if</span> <span class="nv">user.username</span><span class="o">|</span><span class="nf">length</span> <span class="o">&lt;</span> <span class="m">3</span> <span class="cp">%}</span><span class="x"></span>
-<a name="rest_code_3923b74a918f4c2792bc281656975db4-3"></a><span class="x">  ユーザー名が短かすぎます。</span>
-<a name="rest_code_3923b74a918f4c2792bc281656975db4-4"></a><span class="cp">{%</span>  <span class="k">endif</span> <span class="cp">%}</span><span class="x"></span>
+<pre class="code django"><a name="rest_code_2eed8a3701234a7796ba505edc13150f-1"></a><span class="c">{# フィルタと組み合わせることもできる #}</span><span class="x"></span>
+<a name="rest_code_2eed8a3701234a7796ba505edc13150f-2"></a><span class="cp">{%</span> <span class="k">if</span> <span class="nv">user.username</span><span class="o">|</span><span class="nf">length</span> <span class="o">&lt;</span> <span class="m">3</span> <span class="cp">%}</span><span class="x"></span>
+<a name="rest_code_2eed8a3701234a7796ba505edc13150f-3"></a><span class="x">  ユーザー名が短かすぎます。</span>
+<a name="rest_code_2eed8a3701234a7796ba505edc13150f-4"></a><span class="cp">{%</span>  <span class="k">endif</span> <span class="cp">%}</span><span class="x"></span>
 </pre>
 </div>
 <div class="section" id="for">
 <h3><a class="toc-backref" href="#id35">for</a></h3>
-<pre class="code django"><a name="rest_code_a145bd1eecb5482a9a7e9d280d5e2ade-1"></a><span class="cp">{%</span> <span class="k">for</span> <span class="nv">book</span> <span class="k">in</span> <span class="nv">book_list</span> <span class="cp">%}</span><span class="x"></span>
-<a name="rest_code_a145bd1eecb5482a9a7e9d280d5e2ade-2"></a><span class="x">  </span><span class="cp">{{</span> <span class="nv">book.title</span> <span class="cp">}}</span><span class="x"></span>
-<a name="rest_code_a145bd1eecb5482a9a7e9d280d5e2ade-3"></a>
-<a name="rest_code_a145bd1eecb5482a9a7e9d280d5e2ade-4"></a><span class="x">  </span><span class="c">{# for ループ内で使える変数 #}</span><span class="x"></span>
-<a name="rest_code_a145bd1eecb5482a9a7e9d280d5e2ade-5"></a><span class="x">  </span><span class="cp">{{</span> <span class="nb">forloop</span><span class="nv">.counter</span> <span class="cp">}}</span><span class="x">     </span><span class="c">{# 現在のループカウンタ番号 ( 1 から順にカウント ) #}</span><span class="x"></span>
-<a name="rest_code_a145bd1eecb5482a9a7e9d280d5e2ade-6"></a><span class="x">  </span><span class="cp">{{</span> <span class="nb">forloop</span><span class="nv">.counter0</span> <span class="cp">}}</span><span class="x">    </span><span class="c">{# 現在のループカウンタ番号 ( 0 から順にカウント ) #}</span><span class="x"></span>
-<a name="rest_code_a145bd1eecb5482a9a7e9d280d5e2ade-7"></a><span class="x">  </span><span class="cp">{{</span> <span class="nb">forloop</span><span class="nv">.revcounter</span> <span class="cp">}}</span><span class="x">  </span><span class="c">{# 現在のループカウンタ値 ( 1 から順に、末尾からカウント) #}</span><span class="x"></span>
-<a name="rest_code_a145bd1eecb5482a9a7e9d280d5e2ade-8"></a><span class="x">  </span><span class="cp">{{</span> <span class="nb">forloop</span><span class="nv">.revcounter0</span> <span class="cp">}}</span><span class="x"> </span><span class="c">{# 現在のループカウンタ値 ( 0 から順に、末尾からカウント) #}</span><span class="x"></span>
-<a name="rest_code_a145bd1eecb5482a9a7e9d280d5e2ade-9"></a><span class="x">  </span><span class="cp">{{</span> <span class="nb">forloop</span><span class="nv">.first</span> <span class="cp">}}</span><span class="x">       </span><span class="c">{# 最初のループであれば True #}</span><span class="x"></span>
-<a name="rest_code_a145bd1eecb5482a9a7e9d280d5e2ade-10"></a><span class="x">  </span><span class="cp">{{</span> <span class="nb">forloop</span><span class="nv">.last</span> <span class="cp">}}</span><span class="x">        </span><span class="c">{# 最後のループであれば True #}</span><span class="x"></span>
-<a name="rest_code_a145bd1eecb5482a9a7e9d280d5e2ade-11"></a><span class="x">  </span><span class="cp">{{</span> <span class="nb">forloop</span><span class="nv">.parentloop</span> <span class="cp">}}</span><span class="x">  </span><span class="c">{# 入れ子のループであるとき、現在のループを囲んでいる 1 つ上のループを表します。 #}</span><span class="x"></span>
-<a name="rest_code_a145bd1eecb5482a9a7e9d280d5e2ade-12"></a>
-<a name="rest_code_a145bd1eecb5482a9a7e9d280d5e2ade-13"></a><span class="cp">{%</span>  <span class="k">empty</span> <span class="cp">%}</span><span class="x"></span>
-<a name="rest_code_a145bd1eecb5482a9a7e9d280d5e2ade-14"></a><span class="x">  本ない</span>
-<a name="rest_code_a145bd1eecb5482a9a7e9d280d5e2ade-15"></a><span class="cp">{%</span>  <span class="k">endfor</span> <span class="cp">%}</span><span class="x"></span>
+<pre class="code django"><a name="rest_code_f9cf4f6b804a4c38aa09101440c5e8ec-1"></a><span class="cp">{%</span> <span class="k">for</span> <span class="nv">book</span> <span class="k">in</span> <span class="nv">book_list</span> <span class="cp">%}</span><span class="x"></span>
+<a name="rest_code_f9cf4f6b804a4c38aa09101440c5e8ec-2"></a><span class="x">  </span><span class="cp">{{</span> <span class="nv">book.title</span> <span class="cp">}}</span><span class="x"></span>
+<a name="rest_code_f9cf4f6b804a4c38aa09101440c5e8ec-3"></a>
+<a name="rest_code_f9cf4f6b804a4c38aa09101440c5e8ec-4"></a><span class="x">  </span><span class="c">{# for ループ内で使える変数 #}</span><span class="x"></span>
+<a name="rest_code_f9cf4f6b804a4c38aa09101440c5e8ec-5"></a><span class="x">  </span><span class="cp">{{</span> <span class="nb">forloop</span><span class="nv">.counter</span> <span class="cp">}}</span><span class="x">     </span><span class="c">{# 現在のループカウンタ番号 ( 1 から順にカウント ) #}</span><span class="x"></span>
+<a name="rest_code_f9cf4f6b804a4c38aa09101440c5e8ec-6"></a><span class="x">  </span><span class="cp">{{</span> <span class="nb">forloop</span><span class="nv">.counter0</span> <span class="cp">}}</span><span class="x">    </span><span class="c">{# 現在のループカウンタ番号 ( 0 から順にカウント ) #}</span><span class="x"></span>
+<a name="rest_code_f9cf4f6b804a4c38aa09101440c5e8ec-7"></a><span class="x">  </span><span class="cp">{{</span> <span class="nb">forloop</span><span class="nv">.revcounter</span> <span class="cp">}}</span><span class="x">  </span><span class="c">{# 現在のループカウンタ値 ( 1 から順に、末尾からカウント) #}</span><span class="x"></span>
+<a name="rest_code_f9cf4f6b804a4c38aa09101440c5e8ec-8"></a><span class="x">  </span><span class="cp">{{</span> <span class="nb">forloop</span><span class="nv">.revcounter0</span> <span class="cp">}}</span><span class="x"> </span><span class="c">{# 現在のループカウンタ値 ( 0 から順に、末尾からカウント) #}</span><span class="x"></span>
+<a name="rest_code_f9cf4f6b804a4c38aa09101440c5e8ec-9"></a><span class="x">  </span><span class="cp">{{</span> <span class="nb">forloop</span><span class="nv">.first</span> <span class="cp">}}</span><span class="x">       </span><span class="c">{# 最初のループであれば True #}</span><span class="x"></span>
+<a name="rest_code_f9cf4f6b804a4c38aa09101440c5e8ec-10"></a><span class="x">  </span><span class="cp">{{</span> <span class="nb">forloop</span><span class="nv">.last</span> <span class="cp">}}</span><span class="x">        </span><span class="c">{# 最後のループであれば True #}</span><span class="x"></span>
+<a name="rest_code_f9cf4f6b804a4c38aa09101440c5e8ec-11"></a><span class="x">  </span><span class="cp">{{</span> <span class="nb">forloop</span><span class="nv">.parentloop</span> <span class="cp">}}</span><span class="x">  </span><span class="c">{# 入れ子のループであるとき、現在のループを囲んでいる 1 つ上のループを表します。 #}</span><span class="x"></span>
+<a name="rest_code_f9cf4f6b804a4c38aa09101440c5e8ec-12"></a>
+<a name="rest_code_f9cf4f6b804a4c38aa09101440c5e8ec-13"></a><span class="cp">{%</span>  <span class="k">empty</span> <span class="cp">%}</span><span class="x"></span>
+<a name="rest_code_f9cf4f6b804a4c38aa09101440c5e8ec-14"></a><span class="x">  本ない</span>
+<a name="rest_code_f9cf4f6b804a4c38aa09101440c5e8ec-15"></a><span class="cp">{%</span>  <span class="k">endfor</span> <span class="cp">%}</span><span class="x"></span>
 </pre>
 </div>
 <div class="section" id="id15">
@@ -234,21 +234,21 @@
 <ul>
 <li>
 <p>親テンプレート <code class="docutils literal">parent.html</code></p>
-<pre class="code django"><a name="rest_code_84521827514c4474b37d424a5c1d0ebe-1"></a><span class="cp">{%</span> <span class="k">block</span> <span class="nv">sample</span> <span class="cp">%}</span><span class="x">Hello </span><span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span><span class="x"></span>
+<pre class="code django"><a name="rest_code_1d4d724fa3ac461ebbfabee7a45c8044-1"></a><span class="cp">{%</span> <span class="k">block</span> <span class="nv">sample</span> <span class="cp">%}</span><span class="x">Hello </span><span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span><span class="x"></span>
 </pre>
 </li>
 <li>
 <p>子テンプレート <code class="docutils literal">child.html</code></p>
-<pre class="code django"><a name="rest_code_013f1a02d50649e68f9d0c11b45ad9fe-1"></a><span class="cp">{%</span> <span class="k">extends</span> <span class="s2">"parent.html"</span> <span class="cp">%}</span><span class="x"></span>
-<a name="rest_code_013f1a02d50649e68f9d0c11b45ad9fe-2"></a><span class="cp">{%</span> <span class="k">block</span> <span class="nv">sample</span> <span class="cp">%}{{</span> <span class="nb">block</span><span class="nv">.super</span> <span class="o">}</span><span class="nv">World</span><span class="err">!</span> <span class="o">{%</span> <span class="nv">endblock</span> <span class="o">%}</span>
-<a name="rest_code_013f1a02d50649e68f9d0c11b45ad9fe-3"></a><span class="o">{</span><span class="err">#</span> <span class="nb">block</span><span class="nv">.super</span><span class="o">:</span> <span class="err">親テンプレートのブロック内部の値をそのまま保持した変数</span> <span class="err">#</span><span class="o">}</span>
+<pre class="code django"><a name="rest_code_09385f58303d41c3ae996b49ee866845-1"></a><span class="cp">{%</span> <span class="k">extends</span> <span class="s2">"parent.html"</span> <span class="cp">%}</span><span class="x"></span>
+<a name="rest_code_09385f58303d41c3ae996b49ee866845-2"></a><span class="cp">{%</span> <span class="k">block</span> <span class="nv">sample</span> <span class="cp">%}{{</span> <span class="nb">block</span><span class="nv">.super</span> <span class="o">}</span><span class="nv">World</span><span class="err">!</span> <span class="o">{%</span> <span class="nv">endblock</span> <span class="o">%}</span>
+<a name="rest_code_09385f58303d41c3ae996b49ee866845-3"></a><span class="o">{</span><span class="err">#</span> <span class="nb">block</span><span class="nv">.super</span><span class="o">:</span> <span class="err">親テンプレートのブロック内部の値をそのまま保持した変数</span> <span class="err">#</span><span class="o">}</span>
 </pre>
 </li>
 </ul>
 </div>
 <div class="section" id="id16">
 <h3><a class="toc-backref" href="#id37">外部テンプレートの読み込み</a></h3>
-<pre class="code django"><a name="rest_code_7866cbe0bbf94590bf8fec9d359fc992-1"></a><span class="cp">{%</span> <span class="k">include</span> <span class="s2">"_message.html"</span> <span class="cp">%}</span><span class="x"></span>
+<pre class="code django"><a name="rest_code_2720d7b09c69405eb0bf27b5a5b3635c-1"></a><span class="cp">{%</span> <span class="k">include</span> <span class="s2">"_message.html"</span> <span class="cp">%}</span><span class="x"></span>
 </pre>
 <ul class="simple">
 <li><p>ヘッダーフッターなど部品化したテンプレートを別のテンプレートから読み込む場合など</p></li>
@@ -256,10 +256,10 @@
 </div>
 <div class="section" id="url">
 <h3><a class="toc-backref" href="#id38">静的ファイルの配信 URL 取得</a></h3>
-<pre class="code django"><a name="rest_code_79932e639b2b46eb9108f289d5cd76d3-1"></a><span class="c">{# 利用する前に機能をロードしておく #}</span><span class="x"></span>
-<a name="rest_code_79932e639b2b46eb9108f289d5cd76d3-2"></a><span class="cp">{%</span> <span class="k">load</span> <span class="nv">static</span> <span class="cp">%}</span><span class="x"></span>
-<a name="rest_code_79932e639b2b46eb9108f289d5cd76d3-3"></a><span class="cp">{%</span> <span class="k">static</span> <span class="s2">"images/logo.png"</span> <span class="cp">%}</span><span class="x"></span>
-<a name="rest_code_79932e639b2b46eb9108f289d5cd76d3-4"></a><span class="cp">{%</span> <span class="k">static</span> <span class="s2">"shop/images/no-image.png"</span> <span class="cp">%}</span><span class="x"></span>
+<pre class="code django"><a name="rest_code_3f2f93a3ef85488194b1c572e1fe38bf-1"></a><span class="c">{# 利用する前に機能をロードしておく #}</span><span class="x"></span>
+<a name="rest_code_3f2f93a3ef85488194b1c572e1fe38bf-2"></a><span class="cp">{%</span> <span class="k">load</span> <span class="nv">static</span> <span class="cp">%}</span><span class="x"></span>
+<a name="rest_code_3f2f93a3ef85488194b1c572e1fe38bf-3"></a><span class="cp">{%</span> <span class="k">static</span> <span class="s2">"images/logo.png"</span> <span class="cp">%}</span><span class="x"></span>
+<a name="rest_code_3f2f93a3ef85488194b1c572e1fe38bf-4"></a><span class="cp">{%</span> <span class="k">static</span> <span class="s2">"shop/images/no-image.png"</span> <span class="cp">%}</span><span class="x"></span>
 </pre>
 <ul class="simple">
 <li><p>静的ファイルの配信 URL を取得するためのタグ</p></li>
@@ -270,18 +270,18 @@
 </div>
 <div class="section" id="id17">
 <h3><a class="toc-backref" href="#id39">url</a></h3>
-<pre class="code django"><a name="rest_code_59e8c3f76e4e4b5dbf5da350e7fe6a7a-1"></a><span class="c">{# URL 逆引き #}</span><span class="x"></span>
-<a name="rest_code_59e8c3f76e4e4b5dbf5da350e7fe6a7a-2"></a><span class="cp">{%</span> <span class="k">url</span> <span class="s2">"index"</span> <span class="cp">%}</span><span class="x"></span>
-<a name="rest_code_59e8c3f76e4e4b5dbf5da350e7fe6a7a-3"></a><span class="cp">{%</span> <span class="k">url</span> <span class="s2">"accounts:login"</span> <span class="cp">%}</span><span class="x"></span>
-<a name="rest_code_59e8c3f76e4e4b5dbf5da350e7fe6a7a-4"></a><span class="cp">{%</span> <span class="k">url</span> <span class="s2">"shop:detail"</span> <span class="nv">book.id</span> <span class="cp">%}</span><span class="x"></span>
-<a name="rest_code_59e8c3f76e4e4b5dbf5da350e7fe6a7a-5"></a><span class="cp">{%</span> <span class="k">url</span> <span class="s2">"shop:detail"</span> <span class="nv">book_id</span><span class="o">=</span><span class="nv">book.id</span> <span class="cp">%}</span><span class="x"></span>
+<pre class="code django"><a name="rest_code_b0be8a3728644693b2a9a4631b5ad150-1"></a><span class="c">{# URL 逆引き #}</span><span class="x"></span>
+<a name="rest_code_b0be8a3728644693b2a9a4631b5ad150-2"></a><span class="cp">{%</span> <span class="k">url</span> <span class="s2">"index"</span> <span class="cp">%}</span><span class="x"></span>
+<a name="rest_code_b0be8a3728644693b2a9a4631b5ad150-3"></a><span class="cp">{%</span> <span class="k">url</span> <span class="s2">"accounts:login"</span> <span class="cp">%}</span><span class="x"></span>
+<a name="rest_code_b0be8a3728644693b2a9a4631b5ad150-4"></a><span class="cp">{%</span> <span class="k">url</span> <span class="s2">"shop:detail"</span> <span class="nv">book.id</span> <span class="cp">%}</span><span class="x"></span>
+<a name="rest_code_b0be8a3728644693b2a9a4631b5ad150-5"></a><span class="cp">{%</span> <span class="k">url</span> <span class="s2">"shop:detail"</span> <span class="nv">book_id</span><span class="o">=</span><span class="nv">book.id</span> <span class="cp">%}</span><span class="x"></span>
 </pre>
 </div>
 <div class="section" id="id18">
 <h3><a class="toc-backref" href="#id40">自動エスケープ制御</a></h3>
-<pre class="code django"><a name="rest_code_cfd73b5928d64779b78d101386df8938-1"></a><span class="cp">{%</span> <span class="k">autoescape</span> <span class="nv">off</span> <span class="cp">%}</span><span class="x"></span>
-<a name="rest_code_cfd73b5928d64779b78d101386df8938-2"></a><span class="x">  自動エスケープがオフになる範囲</span>
-<a name="rest_code_cfd73b5928d64779b78d101386df8938-3"></a><span class="cp">{%</span> <span class="k">endautoescape</span> <span class="cp">%}</span><span class="x"></span>
+<pre class="code django"><a name="rest_code_a108886acead4946b3a324ce20178a79-1"></a><span class="cp">{%</span> <span class="k">autoescape</span> <span class="nv">off</span> <span class="cp">%}</span><span class="x"></span>
+<a name="rest_code_a108886acead4946b3a324ce20178a79-2"></a><span class="x">  自動エスケープがオフになる範囲</span>
+<a name="rest_code_a108886acead4946b3a324ce20178a79-3"></a><span class="cp">{%</span> <span class="k">endautoescape</span> <span class="cp">%}</span><span class="x"></span>
 </pre>
 </div>
 </div>

@@ -107,14 +107,14 @@
 <ul>
 <li>
 <p>デシリアライズ (入って来るほう)</p>
-<pre class="code python"><a name="rest_code_0a372d804d8e4f86908bfa2a9dde02fe-1"></a><span class="n">serializer</span><span class="o">.</span><span class="n">is_valid</span><span class="p">()</span>
-<a name="rest_code_0a372d804d8e4f86908bfa2a9dde02fe-2"></a><span class="n">serializer</span><span class="o">.</span><span class="n">validated_data</span>
+<pre class="code python"><a name="rest_code_d447e120362f451daedd46e3cfd0a671-1"></a><span class="n">serializer</span><span class="o">.</span><span class="n">is_valid</span><span class="p">()</span>
+<a name="rest_code_d447e120362f451daedd46e3cfd0a671-2"></a><span class="n">serializer</span><span class="o">.</span><span class="n">validated_data</span>
 </pre>
 </li>
 <li>
 <p>シリアライズ (出て行くほう)</p>
-<pre class="code python"><a name="rest_code_88d563e3ea7748d7b9ebf69bab2ee529-1"></a><span class="n">serializer</span> <span class="o">=</span> <span class="n">CommentSerializer</span><span class="p">(</span><span class="n">comment</span><span class="p">)</span>
-<a name="rest_code_88d563e3ea7748d7b9ebf69bab2ee529-2"></a><span class="n">serializer</span><span class="o">.</span><span class="n">data</span>
+<pre class="code python"><a name="rest_code_873dcfb4f4214e6b9247a9125101dbb8-1"></a><span class="n">serializer</span> <span class="o">=</span> <span class="n">CommentSerializer</span><span class="p">(</span><span class="n">comment</span><span class="p">)</span>
+<a name="rest_code_873dcfb4f4214e6b9247a9125101dbb8-2"></a><span class="n">serializer</span><span class="o">.</span><span class="n">data</span>
 </pre>
 </li>
 </ul>
@@ -145,12 +145,12 @@
 <ul>
 <li>
 <p>シリアライザに項目は渡すが中身が <code class="docutils literal">None</code> (or <code class="docutils literal">''</code> とか) の場合 =&gt; キーはあるが中身は <code class="docutils literal">None</code></p>
-<pre class="code python"><a name="rest_code_7a937fada6c2477aa70a111ad5a3cd2a-1"></a><span class="p">{</span><span class="s1">'updatedAt'</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span> <span class="s1">'entries'</span><span class="p">:</span> <span class="p">[]}</span>  <span class="c1"># updatedAt = None で渡した</span>
+<pre class="code python"><a name="rest_code_2a6a1c4950134347aaec16efb0084d12-1"></a><span class="p">{</span><span class="s1">'updatedAt'</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span> <span class="s1">'entries'</span><span class="p">:</span> <span class="p">[]}</span>  <span class="c1"># updatedAt = None で渡した</span>
 </pre>
 </li>
 <li>
 <p>シリアライザに項目ごと渡さない場合 =&gt; キーが消える</p>
-<pre class="code python"><a name="rest_code_39ecd586d396472784f2861d48d1687f-1"></a><span class="p">{</span><span class="s1">'entries'</span><span class="p">:</span> <span class="p">[]}</span>  <span class="c1"># updatedAt を渡さなかったので、キーがない</span>
+<pre class="code python"><a name="rest_code_31c6530c4e914c0c8604b948281ade06-1"></a><span class="p">{</span><span class="s1">'entries'</span><span class="p">:</span> <span class="p">[]}</span>  <span class="c1"># updatedAt を渡さなかったので、キーがない</span>
 </pre>
 </li>
 </ul>
@@ -158,26 +158,26 @@
 </div>
 <div class="section" id="modelserializer">
 <h3><a class="toc-backref" href="#id14">ModelSerializer メモ</a></h3>
-<pre class="code python"><a name="rest_code_bd554bb852fc44168d9eb3d9b7c57b36-1"></a><span class="k">class</span> <span class="nc">EntrySerializer</span><span class="p">(</span><span class="n">serializers</span><span class="o">.</span><span class="n">ModelSerializer</span><span class="p">):</span>
-<a name="rest_code_bd554bb852fc44168d9eb3d9b7c57b36-2"></a>    <span class="sd">"""エントリー"""</span>
-<a name="rest_code_bd554bb852fc44168d9eb3d9b7c57b36-3"></a>    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
-<a name="rest_code_bd554bb852fc44168d9eb3d9b7c57b36-4"></a>        <span class="n">model</span> <span class="o">=</span> <span class="n">Entry</span>
-<a name="rest_code_bd554bb852fc44168d9eb3d9b7c57b36-5"></a>        <span class="c1"># 除外したいフィールド</span>
-<a name="rest_code_bd554bb852fc44168d9eb3d9b7c57b36-6"></a>        <span class="n">exclude</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'author'</span><span class="p">]</span>
-<a name="rest_code_bd554bb852fc44168d9eb3d9b7c57b36-7"></a>        <span class="c1"># 読み取り専用指定 https://www.django-rest-framework.org/api-guide/serializers/#specifying-read-only-fields</span>
-<a name="rest_code_bd554bb852fc44168d9eb3d9b7c57b36-8"></a>        <span class="c1"># AutoField はデフォルトで読み取り専用</span>
-<a name="rest_code_bd554bb852fc44168d9eb3d9b7c57b36-9"></a>        <span class="n">read_only_fields</span> <span class="o">=</span> <span class="p">[</span>
-<a name="rest_code_bd554bb852fc44168d9eb3d9b7c57b36-10"></a>            <span class="s1">'created_at'</span><span class="p">,</span>
-<a name="rest_code_bd554bb852fc44168d9eb3d9b7c57b36-11"></a>            <span class="s1">'created_by'</span><span class="p">,</span>
-<a name="rest_code_bd554bb852fc44168d9eb3d9b7c57b36-12"></a>            <span class="s1">'created_by_id'</span><span class="p">,</span>
-<a name="rest_code_bd554bb852fc44168d9eb3d9b7c57b36-13"></a>            <span class="s1">'updated_at'</span><span class="p">,</span>
-<a name="rest_code_bd554bb852fc44168d9eb3d9b7c57b36-14"></a>            <span class="s1">'updated_by'</span><span class="p">,</span>
-<a name="rest_code_bd554bb852fc44168d9eb3d9b7c57b36-15"></a>            <span class="s1">'updated_by_id'</span><span class="p">,</span>
-<a name="rest_code_bd554bb852fc44168d9eb3d9b7c57b36-16"></a>        <span class="p">]</span>
-<a name="rest_code_bd554bb852fc44168d9eb3d9b7c57b36-17"></a>        <span class="n">extra_kwargs</span> <span class="o">=</span> <span class="p">{</span>
-<a name="rest_code_bd554bb852fc44168d9eb3d9b7c57b36-18"></a>            <span class="c1"># モデル上は必須フィールドだけれど、シリアライザでは Not必須にしたい場合は、required を上書きする</span>
-<a name="rest_code_bd554bb852fc44168d9eb3d9b7c57b36-19"></a>            <span class="s1">'display_order'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'required'</span><span class="p">:</span> <span class="bp">False</span><span class="p">}</span>
-<a name="rest_code_bd554bb852fc44168d9eb3d9b7c57b36-20"></a>        <span class="p">}</span>
+<pre class="code python"><a name="rest_code_02593875c7d2414abe356f02d2f765ec-1"></a><span class="k">class</span> <span class="nc">EntrySerializer</span><span class="p">(</span><span class="n">serializers</span><span class="o">.</span><span class="n">ModelSerializer</span><span class="p">):</span>
+<a name="rest_code_02593875c7d2414abe356f02d2f765ec-2"></a>    <span class="sd">"""エントリー"""</span>
+<a name="rest_code_02593875c7d2414abe356f02d2f765ec-3"></a>    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+<a name="rest_code_02593875c7d2414abe356f02d2f765ec-4"></a>        <span class="n">model</span> <span class="o">=</span> <span class="n">Entry</span>
+<a name="rest_code_02593875c7d2414abe356f02d2f765ec-5"></a>        <span class="c1"># 除外したいフィールド</span>
+<a name="rest_code_02593875c7d2414abe356f02d2f765ec-6"></a>        <span class="n">exclude</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'author'</span><span class="p">]</span>
+<a name="rest_code_02593875c7d2414abe356f02d2f765ec-7"></a>        <span class="c1"># 読み取り専用指定 https://www.django-rest-framework.org/api-guide/serializers/#specifying-read-only-fields</span>
+<a name="rest_code_02593875c7d2414abe356f02d2f765ec-8"></a>        <span class="c1"># AutoField はデフォルトで読み取り専用</span>
+<a name="rest_code_02593875c7d2414abe356f02d2f765ec-9"></a>        <span class="n">read_only_fields</span> <span class="o">=</span> <span class="p">[</span>
+<a name="rest_code_02593875c7d2414abe356f02d2f765ec-10"></a>            <span class="s1">'created_at'</span><span class="p">,</span>
+<a name="rest_code_02593875c7d2414abe356f02d2f765ec-11"></a>            <span class="s1">'created_by'</span><span class="p">,</span>
+<a name="rest_code_02593875c7d2414abe356f02d2f765ec-12"></a>            <span class="s1">'created_by_id'</span><span class="p">,</span>
+<a name="rest_code_02593875c7d2414abe356f02d2f765ec-13"></a>            <span class="s1">'updated_at'</span><span class="p">,</span>
+<a name="rest_code_02593875c7d2414abe356f02d2f765ec-14"></a>            <span class="s1">'updated_by'</span><span class="p">,</span>
+<a name="rest_code_02593875c7d2414abe356f02d2f765ec-15"></a>            <span class="s1">'updated_by_id'</span><span class="p">,</span>
+<a name="rest_code_02593875c7d2414abe356f02d2f765ec-16"></a>        <span class="p">]</span>
+<a name="rest_code_02593875c7d2414abe356f02d2f765ec-17"></a>        <span class="n">extra_kwargs</span> <span class="o">=</span> <span class="p">{</span>
+<a name="rest_code_02593875c7d2414abe356f02d2f765ec-18"></a>            <span class="c1"># モデル上は必須フィールドだけれど、シリアライザでは Not必須にしたい場合は、required を上書きする</span>
+<a name="rest_code_02593875c7d2414abe356f02d2f765ec-19"></a>            <span class="s1">'display_order'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'required'</span><span class="p">:</span> <span class="bp">False</span><span class="p">}</span>
+<a name="rest_code_02593875c7d2414abe356f02d2f765ec-20"></a>        <span class="p">}</span>
 </pre>
 </div>
 </div>
@@ -185,12 +185,12 @@
 <h2><a class="toc-backref" href="#id15">ちょっと動かしたい</a></h2>
 <div class="section" id="id5">
 <h3><a class="toc-backref" href="#id16">コマンドでアクセスする場合</a></h3>
-<pre class="code bash"><a name="rest_code_91f3f91e965340039f770e12de96fd74-1"></a><span class="c1"># curl の場合</span>
-<a name="rest_code_91f3f91e965340039f770e12de96fd74-2"></a>$ curl -H <span class="s1">'Accept: application/json; indent=4'</span> -u &lt;username&gt;:&lt;password&gt; http://127.0.0.1:xxxx/users/
-<a name="rest_code_91f3f91e965340039f770e12de96fd74-3"></a>
-<a name="rest_code_91f3f91e965340039f770e12de96fd74-4"></a><span class="c1"># HTTPie の場合</span>
-<a name="rest_code_91f3f91e965340039f770e12de96fd74-5"></a><span class="c1"># https://httpie.org/doc</span>
-<a name="rest_code_91f3f91e965340039f770e12de96fd74-6"></a>$ http -a &lt;username&gt;:&lt;password&gt; http://127.0.0.1:8989/users/
+<pre class="code bash"><a name="rest_code_1540b53ce62340b185f3c5ce18e7f2cf-1"></a><span class="c1"># curl の場合</span>
+<a name="rest_code_1540b53ce62340b185f3c5ce18e7f2cf-2"></a>$ curl -H <span class="s1">'Accept: application/json; indent=4'</span> -u &lt;username&gt;:&lt;password&gt; http://127.0.0.1:xxxx/users/
+<a name="rest_code_1540b53ce62340b185f3c5ce18e7f2cf-3"></a>
+<a name="rest_code_1540b53ce62340b185f3c5ce18e7f2cf-4"></a><span class="c1"># HTTPie の場合</span>
+<a name="rest_code_1540b53ce62340b185f3c5ce18e7f2cf-5"></a><span class="c1"># https://httpie.org/doc</span>
+<a name="rest_code_1540b53ce62340b185f3c5ce18e7f2cf-6"></a>$ http -a &lt;username&gt;:&lt;password&gt; http://127.0.0.1:8989/users/
 </pre>
 </div>
 <div class="section" id="browsable-api">

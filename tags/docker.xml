@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ふみのて (dockerについての文書)</title><link>https://32imuf.com/</link><description></description><atom:link href="https://32imuf.com/tags/docker.xml" rel="self" type="application/rss+xml"></atom:link><language>ja</language><copyright>Contents © 2019 &lt;a href="mailto:fumi232323fumi2016@gmail.com"&gt;fumi23&lt;/a&gt; </copyright><lastBuildDate>Sun, 01 Dec 2019 13:56:52 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>5. Kubernetes 入門</title><link>https://32imuf.com/docker/introduction-to-practice-container-development/5-kubernetes-getting-started/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;details&gt;
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ふみのて (dockerについての文書)</title><link>https://32imuf.com/</link><description></description><atom:link href="https://32imuf.com/tags/docker.xml" rel="self" type="application/rss+xml"></atom:link><language>ja</language><copyright>Contents © 2019 &lt;a href="mailto:fumi232323fumi2016@gmail.com"&gt;fumi23&lt;/a&gt; </copyright><lastBuildDate>Sun, 01 Dec 2019 17:10:24 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>5. Kubernetes 入門</title><link>https://32imuf.com/docker/introduction-to-practice-container-development/5-kubernetes-getting-started/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;details&gt;
   &lt;summary&gt;目次&lt;/summary&gt;&lt;div class="contents topic" id="id1"&gt;
 &lt;p class="topic-title first"&gt;目次&lt;/p&gt;
 &lt;ul class="simple"&gt;
@@ -65,18 +65,18 @@
 &lt;ol class="arabic simple"&gt;
 &lt;li&gt;&lt;p&gt;Docker for Mac の Kubernetes 連携を有効にする&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_2dc44b7dce234f769563fc0642e2eb22-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 2. kubectl (Kubernetes を操作するためのコマンドラインツール) をインストールする&lt;/span&gt;
-&lt;a name="rest_code_2dc44b7dce234f769563fc0642e2eb22-2"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# https://kubernetes.io/docs/tasks/tools/install-kubectl/&lt;/span&gt;
-&lt;a name="rest_code_2dc44b7dce234f769563fc0642e2eb22-3"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# けっこう長かった&lt;/span&gt;
-&lt;a name="rest_code_2dc44b7dce234f769563fc0642e2eb22-4"&gt;&lt;/a&gt;$ brew install kubectl
-&lt;a name="rest_code_2dc44b7dce234f769563fc0642e2eb22-5"&gt;&lt;/a&gt;
-&lt;a name="rest_code_2dc44b7dce234f769563fc0642e2eb22-6"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 3. ダッシュボードの適用 (追加)&lt;/span&gt;
-&lt;a name="rest_code_2dc44b7dce234f769563fc0642e2eb22-7"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/&lt;/span&gt;
-&lt;a name="rest_code_2dc44b7dce234f769563fc0642e2eb22-8"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# これはすぐだった&lt;/span&gt;
-&lt;a name="rest_code_2dc44b7dce234f769563fc0642e2eb22-9"&gt;&lt;/a&gt;$ kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0-beta4/aio/deploy/recommended.yaml
-&lt;a name="rest_code_2dc44b7dce234f769563fc0642e2eb22-10"&gt;&lt;/a&gt;
-&lt;a name="rest_code_2dc44b7dce234f769563fc0642e2eb22-11"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 4. ダッシュボードへのプロキシサーバーを立ち上げる&lt;/span&gt;
-&lt;a name="rest_code_2dc44b7dce234f769563fc0642e2eb22-12"&gt;&lt;/a&gt;$ kubectl proxy
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_bf56554e5cc44523bed814ae6c031326-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 2. kubectl (Kubernetes を操作するためのコマンドラインツール) をインストールする&lt;/span&gt;
+&lt;a name="rest_code_bf56554e5cc44523bed814ae6c031326-2"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# https://kubernetes.io/docs/tasks/tools/install-kubectl/&lt;/span&gt;
+&lt;a name="rest_code_bf56554e5cc44523bed814ae6c031326-3"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# けっこう長かった&lt;/span&gt;
+&lt;a name="rest_code_bf56554e5cc44523bed814ae6c031326-4"&gt;&lt;/a&gt;$ brew install kubectl
+&lt;a name="rest_code_bf56554e5cc44523bed814ae6c031326-5"&gt;&lt;/a&gt;
+&lt;a name="rest_code_bf56554e5cc44523bed814ae6c031326-6"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 3. ダッシュボードの適用 (追加)&lt;/span&gt;
+&lt;a name="rest_code_bf56554e5cc44523bed814ae6c031326-7"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/&lt;/span&gt;
+&lt;a name="rest_code_bf56554e5cc44523bed814ae6c031326-8"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# これはすぐだった&lt;/span&gt;
+&lt;a name="rest_code_bf56554e5cc44523bed814ae6c031326-9"&gt;&lt;/a&gt;$ kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0-beta4/aio/deploy/recommended.yaml
+&lt;a name="rest_code_bf56554e5cc44523bed814ae6c031326-10"&gt;&lt;/a&gt;
+&lt;a name="rest_code_bf56554e5cc44523bed814ae6c031326-11"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 4. ダッシュボードへのプロキシサーバーを立ち上げる&lt;/span&gt;
+&lt;a name="rest_code_bf56554e5cc44523bed814ae6c031326-12"&gt;&lt;/a&gt;$ kubectl proxy
 &lt;/pre&gt;&lt;ol class="arabic simple" start="5"&gt;
 &lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/"&gt;http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/&lt;/a&gt;. へアクセスする&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
@@ -133,31 +133,31 @@
 &lt;/div&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Kubernetes クラスタに反映する&lt;/p&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_694fca5809aa409c98db8c99a115fbef-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# apply: 新規作成/内容に変更があったときだけ反映される&lt;/span&gt;
-&lt;a name="rest_code_694fca5809aa409c98db8c99a115fbef-2"&gt;&lt;/a&gt;$ kubectl apply -f simple-pod.yaml
-&lt;a name="rest_code_694fca5809aa409c98db8c99a115fbef-3"&gt;&lt;/a&gt;pod/simple-echo created
-&lt;a name="rest_code_694fca5809aa409c98db8c99a115fbef-4"&gt;&lt;/a&gt;
-&lt;a name="rest_code_694fca5809aa409c98db8c99a115fbef-5"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# Pod の状態を一覧表示&lt;/span&gt;
-&lt;a name="rest_code_694fca5809aa409c98db8c99a115fbef-6"&gt;&lt;/a&gt;$ kubectl get pod
-&lt;a name="rest_code_694fca5809aa409c98db8c99a115fbef-7"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# STATUS Running:  Pod 内のすべてのコンテナが実行状態&lt;/span&gt;
-&lt;a name="rest_code_694fca5809aa409c98db8c99a115fbef-8"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# READY 2/2: 実行状態になったコンテナ数/Pod に定義されたコンテナ数&lt;/span&gt;
-&lt;a name="rest_code_694fca5809aa409c98db8c99a115fbef-9"&gt;&lt;/a&gt;NAME          READY   STATUS    RESTARTS   AGE
-&lt;a name="rest_code_694fca5809aa409c98db8c99a115fbef-10"&gt;&lt;/a&gt;simple-echo   &lt;span class="m"&gt;2&lt;/span&gt;/2     Running   &lt;span class="m"&gt;0&lt;/span&gt;          2m49s
-&lt;a name="rest_code_694fca5809aa409c98db8c99a115fbef-11"&gt;&lt;/a&gt;
-&lt;a name="rest_code_694fca5809aa409c98db8c99a115fbef-12"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# コンテナに入る&lt;/span&gt;
-&lt;a name="rest_code_694fca5809aa409c98db8c99a115fbef-13"&gt;&lt;/a&gt;$ kubectl &lt;span class="nb"&gt;exec&lt;/span&gt; -it simple-echo sh -c nginx
-&lt;a name="rest_code_694fca5809aa409c98db8c99a115fbef-14"&gt;&lt;/a&gt;/ &lt;span class="c1"&gt;#&lt;/span&gt;
-&lt;a name="rest_code_694fca5809aa409c98db8c99a115fbef-15"&gt;&lt;/a&gt;
-&lt;a name="rest_code_694fca5809aa409c98db8c99a115fbef-16"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# Pod 内のコンテナの標準出力を表示する&lt;/span&gt;
-&lt;a name="rest_code_694fca5809aa409c98db8c99a115fbef-17"&gt;&lt;/a&gt;$ kubectl logs -f simple-echo -c &lt;span class="nb"&gt;echo&lt;/span&gt;
-&lt;a name="rest_code_694fca5809aa409c98db8c99a115fbef-18"&gt;&lt;/a&gt;&lt;span class="m"&gt;2019&lt;/span&gt;/11/17 &lt;span class="m"&gt;04&lt;/span&gt;:50:42 start server
-&lt;a name="rest_code_694fca5809aa409c98db8c99a115fbef-19"&gt;&lt;/a&gt;
-&lt;a name="rest_code_694fca5809aa409c98db8c99a115fbef-20"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# Pod を削除する&lt;/span&gt;
-&lt;a name="rest_code_694fca5809aa409c98db8c99a115fbef-21"&gt;&lt;/a&gt;$ kubectl delete pod simple-echo
-&lt;a name="rest_code_694fca5809aa409c98db8c99a115fbef-22"&gt;&lt;/a&gt;pod &lt;span class="s2"&gt;"simple-echo"&lt;/span&gt; deleted
-&lt;a name="rest_code_694fca5809aa409c98db8c99a115fbef-23"&gt;&lt;/a&gt;
-&lt;a name="rest_code_694fca5809aa409c98db8c99a115fbef-24"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# マニフェストファイルベースで Pod を削除する&lt;/span&gt;
-&lt;a name="rest_code_694fca5809aa409c98db8c99a115fbef-25"&gt;&lt;/a&gt;$ kubectl delete -f simple-pod.yaml
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_0ebafbc8c19b41e495ab41c79f39a104-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# apply: 新規作成/内容に変更があったときだけ反映される&lt;/span&gt;
+&lt;a name="rest_code_0ebafbc8c19b41e495ab41c79f39a104-2"&gt;&lt;/a&gt;$ kubectl apply -f simple-pod.yaml
+&lt;a name="rest_code_0ebafbc8c19b41e495ab41c79f39a104-3"&gt;&lt;/a&gt;pod/simple-echo created
+&lt;a name="rest_code_0ebafbc8c19b41e495ab41c79f39a104-4"&gt;&lt;/a&gt;
+&lt;a name="rest_code_0ebafbc8c19b41e495ab41c79f39a104-5"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# Pod の状態を一覧表示&lt;/span&gt;
+&lt;a name="rest_code_0ebafbc8c19b41e495ab41c79f39a104-6"&gt;&lt;/a&gt;$ kubectl get pod
+&lt;a name="rest_code_0ebafbc8c19b41e495ab41c79f39a104-7"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# STATUS Running:  Pod 内のすべてのコンテナが実行状態&lt;/span&gt;
+&lt;a name="rest_code_0ebafbc8c19b41e495ab41c79f39a104-8"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# READY 2/2: 実行状態になったコンテナ数/Pod に定義されたコンテナ数&lt;/span&gt;
+&lt;a name="rest_code_0ebafbc8c19b41e495ab41c79f39a104-9"&gt;&lt;/a&gt;NAME          READY   STATUS    RESTARTS   AGE
+&lt;a name="rest_code_0ebafbc8c19b41e495ab41c79f39a104-10"&gt;&lt;/a&gt;simple-echo   &lt;span class="m"&gt;2&lt;/span&gt;/2     Running   &lt;span class="m"&gt;0&lt;/span&gt;          2m49s
+&lt;a name="rest_code_0ebafbc8c19b41e495ab41c79f39a104-11"&gt;&lt;/a&gt;
+&lt;a name="rest_code_0ebafbc8c19b41e495ab41c79f39a104-12"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# コンテナに入る&lt;/span&gt;
+&lt;a name="rest_code_0ebafbc8c19b41e495ab41c79f39a104-13"&gt;&lt;/a&gt;$ kubectl &lt;span class="nb"&gt;exec&lt;/span&gt; -it simple-echo sh -c nginx
+&lt;a name="rest_code_0ebafbc8c19b41e495ab41c79f39a104-14"&gt;&lt;/a&gt;/ &lt;span class="c1"&gt;#&lt;/span&gt;
+&lt;a name="rest_code_0ebafbc8c19b41e495ab41c79f39a104-15"&gt;&lt;/a&gt;
+&lt;a name="rest_code_0ebafbc8c19b41e495ab41c79f39a104-16"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# Pod 内のコンテナの標準出力を表示する&lt;/span&gt;
+&lt;a name="rest_code_0ebafbc8c19b41e495ab41c79f39a104-17"&gt;&lt;/a&gt;$ kubectl logs -f simple-echo -c &lt;span class="nb"&gt;echo&lt;/span&gt;
+&lt;a name="rest_code_0ebafbc8c19b41e495ab41c79f39a104-18"&gt;&lt;/a&gt;&lt;span class="m"&gt;2019&lt;/span&gt;/11/17 &lt;span class="m"&gt;04&lt;/span&gt;:50:42 start server
+&lt;a name="rest_code_0ebafbc8c19b41e495ab41c79f39a104-19"&gt;&lt;/a&gt;
+&lt;a name="rest_code_0ebafbc8c19b41e495ab41c79f39a104-20"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# Pod を削除する&lt;/span&gt;
+&lt;a name="rest_code_0ebafbc8c19b41e495ab41c79f39a104-21"&gt;&lt;/a&gt;$ kubectl delete pod simple-echo
+&lt;a name="rest_code_0ebafbc8c19b41e495ab41c79f39a104-22"&gt;&lt;/a&gt;pod &lt;span class="s2"&gt;"simple-echo"&lt;/span&gt; deleted
+&lt;a name="rest_code_0ebafbc8c19b41e495ab41c79f39a104-23"&gt;&lt;/a&gt;
+&lt;a name="rest_code_0ebafbc8c19b41e495ab41c79f39a104-24"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# マニフェストファイルベースで Pod を削除する&lt;/span&gt;
+&lt;a name="rest_code_0ebafbc8c19b41e495ab41c79f39a104-25"&gt;&lt;/a&gt;$ kubectl delete -f simple-pod.yaml
 &lt;/pre&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Pod と Pod 内コンテナのアドレス&lt;/p&gt;
 &lt;ul class="simple"&gt;
@@ -200,19 +200,19 @@
             &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="nt"&gt;containerPort&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;8080&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_6ada3eac390b41c7b417715335e19602-1"&gt;&lt;/a&gt;$ kubectl apply -f simple-replicaset.yaml
-&lt;a name="rest_code_6ada3eac390b41c7b417715335e19602-2"&gt;&lt;/a&gt;replicaset.apps/echo created
-&lt;a name="rest_code_6ada3eac390b41c7b417715335e19602-3"&gt;&lt;/a&gt;
-&lt;a name="rest_code_6ada3eac390b41c7b417715335e19602-4"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# Pod が 3つ作成されている&lt;/span&gt;
-&lt;a name="rest_code_6ada3eac390b41c7b417715335e19602-5"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# ReplicaSet を操作して Pod の数を減らすと、減らした分の Pod は削除されて元に戻せない =&amp;gt; Stateless なものに向いてる&lt;/span&gt;
-&lt;a name="rest_code_6ada3eac390b41c7b417715335e19602-6"&gt;&lt;/a&gt;$ kubectl get pod
-&lt;a name="rest_code_6ada3eac390b41c7b417715335e19602-7"&gt;&lt;/a&gt;NAME         READY   STATUS    RESTARTS   AGE
-&lt;a name="rest_code_6ada3eac390b41c7b417715335e19602-8"&gt;&lt;/a&gt;echo-69gln   &lt;span class="m"&gt;2&lt;/span&gt;/2     Running   &lt;span class="m"&gt;0&lt;/span&gt;          39s
-&lt;a name="rest_code_6ada3eac390b41c7b417715335e19602-9"&gt;&lt;/a&gt;echo-hm7ns   &lt;span class="m"&gt;2&lt;/span&gt;/2     Running   &lt;span class="m"&gt;0&lt;/span&gt;          39s
-&lt;a name="rest_code_6ada3eac390b41c7b417715335e19602-10"&gt;&lt;/a&gt;echo-x9729   &lt;span class="m"&gt;2&lt;/span&gt;/2     Running   &lt;span class="m"&gt;0&lt;/span&gt;          39s
-&lt;a name="rest_code_6ada3eac390b41c7b417715335e19602-11"&gt;&lt;/a&gt;
-&lt;a name="rest_code_6ada3eac390b41c7b417715335e19602-12"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# ReplicaSet を削除する&lt;/span&gt;
-&lt;a name="rest_code_6ada3eac390b41c7b417715335e19602-13"&gt;&lt;/a&gt;$ kubectl delete -f simple-replicaset.yaml
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_1dd756f2a5d041638787769d5e4a3d3a-1"&gt;&lt;/a&gt;$ kubectl apply -f simple-replicaset.yaml
+&lt;a name="rest_code_1dd756f2a5d041638787769d5e4a3d3a-2"&gt;&lt;/a&gt;replicaset.apps/echo created
+&lt;a name="rest_code_1dd756f2a5d041638787769d5e4a3d3a-3"&gt;&lt;/a&gt;
+&lt;a name="rest_code_1dd756f2a5d041638787769d5e4a3d3a-4"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# Pod が 3つ作成されている&lt;/span&gt;
+&lt;a name="rest_code_1dd756f2a5d041638787769d5e4a3d3a-5"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# ReplicaSet を操作して Pod の数を減らすと、減らした分の Pod は削除されて元に戻せない =&amp;gt; Stateless なものに向いてる&lt;/span&gt;
+&lt;a name="rest_code_1dd756f2a5d041638787769d5e4a3d3a-6"&gt;&lt;/a&gt;$ kubectl get pod
+&lt;a name="rest_code_1dd756f2a5d041638787769d5e4a3d3a-7"&gt;&lt;/a&gt;NAME         READY   STATUS    RESTARTS   AGE
+&lt;a name="rest_code_1dd756f2a5d041638787769d5e4a3d3a-8"&gt;&lt;/a&gt;echo-69gln   &lt;span class="m"&gt;2&lt;/span&gt;/2     Running   &lt;span class="m"&gt;0&lt;/span&gt;          39s
+&lt;a name="rest_code_1dd756f2a5d041638787769d5e4a3d3a-9"&gt;&lt;/a&gt;echo-hm7ns   &lt;span class="m"&gt;2&lt;/span&gt;/2     Running   &lt;span class="m"&gt;0&lt;/span&gt;          39s
+&lt;a name="rest_code_1dd756f2a5d041638787769d5e4a3d3a-10"&gt;&lt;/a&gt;echo-x9729   &lt;span class="m"&gt;2&lt;/span&gt;/2     Running   &lt;span class="m"&gt;0&lt;/span&gt;          39s
+&lt;a name="rest_code_1dd756f2a5d041638787769d5e4a3d3a-11"&gt;&lt;/a&gt;
+&lt;a name="rest_code_1dd756f2a5d041638787769d5e4a3d3a-12"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# ReplicaSet を削除する&lt;/span&gt;
+&lt;a name="rest_code_1dd756f2a5d041638787769d5e4a3d3a-13"&gt;&lt;/a&gt;$ kubectl delete -f simple-replicaset.yaml
 &lt;/pre&gt;&lt;/div&gt;
 &lt;div class="section" id="deployment"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/introduction-to-practice-container-development/5-kubernetes-getting-started/#id17"&gt;5.8  Deployment&lt;/a&gt;&lt;/h2&gt;
@@ -253,27 +253,27 @@
             &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="nt"&gt;containerPort&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;8080&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_c426288a9b6648cb91279183d25be189-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# コマンドを記録できる ``--record`` オプションをつけて反映&lt;/span&gt;
-&lt;a name="rest_code_c426288a9b6648cb91279183d25be189-2"&gt;&lt;/a&gt;$ kubectl apply -f simple-deployment.yaml --record
-&lt;a name="rest_code_c426288a9b6648cb91279183d25be189-3"&gt;&lt;/a&gt;deployment.apps/echo created
-&lt;a name="rest_code_c426288a9b6648cb91279183d25be189-4"&gt;&lt;/a&gt;
-&lt;a name="rest_code_c426288a9b6648cb91279183d25be189-5"&gt;&lt;/a&gt;$ kubectl get pod,replicaset,deployment --selector &lt;span class="nv"&gt;app&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;
-&lt;a name="rest_code_c426288a9b6648cb91279183d25be189-6"&gt;&lt;/a&gt;NAME                        READY   STATUS    RESTARTS   AGE
-&lt;a name="rest_code_c426288a9b6648cb91279183d25be189-7"&gt;&lt;/a&gt;pod/echo-679c46ddf9-8rhgm   &lt;span class="m"&gt;2&lt;/span&gt;/2     Running   &lt;span class="m"&gt;0&lt;/span&gt;          107s
-&lt;a name="rest_code_c426288a9b6648cb91279183d25be189-8"&gt;&lt;/a&gt;pod/echo-679c46ddf9-hl22n   &lt;span class="m"&gt;2&lt;/span&gt;/2     Running   &lt;span class="m"&gt;0&lt;/span&gt;          107s
-&lt;a name="rest_code_c426288a9b6648cb91279183d25be189-9"&gt;&lt;/a&gt;pod/echo-679c46ddf9-kbm2g   &lt;span class="m"&gt;2&lt;/span&gt;/2     Running   &lt;span class="m"&gt;0&lt;/span&gt;          107s
-&lt;a name="rest_code_c426288a9b6648cb91279183d25be189-10"&gt;&lt;/a&gt;
-&lt;a name="rest_code_c426288a9b6648cb91279183d25be189-11"&gt;&lt;/a&gt;NAME                                    DESIRED   CURRENT   READY   AGE
-&lt;a name="rest_code_c426288a9b6648cb91279183d25be189-12"&gt;&lt;/a&gt;replicaset.extensions/echo-679c46ddf9   &lt;span class="m"&gt;3&lt;/span&gt;         &lt;span class="m"&gt;3&lt;/span&gt;         &lt;span class="m"&gt;3&lt;/span&gt;       107s
-&lt;a name="rest_code_c426288a9b6648cb91279183d25be189-13"&gt;&lt;/a&gt;
-&lt;a name="rest_code_c426288a9b6648cb91279183d25be189-14"&gt;&lt;/a&gt;NAME                         READY   UP-TO-DATE   AVAILABLE   AGE
-&lt;a name="rest_code_c426288a9b6648cb91279183d25be189-15"&gt;&lt;/a&gt;deployment.extensions/echo   &lt;span class="m"&gt;3&lt;/span&gt;/3     &lt;span class="m"&gt;3&lt;/span&gt;            &lt;span class="m"&gt;3&lt;/span&gt;           107s
-&lt;a name="rest_code_c426288a9b6648cb91279183d25be189-16"&gt;&lt;/a&gt;
-&lt;a name="rest_code_c426288a9b6648cb91279183d25be189-17"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# Deployment のリビジョンを確認する&lt;/span&gt;
-&lt;a name="rest_code_c426288a9b6648cb91279183d25be189-18"&gt;&lt;/a&gt;$ kubectl rollout &lt;span class="nb"&gt;history&lt;/span&gt; deployment &lt;span class="nb"&gt;echo&lt;/span&gt;
-&lt;a name="rest_code_c426288a9b6648cb91279183d25be189-19"&gt;&lt;/a&gt;deployment.extensions/echo
-&lt;a name="rest_code_c426288a9b6648cb91279183d25be189-20"&gt;&lt;/a&gt;REVISION  CHANGE-CAUSE
-&lt;a name="rest_code_c426288a9b6648cb91279183d25be189-21"&gt;&lt;/a&gt;&lt;span class="m"&gt;1&lt;/span&gt;         kubectl apply --filename&lt;span class="o"&gt;=&lt;/span&gt;simple-deployment.yaml --record&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;true&lt;/span&gt;
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_1202ef784b9945afba34dbb4f29bd495-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# コマンドを記録できる ``--record`` オプションをつけて反映&lt;/span&gt;
+&lt;a name="rest_code_1202ef784b9945afba34dbb4f29bd495-2"&gt;&lt;/a&gt;$ kubectl apply -f simple-deployment.yaml --record
+&lt;a name="rest_code_1202ef784b9945afba34dbb4f29bd495-3"&gt;&lt;/a&gt;deployment.apps/echo created
+&lt;a name="rest_code_1202ef784b9945afba34dbb4f29bd495-4"&gt;&lt;/a&gt;
+&lt;a name="rest_code_1202ef784b9945afba34dbb4f29bd495-5"&gt;&lt;/a&gt;$ kubectl get pod,replicaset,deployment --selector &lt;span class="nv"&gt;app&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;
+&lt;a name="rest_code_1202ef784b9945afba34dbb4f29bd495-6"&gt;&lt;/a&gt;NAME                        READY   STATUS    RESTARTS   AGE
+&lt;a name="rest_code_1202ef784b9945afba34dbb4f29bd495-7"&gt;&lt;/a&gt;pod/echo-679c46ddf9-8rhgm   &lt;span class="m"&gt;2&lt;/span&gt;/2     Running   &lt;span class="m"&gt;0&lt;/span&gt;          107s
+&lt;a name="rest_code_1202ef784b9945afba34dbb4f29bd495-8"&gt;&lt;/a&gt;pod/echo-679c46ddf9-hl22n   &lt;span class="m"&gt;2&lt;/span&gt;/2     Running   &lt;span class="m"&gt;0&lt;/span&gt;          107s
+&lt;a name="rest_code_1202ef784b9945afba34dbb4f29bd495-9"&gt;&lt;/a&gt;pod/echo-679c46ddf9-kbm2g   &lt;span class="m"&gt;2&lt;/span&gt;/2     Running   &lt;span class="m"&gt;0&lt;/span&gt;          107s
+&lt;a name="rest_code_1202ef784b9945afba34dbb4f29bd495-10"&gt;&lt;/a&gt;
+&lt;a name="rest_code_1202ef784b9945afba34dbb4f29bd495-11"&gt;&lt;/a&gt;NAME                                    DESIRED   CURRENT   READY   AGE
+&lt;a name="rest_code_1202ef784b9945afba34dbb4f29bd495-12"&gt;&lt;/a&gt;replicaset.extensions/echo-679c46ddf9   &lt;span class="m"&gt;3&lt;/span&gt;         &lt;span class="m"&gt;3&lt;/span&gt;         &lt;span class="m"&gt;3&lt;/span&gt;       107s
+&lt;a name="rest_code_1202ef784b9945afba34dbb4f29bd495-13"&gt;&lt;/a&gt;
+&lt;a name="rest_code_1202ef784b9945afba34dbb4f29bd495-14"&gt;&lt;/a&gt;NAME                         READY   UP-TO-DATE   AVAILABLE   AGE
+&lt;a name="rest_code_1202ef784b9945afba34dbb4f29bd495-15"&gt;&lt;/a&gt;deployment.extensions/echo   &lt;span class="m"&gt;3&lt;/span&gt;/3     &lt;span class="m"&gt;3&lt;/span&gt;            &lt;span class="m"&gt;3&lt;/span&gt;           107s
+&lt;a name="rest_code_1202ef784b9945afba34dbb4f29bd495-16"&gt;&lt;/a&gt;
+&lt;a name="rest_code_1202ef784b9945afba34dbb4f29bd495-17"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# Deployment のリビジョンを確認する&lt;/span&gt;
+&lt;a name="rest_code_1202ef784b9945afba34dbb4f29bd495-18"&gt;&lt;/a&gt;$ kubectl rollout &lt;span class="nb"&gt;history&lt;/span&gt; deployment &lt;span class="nb"&gt;echo&lt;/span&gt;
+&lt;a name="rest_code_1202ef784b9945afba34dbb4f29bd495-19"&gt;&lt;/a&gt;deployment.extensions/echo
+&lt;a name="rest_code_1202ef784b9945afba34dbb4f29bd495-20"&gt;&lt;/a&gt;REVISION  CHANGE-CAUSE
+&lt;a name="rest_code_1202ef784b9945afba34dbb4f29bd495-21"&gt;&lt;/a&gt;&lt;span class="m"&gt;1&lt;/span&gt;         kubectl apply --filename&lt;span class="o"&gt;=&lt;/span&gt;simple-deployment.yaml --record&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;true&lt;/span&gt;
 &lt;/pre&gt;&lt;div class="section" id="id6"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/introduction-to-practice-container-development/5-kubernetes-getting-started/#id18"&gt;ReplicaSet のライフサイクル&lt;/a&gt;&lt;/h3&gt;
 &lt;ul class="simple"&gt;
@@ -294,36 +294,36 @@
 &lt;li&gt;&lt;p&gt;Pod 数を変更: 新規 ReplicaSet 生まれない&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;コンテナ定義を更新: 新しいリビジョンが作成される&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_c8207b0008a8441ca07026e9b34b652a-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 特定のリビジョンの内容を確認できる&lt;/span&gt;
-&lt;a name="rest_code_c8207b0008a8441ca07026e9b34b652a-2"&gt;&lt;/a&gt;$ kubectl rollout &lt;span class="nb"&gt;history&lt;/span&gt; deployment &lt;span class="nb"&gt;echo&lt;/span&gt;  --revision&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;
-&lt;a name="rest_code_c8207b0008a8441ca07026e9b34b652a-3"&gt;&lt;/a&gt;deployment.extensions/echo with revision &lt;span class="c1"&gt;#1&lt;/span&gt;
-&lt;a name="rest_code_c8207b0008a8441ca07026e9b34b652a-4"&gt;&lt;/a&gt;Pod Template:
-&lt;a name="rest_code_c8207b0008a8441ca07026e9b34b652a-5"&gt;&lt;/a&gt;  Labels:     &lt;span class="nv"&gt;app&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;
-&lt;a name="rest_code_c8207b0008a8441ca07026e9b34b652a-6"&gt;&lt;/a&gt;  pod-template-hash&lt;span class="o"&gt;=&lt;/span&gt;679c46ddf9
-&lt;a name="rest_code_c8207b0008a8441ca07026e9b34b652a-7"&gt;&lt;/a&gt;  Annotations:        kubernetes.io/change-cause: kubectl apply --filename&lt;span class="o"&gt;=&lt;/span&gt;simple-deployment.yaml --record&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;true&lt;/span&gt;
-&lt;a name="rest_code_c8207b0008a8441ca07026e9b34b652a-8"&gt;&lt;/a&gt;  Containers:
-&lt;a name="rest_code_c8207b0008a8441ca07026e9b34b652a-9"&gt;&lt;/a&gt;   nginx:
-&lt;a name="rest_code_c8207b0008a8441ca07026e9b34b652a-10"&gt;&lt;/a&gt;    Image:    gihyodocker/nginx-proxy:latest
-&lt;a name="rest_code_c8207b0008a8441ca07026e9b34b652a-11"&gt;&lt;/a&gt;    Port:     &lt;span class="m"&gt;80&lt;/span&gt;/TCP
-&lt;a name="rest_code_c8207b0008a8441ca07026e9b34b652a-12"&gt;&lt;/a&gt;    Host Port:        &lt;span class="m"&gt;0&lt;/span&gt;/TCP
-&lt;a name="rest_code_c8207b0008a8441ca07026e9b34b652a-13"&gt;&lt;/a&gt;    Environment:
-&lt;a name="rest_code_c8207b0008a8441ca07026e9b34b652a-14"&gt;&lt;/a&gt;      BACKEND_HOST:   localhost:8080
-&lt;a name="rest_code_c8207b0008a8441ca07026e9b34b652a-15"&gt;&lt;/a&gt;    Mounts:   &amp;lt;none&amp;gt;
-&lt;a name="rest_code_c8207b0008a8441ca07026e9b34b652a-16"&gt;&lt;/a&gt;   echo:
-&lt;a name="rest_code_c8207b0008a8441ca07026e9b34b652a-17"&gt;&lt;/a&gt;    Image:    gihyodocker/echo:latest
-&lt;a name="rest_code_c8207b0008a8441ca07026e9b34b652a-18"&gt;&lt;/a&gt;    Port:     &lt;span class="m"&gt;8080&lt;/span&gt;/TCP
-&lt;a name="rest_code_c8207b0008a8441ca07026e9b34b652a-19"&gt;&lt;/a&gt;    Host Port:        &lt;span class="m"&gt;0&lt;/span&gt;/TCP
-&lt;a name="rest_code_c8207b0008a8441ca07026e9b34b652a-20"&gt;&lt;/a&gt;    Environment:      &amp;lt;none&amp;gt;
-&lt;a name="rest_code_c8207b0008a8441ca07026e9b34b652a-21"&gt;&lt;/a&gt;    Mounts:   &amp;lt;none&amp;gt;
-&lt;a name="rest_code_c8207b0008a8441ca07026e9b34b652a-22"&gt;&lt;/a&gt;  Volumes:    &amp;lt;none&amp;gt;
-&lt;a name="rest_code_c8207b0008a8441ca07026e9b34b652a-23"&gt;&lt;/a&gt;
-&lt;a name="rest_code_c8207b0008a8441ca07026e9b34b652a-24"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 直前の操作のリビジョンに Deployment をロールバックできる&lt;/span&gt;
-&lt;a name="rest_code_c8207b0008a8441ca07026e9b34b652a-25"&gt;&lt;/a&gt;$ kubectl rollout undo deployment &lt;span class="nb"&gt;echo&lt;/span&gt;
-&lt;a name="rest_code_c8207b0008a8441ca07026e9b34b652a-26"&gt;&lt;/a&gt;deployment.extensions/echo rolled back
-&lt;a name="rest_code_c8207b0008a8441ca07026e9b34b652a-27"&gt;&lt;/a&gt;
-&lt;a name="rest_code_c8207b0008a8441ca07026e9b34b652a-28"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 削除: 関連する ReplicaSet と Pod もいっしょに削除される&lt;/span&gt;
-&lt;a name="rest_code_c8207b0008a8441ca07026e9b34b652a-29"&gt;&lt;/a&gt;$ kubectl delete -f simple-deployment.yaml
-&lt;a name="rest_code_c8207b0008a8441ca07026e9b34b652a-30"&gt;&lt;/a&gt;deployment.apps &lt;span class="s2"&gt;"echo"&lt;/span&gt; deleted
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_e03a780d7d7c466da5645299ef0cc655-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 特定のリビジョンの内容を確認できる&lt;/span&gt;
+&lt;a name="rest_code_e03a780d7d7c466da5645299ef0cc655-2"&gt;&lt;/a&gt;$ kubectl rollout &lt;span class="nb"&gt;history&lt;/span&gt; deployment &lt;span class="nb"&gt;echo&lt;/span&gt;  --revision&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;
+&lt;a name="rest_code_e03a780d7d7c466da5645299ef0cc655-3"&gt;&lt;/a&gt;deployment.extensions/echo with revision &lt;span class="c1"&gt;#1&lt;/span&gt;
+&lt;a name="rest_code_e03a780d7d7c466da5645299ef0cc655-4"&gt;&lt;/a&gt;Pod Template:
+&lt;a name="rest_code_e03a780d7d7c466da5645299ef0cc655-5"&gt;&lt;/a&gt;  Labels:     &lt;span class="nv"&gt;app&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;
+&lt;a name="rest_code_e03a780d7d7c466da5645299ef0cc655-6"&gt;&lt;/a&gt;  pod-template-hash&lt;span class="o"&gt;=&lt;/span&gt;679c46ddf9
+&lt;a name="rest_code_e03a780d7d7c466da5645299ef0cc655-7"&gt;&lt;/a&gt;  Annotations:        kubernetes.io/change-cause: kubectl apply --filename&lt;span class="o"&gt;=&lt;/span&gt;simple-deployment.yaml --record&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;true&lt;/span&gt;
+&lt;a name="rest_code_e03a780d7d7c466da5645299ef0cc655-8"&gt;&lt;/a&gt;  Containers:
+&lt;a name="rest_code_e03a780d7d7c466da5645299ef0cc655-9"&gt;&lt;/a&gt;   nginx:
+&lt;a name="rest_code_e03a780d7d7c466da5645299ef0cc655-10"&gt;&lt;/a&gt;    Image:    gihyodocker/nginx-proxy:latest
+&lt;a name="rest_code_e03a780d7d7c466da5645299ef0cc655-11"&gt;&lt;/a&gt;    Port:     &lt;span class="m"&gt;80&lt;/span&gt;/TCP
+&lt;a name="rest_code_e03a780d7d7c466da5645299ef0cc655-12"&gt;&lt;/a&gt;    Host Port:        &lt;span class="m"&gt;0&lt;/span&gt;/TCP
+&lt;a name="rest_code_e03a780d7d7c466da5645299ef0cc655-13"&gt;&lt;/a&gt;    Environment:
+&lt;a name="rest_code_e03a780d7d7c466da5645299ef0cc655-14"&gt;&lt;/a&gt;      BACKEND_HOST:   localhost:8080
+&lt;a name="rest_code_e03a780d7d7c466da5645299ef0cc655-15"&gt;&lt;/a&gt;    Mounts:   &amp;lt;none&amp;gt;
+&lt;a name="rest_code_e03a780d7d7c466da5645299ef0cc655-16"&gt;&lt;/a&gt;   echo:
+&lt;a name="rest_code_e03a780d7d7c466da5645299ef0cc655-17"&gt;&lt;/a&gt;    Image:    gihyodocker/echo:latest
+&lt;a name="rest_code_e03a780d7d7c466da5645299ef0cc655-18"&gt;&lt;/a&gt;    Port:     &lt;span class="m"&gt;8080&lt;/span&gt;/TCP
+&lt;a name="rest_code_e03a780d7d7c466da5645299ef0cc655-19"&gt;&lt;/a&gt;    Host Port:        &lt;span class="m"&gt;0&lt;/span&gt;/TCP
+&lt;a name="rest_code_e03a780d7d7c466da5645299ef0cc655-20"&gt;&lt;/a&gt;    Environment:      &amp;lt;none&amp;gt;
+&lt;a name="rest_code_e03a780d7d7c466da5645299ef0cc655-21"&gt;&lt;/a&gt;    Mounts:   &amp;lt;none&amp;gt;
+&lt;a name="rest_code_e03a780d7d7c466da5645299ef0cc655-22"&gt;&lt;/a&gt;  Volumes:    &amp;lt;none&amp;gt;
+&lt;a name="rest_code_e03a780d7d7c466da5645299ef0cc655-23"&gt;&lt;/a&gt;
+&lt;a name="rest_code_e03a780d7d7c466da5645299ef0cc655-24"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 直前の操作のリビジョンに Deployment をロールバックできる&lt;/span&gt;
+&lt;a name="rest_code_e03a780d7d7c466da5645299ef0cc655-25"&gt;&lt;/a&gt;$ kubectl rollout undo deployment &lt;span class="nb"&gt;echo&lt;/span&gt;
+&lt;a name="rest_code_e03a780d7d7c466da5645299ef0cc655-26"&gt;&lt;/a&gt;deployment.extensions/echo rolled back
+&lt;a name="rest_code_e03a780d7d7c466da5645299ef0cc655-27"&gt;&lt;/a&gt;
+&lt;a name="rest_code_e03a780d7d7c466da5645299ef0cc655-28"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 削除: 関連する ReplicaSet と Pod もいっしょに削除される&lt;/span&gt;
+&lt;a name="rest_code_e03a780d7d7c466da5645299ef0cc655-29"&gt;&lt;/a&gt;$ kubectl delete -f simple-deployment.yaml
+&lt;a name="rest_code_e03a780d7d7c466da5645299ef0cc655-30"&gt;&lt;/a&gt;deployment.apps &lt;span class="s2"&gt;"echo"&lt;/span&gt; deleted
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -400,22 +400,22 @@
             &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="nt"&gt;containerPort&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;8080&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_fdc361f3aab7423c8e5ed70eaf4ca4a1-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# apply&lt;/span&gt;
-&lt;a name="rest_code_fdc361f3aab7423c8e5ed70eaf4ca4a1-2"&gt;&lt;/a&gt;$ kubectl apply -f simple-replicaset-with-label.yaml
-&lt;a name="rest_code_fdc361f3aab7423c8e5ed70eaf4ca4a1-3"&gt;&lt;/a&gt;replicaset.apps/echo-spring created
-&lt;a name="rest_code_fdc361f3aab7423c8e5ed70eaf4ca4a1-4"&gt;&lt;/a&gt;replicaset.apps/echo-summer created
-&lt;a name="rest_code_fdc361f3aab7423c8e5ed70eaf4ca4a1-5"&gt;&lt;/a&gt;
-&lt;a name="rest_code_fdc361f3aab7423c8e5ed70eaf4ca4a1-6"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# release ラベルに spring/summer を持つ Pod がそれぞれつくられる&lt;/span&gt;
-&lt;a name="rest_code_fdc361f3aab7423c8e5ed70eaf4ca4a1-7"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# release ラベルに spring を持つ Pod&lt;/span&gt;
-&lt;a name="rest_code_fdc361f3aab7423c8e5ed70eaf4ca4a1-8"&gt;&lt;/a&gt;$ kubectl get pod -l &lt;span class="nv"&gt;app&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; -l &lt;span class="nv"&gt;release&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;spring
-&lt;a name="rest_code_fdc361f3aab7423c8e5ed70eaf4ca4a1-9"&gt;&lt;/a&gt;NAME                READY   STATUS    RESTARTS   AGE
-&lt;a name="rest_code_fdc361f3aab7423c8e5ed70eaf4ca4a1-10"&gt;&lt;/a&gt;echo-spring-67s58   &lt;span class="m"&gt;2&lt;/span&gt;/2     Running   &lt;span class="m"&gt;0&lt;/span&gt;          92s
-&lt;a name="rest_code_fdc361f3aab7423c8e5ed70eaf4ca4a1-11"&gt;&lt;/a&gt;
-&lt;a name="rest_code_fdc361f3aab7423c8e5ed70eaf4ca4a1-12"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# release ラベルに summer を持つ Pod&lt;/span&gt;
-&lt;a name="rest_code_fdc361f3aab7423c8e5ed70eaf4ca4a1-13"&gt;&lt;/a&gt;$ kubectl get pod -l &lt;span class="nv"&gt;app&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; -l &lt;span class="nv"&gt;release&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;summer
-&lt;a name="rest_code_fdc361f3aab7423c8e5ed70eaf4ca4a1-14"&gt;&lt;/a&gt;NAME                READY   STATUS    RESTARTS   AGE
-&lt;a name="rest_code_fdc361f3aab7423c8e5ed70eaf4ca4a1-15"&gt;&lt;/a&gt;echo-summer-tnwb9   &lt;span class="m"&gt;2&lt;/span&gt;/2     Running   &lt;span class="m"&gt;0&lt;/span&gt;          110s
-&lt;a name="rest_code_fdc361f3aab7423c8e5ed70eaf4ca4a1-16"&gt;&lt;/a&gt;echo-summer-vb44t   &lt;span class="m"&gt;2&lt;/span&gt;/2     Running   &lt;span class="m"&gt;0&lt;/span&gt;          110s
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_a28356767391463d979a1c988ddab9dd-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# apply&lt;/span&gt;
+&lt;a name="rest_code_a28356767391463d979a1c988ddab9dd-2"&gt;&lt;/a&gt;$ kubectl apply -f simple-replicaset-with-label.yaml
+&lt;a name="rest_code_a28356767391463d979a1c988ddab9dd-3"&gt;&lt;/a&gt;replicaset.apps/echo-spring created
+&lt;a name="rest_code_a28356767391463d979a1c988ddab9dd-4"&gt;&lt;/a&gt;replicaset.apps/echo-summer created
+&lt;a name="rest_code_a28356767391463d979a1c988ddab9dd-5"&gt;&lt;/a&gt;
+&lt;a name="rest_code_a28356767391463d979a1c988ddab9dd-6"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# release ラベルに spring/summer を持つ Pod がそれぞれつくられる&lt;/span&gt;
+&lt;a name="rest_code_a28356767391463d979a1c988ddab9dd-7"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# release ラベルに spring を持つ Pod&lt;/span&gt;
+&lt;a name="rest_code_a28356767391463d979a1c988ddab9dd-8"&gt;&lt;/a&gt;$ kubectl get pod -l &lt;span class="nv"&gt;app&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; -l &lt;span class="nv"&gt;release&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;spring
+&lt;a name="rest_code_a28356767391463d979a1c988ddab9dd-9"&gt;&lt;/a&gt;NAME                READY   STATUS    RESTARTS   AGE
+&lt;a name="rest_code_a28356767391463d979a1c988ddab9dd-10"&gt;&lt;/a&gt;echo-spring-67s58   &lt;span class="m"&gt;2&lt;/span&gt;/2     Running   &lt;span class="m"&gt;0&lt;/span&gt;          92s
+&lt;a name="rest_code_a28356767391463d979a1c988ddab9dd-11"&gt;&lt;/a&gt;
+&lt;a name="rest_code_a28356767391463d979a1c988ddab9dd-12"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# release ラベルに summer を持つ Pod&lt;/span&gt;
+&lt;a name="rest_code_a28356767391463d979a1c988ddab9dd-13"&gt;&lt;/a&gt;$ kubectl get pod -l &lt;span class="nv"&gt;app&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; -l &lt;span class="nv"&gt;release&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;summer
+&lt;a name="rest_code_a28356767391463d979a1c988ddab9dd-14"&gt;&lt;/a&gt;NAME                READY   STATUS    RESTARTS   AGE
+&lt;a name="rest_code_a28356767391463d979a1c988ddab9dd-15"&gt;&lt;/a&gt;echo-summer-tnwb9   &lt;span class="m"&gt;2&lt;/span&gt;/2     Running   &lt;span class="m"&gt;0&lt;/span&gt;          110s
+&lt;a name="rest_code_a28356767391463d979a1c988ddab9dd-16"&gt;&lt;/a&gt;echo-summer-vb44t   &lt;span class="m"&gt;2&lt;/span&gt;/2     Running   &lt;span class="m"&gt;0&lt;/span&gt;          110s
 &lt;/pre&gt;&lt;p&gt;&lt;/p&gt;&lt;div class="code-block "&gt;&lt;div class="code-block-label"&gt;simple-service.yaml&lt;/div&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# release=summer を持つ Pod だけにアクセスできる Service をつくる&lt;/span&gt;
 &lt;span class="nt"&gt;apiVersion&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;v1&lt;/span&gt;
 &lt;span class="nt"&gt;kind&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;Service&lt;/span&gt;
@@ -430,57 +430,57 @@
       &lt;span class="nt"&gt;port&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;80&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_ec88bf662f2247068dec14b3a55cfdf2-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# apply して Service を作成する&lt;/span&gt;
-&lt;a name="rest_code_ec88bf662f2247068dec14b3a55cfdf2-2"&gt;&lt;/a&gt;$ kubectl apply -f simple-service.yaml
-&lt;a name="rest_code_ec88bf662f2247068dec14b3a55cfdf2-3"&gt;&lt;/a&gt;service/echo created
-&lt;a name="rest_code_ec88bf662f2247068dec14b3a55cfdf2-4"&gt;&lt;/a&gt;
-&lt;a name="rest_code_ec88bf662f2247068dec14b3a55cfdf2-5"&gt;&lt;/a&gt;$ kubectl get svc &lt;span class="nb"&gt;echo&lt;/span&gt;
-&lt;a name="rest_code_ec88bf662f2247068dec14b3a55cfdf2-6"&gt;&lt;/a&gt;NAME   TYPE        CLUSTER-IP       EXTERNAL-IP   PORT&lt;span class="o"&gt;(&lt;/span&gt;S&lt;span class="o"&gt;)&lt;/span&gt;   AGE
-&lt;a name="rest_code_ec88bf662f2247068dec14b3a55cfdf2-7"&gt;&lt;/a&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;   ClusterIP   &lt;span class="m"&gt;10&lt;/span&gt;.106.145.240   &amp;lt;none&amp;gt;        &lt;span class="m"&gt;80&lt;/span&gt;/TCP    51s
-&lt;a name="rest_code_ec88bf662f2247068dec14b3a55cfdf2-8"&gt;&lt;/a&gt;
-&lt;a name="rest_code_ec88bf662f2247068dec14b3a55cfdf2-9"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 基本的に Service は Kubernetes クラスタの中からしかアクセスできないので、&lt;/span&gt;
-&lt;a name="rest_code_ec88bf662f2247068dec14b3a55cfdf2-10"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# Kubernetes クラスタ内に一時的なデバッグコンテナをデプロイ&lt;/span&gt;
-&lt;a name="rest_code_ec88bf662f2247068dec14b3a55cfdf2-11"&gt;&lt;/a&gt;$ kubectl run -i --rm --tty debug --image&lt;span class="o"&gt;=&lt;/span&gt;gihyodocker/fundamental:0.1.0 --restart&lt;span class="o"&gt;=&lt;/span&gt;Never -- bash -il
-&lt;a name="rest_code_ec88bf662f2247068dec14b3a55cfdf2-12"&gt;&lt;/a&gt;If you don&lt;span class="err"&gt;'&lt;/span&gt;t see a &lt;span class="nb"&gt;command&lt;/span&gt; prompt, try pressing enter.
-&lt;a name="rest_code_ec88bf662f2247068dec14b3a55cfdf2-13"&gt;&lt;/a&gt;
-&lt;a name="rest_code_ec88bf662f2247068dec14b3a55cfdf2-14"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# curl で HTTP リクエストを送信してみる&lt;/span&gt;
-&lt;a name="rest_code_ec88bf662f2247068dec14b3a55cfdf2-15"&gt;&lt;/a&gt;debug:/# curl http://echo/
-&lt;a name="rest_code_ec88bf662f2247068dec14b3a55cfdf2-16"&gt;&lt;/a&gt;Hello Docker!!debug:/# curl http://echo/
-&lt;a name="rest_code_ec88bf662f2247068dec14b3a55cfdf2-17"&gt;&lt;/a&gt;Hello Docker!!debug:/# curl http://echo/
-&lt;a name="rest_code_ec88bf662f2247068dec14b3a55cfdf2-18"&gt;&lt;/a&gt;Hello Docker!!debug:/# curl http://echo/
-&lt;a name="rest_code_ec88bf662f2247068dec14b3a55cfdf2-19"&gt;&lt;/a&gt;Hello Docker!!debug:/# curl http://echo/
-&lt;a name="rest_code_ec88bf662f2247068dec14b3a55cfdf2-20"&gt;&lt;/a&gt;Hello Docker!!debug:/#
-&lt;a name="rest_code_ec88bf662f2247068dec14b3a55cfdf2-21"&gt;&lt;/a&gt;
-&lt;a name="rest_code_ec88bf662f2247068dec14b3a55cfdf2-22"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# summer にはリクエストが来ている&lt;/span&gt;
-&lt;a name="rest_code_ec88bf662f2247068dec14b3a55cfdf2-23"&gt;&lt;/a&gt;$ kubectl logs -f echo-summer-vb44t -c &lt;span class="nb"&gt;echo&lt;/span&gt;
-&lt;a name="rest_code_ec88bf662f2247068dec14b3a55cfdf2-24"&gt;&lt;/a&gt;&lt;span class="m"&gt;2019&lt;/span&gt;/11/17 &lt;span class="m"&gt;06&lt;/span&gt;:56:15 start server
-&lt;a name="rest_code_ec88bf662f2247068dec14b3a55cfdf2-25"&gt;&lt;/a&gt;&lt;span class="m"&gt;2019&lt;/span&gt;/11/17 &lt;span class="m"&gt;07&lt;/span&gt;:23:53 received request
-&lt;a name="rest_code_ec88bf662f2247068dec14b3a55cfdf2-26"&gt;&lt;/a&gt;&lt;span class="m"&gt;2019&lt;/span&gt;/11/17 &lt;span class="m"&gt;07&lt;/span&gt;:23:54 received request
-&lt;a name="rest_code_ec88bf662f2247068dec14b3a55cfdf2-27"&gt;&lt;/a&gt;&lt;span class="m"&gt;2019&lt;/span&gt;/11/17 &lt;span class="m"&gt;07&lt;/span&gt;:23:56 received request
-&lt;a name="rest_code_ec88bf662f2247068dec14b3a55cfdf2-28"&gt;&lt;/a&gt;
-&lt;a name="rest_code_ec88bf662f2247068dec14b3a55cfdf2-29"&gt;&lt;/a&gt;$ kubectl logs -f echo-summer-tnwb9 -c &lt;span class="nb"&gt;echo&lt;/span&gt;
-&lt;a name="rest_code_ec88bf662f2247068dec14b3a55cfdf2-30"&gt;&lt;/a&gt;&lt;span class="m"&gt;2019&lt;/span&gt;/11/17 &lt;span class="m"&gt;06&lt;/span&gt;:56:12 start server
-&lt;a name="rest_code_ec88bf662f2247068dec14b3a55cfdf2-31"&gt;&lt;/a&gt;&lt;span class="m"&gt;2019&lt;/span&gt;/11/17 &lt;span class="m"&gt;07&lt;/span&gt;:18:24 received request
-&lt;a name="rest_code_ec88bf662f2247068dec14b3a55cfdf2-32"&gt;&lt;/a&gt;&lt;span class="m"&gt;2019&lt;/span&gt;/11/17 &lt;span class="m"&gt;07&lt;/span&gt;:23:45 received request
-&lt;a name="rest_code_ec88bf662f2247068dec14b3a55cfdf2-33"&gt;&lt;/a&gt;
-&lt;a name="rest_code_ec88bf662f2247068dec14b3a55cfdf2-34"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# spring にはリクエストが来ていない&lt;/span&gt;
-&lt;a name="rest_code_ec88bf662f2247068dec14b3a55cfdf2-35"&gt;&lt;/a&gt;$ kubectl logs -f echo-spring-67s58 -c &lt;span class="nb"&gt;echo&lt;/span&gt;
-&lt;a name="rest_code_ec88bf662f2247068dec14b3a55cfdf2-36"&gt;&lt;/a&gt;&lt;span class="m"&gt;2019&lt;/span&gt;/11/17 &lt;span class="m"&gt;06&lt;/span&gt;:56:09 start server
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_724f7c1460104015b4e19dfc54848f90-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# apply して Service を作成する&lt;/span&gt;
+&lt;a name="rest_code_724f7c1460104015b4e19dfc54848f90-2"&gt;&lt;/a&gt;$ kubectl apply -f simple-service.yaml
+&lt;a name="rest_code_724f7c1460104015b4e19dfc54848f90-3"&gt;&lt;/a&gt;service/echo created
+&lt;a name="rest_code_724f7c1460104015b4e19dfc54848f90-4"&gt;&lt;/a&gt;
+&lt;a name="rest_code_724f7c1460104015b4e19dfc54848f90-5"&gt;&lt;/a&gt;$ kubectl get svc &lt;span class="nb"&gt;echo&lt;/span&gt;
+&lt;a name="rest_code_724f7c1460104015b4e19dfc54848f90-6"&gt;&lt;/a&gt;NAME   TYPE        CLUSTER-IP       EXTERNAL-IP   PORT&lt;span class="o"&gt;(&lt;/span&gt;S&lt;span class="o"&gt;)&lt;/span&gt;   AGE
+&lt;a name="rest_code_724f7c1460104015b4e19dfc54848f90-7"&gt;&lt;/a&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;   ClusterIP   &lt;span class="m"&gt;10&lt;/span&gt;.106.145.240   &amp;lt;none&amp;gt;        &lt;span class="m"&gt;80&lt;/span&gt;/TCP    51s
+&lt;a name="rest_code_724f7c1460104015b4e19dfc54848f90-8"&gt;&lt;/a&gt;
+&lt;a name="rest_code_724f7c1460104015b4e19dfc54848f90-9"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 基本的に Service は Kubernetes クラスタの中からしかアクセスできないので、&lt;/span&gt;
+&lt;a name="rest_code_724f7c1460104015b4e19dfc54848f90-10"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# Kubernetes クラスタ内に一時的なデバッグコンテナをデプロイ&lt;/span&gt;
+&lt;a name="rest_code_724f7c1460104015b4e19dfc54848f90-11"&gt;&lt;/a&gt;$ kubectl run -i --rm --tty debug --image&lt;span class="o"&gt;=&lt;/span&gt;gihyodocker/fundamental:0.1.0 --restart&lt;span class="o"&gt;=&lt;/span&gt;Never -- bash -il
+&lt;a name="rest_code_724f7c1460104015b4e19dfc54848f90-12"&gt;&lt;/a&gt;If you don&lt;span class="err"&gt;'&lt;/span&gt;t see a &lt;span class="nb"&gt;command&lt;/span&gt; prompt, try pressing enter.
+&lt;a name="rest_code_724f7c1460104015b4e19dfc54848f90-13"&gt;&lt;/a&gt;
+&lt;a name="rest_code_724f7c1460104015b4e19dfc54848f90-14"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# curl で HTTP リクエストを送信してみる&lt;/span&gt;
+&lt;a name="rest_code_724f7c1460104015b4e19dfc54848f90-15"&gt;&lt;/a&gt;debug:/# curl http://echo/
+&lt;a name="rest_code_724f7c1460104015b4e19dfc54848f90-16"&gt;&lt;/a&gt;Hello Docker!!debug:/# curl http://echo/
+&lt;a name="rest_code_724f7c1460104015b4e19dfc54848f90-17"&gt;&lt;/a&gt;Hello Docker!!debug:/# curl http://echo/
+&lt;a name="rest_code_724f7c1460104015b4e19dfc54848f90-18"&gt;&lt;/a&gt;Hello Docker!!debug:/# curl http://echo/
+&lt;a name="rest_code_724f7c1460104015b4e19dfc54848f90-19"&gt;&lt;/a&gt;Hello Docker!!debug:/# curl http://echo/
+&lt;a name="rest_code_724f7c1460104015b4e19dfc54848f90-20"&gt;&lt;/a&gt;Hello Docker!!debug:/#
+&lt;a name="rest_code_724f7c1460104015b4e19dfc54848f90-21"&gt;&lt;/a&gt;
+&lt;a name="rest_code_724f7c1460104015b4e19dfc54848f90-22"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# summer にはリクエストが来ている&lt;/span&gt;
+&lt;a name="rest_code_724f7c1460104015b4e19dfc54848f90-23"&gt;&lt;/a&gt;$ kubectl logs -f echo-summer-vb44t -c &lt;span class="nb"&gt;echo&lt;/span&gt;
+&lt;a name="rest_code_724f7c1460104015b4e19dfc54848f90-24"&gt;&lt;/a&gt;&lt;span class="m"&gt;2019&lt;/span&gt;/11/17 &lt;span class="m"&gt;06&lt;/span&gt;:56:15 start server
+&lt;a name="rest_code_724f7c1460104015b4e19dfc54848f90-25"&gt;&lt;/a&gt;&lt;span class="m"&gt;2019&lt;/span&gt;/11/17 &lt;span class="m"&gt;07&lt;/span&gt;:23:53 received request
+&lt;a name="rest_code_724f7c1460104015b4e19dfc54848f90-26"&gt;&lt;/a&gt;&lt;span class="m"&gt;2019&lt;/span&gt;/11/17 &lt;span class="m"&gt;07&lt;/span&gt;:23:54 received request
+&lt;a name="rest_code_724f7c1460104015b4e19dfc54848f90-27"&gt;&lt;/a&gt;&lt;span class="m"&gt;2019&lt;/span&gt;/11/17 &lt;span class="m"&gt;07&lt;/span&gt;:23:56 received request
+&lt;a name="rest_code_724f7c1460104015b4e19dfc54848f90-28"&gt;&lt;/a&gt;
+&lt;a name="rest_code_724f7c1460104015b4e19dfc54848f90-29"&gt;&lt;/a&gt;$ kubectl logs -f echo-summer-tnwb9 -c &lt;span class="nb"&gt;echo&lt;/span&gt;
+&lt;a name="rest_code_724f7c1460104015b4e19dfc54848f90-30"&gt;&lt;/a&gt;&lt;span class="m"&gt;2019&lt;/span&gt;/11/17 &lt;span class="m"&gt;06&lt;/span&gt;:56:12 start server
+&lt;a name="rest_code_724f7c1460104015b4e19dfc54848f90-31"&gt;&lt;/a&gt;&lt;span class="m"&gt;2019&lt;/span&gt;/11/17 &lt;span class="m"&gt;07&lt;/span&gt;:18:24 received request
+&lt;a name="rest_code_724f7c1460104015b4e19dfc54848f90-32"&gt;&lt;/a&gt;&lt;span class="m"&gt;2019&lt;/span&gt;/11/17 &lt;span class="m"&gt;07&lt;/span&gt;:23:45 received request
+&lt;a name="rest_code_724f7c1460104015b4e19dfc54848f90-33"&gt;&lt;/a&gt;
+&lt;a name="rest_code_724f7c1460104015b4e19dfc54848f90-34"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# spring にはリクエストが来ていない&lt;/span&gt;
+&lt;a name="rest_code_724f7c1460104015b4e19dfc54848f90-35"&gt;&lt;/a&gt;$ kubectl logs -f echo-spring-67s58 -c &lt;span class="nb"&gt;echo&lt;/span&gt;
+&lt;a name="rest_code_724f7c1460104015b4e19dfc54848f90-36"&gt;&lt;/a&gt;&lt;span class="m"&gt;2019&lt;/span&gt;/11/17 &lt;span class="m"&gt;06&lt;/span&gt;:56:09 start server
 &lt;/pre&gt;&lt;ul class="simple"&gt;
 &lt;li&gt;&lt;p&gt;Service による名前解決は欠かせません&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class="section" id="id8"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/introduction-to-practice-container-development/5-kubernetes-getting-started/#id21"&gt;Service の名前解決&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Kubernetes クラスタ内の DNS では、 Service を &lt;code class="docutils literal"&gt;Service名.Namespace名.svc.local&lt;/code&gt; で名前解決できるようになっている&lt;/p&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_1c092eae74914622b3c17b16610b96c8-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# echo は default の Namespace に配置しているので、&lt;/span&gt;
-&lt;a name="rest_code_1c092eae74914622b3c17b16610b96c8-2"&gt;&lt;/a&gt;$ curl http://echo.default.svc.local
-&lt;a name="rest_code_1c092eae74914622b3c17b16610b96c8-3"&gt;&lt;/a&gt;
-&lt;a name="rest_code_1c092eae74914622b3c17b16610b96c8-4"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# .svc.local は省略可能&lt;/span&gt;
-&lt;a name="rest_code_1c092eae74914622b3c17b16610b96c8-5"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 異なる Namespace の Service の名前解決は↓が最短&lt;/span&gt;
-&lt;a name="rest_code_1c092eae74914622b3c17b16610b96c8-6"&gt;&lt;/a&gt;$ curl http://echo.default
-&lt;a name="rest_code_1c092eae74914622b3c17b16610b96c8-7"&gt;&lt;/a&gt;
-&lt;a name="rest_code_1c092eae74914622b3c17b16610b96c8-8"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 同一の Namespace だと Service 名だけで名前解決できる&lt;/span&gt;
-&lt;a name="rest_code_1c092eae74914622b3c17b16610b96c8-9"&gt;&lt;/a&gt;$ curl http://echo
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_cb041c6e9b3f4b3c9a3a4be8796b17a4-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# echo は default の Namespace に配置しているので、&lt;/span&gt;
+&lt;a name="rest_code_cb041c6e9b3f4b3c9a3a4be8796b17a4-2"&gt;&lt;/a&gt;$ curl http://echo.default.svc.local
+&lt;a name="rest_code_cb041c6e9b3f4b3c9a3a4be8796b17a4-3"&gt;&lt;/a&gt;
+&lt;a name="rest_code_cb041c6e9b3f4b3c9a3a4be8796b17a4-4"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# .svc.local は省略可能&lt;/span&gt;
+&lt;a name="rest_code_cb041c6e9b3f4b3c9a3a4be8796b17a4-5"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 異なる Namespace の Service の名前解決は↓が最短&lt;/span&gt;
+&lt;a name="rest_code_cb041c6e9b3f4b3c9a3a4be8796b17a4-6"&gt;&lt;/a&gt;$ curl http://echo.default
+&lt;a name="rest_code_cb041c6e9b3f4b3c9a3a4be8796b17a4-7"&gt;&lt;/a&gt;
+&lt;a name="rest_code_cb041c6e9b3f4b3c9a3a4be8796b17a4-8"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 同一の Namespace だと Service 名だけで名前解決できる&lt;/span&gt;
+&lt;a name="rest_code_cb041c6e9b3f4b3c9a3a4be8796b17a4-9"&gt;&lt;/a&gt;$ curl http://echo
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;&lt;/div&gt;</description><category>docker</category><guid>https://32imuf.com/docker/introduction-to-practice-container-development/5-kubernetes-getting-started/</guid><pubDate>Fri, 15 Nov 2019 15:00:00 GMT</pubDate></item><item><title>Docker Compose で Django/PostgreSQL/MySQL 環境をつくろう</title><link>https://32imuf.com/docker/create-django-env-with-docker-compose-psql-mysql/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;details&gt;
   &lt;summary&gt;目次&lt;/summary&gt;&lt;div class="contents topic" id="id1"&gt;
@@ -547,20 +547,20 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;良い見本&lt;/p&gt;
-&lt;pre class="code docker"&gt;&lt;a name="rest_code_981ab21e5fb44b4796021e734de6e5b2-1"&gt;&lt;/a&gt;&lt;span class="k"&gt;RUN&lt;/span&gt; apt-get update &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; apt-get install -y &lt;span class="se"&gt;\&lt;/span&gt;
-&lt;a name="rest_code_981ab21e5fb44b4796021e734de6e5b2-2"&gt;&lt;/a&gt;    aufs-tools &lt;span class="se"&gt;\&lt;/span&gt;
-&lt;a name="rest_code_981ab21e5fb44b4796021e734de6e5b2-3"&gt;&lt;/a&gt;    automake &lt;span class="se"&gt;\&lt;/span&gt;
-&lt;a name="rest_code_981ab21e5fb44b4796021e734de6e5b2-4"&gt;&lt;/a&gt;    build-essential &lt;span class="se"&gt;\&lt;/span&gt;
-&lt;a name="rest_code_981ab21e5fb44b4796021e734de6e5b2-5"&gt;&lt;/a&gt;    curl &lt;span class="se"&gt;\&lt;/span&gt;
-&lt;a name="rest_code_981ab21e5fb44b4796021e734de6e5b2-6"&gt;&lt;/a&gt;    dpkg-sig &lt;span class="se"&gt;\&lt;/span&gt;
-&lt;a name="rest_code_981ab21e5fb44b4796021e734de6e5b2-7"&gt;&lt;/a&gt;    libcap-dev &lt;span class="se"&gt;\&lt;/span&gt;
-&lt;a name="rest_code_981ab21e5fb44b4796021e734de6e5b2-8"&gt;&lt;/a&gt;    libsqlite3-dev &lt;span class="se"&gt;\&lt;/span&gt;
-&lt;a name="rest_code_981ab21e5fb44b4796021e734de6e5b2-9"&gt;&lt;/a&gt;    mercurial &lt;span class="se"&gt;\&lt;/span&gt;
-&lt;a name="rest_code_981ab21e5fb44b4796021e734de6e5b2-10"&gt;&lt;/a&gt;    reprepro &lt;span class="se"&gt;\&lt;/span&gt;
-&lt;a name="rest_code_981ab21e5fb44b4796021e734de6e5b2-11"&gt;&lt;/a&gt;    ruby1.9.1 &lt;span class="se"&gt;\&lt;/span&gt;
-&lt;a name="rest_code_981ab21e5fb44b4796021e734de6e5b2-12"&gt;&lt;/a&gt;    ruby1.9.1-dev &lt;span class="se"&gt;\&lt;/span&gt;
-&lt;a name="rest_code_981ab21e5fb44b4796021e734de6e5b2-13"&gt;&lt;/a&gt;    &lt;span class="nv"&gt;s3cmd&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;.1.* &lt;span class="se"&gt;\&lt;/span&gt;
-&lt;a name="rest_code_981ab21e5fb44b4796021e734de6e5b2-14"&gt;&lt;/a&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; rm -rf /var/lib/apt/lists/*
+&lt;pre class="code docker"&gt;&lt;a name="rest_code_250ed46d56154de1869f7231d6caa0e7-1"&gt;&lt;/a&gt;&lt;span class="k"&gt;RUN&lt;/span&gt; apt-get update &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; apt-get install -y &lt;span class="se"&gt;\&lt;/span&gt;
+&lt;a name="rest_code_250ed46d56154de1869f7231d6caa0e7-2"&gt;&lt;/a&gt;    aufs-tools &lt;span class="se"&gt;\&lt;/span&gt;
+&lt;a name="rest_code_250ed46d56154de1869f7231d6caa0e7-3"&gt;&lt;/a&gt;    automake &lt;span class="se"&gt;\&lt;/span&gt;
+&lt;a name="rest_code_250ed46d56154de1869f7231d6caa0e7-4"&gt;&lt;/a&gt;    build-essential &lt;span class="se"&gt;\&lt;/span&gt;
+&lt;a name="rest_code_250ed46d56154de1869f7231d6caa0e7-5"&gt;&lt;/a&gt;    curl &lt;span class="se"&gt;\&lt;/span&gt;
+&lt;a name="rest_code_250ed46d56154de1869f7231d6caa0e7-6"&gt;&lt;/a&gt;    dpkg-sig &lt;span class="se"&gt;\&lt;/span&gt;
+&lt;a name="rest_code_250ed46d56154de1869f7231d6caa0e7-7"&gt;&lt;/a&gt;    libcap-dev &lt;span class="se"&gt;\&lt;/span&gt;
+&lt;a name="rest_code_250ed46d56154de1869f7231d6caa0e7-8"&gt;&lt;/a&gt;    libsqlite3-dev &lt;span class="se"&gt;\&lt;/span&gt;
+&lt;a name="rest_code_250ed46d56154de1869f7231d6caa0e7-9"&gt;&lt;/a&gt;    mercurial &lt;span class="se"&gt;\&lt;/span&gt;
+&lt;a name="rest_code_250ed46d56154de1869f7231d6caa0e7-10"&gt;&lt;/a&gt;    reprepro &lt;span class="se"&gt;\&lt;/span&gt;
+&lt;a name="rest_code_250ed46d56154de1869f7231d6caa0e7-11"&gt;&lt;/a&gt;    ruby1.9.1 &lt;span class="se"&gt;\&lt;/span&gt;
+&lt;a name="rest_code_250ed46d56154de1869f7231d6caa0e7-12"&gt;&lt;/a&gt;    ruby1.9.1-dev &lt;span class="se"&gt;\&lt;/span&gt;
+&lt;a name="rest_code_250ed46d56154de1869f7231d6caa0e7-13"&gt;&lt;/a&gt;    &lt;span class="nv"&gt;s3cmd&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;.1.* &lt;span class="se"&gt;\&lt;/span&gt;
+&lt;a name="rest_code_250ed46d56154de1869f7231d6caa0e7-14"&gt;&lt;/a&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; rm -rf /var/lib/apt/lists/*
 &lt;/pre&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
@@ -571,9 +571,9 @@
 &lt;li&gt;&lt;p&gt;2行で書くより、1行で書く&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;1行で書くと、イメージを小さくできる ( &lt;code class="docutils literal"&gt;layers&lt;/code&gt; がなんのことなのかはよくわからない)&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;cite&gt;The first creates two layers in the image, while the second only creates one.&lt;/cite&gt;&lt;/p&gt;
-&lt;pre class="code docker"&gt;&lt;a name="rest_code_6a9f7206adc44dabb0700cbd51874dfd-1"&gt;&lt;/a&gt;&lt;span class="k"&gt;RUN&lt;/span&gt; apt-get -y update
-&lt;a name="rest_code_6a9f7206adc44dabb0700cbd51874dfd-2"&gt;&lt;/a&gt;&lt;span class="k"&gt;RUN&lt;/span&gt; apt-get install -y python
-&lt;/pre&gt;&lt;pre class="code docker"&gt;&lt;a name="rest_code_4238f54fc47a40e387e35402428d20c1-1"&gt;&lt;/a&gt;&lt;span class="k"&gt;RUN&lt;/span&gt; apt-get -y update &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; apt-get install -y python
+&lt;pre class="code docker"&gt;&lt;a name="rest_code_9ff857ea6c5043b1ba7d3eb97e9df89e-1"&gt;&lt;/a&gt;&lt;span class="k"&gt;RUN&lt;/span&gt; apt-get -y update
+&lt;a name="rest_code_9ff857ea6c5043b1ba7d3eb97e9df89e-2"&gt;&lt;/a&gt;&lt;span class="k"&gt;RUN&lt;/span&gt; apt-get install -y python
+&lt;/pre&gt;&lt;pre class="code docker"&gt;&lt;a name="rest_code_7535c88de9194fcaa11a0912f6116a81-1"&gt;&lt;/a&gt;&lt;span class="k"&gt;RUN&lt;/span&gt; apt-get -y update &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; apt-get install -y python
 &lt;/pre&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
@@ -610,13 +610,13 @@
 &lt;p&gt;実際には、 PostgreSQL か MySQL かどちらか使うほうのみを生きとする。&lt;/p&gt;
 &lt;div class="section" id="id4"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/create-django-env-with-docker-compose-psql-mysql/#id13"&gt;構成&lt;/a&gt;&lt;/h3&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_070719ac00b04e51848089eb12d2c4e0-1"&gt;&lt;/a&gt;$ tree fufufu
-&lt;a name="rest_code_070719ac00b04e51848089eb12d2c4e0-2"&gt;&lt;/a&gt;fufufu
-&lt;a name="rest_code_070719ac00b04e51848089eb12d2c4e0-3"&gt;&lt;/a&gt;├── Dockerfile-app        &lt;span class="c1"&gt;# 1. Django プロジェクト作るよう Dockerfile&lt;/span&gt;
-&lt;a name="rest_code_070719ac00b04e51848089eb12d2c4e0-4"&gt;&lt;/a&gt;├── Dockerfile-mysql      &lt;span class="c1"&gt;# 2. MySQL よう Dockerfile&lt;/span&gt;
-&lt;a name="rest_code_070719ac00b04e51848089eb12d2c4e0-5"&gt;&lt;/a&gt;├── Dockerfile-postgres   &lt;span class="c1"&gt;# 3. PostgreSQL よう Dockerfile&lt;/span&gt;
-&lt;a name="rest_code_070719ac00b04e51848089eb12d2c4e0-6"&gt;&lt;/a&gt;├── docker-compose.yml    &lt;span class="c1"&gt;# 4. Composeファイル&lt;/span&gt;
-&lt;a name="rest_code_070719ac00b04e51848089eb12d2c4e0-7"&gt;&lt;/a&gt;└── requirements.txt      &lt;span class="c1"&gt;# 5. requirements.txt&lt;/span&gt;
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_513dd06c88e14d4ea5b29c9e2f48a741-1"&gt;&lt;/a&gt;$ tree fufufu
+&lt;a name="rest_code_513dd06c88e14d4ea5b29c9e2f48a741-2"&gt;&lt;/a&gt;fufufu
+&lt;a name="rest_code_513dd06c88e14d4ea5b29c9e2f48a741-3"&gt;&lt;/a&gt;├── Dockerfile-app        &lt;span class="c1"&gt;# 1. Django プロジェクト作るよう Dockerfile&lt;/span&gt;
+&lt;a name="rest_code_513dd06c88e14d4ea5b29c9e2f48a741-4"&gt;&lt;/a&gt;├── Dockerfile-mysql      &lt;span class="c1"&gt;# 2. MySQL よう Dockerfile&lt;/span&gt;
+&lt;a name="rest_code_513dd06c88e14d4ea5b29c9e2f48a741-5"&gt;&lt;/a&gt;├── Dockerfile-postgres   &lt;span class="c1"&gt;# 3. PostgreSQL よう Dockerfile&lt;/span&gt;
+&lt;a name="rest_code_513dd06c88e14d4ea5b29c9e2f48a741-6"&gt;&lt;/a&gt;├── docker-compose.yml    &lt;span class="c1"&gt;# 4. Composeファイル&lt;/span&gt;
+&lt;a name="rest_code_513dd06c88e14d4ea5b29c9e2f48a741-7"&gt;&lt;/a&gt;└── requirements.txt      &lt;span class="c1"&gt;# 5. requirements.txt&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;div class="section" id="id5"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/create-django-env-with-docker-compose-psql-mysql/#id14"&gt;設定ファイル&lt;/a&gt;&lt;/h3&gt;
@@ -792,34 +792,34 @@
 &lt;/div&gt;
 &lt;div class="section" id="id6"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/create-django-env-with-docker-compose-psql-mysql/#id15"&gt;起動&lt;/a&gt;&lt;/h3&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_400be82813db42b4b86c5d629bd3e051-1"&gt;&lt;/a&gt;$ docker-compose up
-&lt;a name="rest_code_400be82813db42b4b86c5d629bd3e051-2"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 再度 image ビルドからやり直したい&lt;/span&gt;
-&lt;a name="rest_code_400be82813db42b4b86c5d629bd3e051-3"&gt;&lt;/a&gt;$ docker-compose up --build
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_2ca2b5f48f87489f96c06ba87f5bb929-1"&gt;&lt;/a&gt;$ docker-compose up
+&lt;a name="rest_code_2ca2b5f48f87489f96c06ba87f5bb929-2"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 再度 image ビルドからやり直したい&lt;/span&gt;
+&lt;a name="rest_code_2ca2b5f48f87489f96c06ba87f5bb929-3"&gt;&lt;/a&gt;$ docker-compose up --build
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id7"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/create-django-env-with-docker-compose-psql-mysql/#id16"&gt;つかいかた&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="section" id="app"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/create-django-env-with-docker-compose-psql-mysql/#id17"&gt;app コンテナ&lt;/a&gt;&lt;/h3&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_77838f999dca4c7a896b37902f31fbae-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# Django プロジェクトのコンテナに入る&lt;/span&gt;
-&lt;a name="rest_code_77838f999dca4c7a896b37902f31fbae-2"&gt;&lt;/a&gt;$ docker container &lt;span class="nb"&gt;exec&lt;/span&gt; -it fufufu_app bash
-&lt;a name="rest_code_77838f999dca4c7a896b37902f31fbae-3"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# Django プロジェクトを作成する&lt;/span&gt;
-&lt;a name="rest_code_77838f999dca4c7a896b37902f31fbae-4"&gt;&lt;/a&gt;$ &lt;span class="nb"&gt;cd&lt;/span&gt; /fufufu
-&lt;a name="rest_code_77838f999dca4c7a896b37902f31fbae-5"&gt;&lt;/a&gt;$ /opt/python3.7.3/lib/python3.7/site-packages/django/bin/django-admin.py startproject config .
-&lt;a name="rest_code_77838f999dca4c7a896b37902f31fbae-6"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# runserver する ( settings.py の ``ALLOWED_HOSTS`` に ``'0.0.0.0'`` を書いておかないと ``DisallowedHost`` になります)&lt;/span&gt;
-&lt;a name="rest_code_77838f999dca4c7a896b37902f31fbae-7"&gt;&lt;/a&gt;$ python manage.py runserver &lt;span class="m"&gt;0&lt;/span&gt;.0.0.0:8000
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_57cf7aa2caad4c7d9a98524f82c50aea-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# Django プロジェクトのコンテナに入る&lt;/span&gt;
+&lt;a name="rest_code_57cf7aa2caad4c7d9a98524f82c50aea-2"&gt;&lt;/a&gt;$ docker container &lt;span class="nb"&gt;exec&lt;/span&gt; -it fufufu_app bash
+&lt;a name="rest_code_57cf7aa2caad4c7d9a98524f82c50aea-3"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# Django プロジェクトを作成する&lt;/span&gt;
+&lt;a name="rest_code_57cf7aa2caad4c7d9a98524f82c50aea-4"&gt;&lt;/a&gt;$ &lt;span class="nb"&gt;cd&lt;/span&gt; /fufufu
+&lt;a name="rest_code_57cf7aa2caad4c7d9a98524f82c50aea-5"&gt;&lt;/a&gt;$ /opt/python3.7.3/lib/python3.7/site-packages/django/bin/django-admin.py startproject config .
+&lt;a name="rest_code_57cf7aa2caad4c7d9a98524f82c50aea-6"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# runserver する ( settings.py の ``ALLOWED_HOSTS`` に ``'0.0.0.0'`` を書いておかないと ``DisallowedHost`` になります)&lt;/span&gt;
+&lt;a name="rest_code_57cf7aa2caad4c7d9a98524f82c50aea-7"&gt;&lt;/a&gt;$ python manage.py runserver &lt;span class="m"&gt;0&lt;/span&gt;.0.0.0:8000
 &lt;/pre&gt;&lt;/div&gt;
 &lt;div class="section" id="mysql-postgresql"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/create-django-env-with-docker-compose-psql-mysql/#id18"&gt;MySQL, PostgreSQL コンテナ&lt;/a&gt;&lt;/h3&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_bf0f346c3bf1413cbcd4d5d4346ffa66-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# MySQL のコンテナに入る&lt;/span&gt;
-&lt;a name="rest_code_bf0f346c3bf1413cbcd4d5d4346ffa66-2"&gt;&lt;/a&gt;$ docker container &lt;span class="nb"&gt;exec&lt;/span&gt; -it fufufu_mysql bash
-&lt;a name="rest_code_bf0f346c3bf1413cbcd4d5d4346ffa66-3"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# MySQL に入る&lt;/span&gt;
-&lt;a name="rest_code_bf0f346c3bf1413cbcd4d5d4346ffa66-4"&gt;&lt;/a&gt;$ mysql -u fufufu -D fufufu -p
-&lt;a name="rest_code_bf0f346c3bf1413cbcd4d5d4346ffa66-5"&gt;&lt;/a&gt;
-&lt;a name="rest_code_bf0f346c3bf1413cbcd4d5d4346ffa66-6"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# PostgreSQL のコンテナに入る&lt;/span&gt;
-&lt;a name="rest_code_bf0f346c3bf1413cbcd4d5d4346ffa66-7"&gt;&lt;/a&gt;$ docker container &lt;span class="nb"&gt;exec&lt;/span&gt; -it fufufu_postgres bash
-&lt;a name="rest_code_bf0f346c3bf1413cbcd4d5d4346ffa66-8"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# PostgreSQL に入る&lt;/span&gt;
-&lt;a name="rest_code_bf0f346c3bf1413cbcd4d5d4346ffa66-9"&gt;&lt;/a&gt;$ psql -U fufufu fufufu
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_e79752c2230443c5b6da100eaa2de5a2-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# MySQL のコンテナに入る&lt;/span&gt;
+&lt;a name="rest_code_e79752c2230443c5b6da100eaa2de5a2-2"&gt;&lt;/a&gt;$ docker container &lt;span class="nb"&gt;exec&lt;/span&gt; -it fufufu_mysql bash
+&lt;a name="rest_code_e79752c2230443c5b6da100eaa2de5a2-3"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# MySQL に入る&lt;/span&gt;
+&lt;a name="rest_code_e79752c2230443c5b6da100eaa2de5a2-4"&gt;&lt;/a&gt;$ mysql -u fufufu -D fufufu -p
+&lt;a name="rest_code_e79752c2230443c5b6da100eaa2de5a2-5"&gt;&lt;/a&gt;
+&lt;a name="rest_code_e79752c2230443c5b6da100eaa2de5a2-6"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# PostgreSQL のコンテナに入る&lt;/span&gt;
+&lt;a name="rest_code_e79752c2230443c5b6da100eaa2de5a2-7"&gt;&lt;/a&gt;$ docker container &lt;span class="nb"&gt;exec&lt;/span&gt; -it fufufu_postgres bash
+&lt;a name="rest_code_e79752c2230443c5b6da100eaa2de5a2-8"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# PostgreSQL に入る&lt;/span&gt;
+&lt;a name="rest_code_e79752c2230443c5b6da100eaa2de5a2-9"&gt;&lt;/a&gt;$ psql -U fufufu fufufu
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id8"&gt;
@@ -941,10 +941,10 @@
 &lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/connect-from-sqla-to-mysqldb/#id25"&gt;1. 準備&lt;/a&gt;&lt;/h3&gt;
 &lt;div class="section" id="id4"&gt;
 &lt;h4&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/connect-from-sqla-to-mysqldb/#id26"&gt;ディレクトリ構成&lt;/a&gt;&lt;/h4&gt;
-&lt;pre class="code shell"&gt;&lt;a name="rest_code_b240b69ce8fe4c0b9d3a12dcc8ab9b6a-1"&gt;&lt;/a&gt;$ tree mmm
-&lt;a name="rest_code_b240b69ce8fe4c0b9d3a12dcc8ab9b6a-2"&gt;&lt;/a&gt;mmm
-&lt;a name="rest_code_b240b69ce8fe4c0b9d3a12dcc8ab9b6a-3"&gt;&lt;/a&gt;├── Dockerfile-mysql
-&lt;a name="rest_code_b240b69ce8fe4c0b9d3a12dcc8ab9b6a-4"&gt;&lt;/a&gt;└── docker-compose.yml
+&lt;pre class="code shell"&gt;&lt;a name="rest_code_595b10304c804105b69a31ce0063ee98-1"&gt;&lt;/a&gt;$ tree mmm
+&lt;a name="rest_code_595b10304c804105b69a31ce0063ee98-2"&gt;&lt;/a&gt;mmm
+&lt;a name="rest_code_595b10304c804105b69a31ce0063ee98-3"&gt;&lt;/a&gt;├── Dockerfile-mysql
+&lt;a name="rest_code_595b10304c804105b69a31ce0063ee98-4"&gt;&lt;/a&gt;└── docker-compose.yml
 &lt;/pre&gt;&lt;/div&gt;
 &lt;div class="section" id="id5"&gt;
 &lt;h4&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/connect-from-sqla-to-mysqldb/#id27"&gt;設定ファイル&lt;/a&gt;&lt;/h4&gt;
@@ -994,8 +994,8 @@
 &lt;/div&gt;
 &lt;div class="section" id="id6"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/connect-from-sqla-to-mysqldb/#id28"&gt;2. 起動&lt;/a&gt;&lt;/h3&gt;
-&lt;pre class="code shell"&gt;&lt;a name="rest_code_c9fbf6d8ca524e60b5aab43d5b346938-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# mmm 直下で実行する&lt;/span&gt;
-&lt;a name="rest_code_c9fbf6d8ca524e60b5aab43d5b346938-2"&gt;&lt;/a&gt;$ docker-compose up
+&lt;pre class="code shell"&gt;&lt;a name="rest_code_2600271dd3ce4deab7cdb1e73a3dfed5-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# mmm 直下で実行する&lt;/span&gt;
+&lt;a name="rest_code_2600271dd3ce4deab7cdb1e73a3dfed5-2"&gt;&lt;/a&gt;$ docker-compose up
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id7"&gt;
@@ -1004,8 +1004,8 @@
 &lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/connect-from-sqla-to-mysqldb/#id30"&gt;mysqlclient&lt;/a&gt;&lt;/h3&gt;
 &lt;div class="section" id="id9"&gt;
 &lt;h4&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/connect-from-sqla-to-mysqldb/#id31"&gt;接続文字列&lt;/a&gt;&lt;/h4&gt;
-&lt;pre class="code python"&gt;&lt;a name="rest_code_615bfd7ca8964940ab1553feae9625c5-1"&gt;&lt;/a&gt;&lt;span class="n"&gt;mysql&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;mysqldb&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;mmm&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;mmm&lt;/span&gt;&lt;span class="nd"&gt;@127.0.0.1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;3306&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;mmm&lt;/span&gt;&lt;span class="err"&gt;?&lt;/span&gt;&lt;span class="n"&gt;charset&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;utf8mb4&lt;/span&gt;
-&lt;a name="rest_code_615bfd7ca8964940ab1553feae9625c5-2"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# mysql+mysqldb://&amp;lt;user&amp;gt;:&amp;lt;password&amp;gt;@&amp;lt;host&amp;gt;[:&amp;lt;port&amp;gt;]/&amp;lt;dbname&amp;gt;&lt;/span&gt;
+&lt;pre class="code python"&gt;&lt;a name="rest_code_bb364e371c1141e496c8483bbb61b72f-1"&gt;&lt;/a&gt;&lt;span class="n"&gt;mysql&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;mysqldb&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;mmm&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;mmm&lt;/span&gt;&lt;span class="nd"&gt;@127.0.0.1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;3306&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;mmm&lt;/span&gt;&lt;span class="err"&gt;?&lt;/span&gt;&lt;span class="n"&gt;charset&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;utf8mb4&lt;/span&gt;
+&lt;a name="rest_code_bb364e371c1141e496c8483bbb61b72f-2"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# mysql+mysqldb://&amp;lt;user&amp;gt;:&amp;lt;password&amp;gt;@&amp;lt;host&amp;gt;[:&amp;lt;port&amp;gt;]/&amp;lt;dbname&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;div class="section" id="id10"&gt;
 &lt;h4&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/connect-from-sqla-to-mysqldb/#id32"&gt;事前準備&lt;/a&gt;&lt;/h4&gt;
@@ -1033,7 +1033,7 @@
 &lt;ol class="arabic" start="2"&gt;
 &lt;li&gt;&lt;p&gt;mysqlclient のインストール&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_03018cf90c3e46cf80bd223658faf301-1"&gt;&lt;/a&gt;pip install mysqlclient
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_20f804d2dfb14fbab7c49f06013d72db-1"&gt;&lt;/a&gt;pip install mysqlclient
 &lt;/pre&gt;&lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
@@ -1043,14 +1043,14 @@
 &lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/connect-from-sqla-to-mysqldb/#id33"&gt;PyMySQL&lt;/a&gt;&lt;/h3&gt;
 &lt;div class="section" id="id12"&gt;
 &lt;h4&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/connect-from-sqla-to-mysqldb/#id34"&gt;接続文字列&lt;/a&gt;&lt;/h4&gt;
-&lt;pre class="code python"&gt;&lt;a name="rest_code_3bf26b933e0b40539fe6b822a0cee7fe-1"&gt;&lt;/a&gt;&lt;span class="n"&gt;mysql&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;pymysql&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;mmm&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;mmm&lt;/span&gt;&lt;span class="nd"&gt;@127.0.0.1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;3306&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;mmm&lt;/span&gt;&lt;span class="err"&gt;?&lt;/span&gt;&lt;span class="n"&gt;charset&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;utf8mb4&lt;/span&gt;
-&lt;a name="rest_code_3bf26b933e0b40539fe6b822a0cee7fe-2"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# mysql+pymysql://&amp;lt;username&amp;gt;:&amp;lt;password&amp;gt;@&amp;lt;host&amp;gt;/&amp;lt;dbname&amp;gt;[?&amp;lt;options&amp;gt;]&lt;/span&gt;
+&lt;pre class="code python"&gt;&lt;a name="rest_code_b76aaaf4ef954791a9eb9dea37c19aa7-1"&gt;&lt;/a&gt;&lt;span class="n"&gt;mysql&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;pymysql&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;mmm&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;mmm&lt;/span&gt;&lt;span class="nd"&gt;@127.0.0.1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;3306&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;mmm&lt;/span&gt;&lt;span class="err"&gt;?&lt;/span&gt;&lt;span class="n"&gt;charset&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;utf8mb4&lt;/span&gt;
+&lt;a name="rest_code_b76aaaf4ef954791a9eb9dea37c19aa7-2"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# mysql+pymysql://&amp;lt;username&amp;gt;:&amp;lt;password&amp;gt;@&amp;lt;host&amp;gt;/&amp;lt;dbname&amp;gt;[?&amp;lt;options&amp;gt;]&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;div class="section" id="id13"&gt;
 &lt;h4&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/connect-from-sqla-to-mysqldb/#id35"&gt;事前準備&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;PyMySQL のインストール&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_915617c5306d4b4c92d922e6df35920c-1"&gt;&lt;/a&gt;pip install PyMySQL
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_388db6cc1aed4d58a8f92e0a22de8c4a-1"&gt;&lt;/a&gt;pip install PyMySQL
 &lt;/pre&gt;&lt;/blockquote&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1058,14 +1058,14 @@
 &lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/connect-from-sqla-to-mysqldb/#id36"&gt;mysql-connector-python&lt;/a&gt;&lt;/h3&gt;
 &lt;div class="section" id="id15"&gt;
 &lt;h4&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/connect-from-sqla-to-mysqldb/#id37"&gt;接続文字列&lt;/a&gt;&lt;/h4&gt;
-&lt;pre class="code python"&gt;&lt;a name="rest_code_0b824ad18e404bfb85355b6e860d4b49-1"&gt;&lt;/a&gt;&lt;span class="n"&gt;mysql&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;mysqlconnector&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;mmm&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;mmm&lt;/span&gt;&lt;span class="nd"&gt;@127.0.0.1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;3306&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;mmm&lt;/span&gt;&lt;span class="err"&gt;?&lt;/span&gt;&lt;span class="n"&gt;charset&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;utf8mb4&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;
-&lt;a name="rest_code_0b824ad18e404bfb85355b6e860d4b49-2"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# mysql+mysqlconnector://&amp;lt;user&amp;gt;:&amp;lt;password&amp;gt;@&amp;lt;host&amp;gt;[:&amp;lt;port&amp;gt;]/&amp;lt;dbname&amp;gt;&lt;/span&gt;
+&lt;pre class="code python"&gt;&lt;a name="rest_code_ede6ab0579d74b34abee7592ba72a748-1"&gt;&lt;/a&gt;&lt;span class="n"&gt;mysql&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;mysqlconnector&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;mmm&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;mmm&lt;/span&gt;&lt;span class="nd"&gt;@127.0.0.1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;3306&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;mmm&lt;/span&gt;&lt;span class="err"&gt;?&lt;/span&gt;&lt;span class="n"&gt;charset&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;utf8mb4&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;
+&lt;a name="rest_code_ede6ab0579d74b34abee7592ba72a748-2"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# mysql+mysqlconnector://&amp;lt;user&amp;gt;:&amp;lt;password&amp;gt;@&amp;lt;host&amp;gt;[:&amp;lt;port&amp;gt;]/&amp;lt;dbname&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;div class="section" id="id16"&gt;
 &lt;h4&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/connect-from-sqla-to-mysqldb/#id38"&gt;事前準備&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;mysql-connector-python のインストール&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_e97d37267d084515ad46a70fb3da2633-1"&gt;&lt;/a&gt;pip install mysql-connector-python
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_16400c2dce674b4f8b76b8e7c8d16bb7-1"&gt;&lt;/a&gt;pip install mysql-connector-python
 &lt;/pre&gt;&lt;/blockquote&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1149,7 +1149,7 @@
 &lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/connect-from-sqla-to-mysqldb/#id41"&gt;※ 2. [Note] Aborted connection ...&lt;/a&gt;&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://dev.mysql.com/doc/refman/5.7/en/communication-errors.html"&gt;B.6.2.10 Communication Errors and Aborted Connections&lt;/a&gt;&lt;/p&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_936cb89f6c73494fb01b4c92a32aa653-1"&gt;&lt;/a&gt;db_1  &lt;span class="p"&gt;|&lt;/span&gt; &lt;span class="m"&gt;2019&lt;/span&gt;-03-24T06:38:23.691896Z &lt;span class="m"&gt;2&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt;Note&lt;span class="o"&gt;]&lt;/span&gt; Aborted connection &lt;span class="m"&gt;2&lt;/span&gt; to db: &lt;span class="s1"&gt;'mmm'&lt;/span&gt; user: &lt;span class="s1"&gt;'mmm'&lt;/span&gt; host: &lt;span class="s1"&gt;'172.27.0.1'&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;Got an error reading communication packets&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_78b09917e459422eb0182736805a54af-1"&gt;&lt;/a&gt;db_1  &lt;span class="p"&gt;|&lt;/span&gt; &lt;span class="m"&gt;2019&lt;/span&gt;-03-24T06:38:23.691896Z &lt;span class="m"&gt;2&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt;Note&lt;span class="o"&gt;]&lt;/span&gt; Aborted connection &lt;span class="m"&gt;2&lt;/span&gt; to db: &lt;span class="s1"&gt;'mmm'&lt;/span&gt; user: &lt;span class="s1"&gt;'mmm'&lt;/span&gt; host: &lt;span class="s1"&gt;'172.27.0.1'&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;Got an error reading communication packets&lt;span class="o"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;ul class="simple"&gt;
 &lt;li&gt;&lt;p&gt;クライアントの接続方法とか切断方法に何か問題があるらしい&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;わたしの場合、同じコードでもドライバーによって出たり出なかったりする&lt;/p&gt;&lt;/li&gt;
@@ -1213,15 +1213,15 @@
 &lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/create-django-env-with-docker-compose-mysql-2/#id14"&gt;1. 準備&lt;/a&gt;&lt;/h3&gt;
 &lt;div class="section" id="id5"&gt;
 &lt;h4&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/create-django-env-with-docker-compose-mysql-2/#id15"&gt;ディレクトリ構成&lt;/a&gt;&lt;/h4&gt;
-&lt;pre class="code shell"&gt;&lt;a name="rest_code_282bc735ee75455e9c3b348810d35d87-1"&gt;&lt;/a&gt;$ tree fufu
-&lt;a name="rest_code_282bc735ee75455e9c3b348810d35d87-2"&gt;&lt;/a&gt;fufu
-&lt;a name="rest_code_282bc735ee75455e9c3b348810d35d87-3"&gt;&lt;/a&gt;├── Dockerfile-mysql
-&lt;a name="rest_code_282bc735ee75455e9c3b348810d35d87-4"&gt;&lt;/a&gt;├── Dockerfile-web
-&lt;a name="rest_code_282bc735ee75455e9c3b348810d35d87-5"&gt;&lt;/a&gt;├── docker-compose.yml
-&lt;a name="rest_code_282bc735ee75455e9c3b348810d35d87-6"&gt;&lt;/a&gt;├── mysql
-&lt;a name="rest_code_282bc735ee75455e9c3b348810d35d87-7"&gt;&lt;/a&gt;│   └── conf.d
-&lt;a name="rest_code_282bc735ee75455e9c3b348810d35d87-8"&gt;&lt;/a&gt;│       └── mysql.cnf
-&lt;a name="rest_code_282bc735ee75455e9c3b348810d35d87-9"&gt;&lt;/a&gt;└── requirements.txt
+&lt;pre class="code shell"&gt;&lt;a name="rest_code_98a70846372d4be1a899dd993af532fd-1"&gt;&lt;/a&gt;$ tree fufu
+&lt;a name="rest_code_98a70846372d4be1a899dd993af532fd-2"&gt;&lt;/a&gt;fufu
+&lt;a name="rest_code_98a70846372d4be1a899dd993af532fd-3"&gt;&lt;/a&gt;├── Dockerfile-mysql
+&lt;a name="rest_code_98a70846372d4be1a899dd993af532fd-4"&gt;&lt;/a&gt;├── Dockerfile-web
+&lt;a name="rest_code_98a70846372d4be1a899dd993af532fd-5"&gt;&lt;/a&gt;├── docker-compose.yml
+&lt;a name="rest_code_98a70846372d4be1a899dd993af532fd-6"&gt;&lt;/a&gt;├── mysql
+&lt;a name="rest_code_98a70846372d4be1a899dd993af532fd-7"&gt;&lt;/a&gt;│   └── conf.d
+&lt;a name="rest_code_98a70846372d4be1a899dd993af532fd-8"&gt;&lt;/a&gt;│       └── mysql.cnf
+&lt;a name="rest_code_98a70846372d4be1a899dd993af532fd-9"&gt;&lt;/a&gt;└── requirements.txt
 &lt;/pre&gt;&lt;/div&gt;
 &lt;div class="section" id="id6"&gt;
 &lt;h4&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/create-django-env-with-docker-compose-mysql-2/#id16"&gt;設定ファイル&lt;/a&gt;&lt;/h4&gt;
@@ -1496,53 +1496,53 @@ WARNING: Image &lt;span class="k"&gt;for&lt;/span&gt; service web was built beca
 &lt;/div&gt;
 &lt;div class="section" id="id9"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/create-django-env-with-docker-compose-mysql-2/#id18"&gt;3. 実行後の状態&lt;/a&gt;&lt;/h3&gt;
-&lt;pre class="code shell"&gt;&lt;a name="rest_code_8def31f283764dcab248fcf5681ff48d-1"&gt;&lt;/a&gt;$ tree fufu
-&lt;a name="rest_code_8def31f283764dcab248fcf5681ff48d-2"&gt;&lt;/a&gt;fufu
-&lt;a name="rest_code_8def31f283764dcab248fcf5681ff48d-3"&gt;&lt;/a&gt;├── Dockerfile-mysql
-&lt;a name="rest_code_8def31f283764dcab248fcf5681ff48d-4"&gt;&lt;/a&gt;├── Dockerfile-web
-&lt;a name="rest_code_8def31f283764dcab248fcf5681ff48d-5"&gt;&lt;/a&gt;├── apps
-&lt;a name="rest_code_8def31f283764dcab248fcf5681ff48d-6"&gt;&lt;/a&gt;│   ├── config
-&lt;a name="rest_code_8def31f283764dcab248fcf5681ff48d-7"&gt;&lt;/a&gt;│   │   ├── __init__.py
-&lt;a name="rest_code_8def31f283764dcab248fcf5681ff48d-8"&gt;&lt;/a&gt;│   │   ├── settings.py
-&lt;a name="rest_code_8def31f283764dcab248fcf5681ff48d-9"&gt;&lt;/a&gt;│   │   ├── urls.py
-&lt;a name="rest_code_8def31f283764dcab248fcf5681ff48d-10"&gt;&lt;/a&gt;│   │   └── wsgi.py
-&lt;a name="rest_code_8def31f283764dcab248fcf5681ff48d-11"&gt;&lt;/a&gt;│   └── manage.py
-&lt;a name="rest_code_8def31f283764dcab248fcf5681ff48d-12"&gt;&lt;/a&gt;├── docker-compose.yml
-&lt;a name="rest_code_8def31f283764dcab248fcf5681ff48d-13"&gt;&lt;/a&gt;├── mysql
-&lt;a name="rest_code_8def31f283764dcab248fcf5681ff48d-14"&gt;&lt;/a&gt;│   └── conf.d
-&lt;a name="rest_code_8def31f283764dcab248fcf5681ff48d-15"&gt;&lt;/a&gt;│       └── mysql.cnf
-&lt;a name="rest_code_8def31f283764dcab248fcf5681ff48d-16"&gt;&lt;/a&gt;└── requirements.txt
+&lt;pre class="code shell"&gt;&lt;a name="rest_code_5094b684b35a4cde9bfc254d557f8f66-1"&gt;&lt;/a&gt;$ tree fufu
+&lt;a name="rest_code_5094b684b35a4cde9bfc254d557f8f66-2"&gt;&lt;/a&gt;fufu
+&lt;a name="rest_code_5094b684b35a4cde9bfc254d557f8f66-3"&gt;&lt;/a&gt;├── Dockerfile-mysql
+&lt;a name="rest_code_5094b684b35a4cde9bfc254d557f8f66-4"&gt;&lt;/a&gt;├── Dockerfile-web
+&lt;a name="rest_code_5094b684b35a4cde9bfc254d557f8f66-5"&gt;&lt;/a&gt;├── apps
+&lt;a name="rest_code_5094b684b35a4cde9bfc254d557f8f66-6"&gt;&lt;/a&gt;│   ├── config
+&lt;a name="rest_code_5094b684b35a4cde9bfc254d557f8f66-7"&gt;&lt;/a&gt;│   │   ├── __init__.py
+&lt;a name="rest_code_5094b684b35a4cde9bfc254d557f8f66-8"&gt;&lt;/a&gt;│   │   ├── settings.py
+&lt;a name="rest_code_5094b684b35a4cde9bfc254d557f8f66-9"&gt;&lt;/a&gt;│   │   ├── urls.py
+&lt;a name="rest_code_5094b684b35a4cde9bfc254d557f8f66-10"&gt;&lt;/a&gt;│   │   └── wsgi.py
+&lt;a name="rest_code_5094b684b35a4cde9bfc254d557f8f66-11"&gt;&lt;/a&gt;│   └── manage.py
+&lt;a name="rest_code_5094b684b35a4cde9bfc254d557f8f66-12"&gt;&lt;/a&gt;├── docker-compose.yml
+&lt;a name="rest_code_5094b684b35a4cde9bfc254d557f8f66-13"&gt;&lt;/a&gt;├── mysql
+&lt;a name="rest_code_5094b684b35a4cde9bfc254d557f8f66-14"&gt;&lt;/a&gt;│   └── conf.d
+&lt;a name="rest_code_5094b684b35a4cde9bfc254d557f8f66-15"&gt;&lt;/a&gt;│       └── mysql.cnf
+&lt;a name="rest_code_5094b684b35a4cde9bfc254d557f8f66-16"&gt;&lt;/a&gt;└── requirements.txt
 &lt;/pre&gt;&lt;/div&gt;
 &lt;div class="section" id="settings-mysql"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/create-django-env-with-docker-compose-mysql-2/#id19"&gt;4. settings に mysql の定義を追記する&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;settings は環境ごとに分けたいので、 &lt;code class="docutils literal"&gt;apps&lt;/code&gt; 配下に settings ディレクトリを作ってそこ移動する&lt;/p&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_50999590067946418fc3be24255e5c35-1"&gt;&lt;/a&gt;$ tree apps
-&lt;a name="rest_code_50999590067946418fc3be24255e5c35-2"&gt;&lt;/a&gt;apps
-&lt;a name="rest_code_50999590067946418fc3be24255e5c35-3"&gt;&lt;/a&gt;├── config
-&lt;a name="rest_code_50999590067946418fc3be24255e5c35-4"&gt;&lt;/a&gt;│   ├── __init__.py
-&lt;a name="rest_code_50999590067946418fc3be24255e5c35-5"&gt;&lt;/a&gt;│   ├── urls.py
-&lt;a name="rest_code_50999590067946418fc3be24255e5c35-6"&gt;&lt;/a&gt;│   └── wsgi.py
-&lt;a name="rest_code_50999590067946418fc3be24255e5c35-7"&gt;&lt;/a&gt;├── manage.py
-&lt;a name="rest_code_50999590067946418fc3be24255e5c35-8"&gt;&lt;/a&gt;└── settings
-&lt;a name="rest_code_50999590067946418fc3be24255e5c35-9"&gt;&lt;/a&gt;    └── local.py  &lt;span class="c1"&gt;# ← ローカル環境用&lt;/span&gt;
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_1f7154c8b864447eb65f1e545922a5e5-1"&gt;&lt;/a&gt;$ tree apps
+&lt;a name="rest_code_1f7154c8b864447eb65f1e545922a5e5-2"&gt;&lt;/a&gt;apps
+&lt;a name="rest_code_1f7154c8b864447eb65f1e545922a5e5-3"&gt;&lt;/a&gt;├── config
+&lt;a name="rest_code_1f7154c8b864447eb65f1e545922a5e5-4"&gt;&lt;/a&gt;│   ├── __init__.py
+&lt;a name="rest_code_1f7154c8b864447eb65f1e545922a5e5-5"&gt;&lt;/a&gt;│   ├── urls.py
+&lt;a name="rest_code_1f7154c8b864447eb65f1e545922a5e5-6"&gt;&lt;/a&gt;│   └── wsgi.py
+&lt;a name="rest_code_1f7154c8b864447eb65f1e545922a5e5-7"&gt;&lt;/a&gt;├── manage.py
+&lt;a name="rest_code_1f7154c8b864447eb65f1e545922a5e5-8"&gt;&lt;/a&gt;└── settings
+&lt;a name="rest_code_1f7154c8b864447eb65f1e545922a5e5-9"&gt;&lt;/a&gt;    └── local.py  &lt;span class="c1"&gt;# ← ローカル環境用&lt;/span&gt;
 &lt;/pre&gt;&lt;ul&gt;
 &lt;li&gt;&lt;p&gt;settings/local.py&lt;/p&gt;
-&lt;pre class="code python"&gt;&lt;a name="rest_code_45d314b2ee4d4716b5a95ab5d79f4b28-1"&gt;&lt;/a&gt;&lt;span class="n"&gt;DATABASES&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-&lt;a name="rest_code_45d314b2ee4d4716b5a95ab5d79f4b28-2"&gt;&lt;/a&gt;    &lt;span class="s1"&gt;'default'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-&lt;a name="rest_code_45d314b2ee4d4716b5a95ab5d79f4b28-3"&gt;&lt;/a&gt;        &lt;span class="s1"&gt;'ENGINE'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;'django.db.backends.mysql'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;a name="rest_code_45d314b2ee4d4716b5a95ab5d79f4b28-4"&gt;&lt;/a&gt;        &lt;span class="s1"&gt;'NAME'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;'fufu'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;a name="rest_code_45d314b2ee4d4716b5a95ab5d79f4b28-5"&gt;&lt;/a&gt;        &lt;span class="s1"&gt;'USER'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;'fufu'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;a name="rest_code_45d314b2ee4d4716b5a95ab5d79f4b28-6"&gt;&lt;/a&gt;        &lt;span class="s1"&gt;'PASSWORD'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;'fufu'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;a name="rest_code_45d314b2ee4d4716b5a95ab5d79f4b28-7"&gt;&lt;/a&gt;        &lt;span class="s1"&gt;'HOST'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;'db'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;  &lt;span class="c1"&gt;# ここは docker-compose ファイルに指定したサービス名でないといけないらしい&lt;/span&gt;
-&lt;a name="rest_code_45d314b2ee4d4716b5a95ab5d79f4b28-8"&gt;&lt;/a&gt;        &lt;span class="s1"&gt;'PORT'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;3306&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;a name="rest_code_45d314b2ee4d4716b5a95ab5d79f4b28-9"&gt;&lt;/a&gt;    &lt;span class="p"&gt;}&lt;/span&gt;
-&lt;a name="rest_code_45d314b2ee4d4716b5a95ab5d79f4b28-10"&gt;&lt;/a&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;pre class="code python"&gt;&lt;a name="rest_code_3ac2821040774676a791c15939470a3d-1"&gt;&lt;/a&gt;&lt;span class="n"&gt;DATABASES&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;a name="rest_code_3ac2821040774676a791c15939470a3d-2"&gt;&lt;/a&gt;    &lt;span class="s1"&gt;'default'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;a name="rest_code_3ac2821040774676a791c15939470a3d-3"&gt;&lt;/a&gt;        &lt;span class="s1"&gt;'ENGINE'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;'django.db.backends.mysql'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;a name="rest_code_3ac2821040774676a791c15939470a3d-4"&gt;&lt;/a&gt;        &lt;span class="s1"&gt;'NAME'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;'fufu'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;a name="rest_code_3ac2821040774676a791c15939470a3d-5"&gt;&lt;/a&gt;        &lt;span class="s1"&gt;'USER'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;'fufu'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;a name="rest_code_3ac2821040774676a791c15939470a3d-6"&gt;&lt;/a&gt;        &lt;span class="s1"&gt;'PASSWORD'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;'fufu'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;a name="rest_code_3ac2821040774676a791c15939470a3d-7"&gt;&lt;/a&gt;        &lt;span class="s1"&gt;'HOST'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;'db'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;  &lt;span class="c1"&gt;# ここは docker-compose ファイルに指定したサービス名でないといけないらしい&lt;/span&gt;
+&lt;a name="rest_code_3ac2821040774676a791c15939470a3d-8"&gt;&lt;/a&gt;        &lt;span class="s1"&gt;'PORT'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;3306&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;a name="rest_code_3ac2821040774676a791c15939470a3d-9"&gt;&lt;/a&gt;    &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;a name="rest_code_3ac2821040774676a791c15939470a3d-10"&gt;&lt;/a&gt;&lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div class="section" id="webdb"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/create-django-env-with-docker-compose-mysql-2/#id20"&gt;5. web・db コンテナを起動する&lt;/a&gt;&lt;/h3&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_87f6f73bc3b24c19bbfa4206cc01af7f-1"&gt;&lt;/a&gt;$ docker-compose up
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_c53335db6fcc40db94d559e34d59e72d-1"&gt;&lt;/a&gt;$ docker-compose up
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id10"&gt;
@@ -1614,9 +1614,9 @@ web_1  &lt;span class="p"&gt;|&lt;/span&gt; django.db.utils.OperationalError: &l
 &lt;li&gt;&lt;p&gt;Django から MySQL に接続する際は、 &lt;code class="docutils literal"&gt;caching_sha2_password&lt;/code&gt; に対応していない &lt;code class="docutils literal"&gt;mysqlclient&lt;/code&gt; を使っているようなので、それでも接続できるように、&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;code class="docutils literal"&gt;&lt;span class="pre"&gt;default-authentication-plugin=mysql_native_password&lt;/span&gt;&lt;/code&gt; の指定が必要 (なんだと思う)&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;後から該当ユーザーの &lt;code class="docutils literal"&gt;&lt;span class="pre"&gt;default-authentication-plugin&lt;/span&gt;&lt;/code&gt; を変更するにはこう↓&lt;/p&gt;
-&lt;pre class="code shell"&gt;&lt;a name="rest_code_9c94b37241af42eabdb5bd9a47964ef0-1"&gt;&lt;/a&gt;ALTER USER &lt;span class="s1"&gt;'fufu'&lt;/span&gt;
-&lt;a name="rest_code_9c94b37241af42eabdb5bd9a47964ef0-2"&gt;&lt;/a&gt;  IDENTIFIED WITH mysql_native_password
-&lt;a name="rest_code_9c94b37241af42eabdb5bd9a47964ef0-3"&gt;&lt;/a&gt;  BY &lt;span class="s1"&gt;'fufu'&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;pre class="code shell"&gt;&lt;a name="rest_code_8e23bcc263014029966fdcc539015909-1"&gt;&lt;/a&gt;ALTER USER &lt;span class="s1"&gt;'fufu'&lt;/span&gt;
+&lt;a name="rest_code_8e23bcc263014029966fdcc539015909-2"&gt;&lt;/a&gt;  IDENTIFIED WITH mysql_native_password
+&lt;a name="rest_code_8e23bcc263014029966fdcc539015909-3"&gt;&lt;/a&gt;  BY &lt;span class="s1"&gt;'fufu'&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;/pre&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
@@ -2003,8 +2003,8 @@ fufu_db exited with code &lt;span class="m"&gt;1&lt;/span&gt;
 &lt;/div&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;わたしの場合は、 docker-compose ファイルでこう↓しているので、デフォルト状態では存在した &lt;code class="docutils literal"&gt;/etc/mysql/conf.d/docker.cnf&lt;/code&gt; を抹殺してしまっている&lt;/p&gt;
-&lt;pre class="code yaml"&gt;&lt;a name="rest_code_ba7f4086bd924ac099013ffcd99c0ca6-1"&gt;&lt;/a&gt;&lt;span class="nt"&gt;volumes&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-&lt;a name="rest_code_ba7f4086bd924ac099013ffcd99c0ca6-2"&gt;&lt;/a&gt;  &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="s"&gt;"./mysql/conf.d:/etc/mysql/conf.d"&lt;/span&gt;
+&lt;pre class="code yaml"&gt;&lt;a name="rest_code_fd5bac892c22457f89eb2ab974c12e59-1"&gt;&lt;/a&gt;&lt;span class="nt"&gt;volumes&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;a name="rest_code_fd5bac892c22457f89eb2ab974c12e59-2"&gt;&lt;/a&gt;  &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="s"&gt;"./mysql/conf.d:/etc/mysql/conf.d"&lt;/span&gt;
 &lt;/pre&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;しかたがないので、自分の &lt;code class="docutils literal"&gt;mysql.cnf&lt;/code&gt; に転記することにした&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;このふたつがないとどうしてこのエラーになるのかわたしにはわかりません、だって全然関係ないこと言ってるように見えるのに...&lt;/p&gt;&lt;/li&gt;
@@ -2016,16 +2016,16 @@ fufu_db exited with code &lt;span class="m"&gt;1&lt;/span&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/create-django-env-with-docker-compose-mysql-2/#id24"&gt;使い方メモ&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="section" id="image"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/create-django-env-with-docker-compose-mysql-2/#id25"&gt;再び image ビルドしたくなったら&lt;/a&gt;&lt;/h3&gt;
-&lt;pre class="code shell"&gt;&lt;a name="rest_code_d853ec9b659a4222ae00b8669038068c-1"&gt;&lt;/a&gt;$ docker-compose run web django-admin.py startproject config .
+&lt;pre class="code shell"&gt;&lt;a name="rest_code_87a4bc164b954ed7b5a239f96d3620e0-1"&gt;&lt;/a&gt;$ docker-compose run web django-admin.py startproject config .
 &lt;/pre&gt;&lt;p&gt;とか&lt;/p&gt;
-&lt;pre class="code shell"&gt;&lt;a name="rest_code_b437427b3d774b00b2432233e577db51-1"&gt;&lt;/a&gt;$ docker-compose run web django-admin.py startproject config .
-&lt;a name="rest_code_b437427b3d774b00b2432233e577db51-2"&gt;&lt;/a&gt;$ docker-compose up
+&lt;pre class="code shell"&gt;&lt;a name="rest_code_e70d9bd1759b4b78bf5a0ac1f7c23a13-1"&gt;&lt;/a&gt;$ docker-compose run web django-admin.py startproject config .
+&lt;a name="rest_code_e70d9bd1759b4b78bf5a0ac1f7c23a13-2"&gt;&lt;/a&gt;$ docker-compose up
 &lt;/pre&gt;&lt;p&gt;したあとに、再び image ビルドしたくなったら、&lt;/p&gt;
-&lt;pre class="code shell"&gt;&lt;a name="rest_code_e17be41f9b1a4f5f8a61e49ed1a1e918-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# web をビルド&lt;/span&gt;
-&lt;a name="rest_code_e17be41f9b1a4f5f8a61e49ed1a1e918-2"&gt;&lt;/a&gt;$ docker-compose build web
-&lt;a name="rest_code_e17be41f9b1a4f5f8a61e49ed1a1e918-3"&gt;&lt;/a&gt;
-&lt;a name="rest_code_e17be41f9b1a4f5f8a61e49ed1a1e918-4"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# db をビルド&lt;/span&gt;
-&lt;a name="rest_code_e17be41f9b1a4f5f8a61e49ed1a1e918-5"&gt;&lt;/a&gt;$ docker-compose build db
+&lt;pre class="code shell"&gt;&lt;a name="rest_code_78aa042654ce44108a964505292b784d-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# web をビルド&lt;/span&gt;
+&lt;a name="rest_code_78aa042654ce44108a964505292b784d-2"&gt;&lt;/a&gt;$ docker-compose build web
+&lt;a name="rest_code_78aa042654ce44108a964505292b784d-3"&gt;&lt;/a&gt;
+&lt;a name="rest_code_78aa042654ce44108a964505292b784d-4"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# db をビルド&lt;/span&gt;
+&lt;a name="rest_code_78aa042654ce44108a964505292b784d-5"&gt;&lt;/a&gt;$ docker-compose build db
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;&lt;/div&gt;</description><category>docker</category><guid>https://32imuf.com/docker/create-django-env-with-docker-compose-mysql-2/</guid><pubDate>Sat, 19 Jan 2019 15:00:00 GMT</pubDate></item><item><title>Docker Compose で Django/MySQL 環境をつくる</title><link>https://32imuf.com/docker/create-django-env-with-docker-compose-mysql/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;details&gt;
   &lt;summary&gt;目次&lt;/summary&gt;&lt;div class="contents topic" id="id1"&gt;
@@ -2099,7 +2099,7 @@ fufu_db exited with code &lt;span class="m"&gt;1&lt;/span&gt;
 &lt;ol class="arabic"&gt;
 &lt;li&gt;&lt;p&gt;web・db の docker image をビルド -&amp;gt; web で startproject する。&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_c31f228c775c44d08de8ca89b2f85b37-1"&gt;&lt;/a&gt;$ docker-compose --pull&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;true&lt;/span&gt; run web django-admin.py startproject fu .
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_f82379f1add4408fb12a890d0d07d803-1"&gt;&lt;/a&gt;$ docker-compose --pull&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;true&lt;/span&gt; run web django-admin.py startproject fu .
 &lt;/pre&gt;&lt;ul class="simple"&gt;
 &lt;li&gt;&lt;p&gt;&lt;code class="docutils literal"&gt;&lt;span class="pre"&gt;--pull=true&lt;/span&gt;&lt;/code&gt; : FROM に指定したベースイメージがローカルにすでに存在していても、改めて Docker Hub に取得しにいく&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;↑今やったら使えなかった。最新イメージを再取得するには、どうすればいいんだろう。&lt;/p&gt;&lt;/li&gt;
@@ -2108,21 +2108,21 @@ fufu_db exited with code &lt;span class="m"&gt;1&lt;/span&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;settings に MySQL の設定を書き足す&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;pre class="code python"&gt;&lt;a name="rest_code_62f1c7fbcb0945469b19604de5286e56-1"&gt;&lt;/a&gt;&lt;span class="n"&gt;DATABASES&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-&lt;a name="rest_code_62f1c7fbcb0945469b19604de5286e56-2"&gt;&lt;/a&gt;    &lt;span class="s1"&gt;'default'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-&lt;a name="rest_code_62f1c7fbcb0945469b19604de5286e56-3"&gt;&lt;/a&gt;        &lt;span class="s1"&gt;'ENGINE'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;'django.db.backends.mysql'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;a name="rest_code_62f1c7fbcb0945469b19604de5286e56-4"&gt;&lt;/a&gt;        &lt;span class="s1"&gt;'NAME'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;'fu'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;a name="rest_code_62f1c7fbcb0945469b19604de5286e56-5"&gt;&lt;/a&gt;        &lt;span class="s1"&gt;'USER'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;'fu'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;a name="rest_code_62f1c7fbcb0945469b19604de5286e56-6"&gt;&lt;/a&gt;        &lt;span class="s1"&gt;'PASSWORD'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;'fu'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;a name="rest_code_62f1c7fbcb0945469b19604de5286e56-7"&gt;&lt;/a&gt;        &lt;span class="s1"&gt;'HOST'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;'db'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;a name="rest_code_62f1c7fbcb0945469b19604de5286e56-8"&gt;&lt;/a&gt;        &lt;span class="s1"&gt;'PORT'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;3306&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;a name="rest_code_62f1c7fbcb0945469b19604de5286e56-9"&gt;&lt;/a&gt;    &lt;span class="p"&gt;}&lt;/span&gt;
-&lt;a name="rest_code_62f1c7fbcb0945469b19604de5286e56-10"&gt;&lt;/a&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;pre class="code python"&gt;&lt;a name="rest_code_0120eed24fe54cc4b7d555d5132711f2-1"&gt;&lt;/a&gt;&lt;span class="n"&gt;DATABASES&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;a name="rest_code_0120eed24fe54cc4b7d555d5132711f2-2"&gt;&lt;/a&gt;    &lt;span class="s1"&gt;'default'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;a name="rest_code_0120eed24fe54cc4b7d555d5132711f2-3"&gt;&lt;/a&gt;        &lt;span class="s1"&gt;'ENGINE'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;'django.db.backends.mysql'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;a name="rest_code_0120eed24fe54cc4b7d555d5132711f2-4"&gt;&lt;/a&gt;        &lt;span class="s1"&gt;'NAME'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;'fu'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;a name="rest_code_0120eed24fe54cc4b7d555d5132711f2-5"&gt;&lt;/a&gt;        &lt;span class="s1"&gt;'USER'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;'fu'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;a name="rest_code_0120eed24fe54cc4b7d555d5132711f2-6"&gt;&lt;/a&gt;        &lt;span class="s1"&gt;'PASSWORD'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;'fu'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;a name="rest_code_0120eed24fe54cc4b7d555d5132711f2-7"&gt;&lt;/a&gt;        &lt;span class="s1"&gt;'HOST'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;'db'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;a name="rest_code_0120eed24fe54cc4b7d555d5132711f2-8"&gt;&lt;/a&gt;        &lt;span class="s1"&gt;'PORT'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;3306&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;a name="rest_code_0120eed24fe54cc4b7d555d5132711f2-9"&gt;&lt;/a&gt;    &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;a name="rest_code_0120eed24fe54cc4b7d555d5132711f2-10"&gt;&lt;/a&gt;&lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;docker-compose up して、 web・db コンテナを起動する&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_7bc96b30dee0497280cb56a9acd368f7-1"&gt;&lt;/a&gt;$ docker-compose up
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_158ccc4e8ad244e5bdd6cd0612b139ef-1"&gt;&lt;/a&gt;$ docker-compose up
 &lt;/pre&gt;&lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
@@ -2132,35 +2132,35 @@ fufu_db exited with code &lt;span class="m"&gt;1&lt;/span&gt;
 &lt;ol class="arabic"&gt;
 &lt;li&gt;&lt;p&gt;docker-compose up して mysql・web コンテナを起動する。&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_62bf0db84aa54c5dbf09cb248e380f66-1"&gt;&lt;/a&gt;$ docker-compose up
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_a48e600c9d6c4ce39ccf33c9f768a25e-1"&gt;&lt;/a&gt;$ docker-compose up
 &lt;/pre&gt;&lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;安全にシャットダウン。コンテナの停止と削除。&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_03f8b2d859ef4d72b53b8a2c976de1c0-1"&gt;&lt;/a&gt;$ docker-compose down
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_e41a43cca29842fa9a4ac741f9ee470a-1"&gt;&lt;/a&gt;$ docker-compose down
 &lt;/pre&gt;&lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id6"&gt;
 &lt;span id="config-files"&gt;&lt;/span&gt;&lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/create-django-env-with-docker-compose-mysql/#id16"&gt;ディレクトリ構成&lt;/a&gt;&lt;/h3&gt;
-&lt;pre class="code shell"&gt;&lt;a name="rest_code_3a24205126b94a728e6eef4f7af6703f-1"&gt;&lt;/a&gt;$ tree fu
-&lt;a name="rest_code_3a24205126b94a728e6eef4f7af6703f-2"&gt;&lt;/a&gt;
-&lt;a name="rest_code_3a24205126b94a728e6eef4f7af6703f-3"&gt;&lt;/a&gt;fu
-&lt;a name="rest_code_3a24205126b94a728e6eef4f7af6703f-4"&gt;&lt;/a&gt;├── Dockerfile-mysql
-&lt;a name="rest_code_3a24205126b94a728e6eef4f7af6703f-5"&gt;&lt;/a&gt;├── Dockerfile-web
-&lt;a name="rest_code_3a24205126b94a728e6eef4f7af6703f-6"&gt;&lt;/a&gt;├── docker-compose.yml
-&lt;a name="rest_code_3a24205126b94a728e6eef4f7af6703f-7"&gt;&lt;/a&gt;├── fu
-&lt;a name="rest_code_3a24205126b94a728e6eef4f7af6703f-8"&gt;&lt;/a&gt;│   ├── __init__.py
-&lt;a name="rest_code_3a24205126b94a728e6eef4f7af6703f-9"&gt;&lt;/a&gt;│   ├── urls.py
-&lt;a name="rest_code_3a24205126b94a728e6eef4f7af6703f-10"&gt;&lt;/a&gt;│   └── wsgi.py
-&lt;a name="rest_code_3a24205126b94a728e6eef4f7af6703f-11"&gt;&lt;/a&gt;├── manage.py
-&lt;a name="rest_code_3a24205126b94a728e6eef4f7af6703f-12"&gt;&lt;/a&gt;├── mysql
-&lt;a name="rest_code_3a24205126b94a728e6eef4f7af6703f-13"&gt;&lt;/a&gt;│   └── conf.d
-&lt;a name="rest_code_3a24205126b94a728e6eef4f7af6703f-14"&gt;&lt;/a&gt;│       └── mysql.cnf
-&lt;a name="rest_code_3a24205126b94a728e6eef4f7af6703f-15"&gt;&lt;/a&gt;├── requirements.txt
-&lt;a name="rest_code_3a24205126b94a728e6eef4f7af6703f-16"&gt;&lt;/a&gt;└── settings
-&lt;a name="rest_code_3a24205126b94a728e6eef4f7af6703f-17"&gt;&lt;/a&gt;    └── _.py
+&lt;pre class="code shell"&gt;&lt;a name="rest_code_318ed610d57e4af28ba182391de018ac-1"&gt;&lt;/a&gt;$ tree fu
+&lt;a name="rest_code_318ed610d57e4af28ba182391de018ac-2"&gt;&lt;/a&gt;
+&lt;a name="rest_code_318ed610d57e4af28ba182391de018ac-3"&gt;&lt;/a&gt;fu
+&lt;a name="rest_code_318ed610d57e4af28ba182391de018ac-4"&gt;&lt;/a&gt;├── Dockerfile-mysql
+&lt;a name="rest_code_318ed610d57e4af28ba182391de018ac-5"&gt;&lt;/a&gt;├── Dockerfile-web
+&lt;a name="rest_code_318ed610d57e4af28ba182391de018ac-6"&gt;&lt;/a&gt;├── docker-compose.yml
+&lt;a name="rest_code_318ed610d57e4af28ba182391de018ac-7"&gt;&lt;/a&gt;├── fu
+&lt;a name="rest_code_318ed610d57e4af28ba182391de018ac-8"&gt;&lt;/a&gt;│   ├── __init__.py
+&lt;a name="rest_code_318ed610d57e4af28ba182391de018ac-9"&gt;&lt;/a&gt;│   ├── urls.py
+&lt;a name="rest_code_318ed610d57e4af28ba182391de018ac-10"&gt;&lt;/a&gt;│   └── wsgi.py
+&lt;a name="rest_code_318ed610d57e4af28ba182391de018ac-11"&gt;&lt;/a&gt;├── manage.py
+&lt;a name="rest_code_318ed610d57e4af28ba182391de018ac-12"&gt;&lt;/a&gt;├── mysql
+&lt;a name="rest_code_318ed610d57e4af28ba182391de018ac-13"&gt;&lt;/a&gt;│   └── conf.d
+&lt;a name="rest_code_318ed610d57e4af28ba182391de018ac-14"&gt;&lt;/a&gt;│       └── mysql.cnf
+&lt;a name="rest_code_318ed610d57e4af28ba182391de018ac-15"&gt;&lt;/a&gt;├── requirements.txt
+&lt;a name="rest_code_318ed610d57e4af28ba182391de018ac-16"&gt;&lt;/a&gt;└── settings
+&lt;a name="rest_code_318ed610d57e4af28ba182391de018ac-17"&gt;&lt;/a&gt;    └── _.py
 &lt;/pre&gt;&lt;/div&gt;
 &lt;div class="section" id="id7"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/create-django-env-with-docker-compose-mysql/#id17"&gt;設定ファイル&lt;/a&gt;&lt;/h3&gt;
@@ -2283,8 +2283,8 @@ fufu_db exited with code &lt;span class="m"&gt;1&lt;/span&gt;
 &lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;MySQL デフォルトの設定ファイルは &lt;code class="docutils literal"&gt;/etc/mysql/my.cnf&lt;/code&gt; の模様。 MySQL 公式イメージからコンテナを作成すると、初期状態で &lt;code class="docutils literal"&gt;/etc/mysql/my.cnf&lt;/code&gt; 中に&lt;/p&gt;
-&lt;pre class="code cfg"&gt;&lt;a name="rest_code_018871eca08c497aab9980c6d7876527-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# Custom config should go here&lt;/span&gt;
-&lt;a name="rest_code_018871eca08c497aab9980c6d7876527-2"&gt;&lt;/a&gt;&lt;span class="na"&gt;!includedir /etc/mysql/conf.d/&lt;/span&gt;
+&lt;pre class="code cfg"&gt;&lt;a name="rest_code_d66097a46ea646c19d42cde03609b270-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# Custom config should go here&lt;/span&gt;
+&lt;a name="rest_code_d66097a46ea646c19d42cde03609b270-2"&gt;&lt;/a&gt;&lt;span class="na"&gt;!includedir /etc/mysql/conf.d/&lt;/span&gt;
 &lt;/pre&gt;&lt;p&gt;と書いてあるので、言に従い自分用設定は &lt;code class="docutils literal"&gt;/etc/mysql/conf.d/&lt;/code&gt; に記述した。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -2301,132 +2301,132 @@ fufu_db exited with code &lt;span class="m"&gt;1&lt;/span&gt;
 &lt;li&gt;&lt;p&gt;requirements.txt にライブラリを書き足したとき&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Dockerfile を更新したとき&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_494688d14a344d499bd30bd215b7481f-1"&gt;&lt;/a&gt;$ docker-compose build
-&lt;a name="rest_code_494688d14a344d499bd30bd215b7481f-2"&gt;&lt;/a&gt;$ docker-compose up
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_d24858f7ca37492ca5def025ed3aaa4f-1"&gt;&lt;/a&gt;$ docker-compose build
+&lt;a name="rest_code_d24858f7ca37492ca5def025ed3aaa4f-2"&gt;&lt;/a&gt;$ docker-compose up
 &lt;/pre&gt;&lt;p&gt;もしくは、&lt;/p&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_8118b23bceb34753bdbdbf4cccb2cc89-1"&gt;&lt;/a&gt;$ docker-compose up --build
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_5720302aa98840cebc898c3b3a775b58-1"&gt;&lt;/a&gt;$ docker-compose up --build
 &lt;/pre&gt;&lt;/div&gt;
 &lt;div class="section" id="volume"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/create-django-env-with-docker-compose-mysql/#id20"&gt;volume は消さない限り再利用される&lt;/a&gt;&lt;/h3&gt;
-&lt;pre class="code yaml"&gt;&lt;a name="rest_code_65b385f79bc441cf86dbedf685bfb75c-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# fu/docker-compose.yml&lt;/span&gt;
-&lt;a name="rest_code_65b385f79bc441cf86dbedf685bfb75c-2"&gt;&lt;/a&gt;
-&lt;a name="rest_code_65b385f79bc441cf86dbedf685bfb75c-3"&gt;&lt;/a&gt;&lt;span class="nt"&gt;volumes&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-&lt;a name="rest_code_65b385f79bc441cf86dbedf685bfb75c-4"&gt;&lt;/a&gt;  &lt;span class="nt"&gt;db-data&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-&lt;/pre&gt;&lt;pre class="code bash"&gt;&lt;a name="rest_code_5b763780d44f49b389a2016b89f2119e-1"&gt;&lt;/a&gt;$ docker volume ls
-&lt;a name="rest_code_5b763780d44f49b389a2016b89f2119e-2"&gt;&lt;/a&gt;DRIVER              VOLUME NAME
-&lt;a name="rest_code_5b763780d44f49b389a2016b89f2119e-3"&gt;&lt;/a&gt;&lt;span class="nb"&gt;local&lt;/span&gt;               fu_db-data  &lt;span class="c1"&gt;# こういう名前がついている&lt;/span&gt;
+&lt;pre class="code yaml"&gt;&lt;a name="rest_code_6901c05859784317b4bd17d3d93ded5d-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# fu/docker-compose.yml&lt;/span&gt;
+&lt;a name="rest_code_6901c05859784317b4bd17d3d93ded5d-2"&gt;&lt;/a&gt;
+&lt;a name="rest_code_6901c05859784317b4bd17d3d93ded5d-3"&gt;&lt;/a&gt;&lt;span class="nt"&gt;volumes&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;a name="rest_code_6901c05859784317b4bd17d3d93ded5d-4"&gt;&lt;/a&gt;  &lt;span class="nt"&gt;db-data&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;/pre&gt;&lt;pre class="code bash"&gt;&lt;a name="rest_code_5bbb4aec4c7a44c8920fcac9189bc973-1"&gt;&lt;/a&gt;$ docker volume ls
+&lt;a name="rest_code_5bbb4aec4c7a44c8920fcac9189bc973-2"&gt;&lt;/a&gt;DRIVER              VOLUME NAME
+&lt;a name="rest_code_5bbb4aec4c7a44c8920fcac9189bc973-3"&gt;&lt;/a&gt;&lt;span class="nb"&gt;local&lt;/span&gt;               fu_db-data  &lt;span class="c1"&gt;# こういう名前がついている&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;div class="section" id="web"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/create-django-env-with-docker-compose-mysql/#id21"&gt;web のほうのコンテナだけ再起動したいとき&lt;/a&gt;&lt;/h3&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_2ed5f843277a4c43859134eb89e4b278-1"&gt;&lt;/a&gt;$ docker container restart fu_web
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_d11f07e5dd194dce92b1ddd03572d264-1"&gt;&lt;/a&gt;$ docker container restart fu_web
 &lt;/pre&gt;&lt;/div&gt;
 &lt;div class="section" id="id10"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/create-django-env-with-docker-compose-mysql/#id22"&gt;web のほうのコンテナに入る&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;VM の中に入るのと同じような気持ち。&lt;/p&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_124eda5f67b24051bd24960ba4bdc0da-1"&gt;&lt;/a&gt;$ docker container &lt;span class="nb"&gt;exec&lt;/span&gt; -it fu_web bash
-&lt;a name="rest_code_124eda5f67b24051bd24960ba4bdc0da-2"&gt;&lt;/a&gt;root@eb1ab9a6dbdb:/code#
-&lt;a name="rest_code_124eda5f67b24051bd24960ba4bdc0da-3"&gt;&lt;/a&gt;
-&lt;a name="rest_code_124eda5f67b24051bd24960ba4bdc0da-4"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 現在のロケール設定を確認する&lt;/span&gt;
-&lt;a name="rest_code_124eda5f67b24051bd24960ba4bdc0da-5"&gt;&lt;/a&gt;root@eb1ab9a6dbdb:/code# locale
-&lt;a name="rest_code_124eda5f67b24051bd24960ba4bdc0da-6"&gt;&lt;/a&gt;&lt;span class="nv"&gt;LANG&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;C.UTF-8
-&lt;a name="rest_code_124eda5f67b24051bd24960ba4bdc0da-7"&gt;&lt;/a&gt;&lt;span class="nv"&gt;LANGUAGE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;
-&lt;a name="rest_code_124eda5f67b24051bd24960ba4bdc0da-8"&gt;&lt;/a&gt;&lt;span class="nv"&gt;LC_CTYPE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"C.UTF-8"&lt;/span&gt;
-&lt;a name="rest_code_124eda5f67b24051bd24960ba4bdc0da-9"&gt;&lt;/a&gt;&lt;span class="nv"&gt;LC_NUMERIC&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"C.UTF-8"&lt;/span&gt;
-&lt;a name="rest_code_124eda5f67b24051bd24960ba4bdc0da-10"&gt;&lt;/a&gt;&lt;span class="nv"&gt;LC_TIME&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"C.UTF-8"&lt;/span&gt;
-&lt;a name="rest_code_124eda5f67b24051bd24960ba4bdc0da-11"&gt;&lt;/a&gt;&lt;span class="nv"&gt;LC_COLLATE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"C.UTF-8"&lt;/span&gt;
-&lt;a name="rest_code_124eda5f67b24051bd24960ba4bdc0da-12"&gt;&lt;/a&gt;&lt;span class="nv"&gt;LC_MONETARY&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"C.UTF-8"&lt;/span&gt;
-&lt;a name="rest_code_124eda5f67b24051bd24960ba4bdc0da-13"&gt;&lt;/a&gt;&lt;span class="nv"&gt;LC_MESSAGES&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"C.UTF-8"&lt;/span&gt;
-&lt;a name="rest_code_124eda5f67b24051bd24960ba4bdc0da-14"&gt;&lt;/a&gt;&lt;span class="nv"&gt;LC_PAPER&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"C.UTF-8"&lt;/span&gt;
-&lt;a name="rest_code_124eda5f67b24051bd24960ba4bdc0da-15"&gt;&lt;/a&gt;&lt;span class="nv"&gt;LC_NAME&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"C.UTF-8"&lt;/span&gt;
-&lt;a name="rest_code_124eda5f67b24051bd24960ba4bdc0da-16"&gt;&lt;/a&gt;&lt;span class="nv"&gt;LC_ADDRESS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"C.UTF-8"&lt;/span&gt;
-&lt;a name="rest_code_124eda5f67b24051bd24960ba4bdc0da-17"&gt;&lt;/a&gt;&lt;span class="nv"&gt;LC_TELEPHONE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"C.UTF-8"&lt;/span&gt;
-&lt;a name="rest_code_124eda5f67b24051bd24960ba4bdc0da-18"&gt;&lt;/a&gt;&lt;span class="nv"&gt;LC_MEASUREMENT&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"C.UTF-8"&lt;/span&gt;
-&lt;a name="rest_code_124eda5f67b24051bd24960ba4bdc0da-19"&gt;&lt;/a&gt;&lt;span class="nv"&gt;LC_IDENTIFICATION&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"C.UTF-8"&lt;/span&gt;
-&lt;a name="rest_code_124eda5f67b24051bd24960ba4bdc0da-20"&gt;&lt;/a&gt;&lt;span class="nv"&gt;LC_ALL&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_400d4e2f0485438db1abb7439b6eda50-1"&gt;&lt;/a&gt;$ docker container &lt;span class="nb"&gt;exec&lt;/span&gt; -it fu_web bash
+&lt;a name="rest_code_400d4e2f0485438db1abb7439b6eda50-2"&gt;&lt;/a&gt;root@eb1ab9a6dbdb:/code#
+&lt;a name="rest_code_400d4e2f0485438db1abb7439b6eda50-3"&gt;&lt;/a&gt;
+&lt;a name="rest_code_400d4e2f0485438db1abb7439b6eda50-4"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 現在のロケール設定を確認する&lt;/span&gt;
+&lt;a name="rest_code_400d4e2f0485438db1abb7439b6eda50-5"&gt;&lt;/a&gt;root@eb1ab9a6dbdb:/code# locale
+&lt;a name="rest_code_400d4e2f0485438db1abb7439b6eda50-6"&gt;&lt;/a&gt;&lt;span class="nv"&gt;LANG&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;C.UTF-8
+&lt;a name="rest_code_400d4e2f0485438db1abb7439b6eda50-7"&gt;&lt;/a&gt;&lt;span class="nv"&gt;LANGUAGE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;
+&lt;a name="rest_code_400d4e2f0485438db1abb7439b6eda50-8"&gt;&lt;/a&gt;&lt;span class="nv"&gt;LC_CTYPE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"C.UTF-8"&lt;/span&gt;
+&lt;a name="rest_code_400d4e2f0485438db1abb7439b6eda50-9"&gt;&lt;/a&gt;&lt;span class="nv"&gt;LC_NUMERIC&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"C.UTF-8"&lt;/span&gt;
+&lt;a name="rest_code_400d4e2f0485438db1abb7439b6eda50-10"&gt;&lt;/a&gt;&lt;span class="nv"&gt;LC_TIME&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"C.UTF-8"&lt;/span&gt;
+&lt;a name="rest_code_400d4e2f0485438db1abb7439b6eda50-11"&gt;&lt;/a&gt;&lt;span class="nv"&gt;LC_COLLATE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"C.UTF-8"&lt;/span&gt;
+&lt;a name="rest_code_400d4e2f0485438db1abb7439b6eda50-12"&gt;&lt;/a&gt;&lt;span class="nv"&gt;LC_MONETARY&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"C.UTF-8"&lt;/span&gt;
+&lt;a name="rest_code_400d4e2f0485438db1abb7439b6eda50-13"&gt;&lt;/a&gt;&lt;span class="nv"&gt;LC_MESSAGES&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"C.UTF-8"&lt;/span&gt;
+&lt;a name="rest_code_400d4e2f0485438db1abb7439b6eda50-14"&gt;&lt;/a&gt;&lt;span class="nv"&gt;LC_PAPER&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"C.UTF-8"&lt;/span&gt;
+&lt;a name="rest_code_400d4e2f0485438db1abb7439b6eda50-15"&gt;&lt;/a&gt;&lt;span class="nv"&gt;LC_NAME&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"C.UTF-8"&lt;/span&gt;
+&lt;a name="rest_code_400d4e2f0485438db1abb7439b6eda50-16"&gt;&lt;/a&gt;&lt;span class="nv"&gt;LC_ADDRESS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"C.UTF-8"&lt;/span&gt;
+&lt;a name="rest_code_400d4e2f0485438db1abb7439b6eda50-17"&gt;&lt;/a&gt;&lt;span class="nv"&gt;LC_TELEPHONE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"C.UTF-8"&lt;/span&gt;
+&lt;a name="rest_code_400d4e2f0485438db1abb7439b6eda50-18"&gt;&lt;/a&gt;&lt;span class="nv"&gt;LC_MEASUREMENT&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"C.UTF-8"&lt;/span&gt;
+&lt;a name="rest_code_400d4e2f0485438db1abb7439b6eda50-19"&gt;&lt;/a&gt;&lt;span class="nv"&gt;LC_IDENTIFICATION&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"C.UTF-8"&lt;/span&gt;
+&lt;a name="rest_code_400d4e2f0485438db1abb7439b6eda50-20"&gt;&lt;/a&gt;&lt;span class="nv"&gt;LC_ALL&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;div class="section" id="mysql"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/create-django-env-with-docker-compose-mysql/#id23"&gt;mysql のほうのコンテナに入る&lt;/a&gt;&lt;/h3&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_e83fc6d904294199a5ee9250f8fd844d-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# mysql のコンテナに入る&lt;/span&gt;
-&lt;a name="rest_code_e83fc6d904294199a5ee9250f8fd844d-2"&gt;&lt;/a&gt;$ docker container &lt;span class="nb"&gt;exec&lt;/span&gt; -it fu_db bash
-&lt;a name="rest_code_e83fc6d904294199a5ee9250f8fd844d-3"&gt;&lt;/a&gt;
-&lt;a name="rest_code_e83fc6d904294199a5ee9250f8fd844d-4"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 現在のロケール設定を確認する&lt;/span&gt;
-&lt;a name="rest_code_e83fc6d904294199a5ee9250f8fd844d-5"&gt;&lt;/a&gt;root@dcc8b4d2cd21:/# locale
-&lt;a name="rest_code_e83fc6d904294199a5ee9250f8fd844d-6"&gt;&lt;/a&gt;&lt;span class="nv"&gt;LANG&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;ja_JP.UTF-8
-&lt;a name="rest_code_e83fc6d904294199a5ee9250f8fd844d-7"&gt;&lt;/a&gt;&lt;span class="nv"&gt;LANGUAGE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;ja_JP:en
-&lt;a name="rest_code_e83fc6d904294199a5ee9250f8fd844d-8"&gt;&lt;/a&gt;&lt;span class="nv"&gt;LC_CTYPE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"ja_JP.UTF-8"&lt;/span&gt;
-&lt;a name="rest_code_e83fc6d904294199a5ee9250f8fd844d-9"&gt;&lt;/a&gt;&lt;span class="nv"&gt;LC_NUMERIC&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"ja_JP.UTF-8"&lt;/span&gt;
-&lt;a name="rest_code_e83fc6d904294199a5ee9250f8fd844d-10"&gt;&lt;/a&gt;&lt;span class="nv"&gt;LC_TIME&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"ja_JP.UTF-8"&lt;/span&gt;
-&lt;a name="rest_code_e83fc6d904294199a5ee9250f8fd844d-11"&gt;&lt;/a&gt;&lt;span class="nv"&gt;LC_COLLATE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"ja_JP.UTF-8"&lt;/span&gt;
-&lt;a name="rest_code_e83fc6d904294199a5ee9250f8fd844d-12"&gt;&lt;/a&gt;&lt;span class="nv"&gt;LC_MONETARY&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"ja_JP.UTF-8"&lt;/span&gt;
-&lt;a name="rest_code_e83fc6d904294199a5ee9250f8fd844d-13"&gt;&lt;/a&gt;&lt;span class="nv"&gt;LC_MESSAGES&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"ja_JP.UTF-8"&lt;/span&gt;
-&lt;a name="rest_code_e83fc6d904294199a5ee9250f8fd844d-14"&gt;&lt;/a&gt;&lt;span class="nv"&gt;LC_PAPER&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"ja_JP.UTF-8"&lt;/span&gt;
-&lt;a name="rest_code_e83fc6d904294199a5ee9250f8fd844d-15"&gt;&lt;/a&gt;&lt;span class="nv"&gt;LC_NAME&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"ja_JP.UTF-8"&lt;/span&gt;
-&lt;a name="rest_code_e83fc6d904294199a5ee9250f8fd844d-16"&gt;&lt;/a&gt;&lt;span class="nv"&gt;LC_ADDRESS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"ja_JP.UTF-8"&lt;/span&gt;
-&lt;a name="rest_code_e83fc6d904294199a5ee9250f8fd844d-17"&gt;&lt;/a&gt;&lt;span class="nv"&gt;LC_TELEPHONE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"ja_JP.UTF-8"&lt;/span&gt;
-&lt;a name="rest_code_e83fc6d904294199a5ee9250f8fd844d-18"&gt;&lt;/a&gt;&lt;span class="nv"&gt;LC_MEASUREMENT&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"ja_JP.UTF-8"&lt;/span&gt;
-&lt;a name="rest_code_e83fc6d904294199a5ee9250f8fd844d-19"&gt;&lt;/a&gt;&lt;span class="nv"&gt;LC_IDENTIFICATION&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"ja_JP.UTF-8"&lt;/span&gt;
-&lt;a name="rest_code_e83fc6d904294199a5ee9250f8fd844d-20"&gt;&lt;/a&gt;&lt;span class="nv"&gt;LC_ALL&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;ja_JP.UTF-8
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_61122ad1f7ca47feaf4ec7c9e7c3ec1e-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# mysql のコンテナに入る&lt;/span&gt;
+&lt;a name="rest_code_61122ad1f7ca47feaf4ec7c9e7c3ec1e-2"&gt;&lt;/a&gt;$ docker container &lt;span class="nb"&gt;exec&lt;/span&gt; -it fu_db bash
+&lt;a name="rest_code_61122ad1f7ca47feaf4ec7c9e7c3ec1e-3"&gt;&lt;/a&gt;
+&lt;a name="rest_code_61122ad1f7ca47feaf4ec7c9e7c3ec1e-4"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 現在のロケール設定を確認する&lt;/span&gt;
+&lt;a name="rest_code_61122ad1f7ca47feaf4ec7c9e7c3ec1e-5"&gt;&lt;/a&gt;root@dcc8b4d2cd21:/# locale
+&lt;a name="rest_code_61122ad1f7ca47feaf4ec7c9e7c3ec1e-6"&gt;&lt;/a&gt;&lt;span class="nv"&gt;LANG&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;ja_JP.UTF-8
+&lt;a name="rest_code_61122ad1f7ca47feaf4ec7c9e7c3ec1e-7"&gt;&lt;/a&gt;&lt;span class="nv"&gt;LANGUAGE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;ja_JP:en
+&lt;a name="rest_code_61122ad1f7ca47feaf4ec7c9e7c3ec1e-8"&gt;&lt;/a&gt;&lt;span class="nv"&gt;LC_CTYPE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"ja_JP.UTF-8"&lt;/span&gt;
+&lt;a name="rest_code_61122ad1f7ca47feaf4ec7c9e7c3ec1e-9"&gt;&lt;/a&gt;&lt;span class="nv"&gt;LC_NUMERIC&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"ja_JP.UTF-8"&lt;/span&gt;
+&lt;a name="rest_code_61122ad1f7ca47feaf4ec7c9e7c3ec1e-10"&gt;&lt;/a&gt;&lt;span class="nv"&gt;LC_TIME&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"ja_JP.UTF-8"&lt;/span&gt;
+&lt;a name="rest_code_61122ad1f7ca47feaf4ec7c9e7c3ec1e-11"&gt;&lt;/a&gt;&lt;span class="nv"&gt;LC_COLLATE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"ja_JP.UTF-8"&lt;/span&gt;
+&lt;a name="rest_code_61122ad1f7ca47feaf4ec7c9e7c3ec1e-12"&gt;&lt;/a&gt;&lt;span class="nv"&gt;LC_MONETARY&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"ja_JP.UTF-8"&lt;/span&gt;
+&lt;a name="rest_code_61122ad1f7ca47feaf4ec7c9e7c3ec1e-13"&gt;&lt;/a&gt;&lt;span class="nv"&gt;LC_MESSAGES&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"ja_JP.UTF-8"&lt;/span&gt;
+&lt;a name="rest_code_61122ad1f7ca47feaf4ec7c9e7c3ec1e-14"&gt;&lt;/a&gt;&lt;span class="nv"&gt;LC_PAPER&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"ja_JP.UTF-8"&lt;/span&gt;
+&lt;a name="rest_code_61122ad1f7ca47feaf4ec7c9e7c3ec1e-15"&gt;&lt;/a&gt;&lt;span class="nv"&gt;LC_NAME&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"ja_JP.UTF-8"&lt;/span&gt;
+&lt;a name="rest_code_61122ad1f7ca47feaf4ec7c9e7c3ec1e-16"&gt;&lt;/a&gt;&lt;span class="nv"&gt;LC_ADDRESS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"ja_JP.UTF-8"&lt;/span&gt;
+&lt;a name="rest_code_61122ad1f7ca47feaf4ec7c9e7c3ec1e-17"&gt;&lt;/a&gt;&lt;span class="nv"&gt;LC_TELEPHONE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"ja_JP.UTF-8"&lt;/span&gt;
+&lt;a name="rest_code_61122ad1f7ca47feaf4ec7c9e7c3ec1e-18"&gt;&lt;/a&gt;&lt;span class="nv"&gt;LC_MEASUREMENT&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"ja_JP.UTF-8"&lt;/span&gt;
+&lt;a name="rest_code_61122ad1f7ca47feaf4ec7c9e7c3ec1e-19"&gt;&lt;/a&gt;&lt;span class="nv"&gt;LC_IDENTIFICATION&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"ja_JP.UTF-8"&lt;/span&gt;
+&lt;a name="rest_code_61122ad1f7ca47feaf4ec7c9e7c3ec1e-20"&gt;&lt;/a&gt;&lt;span class="nv"&gt;LC_ALL&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;ja_JP.UTF-8
 &lt;/pre&gt;&lt;/div&gt;
 &lt;div class="section" id="id11"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/create-django-env-with-docker-compose-mysql/#id24"&gt;mysql に入る&lt;/a&gt;&lt;/h3&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_146c782357504d5c8753333a3f2d1185-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# mysql のコンテナに入る&lt;/span&gt;
-&lt;a name="rest_code_146c782357504d5c8753333a3f2d1185-2"&gt;&lt;/a&gt;$ docker container &lt;span class="nb"&gt;exec&lt;/span&gt; -it fu_db bash
-&lt;a name="rest_code_146c782357504d5c8753333a3f2d1185-3"&gt;&lt;/a&gt;root@6ba1661872de:/#
-&lt;a name="rest_code_146c782357504d5c8753333a3f2d1185-4"&gt;&lt;/a&gt;
-&lt;a name="rest_code_146c782357504d5c8753333a3f2d1185-5"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# mysql にログインする&lt;/span&gt;
-&lt;a name="rest_code_146c782357504d5c8753333a3f2d1185-6"&gt;&lt;/a&gt;$ mysql -h localhost -u fu -p fu
-&lt;a name="rest_code_146c782357504d5c8753333a3f2d1185-7"&gt;&lt;/a&gt;
-&lt;a name="rest_code_146c782357504d5c8753333a3f2d1185-8"&gt;&lt;/a&gt;Enter password: &lt;span class="o"&gt;(&lt;/span&gt;compose ファイルに定義したパスワード&lt;span class="o"&gt;)&lt;/span&gt;
-&lt;a name="rest_code_146c782357504d5c8753333a3f2d1185-9"&gt;&lt;/a&gt;
-&lt;a name="rest_code_146c782357504d5c8753333a3f2d1185-10"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 現在の Character Sets 設定を表示する&lt;/span&gt;
-&lt;a name="rest_code_146c782357504d5c8753333a3f2d1185-11"&gt;&lt;/a&gt;mysql&amp;gt; SHOW VARIABLES LIKE &lt;span class="s2"&gt;"char%"&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;a name="rest_code_146c782357504d5c8753333a3f2d1185-12"&gt;&lt;/a&gt;+--------------------------+--------------------------------+
-&lt;a name="rest_code_146c782357504d5c8753333a3f2d1185-13"&gt;&lt;/a&gt;&lt;span class="p"&gt;|&lt;/span&gt; Variable_name            &lt;span class="p"&gt;|&lt;/span&gt; Value                          &lt;span class="p"&gt;|&lt;/span&gt;
-&lt;a name="rest_code_146c782357504d5c8753333a3f2d1185-14"&gt;&lt;/a&gt;+--------------------------+--------------------------------+
-&lt;a name="rest_code_146c782357504d5c8753333a3f2d1185-15"&gt;&lt;/a&gt;&lt;span class="p"&gt;|&lt;/span&gt; character_set_client     &lt;span class="p"&gt;|&lt;/span&gt; utf8mb4                        &lt;span class="p"&gt;|&lt;/span&gt;
-&lt;a name="rest_code_146c782357504d5c8753333a3f2d1185-16"&gt;&lt;/a&gt;&lt;span class="p"&gt;|&lt;/span&gt; character_set_connection &lt;span class="p"&gt;|&lt;/span&gt; utf8mb4                        &lt;span class="p"&gt;|&lt;/span&gt;
-&lt;a name="rest_code_146c782357504d5c8753333a3f2d1185-17"&gt;&lt;/a&gt;&lt;span class="p"&gt;|&lt;/span&gt; character_set_database   &lt;span class="p"&gt;|&lt;/span&gt; utf8mb4                        &lt;span class="p"&gt;|&lt;/span&gt;
-&lt;a name="rest_code_146c782357504d5c8753333a3f2d1185-18"&gt;&lt;/a&gt;&lt;span class="p"&gt;|&lt;/span&gt; character_set_filesystem &lt;span class="p"&gt;|&lt;/span&gt; binary                         &lt;span class="p"&gt;|&lt;/span&gt;
-&lt;a name="rest_code_146c782357504d5c8753333a3f2d1185-19"&gt;&lt;/a&gt;&lt;span class="p"&gt;|&lt;/span&gt; character_set_results    &lt;span class="p"&gt;|&lt;/span&gt; utf8mb4                        &lt;span class="p"&gt;|&lt;/span&gt;
-&lt;a name="rest_code_146c782357504d5c8753333a3f2d1185-20"&gt;&lt;/a&gt;&lt;span class="p"&gt;|&lt;/span&gt; character_set_server     &lt;span class="p"&gt;|&lt;/span&gt; utf8mb4                        &lt;span class="p"&gt;|&lt;/span&gt;
-&lt;a name="rest_code_146c782357504d5c8753333a3f2d1185-21"&gt;&lt;/a&gt;&lt;span class="p"&gt;|&lt;/span&gt; character_set_system     &lt;span class="p"&gt;|&lt;/span&gt; utf8                           &lt;span class="p"&gt;|&lt;/span&gt;
-&lt;a name="rest_code_146c782357504d5c8753333a3f2d1185-22"&gt;&lt;/a&gt;&lt;span class="p"&gt;|&lt;/span&gt; character_sets_dir       &lt;span class="p"&gt;|&lt;/span&gt; /usr/share/mysql-8.0/charsets/ &lt;span class="p"&gt;|&lt;/span&gt;
-&lt;a name="rest_code_146c782357504d5c8753333a3f2d1185-23"&gt;&lt;/a&gt;+--------------------------+--------------------------------+
-&lt;a name="rest_code_146c782357504d5c8753333a3f2d1185-24"&gt;&lt;/a&gt;&lt;span class="m"&gt;8&lt;/span&gt; rows in &lt;span class="nb"&gt;set&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;.01 sec&lt;span class="o"&gt;)&lt;/span&gt;
-&lt;a name="rest_code_146c782357504d5c8753333a3f2d1185-25"&gt;&lt;/a&gt;
-&lt;a name="rest_code_146c782357504d5c8753333a3f2d1185-26"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 現在のタイムゾーン設定を表示する&lt;/span&gt;
-&lt;a name="rest_code_146c782357504d5c8753333a3f2d1185-27"&gt;&lt;/a&gt;mysql&amp;gt; SHOW VARIABLES LIKE &lt;span class="s1"&gt;'%time_zone%'&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;a name="rest_code_146c782357504d5c8753333a3f2d1185-28"&gt;&lt;/a&gt;+------------------+------------+
-&lt;a name="rest_code_146c782357504d5c8753333a3f2d1185-29"&gt;&lt;/a&gt;&lt;span class="p"&gt;|&lt;/span&gt; Variable_name    &lt;span class="p"&gt;|&lt;/span&gt; Value      &lt;span class="p"&gt;|&lt;/span&gt;
-&lt;a name="rest_code_146c782357504d5c8753333a3f2d1185-30"&gt;&lt;/a&gt;+------------------+------------+
-&lt;a name="rest_code_146c782357504d5c8753333a3f2d1185-31"&gt;&lt;/a&gt;&lt;span class="p"&gt;|&lt;/span&gt; system_time_zone &lt;span class="p"&gt;|&lt;/span&gt; JST        &lt;span class="p"&gt;|&lt;/span&gt;  &lt;span class="c1"&gt;# MySQL が動いているコンテナ (Debian) のシステムタイムゾーン、Dockerfile-mysql で設定した&lt;/span&gt;
-&lt;a name="rest_code_146c782357504d5c8753333a3f2d1185-32"&gt;&lt;/a&gt;&lt;span class="p"&gt;|&lt;/span&gt; time_zone        &lt;span class="p"&gt;|&lt;/span&gt; Asia/Tokyo &lt;span class="p"&gt;|&lt;/span&gt;  &lt;span class="c1"&gt;# mysql.cnf で設定した MySQL サーバー側のタイムゾーン&lt;/span&gt;
-&lt;a name="rest_code_146c782357504d5c8753333a3f2d1185-33"&gt;&lt;/a&gt;+------------------+------------+
-&lt;a name="rest_code_146c782357504d5c8753333a3f2d1185-34"&gt;&lt;/a&gt;&lt;span class="m"&gt;2&lt;/span&gt; rows in &lt;span class="nb"&gt;set&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;.01 sec&lt;span class="o"&gt;)&lt;/span&gt;
-&lt;a name="rest_code_146c782357504d5c8753333a3f2d1185-35"&gt;&lt;/a&gt;
-&lt;a name="rest_code_146c782357504d5c8753333a3f2d1185-36"&gt;&lt;/a&gt;mysql&amp;gt; status
-&lt;a name="rest_code_146c782357504d5c8753333a3f2d1185-37"&gt;&lt;/a&gt;--------------
-&lt;a name="rest_code_146c782357504d5c8753333a3f2d1185-38"&gt;&lt;/a&gt;mysql  Ver &lt;span class="m"&gt;8&lt;/span&gt;.0.13 &lt;span class="k"&gt;for&lt;/span&gt; Linux on x86_64 &lt;span class="o"&gt;(&lt;/span&gt;MySQL Community Server - GPL&lt;span class="o"&gt;)&lt;/span&gt;
-&lt;a name="rest_code_146c782357504d5c8753333a3f2d1185-39"&gt;&lt;/a&gt;
-&lt;a name="rest_code_146c782357504d5c8753333a3f2d1185-40"&gt;&lt;/a&gt;Connection id:                &lt;span class="m"&gt;11&lt;/span&gt;
-&lt;a name="rest_code_146c782357504d5c8753333a3f2d1185-41"&gt;&lt;/a&gt;Current database:     fu
-&lt;a name="rest_code_146c782357504d5c8753333a3f2d1185-42"&gt;&lt;/a&gt;Current user:         fu@localhost
-&lt;a name="rest_code_146c782357504d5c8753333a3f2d1185-43"&gt;&lt;/a&gt;SSL:                  Not in use
-&lt;a name="rest_code_146c782357504d5c8753333a3f2d1185-44"&gt;&lt;/a&gt;Current pager:                stdout
-&lt;a name="rest_code_146c782357504d5c8753333a3f2d1185-45"&gt;&lt;/a&gt;Using outfile:                &lt;span class="s1"&gt;''&lt;/span&gt;
-&lt;a name="rest_code_146c782357504d5c8753333a3f2d1185-46"&gt;&lt;/a&gt;Using delimiter:      &lt;span class="p"&gt;;&lt;/span&gt;
-&lt;a name="rest_code_146c782357504d5c8753333a3f2d1185-47"&gt;&lt;/a&gt;Server version:               &lt;span class="m"&gt;8&lt;/span&gt;.0.13 MySQL Community Server - GPL
-&lt;a name="rest_code_146c782357504d5c8753333a3f2d1185-48"&gt;&lt;/a&gt;Protocol version:     &lt;span class="m"&gt;10&lt;/span&gt;
-&lt;a name="rest_code_146c782357504d5c8753333a3f2d1185-49"&gt;&lt;/a&gt;Connection:           Localhost via UNIX socket
-&lt;a name="rest_code_146c782357504d5c8753333a3f2d1185-50"&gt;&lt;/a&gt;Server characterset:  utf8mb4
-&lt;a name="rest_code_146c782357504d5c8753333a3f2d1185-51"&gt;&lt;/a&gt;Db     characterset:  utf8mb4
-&lt;a name="rest_code_146c782357504d5c8753333a3f2d1185-52"&gt;&lt;/a&gt;Client characterset:  utf8mb4
-&lt;a name="rest_code_146c782357504d5c8753333a3f2d1185-53"&gt;&lt;/a&gt;Conn.  characterset:  utf8mb4
-&lt;a name="rest_code_146c782357504d5c8753333a3f2d1185-54"&gt;&lt;/a&gt;UNIX socket:          /var/run/mysqld/mysqld.sock
-&lt;a name="rest_code_146c782357504d5c8753333a3f2d1185-55"&gt;&lt;/a&gt;Uptime:                       &lt;span class="m"&gt;2&lt;/span&gt; hours &lt;span class="m"&gt;9&lt;/span&gt; min &lt;span class="m"&gt;49&lt;/span&gt; sec
-&lt;a name="rest_code_146c782357504d5c8753333a3f2d1185-56"&gt;&lt;/a&gt;
-&lt;a name="rest_code_146c782357504d5c8753333a3f2d1185-57"&gt;&lt;/a&gt;Threads: &lt;span class="m"&gt;3&lt;/span&gt;  Questions: &lt;span class="m"&gt;40&lt;/span&gt;  Slow queries: &lt;span class="m"&gt;0&lt;/span&gt;  Opens: &lt;span class="m"&gt;189&lt;/span&gt;  Flush tables: &lt;span class="m"&gt;2&lt;/span&gt;  Open tables: &lt;span class="m"&gt;163&lt;/span&gt;  Queries per second avg: &lt;span class="m"&gt;0&lt;/span&gt;.005
-&lt;a name="rest_code_146c782357504d5c8753333a3f2d1185-58"&gt;&lt;/a&gt;--------------
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_ea6d8a274d7d41f58ae7c33624a564dc-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# mysql のコンテナに入る&lt;/span&gt;
+&lt;a name="rest_code_ea6d8a274d7d41f58ae7c33624a564dc-2"&gt;&lt;/a&gt;$ docker container &lt;span class="nb"&gt;exec&lt;/span&gt; -it fu_db bash
+&lt;a name="rest_code_ea6d8a274d7d41f58ae7c33624a564dc-3"&gt;&lt;/a&gt;root@6ba1661872de:/#
+&lt;a name="rest_code_ea6d8a274d7d41f58ae7c33624a564dc-4"&gt;&lt;/a&gt;
+&lt;a name="rest_code_ea6d8a274d7d41f58ae7c33624a564dc-5"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# mysql にログインする&lt;/span&gt;
+&lt;a name="rest_code_ea6d8a274d7d41f58ae7c33624a564dc-6"&gt;&lt;/a&gt;$ mysql -h localhost -u fu -p fu
+&lt;a name="rest_code_ea6d8a274d7d41f58ae7c33624a564dc-7"&gt;&lt;/a&gt;
+&lt;a name="rest_code_ea6d8a274d7d41f58ae7c33624a564dc-8"&gt;&lt;/a&gt;Enter password: &lt;span class="o"&gt;(&lt;/span&gt;compose ファイルに定義したパスワード&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_ea6d8a274d7d41f58ae7c33624a564dc-9"&gt;&lt;/a&gt;
+&lt;a name="rest_code_ea6d8a274d7d41f58ae7c33624a564dc-10"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 現在の Character Sets 設定を表示する&lt;/span&gt;
+&lt;a name="rest_code_ea6d8a274d7d41f58ae7c33624a564dc-11"&gt;&lt;/a&gt;mysql&amp;gt; SHOW VARIABLES LIKE &lt;span class="s2"&gt;"char%"&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;a name="rest_code_ea6d8a274d7d41f58ae7c33624a564dc-12"&gt;&lt;/a&gt;+--------------------------+--------------------------------+
+&lt;a name="rest_code_ea6d8a274d7d41f58ae7c33624a564dc-13"&gt;&lt;/a&gt;&lt;span class="p"&gt;|&lt;/span&gt; Variable_name            &lt;span class="p"&gt;|&lt;/span&gt; Value                          &lt;span class="p"&gt;|&lt;/span&gt;
+&lt;a name="rest_code_ea6d8a274d7d41f58ae7c33624a564dc-14"&gt;&lt;/a&gt;+--------------------------+--------------------------------+
+&lt;a name="rest_code_ea6d8a274d7d41f58ae7c33624a564dc-15"&gt;&lt;/a&gt;&lt;span class="p"&gt;|&lt;/span&gt; character_set_client     &lt;span class="p"&gt;|&lt;/span&gt; utf8mb4                        &lt;span class="p"&gt;|&lt;/span&gt;
+&lt;a name="rest_code_ea6d8a274d7d41f58ae7c33624a564dc-16"&gt;&lt;/a&gt;&lt;span class="p"&gt;|&lt;/span&gt; character_set_connection &lt;span class="p"&gt;|&lt;/span&gt; utf8mb4                        &lt;span class="p"&gt;|&lt;/span&gt;
+&lt;a name="rest_code_ea6d8a274d7d41f58ae7c33624a564dc-17"&gt;&lt;/a&gt;&lt;span class="p"&gt;|&lt;/span&gt; character_set_database   &lt;span class="p"&gt;|&lt;/span&gt; utf8mb4                        &lt;span class="p"&gt;|&lt;/span&gt;
+&lt;a name="rest_code_ea6d8a274d7d41f58ae7c33624a564dc-18"&gt;&lt;/a&gt;&lt;span class="p"&gt;|&lt;/span&gt; character_set_filesystem &lt;span class="p"&gt;|&lt;/span&gt; binary                         &lt;span class="p"&gt;|&lt;/span&gt;
+&lt;a name="rest_code_ea6d8a274d7d41f58ae7c33624a564dc-19"&gt;&lt;/a&gt;&lt;span class="p"&gt;|&lt;/span&gt; character_set_results    &lt;span class="p"&gt;|&lt;/span&gt; utf8mb4                        &lt;span class="p"&gt;|&lt;/span&gt;
+&lt;a name="rest_code_ea6d8a274d7d41f58ae7c33624a564dc-20"&gt;&lt;/a&gt;&lt;span class="p"&gt;|&lt;/span&gt; character_set_server     &lt;span class="p"&gt;|&lt;/span&gt; utf8mb4                        &lt;span class="p"&gt;|&lt;/span&gt;
+&lt;a name="rest_code_ea6d8a274d7d41f58ae7c33624a564dc-21"&gt;&lt;/a&gt;&lt;span class="p"&gt;|&lt;/span&gt; character_set_system     &lt;span class="p"&gt;|&lt;/span&gt; utf8                           &lt;span class="p"&gt;|&lt;/span&gt;
+&lt;a name="rest_code_ea6d8a274d7d41f58ae7c33624a564dc-22"&gt;&lt;/a&gt;&lt;span class="p"&gt;|&lt;/span&gt; character_sets_dir       &lt;span class="p"&gt;|&lt;/span&gt; /usr/share/mysql-8.0/charsets/ &lt;span class="p"&gt;|&lt;/span&gt;
+&lt;a name="rest_code_ea6d8a274d7d41f58ae7c33624a564dc-23"&gt;&lt;/a&gt;+--------------------------+--------------------------------+
+&lt;a name="rest_code_ea6d8a274d7d41f58ae7c33624a564dc-24"&gt;&lt;/a&gt;&lt;span class="m"&gt;8&lt;/span&gt; rows in &lt;span class="nb"&gt;set&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;.01 sec&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_ea6d8a274d7d41f58ae7c33624a564dc-25"&gt;&lt;/a&gt;
+&lt;a name="rest_code_ea6d8a274d7d41f58ae7c33624a564dc-26"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 現在のタイムゾーン設定を表示する&lt;/span&gt;
+&lt;a name="rest_code_ea6d8a274d7d41f58ae7c33624a564dc-27"&gt;&lt;/a&gt;mysql&amp;gt; SHOW VARIABLES LIKE &lt;span class="s1"&gt;'%time_zone%'&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;a name="rest_code_ea6d8a274d7d41f58ae7c33624a564dc-28"&gt;&lt;/a&gt;+------------------+------------+
+&lt;a name="rest_code_ea6d8a274d7d41f58ae7c33624a564dc-29"&gt;&lt;/a&gt;&lt;span class="p"&gt;|&lt;/span&gt; Variable_name    &lt;span class="p"&gt;|&lt;/span&gt; Value      &lt;span class="p"&gt;|&lt;/span&gt;
+&lt;a name="rest_code_ea6d8a274d7d41f58ae7c33624a564dc-30"&gt;&lt;/a&gt;+------------------+------------+
+&lt;a name="rest_code_ea6d8a274d7d41f58ae7c33624a564dc-31"&gt;&lt;/a&gt;&lt;span class="p"&gt;|&lt;/span&gt; system_time_zone &lt;span class="p"&gt;|&lt;/span&gt; JST        &lt;span class="p"&gt;|&lt;/span&gt;  &lt;span class="c1"&gt;# MySQL が動いているコンテナ (Debian) のシステムタイムゾーン、Dockerfile-mysql で設定した&lt;/span&gt;
+&lt;a name="rest_code_ea6d8a274d7d41f58ae7c33624a564dc-32"&gt;&lt;/a&gt;&lt;span class="p"&gt;|&lt;/span&gt; time_zone        &lt;span class="p"&gt;|&lt;/span&gt; Asia/Tokyo &lt;span class="p"&gt;|&lt;/span&gt;  &lt;span class="c1"&gt;# mysql.cnf で設定した MySQL サーバー側のタイムゾーン&lt;/span&gt;
+&lt;a name="rest_code_ea6d8a274d7d41f58ae7c33624a564dc-33"&gt;&lt;/a&gt;+------------------+------------+
+&lt;a name="rest_code_ea6d8a274d7d41f58ae7c33624a564dc-34"&gt;&lt;/a&gt;&lt;span class="m"&gt;2&lt;/span&gt; rows in &lt;span class="nb"&gt;set&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;.01 sec&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_ea6d8a274d7d41f58ae7c33624a564dc-35"&gt;&lt;/a&gt;
+&lt;a name="rest_code_ea6d8a274d7d41f58ae7c33624a564dc-36"&gt;&lt;/a&gt;mysql&amp;gt; status
+&lt;a name="rest_code_ea6d8a274d7d41f58ae7c33624a564dc-37"&gt;&lt;/a&gt;--------------
+&lt;a name="rest_code_ea6d8a274d7d41f58ae7c33624a564dc-38"&gt;&lt;/a&gt;mysql  Ver &lt;span class="m"&gt;8&lt;/span&gt;.0.13 &lt;span class="k"&gt;for&lt;/span&gt; Linux on x86_64 &lt;span class="o"&gt;(&lt;/span&gt;MySQL Community Server - GPL&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_ea6d8a274d7d41f58ae7c33624a564dc-39"&gt;&lt;/a&gt;
+&lt;a name="rest_code_ea6d8a274d7d41f58ae7c33624a564dc-40"&gt;&lt;/a&gt;Connection id:                &lt;span class="m"&gt;11&lt;/span&gt;
+&lt;a name="rest_code_ea6d8a274d7d41f58ae7c33624a564dc-41"&gt;&lt;/a&gt;Current database:     fu
+&lt;a name="rest_code_ea6d8a274d7d41f58ae7c33624a564dc-42"&gt;&lt;/a&gt;Current user:         fu@localhost
+&lt;a name="rest_code_ea6d8a274d7d41f58ae7c33624a564dc-43"&gt;&lt;/a&gt;SSL:                  Not in use
+&lt;a name="rest_code_ea6d8a274d7d41f58ae7c33624a564dc-44"&gt;&lt;/a&gt;Current pager:                stdout
+&lt;a name="rest_code_ea6d8a274d7d41f58ae7c33624a564dc-45"&gt;&lt;/a&gt;Using outfile:                &lt;span class="s1"&gt;''&lt;/span&gt;
+&lt;a name="rest_code_ea6d8a274d7d41f58ae7c33624a564dc-46"&gt;&lt;/a&gt;Using delimiter:      &lt;span class="p"&gt;;&lt;/span&gt;
+&lt;a name="rest_code_ea6d8a274d7d41f58ae7c33624a564dc-47"&gt;&lt;/a&gt;Server version:               &lt;span class="m"&gt;8&lt;/span&gt;.0.13 MySQL Community Server - GPL
+&lt;a name="rest_code_ea6d8a274d7d41f58ae7c33624a564dc-48"&gt;&lt;/a&gt;Protocol version:     &lt;span class="m"&gt;10&lt;/span&gt;
+&lt;a name="rest_code_ea6d8a274d7d41f58ae7c33624a564dc-49"&gt;&lt;/a&gt;Connection:           Localhost via UNIX socket
+&lt;a name="rest_code_ea6d8a274d7d41f58ae7c33624a564dc-50"&gt;&lt;/a&gt;Server characterset:  utf8mb4
+&lt;a name="rest_code_ea6d8a274d7d41f58ae7c33624a564dc-51"&gt;&lt;/a&gt;Db     characterset:  utf8mb4
+&lt;a name="rest_code_ea6d8a274d7d41f58ae7c33624a564dc-52"&gt;&lt;/a&gt;Client characterset:  utf8mb4
+&lt;a name="rest_code_ea6d8a274d7d41f58ae7c33624a564dc-53"&gt;&lt;/a&gt;Conn.  characterset:  utf8mb4
+&lt;a name="rest_code_ea6d8a274d7d41f58ae7c33624a564dc-54"&gt;&lt;/a&gt;UNIX socket:          /var/run/mysqld/mysqld.sock
+&lt;a name="rest_code_ea6d8a274d7d41f58ae7c33624a564dc-55"&gt;&lt;/a&gt;Uptime:                       &lt;span class="m"&gt;2&lt;/span&gt; hours &lt;span class="m"&gt;9&lt;/span&gt; min &lt;span class="m"&gt;49&lt;/span&gt; sec
+&lt;a name="rest_code_ea6d8a274d7d41f58ae7c33624a564dc-56"&gt;&lt;/a&gt;
+&lt;a name="rest_code_ea6d8a274d7d41f58ae7c33624a564dc-57"&gt;&lt;/a&gt;Threads: &lt;span class="m"&gt;3&lt;/span&gt;  Questions: &lt;span class="m"&gt;40&lt;/span&gt;  Slow queries: &lt;span class="m"&gt;0&lt;/span&gt;  Opens: &lt;span class="m"&gt;189&lt;/span&gt;  Flush tables: &lt;span class="m"&gt;2&lt;/span&gt;  Open tables: &lt;span class="m"&gt;163&lt;/span&gt;  Queries per second avg: &lt;span class="m"&gt;0&lt;/span&gt;.005
+&lt;a name="rest_code_ea6d8a274d7d41f58ae7c33624a564dc-58"&gt;&lt;/a&gt;--------------
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="todo"&gt;
@@ -2468,27 +2468,27 @@ fufu_db exited with code &lt;span class="m"&gt;1&lt;/span&gt;
 &lt;div class="section" id="volume"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/use-volumes-with-docker-compose/#id6"&gt;1. volume を作成する&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;&lt;code class="docutils literal"&gt;&lt;span class="pre"&gt;db-data&lt;/span&gt;&lt;/code&gt; という名前の volume を作成する。&lt;/p&gt;
-&lt;pre class="code shell"&gt;&lt;a name="rest_code_0c26231d35a1464baa8dfc751197b56c-1"&gt;&lt;/a&gt;$ docker volume create db-data
-&lt;a name="rest_code_0c26231d35a1464baa8dfc751197b56c-2"&gt;&lt;/a&gt;db-data
+&lt;pre class="code shell"&gt;&lt;a name="rest_code_d8b15cb356104fa5a59ae300e71c052d-1"&gt;&lt;/a&gt;$ docker volume create db-data
+&lt;a name="rest_code_d8b15cb356104fa5a59ae300e71c052d-2"&gt;&lt;/a&gt;db-data
 &lt;/pre&gt;&lt;ul&gt;
 &lt;li&gt;&lt;p&gt;volumes を一覧表示する。&lt;/p&gt;
-&lt;pre class="code shell"&gt;&lt;a name="rest_code_20d4da6ddb584571b18e8d78d81a09f3-1"&gt;&lt;/a&gt;$ docker volume ls
-&lt;a name="rest_code_20d4da6ddb584571b18e8d78d81a09f3-2"&gt;&lt;/a&gt;DRIVER              VOLUME NAME
-&lt;a name="rest_code_20d4da6ddb584571b18e8d78d81a09f3-3"&gt;&lt;/a&gt;&lt;span class="nb"&gt;local&lt;/span&gt;               db-data
+&lt;pre class="code shell"&gt;&lt;a name="rest_code_f8ec09643f8646c293d99702c46d6f9e-1"&gt;&lt;/a&gt;$ docker volume ls
+&lt;a name="rest_code_f8ec09643f8646c293d99702c46d6f9e-2"&gt;&lt;/a&gt;DRIVER              VOLUME NAME
+&lt;a name="rest_code_f8ec09643f8646c293d99702c46d6f9e-3"&gt;&lt;/a&gt;&lt;span class="nb"&gt;local&lt;/span&gt;               db-data
 &lt;/pre&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;volume を調べる。&lt;/p&gt;
-&lt;pre class="code shell"&gt;&lt;a name="rest_code_b08d6311cfff461cb91f443aa259efa0-1"&gt;&lt;/a&gt;$ docker volume inspect db-data
-&lt;a name="rest_code_b08d6311cfff461cb91f443aa259efa0-2"&gt;&lt;/a&gt;&lt;span class="o"&gt;[&lt;/span&gt;
-&lt;a name="rest_code_b08d6311cfff461cb91f443aa259efa0-3"&gt;&lt;/a&gt;    &lt;span class="o"&gt;{&lt;/span&gt;
-&lt;a name="rest_code_b08d6311cfff461cb91f443aa259efa0-4"&gt;&lt;/a&gt;        &lt;span class="s2"&gt;"CreatedAt"&lt;/span&gt;: &lt;span class="s2"&gt;"2018-12-02T13:09:48Z"&lt;/span&gt;,
-&lt;a name="rest_code_b08d6311cfff461cb91f443aa259efa0-5"&gt;&lt;/a&gt;        &lt;span class="s2"&gt;"Driver"&lt;/span&gt;: &lt;span class="s2"&gt;"local"&lt;/span&gt;,
-&lt;a name="rest_code_b08d6311cfff461cb91f443aa259efa0-6"&gt;&lt;/a&gt;        &lt;span class="s2"&gt;"Labels"&lt;/span&gt;: &lt;span class="o"&gt;{}&lt;/span&gt;,
-&lt;a name="rest_code_b08d6311cfff461cb91f443aa259efa0-7"&gt;&lt;/a&gt;        &lt;span class="s2"&gt;"Mountpoint"&lt;/span&gt;: &lt;span class="s2"&gt;"/var/lib/docker/volumes/db-data/_data"&lt;/span&gt;,
-&lt;a name="rest_code_b08d6311cfff461cb91f443aa259efa0-8"&gt;&lt;/a&gt;        &lt;span class="s2"&gt;"Name"&lt;/span&gt;: &lt;span class="s2"&gt;"db-data"&lt;/span&gt;,
-&lt;a name="rest_code_b08d6311cfff461cb91f443aa259efa0-9"&gt;&lt;/a&gt;        &lt;span class="s2"&gt;"Options"&lt;/span&gt;: &lt;span class="o"&gt;{}&lt;/span&gt;,
-&lt;a name="rest_code_b08d6311cfff461cb91f443aa259efa0-10"&gt;&lt;/a&gt;        &lt;span class="s2"&gt;"Scope"&lt;/span&gt;: &lt;span class="s2"&gt;"local"&lt;/span&gt;
-&lt;a name="rest_code_b08d6311cfff461cb91f443aa259efa0-11"&gt;&lt;/a&gt;    &lt;span class="o"&gt;}&lt;/span&gt;
-&lt;a name="rest_code_b08d6311cfff461cb91f443aa259efa0-12"&gt;&lt;/a&gt;&lt;span class="o"&gt;]&lt;/span&gt;
+&lt;pre class="code shell"&gt;&lt;a name="rest_code_62cab566c6e8413a93365833849db5a3-1"&gt;&lt;/a&gt;$ docker volume inspect db-data
+&lt;a name="rest_code_62cab566c6e8413a93365833849db5a3-2"&gt;&lt;/a&gt;&lt;span class="o"&gt;[&lt;/span&gt;
+&lt;a name="rest_code_62cab566c6e8413a93365833849db5a3-3"&gt;&lt;/a&gt;    &lt;span class="o"&gt;{&lt;/span&gt;
+&lt;a name="rest_code_62cab566c6e8413a93365833849db5a3-4"&gt;&lt;/a&gt;        &lt;span class="s2"&gt;"CreatedAt"&lt;/span&gt;: &lt;span class="s2"&gt;"2018-12-02T13:09:48Z"&lt;/span&gt;,
+&lt;a name="rest_code_62cab566c6e8413a93365833849db5a3-5"&gt;&lt;/a&gt;        &lt;span class="s2"&gt;"Driver"&lt;/span&gt;: &lt;span class="s2"&gt;"local"&lt;/span&gt;,
+&lt;a name="rest_code_62cab566c6e8413a93365833849db5a3-6"&gt;&lt;/a&gt;        &lt;span class="s2"&gt;"Labels"&lt;/span&gt;: &lt;span class="o"&gt;{}&lt;/span&gt;,
+&lt;a name="rest_code_62cab566c6e8413a93365833849db5a3-7"&gt;&lt;/a&gt;        &lt;span class="s2"&gt;"Mountpoint"&lt;/span&gt;: &lt;span class="s2"&gt;"/var/lib/docker/volumes/db-data/_data"&lt;/span&gt;,
+&lt;a name="rest_code_62cab566c6e8413a93365833849db5a3-8"&gt;&lt;/a&gt;        &lt;span class="s2"&gt;"Name"&lt;/span&gt;: &lt;span class="s2"&gt;"db-data"&lt;/span&gt;,
+&lt;a name="rest_code_62cab566c6e8413a93365833849db5a3-9"&gt;&lt;/a&gt;        &lt;span class="s2"&gt;"Options"&lt;/span&gt;: &lt;span class="o"&gt;{}&lt;/span&gt;,
+&lt;a name="rest_code_62cab566c6e8413a93365833849db5a3-10"&gt;&lt;/a&gt;        &lt;span class="s2"&gt;"Scope"&lt;/span&gt;: &lt;span class="s2"&gt;"local"&lt;/span&gt;
+&lt;a name="rest_code_62cab566c6e8413a93365833849db5a3-11"&gt;&lt;/a&gt;    &lt;span class="o"&gt;}&lt;/span&gt;
+&lt;a name="rest_code_62cab566c6e8413a93365833849db5a3-12"&gt;&lt;/a&gt;&lt;span class="o"&gt;]&lt;/span&gt;
 &lt;/pre&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;今作った &lt;code class="docutils literal"&gt;volume&lt;/code&gt; はこの絵↓の真ん中のものである。&lt;/p&gt;
 &lt;p&gt;&lt;/p&gt;&lt;div class="figure"&gt;
@@ -2542,84 +2542,84 @@ fufu_db exited with code &lt;span class="m"&gt;1&lt;/span&gt;
 &lt;/div&gt;
 &lt;div class="section" id="settings-py-database"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/use-volumes-with-docker-compose/#id8"&gt;3. &lt;code class="docutils literal"&gt;settings.py&lt;/code&gt; に DATABASE を定義する&lt;/a&gt;&lt;/h3&gt;
-&lt;pre class="code python"&gt;&lt;a name="rest_code_9d189f75c8924e29ab5d7bb0c5e86f45-1"&gt;&lt;/a&gt;&lt;span class="n"&gt;DATABASES&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-&lt;a name="rest_code_9d189f75c8924e29ab5d7bb0c5e86f45-2"&gt;&lt;/a&gt;    &lt;span class="s1"&gt;'default'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-&lt;a name="rest_code_9d189f75c8924e29ab5d7bb0c5e86f45-3"&gt;&lt;/a&gt;        &lt;span class="s1"&gt;'ENGINE'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;'django.db.backends.postgresql'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;a name="rest_code_9d189f75c8924e29ab5d7bb0c5e86f45-4"&gt;&lt;/a&gt;        &lt;span class="s1"&gt;'NAME'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;'postgres'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;a name="rest_code_9d189f75c8924e29ab5d7bb0c5e86f45-5"&gt;&lt;/a&gt;        &lt;span class="s1"&gt;'USER'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;'postgres'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;a name="rest_code_9d189f75c8924e29ab5d7bb0c5e86f45-6"&gt;&lt;/a&gt;        &lt;span class="s1"&gt;'PASSWORD'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;'postgres'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;  &lt;span class="c1"&gt;# パスワードを追加した&lt;/span&gt;
-&lt;a name="rest_code_9d189f75c8924e29ab5d7bb0c5e86f45-7"&gt;&lt;/a&gt;        &lt;span class="s1"&gt;'HOST'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;'db'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;a name="rest_code_9d189f75c8924e29ab5d7bb0c5e86f45-8"&gt;&lt;/a&gt;        &lt;span class="s1"&gt;'PORT'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;5432&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;a name="rest_code_9d189f75c8924e29ab5d7bb0c5e86f45-9"&gt;&lt;/a&gt;    &lt;span class="p"&gt;}&lt;/span&gt;
-&lt;a name="rest_code_9d189f75c8924e29ab5d7bb0c5e86f45-10"&gt;&lt;/a&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;pre class="code python"&gt;&lt;a name="rest_code_0e4abed52b2b486a9721e326ad956ba1-1"&gt;&lt;/a&gt;&lt;span class="n"&gt;DATABASES&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;a name="rest_code_0e4abed52b2b486a9721e326ad956ba1-2"&gt;&lt;/a&gt;    &lt;span class="s1"&gt;'default'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;a name="rest_code_0e4abed52b2b486a9721e326ad956ba1-3"&gt;&lt;/a&gt;        &lt;span class="s1"&gt;'ENGINE'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;'django.db.backends.postgresql'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;a name="rest_code_0e4abed52b2b486a9721e326ad956ba1-4"&gt;&lt;/a&gt;        &lt;span class="s1"&gt;'NAME'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;'postgres'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;a name="rest_code_0e4abed52b2b486a9721e326ad956ba1-5"&gt;&lt;/a&gt;        &lt;span class="s1"&gt;'USER'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;'postgres'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;a name="rest_code_0e4abed52b2b486a9721e326ad956ba1-6"&gt;&lt;/a&gt;        &lt;span class="s1"&gt;'PASSWORD'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;'postgres'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;  &lt;span class="c1"&gt;# パスワードを追加した&lt;/span&gt;
+&lt;a name="rest_code_0e4abed52b2b486a9721e326ad956ba1-7"&gt;&lt;/a&gt;        &lt;span class="s1"&gt;'HOST'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;'db'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;a name="rest_code_0e4abed52b2b486a9721e326ad956ba1-8"&gt;&lt;/a&gt;        &lt;span class="s1"&gt;'PORT'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;5432&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;a name="rest_code_0e4abed52b2b486a9721e326ad956ba1-9"&gt;&lt;/a&gt;    &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;a name="rest_code_0e4abed52b2b486a9721e326ad956ba1-10"&gt;&lt;/a&gt;&lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;div class="section" id="docker"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/use-volumes-with-docker-compose/#id9"&gt;4. Docker コンテナを実行する&lt;/a&gt;&lt;/h3&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_407cbc2a453c44d999154c48a39cb70e-1"&gt;&lt;/a&gt;$ docker-compose up
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_5aa89d36fe7244baaac27751b0f1cf19-1"&gt;&lt;/a&gt;$ docker-compose up
 &lt;/pre&gt;&lt;/div&gt;
 &lt;div class="section" id="db"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/use-volumes-with-docker-compose/#id10"&gt;5. DB コンテナのなかに入って、テーブルを作成 &amp;amp; データを挿入する&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;1). &lt;code class="docutils literal"&gt;db&lt;/code&gt; コンテナのなかに入る&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_a292a7478c1e4d2eacffde3143d7d36e-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# コンテナをシェル経由で操作する&lt;/span&gt;
-&lt;a name="rest_code_a292a7478c1e4d2eacffde3143d7d36e-2"&gt;&lt;/a&gt;$ docker container &lt;span class="nb"&gt;exec&lt;/span&gt; -it fffff_db_1 sh
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_61180b34454a4210b7a61712e359ce83-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# コンテナをシェル経由で操作する&lt;/span&gt;
+&lt;a name="rest_code_61180b34454a4210b7a61712e359ce83-2"&gt;&lt;/a&gt;$ docker container &lt;span class="nb"&gt;exec&lt;/span&gt; -it fffff_db_1 sh
 &lt;/pre&gt;&lt;/blockquote&gt;
 &lt;p&gt;2). postgres に接続する&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;pre class="code postgres"&gt;&lt;a name="rest_code_a7f40c4352d34958bf58bc6468921a26-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;-- postgres に接続するその１&lt;/span&gt;
-&lt;a name="rest_code_a7f40c4352d34958bf58bc6468921a26-2"&gt;&lt;/a&gt;&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;psql&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;U&lt;/span&gt; &lt;span class="n"&gt;postgres&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;h&lt;/span&gt; &lt;span class="mf"&gt;127.0.0.1&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="mf"&gt;5432&lt;/span&gt; &lt;span class="n"&gt;postgres&lt;/span&gt;
-&lt;a name="rest_code_a7f40c4352d34958bf58bc6468921a26-3"&gt;&lt;/a&gt;&lt;span class="n"&gt;psql&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;11.1&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Debian&lt;/span&gt; &lt;span class="mf"&gt;11.1&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;1.&lt;/span&gt;&lt;span class="n"&gt;pgdg90&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mf"&gt;1&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-&lt;a name="rest_code_a7f40c4352d34958bf58bc6468921a26-4"&gt;&lt;/a&gt;&lt;span class="k"&gt;Type&lt;/span&gt; &lt;span class="s s-Name"&gt;"help"&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;help&lt;/span&gt;&lt;span class="mf"&gt;.&lt;/span&gt;
-&lt;a name="rest_code_a7f40c4352d34958bf58bc6468921a26-5"&gt;&lt;/a&gt;
-&lt;a name="rest_code_a7f40c4352d34958bf58bc6468921a26-6"&gt;&lt;/a&gt;&lt;span class="n"&gt;postgres&lt;/span&gt;&lt;span class="o"&gt;=#&lt;/span&gt;
-&lt;a name="rest_code_a7f40c4352d34958bf58bc6468921a26-7"&gt;&lt;/a&gt;
-&lt;a name="rest_code_a7f40c4352d34958bf58bc6468921a26-8"&gt;&lt;/a&gt;&lt;span class="c1"&gt;-- postgres に接続するその２&lt;/span&gt;
-&lt;a name="rest_code_a7f40c4352d34958bf58bc6468921a26-9"&gt;&lt;/a&gt;&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;psql&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="n"&gt;postgres&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;U&lt;/span&gt;  &lt;span class="n"&gt;postgres&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;W&lt;/span&gt;
-&lt;a name="rest_code_a7f40c4352d34958bf58bc6468921a26-10"&gt;&lt;/a&gt;&lt;span class="k"&gt;Password&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-&lt;a name="rest_code_a7f40c4352d34958bf58bc6468921a26-11"&gt;&lt;/a&gt;&lt;span class="n"&gt;psql&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;11.1&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Debian&lt;/span&gt; &lt;span class="mf"&gt;11.1&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;1.&lt;/span&gt;&lt;span class="n"&gt;pgdg90&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mf"&gt;1&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-&lt;a name="rest_code_a7f40c4352d34958bf58bc6468921a26-12"&gt;&lt;/a&gt;&lt;span class="k"&gt;Type&lt;/span&gt; &lt;span class="s s-Name"&gt;"help"&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;help&lt;/span&gt;&lt;span class="mf"&gt;.&lt;/span&gt;
-&lt;a name="rest_code_a7f40c4352d34958bf58bc6468921a26-13"&gt;&lt;/a&gt;
-&lt;a name="rest_code_a7f40c4352d34958bf58bc6468921a26-14"&gt;&lt;/a&gt;&lt;span class="n"&gt;postgres&lt;/span&gt;&lt;span class="o"&gt;=#&lt;/span&gt;
+&lt;pre class="code postgres"&gt;&lt;a name="rest_code_797fb14fd06a405dac17f2d0bd53d21e-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;-- postgres に接続するその１&lt;/span&gt;
+&lt;a name="rest_code_797fb14fd06a405dac17f2d0bd53d21e-2"&gt;&lt;/a&gt;&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;psql&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;U&lt;/span&gt; &lt;span class="n"&gt;postgres&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;h&lt;/span&gt; &lt;span class="mf"&gt;127.0.0.1&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="mf"&gt;5432&lt;/span&gt; &lt;span class="n"&gt;postgres&lt;/span&gt;
+&lt;a name="rest_code_797fb14fd06a405dac17f2d0bd53d21e-3"&gt;&lt;/a&gt;&lt;span class="n"&gt;psql&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;11.1&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Debian&lt;/span&gt; &lt;span class="mf"&gt;11.1&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;1.&lt;/span&gt;&lt;span class="n"&gt;pgdg90&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mf"&gt;1&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;a name="rest_code_797fb14fd06a405dac17f2d0bd53d21e-4"&gt;&lt;/a&gt;&lt;span class="k"&gt;Type&lt;/span&gt; &lt;span class="s s-Name"&gt;"help"&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;help&lt;/span&gt;&lt;span class="mf"&gt;.&lt;/span&gt;
+&lt;a name="rest_code_797fb14fd06a405dac17f2d0bd53d21e-5"&gt;&lt;/a&gt;
+&lt;a name="rest_code_797fb14fd06a405dac17f2d0bd53d21e-6"&gt;&lt;/a&gt;&lt;span class="n"&gt;postgres&lt;/span&gt;&lt;span class="o"&gt;=#&lt;/span&gt;
+&lt;a name="rest_code_797fb14fd06a405dac17f2d0bd53d21e-7"&gt;&lt;/a&gt;
+&lt;a name="rest_code_797fb14fd06a405dac17f2d0bd53d21e-8"&gt;&lt;/a&gt;&lt;span class="c1"&gt;-- postgres に接続するその２&lt;/span&gt;
+&lt;a name="rest_code_797fb14fd06a405dac17f2d0bd53d21e-9"&gt;&lt;/a&gt;&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;psql&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="n"&gt;postgres&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;U&lt;/span&gt;  &lt;span class="n"&gt;postgres&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;W&lt;/span&gt;
+&lt;a name="rest_code_797fb14fd06a405dac17f2d0bd53d21e-10"&gt;&lt;/a&gt;&lt;span class="k"&gt;Password&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;a name="rest_code_797fb14fd06a405dac17f2d0bd53d21e-11"&gt;&lt;/a&gt;&lt;span class="n"&gt;psql&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;11.1&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Debian&lt;/span&gt; &lt;span class="mf"&gt;11.1&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;1.&lt;/span&gt;&lt;span class="n"&gt;pgdg90&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mf"&gt;1&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;a name="rest_code_797fb14fd06a405dac17f2d0bd53d21e-12"&gt;&lt;/a&gt;&lt;span class="k"&gt;Type&lt;/span&gt; &lt;span class="s s-Name"&gt;"help"&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;help&lt;/span&gt;&lt;span class="mf"&gt;.&lt;/span&gt;
+&lt;a name="rest_code_797fb14fd06a405dac17f2d0bd53d21e-13"&gt;&lt;/a&gt;
+&lt;a name="rest_code_797fb14fd06a405dac17f2d0bd53d21e-14"&gt;&lt;/a&gt;&lt;span class="n"&gt;postgres&lt;/span&gt;&lt;span class="o"&gt;=#&lt;/span&gt;
 &lt;/pre&gt;&lt;/blockquote&gt;
 &lt;p&gt;3). テーブルを作成し、データを挿入する&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;pre class="code postgres"&gt;&lt;a name="rest_code_e8a96648d99c4649bb3354bb3e681130-1"&gt;&lt;/a&gt;&lt;span class="k"&gt;CREATE&lt;/span&gt; &lt;span class="k"&gt;TABLE&lt;/span&gt; &lt;span class="n"&gt;fruits&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
-&lt;a name="rest_code_e8a96648d99c4649bb3354bb3e681130-2"&gt;&lt;/a&gt;   &lt;span class="n"&gt;id&lt;/span&gt; &lt;span class="nb"&gt;SERIAL&lt;/span&gt; &lt;span class="k"&gt;PRIMARY&lt;/span&gt; &lt;span class="k"&gt;KEY&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;a name="rest_code_e8a96648d99c4649bb3354bb3e681130-3"&gt;&lt;/a&gt;   &lt;span class="k"&gt;name&lt;/span&gt; &lt;span class="nb"&gt;VARCHAR&lt;/span&gt; &lt;span class="k"&gt;NOT&lt;/span&gt; &lt;span class="k"&gt;NULL&lt;/span&gt;
-&lt;a name="rest_code_e8a96648d99c4649bb3354bb3e681130-4"&gt;&lt;/a&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-&lt;a name="rest_code_e8a96648d99c4649bb3354bb3e681130-5"&gt;&lt;/a&gt;&lt;span class="k"&gt;INSERT&lt;/span&gt; &lt;span class="k"&gt;INTO&lt;/span&gt; &lt;span class="n"&gt;fruits&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;name&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;VALUES&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'orange'&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-&lt;a name="rest_code_e8a96648d99c4649bb3354bb3e681130-6"&gt;&lt;/a&gt;&lt;span class="k"&gt;INSERT&lt;/span&gt; &lt;span class="k"&gt;INTO&lt;/span&gt; &lt;span class="n"&gt;fruits&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;id&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="k"&gt;name&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;VALUES&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;DEFAULT&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;'apple'&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-&lt;a name="rest_code_e8a96648d99c4649bb3354bb3e681130-7"&gt;&lt;/a&gt;
-&lt;a name="rest_code_e8a96648d99c4649bb3354bb3e681130-8"&gt;&lt;/a&gt;&lt;span class="n"&gt;postgres&lt;/span&gt;&lt;span class="o"&gt;=#&lt;/span&gt; &lt;span class="err"&gt;\&lt;/span&gt;&lt;span class="n"&gt;q&lt;/span&gt;
+&lt;pre class="code postgres"&gt;&lt;a name="rest_code_fa5b31c69c324f3d9aacf54bddb12209-1"&gt;&lt;/a&gt;&lt;span class="k"&gt;CREATE&lt;/span&gt; &lt;span class="k"&gt;TABLE&lt;/span&gt; &lt;span class="n"&gt;fruits&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+&lt;a name="rest_code_fa5b31c69c324f3d9aacf54bddb12209-2"&gt;&lt;/a&gt;   &lt;span class="n"&gt;id&lt;/span&gt; &lt;span class="nb"&gt;SERIAL&lt;/span&gt; &lt;span class="k"&gt;PRIMARY&lt;/span&gt; &lt;span class="k"&gt;KEY&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;a name="rest_code_fa5b31c69c324f3d9aacf54bddb12209-3"&gt;&lt;/a&gt;   &lt;span class="k"&gt;name&lt;/span&gt; &lt;span class="nb"&gt;VARCHAR&lt;/span&gt; &lt;span class="k"&gt;NOT&lt;/span&gt; &lt;span class="k"&gt;NULL&lt;/span&gt;
+&lt;a name="rest_code_fa5b31c69c324f3d9aacf54bddb12209-4"&gt;&lt;/a&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;a name="rest_code_fa5b31c69c324f3d9aacf54bddb12209-5"&gt;&lt;/a&gt;&lt;span class="k"&gt;INSERT&lt;/span&gt; &lt;span class="k"&gt;INTO&lt;/span&gt; &lt;span class="n"&gt;fruits&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;name&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;VALUES&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'orange'&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;a name="rest_code_fa5b31c69c324f3d9aacf54bddb12209-6"&gt;&lt;/a&gt;&lt;span class="k"&gt;INSERT&lt;/span&gt; &lt;span class="k"&gt;INTO&lt;/span&gt; &lt;span class="n"&gt;fruits&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;id&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="k"&gt;name&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;VALUES&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;DEFAULT&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;'apple'&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;a name="rest_code_fa5b31c69c324f3d9aacf54bddb12209-7"&gt;&lt;/a&gt;
+&lt;a name="rest_code_fa5b31c69c324f3d9aacf54bddb12209-8"&gt;&lt;/a&gt;&lt;span class="n"&gt;postgres&lt;/span&gt;&lt;span class="o"&gt;=#&lt;/span&gt; &lt;span class="err"&gt;\&lt;/span&gt;&lt;span class="n"&gt;q&lt;/span&gt;
 &lt;/pre&gt;&lt;/blockquote&gt;
 &lt;/div&gt;
 &lt;div class="section" id="shutdown"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/use-volumes-with-docker-compose/#id11"&gt;6. 安全に shutdown する&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;コンテナは停止・削除される。&lt;/p&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_e9af92a53e9c4728908d30f4a0f9824a-1"&gt;&lt;/a&gt;$ docker-compose down
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_28668d7d288d41d997b7f918a5db53d8-1"&gt;&lt;/a&gt;$ docker-compose down
 &lt;/pre&gt;&lt;/div&gt;
 &lt;div class="section" id="docker-compose-up"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/use-volumes-with-docker-compose/#id12"&gt;7. 再度 &lt;code class="docutils literal"&gt;&lt;span class="pre"&gt;docker-compose&lt;/span&gt; up&lt;/code&gt; して、先ほど登録したテーブル &amp;amp; データを見てみる&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;先ほど作成したテーブルとデータがありました。&lt;/p&gt;
-&lt;pre class="code console"&gt;&lt;a name="rest_code_0fcfde5bba26497c98963a798a38a231-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; docker-compose up
-&lt;a name="rest_code_0fcfde5bba26497c98963a798a38a231-2"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; docker container &lt;span class="nb"&gt;exec&lt;/span&gt; -it fffff_db_1 sh
-&lt;/pre&gt;&lt;pre class="code postgres"&gt;&lt;a name="rest_code_b752888ae235408596e6e5d3031dd4bb-1"&gt;&lt;/a&gt;&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;psql&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;U&lt;/span&gt; &lt;span class="n"&gt;postgres&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;h&lt;/span&gt; &lt;span class="mf"&gt;127.0.0.1&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="mf"&gt;5432&lt;/span&gt; &lt;span class="n"&gt;postgres&lt;/span&gt;
-&lt;a name="rest_code_b752888ae235408596e6e5d3031dd4bb-2"&gt;&lt;/a&gt;&lt;span class="n"&gt;psql&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;11.1&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Debian&lt;/span&gt; &lt;span class="mf"&gt;11.1&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;1.&lt;/span&gt;&lt;span class="n"&gt;pgdg90&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mf"&gt;1&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;
-&lt;a name="rest_code_b752888ae235408596e6e5d3031dd4bb-3"&gt;&lt;/a&gt;&lt;span class="k"&gt;Type&lt;/span&gt; &lt;span class="s s-Name"&gt;"help"&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;help&lt;/span&gt;&lt;span class="mf"&gt;.&lt;/span&gt;
-&lt;a name="rest_code_b752888ae235408596e6e5d3031dd4bb-4"&gt;&lt;/a&gt;
-&lt;a name="rest_code_b752888ae235408596e6e5d3031dd4bb-5"&gt;&lt;/a&gt;&lt;span class="n"&gt;postgres&lt;/span&gt;&lt;span class="o"&gt;=#&lt;/span&gt; &lt;span class="err"&gt;\&lt;/span&gt;&lt;span class="n"&gt;dt&lt;/span&gt;
-&lt;a name="rest_code_b752888ae235408596e6e5d3031dd4bb-6"&gt;&lt;/a&gt;         &lt;span class="n"&gt;List&lt;/span&gt; &lt;span class="k"&gt;of&lt;/span&gt; &lt;span class="n"&gt;relations&lt;/span&gt;
-&lt;a name="rest_code_b752888ae235408596e6e5d3031dd4bb-7"&gt;&lt;/a&gt; &lt;span class="k"&gt;Schema&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt;  &lt;span class="k"&gt;Name&lt;/span&gt;  &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="k"&gt;Type&lt;/span&gt;  &lt;span class="o"&gt;|&lt;/span&gt;  &lt;span class="k"&gt;Owner&lt;/span&gt;
-&lt;a name="rest_code_b752888ae235408596e6e5d3031dd4bb-8"&gt;&lt;/a&gt;&lt;span class="c1"&gt;--------+--------+-------+----------&lt;/span&gt;
-&lt;a name="rest_code_b752888ae235408596e6e5d3031dd4bb-9"&gt;&lt;/a&gt; &lt;span class="n"&gt;public&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;fruits&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="k"&gt;table&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;postgres&lt;/span&gt;
-&lt;a name="rest_code_b752888ae235408596e6e5d3031dd4bb-10"&gt;&lt;/a&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;1&lt;/span&gt; &lt;span class="k"&gt;row&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;a name="rest_code_b752888ae235408596e6e5d3031dd4bb-11"&gt;&lt;/a&gt;
-&lt;a name="rest_code_b752888ae235408596e6e5d3031dd4bb-12"&gt;&lt;/a&gt;&lt;span class="n"&gt;postgres&lt;/span&gt;&lt;span class="o"&gt;=#&lt;/span&gt; &lt;span class="k"&gt;SELECT&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="k"&gt;FROM&lt;/span&gt; &lt;span class="n"&gt;fruits&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;a name="rest_code_b752888ae235408596e6e5d3031dd4bb-13"&gt;&lt;/a&gt; &lt;span class="n"&gt;id&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt;  &lt;span class="k"&gt;name&lt;/span&gt;
-&lt;a name="rest_code_b752888ae235408596e6e5d3031dd4bb-14"&gt;&lt;/a&gt;&lt;span class="c1"&gt;----+--------&lt;/span&gt;
-&lt;a name="rest_code_b752888ae235408596e6e5d3031dd4bb-15"&gt;&lt;/a&gt;  &lt;span class="mf"&gt;1&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;orange&lt;/span&gt;
-&lt;a name="rest_code_b752888ae235408596e6e5d3031dd4bb-16"&gt;&lt;/a&gt;  &lt;span class="mf"&gt;2&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;apple&lt;/span&gt;
-&lt;a name="rest_code_b752888ae235408596e6e5d3031dd4bb-17"&gt;&lt;/a&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;2&lt;/span&gt; &lt;span class="k"&gt;rows&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;pre class="code console"&gt;&lt;a name="rest_code_3e460150020841a58c74c0f07df82f3b-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; docker-compose up
+&lt;a name="rest_code_3e460150020841a58c74c0f07df82f3b-2"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; docker container &lt;span class="nb"&gt;exec&lt;/span&gt; -it fffff_db_1 sh
+&lt;/pre&gt;&lt;pre class="code postgres"&gt;&lt;a name="rest_code_2c2f8f659a6342509fd22673ef922c47-1"&gt;&lt;/a&gt;&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;psql&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;U&lt;/span&gt; &lt;span class="n"&gt;postgres&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;h&lt;/span&gt; &lt;span class="mf"&gt;127.0.0.1&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="mf"&gt;5432&lt;/span&gt; &lt;span class="n"&gt;postgres&lt;/span&gt;
+&lt;a name="rest_code_2c2f8f659a6342509fd22673ef922c47-2"&gt;&lt;/a&gt;&lt;span class="n"&gt;psql&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;11.1&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Debian&lt;/span&gt; &lt;span class="mf"&gt;11.1&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;1.&lt;/span&gt;&lt;span class="n"&gt;pgdg90&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mf"&gt;1&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;
+&lt;a name="rest_code_2c2f8f659a6342509fd22673ef922c47-3"&gt;&lt;/a&gt;&lt;span class="k"&gt;Type&lt;/span&gt; &lt;span class="s s-Name"&gt;"help"&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;help&lt;/span&gt;&lt;span class="mf"&gt;.&lt;/span&gt;
+&lt;a name="rest_code_2c2f8f659a6342509fd22673ef922c47-4"&gt;&lt;/a&gt;
+&lt;a name="rest_code_2c2f8f659a6342509fd22673ef922c47-5"&gt;&lt;/a&gt;&lt;span class="n"&gt;postgres&lt;/span&gt;&lt;span class="o"&gt;=#&lt;/span&gt; &lt;span class="err"&gt;\&lt;/span&gt;&lt;span class="n"&gt;dt&lt;/span&gt;
+&lt;a name="rest_code_2c2f8f659a6342509fd22673ef922c47-6"&gt;&lt;/a&gt;         &lt;span class="n"&gt;List&lt;/span&gt; &lt;span class="k"&gt;of&lt;/span&gt; &lt;span class="n"&gt;relations&lt;/span&gt;
+&lt;a name="rest_code_2c2f8f659a6342509fd22673ef922c47-7"&gt;&lt;/a&gt; &lt;span class="k"&gt;Schema&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt;  &lt;span class="k"&gt;Name&lt;/span&gt;  &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="k"&gt;Type&lt;/span&gt;  &lt;span class="o"&gt;|&lt;/span&gt;  &lt;span class="k"&gt;Owner&lt;/span&gt;
+&lt;a name="rest_code_2c2f8f659a6342509fd22673ef922c47-8"&gt;&lt;/a&gt;&lt;span class="c1"&gt;--------+--------+-------+----------&lt;/span&gt;
+&lt;a name="rest_code_2c2f8f659a6342509fd22673ef922c47-9"&gt;&lt;/a&gt; &lt;span class="n"&gt;public&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;fruits&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="k"&gt;table&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;postgres&lt;/span&gt;
+&lt;a name="rest_code_2c2f8f659a6342509fd22673ef922c47-10"&gt;&lt;/a&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;1&lt;/span&gt; &lt;span class="k"&gt;row&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_2c2f8f659a6342509fd22673ef922c47-11"&gt;&lt;/a&gt;
+&lt;a name="rest_code_2c2f8f659a6342509fd22673ef922c47-12"&gt;&lt;/a&gt;&lt;span class="n"&gt;postgres&lt;/span&gt;&lt;span class="o"&gt;=#&lt;/span&gt; &lt;span class="k"&gt;SELECT&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="k"&gt;FROM&lt;/span&gt; &lt;span class="n"&gt;fruits&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;a name="rest_code_2c2f8f659a6342509fd22673ef922c47-13"&gt;&lt;/a&gt; &lt;span class="n"&gt;id&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt;  &lt;span class="k"&gt;name&lt;/span&gt;
+&lt;a name="rest_code_2c2f8f659a6342509fd22673ef922c47-14"&gt;&lt;/a&gt;&lt;span class="c1"&gt;----+--------&lt;/span&gt;
+&lt;a name="rest_code_2c2f8f659a6342509fd22673ef922c47-15"&gt;&lt;/a&gt;  &lt;span class="mf"&gt;1&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;orange&lt;/span&gt;
+&lt;a name="rest_code_2c2f8f659a6342509fd22673ef922c47-16"&gt;&lt;/a&gt;  &lt;span class="mf"&gt;2&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;apple&lt;/span&gt;
+&lt;a name="rest_code_2c2f8f659a6342509fd22673ef922c47-17"&gt;&lt;/a&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;2&lt;/span&gt; &lt;span class="k"&gt;rows&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;&lt;/div&gt;</description><category>docker</category><guid>https://32imuf.com/docker/use-volumes-with-docker-compose/</guid><pubDate>Sat, 01 Dec 2018 15:00:00 GMT</pubDate></item><item><title>Docker Compose で Django/PostgreSQL 環境をつくる</title><link>https://32imuf.com/docker/create-django-env-with-docker-compose-psql/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;details&gt;
   &lt;summary&gt;目次&lt;/summary&gt;&lt;div class="contents topic" id="id1"&gt;
@@ -2786,15 +2786,15 @@ WARNING: Image &lt;span class="k"&gt;for&lt;/span&gt; service web was built beca
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;code class="docutils literal"&gt;settings.py&lt;/code&gt; に DATABASE を定義する。&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;pre class="code python"&gt;&lt;a name="rest_code_1a78368137d14ee1812d3bf0c81652ae-1"&gt;&lt;/a&gt;&lt;span class="n"&gt;DATABASES&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-&lt;a name="rest_code_1a78368137d14ee1812d3bf0c81652ae-2"&gt;&lt;/a&gt;    &lt;span class="s1"&gt;'default'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-&lt;a name="rest_code_1a78368137d14ee1812d3bf0c81652ae-3"&gt;&lt;/a&gt;        &lt;span class="s1"&gt;'ENGINE'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;'django.db.backends.postgresql'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;a name="rest_code_1a78368137d14ee1812d3bf0c81652ae-4"&gt;&lt;/a&gt;        &lt;span class="s1"&gt;'NAME'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;'postgres'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;a name="rest_code_1a78368137d14ee1812d3bf0c81652ae-5"&gt;&lt;/a&gt;        &lt;span class="s1"&gt;'USER'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;'postgres'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;a name="rest_code_1a78368137d14ee1812d3bf0c81652ae-6"&gt;&lt;/a&gt;        &lt;span class="s1"&gt;'HOST'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;'db'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;a name="rest_code_1a78368137d14ee1812d3bf0c81652ae-7"&gt;&lt;/a&gt;        &lt;span class="s1"&gt;'PORT'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;5432&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;a name="rest_code_1a78368137d14ee1812d3bf0c81652ae-8"&gt;&lt;/a&gt;    &lt;span class="p"&gt;}&lt;/span&gt;
-&lt;a name="rest_code_1a78368137d14ee1812d3bf0c81652ae-9"&gt;&lt;/a&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;pre class="code python"&gt;&lt;a name="rest_code_aea3ba50539448a0b0ba25a5ffde22d5-1"&gt;&lt;/a&gt;&lt;span class="n"&gt;DATABASES&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;a name="rest_code_aea3ba50539448a0b0ba25a5ffde22d5-2"&gt;&lt;/a&gt;    &lt;span class="s1"&gt;'default'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;a name="rest_code_aea3ba50539448a0b0ba25a5ffde22d5-3"&gt;&lt;/a&gt;        &lt;span class="s1"&gt;'ENGINE'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;'django.db.backends.postgresql'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;a name="rest_code_aea3ba50539448a0b0ba25a5ffde22d5-4"&gt;&lt;/a&gt;        &lt;span class="s1"&gt;'NAME'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;'postgres'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;a name="rest_code_aea3ba50539448a0b0ba25a5ffde22d5-5"&gt;&lt;/a&gt;        &lt;span class="s1"&gt;'USER'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;'postgres'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;a name="rest_code_aea3ba50539448a0b0ba25a5ffde22d5-6"&gt;&lt;/a&gt;        &lt;span class="s1"&gt;'HOST'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;'db'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;a name="rest_code_aea3ba50539448a0b0ba25a5ffde22d5-7"&gt;&lt;/a&gt;        &lt;span class="s1"&gt;'PORT'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;5432&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;a name="rest_code_aea3ba50539448a0b0ba25a5ffde22d5-8"&gt;&lt;/a&gt;    &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;a name="rest_code_aea3ba50539448a0b0ba25a5ffde22d5-9"&gt;&lt;/a&gt;&lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Docker コンテナ (db と web) を実行する&lt;/p&gt;
@@ -2892,15 +2892,15 @@ web_1  &lt;span class="p"&gt;|&lt;/span&gt; Quit the server with CONTROL-C.
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;実行中の コンテナを list する。&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_488f737c44a24e3cbf5ffe8365d2b83a-1"&gt;&lt;/a&gt;$ docker ps
-&lt;a name="rest_code_488f737c44a24e3cbf5ffe8365d2b83a-2"&gt;&lt;/a&gt;CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                    NAMES
-&lt;a name="rest_code_488f737c44a24e3cbf5ffe8365d2b83a-3"&gt;&lt;/a&gt;e95174b2be87        fff_web             &lt;span class="s2"&gt;"python3 manage.py r…"&lt;/span&gt;   &lt;span class="m"&gt;32&lt;/span&gt; minutes ago      Up &lt;span class="m"&gt;32&lt;/span&gt; minutes       &lt;span class="m"&gt;0&lt;/span&gt;.0.0.0:3236-&amp;gt;8000/tcp   fff_web_1
-&lt;a name="rest_code_488f737c44a24e3cbf5ffe8365d2b83a-4"&gt;&lt;/a&gt;2994f0092cd4        postgres            &lt;span class="s2"&gt;"docker-entrypoint.s…"&lt;/span&gt;   &lt;span class="m"&gt;41&lt;/span&gt; minutes ago      Up &lt;span class="m"&gt;41&lt;/span&gt; minutes       &lt;span class="m"&gt;5432&lt;/span&gt;/tcp                 fff_db_1
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_32623ea2ab1d4ed398f302a7ea04d5e3-1"&gt;&lt;/a&gt;$ docker ps
+&lt;a name="rest_code_32623ea2ab1d4ed398f302a7ea04d5e3-2"&gt;&lt;/a&gt;CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                    NAMES
+&lt;a name="rest_code_32623ea2ab1d4ed398f302a7ea04d5e3-3"&gt;&lt;/a&gt;e95174b2be87        fff_web             &lt;span class="s2"&gt;"python3 manage.py r…"&lt;/span&gt;   &lt;span class="m"&gt;32&lt;/span&gt; minutes ago      Up &lt;span class="m"&gt;32&lt;/span&gt; minutes       &lt;span class="m"&gt;0&lt;/span&gt;.0.0.0:3236-&amp;gt;8000/tcp   fff_web_1
+&lt;a name="rest_code_32623ea2ab1d4ed398f302a7ea04d5e3-4"&gt;&lt;/a&gt;2994f0092cd4        postgres            &lt;span class="s2"&gt;"docker-entrypoint.s…"&lt;/span&gt;   &lt;span class="m"&gt;41&lt;/span&gt; minutes ago      Up &lt;span class="m"&gt;41&lt;/span&gt; minutes       &lt;span class="m"&gt;5432&lt;/span&gt;/tcp                 fff_db_1
 &lt;/pre&gt;&lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;安全に shutdown する。&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_bc758e24d553468eae35c3ad59ca4713-1"&gt;&lt;/a&gt;$ docker-compose down
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_a7b97f4861a24fdb8c8222d9fc7f2006-1"&gt;&lt;/a&gt;$ docker-compose down
 &lt;/pre&gt;&lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;/ol&gt;

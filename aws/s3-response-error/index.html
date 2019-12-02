@@ -38,17 +38,17 @@
 <ul>
 <li>
 <p>エラーメッセージ</p>
-<pre class="code shell"><a name="rest_code_fb24f4ae292d4e688ad2f3a4d5ee7753-1"></a>S3ResponseError: S3ResponseError: <span class="m">403</span> Forbidden
-<a name="rest_code_fb24f4ae292d4e688ad2f3a4d5ee7753-2"></a>&lt;?xml <span class="nv">version</span><span class="o">=</span><span class="s2">"1.0"</span> <span class="nv">encoding</span><span class="o">=</span><span class="s2">"UTF-8"</span>?&gt;
-<a name="rest_code_fb24f4ae292d4e688ad2f3a4d5ee7753-3"></a>&lt;Error&gt;
-<a name="rest_code_fb24f4ae292d4e688ad2f3a4d5ee7753-4"></a>  &lt;Code&gt;RequestTimeTooSkewed&lt;/Code&gt;
-<a name="rest_code_fb24f4ae292d4e688ad2f3a4d5ee7753-5"></a>  &lt;Message&gt;The difference between the request <span class="nb">time</span> and the current <span class="nb">time</span> is too large.&lt;/Message&gt;
-<a name="rest_code_fb24f4ae292d4e688ad2f3a4d5ee7753-6"></a>  &lt;RequestTime&gt;Tue, <span class="m">31</span> Jul <span class="m">2018</span> <span class="m">07</span>:40:44 GMT&lt;/RequestTime&gt;
-<a name="rest_code_fb24f4ae292d4e688ad2f3a4d5ee7753-7"></a>  &lt;ServerTime&gt;2018-07-31T07:58:01Z&lt;/ServerTime&gt;
-<a name="rest_code_fb24f4ae292d4e688ad2f3a4d5ee7753-8"></a>  &lt;MaxAllowedSkewMilliseconds&gt;900000&lt;/MaxAllowedSkewMilliseconds&gt;
-<a name="rest_code_fb24f4ae292d4e688ad2f3a4d5ee7753-9"></a>  &lt;RequestId&gt;428DE174AE9C91AA&lt;/RequestId&gt;
-<a name="rest_code_fb24f4ae292d4e688ad2f3a4d5ee7753-10"></a>  &lt;HostId&gt;VOjhVVVSgfq6rfE6Eh9pWr0+7bJGV9+4/sXeTeNnTVFi7JYAH5ZArd2NEP/hsgpgyJkMm/fNeCM<span class="o">=</span>&lt;/HostId&gt;
-<a name="rest_code_fb24f4ae292d4e688ad2f3a4d5ee7753-11"></a>&lt;/Error&gt;
+<pre class="code shell"><a name="rest_code_197a769b3db3470e9f7accdebfbb2744-1"></a>S3ResponseError: S3ResponseError: <span class="m">403</span> Forbidden
+<a name="rest_code_197a769b3db3470e9f7accdebfbb2744-2"></a>&lt;?xml <span class="nv">version</span><span class="o">=</span><span class="s2">"1.0"</span> <span class="nv">encoding</span><span class="o">=</span><span class="s2">"UTF-8"</span>?&gt;
+<a name="rest_code_197a769b3db3470e9f7accdebfbb2744-3"></a>&lt;Error&gt;
+<a name="rest_code_197a769b3db3470e9f7accdebfbb2744-4"></a>  &lt;Code&gt;RequestTimeTooSkewed&lt;/Code&gt;
+<a name="rest_code_197a769b3db3470e9f7accdebfbb2744-5"></a>  &lt;Message&gt;The difference between the request <span class="nb">time</span> and the current <span class="nb">time</span> is too large.&lt;/Message&gt;
+<a name="rest_code_197a769b3db3470e9f7accdebfbb2744-6"></a>  &lt;RequestTime&gt;Tue, <span class="m">31</span> Jul <span class="m">2018</span> <span class="m">07</span>:40:44 GMT&lt;/RequestTime&gt;
+<a name="rest_code_197a769b3db3470e9f7accdebfbb2744-7"></a>  &lt;ServerTime&gt;2018-07-31T07:58:01Z&lt;/ServerTime&gt;
+<a name="rest_code_197a769b3db3470e9f7accdebfbb2744-8"></a>  &lt;MaxAllowedSkewMilliseconds&gt;900000&lt;/MaxAllowedSkewMilliseconds&gt;
+<a name="rest_code_197a769b3db3470e9f7accdebfbb2744-9"></a>  &lt;RequestId&gt;428DE174AE9C91AA&lt;/RequestId&gt;
+<a name="rest_code_197a769b3db3470e9f7accdebfbb2744-10"></a>  &lt;HostId&gt;VOjhVVVSgfq6rfE6Eh9pWr0+7bJGV9+4/sXeTeNnTVFi7JYAH5ZArd2NEP/hsgpgyJkMm/fNeCM<span class="o">=</span>&lt;/HostId&gt;
+<a name="rest_code_197a769b3db3470e9f7accdebfbb2744-11"></a>&lt;/Error&gt;
 </pre>
 </li>
 </ul>
@@ -58,11 +58,11 @@
 <ul>
 <li>
 <p>settings.py</p>
-<pre class="code python"><a name="rest_code_1879811b51044fbd9448b3bee3068cf1-1"></a><span class="n">MY_BUCKET_NAME</span> <span class="o">=</span> <span class="s1">'my_bucket_name'</span>
-<a name="rest_code_1879811b51044fbd9448b3bee3068cf1-2"></a><span class="n">DEFAULT_FILE_STORAGE</span> <span class="o">=</span> <span class="s1">'storages.backends.s3boto.S3BotoStorage'</span>
-<a name="rest_code_1879811b51044fbd9448b3bee3068cf1-3"></a><span class="n">AWS_STORAGE_BUCKET_NAME</span> <span class="o">=</span> <span class="n">MY_BUCKET_NAME</span>
-<a name="rest_code_1879811b51044fbd9448b3bee3068cf1-4"></a><span class="n">AWS_ACCESS_KEY_ID</span> <span class="o">=</span> <span class="s1">'ひみつ'</span>
-<a name="rest_code_1879811b51044fbd9448b3bee3068cf1-5"></a><span class="n">AWS_SECRET_ACCESS_KEY</span> <span class="o">=</span> <span class="s1">'ひみつ'</span>
+<pre class="code python"><a name="rest_code_f7e88e93d2494dda83b7db2b3e50bda5-1"></a><span class="n">MY_BUCKET_NAME</span> <span class="o">=</span> <span class="s1">'my_bucket_name'</span>
+<a name="rest_code_f7e88e93d2494dda83b7db2b3e50bda5-2"></a><span class="n">DEFAULT_FILE_STORAGE</span> <span class="o">=</span> <span class="s1">'storages.backends.s3boto.S3BotoStorage'</span>
+<a name="rest_code_f7e88e93d2494dda83b7db2b3e50bda5-3"></a><span class="n">AWS_STORAGE_BUCKET_NAME</span> <span class="o">=</span> <span class="n">MY_BUCKET_NAME</span>
+<a name="rest_code_f7e88e93d2494dda83b7db2b3e50bda5-4"></a><span class="n">AWS_ACCESS_KEY_ID</span> <span class="o">=</span> <span class="s1">'ひみつ'</span>
+<a name="rest_code_f7e88e93d2494dda83b7db2b3e50bda5-5"></a><span class="n">AWS_SECRET_ACCESS_KEY</span> <span class="o">=</span> <span class="s1">'ひみつ'</span>
 </pre>
 </li>
 </ul>
@@ -75,29 +75,29 @@
 <ul>
 <li>
 <p>エラーメッセージ</p>
-<pre class="code shell"><a name="rest_code_9779bd2147ea44dfa5b45c09e4ecb7e9-1"></a>&lt;Message&gt;The difference between the request <span class="nb">time</span> and the current <span class="nb">time</span> is too large.&lt;/Message&gt;
-<a name="rest_code_9779bd2147ea44dfa5b45c09e4ecb7e9-2"></a>&lt;RequestTime&gt;Tue, <span class="m">31</span> Jul <span class="m">2018</span> <span class="m">07</span>:40:00 GMT&lt;/RequestTime&gt;
-<a name="rest_code_9779bd2147ea44dfa5b45c09e4ecb7e9-3"></a>&lt;ServerTime&gt;2018-07-31T07:58:01Z&lt;/ServerTime&gt;
+<pre class="code shell"><a name="rest_code_b9cce44c30814586a5679b5aede16c6a-1"></a>&lt;Message&gt;The difference between the request <span class="nb">time</span> and the current <span class="nb">time</span> is too large.&lt;/Message&gt;
+<a name="rest_code_b9cce44c30814586a5679b5aede16c6a-2"></a>&lt;RequestTime&gt;Tue, <span class="m">31</span> Jul <span class="m">2018</span> <span class="m">07</span>:40:00 GMT&lt;/RequestTime&gt;
+<a name="rest_code_b9cce44c30814586a5679b5aede16c6a-3"></a>&lt;ServerTime&gt;2018-07-31T07:58:01Z&lt;/ServerTime&gt;
 </pre>
 </li>
 <li>
 <p>ゲストOSの日時</p>
-<pre class="code shell"><a name="rest_code_915095c22d2d46fa977850979a50862c-1"></a><span class="o">(</span>venv<span class="o">)</span> <span class="o">[</span>vagrant@localhost fumi23<span class="o">]</span>$ date
-<a name="rest_code_915095c22d2d46fa977850979a50862c-2"></a>Tue Jul <span class="m">31</span> <span class="m">16</span>:40:00 JST <span class="m">2018</span>
+<pre class="code shell"><a name="rest_code_b7c69d91f5e54324a3a41140beb7fafd-1"></a><span class="o">(</span>venv<span class="o">)</span> <span class="o">[</span>vagrant@localhost fumi23<span class="o">]</span>$ date
+<a name="rest_code_b7c69d91f5e54324a3a41140beb7fafd-2"></a>Tue Jul <span class="m">31</span> <span class="m">16</span>:40:00 JST <span class="m">2018</span>
 </pre>
 </li>
 <li>
 <p>ホストOSの日時</p>
-<pre class="code shell"><a name="rest_code_cd6c627e594a42eb9da0f34803743adc-1"></a>host-machine:~ fumi23$ date
-<a name="rest_code_cd6c627e594a42eb9da0f34803743adc-2"></a>2018年 7月 31日 火曜日 16時58分00秒 JST
+<pre class="code shell"><a name="rest_code_fa2661b780df448fa75e3196535230c8-1"></a>host-machine:~ fumi23$ date
+<a name="rest_code_fa2661b780df448fa75e3196535230c8-2"></a>2018年 7月 31日 火曜日 16時58分00秒 JST
 </pre>
 </li>
 </ul>
 </div>
 <div class="section" id="id3">
 <h2>時刻のなおしかた</h2>
-<pre class="code shell"><a name="rest_code_c27b637da9cc442abec318d5a53d48fe-1"></a><span class="o">(</span>venv<span class="o">)</span> <span class="o">[</span>vagrant@localhost fumi23<span class="o">]</span>$ sudo date -s <span class="s2">"07/31 17:02 2018"</span>
-<a name="rest_code_c27b637da9cc442abec318d5a53d48fe-2"></a>Tue Jul <span class="m">31</span> <span class="m">17</span>:02:00 JST <span class="m">2018</span>
+<pre class="code shell"><a name="rest_code_3372ce2b5f994051b652c56e07732f3b-1"></a><span class="o">(</span>venv<span class="o">)</span> <span class="o">[</span>vagrant@localhost fumi23<span class="o">]</span>$ sudo date -s <span class="s2">"07/31 17:02 2018"</span>
+<a name="rest_code_3372ce2b5f994051b652c56e07732f3b-2"></a>Tue Jul <span class="m">31</span> <span class="m">17</span>:02:00 JST <span class="m">2018</span>
 </pre>
 </div>
 <div class="section" id="id4">
