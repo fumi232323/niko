@@ -1,4 +1,4 @@
-.. title: Django: 認証システム
+.. title: Django: 認証システム django.contrib.auth
 .. tags: django
 .. date: 2019-12-01
 .. slug: index
@@ -17,16 +17,13 @@
   </details>
 
 
-django.contrib.auth: 認証システム
-==================================
-
 リファレンスなど
-------------------
+=================
 * https://docs.djangoproject.com/ja/2.2/topics/auth/
 * `現場で使える Django の教科書《実践編》 <https://booth.pm/ja/items/1030026>`_ 2章
 
 説明
-----
+====
 Djangoの認証は、認証機能と権限機能の両方を共に提供しています。そして、一般的に、これらの機能を合わせて認証システムと呼びます。
 
 * ユーザー登録/ユーザー情報変更とかはない感じ

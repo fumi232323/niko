@@ -1,6 +1,6 @@
 .. title: django-allauth
 .. tags: django
-.. date: 2019-12-01
+.. date: 2019-12-03
 .. slug: index
 .. status: draft
 
