@@ -34,40 +34,33 @@
 <details><summary>目次</summary><div class="contents topic" id="id1">
 <p class="topic-title first">目次</p>
 <ul class="simple">
+<li><p><a class="reference internal" href="#id2" id="id8">リファレンスなど</a></p></li>
+<li><p><a class="reference internal" href="#id3" id="id9">概要</a></p></li>
+<li><p><a class="reference internal" href="#id4" id="id10">主な機能</a></p></li>
 <li>
-<p><a class="reference internal" href="#django-allauth" id="id8">django-allauth</a></p>
+<p><a class="reference internal" href="#github" id="id11">GitHub とソーシャル連携認証してみる</a></p>
 <ul>
-<li><p><a class="reference internal" href="#id2" id="id9">リファレンスなど</a></p></li>
-<li><p><a class="reference internal" href="#id3" id="id10">概要</a></p></li>
-<li><p><a class="reference internal" href="#id4" id="id11">主な機能</a></p></li>
-<li>
-<p><a class="reference internal" href="#github" id="id12">GitHub とソーシャル連携認証してみる</a></p>
-<ul>
-<li><p><a class="reference internal" href="#id5" id="id13">ガイド</a></p></li>
-<li><p><a class="reference internal" href="#id6" id="id14">手順</a></p></li>
-<li><p><a class="reference internal" href="#id7" id="id15">できあがるレコード</a></p></li>
-<li><p><a class="reference internal" href="#settings" id="id16">settings</a></p></li>
-</ul>
-</li>
+<li><p><a class="reference internal" href="#id5" id="id12">ガイド</a></p></li>
+<li><p><a class="reference internal" href="#id6" id="id13">手順</a></p></li>
+<li><p><a class="reference internal" href="#id7" id="id14">できあがるレコード</a></p></li>
+<li><p><a class="reference internal" href="#settings" id="id15">settings</a></p></li>
 </ul>
 </li>
 </ul>
 </div>
-</details><div class="section" id="django-allauth">
-<h2><a class="toc-backref" href="#id8">django-allauth</a></h2>
-<div class="section" id="id2">
-<h3><a class="toc-backref" href="#id9">リファレンスなど</a></h3>
+</details><div class="section" id="id2">
+<h2><a class="toc-backref" href="#id8">リファレンスなど</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://django-allauth.readthedocs.io/en/latest/">https://django-allauth.readthedocs.io/en/latest/</a></p></li>
 <li><p><a class="reference external" href="https://booth.pm/ja/items/1030026">現場で使える Django の教科書《実践編》</a> 2章</p></li>
 </ul>
 </div>
 <div class="section" id="id3">
-<h3><a class="toc-backref" href="#id10">概要</a></h3>
+<h2><a class="toc-backref" href="#id9">概要</a></h2>
 <p>Integrated set of Django applications addressing authentication, registration, account management as well as 3rd party (social) account authentication.</p>
 </div>
 <div class="section" id="id4">
-<h3><a class="toc-backref" href="#id11">主な機能</a></h3>
+<h2><a class="toc-backref" href="#id10">主な機能</a></h2>
 <ul class="simple">
 <li><p>ログイン</p></li>
 <li><p>ログアウト</p></li>
@@ -87,13 +80,13 @@
 </ul>
 </div>
 <div class="section" id="github">
-<h3><a class="toc-backref" href="#id12">GitHub とソーシャル連携認証してみる</a></h3>
+<h2><a class="toc-backref" href="#id11">GitHub とソーシャル連携認証してみる</a></h2>
 <div class="section" id="id5">
-<h4><a class="toc-backref" href="#id13">ガイド</a></h4>
+<h3><a class="toc-backref" href="#id12">ガイド</a></h3>
 <p><a class="reference external" href="https://django-allauth.readthedocs.io/en/latest/providers.html#github">https://django-allauth.readthedocs.io/en/latest/providers.html#github</a></p>
 </div>
 <div class="section" id="id6">
-<h4><a class="toc-backref" href="#id14">手順</a></h4>
+<h3><a class="toc-backref" href="#id13">手順</a></h3>
 <ol class="arabic">
 <li>
 <p>GitHub に OAuth アプリケーションを登録する</p>
@@ -122,15 +115,15 @@
 <li>
 <p>Admin サイトで GitHub とソーシャル連携するために初期データを登録する</p>
 <blockquote>
-<pre class="code bash"><a name="rest_code_9296ebb0541c49b197e8bea7c079dc19-1"></a><span class="c1"># django-allauth をインストールする</span>
-<a name="rest_code_9296ebb0541c49b197e8bea7c079dc19-2"></a>$ pip3 install django-allauth
-<a name="rest_code_9296ebb0541c49b197e8bea7c079dc19-3"></a>
-<a name="rest_code_9296ebb0541c49b197e8bea7c079dc19-4"></a><span class="c1"># マイグレーション</span>
-<a name="rest_code_9296ebb0541c49b197e8bea7c079dc19-5"></a>$ python3 manage.py migrate
-<a name="rest_code_9296ebb0541c49b197e8bea7c079dc19-6"></a><span class="c1"># スーパーユーザー作成</span>
-<a name="rest_code_9296ebb0541c49b197e8bea7c079dc19-7"></a>$ python3 manage.py createsuperuser
-<a name="rest_code_9296ebb0541c49b197e8bea7c079dc19-8"></a><span class="c1"># Django アプリを起動</span>
-<a name="rest_code_9296ebb0541c49b197e8bea7c079dc19-9"></a>$ python3 manage.py runserver <span class="m">0</span>.0.0.0:8181
+<pre class="code bash"><a name="rest_code_25ae5b04e900400ab8305872879f3ecf-1"></a><span class="c1"># django-allauth をインストールする</span>
+<a name="rest_code_25ae5b04e900400ab8305872879f3ecf-2"></a>$ pip3 install django-allauth
+<a name="rest_code_25ae5b04e900400ab8305872879f3ecf-3"></a>
+<a name="rest_code_25ae5b04e900400ab8305872879f3ecf-4"></a><span class="c1"># マイグレーション</span>
+<a name="rest_code_25ae5b04e900400ab8305872879f3ecf-5"></a>$ python3 manage.py migrate
+<a name="rest_code_25ae5b04e900400ab8305872879f3ecf-6"></a><span class="c1"># スーパーユーザー作成</span>
+<a name="rest_code_25ae5b04e900400ab8305872879f3ecf-7"></a>$ python3 manage.py createsuperuser
+<a name="rest_code_25ae5b04e900400ab8305872879f3ecf-8"></a><span class="c1"># Django アプリを起動</span>
+<a name="rest_code_25ae5b04e900400ab8305872879f3ecf-9"></a>$ python3 manage.py runserver <span class="m">0</span>.0.0.0:8181
 </pre>
 </blockquote>
 <ul class="simple">
@@ -189,7 +182,7 @@
 </ol>
 </div>
 <div class="section" id="id7">
-<h4><a class="toc-backref" href="#id15">できあがるレコード</a></h4>
+<h3><a class="toc-backref" href="#id14">できあがるレコード</a></h3>
 <dl class="field-list simple">
 <dt>auth_user</dt>
 <dd>
@@ -224,7 +217,7 @@
 </dl>
 </div>
 <div class="section" id="settings">
-<h4><a class="toc-backref" href="#id16">settings</a></h4>
+<h3><a class="toc-backref" href="#id15">settings</a></h3>
 <p></p>
 <div class="code-block ">
 <div class="code-block-label">settings.py</div>
@@ -387,7 +380,6 @@
 <span class="c1"># ユーザー登録画面でにEmailを必須項目にする</span>
 <span class="n">ACCOUNT_EMAIL_REQUIRED</span> <span class="o">=</span> <span class="bp">True</span>
 </pre></div>
-</div>
 </div>
 </div>
 </div>

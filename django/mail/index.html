@@ -39,31 +39,47 @@
 </div>
 </details><div class="section" id="id2">
 <h2><a class="toc-backref" href="#id3">メール</a></h2>
-<p><a class="reference external" href="https://docs.djangoproject.com/ja/2.2/topics/email/">https://docs.djangoproject.com/ja/2.2/topics/email/</a></p>
-<pre class="code python"><a name="rest_code_27b662c9a65442c584121eeef56ff153-1"></a><span class="kn">from</span> <span class="nn">django.core.mail</span> <span class="kn">import</span> <span class="n">send_mail</span>
-<a name="rest_code_27b662c9a65442c584121eeef56ff153-2"></a>
-<a name="rest_code_27b662c9a65442c584121eeef56ff153-3"></a><span class="n">send_mail</span><span class="p">(</span>
-<a name="rest_code_27b662c9a65442c584121eeef56ff153-4"></a>    <span class="s1">'Subject here'</span><span class="p">,</span>           <span class="c1"># 件名</span>
-<a name="rest_code_27b662c9a65442c584121eeef56ff153-5"></a>    <span class="s1">'Here is the message.'</span><span class="p">,</span>   <span class="c1"># 本文</span>
-<a name="rest_code_27b662c9a65442c584121eeef56ff153-6"></a>    <span class="s1">'from@example.com'</span><span class="p">,</span>       <span class="c1"># From アドレス</span>
-<a name="rest_code_27b662c9a65442c584121eeef56ff153-7"></a>    <span class="p">[</span><span class="s1">'to@example.com'</span><span class="p">],</span>       <span class="c1"># To アドレス</span>
-<a name="rest_code_27b662c9a65442c584121eeef56ff153-8"></a><span class="p">)</span>
-</pre>
-<p><a class="reference external" href="https://docs.djangoproject.com/ja/2.2/topics/email/#email-backends">https://docs.djangoproject.com/ja/2.2/topics/email/#email-backends</a>
-* いろんなバックエンドがある</p>
-<blockquote>
 <ul class="simple">
+<li>
+<p>リファレンス</p>
+<ul>
+<li><p><a class="reference external" href="https://docs.djangoproject.com/ja/2.2/topics/email/">https://docs.djangoproject.com/ja/2.2/topics/email/</a></p></li>
+</ul>
+</li>
+<li><p>メールを送信する</p></li>
+</ul>
+<pre class="code python"><a name="rest_code_75fe8bc481904f45bc527591bf08c37e-1"></a><span class="kn">from</span> <span class="nn">django.core.mail</span> <span class="kn">import</span> <span class="n">send_mail</span>
+<a name="rest_code_75fe8bc481904f45bc527591bf08c37e-2"></a>
+<a name="rest_code_75fe8bc481904f45bc527591bf08c37e-3"></a><span class="n">send_mail</span><span class="p">(</span>
+<a name="rest_code_75fe8bc481904f45bc527591bf08c37e-4"></a>    <span class="s1">'Subject here'</span><span class="p">,</span>           <span class="c1"># 件名</span>
+<a name="rest_code_75fe8bc481904f45bc527591bf08c37e-5"></a>    <span class="s1">'Here is the message.'</span><span class="p">,</span>   <span class="c1"># 本文</span>
+<a name="rest_code_75fe8bc481904f45bc527591bf08c37e-6"></a>    <span class="s1">'from@example.com'</span><span class="p">,</span>       <span class="c1"># From アドレス</span>
+<a name="rest_code_75fe8bc481904f45bc527591bf08c37e-7"></a>    <span class="p">[</span><span class="s1">'to@example.com'</span><span class="p">],</span>       <span class="c1"># To アドレス</span>
+<a name="rest_code_75fe8bc481904f45bc527591bf08c37e-8"></a><span class="p">)</span>
+</pre>
+<ul>
+<li>
+<p>いろんなバックエンドがある</p>
+<ul class="simple">
+<li>
+<p><a class="reference external" href="https://docs.djangoproject.com/ja/2.2/topics/email/#email-backends">https://docs.djangoproject.com/ja/2.2/topics/email/#email-backends</a></p>
+<ul>
 <li><p>コンソールに出すとか</p></li>
 <li><p>メール送らないダミーとか</p></li>
 </ul>
-</blockquote>
-<p><a class="reference external" href="https://docs.djangoproject.com/ja/2.2/topics/email/#configuring-email-for-development">https://docs.djangoproject.com/ja/2.2/topics/email/#configuring-email-for-development</a>
-* 開発用にメールを設定する</p>
-<blockquote>
+</li>
+</ul>
+</li>
+<li>
+<p>開発用にメールを設定する</p>
 <ul class="simple">
+<li><p><a class="reference external" href="https://docs.djangoproject.com/ja/2.2/topics/email/#configuring-email-for-development">https://docs.djangoproject.com/ja/2.2/topics/email/#configuring-email-for-development</a></p></li>
 <li><p>これ使いそう</p></li>
 </ul>
-</blockquote>
+<pre class="code bash"><a name="rest_code_cb0390cd5801402b99d17261196c91d6-1"></a>$ python -m smtpd -n -c DebuggingServer localhost:1025
+</pre>
+</li>
+</ul>
 </div>
 </div>
     </div>
