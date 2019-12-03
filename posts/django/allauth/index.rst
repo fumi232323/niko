@@ -2,7 +2,7 @@
 .. tags: django
 .. date: 2019-12-03
 .. slug: index
-.. status: draft
+.. status: published
 
 
 .. raw:: html
@@ -96,8 +96,7 @@ https://django-allauth.readthedocs.io/en/latest/providers.html#github
       {{% figure sign-in-to-github.png %}}
       {{% figure authorize-fuminote.png %}}
 
-      * 今いま callback URL がエラーになる => たぶんメールを設定していないせい?っぽい?
-      * あとでやってみる
+      * 今いま callback URL がエラーになる => メールを設定していないからかもしれない => あとでやってみる
 
    * ログインできた!
 
@@ -115,7 +114,7 @@ https://django-allauth.readthedocs.io/en/latest/providers.html#github
 :auth_user: Django サイトのユーザー
 :account_emailaddress: Django サイトのユーザーと Email
 :socialaccount_socialtoken: サービスプロバイダから払いだされたトークン
-:socialaccount_socialaccount: トークンと Django サイトのユーザーの関連付けるソーシャルアカウントレコード
+:socialaccount_socialaccount: Django サイトのユーザーとサービスプロバイダから払いだされたトークンとを関連付けるソーシャルアカウント
 
   * サービスプロバイダから連携されたユーザー情報を保持
 
