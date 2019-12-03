@@ -17,20 +17,17 @@
   </details>
 
 
-django-allauth
-==============
-
 リファレンスなど
-------------------
+=================
 * https://django-allauth.readthedocs.io/en/latest/
 * `現場で使える Django の教科書《実践編》 <https://booth.pm/ja/items/1030026>`_ 2章
 
 概要
------
+=====
 Integrated set of Django applications addressing authentication, registration, account management as well as 3rd party (social) account authentication.
 
 主な機能
----------
+========
 * ログイン
 * ログアウト
 * パスワード変更
@@ -46,14 +43,14 @@ Integrated set of Django applications addressing authentication, registration, a
 * テンプレートも用意してくれている
 
 GitHub とソーシャル連携認証してみる
------------------------------------
+===================================
 
 ガイド
-^^^^^^^
+------
 https://django-allauth.readthedocs.io/en/latest/providers.html#github
 
 手順
-^^^^^
+----
 1. GitHub に OAuth アプリケーションを登録する
 
    * https://github.com/settings/developers > ``OAuth Apps``  > ``Register a new OAuth application``
@@ -109,7 +106,7 @@ https://django-allauth.readthedocs.io/en/latest/providers.html#github
      {{% figure social-connections.png %}}
 
 できあがるレコード
-^^^^^^^^^^^^^^^^^^^
+------------------
 
 :auth_user: Django サイトのユーザー
 :account_emailaddress: Django サイトのユーザーと Email
@@ -125,6 +122,6 @@ https://django-allauth.readthedocs.io/en/latest/providers.html#github
 :socialaccount_socialapp_sites: サービスプロパイダとサイトの紐付け
 
 settings
-^^^^^^^^^
+---------
 
 {{% codeblock fufu/fufu/settings.py label="settings.py" lexer="python" %}}

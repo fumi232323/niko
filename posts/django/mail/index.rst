@@ -19,7 +19,13 @@
 
 メール
 =======
-https://docs.djangoproject.com/ja/2.2/topics/email/
+
+* リファレンス
+
+  * https://docs.djangoproject.com/ja/2.2/topics/email/
+
+
+* メールを送信する
 
 .. code-block:: python
 
@@ -32,14 +38,20 @@ https://docs.djangoproject.com/ja/2.2/topics/email/
       ['to@example.com'],       # To アドレス
   )
 
-
-https://docs.djangoproject.com/ja/2.2/topics/email/#email-backends
 * いろんなバックエンドがある
 
-  * コンソールに出すとか
-  * メール送らないダミーとか
+  * https://docs.djangoproject.com/ja/2.2/topics/email/#email-backends
 
-https://docs.djangoproject.com/ja/2.2/topics/email/#configuring-email-for-development
+    * コンソールに出すとか
+    * メール送らないダミーとか
+
 * 開発用にメールを設定する
 
+  * https://docs.djangoproject.com/ja/2.2/topics/email/#configuring-email-for-development
   * これ使いそう
+
+  .. code-block:: bash
+
+    $ python -m smtpd -n -c DebuggingServer localhost:1025
+
+
