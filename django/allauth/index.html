@@ -34,33 +34,34 @@
 <details><summary>目次</summary><div class="contents topic" id="id1">
 <p class="topic-title first">目次</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#id2" id="id8">リファレンスなど</a></p></li>
-<li><p><a class="reference internal" href="#id3" id="id9">概要</a></p></li>
-<li><p><a class="reference internal" href="#id4" id="id10">主な機能</a></p></li>
+<li><p><a class="reference internal" href="#id2" id="id10">リファレンスなど</a></p></li>
+<li><p><a class="reference internal" href="#id3" id="id11">概要</a></p></li>
+<li><p><a class="reference internal" href="#id4" id="id12">主な機能</a></p></li>
 <li>
-<p><a class="reference internal" href="#github" id="id11">GitHub とソーシャル連携認証してみる</a></p>
+<p><a class="reference internal" href="#github" id="id13">GitHub とソーシャル連携認証してみる</a></p>
 <ul>
-<li><p><a class="reference internal" href="#id5" id="id12">ガイド</a></p></li>
-<li><p><a class="reference internal" href="#id6" id="id13">手順</a></p></li>
-<li><p><a class="reference internal" href="#id7" id="id14">できあがるレコード</a></p></li>
-<li><p><a class="reference internal" href="#settings" id="id15">settings</a></p></li>
+<li><p><a class="reference internal" href="#id5" id="id14">ガイド</a></p></li>
+<li><p><a class="reference internal" href="#id6" id="id15">手順</a></p></li>
+<li><p><a class="reference internal" href="#id7" id="id16">できあがるレコード</a></p></li>
+<li><p><a class="reference internal" href="#settings" id="id17">settings</a></p></li>
 </ul>
 </li>
+<li><p><a class="reference internal" href="#id8" id="id18">メールを設定した</a></p></li>
 </ul>
 </div>
 </details><div class="section" id="id2">
-<h2><a class="toc-backref" href="#id8">リファレンスなど</a></h2>
+<h2><a class="toc-backref" href="#id10">リファレンスなど</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://django-allauth.readthedocs.io/en/latest/">https://django-allauth.readthedocs.io/en/latest/</a></p></li>
 <li><p><a class="reference external" href="https://booth.pm/ja/items/1030026">現場で使える Django の教科書《実践編》</a> 2章</p></li>
 </ul>
 </div>
 <div class="section" id="id3">
-<h2><a class="toc-backref" href="#id9">概要</a></h2>
+<h2><a class="toc-backref" href="#id11">概要</a></h2>
 <p>Integrated set of Django applications addressing authentication, registration, account management as well as 3rd party (social) account authentication.</p>
 </div>
 <div class="section" id="id4">
-<h2><a class="toc-backref" href="#id10">主な機能</a></h2>
+<h2><a class="toc-backref" href="#id12">主な機能</a></h2>
 <ul class="simple">
 <li><p>ログイン</p></li>
 <li><p>ログアウト</p></li>
@@ -80,13 +81,13 @@
 </ul>
 </div>
 <div class="section" id="github">
-<h2><a class="toc-backref" href="#id11">GitHub とソーシャル連携認証してみる</a></h2>
+<h2><a class="toc-backref" href="#id13">GitHub とソーシャル連携認証してみる</a></h2>
 <div class="section" id="id5">
-<h3><a class="toc-backref" href="#id12">ガイド</a></h3>
+<h3><a class="toc-backref" href="#id14">ガイド</a></h3>
 <p><a class="reference external" href="https://django-allauth.readthedocs.io/en/latest/providers.html#github">https://django-allauth.readthedocs.io/en/latest/providers.html#github</a></p>
 </div>
 <div class="section" id="id6">
-<h3><a class="toc-backref" href="#id13">手順</a></h3>
+<h3><a class="toc-backref" href="#id15">手順</a></h3>
 <ol class="arabic">
 <li>
 <p>GitHub に OAuth アプリケーションを登録する</p>
@@ -96,7 +97,7 @@
 <blockquote>
 <p></p>
 <div class="figure">
-<img alt="/images/django/allauth/register-OAuth-application.png" src="../../images/django/allauth/register-OAuth-application.png">
+<img alt="/images/django/allauth/00_register-oauth-application.png" src="../../images/django/allauth/00_register-oauth-application.png">
 </div>
 <ul class="simple">
 <li>
@@ -115,15 +116,15 @@
 <li>
 <p>Admin サイトで GitHub とソーシャル連携するために初期データを登録する</p>
 <blockquote>
-<pre class="code bash"><a name="rest_code_25ae5b04e900400ab8305872879f3ecf-1"></a><span class="c1"># django-allauth をインストールする</span>
-<a name="rest_code_25ae5b04e900400ab8305872879f3ecf-2"></a>$ pip3 install django-allauth
-<a name="rest_code_25ae5b04e900400ab8305872879f3ecf-3"></a>
-<a name="rest_code_25ae5b04e900400ab8305872879f3ecf-4"></a><span class="c1"># マイグレーション</span>
-<a name="rest_code_25ae5b04e900400ab8305872879f3ecf-5"></a>$ python3 manage.py migrate
-<a name="rest_code_25ae5b04e900400ab8305872879f3ecf-6"></a><span class="c1"># スーパーユーザー作成</span>
-<a name="rest_code_25ae5b04e900400ab8305872879f3ecf-7"></a>$ python3 manage.py createsuperuser
-<a name="rest_code_25ae5b04e900400ab8305872879f3ecf-8"></a><span class="c1"># Django アプリを起動</span>
-<a name="rest_code_25ae5b04e900400ab8305872879f3ecf-9"></a>$ python3 manage.py runserver <span class="m">0</span>.0.0.0:8181
+<pre class="code bash"><a name="rest_code_1cb6a68f3da7462caa7ef21c1e3b65be-1"></a><span class="c1"># django-allauth をインストールする</span>
+<a name="rest_code_1cb6a68f3da7462caa7ef21c1e3b65be-2"></a>$ pip3 install django-allauth
+<a name="rest_code_1cb6a68f3da7462caa7ef21c1e3b65be-3"></a>
+<a name="rest_code_1cb6a68f3da7462caa7ef21c1e3b65be-4"></a><span class="c1"># マイグレーション</span>
+<a name="rest_code_1cb6a68f3da7462caa7ef21c1e3b65be-5"></a>$ python3 manage.py migrate
+<a name="rest_code_1cb6a68f3da7462caa7ef21c1e3b65be-6"></a><span class="c1"># スーパーユーザー作成</span>
+<a name="rest_code_1cb6a68f3da7462caa7ef21c1e3b65be-7"></a>$ python3 manage.py createsuperuser
+<a name="rest_code_1cb6a68f3da7462caa7ef21c1e3b65be-8"></a><span class="c1"># Django アプリを起動</span>
+<a name="rest_code_1cb6a68f3da7462caa7ef21c1e3b65be-9"></a>$ python3 manage.py runserver <span class="m">0</span>.0.0.0:8181
 </pre>
 </blockquote>
 <ul class="simple">
@@ -143,16 +144,22 @@
 <blockquote>
 <p></p>
 <div class="figure">
-<img alt="/images/django/allauth/login.png" src="../../images/django/allauth/login.png">
+<img alt="/images/django/allauth/01_login.png" src="../../images/django/allauth/01_login.png">
 </div>
 <div class="figure">
-<img alt="/images/django/allauth/sign-in-to-github.png" src="../../images/django/allauth/sign-in-to-github.png">
+<img alt="/images/django/allauth/02_sign-in-to-github.png" src="../../images/django/allauth/02_sign-in-to-github.png">
 </div>
 <div class="figure">
-<img alt="/images/django/allauth/authorize-fuminote.png" src="../../images/django/allauth/authorize-fuminote.png">
+<img alt="/images/django/allauth/03_authorize-fuminote.png" src="../../images/django/allauth/03_authorize-fuminote.png">
 </div>
-<ul class="simple">
-<li><p>今いま callback URL がエラーになる =&gt; メールを設定していないからかもしれない =&gt; あとでやってみる</p></li>
+<ul>
+<li>
+<p>今いま callback URL がエラーになる =&gt; メールを設定していないからかもしれない =&gt; あとでやってみる</p>
+<p></p>
+<div class="figure">
+<img alt="/images/django/allauth/06_social-login-error.png" src="../../images/django/allauth/06_social-login-error.png">
+</div>
+</li>
 </ul>
 </blockquote>
 </li>
@@ -161,7 +168,7 @@
 <blockquote>
 <p></p>
 <div class="figure">
-<img alt="/images/django/allauth/home.png" src="../../images/django/allauth/home.png">
+<img alt="/images/django/allauth/04_home.png" src="../../images/django/allauth/04_home.png">
 </div>
 </blockquote>
 </li>
@@ -174,7 +181,7 @@
 <p><a class="reference external" href="http://localhost:8181/accounts/social/connections/">http://localhost:8181/accounts/social/connections/</a> でソーシャル連携解除できる</p>
 <p></p>
 <div class="figure">
-<img alt="/images/django/allauth/social-connections.png" src="../../images/django/allauth/social-connections.png">
+<img alt="/images/django/allauth/05_social-connections.png" src="../../images/django/allauth/05_social-connections.png">
 </div>
 </li>
 </ul>
@@ -182,7 +189,7 @@
 </ol>
 </div>
 <div class="section" id="id7">
-<h3><a class="toc-backref" href="#id14">できあがるレコード</a></h3>
+<h3><a class="toc-backref" href="#id16">できあがるレコード</a></h3>
 <dl class="field-list simple">
 <dt>auth_user</dt>
 <dd>
@@ -217,7 +224,7 @@
 </dl>
 </div>
 <div class="section" id="settings">
-<h3><a class="toc-backref" href="#id15">settings</a></h3>
+<h3><a class="toc-backref" href="#id17">settings</a></h3>
 <p></p>
 <div class="code-block ">
 <div class="code-block-label">settings.py</div>
@@ -332,8 +339,10 @@
 <span class="c1"># Internationalization</span>
 <span class="c1"># https://docs.djangoproject.com/en/2.2/topics/i18n/</span>
 
-<span class="c1"># LANGUAGE_CODE = 'ja'</span>
-<span class="n">LANGUAGE_CODE</span> <span class="o">=</span> <span class="s1">'en-us'</span>
+<span class="c1"># 日本語にするとテンプレートも勝手に日本語で表示される</span>
+<span class="n">LANGUAGE_CODE</span> <span class="o">=</span> <span class="s1">'ja'</span>
+<span class="c1"># 英語にするとテンプレートも勝手に英語で表示される</span>
+<span class="c1"># LANGUAGE_CODE = 'en-us'</span>
 
 <span class="n">TIME_ZONE</span> <span class="o">=</span> <span class="s1">'Asia/Tokyo'</span>
 
@@ -355,15 +364,16 @@
 
 <span class="c1"># メールアドレスとパスワードで認証</span>
 <span class="n">AUTHENTICATION_BACKENDS</span> <span class="o">=</span> <span class="p">(</span>
-    <span class="c1"># デフォルト, これを残しておくと管理画面はユーザー名/パスワードで認証できる</span>
+    <span class="c1"># デフォルト: これを残しておくと管理画面はユーザー名/パスワードで認証できる</span>
     <span class="s1">'django.contrib.auth.backends.ModelBackend'</span><span class="p">,</span>
-    <span class="s1">'allauth.account.auth_backends.AuthenticationBackend'</span><span class="p">,</span>  <span class="c1"># 追加</span>
+    <span class="s1">'allauth.account.auth_backends.AuthenticationBackend'</span><span class="p">,</span>  <span class="c1"># django-allauth を追加</span>
 <span class="p">)</span>
 <span class="c1"># 認証⽅式を 「メールアドレスとパスワード」 に変更</span>
 <span class="n">ACCOUNT_AUTHENTICATION_METHOD</span> <span class="o">=</span> <span class="s1">'email'</span>
 <span class="c1"># ユーザー名は使⽤しない</span>
 <span class="n">ACCOUNT_USERNAME_REQUIRED</span> <span class="o">=</span> <span class="bp">False</span>
 
+<span class="c1"># django-allauth にはこれが必要</span>
 <span class="n">SITE_ID</span> <span class="o">=</span> <span class="mi">1</span>
 
 <span class="n">LOGIN_REDIRECT_URL</span> <span class="o">=</span> <span class="s1">'home'</span>
@@ -379,9 +389,88 @@
 <span class="c1"># ACCOUNT_EMAIL_VARIFICATION = 'none'</span>
 <span class="c1"># ユーザー登録画面でにEmailを必須項目にする</span>
 <span class="n">ACCOUNT_EMAIL_REQUIRED</span> <span class="o">=</span> <span class="bp">True</span>
+
+<span class="c1">##################</span>
+<span class="c1"># AWS settings   #</span>
+<span class="c1">##################</span>
+<span class="c1"># 本当は settings には書かない</span>
+<span class="n">AWS_ACCESS_KEY_ID</span> <span class="o">=</span> <span class="s1">'XXXXXXXXXXXXXXXXXXXX'</span>
+<span class="n">AWS_SECRET_ACCESS_KEY</span> <span class="o">=</span> <span class="s1">'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'</span>
+
+<span class="c1">##################</span>
+<span class="c1"># Email settings #</span>
+<span class="c1">##################</span>
+<span class="n">EMAIL_BACKEND</span> <span class="o">=</span> <span class="s1">'django_ses.SESBackend'</span>
+<span class="n">DEFAULT_FROM_EMAIL</span> <span class="o">=</span> <span class="n">SERVER_EMAIL</span> <span class="o">=</span> <span class="s1">'no-reply &lt;XXXXXXXXXXXXXXXXXXXX@example.com&gt;'</span>
+<span class="c1"># us-east-1 以外のAWSリージョンを使用する場合はこれも必要↓</span>
+<span class="c1"># AWS_SES_REGION_NAME = 'us-west-2'</span>
+<span class="c1"># AWS_SES_REGION_ENDPOINT = 'email.us-west-2.amazonaws.com'</span>
 </pre></div>
 </div>
 </div>
+</div>
+<div class="section" id="id8">
+<h2><a class="toc-backref" href="#id18">メールを設定した</a></h2>
+<ul>
+<li>
+<p>callback URL はエラーにならず、 <code class="docutils literal">Confirm <span class="pre">E-mail</span> Address</code> メール が送られてくるようになった。</p>
+<ul class="simple">
+<li><p>Confirm E-mail Address メールが送られてくるのは、 settings に <code class="docutils literal">ユーザー登録時にメールアドレス確認を行う</code> と設定しているためです</p></li>
+<li><p>メールの設定は <a class="reference external" href="https://32imuf.com/django/madanai/">書き途中</a> を参照のこと</p></li>
+</ul>
+</li>
+<li>
+<p>流れ</p>
+<ol class="arabic">
+<li>
+<p>ログイン画面で <code class="docutils literal">GitHub</code> リンク押下する</p>
+<blockquote>
+<p></p>
+<div class="figure">
+<img alt="/images/django/allauth/11_sign_in.png" src="../../images/django/allauth/11_sign_in.png">
+</div>
+</blockquote>
+</li>
+<li>
+<p>GitHub 側のサインイン画面へ遷移する</p>
+<blockquote>
+<p></p>
+<div class="figure">
+<img alt="/images/django/allauth/12_continue_to_fuminote.png" src="../../images/django/allauth/12_continue_to_fuminote.png">
+</div>
+</blockquote>
+</li>
+<li><p>GitHub でサインインすると、自分のアプリのホーム画面へ遷移する。</p></li>
+<li>
+<p>同時に、 GitHub に登録してある Email address に <code class="docutils literal">Confirm <span class="pre">E-mail</span> Address</code> メールが届く。</p>
+<blockquote>
+<p></p>
+<div class="figure">
+<img alt="/images/django/allauth/13_confirm_email.png" src="../../images/django/allauth/13_confirm_email.png">
+</div>
+</blockquote>
+</li>
+<li>
+<p><code class="docutils literal">Confirm <span class="pre">E-mail</span> Address</code> メールに記載のリンクを押下すると、 E-mail Address 確認画面へ遷移する。</p>
+<blockquote>
+<p></p>
+<div class="figure">
+<img alt="/images/django/allauth/14_confirm_email_screen.png" src="../../images/django/allauth/14_confirm_email_screen.png">
+</div>
+</blockquote>
+</li>
+<li>
+<p>Confirm ボタンを押下するとホーム画面が表示される。</p>
+<blockquote>
+<p></p>
+<div class="figure">
+<img alt="/images/django/allauth/15_home.png" src="../../images/django/allauth/15_home.png">
+</div>
+</blockquote>
+</li>
+</ol>
+</li>
+</ul>
 </div>
 </div>
     </div>

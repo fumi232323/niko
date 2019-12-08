@@ -1,34 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ふみのて (djangoについての文書)</title><link>https://32imuf.com/</link><description></description><atom:link href="https://32imuf.com/tags/django.xml" rel="self" type="application/rss+xml"></atom:link><language>ja</language><copyright>Contents © 2019 &lt;a href="mailto:fumi232323fumi2016@gmail.com"&gt;fumi23&lt;/a&gt; </copyright><lastBuildDate>Tue, 03 Dec 2019 13:51:48 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>django-allauth</title><link>https://32imuf.com/django/allauth/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;details&gt;
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ふみのて (djangoについての文書)</title><link>https://32imuf.com/</link><description></description><atom:link href="https://32imuf.com/tags/django.xml" rel="self" type="application/rss+xml"></atom:link><language>ja</language><copyright>Contents © 2019 &lt;a href="mailto:fumi232323fumi2016@gmail.com"&gt;fumi23&lt;/a&gt; </copyright><lastBuildDate>Sun, 08 Dec 2019 13:25:14 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>django-allauth</title><link>https://32imuf.com/django/allauth/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;details&gt;
   &lt;summary&gt;目次&lt;/summary&gt;&lt;div class="contents topic" id="id1"&gt;
 &lt;p class="topic-title first"&gt;目次&lt;/p&gt;
 &lt;ul class="simple"&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/django/allauth/#id2" id="id8"&gt;リファレンスなど&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/django/allauth/#id3" id="id9"&gt;概要&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/django/allauth/#id4" id="id10"&gt;主な機能&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/django/allauth/#github" id="id11"&gt;GitHub とソーシャル連携認証してみる&lt;/a&gt;&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/django/allauth/#id2" id="id10"&gt;リファレンスなど&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/django/allauth/#id3" id="id11"&gt;概要&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/django/allauth/#id4" id="id12"&gt;主な機能&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/django/allauth/#github" id="id13"&gt;GitHub とソーシャル連携認証してみる&lt;/a&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/django/allauth/#id5" id="id12"&gt;ガイド&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/django/allauth/#id6" id="id13"&gt;手順&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/django/allauth/#id7" id="id14"&gt;できあがるレコード&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/django/allauth/#settings" id="id15"&gt;settings&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/django/allauth/#id5" id="id14"&gt;ガイド&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/django/allauth/#id6" id="id15"&gt;手順&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/django/allauth/#id7" id="id16"&gt;できあがるレコード&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/django/allauth/#settings" id="id17"&gt;settings&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/django/allauth/#id8" id="id18"&gt;メールを設定した&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;/details&gt;&lt;div class="section" id="id2"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/django/allauth/#id8"&gt;リファレンスなど&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/django/allauth/#id10"&gt;リファレンスなど&lt;/a&gt;&lt;/h2&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://django-allauth.readthedocs.io/en/latest/"&gt;https://django-allauth.readthedocs.io/en/latest/&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://booth.pm/ja/items/1030026"&gt;現場で使える Django の教科書《実践編》&lt;/a&gt; 2章&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id3"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/django/allauth/#id9"&gt;概要&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/django/allauth/#id11"&gt;概要&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Integrated set of Django applications addressing authentication, registration, account management as well as 3rd party (social) account authentication.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id4"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/django/allauth/#id10"&gt;主な機能&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/django/allauth/#id12"&gt;主な機能&lt;/a&gt;&lt;/h2&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;p&gt;ログイン&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;ログアウト&lt;/p&gt;&lt;/li&gt;
@@ -47,20 +48,20 @@
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div class="section" id="github"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/django/allauth/#id11"&gt;GitHub とソーシャル連携認証してみる&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/django/allauth/#id13"&gt;GitHub とソーシャル連携認証してみる&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="section" id="id5"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/django/allauth/#id12"&gt;ガイド&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/django/allauth/#id14"&gt;ガイド&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;&lt;a class="reference external" href="https://django-allauth.readthedocs.io/en/latest/providers.html#github"&gt;https://django-allauth.readthedocs.io/en/latest/providers.html#github&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id6"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/django/allauth/#id13"&gt;手順&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/django/allauth/#id15"&gt;手順&lt;/a&gt;&lt;/h3&gt;
 &lt;ol class="arabic"&gt;
 &lt;li&gt;&lt;p&gt;GitHub に OAuth アプリケーションを登録する&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://github.com/settings/developers"&gt;https://github.com/settings/developers&lt;/a&gt; &amp;gt; &lt;code class="docutils literal"&gt;OAuth Apps&lt;/code&gt;  &amp;gt; &lt;code class="docutils literal"&gt;Register a new OAuth application&lt;/code&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;/p&gt;&lt;div class="figure"&gt;
-&lt;img alt="/images/django/allauth/register-OAuth-application.png" src="https://32imuf.com/images/django/allauth/register-OAuth-application.png"&gt;
+&lt;img alt="/images/django/allauth/00_register-oauth-application.png" src="https://32imuf.com/images/django/allauth/00_register-oauth-application.png"&gt;
 &lt;/div&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;p&gt;&lt;code class="docutils literal"&gt;Authorization callback URL&lt;/code&gt;: サービスプロバイダが認可コードを返した後に Web アプリ側にリダイレクトするための URL&lt;/p&gt;
@@ -77,15 +78,15 @@
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Admin サイトで GitHub とソーシャル連携するために初期データを登録する&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_25ae5b04e900400ab8305872879f3ecf-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# django-allauth をインストールする&lt;/span&gt;
-&lt;a name="rest_code_25ae5b04e900400ab8305872879f3ecf-2"&gt;&lt;/a&gt;$ pip3 install django-allauth
-&lt;a name="rest_code_25ae5b04e900400ab8305872879f3ecf-3"&gt;&lt;/a&gt;
-&lt;a name="rest_code_25ae5b04e900400ab8305872879f3ecf-4"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# マイグレーション&lt;/span&gt;
-&lt;a name="rest_code_25ae5b04e900400ab8305872879f3ecf-5"&gt;&lt;/a&gt;$ python3 manage.py migrate
-&lt;a name="rest_code_25ae5b04e900400ab8305872879f3ecf-6"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# スーパーユーザー作成&lt;/span&gt;
-&lt;a name="rest_code_25ae5b04e900400ab8305872879f3ecf-7"&gt;&lt;/a&gt;$ python3 manage.py createsuperuser
-&lt;a name="rest_code_25ae5b04e900400ab8305872879f3ecf-8"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# Django アプリを起動&lt;/span&gt;
-&lt;a name="rest_code_25ae5b04e900400ab8305872879f3ecf-9"&gt;&lt;/a&gt;$ python3 manage.py runserver &lt;span class="m"&gt;0&lt;/span&gt;.0.0.0:8181
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_1cb6a68f3da7462caa7ef21c1e3b65be-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# django-allauth をインストールする&lt;/span&gt;
+&lt;a name="rest_code_1cb6a68f3da7462caa7ef21c1e3b65be-2"&gt;&lt;/a&gt;$ pip3 install django-allauth
+&lt;a name="rest_code_1cb6a68f3da7462caa7ef21c1e3b65be-3"&gt;&lt;/a&gt;
+&lt;a name="rest_code_1cb6a68f3da7462caa7ef21c1e3b65be-4"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# マイグレーション&lt;/span&gt;
+&lt;a name="rest_code_1cb6a68f3da7462caa7ef21c1e3b65be-5"&gt;&lt;/a&gt;$ python3 manage.py migrate
+&lt;a name="rest_code_1cb6a68f3da7462caa7ef21c1e3b65be-6"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# スーパーユーザー作成&lt;/span&gt;
+&lt;a name="rest_code_1cb6a68f3da7462caa7ef21c1e3b65be-7"&gt;&lt;/a&gt;$ python3 manage.py createsuperuser
+&lt;a name="rest_code_1cb6a68f3da7462caa7ef21c1e3b65be-8"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# Django アプリを起動&lt;/span&gt;
+&lt;a name="rest_code_1cb6a68f3da7462caa7ef21c1e3b65be-9"&gt;&lt;/a&gt;$ python3 manage.py runserver &lt;span class="m"&gt;0&lt;/span&gt;.0.0.0:8181
 &lt;/pre&gt;&lt;/blockquote&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="http://localhost:8181/admin/"&gt;http://localhost:8181/admin/&lt;/a&gt; へログインする&lt;/p&gt;&lt;/li&gt;
@@ -101,23 +102,27 @@
 &lt;li&gt;&lt;p&gt;GitHub リンク押下&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;/p&gt;&lt;div class="figure"&gt;
-&lt;img alt="/images/django/allauth/login.png" src="https://32imuf.com/images/django/allauth/login.png"&gt;
+&lt;img alt="/images/django/allauth/01_login.png" src="https://32imuf.com/images/django/allauth/01_login.png"&gt;
 &lt;/div&gt;
 &lt;div class="figure"&gt;
-&lt;img alt="/images/django/allauth/sign-in-to-github.png" src="https://32imuf.com/images/django/allauth/sign-in-to-github.png"&gt;
+&lt;img alt="/images/django/allauth/02_sign-in-to-github.png" src="https://32imuf.com/images/django/allauth/02_sign-in-to-github.png"&gt;
 &lt;/div&gt;
 &lt;div class="figure"&gt;
-&lt;img alt="/images/django/allauth/authorize-fuminote.png" src="https://32imuf.com/images/django/allauth/authorize-fuminote.png"&gt;
+&lt;img alt="/images/django/allauth/03_authorize-fuminote.png" src="https://32imuf.com/images/django/allauth/03_authorize-fuminote.png"&gt;
 &lt;/div&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;p&gt;今いま callback URL がエラーになる =&amp;gt; メールを設定していないからかもしれない =&amp;gt; あとでやってみる&lt;/p&gt;&lt;/li&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;今いま callback URL がエラーになる =&amp;gt; メールを設定していないからかもしれない =&amp;gt; あとでやってみる&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;&lt;div class="figure"&gt;
+&lt;img alt="/images/django/allauth/06_social-login-error.png" src="https://32imuf.com/images/django/allauth/06_social-login-error.png"&gt;
+&lt;/div&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;ログインできた!&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;/p&gt;&lt;div class="figure"&gt;
-&lt;img alt="/images/django/allauth/home.png" src="https://32imuf.com/images/django/allauth/home.png"&gt;
+&lt;img alt="/images/django/allauth/04_home.png" src="https://32imuf.com/images/django/allauth/04_home.png"&gt;
 &lt;/div&gt;
 &lt;/blockquote&gt;
 &lt;/li&gt;
@@ -127,7 +132,7 @@
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="http://localhost:8181/accounts/social/connections/"&gt;http://localhost:8181/accounts/social/connections/&lt;/a&gt; でソーシャル連携解除できる&lt;/p&gt;
 &lt;p&gt;&lt;/p&gt;&lt;div class="figure"&gt;
-&lt;img alt="/images/django/allauth/social-connections.png" src="https://32imuf.com/images/django/allauth/social-connections.png"&gt;
+&lt;img alt="/images/django/allauth/05_social-connections.png" src="https://32imuf.com/images/django/allauth/05_social-connections.png"&gt;
 &lt;/div&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -135,7 +140,7 @@
 &lt;/ol&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id7"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/django/allauth/#id14"&gt;できあがるレコード&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/django/allauth/#id16"&gt;できあがるレコード&lt;/a&gt;&lt;/h3&gt;
 &lt;dl class="field-list simple"&gt;
 &lt;dt&gt;auth_user&lt;/dt&gt;
 &lt;dd&gt;&lt;p&gt;Django サイトのユーザー&lt;/p&gt;
@@ -164,7 +169,7 @@
 &lt;/dl&gt;
 &lt;/div&gt;
 &lt;div class="section" id="settings"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/django/allauth/#id15"&gt;settings&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/django/allauth/#id17"&gt;settings&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;&lt;/p&gt;&lt;div class="code-block "&gt;&lt;div class="code-block-label"&gt;settings.py&lt;/div&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="sd"&gt;"""&lt;/span&gt;
 &lt;span class="sd"&gt;Django settings for fufu project.&lt;/span&gt;
 
@@ -276,8 +281,10 @@
 &lt;span class="c1"&gt;# Internationalization&lt;/span&gt;
 &lt;span class="c1"&gt;# https://docs.djangoproject.com/en/2.2/topics/i18n/&lt;/span&gt;
 
-&lt;span class="c1"&gt;# LANGUAGE_CODE = 'ja'&lt;/span&gt;
-&lt;span class="n"&gt;LANGUAGE_CODE&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'en-us'&lt;/span&gt;
+&lt;span class="c1"&gt;# 日本語にするとテンプレートも勝手に日本語で表示される&lt;/span&gt;
+&lt;span class="n"&gt;LANGUAGE_CODE&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'ja'&lt;/span&gt;
+&lt;span class="c1"&gt;# 英語にするとテンプレートも勝手に英語で表示される&lt;/span&gt;
+&lt;span class="c1"&gt;# LANGUAGE_CODE = 'en-us'&lt;/span&gt;
 
 &lt;span class="n"&gt;TIME_ZONE&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'Asia/Tokyo'&lt;/span&gt;
 
@@ -299,15 +306,16 @@
 
 &lt;span class="c1"&gt;# メールアドレスとパスワードで認証&lt;/span&gt;
 &lt;span class="n"&gt;AUTHENTICATION_BACKENDS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;
-    &lt;span class="c1"&gt;# デフォルト, これを残しておくと管理画面はユーザー名/パスワードで認証できる&lt;/span&gt;
+    &lt;span class="c1"&gt;# デフォルト: これを残しておくと管理画面はユーザー名/パスワードで認証できる&lt;/span&gt;
     &lt;span class="s1"&gt;'django.contrib.auth.backends.ModelBackend'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-    &lt;span class="s1"&gt;'allauth.account.auth_backends.AuthenticationBackend'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;  &lt;span class="c1"&gt;# 追加&lt;/span&gt;
+    &lt;span class="s1"&gt;'allauth.account.auth_backends.AuthenticationBackend'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;  &lt;span class="c1"&gt;# django-allauth を追加&lt;/span&gt;
 &lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="c1"&gt;# 認証⽅式を 「メールアドレスとパスワード」 に変更&lt;/span&gt;
 &lt;span class="n"&gt;ACCOUNT_AUTHENTICATION_METHOD&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'email'&lt;/span&gt;
 &lt;span class="c1"&gt;# ユーザー名は使⽤しない&lt;/span&gt;
 &lt;span class="n"&gt;ACCOUNT_USERNAME_REQUIRED&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;False&lt;/span&gt;
 
+&lt;span class="c1"&gt;# django-allauth にはこれが必要&lt;/span&gt;
 &lt;span class="n"&gt;SITE_ID&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
 
 &lt;span class="n"&gt;LOGIN_REDIRECT_URL&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'home'&lt;/span&gt;
@@ -323,9 +331,76 @@
 &lt;span class="c1"&gt;# ACCOUNT_EMAIL_VARIFICATION = 'none'&lt;/span&gt;
 &lt;span class="c1"&gt;# ユーザー登録画面でにEmailを必須項目にする&lt;/span&gt;
 &lt;span class="n"&gt;ACCOUNT_EMAIL_REQUIRED&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt;
+
+&lt;span class="c1"&gt;##################&lt;/span&gt;
+&lt;span class="c1"&gt;# AWS settings   #&lt;/span&gt;
+&lt;span class="c1"&gt;##################&lt;/span&gt;
+&lt;span class="c1"&gt;# 本当は settings には書かない&lt;/span&gt;
+&lt;span class="n"&gt;AWS_ACCESS_KEY_ID&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'XXXXXXXXXXXXXXXXXXXX'&lt;/span&gt;
+&lt;span class="n"&gt;AWS_SECRET_ACCESS_KEY&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'&lt;/span&gt;
+
+&lt;span class="c1"&gt;##################&lt;/span&gt;
+&lt;span class="c1"&gt;# Email settings #&lt;/span&gt;
+&lt;span class="c1"&gt;##################&lt;/span&gt;
+&lt;span class="n"&gt;EMAIL_BACKEND&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'django_ses.SESBackend'&lt;/span&gt;
+&lt;span class="n"&gt;DEFAULT_FROM_EMAIL&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;SERVER_EMAIL&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'no-reply &amp;lt;XXXXXXXXXXXXXXXXXXXX@example.com&amp;gt;'&lt;/span&gt;
+&lt;span class="c1"&gt;# us-east-1 以外のAWSリージョンを使用する場合はこれも必要↓&lt;/span&gt;
+&lt;span class="c1"&gt;# AWS_SES_REGION_NAME = 'us-west-2'&lt;/span&gt;
+&lt;span class="c1"&gt;# AWS_SES_REGION_ENDPOINT = 'email.us-west-2.amazonaws.com'&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id8"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/django/allauth/#id18"&gt;メールを設定した&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;callback URL はエラーにならず、 &lt;code class="docutils literal"&gt;Confirm &lt;span class="pre"&gt;E-mail&lt;/span&gt; Address&lt;/code&gt; メール が送られてくるようになった。&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;Confirm E-mail Address メールが送られてくるのは、 settings に &lt;code class="docutils literal"&gt;ユーザー登録時にメールアドレス確認を行う&lt;/code&gt; と設定しているためです&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;メールの設定は &lt;a class="reference external" href="https://32imuf.com/django/madanai/"&gt;書き途中&lt;/a&gt; を参照のこと&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;流れ&lt;/p&gt;
+&lt;ol class="arabic"&gt;
+&lt;li&gt;&lt;p&gt;ログイン画面で &lt;code class="docutils literal"&gt;GitHub&lt;/code&gt; リンク押下する&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;/p&gt;&lt;div class="figure"&gt;
+&lt;img alt="/images/django/allauth/11_sign_in.png" src="https://32imuf.com/images/django/allauth/11_sign_in.png"&gt;
+&lt;/div&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;GitHub 側のサインイン画面へ遷移する&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;/p&gt;&lt;div class="figure"&gt;
+&lt;img alt="/images/django/allauth/12_continue_to_fuminote.png" src="https://32imuf.com/images/django/allauth/12_continue_to_fuminote.png"&gt;
+&lt;/div&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;GitHub でサインインすると、自分のアプリのホーム画面へ遷移する。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;同時に、 GitHub に登録してある Email address に &lt;code class="docutils literal"&gt;Confirm &lt;span class="pre"&gt;E-mail&lt;/span&gt; Address&lt;/code&gt; メールが届く。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;/p&gt;&lt;div class="figure"&gt;
+&lt;img alt="/images/django/allauth/13_confirm_email.png" src="https://32imuf.com/images/django/allauth/13_confirm_email.png"&gt;
+&lt;/div&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code class="docutils literal"&gt;Confirm &lt;span class="pre"&gt;E-mail&lt;/span&gt; Address&lt;/code&gt; メールに記載のリンクを押下すると、 E-mail Address 確認画面へ遷移する。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;/p&gt;&lt;div class="figure"&gt;
+&lt;img alt="/images/django/allauth/14_confirm_email_screen.png" src="https://32imuf.com/images/django/allauth/14_confirm_email_screen.png"&gt;
+&lt;/div&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Confirm ボタンを押下するとホーム画面が表示される。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;/p&gt;&lt;div class="figure"&gt;
+&lt;img alt="/images/django/allauth/15_home.png" src="https://32imuf.com/images/django/allauth/15_home.png"&gt;
+&lt;/div&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/div&gt;&lt;/div&gt;</description><category>django</category><guid>https://32imuf.com/django/allauth/</guid><pubDate>Mon, 02 Dec 2019 15:00:00 GMT</pubDate></item><item><title>Django: 認証システム django.contrib.auth</title><link>https://32imuf.com/django/auth/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;details&gt;
   &lt;summary&gt;目次&lt;/summary&gt;&lt;div class="contents topic" id="id1"&gt;
 &lt;p class="topic-title first"&gt;目次&lt;/p&gt;
