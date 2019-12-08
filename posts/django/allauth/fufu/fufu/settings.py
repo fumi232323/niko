@@ -164,14 +164,17 @@ ACCOUNT_EMAIL_REQUIRED = True
 # AWS settings   #
 ##################
 # 本当は settings には書かない
-AWS_ACCESS_KEY_ID = 'XXXXXXXXXXXXXXXXXXXX'
-AWS_SECRET_ACCESS_KEY = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+AWS_ACCESS_KEY_ID = 'MY-ACCESS-KEY-ID'
+AWS_SECRET_ACCESS_KEY = 'MY-SECRET-ACCESS-KEY'
 
 ##################
 # Email settings #
 ##################
+# Amazon SES を使う場合
+# https://pypi.org/project/django-ses/
 EMAIL_BACKEND = 'django_ses.SESBackend'
-DEFAULT_FROM_EMAIL = SERVER_EMAIL = 'no-reply <XXXXXXXXXXXXXXXXXXXX@example.com>'
 # us-east-1 以外のAWSリージョンを使用する場合はこれも必要↓
 # AWS_SES_REGION_NAME = 'us-west-2'
 # AWS_SES_REGION_ENDPOINT = 'email.us-west-2.amazonaws.com'
+
+DEFAULT_FROM_EMAIL = SERVER_EMAIL = 'no-reply <XXXXX@example.com>'

@@ -1,7 +1,7 @@
 .. title: AWS のいろいろなサービス
 .. tags: aws
 .. date: 2019-06-27
-.. updated: 2019-10-06
+.. updated: 2019-12-08
 .. slug: index
 .. status: draft
 
@@ -163,3 +163,9 @@ AWS Serverless Application Repository
 https://aws.amazon.com/jp/serverless/serverlessrepo/
 
 * Serverless Application Repository の使用に追加料金はかかりません。デプロイするアプリケーションで使用する AWS リソースに対してのみ料金をお支払いいただきます。
+
+Amazon SES (Amazon Simple Email Service)
+========================================
+https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/Welcome.html
+
+* Amazon SES は、ユーザー自身の E メールアドレスとドメインを使用して E メールを送受信するための、簡単で費用効率の高い方法を提供する E メールプラットフォームです。

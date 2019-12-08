@@ -135,7 +135,7 @@ settings
 * callback URL はエラーにならず、 ``Confirm E-mail Address`` メール が送られてくるようになった。
 
   * Confirm E-mail Address メールが送られてくるのは、 settings に ``ユーザー登録時にメールアドレス確認を行う`` と設定しているためです
-  * メールの設定は `書き途中 <https://32imuf.com/django/madanai/>`_ を参照のこと
+  * メールの設定は `Django: メールを送信する </django/email/>`_ を参照のこと
 
 * 流れ
 
