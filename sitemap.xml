@@ -31,7 +31,7 @@
  </url>
  <url>
   <loc>https://32imuf.com/archive.html</loc>
-  <lastmod>2019-12-03T13:04:00Z</lastmod>
+  <lastmod>2019-12-08T14:29:00Z</lastmod>
  </url>
  <url>
   <loc>https://32imuf.com/aws/s3-response-error/</loc>
@@ -66,8 +66,16 @@
   <lastmod>2019-12-02T13:58:00Z</lastmod>
  </url>
  <url>
+  <loc>https://32imuf.com/django/email/</loc>
+  <lastmod>2019-12-08T14:03:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://32imuf.com/django/form/</loc>
   <lastmod>2019-06-02T07:16:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://32imuf.com/django/mail/</loc>
+  <lastmod>2019-12-03T13:05:00Z</lastmod>
  </url>
  <url>
   <loc>https://32imuf.com/django/manage/</loc>

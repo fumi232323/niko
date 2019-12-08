@@ -1,5 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ふみのて</title><link>https://32imuf.com/</link><description>のてのて</description><atom:link href="https://32imuf.com/atom.xml" rel="self" type="application/rss+xml"></atom:link><language>ja</language><copyright>Contents © 2019 &lt;a href="mailto:fumi232323fumi2016@gmail.com"&gt;fumi23&lt;/a&gt; </copyright><lastBuildDate>Sun, 08 Dec 2019 13:25:13 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>django-allauth</title><link>https://32imuf.com/django/allauth/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;details&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ふみのて</title><link>https://32imuf.com/</link><description>のてのて</description><atom:link href="https://32imuf.com/atom.xml" rel="self" type="application/rss+xml"></atom:link><language>ja</language><copyright>Contents © 2019 &lt;a href="mailto:fumi232323fumi2016@gmail.com"&gt;fumi23&lt;/a&gt; </copyright><lastBuildDate>Sun, 08 Dec 2019 14:34:42 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Django: メールを送信する</title><link>https://32imuf.com/django/email/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;details&gt;
+  &lt;summary&gt;目次&lt;/summary&gt;&lt;div class="contents topic" id="id1"&gt;
+&lt;p class="topic-title first"&gt;目次&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/django/email/#id2" id="id5"&gt;リファレンス/参考書籍など&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/django/email/#id3" id="id6"&gt;説明&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/django/email/#amazon-ses" id="id7"&gt;Amazon SES を使ってメール送信する&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/details&gt;&lt;div class="section" id="id2"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/django/email/#id5"&gt;リファレンス/参考書籍など&lt;/a&gt;&lt;/h2&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://docs.djangoproject.com/ja/2.2/topics/email/"&gt;https://docs.djangoproject.com/ja/2.2/topics/email/&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://booth.pm/ja/items/1030026"&gt;現場で使える Django の教科書《実践編》&lt;/a&gt; A: メール送信の設定&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id3"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/django/email/#id6"&gt;説明&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;メールを送信する&lt;/p&gt;
+&lt;pre class="code python"&gt;&lt;a name="rest_code_0b356b22c15345a9b5c7027265a3ab43-1"&gt;&lt;/a&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;django.core.mail&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;send_mail&lt;/span&gt;
+&lt;a name="rest_code_0b356b22c15345a9b5c7027265a3ab43-2"&gt;&lt;/a&gt;
+&lt;a name="rest_code_0b356b22c15345a9b5c7027265a3ab43-3"&gt;&lt;/a&gt;&lt;span class="n"&gt;send_mail&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+&lt;a name="rest_code_0b356b22c15345a9b5c7027265a3ab43-4"&gt;&lt;/a&gt;    &lt;span class="s1"&gt;'Subject here'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;           &lt;span class="c1"&gt;# 件名&lt;/span&gt;
+&lt;a name="rest_code_0b356b22c15345a9b5c7027265a3ab43-5"&gt;&lt;/a&gt;    &lt;span class="s1"&gt;'Here is the message.'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;   &lt;span class="c1"&gt;# 本文&lt;/span&gt;
+&lt;a name="rest_code_0b356b22c15345a9b5c7027265a3ab43-6"&gt;&lt;/a&gt;    &lt;span class="s1"&gt;'from@example.com'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;       &lt;span class="c1"&gt;# From アドレス&lt;/span&gt;
+&lt;a name="rest_code_0b356b22c15345a9b5c7027265a3ab43-7"&gt;&lt;/a&gt;    &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'to@example.com'&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;       &lt;span class="c1"&gt;# To アドレス&lt;/span&gt;
+&lt;a name="rest_code_0b356b22c15345a9b5c7027265a3ab43-8"&gt;&lt;/a&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;いろんなバックエンドがある&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://docs.djangoproject.com/ja/2.2/topics/email/#email-backends"&gt;https://docs.djangoproject.com/ja/2.2/topics/email/#email-backends&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;コンソールに出すとか&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;メール送らないダミーとか&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;開発用にメールを設定する&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://docs.djangoproject.com/ja/2.2/topics/email/#configuring-email-for-development"&gt;https://docs.djangoproject.com/ja/2.2/topics/email/#configuring-email-for-development&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;これ使いそう&lt;/p&gt;
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_d39c61dc4bd7424dbc3b5a5a3ba63308-1"&gt;&lt;/a&gt;$ python -m smtpd -n -c DebuggingServer localhost:1025
+&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="amazon-ses"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/django/email/#id7"&gt;Amazon SES を使ってメール送信する&lt;/a&gt;&lt;/h2&gt;
+&lt;ol class="arabic"&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://pypi.org/project/django-ses/"&gt;https://pypi.org/project/django-ses/&lt;/a&gt; をインストール&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_8dea7e6f380b4c6eb9d924962cbd44aa-1"&gt;&lt;/a&gt;$ pip install django-ses
+&lt;/pre&gt;&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;settings に設定を追加する&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;pre class="code python"&gt;&lt;a name="rest_code_87e985fdbac849b793c4125bf2727189-1"&gt;&lt;/a&gt;&lt;span class="n"&gt;EMAIL_BACKEND&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'django_ses.SESBackend'&lt;/span&gt;
+&lt;a name="rest_code_87e985fdbac849b793c4125bf2727189-2"&gt;&lt;/a&gt;
+&lt;a name="rest_code_87e985fdbac849b793c4125bf2727189-3"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 本当は settings には書かない&lt;/span&gt;
+&lt;a name="rest_code_87e985fdbac849b793c4125bf2727189-4"&gt;&lt;/a&gt;&lt;span class="n"&gt;AWS_ACCESS_KEY_ID&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'MY-ACCESS-KEY-ID'&lt;/span&gt;
+&lt;a name="rest_code_87e985fdbac849b793c4125bf2727189-5"&gt;&lt;/a&gt;&lt;span class="n"&gt;AWS_SECRET_ACCESS_KEY&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'MY-SECRET-ACCESS-KEY'&lt;/span&gt;
+&lt;a name="rest_code_87e985fdbac849b793c4125bf2727189-6"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# us-east-1 以外のAWSリージョンを使用する場合はこれも必要↓&lt;/span&gt;
+&lt;a name="rest_code_87e985fdbac849b793c4125bf2727189-7"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# AWS_SES_REGION_NAME = 'us-west-2'&lt;/span&gt;
+&lt;a name="rest_code_87e985fdbac849b793c4125bf2727189-8"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# AWS_SES_REGION_ENDPOINT = 'email.us-west-2.amazonaws.com'&lt;/span&gt;
+&lt;a name="rest_code_87e985fdbac849b793c4125bf2727189-9"&gt;&lt;/a&gt;
+&lt;a name="rest_code_87e985fdbac849b793c4125bf2727189-10"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# DEFAULT_FROM_EMAIL: サイト管理者からの自動送信メールに使用するデフォルトの Email アドレス&lt;/span&gt;
+&lt;a name="rest_code_87e985fdbac849b793c4125bf2727189-11"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# SERVER_EMAIL: ADMINS や MANAGERS に送信されるエラーメッセージの送信元 Email アドレス&lt;/span&gt;
+&lt;a name="rest_code_87e985fdbac849b793c4125bf2727189-12"&gt;&lt;/a&gt;&lt;span class="n"&gt;DEFAULT_FROM_EMAIL&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;SERVER_EMAIL&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'no-reply &amp;lt;XXXXX@example.com&amp;gt;'&lt;/span&gt;
+&lt;/pre&gt;&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Amazon SES を設定する&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://32imuf.com/aws/madanai/"&gt;Amazon SES でメールを送信する 書き途中&lt;/a&gt; を参照のこと&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;&lt;/div&gt;</description><category>django</category><guid>https://32imuf.com/django/email/</guid><pubDate>Sat, 07 Dec 2019 15:00:00 GMT</pubDate></item><item><title>django-allauth</title><link>https://32imuf.com/django/allauth/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;details&gt;
   &lt;summary&gt;目次&lt;/summary&gt;&lt;div class="contents topic" id="id1"&gt;
 &lt;p class="topic-title first"&gt;目次&lt;/p&gt;
 &lt;ul class="simple"&gt;
@@ -78,15 +157,15 @@
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Admin サイトで GitHub とソーシャル連携するために初期データを登録する&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_1cb6a68f3da7462caa7ef21c1e3b65be-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# django-allauth をインストールする&lt;/span&gt;
-&lt;a name="rest_code_1cb6a68f3da7462caa7ef21c1e3b65be-2"&gt;&lt;/a&gt;$ pip3 install django-allauth
-&lt;a name="rest_code_1cb6a68f3da7462caa7ef21c1e3b65be-3"&gt;&lt;/a&gt;
-&lt;a name="rest_code_1cb6a68f3da7462caa7ef21c1e3b65be-4"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# マイグレーション&lt;/span&gt;
-&lt;a name="rest_code_1cb6a68f3da7462caa7ef21c1e3b65be-5"&gt;&lt;/a&gt;$ python3 manage.py migrate
-&lt;a name="rest_code_1cb6a68f3da7462caa7ef21c1e3b65be-6"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# スーパーユーザー作成&lt;/span&gt;
-&lt;a name="rest_code_1cb6a68f3da7462caa7ef21c1e3b65be-7"&gt;&lt;/a&gt;$ python3 manage.py createsuperuser
-&lt;a name="rest_code_1cb6a68f3da7462caa7ef21c1e3b65be-8"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# Django アプリを起動&lt;/span&gt;
-&lt;a name="rest_code_1cb6a68f3da7462caa7ef21c1e3b65be-9"&gt;&lt;/a&gt;$ python3 manage.py runserver &lt;span class="m"&gt;0&lt;/span&gt;.0.0.0:8181
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_c2be8010d90b4af1869b0e9c02f5d0b0-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# django-allauth をインストールする&lt;/span&gt;
+&lt;a name="rest_code_c2be8010d90b4af1869b0e9c02f5d0b0-2"&gt;&lt;/a&gt;$ pip3 install django-allauth
+&lt;a name="rest_code_c2be8010d90b4af1869b0e9c02f5d0b0-3"&gt;&lt;/a&gt;
+&lt;a name="rest_code_c2be8010d90b4af1869b0e9c02f5d0b0-4"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# マイグレーション&lt;/span&gt;
+&lt;a name="rest_code_c2be8010d90b4af1869b0e9c02f5d0b0-5"&gt;&lt;/a&gt;$ python3 manage.py migrate
+&lt;a name="rest_code_c2be8010d90b4af1869b0e9c02f5d0b0-6"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# スーパーユーザー作成&lt;/span&gt;
+&lt;a name="rest_code_c2be8010d90b4af1869b0e9c02f5d0b0-7"&gt;&lt;/a&gt;$ python3 manage.py createsuperuser
+&lt;a name="rest_code_c2be8010d90b4af1869b0e9c02f5d0b0-8"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# Django アプリを起動&lt;/span&gt;
+&lt;a name="rest_code_c2be8010d90b4af1869b0e9c02f5d0b0-9"&gt;&lt;/a&gt;$ python3 manage.py runserver &lt;span class="m"&gt;0&lt;/span&gt;.0.0.0:8181
 &lt;/pre&gt;&lt;/blockquote&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="http://localhost:8181/admin/"&gt;http://localhost:8181/admin/&lt;/a&gt; へログインする&lt;/p&gt;&lt;/li&gt;
@@ -336,17 +415,20 @@
 &lt;span class="c1"&gt;# AWS settings   #&lt;/span&gt;
 &lt;span class="c1"&gt;##################&lt;/span&gt;
 &lt;span class="c1"&gt;# 本当は settings には書かない&lt;/span&gt;
-&lt;span class="n"&gt;AWS_ACCESS_KEY_ID&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'XXXXXXXXXXXXXXXXXXXX'&lt;/span&gt;
-&lt;span class="n"&gt;AWS_SECRET_ACCESS_KEY&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'&lt;/span&gt;
+&lt;span class="n"&gt;AWS_ACCESS_KEY_ID&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'MY-ACCESS-KEY-ID'&lt;/span&gt;
+&lt;span class="n"&gt;AWS_SECRET_ACCESS_KEY&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'MY-SECRET-ACCESS-KEY'&lt;/span&gt;
 
 &lt;span class="c1"&gt;##################&lt;/span&gt;
 &lt;span class="c1"&gt;# Email settings #&lt;/span&gt;
 &lt;span class="c1"&gt;##################&lt;/span&gt;
+&lt;span class="c1"&gt;# Amazon SES を使う場合&lt;/span&gt;
+&lt;span class="c1"&gt;# https://pypi.org/project/django-ses/&lt;/span&gt;
 &lt;span class="n"&gt;EMAIL_BACKEND&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'django_ses.SESBackend'&lt;/span&gt;
-&lt;span class="n"&gt;DEFAULT_FROM_EMAIL&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;SERVER_EMAIL&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'no-reply &amp;lt;XXXXXXXXXXXXXXXXXXXX@example.com&amp;gt;'&lt;/span&gt;
 &lt;span class="c1"&gt;# us-east-1 以外のAWSリージョンを使用する場合はこれも必要↓&lt;/span&gt;
 &lt;span class="c1"&gt;# AWS_SES_REGION_NAME = 'us-west-2'&lt;/span&gt;
 &lt;span class="c1"&gt;# AWS_SES_REGION_ENDPOINT = 'email.us-west-2.amazonaws.com'&lt;/span&gt;
+
+&lt;span class="n"&gt;DEFAULT_FROM_EMAIL&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;SERVER_EMAIL&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'no-reply &amp;lt;XXXXX@example.com&amp;gt;'&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -357,7 +439,7 @@
 &lt;li&gt;&lt;p&gt;callback URL はエラーにならず、 &lt;code class="docutils literal"&gt;Confirm &lt;span class="pre"&gt;E-mail&lt;/span&gt; Address&lt;/code&gt; メール が送られてくるようになった。&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;p&gt;Confirm E-mail Address メールが送られてくるのは、 settings に &lt;code class="docutils literal"&gt;ユーザー登録時にメールアドレス確認を行う&lt;/code&gt; と設定しているためです&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;メールの設定は &lt;a class="reference external" href="https://32imuf.com/django/madanai/"&gt;書き途中&lt;/a&gt; を参照のこと&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;メールの設定は &lt;a class="reference external" href="https://32imuf.com/django/email/"&gt;Django: メールを送信する&lt;/a&gt; を参照のこと&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;流れ&lt;/p&gt;
@@ -2398,223 +2480,4 @@ Python パッケージを確認して、 site-packages へコピーする&lt;/p&
 &lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://setuptools.readthedocs.io/en/latest/"&gt;https://setuptools.readthedocs.io/en/latest/&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;/div&gt;</description><category>python</category><guid>https://32imuf.com/python/wheel/</guid><pubDate>Sat, 05 Oct 2019 15:00:00 GMT</pubDate></item><item><title>Django: django-admin.py, manage.py</title><link>https://32imuf.com/django/manage/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;details&gt;
-  &lt;summary&gt;目次&lt;/summary&gt;&lt;div class="contents topic" id="id1"&gt;
-&lt;p class="topic-title first"&gt;目次&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/django/manage/#id2" id="id12"&gt;書籍/リファレンス&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/django/manage/#django-admin-manage-py" id="id13"&gt;django-admin と manage.py の違い&lt;/a&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/django/manage/#django-admin-py-django-admin" id="id14"&gt;django-admin.py, django-admin&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/django/manage/#manage-py" id="id15"&gt;manage.py&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/django/manage/#id3" id="id16"&gt;よく使う Django 管理コマンド&lt;/a&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/django/manage/#id4" id="id17"&gt;プロジェクト作成&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/django/manage/#id5" id="id18"&gt;アプリケーション作成&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/django/manage/#id6" id="id19"&gt;マイグレーション&lt;/a&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/django/manage/#id7" id="id20"&gt;くろのて&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/django/manage/#id8" id="id21"&gt;スーバーユーザー作成&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/django/manage/#runserver" id="id22"&gt;runserver&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/django/manage/#id9" id="id23"&gt;インタラクティブモードで実行する&lt;/a&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/django/manage/#id10" id="id24"&gt;使用例&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/django/manage/#django-dbdb" id="id25"&gt;Django の DBシェルでローカルDBにつなぐ&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/django/manage/#id11" id="id26"&gt;静的ファイルを公開用ディレクトリに収集する&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/django/manage/#system-check-framework-django" id="id27"&gt;System check framework を使って、Django プロジェクトの一般的な問題を検査する&lt;/a&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/django/manage/#python2" id="id28"&gt;使用例 (python2)&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;/details&gt;&lt;div class="section" id="id2"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/django/manage/#id12"&gt;書籍/リファレンス&lt;/a&gt;&lt;/h2&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://docs.djangoproject.com/ja/2.2/ref/django-admin/"&gt;Django documentation &amp;gt; django-admin と manage.py&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://www.amazon.co.jp/dp/B07GK7BWB7/"&gt;現場で使える Django の教科書&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class="section" id="django-admin-manage-py"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/django/manage/#id13"&gt;django-admin と manage.py の違い&lt;/a&gt;&lt;/h2&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;p&gt;通常、単体の Django プロジェクトを用いる場合、 &lt;code class="docutils literal"&gt;&lt;span class="pre"&gt;django-admin&lt;/span&gt;&lt;/code&gt; よりも &lt;code class="docutils literal"&gt;manage.py&lt;/code&gt; の方が簡単に利用できる&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;code class="docutils literal"&gt;&lt;span class="pre"&gt;django-admin&lt;/span&gt;&lt;/code&gt;, &lt;code class="docutils literal"&gt;manage.py&lt;/code&gt;, &lt;code class="docutils literal"&gt;python &lt;span class="pre"&gt;-m&lt;/span&gt; django&lt;/code&gt; はすべて同じことができる ( &lt;code class="docutils literal"&gt;startproject&lt;/code&gt; 後は)&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class="section" id="django-admin-py-django-admin"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/django/manage/#id14"&gt;django-admin.py, django-admin&lt;/a&gt;&lt;/h3&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;p&gt;インストールすると使えるようになる&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;基本的にどこからでも利用できる&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Django を &lt;code class="docutils literal"&gt;setup.py&lt;/code&gt; ユーティリティを通じてインストールした場合は &lt;code class="docutils literal"&gt;&lt;span class="pre"&gt;django-admin&lt;/span&gt;&lt;/code&gt; スクリプトはシステムのパスが通っている場所に配置されます。もしパスが通った箇所に存在しなければ、Python インストール先の &lt;code class="docutils literal"&gt;&lt;span class="pre"&gt;site-packages/django/bin&lt;/span&gt;&lt;/code&gt; 内で見つける事ができます。そのスクリプトに対して、 &lt;code class="docutils literal"&gt;/usr/local/bin&lt;/code&gt; 等のパスが通っている場所からシンボリックリンクを張ることを検討してください。&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;新しく Django プロジェクトを作成するときに利用する&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Django プロジェクトを作成してしまったら &lt;code class="docutils literal"&gt;manage.py&lt;/code&gt; が使えるようになるので出番がなくなる&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class="section" id="manage-py"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/django/manage/#id15"&gt;manage.py&lt;/a&gt;&lt;/h3&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;p&gt;&lt;code class="docutils literal"&gt;startproject&lt;/code&gt; でプロジェクトを作成すると自動で作成される&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Django が提供する便利な管理コマンドが使えるほか...&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="id3"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/django/manage/#id16"&gt;よく使う Django 管理コマンド&lt;/a&gt;&lt;/h2&gt;
-&lt;div class="section" id="id4"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/django/manage/#id17"&gt;プロジェクト作成&lt;/a&gt;&lt;/h3&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_d6cbd2f63d0b47778f6907d1a03c9e10-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# プロジェクトのディレクトリに移動する&lt;/span&gt;
-&lt;a name="rest_code_d6cbd2f63d0b47778f6907d1a03c9e10-2"&gt;&lt;/a&gt;$ &lt;span class="nb"&gt;cd&lt;/span&gt; project_dir
-&lt;a name="rest_code_d6cbd2f63d0b47778f6907d1a03c9e10-3"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# django-admin.py startproject &amp;lt;設定ディレクトリ名&amp;gt; &amp;lt;つくる場所&amp;gt;&lt;/span&gt;
-&lt;a name="rest_code_d6cbd2f63d0b47778f6907d1a03c9e10-4"&gt;&lt;/a&gt;$ django-admin.py startproject config .
-&lt;/pre&gt;&lt;/div&gt;
-&lt;div class="section" id="id5"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/django/manage/#id18"&gt;アプリケーション作成&lt;/a&gt;&lt;/h3&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_03ac44ecd6004a1f918f3ab4184381cb-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# プロジェクトのディレクトリに移動する&lt;/span&gt;
-&lt;a name="rest_code_03ac44ecd6004a1f918f3ab4184381cb-2"&gt;&lt;/a&gt;$ &lt;span class="nb"&gt;cd&lt;/span&gt; project_dir
-&lt;a name="rest_code_03ac44ecd6004a1f918f3ab4184381cb-3"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# python manage.py startapp &amp;lt;アプリケーション名&amp;gt;&lt;/span&gt;
-&lt;a name="rest_code_03ac44ecd6004a1f918f3ab4184381cb-4"&gt;&lt;/a&gt;$ python manage.py startapp account
-&lt;/pre&gt;&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;p&gt;作成後、 settings.py &amp;gt; &lt;code class="docutils literal"&gt;INSTALLED_APPS&lt;/code&gt; に手動でアプリケーションを追加する&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class="section" id="id6"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/django/manage/#id19"&gt;マイグレーション&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;&lt;a class="reference external" href="https://docs.djangoproject.com/en/2.2/topics/migrations/"&gt;https://docs.djangoproject.com/en/2.2/topics/migrations/&lt;/a&gt;&lt;/p&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_b9effd9272334e3babd89a737c7c7129-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# マイグレーションファイルを作成する&lt;/span&gt;
-&lt;a name="rest_code_b9effd9272334e3babd89a737c7c7129-2"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# python manage.py makemigrations [&amp;lt;アプリケーション名&amp;gt;]&lt;/span&gt;
-&lt;a name="rest_code_b9effd9272334e3babd89a737c7c7129-3"&gt;&lt;/a&gt;$ python manage.py makemigrations account
-&lt;a name="rest_code_b9effd9272334e3babd89a737c7c7129-4"&gt;&lt;/a&gt;
-&lt;a name="rest_code_b9effd9272334e3babd89a737c7c7129-5"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 作成される予定のマイグレーションを表示する。実際のマイグレーションファイルは作成されない。&lt;/span&gt;
-&lt;a name="rest_code_b9effd9272334e3babd89a737c7c7129-6"&gt;&lt;/a&gt;$ python manage.py makemigrations --dry-run
-&lt;a name="rest_code_b9effd9272334e3babd89a737c7c7129-7"&gt;&lt;/a&gt;
-&lt;a name="rest_code_b9effd9272334e3babd89a737c7c7129-8"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# マイグレーションを実行する&lt;/span&gt;
-&lt;a name="rest_code_b9effd9272334e3babd89a737c7c7129-9"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# python manage.py migrate [&amp;lt;アプリケーション名&amp;gt;]&lt;/span&gt;
-&lt;a name="rest_code_b9effd9272334e3babd89a737c7c7129-10"&gt;&lt;/a&gt;$ python manage.py migrate account
-&lt;a name="rest_code_b9effd9272334e3babd89a737c7c7129-11"&gt;&lt;/a&gt;
-&lt;a name="rest_code_b9effd9272334e3babd89a737c7c7129-12"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# マイグレートするデータベースを指定する。デフォルトは default 。&lt;/span&gt;
-&lt;a name="rest_code_b9effd9272334e3babd89a737c7c7129-13"&gt;&lt;/a&gt;$ python manage.py migrate --database &amp;lt;DATABASE&amp;gt;
-&lt;a name="rest_code_b9effd9272334e3babd89a737c7c7129-14"&gt;&lt;/a&gt;$ python manage.py migrate --database hey
-&lt;a name="rest_code_b9effd9272334e3babd89a737c7c7129-15"&gt;&lt;/a&gt;
-&lt;a name="rest_code_b9effd9272334e3babd89a737c7c7129-16"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 適用済みとして django_migrations にレコードは INSERT されるけれど、データベーススキーマを変更するために実際にSQLを実行することはありません。&lt;/span&gt;
-&lt;a name="rest_code_b9effd9272334e3babd89a737c7c7129-17"&gt;&lt;/a&gt;$ python manage.py migrate --fake
-&lt;a name="rest_code_b9effd9272334e3babd89a737c7c7129-18"&gt;&lt;/a&gt;
-&lt;a name="rest_code_b9effd9272334e3babd89a737c7c7129-19"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 自動生成されるマイグレーション名を任意の名前に変更したい&lt;/span&gt;
-&lt;a name="rest_code_b9effd9272334e3babd89a737c7c7129-20"&gt;&lt;/a&gt;$ python3 manage.py makemigrations book --name add_field_to_book
-&lt;a name="rest_code_b9effd9272334e3babd89a737c7c7129-21"&gt;&lt;/a&gt;
-&lt;a name="rest_code_b9effd9272334e3babd89a737c7c7129-22"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# マイグレーションファイルがどこまで migrate されているか確認する&lt;/span&gt;
-&lt;a name="rest_code_b9effd9272334e3babd89a737c7c7129-23"&gt;&lt;/a&gt;$ python3 manage.py showmigrations
-&lt;a name="rest_code_b9effd9272334e3babd89a737c7c7129-24"&gt;&lt;/a&gt;
-&lt;a name="rest_code_b9effd9272334e3babd89a737c7c7129-25"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# shop アプリケーション関連のテーブルを 0001_initial 適用直後の状態に戻したい&lt;/span&gt;
-&lt;a name="rest_code_b9effd9272334e3babd89a737c7c7129-26"&gt;&lt;/a&gt;$ python3 manage.py migrate shop 0001_initial
-&lt;/pre&gt;&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;p&gt;&lt;code class="docutils literal"&gt;django_migrations&lt;/code&gt; テーブル: Django がマイグレーション履歴を管理しているテーブル&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class="section" id="id7"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="https://32imuf.com/django/manage/#id20"&gt;くろのて&lt;/a&gt;&lt;/h4&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://note.crohaco.net/2018/django-migration/"&gt;https://note.crohaco.net/2018/django-migration/&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://note.crohaco.net/2018/django-migration-case-study/"&gt;https://note.crohaco.net/2018/django-migration-case-study/&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="id8"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/django/manage/#id21"&gt;スーバーユーザー作成&lt;/a&gt;&lt;/h3&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_cd4b9c3b7e52445aa375b29e7773491e-1"&gt;&lt;/a&gt;$ python manage.py createsuperuser
-&lt;/pre&gt;&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;p&gt;管理サイト (Django Admin) を使えるユーザー&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;superuser (システム管理者)&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;code class="docutils literal"&gt;is_staff = True&lt;/code&gt; かつ &lt;code class="docutils literal"&gt;is_active = True&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class="section" id="runserver"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/django/manage/#id22"&gt;runserver&lt;/a&gt;&lt;/h3&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_cd78d17a27e74108aa3a8be29f53dc56-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 開発用の Web サーバーを起動する&lt;/span&gt;
-&lt;a name="rest_code_cd78d17a27e74108aa3a8be29f53dc56-2"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# python manage.py runserver [&amp;lt;IPアドレス&amp;gt;:&amp;lt;ポート番号&amp;gt;]&lt;/span&gt;
-&lt;a name="rest_code_cd78d17a27e74108aa3a8be29f53dc56-3"&gt;&lt;/a&gt;$ python manage.py runserver &lt;span class="m"&gt;0&lt;/span&gt;.0.0.0:8000
-&lt;a name="rest_code_cd78d17a27e74108aa3a8be29f53dc56-4"&gt;&lt;/a&gt;
-&lt;a name="rest_code_cd78d17a27e74108aa3a8be29f53dc56-5"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 自動リロード機能を OFF で起動&lt;/span&gt;
-&lt;a name="rest_code_cd78d17a27e74108aa3a8be29f53dc56-6"&gt;&lt;/a&gt;$ python manage.py runserver &lt;span class="m"&gt;0&lt;/span&gt;.0.0.0:8000 --noreload
-&lt;/pre&gt;&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;p&gt;&lt;code class="docutils literal"&gt;runserver&lt;/code&gt;: Django に同梱されている軽量の Web サーバー&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;開発時 (基本は DEBUG = True) のみに使われることを想定した WebServer&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;本番環境では絶対使わない&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;自動リロード機能&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;静的ファイルの自動配信機能&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;p&gt;IPアドレスとポート番号を省略すると &lt;code class="docutils literal"&gt;127.0.0.1:8000&lt;/code&gt; で起動する&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Docker 上で runserver =&amp;gt; ホストOSのブラウザから &lt;code class="docutils literal"&gt;127.0.0.1:8000&lt;/code&gt; に接続できないときは、 &lt;code class="docutils literal"&gt;0.0.0.0:8000&lt;/code&gt; で起動してみる&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class="section" id="id9"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/django/manage/#id23"&gt;インタラクティブモードで実行する&lt;/a&gt;&lt;/h3&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_0cc3595e75b543fe9cecda95ab11846d-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# こうとか&lt;/span&gt;
-&lt;a name="rest_code_0cc3595e75b543fe9cecda95ab11846d-2"&gt;&lt;/a&gt;$ python manage.py shell
-&lt;a name="rest_code_0cc3595e75b543fe9cecda95ab11846d-3"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# こうとか&lt;/span&gt;
-&lt;a name="rest_code_0cc3595e75b543fe9cecda95ab11846d-4"&gt;&lt;/a&gt;$ &lt;span class="nv"&gt;DJANGO_SETTINGS_MODULE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;settings._ python manage.py shell
-&lt;a name="rest_code_0cc3595e75b543fe9cecda95ab11846d-5"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# こう&lt;/span&gt;
-&lt;a name="rest_code_0cc3595e75b543fe9cecda95ab11846d-6"&gt;&lt;/a&gt;$ python manage.py shell --settings&lt;span class="o"&gt;=&lt;/span&gt;settings._
-&lt;/pre&gt;&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;p&gt;Django のプロジェクト設定を読み込んだ REPL を起動してくれる&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class="section" id="id10"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="https://32imuf.com/django/manage/#id24"&gt;使用例&lt;/a&gt;&lt;/h4&gt;
-&lt;pre class="code python"&gt;&lt;a name="rest_code_9106b1fea8824eb6b51f66dd89bf6e11-1"&gt;&lt;/a&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;python&lt;/span&gt; &lt;span class="n"&gt;manage&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;py&lt;/span&gt; &lt;span class="n"&gt;shell&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;settings&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;settings&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;_&lt;/span&gt;
-&lt;a name="rest_code_9106b1fea8824eb6b51f66dd89bf6e11-2"&gt;&lt;/a&gt;&lt;span class="n"&gt;Python&lt;/span&gt; &lt;span class="mf"&gt;2.7&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;7&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;default&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Dec&lt;/span&gt; &lt;span class="mi"&gt;11&lt;/span&gt; &lt;span class="mi"&gt;2017&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;18&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;45&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;38&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;a name="rest_code_9106b1fea8824eb6b51f66dd89bf6e11-3"&gt;&lt;/a&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;GCC&lt;/span&gt; &lt;span class="mf"&gt;4.4&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;7&lt;/span&gt; &lt;span class="mi"&gt;20120313&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Red&lt;/span&gt; &lt;span class="n"&gt;Hat&lt;/span&gt; &lt;span class="mf"&gt;4.4&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;18&lt;/span&gt;&lt;span class="p"&gt;)]&lt;/span&gt; &lt;span class="n"&gt;on&lt;/span&gt; &lt;span class="n"&gt;linux2&lt;/span&gt;
-&lt;a name="rest_code_9106b1fea8824eb6b51f66dd89bf6e11-4"&gt;&lt;/a&gt;&lt;span class="n"&gt;Type&lt;/span&gt; &lt;span class="s2"&gt;"help"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"copyright"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"credits"&lt;/span&gt; &lt;span class="ow"&gt;or&lt;/span&gt; &lt;span class="s2"&gt;"license"&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;more&lt;/span&gt; &lt;span class="n"&gt;information&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
-&lt;a name="rest_code_9106b1fea8824eb6b51f66dd89bf6e11-5"&gt;&lt;/a&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;InteractiveConsole&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;a name="rest_code_9106b1fea8824eb6b51f66dd89bf6e11-6"&gt;&lt;/a&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;myapp.models&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Entry&lt;/span&gt;
-&lt;a name="rest_code_9106b1fea8824eb6b51f66dd89bf6e11-7"&gt;&lt;/a&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;django.db.models&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Q&lt;/span&gt;
-&lt;a name="rest_code_9106b1fea8824eb6b51f66dd89bf6e11-8"&gt;&lt;/a&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;target_entry_id&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;None&lt;/span&gt;
-&lt;a name="rest_code_9106b1fea8824eb6b51f66dd89bf6e11-9"&gt;&lt;/a&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;Entry&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;objects&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;filter&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
-&lt;a name="rest_code_9106b1fea8824eb6b51f66dd89bf6e11-10"&gt;&lt;/a&gt;&lt;span class="o"&gt;...&lt;/span&gt;     &lt;span class="n"&gt;Q&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;expiration_year_month__gte&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;target_entry_id&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt;
-&lt;a name="rest_code_9106b1fea8824eb6b51f66dd89bf6e11-11"&gt;&lt;/a&gt;&lt;span class="o"&gt;...&lt;/span&gt;     &lt;span class="n"&gt;Q&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;expiration_year_month__isnull&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;a name="rest_code_9106b1fea8824eb6b51f66dd89bf6e11-12"&gt;&lt;/a&gt;&lt;span class="o"&gt;...&lt;/span&gt; &lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="django-dbdb"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/django/manage/#id25"&gt;Django の DBシェルでローカルDBにつなぐ&lt;/a&gt;&lt;/h3&gt;
-&lt;pre class="code console"&gt;&lt;a name="rest_code_d5d05ebc5a344748b895a11adbd325ee-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; python manage.py dbshell --settings&lt;span class="o"&gt;=&lt;/span&gt;settings.local
-&lt;/pre&gt;&lt;/div&gt;
-&lt;div class="section" id="id11"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/django/manage/#id26"&gt;静的ファイルを公開用ディレクトリに収集する&lt;/a&gt;&lt;/h3&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_c66a006a3e914755aadf7dc53caa6280-1"&gt;&lt;/a&gt;$ python3 manage.py collectstatic
-&lt;/pre&gt;&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;p&gt;runserver には静的ファイル自動配置機能が備わっているので runserver 時には事前実行不要&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="system-check-framework-django"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/django/manage/#id27"&gt;System check framework を使って、Django プロジェクトの一般的な問題を検査する&lt;/a&gt;&lt;/h2&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://docs.djangoproject.com/ja/2.2/ref/django-admin/#check"&gt;Django documentation &amp;gt; django-admin と manage.py &amp;gt; Available commands &amp;gt; check&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://docs.djangoproject.com/ja/2.2/ref/checks/#system-check-framework"&gt;Django documentation &amp;gt; System check framework&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class="section" id="python2"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/django/manage/#id28"&gt;使用例 (python2)&lt;/a&gt;&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_0879c90518fb4d209295f14bd9b1ec3a-1"&gt;&lt;/a&gt;$ &lt;span class="nv"&gt;DJANGO_SETTINGS_MODULE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;settings.local python -Wd manage.py check
-&lt;/pre&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://docs.python.org/ja/2.7/using/cmdline.html#cmdoption-w"&gt;https://docs.python.org/ja/2.7/using/cmdline.html#cmdoption-w&lt;/a&gt;&lt;/p&gt;
-&lt;pre class="literal-block"&gt;Python 2.7 から、 DeprecationWarning とその子クラスはデフォルトで無視されます。 -Wd オプションを指定して有効にすることができます。&lt;/pre&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;/div&gt;</description><category>django</category><guid>https://32imuf.com/django/manage/</guid><pubDate>Fri, 04 Oct 2019 15:00:00 GMT</pubDate></item></channel></rss>
+&lt;/div&gt;&lt;/div&gt;</description><category>python</category><guid>https://32imuf.com/python/wheel/</guid><pubDate>Sat, 05 Oct 2019 15:00:00 GMT</pubDate></item></channel></rss>

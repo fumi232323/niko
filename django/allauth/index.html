@@ -116,15 +116,15 @@
 <li>
 <p>Admin サイトで GitHub とソーシャル連携するために初期データを登録する</p>
 <blockquote>
-<pre class="code bash"><a name="rest_code_1cb6a68f3da7462caa7ef21c1e3b65be-1"></a><span class="c1"># django-allauth をインストールする</span>
-<a name="rest_code_1cb6a68f3da7462caa7ef21c1e3b65be-2"></a>$ pip3 install django-allauth
-<a name="rest_code_1cb6a68f3da7462caa7ef21c1e3b65be-3"></a>
-<a name="rest_code_1cb6a68f3da7462caa7ef21c1e3b65be-4"></a><span class="c1"># マイグレーション</span>
-<a name="rest_code_1cb6a68f3da7462caa7ef21c1e3b65be-5"></a>$ python3 manage.py migrate
-<a name="rest_code_1cb6a68f3da7462caa7ef21c1e3b65be-6"></a><span class="c1"># スーパーユーザー作成</span>
-<a name="rest_code_1cb6a68f3da7462caa7ef21c1e3b65be-7"></a>$ python3 manage.py createsuperuser
-<a name="rest_code_1cb6a68f3da7462caa7ef21c1e3b65be-8"></a><span class="c1"># Django アプリを起動</span>
-<a name="rest_code_1cb6a68f3da7462caa7ef21c1e3b65be-9"></a>$ python3 manage.py runserver <span class="m">0</span>.0.0.0:8181
+<pre class="code bash"><a name="rest_code_c2be8010d90b4af1869b0e9c02f5d0b0-1"></a><span class="c1"># django-allauth をインストールする</span>
+<a name="rest_code_c2be8010d90b4af1869b0e9c02f5d0b0-2"></a>$ pip3 install django-allauth
+<a name="rest_code_c2be8010d90b4af1869b0e9c02f5d0b0-3"></a>
+<a name="rest_code_c2be8010d90b4af1869b0e9c02f5d0b0-4"></a><span class="c1"># マイグレーション</span>
+<a name="rest_code_c2be8010d90b4af1869b0e9c02f5d0b0-5"></a>$ python3 manage.py migrate
+<a name="rest_code_c2be8010d90b4af1869b0e9c02f5d0b0-6"></a><span class="c1"># スーパーユーザー作成</span>
+<a name="rest_code_c2be8010d90b4af1869b0e9c02f5d0b0-7"></a>$ python3 manage.py createsuperuser
+<a name="rest_code_c2be8010d90b4af1869b0e9c02f5d0b0-8"></a><span class="c1"># Django アプリを起動</span>
+<a name="rest_code_c2be8010d90b4af1869b0e9c02f5d0b0-9"></a>$ python3 manage.py runserver <span class="m">0</span>.0.0.0:8181
 </pre>
 </blockquote>
 <ul class="simple">
@@ -394,17 +394,20 @@
 <span class="c1"># AWS settings   #</span>
 <span class="c1">##################</span>
 <span class="c1"># 本当は settings には書かない</span>
-<span class="n">AWS_ACCESS_KEY_ID</span> <span class="o">=</span> <span class="s1">'XXXXXXXXXXXXXXXXXXXX'</span>
-<span class="n">AWS_SECRET_ACCESS_KEY</span> <span class="o">=</span> <span class="s1">'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'</span>
+<span class="n">AWS_ACCESS_KEY_ID</span> <span class="o">=</span> <span class="s1">'MY-ACCESS-KEY-ID'</span>
+<span class="n">AWS_SECRET_ACCESS_KEY</span> <span class="o">=</span> <span class="s1">'MY-SECRET-ACCESS-KEY'</span>
 
 <span class="c1">##################</span>
 <span class="c1"># Email settings #</span>
 <span class="c1">##################</span>
+<span class="c1"># Amazon SES を使う場合</span>
+<span class="c1"># https://pypi.org/project/django-ses/</span>
 <span class="n">EMAIL_BACKEND</span> <span class="o">=</span> <span class="s1">'django_ses.SESBackend'</span>
-<span class="n">DEFAULT_FROM_EMAIL</span> <span class="o">=</span> <span class="n">SERVER_EMAIL</span> <span class="o">=</span> <span class="s1">'no-reply &lt;XXXXXXXXXXXXXXXXXXXX@example.com&gt;'</span>
 <span class="c1"># us-east-1 以外のAWSリージョンを使用する場合はこれも必要↓</span>
 <span class="c1"># AWS_SES_REGION_NAME = 'us-west-2'</span>
 <span class="c1"># AWS_SES_REGION_ENDPOINT = 'email.us-west-2.amazonaws.com'</span>
+
+<span class="n">DEFAULT_FROM_EMAIL</span> <span class="o">=</span> <span class="n">SERVER_EMAIL</span> <span class="o">=</span> <span class="s1">'no-reply &lt;XXXXX@example.com&gt;'</span>
 </pre></div>
 </div>
 </div>
@@ -416,7 +419,7 @@
 <p>callback URL はエラーにならず、 <code class="docutils literal">Confirm <span class="pre">E-mail</span> Address</code> メール が送られてくるようになった。</p>
 <ul class="simple">
 <li><p>Confirm E-mail Address メールが送られてくるのは、 settings に <code class="docutils literal">ユーザー登録時にメールアドレス確認を行う</code> と設定しているためです</p></li>
-<li><p>メールの設定は <a class="reference external" href="https://32imuf.com/django/madanai/">書き途中</a> を参照のこと</p></li>
+<li><p>メールの設定は <a class="reference external" href="../email/">Django: メールを送信する</a> を参照のこと</p></li>
 </ul>
 </li>
 <li>
