@@ -55,3 +55,38 @@
     $ python -m smtpd -n -c DebuggingServer localhost:1025
 
 
+Amazon SES を使ってメール送信する
+----------------------------------
+
+* Amazon SES (Amazon Simple Email Service)
+
+  * https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/Welcome.html
+  * Amazon SES は、ユーザー自身の E メールアドレスとドメインを使用して E メールを送受信するための、簡単で費用効率の高い方法を提供する E メールプラットフォームです。
+
+
+* https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/quick-start.html
+Amazon SES クイック スタート
+
+* https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/verify-email-addresses-procedure.html
+E メールアドレスの検証 する
+
+
+* https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/verify-domains.html
+ドメインごと検証もできる
+
+* これをインストール
+
+https://pypi.org/project/django-ses/
+
+.. code-block:: bash
+
+  $ pip install django-ses
+
+
+* settings に追記
+
+* 本当にやるときはこれもやるんだと思う
+Amazon SES における DKIM を使った E メールの認証
+https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/dkim.html
+Amazon SES の Easy DKIM
+https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/easy-dkim.html

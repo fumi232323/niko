@@ -55,7 +55,7 @@ https://django-allauth.readthedocs.io/en/latest/providers.html#github
 
    * https://github.com/settings/developers > ``OAuth Apps``  > ``Register a new OAuth application``
 
-      {{% figure register-OAuth-application.png %}}
+      {{% figure 00_register-oauth-application.png %}}
 
       * ``Authorization callback URL``: サービスプロバイダが認可コードを返した後に Web アプリ側にリダイレクトするための URL
 
@@ -89,21 +89,23 @@ https://django-allauth.readthedocs.io/en/latest/providers.html#github
    * http://localhost:8181/accounts/login/ へアクセス
    * GitHub リンク押下
 
-      {{% figure login.png %}}
-      {{% figure sign-in-to-github.png %}}
-      {{% figure authorize-fuminote.png %}}
+      {{% figure 01_login.png %}}
+      {{% figure 02_sign-in-to-github.png %}}
+      {{% figure 03_authorize-fuminote.png %}}
 
       * 今いま callback URL がエラーになる => メールを設定していないからかもしれない => あとでやってみる
 
+        {{% figure 06_social-login-error.png %}}
+
    * ログインできた!
 
-      {{% figure home.png %}}
+      {{% figure 04_home.png %}}
 
 4. ソーシャル連携解除
 
    * http://localhost:8181/accounts/social/connections/ でソーシャル連携解除できる
 
-     {{% figure social-connections.png %}}
+     {{% figure 05_social-connections.png %}}
 
 できあがるレコード
 ------------------
@@ -125,3 +127,36 @@ settings
 ---------
 
 {{% codeblock fufu/fufu/settings.py label="settings.py" lexer="python" %}}
+
+
+メールを設定した
+================
+
+* callback URL はエラーにならず、 ``Confirm E-mail Address`` メール が送られてくるようになった。
+
+  * Confirm E-mail Address メールが送られてくるのは、 settings に ``ユーザー登録時にメールアドレス確認を行う`` と設定しているためです
+  * メールの設定は `書き途中 <https://32imuf.com/django/madanai/>`_ を参照のこと
+
+* 流れ
+
+  1. ログイン画面で ``GitHub`` リンク押下する
+
+      {{% figure 11_sign_in.png %}}
+
+  2. GitHub 側のサインイン画面へ遷移する
+
+      {{% figure 12_continue_to_fuminote.png %}}
+
+  3. GitHub でサインインすると、自分のアプリのホーム画面へ遷移する。
+
+  4. 同時に、 GitHub に登録してある Email address に ``Confirm E-mail Address`` メールが届く。
+
+      {{% figure 13_confirm_email.png %}}
+
+  5. ``Confirm E-mail Address`` メールに記載のリンクを押下すると、 E-mail Address 確認画面へ遷移する。
+
+      {{% figure 14_confirm_email_screen.png %}}
+
+  6. Confirm ボタンを押下するとホーム画面が表示される。
+
+      {{% figure 15_home.png %}}

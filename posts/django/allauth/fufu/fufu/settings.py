@@ -109,8 +109,10 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
-# LANGUAGE_CODE = 'ja'
-LANGUAGE_CODE = 'en-us'
+# 日本語にするとテンプレートも勝手に日本語で表示される
+LANGUAGE_CODE = 'ja'
+# 英語にするとテンプレートも勝手に英語で表示される
+# LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'Asia/Tokyo'
 
@@ -132,15 +134,16 @@ STATIC_URL = '/static/'
 
 # メールアドレスとパスワードで認証
 AUTHENTICATION_BACKENDS = (
-    # デフォルト, これを残しておくと管理画面はユーザー名/パスワードで認証できる
+    # デフォルト: これを残しておくと管理画面はユーザー名/パスワードで認証できる
     'django.contrib.auth.backends.ModelBackend',
-    'allauth.account.auth_backends.AuthenticationBackend',  # 追加
+    'allauth.account.auth_backends.AuthenticationBackend',  # django-allauth を追加
 )
 # 認証⽅式を 「メールアドレスとパスワード」 に変更
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 # ユーザー名は使⽤しない
 ACCOUNT_USERNAME_REQUIRED = False
 
+# django-allauth にはこれが必要
 SITE_ID = 1
 
 LOGIN_REDIRECT_URL = 'home'
@@ -156,3 +159,19 @@ ACCOUNT_EMAIL_VARIFICATION = 'mandatory'
 # ACCOUNT_EMAIL_VARIFICATION = 'none'
 # ユーザー登録画面でにEmailを必須項目にする
 ACCOUNT_EMAIL_REQUIRED = True
+
+##################
+# AWS settings   #
+##################
+# 本当は settings には書かない
+AWS_ACCESS_KEY_ID = 'XXXXXXXXXXXXXXXXXXXX'
+AWS_SECRET_ACCESS_KEY = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+
+##################
+# Email settings #
+##################
+EMAIL_BACKEND = 'django_ses.SESBackend'
+DEFAULT_FROM_EMAIL = SERVER_EMAIL = 'no-reply <XXXXXXXXXXXXXXXXXXXX@example.com>'
+# us-east-1 以外のAWSリージョンを使用する場合はこれも必要↓
+# AWS_SES_REGION_NAME = 'us-west-2'
+# AWS_SES_REGION_ENDPOINT = 'email.us-west-2.amazonaws.com'
