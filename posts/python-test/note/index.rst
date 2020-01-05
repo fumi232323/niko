@@ -52,6 +52,17 @@ https://docs.pytest.org/en/latest/fixture.html
 
   Test functions can receive fixture objects by naming them as an input argument. For each argument name, a fixture function with that name provides the fixture object. Fixture functions are registered by marking them with @pytest.fixture.
 
+fixture のスコープと実行順序
+----------------------------
+
+https://docs.pytest.org/en/latest/fixture.html#order-higher-scoped-fixtures-are-instantiated-first
+
+* デフォルトは function
+* ``autouse=True`` すると、引数に与えなくても自動で実行される
+
+  * スコープは function
+  * 同じスコープのほかの fixture の前にインスタンス化される
+
 Temporary directories and files
 --------------------------------
 http://doc.pytest.org/en/latest/tmpdir.html#the-tmpdir-fixture

@@ -3,7 +3,7 @@
 .. date: 2019-06-27
 .. updated: 2019-12-08
 .. slug: index
-.. status: draft
+.. status: published
 
 
 AWS ドキュメント
@@ -27,6 +27,7 @@ ECS (Amazon Elastic Container Service)
 * クラスター > サービス > タスク定義
 * タスク定義
 
+  * コンテナ（Task）, コンテナの起動設定（TaskDefinition）
   * 起動するとタスクになる
   * タスク定義は、タスクに含まれるコンテナの数、それらが使用するリソース、それらが一緒にリンクされる方法、および使用するホストポートなど、アプリケーションのコンテナ情報を指定します。
 
