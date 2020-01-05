@@ -31,11 +31,7 @@
  </url>
  <url>
   <loc>https://32imuf.com/archive.html</loc>
-  <lastmod>2020-01-05T12:58:00Z</lastmod>
- </url>
- <url>
-  <loc>https://32imuf.com/aws/amazon-ses/</loc>
-  <lastmod>2019-12-08T14:25:00Z</lastmod>
+  <lastmod>2020-01-05T13:57:00Z</lastmod>
  </url>
  <url>
   <loc>https://32imuf.com/aws/iroiro/</loc>
@@ -44,6 +40,10 @@
  <url>
   <loc>https://32imuf.com/aws/s3-response-error/</loc>
   <lastmod>2019-06-02T07:16:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://32imuf.com/aws/ses/</loc>
+  <lastmod>2019-12-23T13:34:00Z</lastmod>
  </url>
  <url>
   <loc>https://32imuf.com/aws/what-is-amazon-aurora/</loc>
@@ -299,7 +299,7 @@
  </url>
  <url>
   <loc>https://32imuf.com/tags/</loc>
-  <lastmod>2019-11-07T14:02:00Z</lastmod>
+  <lastmod>2020-01-05T13:49:00Z</lastmod>
  </url>
  <url>
   <loc>https://32imuf.com/tags/aws/</loc>
