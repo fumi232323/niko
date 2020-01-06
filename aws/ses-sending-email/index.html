@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<title>Amazon SES でメールを送信する/ふみのて</title>
+<link rel="shortcut icon" href="../../assets/icons/favicon.ico">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Griffy">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Vollkorn:400,700">
+<link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/sawarabimincho.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+<link rel="stylesheet" href="../../assets/css/style.css?20200105">
+</head>
+<body>
+    <div class="container">
+      <div class="header"><header class="item item-header"><h1>
+    <a href="../../">
+      <img class="logo" src="../../assets/images/inuu.png" alt="犬"></a>
+  </h1>
+  <iframe src="../../tags/" class="tags"></iframe>
+</header></div>
+      <div class="main">
+<div class="article-content">
+  <main class="item item-article item-aws"><time class="date" datetime="2019-12-23 00:00:00+09:00">
+      2019-12-23 Mon
+    </time><div class="title">Amazon SES でメールを送信する</div>
+    <div class="category">
+      <a href="../../tags/aws/">
+          aws
+      </a>
+    </div>
+    <div class="text">
+      <div>
+<details><summary>目次</summary><div class="contents topic" id="id1">
+<p class="topic-title first">目次</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#id2" id="id15">リファレンス/ガイド</a></p></li>
+<li><p><a class="reference internal" href="#id3" id="id16">説明</a></p></li>
+<li><p><a class="reference internal" href="#id4" id="id17">導入の流れ</a></p></li>
+<li>
+<p><a class="reference internal" href="#id6" id="id18">1. ドメイン検証</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id7" id="id19">やりかた</a></p></li>
+</ul>
+</li>
+<li>
+<p><a class="reference internal" href="#id8" id="id20">2. Eメールの認証</a></p>
+<ul>
+<li>
+<p><a class="reference internal" href="#spf-e" id="id21">SPF を使った E メールの認証</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id9" id="id22">やりかた</a></p></li>
+</ul>
+</li>
+<li>
+<p><a class="reference internal" href="#dkim-e" id="id23">DKIM を使った E メールの認証</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id10" id="id24">やりかた</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><a class="reference internal" href="#dmarc" id="id25">3. DMARC に準拠する</a></p>
+<ul>
+<li>
+<p><a class="reference internal" href="#id11" id="id26">やりかた</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id12" id="id27">ドメインの DMARC ポリシーのセットアップ</a></p></li>
+<li><p><a class="reference internal" href="#spf-dmarc" id="id28">SPF による DMARC への準拠</a></p></li>
+<li><p><a class="reference internal" href="#dkim-dmarc" id="id29">DKIM による DMARC への準拠</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#id13" id="id30">4. 本番運用するには...</a></p></li>
+<li><p><a class="reference internal" href="#id14" id="id31">参考</a></p></li>
+</ul>
+</div>
+</details><div class="section" id="id2">
+<h2><a class="toc-backref" href="#id15">リファレンス/ガイド</a></h2>
+<ul class="simple">
+<li><p>Amazon SES とは: <a class="reference external" href="https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/Welcome.html">https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/Welcome.html</a></p></li>
+<li><p>Amazon SES クイック スタート: <a class="reference external" href="https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/quick-start.html">https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/quick-start.html</a></p></li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2><a class="toc-backref" href="#id16">説明</a></h2>
+<p><a class="reference external" href="https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/Welcome.html">Amazon SES (Amazon Simple Email Service)</a></p>
+<ul class="simple">
+<li><p>Amazon SES は、ユーザー自身の E メールアドレスとドメインを使用して E メールを送受信するための、簡単で費用効率の高い方法を提供する E メールプラットフォームです。</p></li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h2><a class="toc-backref" href="#id17">導入の流れ</a></h2>
+<ol class="arabic simple">
+<li><p>「 <a class="reference external" href="https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/verify-domains.html">ドメイン検証</a> 」もしくは「 <a class="reference external" href="https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/verify-email-addresses.html">E メールアドレス検証</a> 」する</p></li>
+<li>
+<p>Eメールを認証する</p>
+<ul class="simple">
+<li><p>Sender Policy Framework (SPF)  を使った E メールの認証</p></li>
+<li><p>ドメインキーアイデンティファイドメール (DKIM) を使った E メールの認証</p></li>
+</ul>
+</li>
+<li>
+<p>DMARC (Domain-based Message Authentication, Reporting and Conformance) に準拠する</p>
+<ul class="simple">
+<li><p>ドメインの DMARC ポリシーのセットアップ</p></li>
+<li><p>SPF による DMARC への準拠</p></li>
+<li><p>DKIM による DMARC への準拠</p></li>
+</ul>
+</li>
+<li><p>本番運用するには...</p></li>
+</ol>
+</div>
+<div class="section" id="id6">
+<h2><a class="toc-backref" href="#id18">1. ドメイン検証</a></h2>
+<ul class="simple">
+<li><p>「E メールアドレスの検証」 or 「ドメイン検証」 のいずれかを行う必要がある</p></li>
+<li><p>ドメインごと検証すると、対象ドメインのすべての E メールアドレスを検証することになるため、(そのドメインの) E メールアドレスを個別に検証する必要がない</p></li>
+<li><p>「ドメイン検証」は、AWS リージョンごとに必要</p></li>
+<li><p>検証対象のドメインが Route 53 の DNS サービスを使用していて、Route 53 用の同じアカウントで AWS マネジメントコンソール にサインインしている場合、
+Amazon SES コンソール内からすぐに DNS サーバーを更新できるらしい (わたしは別の DNS プロバイダーでやった)</p></li>
+</ul>
+<div class="section" id="id7">
+<h3><a class="toc-backref" href="#id19">やりかた</a></h3>
+<ul>
+<li>
+<p>このガイドのとおりにやれば、とくにハマることもなくできる</p>
+<ul class="simple">
+<li><p>Amazon SES でのドメインの検証: <a class="reference external" href="https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/verify-domains.html">https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/verify-domains.html</a></p></li>
+<li><p>Amazon SES でのドメインの検証: <a class="reference external" href="https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/verify-domain-procedure.html">https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/verify-domain-procedure.html</a></p></li>
+</ul>
+</li>
+<li>
+<p>検証が完了すると、</p>
+<ul>
+<li><p>Amazon SES コンソールでのドメインのステータスが「pending verification (検証中)」から「verified (検証済み)」に変わり、</p></li>
+<li><p>Amazon SES から通知 E メールが届く</p></li>
+<li>
+<p>Amazon SES コンソールの「Send a Test Email」からテストメールを送信できる</p>
+<ul>
+<li><p>サンドボックス内にいる場合は、TOアドレスも検証する必要あり (<a class="reference external" href="https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/verify-email-addresses.html">Amazon SES での E メールアドレスの検証</a> )</p></li>
+<li>
+<p>届いたメールはこんな感じ↓</p>
+<p></p>
+<div class="figure">
+<img alt="/images/aws/ses-sending-email/01_test-mail.png" src="../../images/aws/ses-sending-email/01_test-mail.png">
+</div> <div class="figure">
+<img alt="/images/aws/ses-sending-email/02_test-mail-details.png" src="../../images/aws/ses-sending-email/02_test-mail-details.png">
+</div>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id8">
+<h2><a class="toc-backref" href="#id20">2. Eメールの認証</a></h2>
+<p>Amazon SES での E メールの認証: <a class="reference external" href="https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/authentication.html">https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/authentication.html</a></p>
+<ul class="simple">
+<li><p>Amazon SES では、E メールの送信に Simple Mail Transfer Protocol（SMTP）が使用されるが、</p></li>
+<li><p>SMTP 自体は認証を提供しないので、</p></li>
+<li><p><code class="docutils literal">SPF</code>, <code class="docutils literal">DKIM</code>, <code class="docutils literal">DMARC への準拠</code> (後述) によって「送信ドメイン認証」対応し、</p></li>
+<li><p>ISP に対して、わたしが送信するメールが「なりすましメール」ではないことを証明しましょう</p></li>
+</ul>
+<div class="section" id="spf-e">
+<h3><a class="toc-backref" href="#id21">SPF を使った E メールの認証</a></h3>
+<ul class="simple">
+<li>
+<p>SPF: Sender Policy Framework</p>
+<ul>
+<li><p>E メールのなりすましを防ぐために設計された E メールの検証標準</p></li>
+<li><p>ドメイン所有者は SPF を使用して、自分のドメインからメールを送信できるサーバーをメールプロバイダーに通知する (承認済みメールサーバーのリストをドメインの DNS 設定に公開する)</p></li>
+<li><p>E メールプロバイダーは、ドメインからメッセージを受信すると、ドメインの DNS サーバーの SPF レコードをチェックして、承認されたサーバーから E メールが送信されたことを確認する</p></li>
+</ul>
+</li>
+<li>
+<p>Amazon SES における SPF を使った E メールの認証: <a class="reference external" href="https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/spf.html">https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/spf.html</a></p>
+<ul>
+<li><p>Amazon SES を介して E メールを送信すると、送信するメッセージはデフォルトで SPF チェックをパスするようになっているけれども、</p></li>
+<li><p>オプションで、独自の SPF レコードを公開できる</p></li>
+<li><p>SPF レコードを公開することにより、DMARC に準拠できる</p></li>
+</ul>
+</li>
+</ul>
+<div class="section" id="id9">
+<h4><a class="toc-backref" href="#id22">やりかた</a></h4>
+<p><a class="reference external" href="#dmarc">3. DMARC に準拠する &gt; SPF による DMARC への準拠</a> を参照のこと</p>
+</div>
+</div>
+<div class="section" id="dkim-e">
+<h3><a class="toc-backref" href="#id23">DKIM を使った E メールの認証</a></h3>
+<ul class="simple">
+<li>
+<p>DKIM: ドメインキーアイデンティファイドメール</p>
+<ul>
+<li>
+<p>E メールメッセージに署名することで、自分のメッセージが本物であることと送信中に改ざんされていないことを ISP に証明するための標準規格</p>
+<ul>
+<li><p>送信者が暗号化キーで E メールメッセージを署名できる</p></li>
+<li><p>E メールプロバイダーはこの署名を使用して、メッセージが転送中に第三者によって改ざんされていないことを検証する</p></li>
+<li><p>詳しくは、 <a class="reference external" href="http://dkim.org/">http://dkim.org/</a> に書いてあるそうです</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Amazon SES における DKIM を使った E メールの認証: <a class="reference external" href="https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/dkim.html">https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/dkim.html</a></p>
+<ul>
+<li><p>「送信元」アドレスで使用するドメインでのみ Easy DKIM 設定が必要</p></li>
+<li><p>リージョンごとに Easy DKIM 設定が必要</p></li>
+</ul>
+</li>
+</ul>
+<div class="section" id="id10">
+<h4><a class="toc-backref" href="#id24">やりかた</a></h4>
+<p><a class="reference external" href="#dmarc">3. DMARC に準拠する &gt; DKIM による DMARC への準拠</a> を参照のこと</p>
+</div>
+</div>
+</div>
+<div class="section" id="dmarc">
+<h2><a class="toc-backref" href="#id25">3. DMARC に準拠する</a></h2>
+<ul class="simple">
+<li><p>送信ドメイン認証技術「DMARC」によるなりすましメール対策とDMARCレポートの活用: <a class="reference external" href="https://www.dekyo.or.jp/info/2019/02/seminar/5684/">https://www.dekyo.or.jp/info/2019/02/seminar/5684/</a></p></li>
+<li><p>なりすまし対策ポータルナリタイ: <a class="reference external" href="https://www.naritai.jp/index.html">https://www.naritai.jp/index.html</a></p></li>
+<li>
+<p>Amazon SES での DMARC への準拠: <a class="reference external" href="https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/dmarc.html">https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/dmarc.html</a></p>
+<ul>
+<li><p>DMARC (Domain-based Message Authentication, Reporting and Conformance) は、
+SPF (Sender Policy Framework) およびドメインキーアイデンティファイドメール (DKIM) を使用してメールスプーフィングを検出するためのメール認証プロトコルです。
+DMARC に準拠するため、メッセージは SPF または DKIM のいずれか、または両方で認証される必要があります。</p></li>
+</ul>
+</li>
+</ul>
+<div class="section" id="id11">
+<h3><a class="toc-backref" href="#id26">やりかた</a></h3>
+<div class="section" id="id12">
+<h4><a class="toc-backref" href="#id27">ドメインの DMARC ポリシーのセットアップ</a></h4>
+<p>TBD</p>
+</div>
+<div class="section" id="spf-dmarc">
+<h4><a class="toc-backref" href="#id28">SPF による DMARC への準拠</a></h4>
+<ul class="simple">
+<li>
+<p>カスタムの MAIL FROM ドメインの設定: <a class="reference external" href="https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/mail-from.html">https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/mail-from.html</a></p>
+<ul>
+<li><p>デフォルトでは、Amazon SES から送信するメッセージには、MAIL FROM ドメインとして amazonses.com のサブドメインが使用される</p></li>
+<li><p>デフォルトの MAIL FROM ドメインが E メールを送信したアプリケーション (この場合は Amazon SES) と一致するため、Sender Policy Framework (SPF) 認証はこれらのメッセージを正常に検証するけれども、</p></li>
+<li><p>カスタム MAIL FROM ドメインを設定することにより、E メールはドメインベースのメッセージ認証、レポート、および適合性 (DMARC: Domain-based Message Authentication, Reporting and Conformance) に準拠できる</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="dkim-dmarc">
+<h4><a class="toc-backref" href="#id29">DKIM による DMARC への準拠</a></h4>
+<ul>
+<li>
+<p>このガイドのとおりにやれば、とくにハマることもなくできる</p>
+<ul class="simple">
+<li><p>Amazon SES の Easy DKIM: <a class="reference external" href="https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/easy-dkim.html">https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/easy-dkim.html</a></p></li>
+<li><p>ドメインにおける Easy DKIM のセットアップ: <a class="reference external" href="https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/easy-dkim-setup-domain.html">https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/easy-dkim-setup-domain.html</a></p></li>
+</ul>
+</li>
+<li>
+<p>検証が完了すると、</p>
+<ul>
+<li><p>Amazon SES コンソールでのドメインのステータスが「pending verification (検証中)」から「verified (検証済み)」に変わり、</p></li>
+<li><p>Amazon SES から通知 E メールが届く</p></li>
+<li>
+<p>Amazon SES コンソールの「Send a Test Email」からテストメールを送信できる</p>
+<ul>
+<li>
+<p>届いたメールはこんな感じ (Easy DKIM セットアップ前となんだかちょっと違う)</p>
+<p></p>
+<div class="figure">
+<img alt="/images/aws/ses-sending-email/03_test-mail.png" src="../../images/aws/ses-sending-email/03_test-mail.png">
+</div> <div class="figure">
+<img alt="/images/aws/ses-sending-email/04_test-mail-details.png" src="../../images/aws/ses-sending-email/04_test-mail-details.png">
+</div>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="id13">
+<h2><a class="toc-backref" href="#id30">4. 本番運用するには...</a></h2>
+<ul class="simple">
+<li><p>バウンスや苦情の処理方法の検討</p></li>
+<li><p><a class="reference external" href="https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/request-production-access.html">Amazon SES サンドボックスの外への移動</a></p></li>
+</ul>
+<p>もやる</p>
+</div>
+<div class="section" id="id14">
+<h2><a class="toc-backref" href="#id31">参考</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ja.wikipedia.org/wiki/DNS%E3%83%AC%E3%82%B3%E3%83%BC%E3%83%89%E3%82%BF%E3%82%A4%E3%83%97%E3%81%AE%E4%B8%80%E8%A6%A7">https://ja.wikipedia.org/wiki/DNSレコードタイプの一覧</a></p></li>
+<li>
+<p>主なレコードの意味</p>
+<dl class="field-list simple">
+<dt>A(Address) レコード</dt>
+<dd>
+<p>ホスト名にIPv4 IPアドレスをマッピングする (返されるのはIPアドレス)</p>
+</dd>
+<dt>CNAME レコード</dt>
+<dd>
+<p>正規ホスト名に対する別名を定義する</p>
+</dd>
+<dt>MX レコード</dt>
+<dd>
+<p>対象ドメイン宛のメールの配送先（メールサーバ）のホスト名を定義する</p>
+</dd>
+<dt>TXT レコード</dt>
+<dd>
+<p>ホスト名に関連付けるテキスト情報（文字列）を定義する</p>
+<ul>
+<li><p>送信ドメイン認証の認証情報などを記述する</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+</div>
+    </div>
+  </main>
+</div>
+</div>
+    </div>
+  </body>
+</html>
