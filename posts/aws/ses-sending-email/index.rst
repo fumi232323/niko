@@ -83,7 +83,7 @@ Amazon SES での E メールの認証: https://docs.aws.amazon.com/ja_jp/ses/la
 * Amazon SES では、E メールの送信に Simple Mail Transfer Protocol（SMTP）が使用されるが、
 * SMTP 自体は認証を提供しないので、
 * ``SPF``, ``DKIM``, ``DMARC への準拠`` (後述) によって「送信ドメイン認証」対応し、
-* ISP に対して、わたしが送信するメールが「なりすましメール」ではないことを証明しましょう
+* ISP に対して、わたしが送信するメールが「なりすましメール」ではないことを証明しましょう (もし誰かになりすまされたら気付けるようにしましょう)
 
 
 SPF を使った E メールの認証
@@ -103,6 +103,8 @@ SPF を使った E メールの認証
 やりかた
 ^^^^^^^^^
 `3. DMARC に準拠する > SPF による DMARC への準拠 <#dmarc>`_ を参照のこと
+
+* どうせやるのなら、 DMARC に準拠できるのが良いと思う
 
 
 DKIM を使った E メールの認証
@@ -124,16 +126,30 @@ DKIM を使った E メールの認証
 ^^^^^^^^^
 `3. DMARC に準拠する > DKIM による DMARC への準拠 <#dmarc>`_ を参照のこと
 
+* どうせやるのなら、 DMARC に準拠できるのが良いと思う
+
 
 3. DMARC に準拠する
 ===================
-* 送信ドメイン認証技術「DMARC」によるなりすましメール対策とDMARCレポートの活用: https://www.dekyo.or.jp/info/2019/02/seminar/5684/
-* なりすまし対策ポータルナリタイ: https://www.naritai.jp/index.html
+書き途中
+
+* DMARC: Domain-based Message Authentication, Reporting and Conformance
+
+  * SPF (Sender Policy Framework) およびドメインキーアイデンティファイドメール (DKIM) を使用して
+    メールスプーフィングを検出するためのメール認証プロトコルです
+  * SPF と DKIM を合わせて活用する技術で、「送信ドメイン認証関連の技術」「レポーティング」という機能がある。
+  *
+
 * Amazon SES での DMARC への準拠: https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/dmarc.html
 
   * DMARC (Domain-based Message Authentication, Reporting and Conformance) は、
     SPF (Sender Policy Framework) およびドメインキーアイデンティファイドメール (DKIM) を使用してメールスプーフィングを検出するためのメール認証プロトコルです。
     DMARC に準拠するため、メッセージは SPF または DKIM のいずれか、または両方で認証される必要があります。
+
+* DMARC: https://dmarc.org/
+* 送信ドメイン認証技術「DMARC」によるなりすましメール対策とDMARCレポートの活用: https://www.dekyo.or.jp/info/2019/02/seminar/5684/
+* なりすまし対策ポータルナリタイ: https://www.naritai.jp/index.html
+
 
 やりかた
 ---------
@@ -144,6 +160,8 @@ TBD
 
 SPF による DMARC への準拠
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
+書き途中
+
 * カスタムの MAIL FROM ドメインの設定: https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/mail-from.html
 
   * デフォルトでは、Amazon SES から送信するメッセージには、MAIL FROM ドメインとして amazonses.com のサブドメインが使用される
@@ -152,6 +170,8 @@ SPF による DMARC への準拠
 
 DKIM による DMARC への準拠
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
+書き途中
+
 * このガイドのとおりにやれば、とくにハマることもなくできる
 
   * Amazon SES の Easy DKIM: https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/easy-dkim.html
