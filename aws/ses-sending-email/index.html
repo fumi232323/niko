@@ -164,7 +164,7 @@ Amazon SES コンソール内からすぐに DNS サーバーを更新できる�
 <li><p>Amazon SES では、E メールの送信に Simple Mail Transfer Protocol（SMTP）が使用されるが、</p></li>
 <li><p>SMTP 自体は認証を提供しないので、</p></li>
 <li><p><code class="docutils literal">SPF</code>, <code class="docutils literal">DKIM</code>, <code class="docutils literal">DMARC への準拠</code> (後述) によって「送信ドメイン認証」対応し、</p></li>
-<li><p>ISP に対して、わたしが送信するメールが「なりすましメール」ではないことを証明しましょう</p></li>
+<li><p>ISP に対して、わたしが送信するメールが「なりすましメール」ではないことを証明しましょう (もし誰かになりすまされたら気付けるようにしましょう)</p></li>
 </ul>
 <div class="section" id="spf-e">
 <h3><a class="toc-backref" href="#id21">SPF を使った E メールの認証</a></h3>
@@ -189,6 +189,9 @@ Amazon SES コンソール内からすぐに DNS サーバーを更新できる�
 <div class="section" id="id9">
 <h4><a class="toc-backref" href="#id22">やりかた</a></h4>
 <p><a class="reference external" href="#dmarc">3. DMARC に準拠する &gt; SPF による DMARC への準拠</a> を参照のこと</p>
+<ul class="simple">
+<li><p>どうせやるのなら、 DMARC に準拠できるのが良いと思う</p></li>
+</ul>
 </div>
 </div>
 <div class="section" id="dkim-e">
@@ -218,14 +221,26 @@ Amazon SES コンソール内からすぐに DNS サーバーを更新できる�
 <div class="section" id="id10">
 <h4><a class="toc-backref" href="#id24">やりかた</a></h4>
 <p><a class="reference external" href="#dmarc">3. DMARC に準拠する &gt; DKIM による DMARC への準拠</a> を参照のこと</p>
+<ul class="simple">
+<li><p>どうせやるのなら、 DMARC に準拠できるのが良いと思う</p></li>
+</ul>
 </div>
 </div>
 </div>
 <div class="section" id="dmarc">
 <h2><a class="toc-backref" href="#id25">3. DMARC に準拠する</a></h2>
+<p>書き途中</p>
 <ul class="simple">
-<li><p>送信ドメイン認証技術「DMARC」によるなりすましメール対策とDMARCレポートの活用: <a class="reference external" href="https://www.dekyo.or.jp/info/2019/02/seminar/5684/">https://www.dekyo.or.jp/info/2019/02/seminar/5684/</a></p></li>
-<li><p>なりすまし対策ポータルナリタイ: <a class="reference external" href="https://www.naritai.jp/index.html">https://www.naritai.jp/index.html</a></p></li>
+<li>
+<p>DMARC: Domain-based Message Authentication, Reporting and Conformance</p>
+<ul>
+<li><p>SPF (Sender Policy Framework) およびドメインキーアイデンティファイドメール (DKIM) を使用して
+メールスプーフィングを検出するためのメール認証プロトコルです</p></li>
+<li><p>SPF と DKIM を合わせて活用する技術で、「送信ドメイン認証関連の技術」「レポーティング」という機能がある。</p></li>
+<li>
+</li>
+</ul>
+</li>
 <li>
 <p>Amazon SES での DMARC への準拠: <a class="reference external" href="https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/dmarc.html">https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/dmarc.html</a></p>
 <ul>
@@ -234,6 +249,9 @@ SPF (Sender Policy Framework) およびドメインキーアイデンティフ�
 DMARC に準拠するため、メッセージは SPF または DKIM のいずれか、または両方で認証される必要があります。</p></li>
 </ul>
 </li>
+<li><p>DMARC: <a class="reference external" href="https://dmarc.org/">https://dmarc.org/</a></p></li>
+<li><p>送信ドメイン認証技術「DMARC」によるなりすましメール対策とDMARCレポートの活用: <a class="reference external" href="https://www.dekyo.or.jp/info/2019/02/seminar/5684/">https://www.dekyo.or.jp/info/2019/02/seminar/5684/</a></p></li>
+<li><p>なりすまし対策ポータルナリタイ: <a class="reference external" href="https://www.naritai.jp/index.html">https://www.naritai.jp/index.html</a></p></li>
 </ul>
 <div class="section" id="id11">
 <h3><a class="toc-backref" href="#id26">やりかた</a></h3>
@@ -243,6 +261,7 @@ DMARC に準拠するため、メッセージは SPF または DKIM のいずれ
 </div>
 <div class="section" id="spf-dmarc">
 <h4><a class="toc-backref" href="#id28">SPF による DMARC への準拠</a></h4>
+<p>書き途中</p>
 <ul class="simple">
 <li>
 <p>カスタムの MAIL FROM ドメインの設定: <a class="reference external" href="https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/mail-from.html">https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/mail-from.html</a></p>
@@ -256,6 +275,7 @@ DMARC に準拠するため、メッセージは SPF または DKIM のいずれ
 </div>
 <div class="section" id="dkim-dmarc">
 <h4><a class="toc-backref" href="#id29">DKIM による DMARC への準拠</a></h4>
+<p>書き途中</p>
 <ul>
 <li>
 <p>このガイドのとおりにやれば、とくにハマることもなくできる</p>

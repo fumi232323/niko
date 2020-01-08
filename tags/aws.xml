@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ふみのて (awsについての文書)</title><link>https://32imuf.com/</link><description></description><atom:link href="https://32imuf.com/tags/aws.xml" rel="self" type="application/rss+xml"></atom:link><language>ja</language><copyright>Contents © 2020 &lt;a href="mailto:fumi232323fumi2016@gmail.com"&gt;fumi23&lt;/a&gt; </copyright><lastBuildDate>Mon, 06 Jan 2020 14:53:59 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Amazon SES でメールを送信する</title><link>https://32imuf.com/aws/ses-sending-email/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;details&gt;
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ふみのて (awsについての文書)</title><link>https://32imuf.com/</link><description></description><atom:link href="https://32imuf.com/tags/aws.xml" rel="self" type="application/rss+xml"></atom:link><language>ja</language><copyright>Contents © 2020 &lt;a href="mailto:fumi232323fumi2016@gmail.com"&gt;fumi23&lt;/a&gt; </copyright><lastBuildDate>Wed, 08 Jan 2020 00:25:20 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Amazon SES でメールを送信する</title><link>https://32imuf.com/aws/ses-sending-email/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;details&gt;
   &lt;summary&gt;目次&lt;/summary&gt;&lt;div class="contents topic" id="id1"&gt;
 &lt;p class="topic-title first"&gt;目次&lt;/p&gt;
 &lt;ul class="simple"&gt;
@@ -120,7 +120,7 @@ Amazon SES コンソール内からすぐに DNS サーバーを更新できる�
 &lt;li&gt;&lt;p&gt;Amazon SES では、E メールの送信に Simple Mail Transfer Protocol（SMTP）が使用されるが、&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;SMTP 自体は認証を提供しないので、&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;code class="docutils literal"&gt;SPF&lt;/code&gt;, &lt;code class="docutils literal"&gt;DKIM&lt;/code&gt;, &lt;code class="docutils literal"&gt;DMARC への準拠&lt;/code&gt; (後述) によって「送信ドメイン認証」対応し、&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;ISP に対して、わたしが送信するメールが「なりすましメール」ではないことを証明しましょう&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;ISP に対して、わたしが送信するメールが「なりすましメール」ではないことを証明しましょう (もし誰かになりすまされたら気付けるようにしましょう)&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class="section" id="spf-e"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/aws/ses-sending-email/#id21"&gt;SPF を使った E メールの認証&lt;/a&gt;&lt;/h3&gt;
@@ -143,6 +143,9 @@ Amazon SES コンソール内からすぐに DNS サーバーを更新できる�
 &lt;div class="section" id="id9"&gt;
 &lt;h4&gt;&lt;a class="toc-backref" href="https://32imuf.com/aws/ses-sending-email/#id22"&gt;やりかた&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;&lt;a class="reference external" href="https://32imuf.com/aws/ses-sending-email/#dmarc"&gt;3. DMARC に準拠する &amp;gt; SPF による DMARC への準拠&lt;/a&gt; を参照のこと&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;どうせやるのなら、 DMARC に準拠できるのが良いと思う&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="dkim-e"&gt;
@@ -169,14 +172,24 @@ Amazon SES コンソール内からすぐに DNS サーバーを更新できる�
 &lt;div class="section" id="id10"&gt;
 &lt;h4&gt;&lt;a class="toc-backref" href="https://32imuf.com/aws/ses-sending-email/#id24"&gt;やりかた&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;&lt;a class="reference external" href="https://32imuf.com/aws/ses-sending-email/#dmarc"&gt;3. DMARC に準拠する &amp;gt; DKIM による DMARC への準拠&lt;/a&gt; を参照のこと&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;どうせやるのなら、 DMARC に準拠できるのが良いと思う&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="dmarc"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/aws/ses-sending-email/#id25"&gt;3. DMARC に準拠する&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;書き途中&lt;/p&gt;
 &lt;ul class="simple"&gt;
-&lt;li&gt;&lt;p&gt;送信ドメイン認証技術「DMARC」によるなりすましメール対策とDMARCレポートの活用: &lt;a class="reference external" href="https://www.dekyo.or.jp/info/2019/02/seminar/5684/"&gt;https://www.dekyo.or.jp/info/2019/02/seminar/5684/&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;なりすまし対策ポータルナリタイ: &lt;a class="reference external" href="https://www.naritai.jp/index.html"&gt;https://www.naritai.jp/index.html&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;DMARC: Domain-based Message Authentication, Reporting and Conformance&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;SPF (Sender Policy Framework) およびドメインキーアイデンティファイドメール (DKIM) を使用して
+メールスプーフィングを検出するためのメール認証プロトコルです&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;SPF と DKIM を合わせて活用する技術で、「送信ドメイン認証関連の技術」「レポーティング」という機能がある。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;/li&gt;&lt;/ul&gt;
+&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Amazon SES での DMARC への準拠: &lt;a class="reference external" href="https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/dmarc.html"&gt;https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/dmarc.html&lt;/a&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;DMARC (Domain-based Message Authentication, Reporting and Conformance) は、
@@ -184,6 +197,9 @@ SPF (Sender Policy Framework) およびドメインキーアイデンティフ�
 DMARC に準拠するため、メッセージは SPF または DKIM のいずれか、または両方で認証される必要があります。&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
+&lt;li&gt;&lt;p&gt;DMARC: &lt;a class="reference external" href="https://dmarc.org/"&gt;https://dmarc.org/&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;送信ドメイン認証技術「DMARC」によるなりすましメール対策とDMARCレポートの活用: &lt;a class="reference external" href="https://www.dekyo.or.jp/info/2019/02/seminar/5684/"&gt;https://www.dekyo.or.jp/info/2019/02/seminar/5684/&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;なりすまし対策ポータルナリタイ: &lt;a class="reference external" href="https://www.naritai.jp/index.html"&gt;https://www.naritai.jp/index.html&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class="section" id="id11"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/aws/ses-sending-email/#id26"&gt;やりかた&lt;/a&gt;&lt;/h3&gt;
@@ -193,6 +209,7 @@ DMARC に準拠するため、メッセージは SPF または DKIM のいずれ
 &lt;/div&gt;
 &lt;div class="section" id="spf-dmarc"&gt;
 &lt;h4&gt;&lt;a class="toc-backref" href="https://32imuf.com/aws/ses-sending-email/#id28"&gt;SPF による DMARC への準拠&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;書き途中&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;p&gt;カスタムの MAIL FROM ドメインの設定: &lt;a class="reference external" href="https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/mail-from.html"&gt;https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/mail-from.html&lt;/a&gt;&lt;/p&gt;
 &lt;ul&gt;
@@ -205,6 +222,7 @@ DMARC に準拠するため、メッセージは SPF または DKIM のいずれ
 &lt;/div&gt;
 &lt;div class="section" id="dkim-dmarc"&gt;
 &lt;h4&gt;&lt;a class="toc-backref" href="https://32imuf.com/aws/ses-sending-email/#id29"&gt;DKIM による DMARC への準拠&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;書き途中&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;このガイドのとおりにやれば、とくにハマることもなくできる&lt;/p&gt;
 &lt;ul class="simple"&gt;
