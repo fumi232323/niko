@@ -133,22 +133,27 @@ DKIM を使った E メールの認証
 ===================
 書き途中
 
-* DMARC: Domain-based Message Authentication, Reporting and Conformance
+* `DMARC <https://dmarc.org/>`_: Domain-based Message Authentication, Reporting and Conformance
 
   * SPF (Sender Policy Framework) およびドメインキーアイデンティファイドメール (DKIM) を使用して
-    メールスプーフィングを検出するためのメール認証プロトコルです
-  * SPF と DKIM を合わせて活用する技術で、「送信ドメイン認証関連の技術」「レポーティング」という機能がある。
-  *
+    メールスプーフィングを検出するためのメール認証プロトコルです (出典2)
+  * SPF と DKIM を合わせて活用する技術で、「送信ドメイン認証関連の技術」「レポーティング」という機能がある。 (出典3)
+  * SPF や DKIM それぞれ単体の送信ドメイン認証技術と、DMARC との大きな違いは、以下が挙げられます。 (出典4)
 
-* Amazon SES での DMARC への準拠: https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/dmarc.html
+    * それぞれ (SPF or DKIM) の認証結果のどちらかが pass すれば良いこと
+    * メール受信者が直接みることができるメールヘッダ上の送信者情報 (From:ヘッダ) を認証すること
+    * メール送信者が認証が失敗したメールの取り扱いを示すことができること
+    * メール送信者が認証結果をメール受信者から受け取る仕組みが用意されていること
 
-  * DMARC (Domain-based Message Authentication, Reporting and Conformance) は、
-    SPF (Sender Policy Framework) およびドメインキーアイデンティファイドメール (DKIM) を使用してメールスプーフィングを検出するためのメール認証プロトコルです。
-    DMARC に準拠するため、メッセージは SPF または DKIM のいずれか、または両方で認証される必要があります。
+  * SPF や DKIM の合わせ技 (相互補完) + レポーティング
+  * 一番詳しくはここを見よ: https://dmarc.org/ (出典1)
 
-* DMARC: https://dmarc.org/
-* 送信ドメイン認証技術「DMARC」によるなりすましメール対策とDMARCレポートの活用: https://www.dekyo.or.jp/info/2019/02/seminar/5684/
-* なりすまし対策ポータルナリタイ: https://www.naritai.jp/index.html
+* 出典:
+
+  1. DMARC: https://dmarc.org/
+  2. Amazon SES での DMARC への準拠: https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/dmarc.html
+  3. 送信ドメイン認証技術「DMARC」によるなりすましメール対策とDMARCレポートの活用: https://www.dekyo.or.jp/info/2019/02/seminar/5684/
+  4. なりすまし対策ポータルナリタイ: https://www.naritai.jp/index.html
 
 
 やりかた
