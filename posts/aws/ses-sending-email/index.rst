@@ -1,7 +1,7 @@
 .. title: Amazon SES でメールを送信する
 .. tags: aws
 .. date: 2019-12-23
-.. updated: 2020-01-06
+.. updated: 2020-01-13
 .. slug: index
 .. status: published
 
@@ -72,7 +72,7 @@
     * サンドボックス内にいる場合は、TOアドレスも検証する必要あり (`Amazon SES での E メールアドレスの検証 <https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/verify-email-addresses.html>`_ )
     * 届いたメールはこんな感じ↓
 
-      {{% figure 01_test-mail.png %}} {{% figure 02_test-mail-details.png %}}
+      {{% figure 01_test-mail-verify-domains.png %}} {{% figure 02_test-mail-details-verify-domains.png %}}
 
 
 2. Eメールの認証
@@ -102,7 +102,7 @@ SPF を使った E メールの認証
 
 やりかた
 ^^^^^^^^^
-`3. DMARC に準拠する > SPF による DMARC への準拠 <#dmarc>`_ を参照のこと
+`3. DMARC に準拠する > SPF による DMARC への準拠 > 1. カスタムの MAIL FROM ドメインを設定する <#spf-dmarc>`_ を参照のこと
 
 * どうせやるのなら、 DMARC に準拠できるのが良いと思う
 
@@ -124,21 +124,20 @@ DKIM を使った E メールの認証
 
 やりかた
 ^^^^^^^^^
-`3. DMARC に準拠する > DKIM による DMARC への準拠 <#dmarc>`_ を参照のこと
+`3. DMARC に準拠する > DKIM による DMARC への準拠 <#dkim-dmarc>`_ を参照のこと
 
 * どうせやるのなら、 DMARC に準拠できるのが良いと思う
 
 
 3. DMARC に準拠する
 ===================
-書き途中
-
 * `DMARC <https://dmarc.org/>`_: Domain-based Message Authentication, Reporting and Conformance
 
-  * SPF (Sender Policy Framework) およびドメインキーアイデンティファイドメール (DKIM) を使用して
-    メールスプーフィングを検出するためのメール認証プロトコルです (出典2)
-  * SPF と DKIM を合わせて活用する技術で、「送信ドメイン認証関連の技術」「レポーティング」という機能がある。 (出典3)
-  * SPF や DKIM それぞれ単体の送信ドメイン認証技術と、DMARC との大きな違いは、以下が挙げられます。 (出典4)
+  * SPF (Sender Policy Framework) および DKIM (ドメインキーアイデンティファイドメール) を使用して
+    メールスプーフィングを検出するためのメール認証プロトコルです。
+    DMARC に準拠するため、メッセージは SPF または DKIM のいずれか、または両方で認証される必要があります。 (2)
+  * SPF と DKIM を合わせて活用する技術で、「送信ドメイン認証関連の技術」「レポーティング」という機能がある。 (3)
+  * SPF や DKIM それぞれ単体の送信ドメイン認証技術と、DMARC との大きな違いは、以下が挙げられます。 (4)
 
     * それぞれ (SPF or DKIM) の認証結果のどちらかが pass すれば良いこと
     * メール受信者が直接みることができるメールヘッダ上の送信者情報 (From:ヘッダ) を認証すること
@@ -146,7 +145,7 @@ DKIM を使った E メールの認証
     * メール送信者が認証結果をメール受信者から受け取る仕組みが用意されていること
 
   * SPF や DKIM の合わせ技 (相互補完) + レポーティング
-  * 一番詳しくはここを見よ: https://dmarc.org/ (出典1)
+  * 一番詳しくはここを見よ: https://dmarc.org/ (1)
 
 * 出典:
 
@@ -161,36 +160,90 @@ DKIM を使った E メールの認証
 
 ドメインの DMARC ポリシーのセットアップ
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-TBD
+* ドメインの DNS 設定に、ドメインの DMARC 設定を指定する TXT レコードを追加する
 
-SPF による DMARC への準拠
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-書き途中
+  * このガイドどおりでとくにむずかしいことはない。TXT レコードの値の説明もここに書いてある。
 
-* カスタムの MAIL FROM ドメインの設定: https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/mail-from.html
+    * https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/dmarc.html#dmarc-dns
 
-  * デフォルトでは、Amazon SES から送信するメッセージには、MAIL FROM ドメインとして amazonses.com のサブドメインが使用される
-  * デフォルトの MAIL FROM ドメインが E メールを送信したアプリケーション (この場合は Amazon SES) と一致するため、Sender Policy Framework (SPF) 認証はこれらのメッセージを正常に検証するけれども、
-  * カスタム MAIL FROM ドメインを設定することにより、E メールはドメインベースのメッセージ認証、レポート、および適合性 (DMARC: Domain-based Message Authentication, Reporting and Conformance) に準拠できる
 
 DKIM による DMARC への準拠
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
-書き途中
+1. `Amazon SES の Easy DKIM <https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/easy-dkim.html>`_ の手順を実行して Easy DKIM を設定する: https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/easy-dkim.html
 
-* このガイドのとおりにやれば、とくにハマることもなくできる
+    * ドメインにおける Easy DKIM のセットアップ: https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/easy-dkim-setup-domain.html
+    * このガイドのとおりにやれば、とくにハマることもなくできる
+    * 検証が完了すると、
 
-  * Amazon SES の Easy DKIM: https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/easy-dkim.html
-  * ドメインにおける Easy DKIM のセットアップ: https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/easy-dkim-setup-domain.html
+      * Amazon SES コンソールでのドメインのステータスが「pending verification (検証中)」から「verified (検証済み)」に変わり、
+      * Amazon SES から通知 E メールが届く
+      * Amazon SES コンソールの「Send a Test Email」からテストメールを送信できる
 
-* 検証が完了すると、
+        * 届いたメールはこんな感じ (セットアップ前と比べると、「署名元」が ``32imuf.com`` に変わっている)
 
-  * Amazon SES コンソールでのドメインのステータスが「pending verification (検証中)」から「verified (検証済み)」に変わり、
-  * Amazon SES から通知 E メールが届く
-  * Amazon SES コンソールの「Send a Test Email」からテストメールを送信できる
+          {{% figure 03_test-mail-dkim.png %}} {{% figure 04_test-mail-details-dkim.png %}}
 
-    * 届いたメールはこんな感じ (Easy DKIM セットアップ前となんだかちょっと違う)
+2. 送信元ドメインが DKIM に relaxed ポリシーを使用していることを確認する
 
-      {{% figure 03_test-mail.png %}} {{% figure 04_test-mail-details.png %}}
+    .. code-block:: zsh
+
+      $ nslookup -type=TXT _dmarc.32imuf.com
+      Server:		8.8.8.8
+      Address:	8.8.8.8#53
+
+      Non-authoritative answer:
+      # ここに、 adkim=r が含まれるか、または adkim 文字列がまったく存在しない場合は relaxed
+      _dmarc.32imuf.com	text = "v=DMARC1;p=quarantine;pct=25;rua=mailto:dmarcreports@32imuf.com"
+
+      Authoritative answers can be found from:
+
+    * ドメインのポリシーアラインメントを変更していない場合は、デフォルトで relaxed ポリシーが使用される
+
+
+SPF による DMARC への準拠
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+1. カスタムの MAIL FROM ドメインを設定する: https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/mail-from.html
+
+    * デフォルトでは、Amazon SES から送信するメッセージには、MAIL FROM ドメインとして amazonses.com のサブドメインが使用される
+    * デフォルトの MAIL FROM ドメインが E メールを送信したアプリケーション (この場合は Amazon SES) と一致するため、
+      Sender Policy Framework (SPF) 認証はこれらのメッセージを正常に検証するけれども、
+    * カスタム MAIL FROM ドメインを設定することにより、E メールはドメインベースのメッセージ認証、レポート、
+      および適合性 (DMARC: Domain-based Message Authentication, Reporting and Conformance) に準拠できる
+
+      * SPF で DMARC に準拠する唯一の方法は、カスタム MAIL FROM ドメインを使用すること
+      * SPF 検証では、差出人アドレスのドメインが MAIL FROM ドメインと一致する必要がある
+
+    * MAIL FROM ドメインは、メールの送信元である検証済み ID (メールアドレスまたはドメイン) のサブドメインである必要がある
+    * ドメインの DNS 設定に、 MXレコードと SPFレコードを追加する
+
+      * ガイドどおりでとくにハマることはなかったけれども、これ↓だけちょっと戸惑った
+      * MXレコード: Value の最初の ``10`` は優先度のことらしい
+
+    * セットアップが完了すると、
+
+      * Amazon SES コンソールでのドメインのステータスが「pending verification (検証中)」から「verified (検証済み)」に変わり、
+      * Amazon SES から通知 E メールが届く
+      * Amazon SES コンソールの「Send a Test Email」からテストメールを送信してみると、
+
+        * 届いたメールはこう (「送信元」が、設定したカスタム MAIL FROM ドメイン ``bounces.32imuf.com`` に変わっている)
+
+          {{% figure 05_test-mail-spf.png %}} {{% figure 06_test-mail-details-spf.png %}}
+
+2. 送信元ドメインが SPF に relaxed ポリシーを使用していることを確認する
+
+    .. code-block:: zsh
+
+      $ nslookup -type=TXT _dmarc.32imuf.com
+      Server:		8.8.8.8
+      Address:	8.8.8.8#53
+
+      Non-authoritative answer:
+      # ここに、 aspf=r が含まれるか、または aspf 文字列がまったく存在しない場合は relaxed
+      _dmarc.32imuf.com	text = "v=DMARC1;p=quarantine;pct=25;rua=mailto:dmarcreports@32imuf.com"
+
+      Authoritative answers can be found from:
+
+    * ドメインのポリシーアラインメントを変更していない場合は、デフォルトで relaxed ポリシーが使用される
 
 
 4. 本番運用するには...
@@ -214,6 +267,6 @@ DKIM による DMARC への準拠
 
     * 送信ドメイン認証の認証情報などを記述する
 
-
+* ``nslookup``: DNS（Domain Name System）サーバに名前解決を問い合わせるコマンド
 
 
