@@ -67,8 +67,8 @@
 <p><a class="reference internal" href="#id12" id="id27">やりかた</a></p>
 <ul>
 <li><p><a class="reference internal" href="#id13" id="id28">ドメインの DMARC ポリシーのセットアップ</a></p></li>
-<li><p><a class="reference internal" href="#spf-dmarc" id="id29">SPF による DMARC への準拠</a></p></li>
-<li><p><a class="reference internal" href="#dkim-dmarc" id="id30">DKIM による DMARC への準拠</a></p></li>
+<li><p><a class="reference internal" href="#dkim-dmarc" id="id29">DKIM による DMARC への準拠</a></p></li>
+<li><p><a class="reference internal" href="#spf-dmarc" id="id30">SPF による DMARC への準拠</a></p></li>
 </ul>
 </li>
 </ul>
@@ -145,9 +145,9 @@ Amazon SES コンソール内からすぐに DNS サーバーを更新できる�
 <p>届いたメールはこんな感じ↓</p>
 <p></p>
 <div class="figure">
-<img alt="/images/aws/ses-sending-email/01_test-mail.png" src="../../images/aws/ses-sending-email/01_test-mail.png">
+<img alt="/images/aws/ses-sending-email/01_test-mail-verify-domains.png" src="../../images/aws/ses-sending-email/01_test-mail-verify-domains.png">
 </div> <div class="figure">
-<img alt="/images/aws/ses-sending-email/02_test-mail-details.png" src="../../images/aws/ses-sending-email/02_test-mail-details.png">
+<img alt="/images/aws/ses-sending-email/02_test-mail-details-verify-domains.png" src="../../images/aws/ses-sending-email/02_test-mail-details-verify-domains.png">
 </div>
 </li>
 </ul>
@@ -188,7 +188,7 @@ Amazon SES コンソール内からすぐに DNS サーバーを更新できる�
 </ul>
 <div class="section" id="id9">
 <h4><a class="toc-backref" href="#id23">やりかた</a></h4>
-<p><a class="reference external" href="#dmarc">3. DMARC に準拠する &gt; SPF による DMARC への準拠</a> を参照のこと</p>
+<p><a class="reference external" href="#spf-dmarc">3. DMARC に準拠する &gt; SPF による DMARC への準拠 &gt; 1. カスタムの MAIL FROM ドメインを設定する</a> を参照のこと</p>
 <ul class="simple">
 <li><p>どうせやるのなら、 DMARC に準拠できるのが良いと思う</p></li>
 </ul>
@@ -220,7 +220,7 @@ Amazon SES コンソール内からすぐに DNS サーバーを更新できる�
 </ul>
 <div class="section" id="id10">
 <h4><a class="toc-backref" href="#id25">やりかた</a></h4>
-<p><a class="reference external" href="#dmarc">3. DMARC に準拠する &gt; DKIM による DMARC への準拠</a> を参照のこと</p>
+<p><a class="reference external" href="#dkim-dmarc">3. DMARC に準拠する &gt; DKIM による DMARC への準拠</a> を参照のこと</p>
 <ul class="simple">
 <li><p>どうせやるのなら、 DMARC に準拠できるのが良いと思う</p></li>
 </ul>
@@ -229,16 +229,16 @@ Amazon SES コンソール内からすぐに DNS サーバーを更新できる�
 </div>
 <div class="section" id="dmarc">
 <h2><a class="toc-backref" href="#id26">3. DMARC に準拠する</a></h2>
-<p>書き途中</p>
 <ul class="simple">
 <li>
 <p><a class="reference external" href="https://dmarc.org/">DMARC</a>: Domain-based Message Authentication, Reporting and Conformance</p>
 <ul>
-<li><p>SPF (Sender Policy Framework) およびドメインキーアイデンティファイドメール (DKIM) を使用して
-メールスプーフィングを検出するためのメール認証プロトコルです (出典2)</p></li>
-<li><p>SPF と DKIM を合わせて活用する技術で、「送信ドメイン認証関連の技術」「レポーティング」という機能がある。 (出典3)</p></li>
+<li><p>SPF (Sender Policy Framework) および DKIM (ドメインキーアイデンティファイドメール) を使用して
+メールスプーフィングを検出するためのメール認証プロトコルです。
+DMARC に準拠するため、メッセージは SPF または DKIM のいずれか、または両方で認証される必要があります。 (2)</p></li>
+<li><p>SPF と DKIM を合わせて活用する技術で、「送信ドメイン認証関連の技術」「レポーティング」という機能がある。 (3)</p></li>
 <li>
-<p>SPF や DKIM それぞれ単体の送信ドメイン認証技術と、DMARC との大きな違いは、以下が挙げられます。 (出典4)</p>
+<p>SPF や DKIM それぞれ単体の送信ドメイン認証技術と、DMARC との大きな違いは、以下が挙げられます。 (4)</p>
 <ul>
 <li><p>それぞれ (SPF or DKIM) の認証結果のどちらかが pass すれば良いこと</p></li>
 <li><p>メール受信者が直接みることができるメールヘッダ上の送信者情報 (From:ヘッダ) を認証すること</p></li>
@@ -247,7 +247,7 @@ Amazon SES コンソール内からすぐに DNS サーバーを更新できる�
 </ul>
 </li>
 <li><p>SPF や DKIM の合わせ技 (相互補完) + レポーティング</p></li>
-<li><p>一番詳しくはここを見よ: <a class="reference external" href="https://dmarc.org/">https://dmarc.org/</a> (出典1)</p></li>
+<li><p>一番詳しくはここを見よ: <a class="reference external" href="https://dmarc.org/">https://dmarc.org/</a> (1)</p></li>
 </ul>
 </li>
 <li>
@@ -264,33 +264,29 @@ Amazon SES コンソール内からすぐに DNS サーバーを更新できる�
 <h3><a class="toc-backref" href="#id27">やりかた</a></h3>
 <div class="section" id="id13">
 <h4><a class="toc-backref" href="#id28">ドメインの DMARC ポリシーのセットアップ</a></h4>
-<p>TBD</p>
-</div>
-<div class="section" id="spf-dmarc">
-<h4><a class="toc-backref" href="#id29">SPF による DMARC への準拠</a></h4>
-<p>書き途中</p>
 <ul class="simple">
 <li>
-<p>カスタムの MAIL FROM ドメインの設定: <a class="reference external" href="https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/mail-from.html">https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/mail-from.html</a></p>
+<p>ドメインの DNS 設定に、ドメインの DMARC 設定を指定する TXT レコードを追加する</p>
 <ul>
-<li><p>デフォルトでは、Amazon SES から送信するメッセージには、MAIL FROM ドメインとして amazonses.com のサブドメインが使用される</p></li>
-<li><p>デフォルトの MAIL FROM ドメインが E メールを送信したアプリケーション (この場合は Amazon SES) と一致するため、Sender Policy Framework (SPF) 認証はこれらのメッセージを正常に検証するけれども、</p></li>
-<li><p>カスタム MAIL FROM ドメインを設定することにより、E メールはドメインベースのメッセージ認証、レポート、および適合性 (DMARC: Domain-based Message Authentication, Reporting and Conformance) に準拠できる</p></li>
+<li>
+<p>このガイドどおりでとくにむずかしいことはない。TXT レコードの値の説明もここに書いてある。</p>
+<ul>
+<li><p><a class="reference external" href="https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/dmarc.html#dmarc-dns">https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/dmarc.html#dmarc-dns</a></p></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
 </div>
 <div class="section" id="dkim-dmarc">
-<h4><a class="toc-backref" href="#id30">DKIM による DMARC への準拠</a></h4>
-<p>書き途中</p>
-<ul>
+<h4><a class="toc-backref" href="#id29">DKIM による DMARC への準拠</a></h4>
+<ol class="arabic">
 <li>
-<p>このガイドのとおりにやれば、とくにハマることもなくできる</p>
-<ul class="simple">
-<li><p>Amazon SES の Easy DKIM: <a class="reference external" href="https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/easy-dkim.html">https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/easy-dkim.html</a></p></li>
+<p><a class="reference external" href="https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/easy-dkim.html">Amazon SES の Easy DKIM</a> の手順を実行して Easy DKIM を設定する: <a class="reference external" href="https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/easy-dkim.html">https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/easy-dkim.html</a></p>
+<blockquote>
+<ul>
 <li><p>ドメインにおける Easy DKIM のセットアップ: <a class="reference external" href="https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/easy-dkim-setup-domain.html">https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/easy-dkim-setup-domain.html</a></p></li>
-</ul>
-</li>
+<li><p>このガイドのとおりにやれば、とくにハマることもなくできる</p></li>
 <li>
 <p>検証が完了すると、</p>
 <ul>
@@ -300,12 +296,12 @@ Amazon SES コンソール内からすぐに DNS サーバーを更新できる�
 <p>Amazon SES コンソールの「Send a Test Email」からテストメールを送信できる</p>
 <ul>
 <li>
-<p>届いたメールはこんな感じ (Easy DKIM セットアップ前となんだかちょっと違う)</p>
+<p>届いたメールはこんな感じ (セットアップ前と比べると、「署名元」が <code class="docutils literal">32imuf.com</code> に変わっている)</p>
 <p></p>
 <div class="figure">
-<img alt="/images/aws/ses-sending-email/03_test-mail.png" src="../../images/aws/ses-sending-email/03_test-mail.png">
+<img alt="/images/aws/ses-sending-email/03_test-mail-dkim.png" src="../../images/aws/ses-sending-email/03_test-mail-dkim.png">
 </div> <div class="figure">
-<img alt="/images/aws/ses-sending-email/04_test-mail-details.png" src="../../images/aws/ses-sending-email/04_test-mail-details.png">
+<img alt="/images/aws/ses-sending-email/04_test-mail-details-dkim.png" src="../../images/aws/ses-sending-email/04_test-mail-details-dkim.png">
 </div>
 </li>
 </ul>
@@ -313,6 +309,97 @@ Amazon SES コンソール内からすぐに DNS サーバーを更新できる�
 </ul>
 </li>
 </ul>
+</blockquote>
+</li>
+<li>
+<p>送信元ドメインが DKIM に relaxed ポリシーを使用していることを確認する</p>
+<blockquote>
+<pre class="code zsh"><a name="rest_code_1491bf8c00144638bc06959a9736f78e-1"></a>$ nslookup -type<span class="o">=</span>TXT _dmarc.32imuf.com
+<a name="rest_code_1491bf8c00144638bc06959a9736f78e-2"></a>Server:           <span class="m">8</span>.8.8.8
+<a name="rest_code_1491bf8c00144638bc06959a9736f78e-3"></a>Address:  <span class="m">8</span>.8.8.8#53
+<a name="rest_code_1491bf8c00144638bc06959a9736f78e-4"></a>
+<a name="rest_code_1491bf8c00144638bc06959a9736f78e-5"></a>Non-authoritative answer:
+<a name="rest_code_1491bf8c00144638bc06959a9736f78e-6"></a><span class="c1"># ここに、 adkim=r が含まれるか、または adkim 文字列がまったく存在しない場合は relaxed</span>
+<a name="rest_code_1491bf8c00144638bc06959a9736f78e-7"></a>_dmarc.32imuf.com <span class="nv">text</span> <span class="o">=</span> <span class="s2">"v=DMARC1;p=quarantine;pct=25;rua=mailto:dmarcreports@32imuf.com"</span>
+<a name="rest_code_1491bf8c00144638bc06959a9736f78e-8"></a>
+<a name="rest_code_1491bf8c00144638bc06959a9736f78e-9"></a>Authoritative answers can be found from:
+</pre>
+<ul class="simple">
+<li><p>ドメインのポリシーアラインメントを変更していない場合は、デフォルトで relaxed ポリシーが使用される</p></li>
+</ul>
+</blockquote>
+</li>
+</ol>
+</div>
+<div class="section" id="spf-dmarc">
+<h4><a class="toc-backref" href="#id30">SPF による DMARC への準拠</a></h4>
+<ol class="arabic">
+<li>
+<p>カスタムの MAIL FROM ドメインを設定する: <a class="reference external" href="https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/mail-from.html">https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/mail-from.html</a></p>
+<blockquote>
+<ul>
+<li><p>デフォルトでは、Amazon SES から送信するメッセージには、MAIL FROM ドメインとして amazonses.com のサブドメインが使用される</p></li>
+<li><p>デフォルトの MAIL FROM ドメインが E メールを送信したアプリケーション (この場合は Amazon SES) と一致するため、
+Sender Policy Framework (SPF) 認証はこれらのメッセージを正常に検証するけれども、</p></li>
+<li>
+<p>カスタム MAIL FROM ドメインを設定することにより、E メールはドメインベースのメッセージ認証、レポート、
+および適合性 (DMARC: Domain-based Message Authentication, Reporting and Conformance) に準拠できる</p>
+<ul class="simple">
+<li><p>SPF で DMARC に準拠する唯一の方法は、カスタム MAIL FROM ドメインを使用すること</p></li>
+<li><p>SPF 検証では、差出人アドレスのドメインが MAIL FROM ドメインと一致する必要がある</p></li>
+</ul>
+</li>
+<li><p>MAIL FROM ドメインは、メールの送信元である検証済み ID (メールアドレスまたはドメイン) のサブドメインである必要がある</p></li>
+<li>
+<p>ドメインの DNS 設定に、 MXレコードと SPFレコードを追加する</p>
+<ul class="simple">
+<li><p>ガイドどおりでとくにハマることはなかったけれども、これ↓だけちょっと戸惑った</p></li>
+<li><p>MXレコード: Value の最初の <code class="docutils literal">10</code> は優先度のことらしい</p></li>
+</ul>
+</li>
+<li>
+<p>セットアップが完了すると、</p>
+<ul>
+<li><p>Amazon SES コンソールでのドメインのステータスが「pending verification (検証中)」から「verified (検証済み)」に変わり、</p></li>
+<li><p>Amazon SES から通知 E メールが届く</p></li>
+<li>
+<p>Amazon SES コンソールの「Send a Test Email」からテストメールを送信してみると、</p>
+<ul>
+<li>
+<p>届いたメールはこう (「送信元」が、設定したカスタム MAIL FROM ドメイン <code class="docutils literal">bounces.32imuf.com</code> に変わっている)</p>
+<p></p>
+<div class="figure">
+<img alt="/images/aws/ses-sending-email/05_test-mail-spf.png" src="../../images/aws/ses-sending-email/05_test-mail-spf.png">
+</div> <div class="figure">
+<img alt="/images/aws/ses-sending-email/06_test-mail-details-spf.png" src="../../images/aws/ses-sending-email/06_test-mail-details-spf.png">
+</div>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</li>
+<li>
+<p>送信元ドメインが SPF に relaxed ポリシーを使用していることを確認する</p>
+<blockquote>
+<pre class="code zsh"><a name="rest_code_63b344fbb4424e0bacf927b7f22be275-1"></a>$ nslookup -type<span class="o">=</span>TXT _dmarc.32imuf.com
+<a name="rest_code_63b344fbb4424e0bacf927b7f22be275-2"></a>Server:           <span class="m">8</span>.8.8.8
+<a name="rest_code_63b344fbb4424e0bacf927b7f22be275-3"></a>Address:  <span class="m">8</span>.8.8.8#53
+<a name="rest_code_63b344fbb4424e0bacf927b7f22be275-4"></a>
+<a name="rest_code_63b344fbb4424e0bacf927b7f22be275-5"></a>Non-authoritative answer:
+<a name="rest_code_63b344fbb4424e0bacf927b7f22be275-6"></a><span class="c1"># ここに、 aspf=r が含まれるか、または aspf 文字列がまったく存在しない場合は relaxed</span>
+<a name="rest_code_63b344fbb4424e0bacf927b7f22be275-7"></a>_dmarc.32imuf.com <span class="nv">text</span> <span class="o">=</span> <span class="s2">"v=DMARC1;p=quarantine;pct=25;rua=mailto:dmarcreports@32imuf.com"</span>
+<a name="rest_code_63b344fbb4424e0bacf927b7f22be275-8"></a>
+<a name="rest_code_63b344fbb4424e0bacf927b7f22be275-9"></a>Authoritative answers can be found from:
+</pre>
+<ul class="simple">
+<li><p>ドメインのポリシーアラインメントを変更していない場合は、デフォルトで relaxed ポリシーが使用される</p></li>
+</ul>
+</blockquote>
+</li>
+</ol>
 </div>
 </div>
 </div>
@@ -352,6 +439,7 @@ Amazon SES コンソール内からすぐに DNS サーバーを更新できる�
 </dd>
 </dl>
 </li>
+<li><p><code class="docutils literal">nslookup</code>: DNS（Domain Name System）サーバに名前解決を問い合わせるコマンド</p></li>
 </ul>
 </div>
 </div>

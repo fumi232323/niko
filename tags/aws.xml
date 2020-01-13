@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ふみのて (awsについての文書)</title><link>https://32imuf.com/</link><description></description><atom:link href="https://32imuf.com/tags/aws.xml" rel="self" type="application/rss+xml"></atom:link><language>ja</language><copyright>Contents © 2020 &lt;a href="mailto:fumi232323fumi2016@gmail.com"&gt;fumi23&lt;/a&gt; </copyright><lastBuildDate>Wed, 08 Jan 2020 00:38:26 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Amazon SES でメールを送信する</title><link>https://32imuf.com/aws/ses-sending-email/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;details&gt;
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ふみのて (awsについての文書)</title><link>https://32imuf.com/</link><description></description><atom:link href="https://32imuf.com/tags/aws.xml" rel="self" type="application/rss+xml"></atom:link><language>ja</language><copyright>Contents © 2020 &lt;a href="mailto:fumi232323fumi2016@gmail.com"&gt;fumi23&lt;/a&gt; </copyright><lastBuildDate>Mon, 13 Jan 2020 13:54:24 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Amazon SES でメールを送信する</title><link>https://32imuf.com/aws/ses-sending-email/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;details&gt;
   &lt;summary&gt;目次&lt;/summary&gt;&lt;div class="contents topic" id="id1"&gt;
 &lt;p class="topic-title first"&gt;目次&lt;/p&gt;
 &lt;ul class="simple"&gt;
@@ -30,8 +30,8 @@
 &lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/aws/ses-sending-email/#id12" id="id27"&gt;やりかた&lt;/a&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/aws/ses-sending-email/#id13" id="id28"&gt;ドメインの DMARC ポリシーのセットアップ&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/aws/ses-sending-email/#spf-dmarc" id="id29"&gt;SPF による DMARC への準拠&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/aws/ses-sending-email/#dkim-dmarc" id="id30"&gt;DKIM による DMARC への準拠&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/aws/ses-sending-email/#dkim-dmarc" id="id29"&gt;DKIM による DMARC への準拠&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/aws/ses-sending-email/#spf-dmarc" id="id30"&gt;SPF による DMARC への準拠&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -101,9 +101,9 @@ Amazon SES コンソール内からすぐに DNS サーバーを更新できる�
 &lt;li&gt;&lt;p&gt;サンドボックス内にいる場合は、TOアドレスも検証する必要あり (&lt;a class="reference external" href="https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/verify-email-addresses.html"&gt;Amazon SES での E メールアドレスの検証&lt;/a&gt; )&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;届いたメールはこんな感じ↓&lt;/p&gt;
 &lt;p&gt;&lt;/p&gt;&lt;div class="figure"&gt;
-&lt;img alt="/images/aws/ses-sending-email/01_test-mail.png" src="https://32imuf.com/images/aws/ses-sending-email/01_test-mail.png"&gt;
+&lt;img alt="/images/aws/ses-sending-email/01_test-mail-verify-domains.png" src="https://32imuf.com/images/aws/ses-sending-email/01_test-mail-verify-domains.png"&gt;
 &lt;/div&gt; &lt;div class="figure"&gt;
-&lt;img alt="/images/aws/ses-sending-email/02_test-mail-details.png" src="https://32imuf.com/images/aws/ses-sending-email/02_test-mail-details.png"&gt;
+&lt;img alt="/images/aws/ses-sending-email/02_test-mail-details-verify-domains.png" src="https://32imuf.com/images/aws/ses-sending-email/02_test-mail-details-verify-domains.png"&gt;
 &lt;/div&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -142,7 +142,7 @@ Amazon SES コンソール内からすぐに DNS サーバーを更新できる�
 &lt;/ul&gt;
 &lt;div class="section" id="id9"&gt;
 &lt;h4&gt;&lt;a class="toc-backref" href="https://32imuf.com/aws/ses-sending-email/#id23"&gt;やりかた&lt;/a&gt;&lt;/h4&gt;
-&lt;p&gt;&lt;a class="reference external" href="https://32imuf.com/aws/ses-sending-email/#dmarc"&gt;3. DMARC に準拠する &amp;gt; SPF による DMARC への準拠&lt;/a&gt; を参照のこと&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://32imuf.com/aws/ses-sending-email/#spf-dmarc"&gt;3. DMARC に準拠する &amp;gt; SPF による DMARC への準拠 &amp;gt; 1. カスタムの MAIL FROM ドメインを設定する&lt;/a&gt; を参照のこと&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;p&gt;どうせやるのなら、 DMARC に準拠できるのが良いと思う&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -171,7 +171,7 @@ Amazon SES コンソール内からすぐに DNS サーバーを更新できる�
 &lt;/ul&gt;
 &lt;div class="section" id="id10"&gt;
 &lt;h4&gt;&lt;a class="toc-backref" href="https://32imuf.com/aws/ses-sending-email/#id25"&gt;やりかた&lt;/a&gt;&lt;/h4&gt;
-&lt;p&gt;&lt;a class="reference external" href="https://32imuf.com/aws/ses-sending-email/#dmarc"&gt;3. DMARC に準拠する &amp;gt; DKIM による DMARC への準拠&lt;/a&gt; を参照のこと&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://32imuf.com/aws/ses-sending-email/#dkim-dmarc"&gt;3. DMARC に準拠する &amp;gt; DKIM による DMARC への準拠&lt;/a&gt; を参照のこと&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;p&gt;どうせやるのなら、 DMARC に準拠できるのが良いと思う&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -180,14 +180,14 @@ Amazon SES コンソール内からすぐに DNS サーバーを更新できる�
 &lt;/div&gt;
 &lt;div class="section" id="dmarc"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/aws/ses-sending-email/#id26"&gt;3. DMARC に準拠する&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;書き途中&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://dmarc.org/"&gt;DMARC&lt;/a&gt;: Domain-based Message Authentication, Reporting and Conformance&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;SPF (Sender Policy Framework) およびドメインキーアイデンティファイドメール (DKIM) を使用して
-メールスプーフィングを検出するためのメール認証プロトコルです (出典2)&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;SPF と DKIM を合わせて活用する技術で、「送信ドメイン認証関連の技術」「レポーティング」という機能がある。 (出典3)&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;SPF や DKIM それぞれ単体の送信ドメイン認証技術と、DMARC との大きな違いは、以下が挙げられます。 (出典4)&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;SPF (Sender Policy Framework) および DKIM (ドメインキーアイデンティファイドメール) を使用して
+メールスプーフィングを検出するためのメール認証プロトコルです。
+DMARC に準拠するため、メッセージは SPF または DKIM のいずれか、または両方で認証される必要があります。 (2)&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;SPF と DKIM を合わせて活用する技術で、「送信ドメイン認証関連の技術」「レポーティング」という機能がある。 (3)&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;SPF や DKIM それぞれ単体の送信ドメイン認証技術と、DMARC との大きな違いは、以下が挙げられます。 (4)&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;それぞれ (SPF or DKIM) の認証結果のどちらかが pass すれば良いこと&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;メール受信者が直接みることができるメールヘッダ上の送信者情報 (From:ヘッダ) を認証すること&lt;/p&gt;&lt;/li&gt;
@@ -196,7 +196,7 @@ Amazon SES コンソール内からすぐに DNS サーバーを更新できる�
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;SPF や DKIM の合わせ技 (相互補完) + レポーティング&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;一番詳しくはここを見よ: &lt;a class="reference external" href="https://dmarc.org/"&gt;https://dmarc.org/&lt;/a&gt; (出典1)&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;一番詳しくはここを見よ: &lt;a class="reference external" href="https://dmarc.org/"&gt;https://dmarc.org/&lt;/a&gt; (1)&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;出典:&lt;/p&gt;
@@ -212,42 +212,37 @@ Amazon SES コンソール内からすぐに DNS サーバーを更新できる�
 &lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/aws/ses-sending-email/#id27"&gt;やりかた&lt;/a&gt;&lt;/h3&gt;
 &lt;div class="section" id="id13"&gt;
 &lt;h4&gt;&lt;a class="toc-backref" href="https://32imuf.com/aws/ses-sending-email/#id28"&gt;ドメインの DMARC ポリシーのセットアップ&lt;/a&gt;&lt;/h4&gt;
-&lt;p&gt;TBD&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="spf-dmarc"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="https://32imuf.com/aws/ses-sending-email/#id29"&gt;SPF による DMARC への準拠&lt;/a&gt;&lt;/h4&gt;
-&lt;p&gt;書き途中&lt;/p&gt;
 &lt;ul class="simple"&gt;
-&lt;li&gt;&lt;p&gt;カスタムの MAIL FROM ドメインの設定: &lt;a class="reference external" href="https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/mail-from.html"&gt;https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/mail-from.html&lt;/a&gt;&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;ドメインの DNS 設定に、ドメインの DMARC 設定を指定する TXT レコードを追加する&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;デフォルトでは、Amazon SES から送信するメッセージには、MAIL FROM ドメインとして amazonses.com のサブドメインが使用される&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;デフォルトの MAIL FROM ドメインが E メールを送信したアプリケーション (この場合は Amazon SES) と一致するため、Sender Policy Framework (SPF) 認証はこれらのメッセージを正常に検証するけれども、&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;カスタム MAIL FROM ドメインを設定することにより、E メールはドメインベースのメッセージ認証、レポート、および適合性 (DMARC: Domain-based Message Authentication, Reporting and Conformance) に準拠できる&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;このガイドどおりでとくにむずかしいことはない。TXT レコードの値の説明もここに書いてある。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/dmarc.html#dmarc-dns"&gt;https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/dmarc.html#dmarc-dns&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div class="section" id="dkim-dmarc"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="https://32imuf.com/aws/ses-sending-email/#id30"&gt;DKIM による DMARC への準拠&lt;/a&gt;&lt;/h4&gt;
-&lt;p&gt;書き途中&lt;/p&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="https://32imuf.com/aws/ses-sending-email/#id29"&gt;DKIM による DMARC への準拠&lt;/a&gt;&lt;/h4&gt;
+&lt;ol class="arabic"&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/easy-dkim.html"&gt;Amazon SES の Easy DKIM&lt;/a&gt; の手順を実行して Easy DKIM を設定する: &lt;a class="reference external" href="https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/easy-dkim.html"&gt;https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/easy-dkim.html&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;このガイドのとおりにやれば、とくにハマることもなくできる&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;p&gt;Amazon SES の Easy DKIM: &lt;a class="reference external" href="https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/easy-dkim.html"&gt;https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/easy-dkim.html&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;ドメインにおける Easy DKIM のセットアップ: &lt;a class="reference external" href="https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/easy-dkim-setup-domain.html"&gt;https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/easy-dkim-setup-domain.html&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;このガイドのとおりにやれば、とくにハマることもなくできる&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;検証が完了すると、&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;Amazon SES コンソールでのドメインのステータスが「pending verification (検証中)」から「verified (検証済み)」に変わり、&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Amazon SES から通知 E メールが届く&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Amazon SES コンソールの「Send a Test Email」からテストメールを送信できる&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;届いたメールはこんな感じ (Easy DKIM セットアップ前となんだかちょっと違う)&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;届いたメールはこんな感じ (セットアップ前と比べると、「署名元」が &lt;code class="docutils literal"&gt;32imuf.com&lt;/code&gt; に変わっている)&lt;/p&gt;
 &lt;p&gt;&lt;/p&gt;&lt;div class="figure"&gt;
-&lt;img alt="/images/aws/ses-sending-email/03_test-mail.png" src="https://32imuf.com/images/aws/ses-sending-email/03_test-mail.png"&gt;
+&lt;img alt="/images/aws/ses-sending-email/03_test-mail-dkim.png" src="https://32imuf.com/images/aws/ses-sending-email/03_test-mail-dkim.png"&gt;
 &lt;/div&gt; &lt;div class="figure"&gt;
-&lt;img alt="/images/aws/ses-sending-email/04_test-mail-details.png" src="https://32imuf.com/images/aws/ses-sending-email/04_test-mail-details.png"&gt;
+&lt;img alt="/images/aws/ses-sending-email/04_test-mail-details-dkim.png" src="https://32imuf.com/images/aws/ses-sending-email/04_test-mail-details-dkim.png"&gt;
 &lt;/div&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -255,6 +250,86 @@ Amazon SES コンソール内からすぐに DNS サーバーを更新できる�
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;送信元ドメインが DKIM に relaxed ポリシーを使用していることを確認する&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;pre class="code zsh"&gt;&lt;a name="rest_code_1491bf8c00144638bc06959a9736f78e-1"&gt;&lt;/a&gt;$ nslookup -type&lt;span class="o"&gt;=&lt;/span&gt;TXT _dmarc.32imuf.com
+&lt;a name="rest_code_1491bf8c00144638bc06959a9736f78e-2"&gt;&lt;/a&gt;Server:           &lt;span class="m"&gt;8&lt;/span&gt;.8.8.8
+&lt;a name="rest_code_1491bf8c00144638bc06959a9736f78e-3"&gt;&lt;/a&gt;Address:  &lt;span class="m"&gt;8&lt;/span&gt;.8.8.8#53
+&lt;a name="rest_code_1491bf8c00144638bc06959a9736f78e-4"&gt;&lt;/a&gt;
+&lt;a name="rest_code_1491bf8c00144638bc06959a9736f78e-5"&gt;&lt;/a&gt;Non-authoritative answer:
+&lt;a name="rest_code_1491bf8c00144638bc06959a9736f78e-6"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# ここに、 adkim=r が含まれるか、または adkim 文字列がまったく存在しない場合は relaxed&lt;/span&gt;
+&lt;a name="rest_code_1491bf8c00144638bc06959a9736f78e-7"&gt;&lt;/a&gt;_dmarc.32imuf.com &lt;span class="nv"&gt;text&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;"v=DMARC1;p=quarantine;pct=25;rua=mailto:dmarcreports@32imuf.com"&lt;/span&gt;
+&lt;a name="rest_code_1491bf8c00144638bc06959a9736f78e-8"&gt;&lt;/a&gt;
+&lt;a name="rest_code_1491bf8c00144638bc06959a9736f78e-9"&gt;&lt;/a&gt;Authoritative answers can be found from:
+&lt;/pre&gt;&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;ドメインのポリシーアラインメントを変更していない場合は、デフォルトで relaxed ポリシーが使用される&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;div class="section" id="spf-dmarc"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="https://32imuf.com/aws/ses-sending-email/#id30"&gt;SPF による DMARC への準拠&lt;/a&gt;&lt;/h4&gt;
+&lt;ol class="arabic"&gt;
+&lt;li&gt;&lt;p&gt;カスタムの MAIL FROM ドメインを設定する: &lt;a class="reference external" href="https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/mail-from.html"&gt;https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/mail-from.html&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;デフォルトでは、Amazon SES から送信するメッセージには、MAIL FROM ドメインとして amazonses.com のサブドメインが使用される&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;デフォルトの MAIL FROM ドメインが E メールを送信したアプリケーション (この場合は Amazon SES) と一致するため、
+Sender Policy Framework (SPF) 認証はこれらのメッセージを正常に検証するけれども、&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;カスタム MAIL FROM ドメインを設定することにより、E メールはドメインベースのメッセージ認証、レポート、
+および適合性 (DMARC: Domain-based Message Authentication, Reporting and Conformance) に準拠できる&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;SPF で DMARC に準拠する唯一の方法は、カスタム MAIL FROM ドメインを使用すること&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;SPF 検証では、差出人アドレスのドメインが MAIL FROM ドメインと一致する必要がある&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;MAIL FROM ドメインは、メールの送信元である検証済み ID (メールアドレスまたはドメイン) のサブドメインである必要がある&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;ドメインの DNS 設定に、 MXレコードと SPFレコードを追加する&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;ガイドどおりでとくにハマることはなかったけれども、これ↓だけちょっと戸惑った&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;MXレコード: Value の最初の &lt;code class="docutils literal"&gt;10&lt;/code&gt; は優先度のことらしい&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;セットアップが完了すると、&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Amazon SES コンソールでのドメインのステータスが「pending verification (検証中)」から「verified (検証済み)」に変わり、&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Amazon SES から通知 E メールが届く&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Amazon SES コンソールの「Send a Test Email」からテストメールを送信してみると、&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;届いたメールはこう (「送信元」が、設定したカスタム MAIL FROM ドメイン &lt;code class="docutils literal"&gt;bounces.32imuf.com&lt;/code&gt; に変わっている)&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;&lt;div class="figure"&gt;
+&lt;img alt="/images/aws/ses-sending-email/05_test-mail-spf.png" src="https://32imuf.com/images/aws/ses-sending-email/05_test-mail-spf.png"&gt;
+&lt;/div&gt; &lt;div class="figure"&gt;
+&lt;img alt="/images/aws/ses-sending-email/06_test-mail-details-spf.png" src="https://32imuf.com/images/aws/ses-sending-email/06_test-mail-details-spf.png"&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;送信元ドメインが SPF に relaxed ポリシーを使用していることを確認する&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;pre class="code zsh"&gt;&lt;a name="rest_code_63b344fbb4424e0bacf927b7f22be275-1"&gt;&lt;/a&gt;$ nslookup -type&lt;span class="o"&gt;=&lt;/span&gt;TXT _dmarc.32imuf.com
+&lt;a name="rest_code_63b344fbb4424e0bacf927b7f22be275-2"&gt;&lt;/a&gt;Server:           &lt;span class="m"&gt;8&lt;/span&gt;.8.8.8
+&lt;a name="rest_code_63b344fbb4424e0bacf927b7f22be275-3"&gt;&lt;/a&gt;Address:  &lt;span class="m"&gt;8&lt;/span&gt;.8.8.8#53
+&lt;a name="rest_code_63b344fbb4424e0bacf927b7f22be275-4"&gt;&lt;/a&gt;
+&lt;a name="rest_code_63b344fbb4424e0bacf927b7f22be275-5"&gt;&lt;/a&gt;Non-authoritative answer:
+&lt;a name="rest_code_63b344fbb4424e0bacf927b7f22be275-6"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# ここに、 aspf=r が含まれるか、または aspf 文字列がまったく存在しない場合は relaxed&lt;/span&gt;
+&lt;a name="rest_code_63b344fbb4424e0bacf927b7f22be275-7"&gt;&lt;/a&gt;_dmarc.32imuf.com &lt;span class="nv"&gt;text&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;"v=DMARC1;p=quarantine;pct=25;rua=mailto:dmarcreports@32imuf.com"&lt;/span&gt;
+&lt;a name="rest_code_63b344fbb4424e0bacf927b7f22be275-8"&gt;&lt;/a&gt;
+&lt;a name="rest_code_63b344fbb4424e0bacf927b7f22be275-9"&gt;&lt;/a&gt;Authoritative answers can be found from:
+&lt;/pre&gt;&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;ドメインのポリシーアラインメントを変更していない場合は、デフォルトで relaxed ポリシーが使用される&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -289,6 +364,7 @@ Amazon SES コンソール内からすぐに DNS サーバーを更新できる�
 &lt;/dd&gt;
 &lt;/dl&gt;
 &lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code class="docutils literal"&gt;nslookup&lt;/code&gt;: DNS（Domain Name System）サーバに名前解決を問い合わせるコマンド&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;&lt;/div&gt;</description><category>aws</category><guid>https://32imuf.com/aws/ses-sending-email/</guid><pubDate>Sun, 22 Dec 2019 15:00:00 GMT</pubDate></item><item><title>AWS のいろいろなサービス</title><link>https://32imuf.com/aws/iroiro/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;div class="section" id="aws"&gt;
 &lt;h2&gt;AWS ドキュメント&lt;/h2&gt;
