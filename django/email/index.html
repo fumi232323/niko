@@ -51,14 +51,14 @@
 <ul>
 <li>
 <p>メールを送信する</p>
-<pre class="code python"><a name="rest_code_0b356b22c15345a9b5c7027265a3ab43-1"></a><span class="kn">from</span> <span class="nn">django.core.mail</span> <span class="kn">import</span> <span class="n">send_mail</span>
-<a name="rest_code_0b356b22c15345a9b5c7027265a3ab43-2"></a>
-<a name="rest_code_0b356b22c15345a9b5c7027265a3ab43-3"></a><span class="n">send_mail</span><span class="p">(</span>
-<a name="rest_code_0b356b22c15345a9b5c7027265a3ab43-4"></a>    <span class="s1">'Subject here'</span><span class="p">,</span>           <span class="c1"># 件名</span>
-<a name="rest_code_0b356b22c15345a9b5c7027265a3ab43-5"></a>    <span class="s1">'Here is the message.'</span><span class="p">,</span>   <span class="c1"># 本文</span>
-<a name="rest_code_0b356b22c15345a9b5c7027265a3ab43-6"></a>    <span class="s1">'from@example.com'</span><span class="p">,</span>       <span class="c1"># From アドレス</span>
-<a name="rest_code_0b356b22c15345a9b5c7027265a3ab43-7"></a>    <span class="p">[</span><span class="s1">'to@example.com'</span><span class="p">],</span>       <span class="c1"># To アドレス</span>
-<a name="rest_code_0b356b22c15345a9b5c7027265a3ab43-8"></a><span class="p">)</span>
+<pre class="code python"><a name="rest_code_9a56bccb0c3046cd8dcb892db5bd6b18-1"></a><span class="kn">from</span> <span class="nn">django.core.mail</span> <span class="kn">import</span> <span class="n">send_mail</span>
+<a name="rest_code_9a56bccb0c3046cd8dcb892db5bd6b18-2"></a>
+<a name="rest_code_9a56bccb0c3046cd8dcb892db5bd6b18-3"></a><span class="n">send_mail</span><span class="p">(</span>
+<a name="rest_code_9a56bccb0c3046cd8dcb892db5bd6b18-4"></a>    <span class="s1">'Subject here'</span><span class="p">,</span>           <span class="c1"># 件名</span>
+<a name="rest_code_9a56bccb0c3046cd8dcb892db5bd6b18-5"></a>    <span class="s1">'Here is the message.'</span><span class="p">,</span>   <span class="c1"># 本文</span>
+<a name="rest_code_9a56bccb0c3046cd8dcb892db5bd6b18-6"></a>    <span class="s1">'from@example.com'</span><span class="p">,</span>       <span class="c1"># From アドレス</span>
+<a name="rest_code_9a56bccb0c3046cd8dcb892db5bd6b18-7"></a>    <span class="p">[</span><span class="s1">'to@example.com'</span><span class="p">],</span>       <span class="c1"># To アドレス</span>
+<a name="rest_code_9a56bccb0c3046cd8dcb892db5bd6b18-8"></a><span class="p">)</span>
 </pre>
 </li>
 <li>
@@ -79,7 +79,7 @@
 <li><p><a class="reference external" href="https://docs.djangoproject.com/ja/2.2/topics/email/#configuring-email-for-development">https://docs.djangoproject.com/ja/2.2/topics/email/#configuring-email-for-development</a></p></li>
 <li>
 <p>これ使いそう</p>
-<pre class="code bash"><a name="rest_code_d39c61dc4bd7424dbc3b5a5a3ba63308-1"></a>$ python -m smtpd -n -c DebuggingServer localhost:1025
+<pre class="code bash"><a name="rest_code_f99f2287c4ed4516a90cd8346996070e-1"></a>$ python -m smtpd -n -c DebuggingServer localhost:1025
 </pre>
 </li>
 </ul>
@@ -92,32 +92,32 @@
 <li>
 <p><a class="reference external" href="https://pypi.org/project/django-ses/">https://pypi.org/project/django-ses/</a> をインストール</p>
 <blockquote>
-<pre class="code bash"><a name="rest_code_8dea7e6f380b4c6eb9d924962cbd44aa-1"></a>$ pip install django-ses
+<pre class="code bash"><a name="rest_code_e9b5b6708f9b4be4aed91d22d56d4fcf-1"></a>$ pip install django-ses
 </pre>
 </blockquote>
 </li>
 <li>
 <p>settings に設定を追加する</p>
 <blockquote>
-<pre class="code python"><a name="rest_code_87e985fdbac849b793c4125bf2727189-1"></a><span class="n">EMAIL_BACKEND</span> <span class="o">=</span> <span class="s1">'django_ses.SESBackend'</span>
-<a name="rest_code_87e985fdbac849b793c4125bf2727189-2"></a>
-<a name="rest_code_87e985fdbac849b793c4125bf2727189-3"></a><span class="c1"># 本当は settings には書かない</span>
-<a name="rest_code_87e985fdbac849b793c4125bf2727189-4"></a><span class="n">AWS_ACCESS_KEY_ID</span> <span class="o">=</span> <span class="s1">'MY-ACCESS-KEY-ID'</span>
-<a name="rest_code_87e985fdbac849b793c4125bf2727189-5"></a><span class="n">AWS_SECRET_ACCESS_KEY</span> <span class="o">=</span> <span class="s1">'MY-SECRET-ACCESS-KEY'</span>
-<a name="rest_code_87e985fdbac849b793c4125bf2727189-6"></a><span class="c1"># us-east-1 以外のAWSリージョンを使用する場合はこれも必要↓</span>
-<a name="rest_code_87e985fdbac849b793c4125bf2727189-7"></a><span class="c1"># AWS_SES_REGION_NAME = 'us-west-2'</span>
-<a name="rest_code_87e985fdbac849b793c4125bf2727189-8"></a><span class="c1"># AWS_SES_REGION_ENDPOINT = 'email.us-west-2.amazonaws.com'</span>
-<a name="rest_code_87e985fdbac849b793c4125bf2727189-9"></a>
-<a name="rest_code_87e985fdbac849b793c4125bf2727189-10"></a><span class="c1"># DEFAULT_FROM_EMAIL: サイト管理者からの自動送信メールに使用するデフォルトの Email アドレス</span>
-<a name="rest_code_87e985fdbac849b793c4125bf2727189-11"></a><span class="c1"># SERVER_EMAIL: ADMINS や MANAGERS に送信されるエラーメッセージの送信元 Email アドレス</span>
-<a name="rest_code_87e985fdbac849b793c4125bf2727189-12"></a><span class="n">DEFAULT_FROM_EMAIL</span> <span class="o">=</span> <span class="n">SERVER_EMAIL</span> <span class="o">=</span> <span class="s1">'no-reply &lt;XXXXX@example.com&gt;'</span>
+<pre class="code python"><a name="rest_code_756c56119c65477fb01dc0c5bcaaefab-1"></a><span class="n">EMAIL_BACKEND</span> <span class="o">=</span> <span class="s1">'django_ses.SESBackend'</span>
+<a name="rest_code_756c56119c65477fb01dc0c5bcaaefab-2"></a>
+<a name="rest_code_756c56119c65477fb01dc0c5bcaaefab-3"></a><span class="c1"># 本当は settings には書かない</span>
+<a name="rest_code_756c56119c65477fb01dc0c5bcaaefab-4"></a><span class="n">AWS_ACCESS_KEY_ID</span> <span class="o">=</span> <span class="s1">'MY-ACCESS-KEY-ID'</span>
+<a name="rest_code_756c56119c65477fb01dc0c5bcaaefab-5"></a><span class="n">AWS_SECRET_ACCESS_KEY</span> <span class="o">=</span> <span class="s1">'MY-SECRET-ACCESS-KEY'</span>
+<a name="rest_code_756c56119c65477fb01dc0c5bcaaefab-6"></a><span class="c1"># us-east-1 以外のAWSリージョンを使用する場合はこれも必要↓</span>
+<a name="rest_code_756c56119c65477fb01dc0c5bcaaefab-7"></a><span class="c1"># AWS_SES_REGION_NAME = 'us-west-2'</span>
+<a name="rest_code_756c56119c65477fb01dc0c5bcaaefab-8"></a><span class="c1"># AWS_SES_REGION_ENDPOINT = 'email.us-west-2.amazonaws.com'</span>
+<a name="rest_code_756c56119c65477fb01dc0c5bcaaefab-9"></a>
+<a name="rest_code_756c56119c65477fb01dc0c5bcaaefab-10"></a><span class="c1"># DEFAULT_FROM_EMAIL: サイト管理者からの自動送信メールに使用するデフォルトの Email アドレス</span>
+<a name="rest_code_756c56119c65477fb01dc0c5bcaaefab-11"></a><span class="c1"># SERVER_EMAIL: ADMINS や MANAGERS に送信されるエラーメッセージの送信元 Email アドレス</span>
+<a name="rest_code_756c56119c65477fb01dc0c5bcaaefab-12"></a><span class="n">DEFAULT_FROM_EMAIL</span> <span class="o">=</span> <span class="n">SERVER_EMAIL</span> <span class="o">=</span> <span class="s1">'no-reply &lt;XXXXX@example.com&gt;'</span>
 </pre>
 </blockquote>
 </li>
 <li>
 <p>Amazon SES を設定する</p>
 <blockquote>
-<p><a class="reference external" href="../../aws/madanai/">Amazon SES でメールを送信する 書き途中</a> を参照のこと</p>
+<p><a class="reference external" href="../../aws/ses-sending-email/">Amazon SES でメールを送信する</a> を参照のこと</p>
 </blockquote>
 </li>
 </ol>

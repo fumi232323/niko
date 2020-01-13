@@ -116,15 +116,15 @@
 <li>
 <p>Admin サイトで GitHub とソーシャル連携するために初期データを登録する</p>
 <blockquote>
-<pre class="code bash"><a name="rest_code_c2be8010d90b4af1869b0e9c02f5d0b0-1"></a><span class="c1"># django-allauth をインストールする</span>
-<a name="rest_code_c2be8010d90b4af1869b0e9c02f5d0b0-2"></a>$ pip3 install django-allauth
-<a name="rest_code_c2be8010d90b4af1869b0e9c02f5d0b0-3"></a>
-<a name="rest_code_c2be8010d90b4af1869b0e9c02f5d0b0-4"></a><span class="c1"># マイグレーション</span>
-<a name="rest_code_c2be8010d90b4af1869b0e9c02f5d0b0-5"></a>$ python3 manage.py migrate
-<a name="rest_code_c2be8010d90b4af1869b0e9c02f5d0b0-6"></a><span class="c1"># スーパーユーザー作成</span>
-<a name="rest_code_c2be8010d90b4af1869b0e9c02f5d0b0-7"></a>$ python3 manage.py createsuperuser
-<a name="rest_code_c2be8010d90b4af1869b0e9c02f5d0b0-8"></a><span class="c1"># Django アプリを起動</span>
-<a name="rest_code_c2be8010d90b4af1869b0e9c02f5d0b0-9"></a>$ python3 manage.py runserver <span class="m">0</span>.0.0.0:8181
+<pre class="code bash"><a name="rest_code_3ba1b64d458e47c2b543bec53b81ac46-1"></a><span class="c1"># django-allauth をインストールする</span>
+<a name="rest_code_3ba1b64d458e47c2b543bec53b81ac46-2"></a>$ pip3 install django-allauth
+<a name="rest_code_3ba1b64d458e47c2b543bec53b81ac46-3"></a>
+<a name="rest_code_3ba1b64d458e47c2b543bec53b81ac46-4"></a><span class="c1"># マイグレーション</span>
+<a name="rest_code_3ba1b64d458e47c2b543bec53b81ac46-5"></a>$ python3 manage.py migrate
+<a name="rest_code_3ba1b64d458e47c2b543bec53b81ac46-6"></a><span class="c1"># スーパーユーザー作成</span>
+<a name="rest_code_3ba1b64d458e47c2b543bec53b81ac46-7"></a>$ python3 manage.py createsuperuser
+<a name="rest_code_3ba1b64d458e47c2b543bec53b81ac46-8"></a><span class="c1"># Django アプリを起動</span>
+<a name="rest_code_3ba1b64d458e47c2b543bec53b81ac46-9"></a>$ python3 manage.py runserver <span class="m">0</span>.0.0.0:8181
 </pre>
 </blockquote>
 <ul class="simple">
@@ -407,7 +407,7 @@
 <span class="c1"># AWS_SES_REGION_NAME = 'us-west-2'</span>
 <span class="c1"># AWS_SES_REGION_ENDPOINT = 'email.us-west-2.amazonaws.com'</span>
 
-<span class="n">DEFAULT_FROM_EMAIL</span> <span class="o">=</span> <span class="n">SERVER_EMAIL</span> <span class="o">=</span> <span class="s1">'no-reply &lt;XXXXX@example.com&gt;'</span>
+<span class="n">DEFAULT_FROM_EMAIL</span> <span class="o">=</span> <span class="n">SERVER_EMAIL</span> <span class="o">=</span> <span class="s1">'no-reply &lt;no-reply@32imuf.com&gt;'</span>
 </pre></div>
 </div>
 </div>
@@ -468,6 +468,15 @@
 <p></p>
 <div class="figure">
 <img alt="/images/django/allauth/15_home.png" src="../../images/django/allauth/15_home.png">
+</div>
+</blockquote>
+</li>
+<li>
+<p>おまけ: <a class="reference external" href="../../aws/ses-sending-email/">Amazon SES をセットアップした</a> の図 (ちゃんと送られてきたー)</p>
+<blockquote>
+<p></p>
+<div class="figure">
+<img alt="/images/django/allauth/16_mail-detail-aws-ses.png" src="../../images/django/allauth/16_mail-detail-aws-ses.png">
 </div>
 </blockquote>
 </li>

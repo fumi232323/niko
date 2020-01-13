@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ふみのて (djangoについての文書)</title><link>https://32imuf.com/</link><description></description><atom:link href="https://32imuf.com/tags/django.xml" rel="self" type="application/rss+xml"></atom:link><language>ja</language><copyright>Contents © 2019 &lt;a href="mailto:fumi232323fumi2016@gmail.com"&gt;fumi23&lt;/a&gt; </copyright><lastBuildDate>Sun, 08 Dec 2019 14:34:42 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Django: メールを送信する</title><link>https://32imuf.com/django/email/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;details&gt;
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ふみのて (djangoについての文書)</title><link>https://32imuf.com/</link><description></description><atom:link href="https://32imuf.com/tags/django.xml" rel="self" type="application/rss+xml"></atom:link><language>ja</language><copyright>Contents © 2020 &lt;a href="mailto:fumi232323fumi2016@gmail.com"&gt;fumi23&lt;/a&gt; </copyright><lastBuildDate>Mon, 13 Jan 2020 14:35:44 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Django: メールを送信する</title><link>https://32imuf.com/django/email/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;details&gt;
   &lt;summary&gt;目次&lt;/summary&gt;&lt;div class="contents topic" id="id1"&gt;
 &lt;p class="topic-title first"&gt;目次&lt;/p&gt;
 &lt;ul class="simple"&gt;
@@ -19,14 +19,14 @@
 &lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/django/email/#id6"&gt;説明&lt;/a&gt;&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;メールを送信する&lt;/p&gt;
-&lt;pre class="code python"&gt;&lt;a name="rest_code_0b356b22c15345a9b5c7027265a3ab43-1"&gt;&lt;/a&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;django.core.mail&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;send_mail&lt;/span&gt;
-&lt;a name="rest_code_0b356b22c15345a9b5c7027265a3ab43-2"&gt;&lt;/a&gt;
-&lt;a name="rest_code_0b356b22c15345a9b5c7027265a3ab43-3"&gt;&lt;/a&gt;&lt;span class="n"&gt;send_mail&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
-&lt;a name="rest_code_0b356b22c15345a9b5c7027265a3ab43-4"&gt;&lt;/a&gt;    &lt;span class="s1"&gt;'Subject here'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;           &lt;span class="c1"&gt;# 件名&lt;/span&gt;
-&lt;a name="rest_code_0b356b22c15345a9b5c7027265a3ab43-5"&gt;&lt;/a&gt;    &lt;span class="s1"&gt;'Here is the message.'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;   &lt;span class="c1"&gt;# 本文&lt;/span&gt;
-&lt;a name="rest_code_0b356b22c15345a9b5c7027265a3ab43-6"&gt;&lt;/a&gt;    &lt;span class="s1"&gt;'from@example.com'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;       &lt;span class="c1"&gt;# From アドレス&lt;/span&gt;
-&lt;a name="rest_code_0b356b22c15345a9b5c7027265a3ab43-7"&gt;&lt;/a&gt;    &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'to@example.com'&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;       &lt;span class="c1"&gt;# To アドレス&lt;/span&gt;
-&lt;a name="rest_code_0b356b22c15345a9b5c7027265a3ab43-8"&gt;&lt;/a&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;pre class="code python"&gt;&lt;a name="rest_code_9a56bccb0c3046cd8dcb892db5bd6b18-1"&gt;&lt;/a&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;django.core.mail&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;send_mail&lt;/span&gt;
+&lt;a name="rest_code_9a56bccb0c3046cd8dcb892db5bd6b18-2"&gt;&lt;/a&gt;
+&lt;a name="rest_code_9a56bccb0c3046cd8dcb892db5bd6b18-3"&gt;&lt;/a&gt;&lt;span class="n"&gt;send_mail&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+&lt;a name="rest_code_9a56bccb0c3046cd8dcb892db5bd6b18-4"&gt;&lt;/a&gt;    &lt;span class="s1"&gt;'Subject here'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;           &lt;span class="c1"&gt;# 件名&lt;/span&gt;
+&lt;a name="rest_code_9a56bccb0c3046cd8dcb892db5bd6b18-5"&gt;&lt;/a&gt;    &lt;span class="s1"&gt;'Here is the message.'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;   &lt;span class="c1"&gt;# 本文&lt;/span&gt;
+&lt;a name="rest_code_9a56bccb0c3046cd8dcb892db5bd6b18-6"&gt;&lt;/a&gt;    &lt;span class="s1"&gt;'from@example.com'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;       &lt;span class="c1"&gt;# From アドレス&lt;/span&gt;
+&lt;a name="rest_code_9a56bccb0c3046cd8dcb892db5bd6b18-7"&gt;&lt;/a&gt;    &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'to@example.com'&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;       &lt;span class="c1"&gt;# To アドレス&lt;/span&gt;
+&lt;a name="rest_code_9a56bccb0c3046cd8dcb892db5bd6b18-8"&gt;&lt;/a&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;いろんなバックエンドがある&lt;/p&gt;
 &lt;ul class="simple"&gt;
@@ -42,7 +42,7 @@
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://docs.djangoproject.com/ja/2.2/topics/email/#configuring-email-for-development"&gt;https://docs.djangoproject.com/ja/2.2/topics/email/#configuring-email-for-development&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;これ使いそう&lt;/p&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_d39c61dc4bd7424dbc3b5a5a3ba63308-1"&gt;&lt;/a&gt;$ python -m smtpd -n -c DebuggingServer localhost:1025
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_f99f2287c4ed4516a90cd8346996070e-1"&gt;&lt;/a&gt;$ python -m smtpd -n -c DebuggingServer localhost:1025
 &lt;/pre&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
@@ -53,28 +53,28 @@
 &lt;ol class="arabic"&gt;
 &lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://pypi.org/project/django-ses/"&gt;https://pypi.org/project/django-ses/&lt;/a&gt; をインストール&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_8dea7e6f380b4c6eb9d924962cbd44aa-1"&gt;&lt;/a&gt;$ pip install django-ses
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_e9b5b6708f9b4be4aed91d22d56d4fcf-1"&gt;&lt;/a&gt;$ pip install django-ses
 &lt;/pre&gt;&lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;settings に設定を追加する&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;pre class="code python"&gt;&lt;a name="rest_code_87e985fdbac849b793c4125bf2727189-1"&gt;&lt;/a&gt;&lt;span class="n"&gt;EMAIL_BACKEND&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'django_ses.SESBackend'&lt;/span&gt;
-&lt;a name="rest_code_87e985fdbac849b793c4125bf2727189-2"&gt;&lt;/a&gt;
-&lt;a name="rest_code_87e985fdbac849b793c4125bf2727189-3"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 本当は settings には書かない&lt;/span&gt;
-&lt;a name="rest_code_87e985fdbac849b793c4125bf2727189-4"&gt;&lt;/a&gt;&lt;span class="n"&gt;AWS_ACCESS_KEY_ID&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'MY-ACCESS-KEY-ID'&lt;/span&gt;
-&lt;a name="rest_code_87e985fdbac849b793c4125bf2727189-5"&gt;&lt;/a&gt;&lt;span class="n"&gt;AWS_SECRET_ACCESS_KEY&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'MY-SECRET-ACCESS-KEY'&lt;/span&gt;
-&lt;a name="rest_code_87e985fdbac849b793c4125bf2727189-6"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# us-east-1 以外のAWSリージョンを使用する場合はこれも必要↓&lt;/span&gt;
-&lt;a name="rest_code_87e985fdbac849b793c4125bf2727189-7"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# AWS_SES_REGION_NAME = 'us-west-2'&lt;/span&gt;
-&lt;a name="rest_code_87e985fdbac849b793c4125bf2727189-8"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# AWS_SES_REGION_ENDPOINT = 'email.us-west-2.amazonaws.com'&lt;/span&gt;
-&lt;a name="rest_code_87e985fdbac849b793c4125bf2727189-9"&gt;&lt;/a&gt;
-&lt;a name="rest_code_87e985fdbac849b793c4125bf2727189-10"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# DEFAULT_FROM_EMAIL: サイト管理者からの自動送信メールに使用するデフォルトの Email アドレス&lt;/span&gt;
-&lt;a name="rest_code_87e985fdbac849b793c4125bf2727189-11"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# SERVER_EMAIL: ADMINS や MANAGERS に送信されるエラーメッセージの送信元 Email アドレス&lt;/span&gt;
-&lt;a name="rest_code_87e985fdbac849b793c4125bf2727189-12"&gt;&lt;/a&gt;&lt;span class="n"&gt;DEFAULT_FROM_EMAIL&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;SERVER_EMAIL&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'no-reply &amp;lt;XXXXX@example.com&amp;gt;'&lt;/span&gt;
+&lt;pre class="code python"&gt;&lt;a name="rest_code_756c56119c65477fb01dc0c5bcaaefab-1"&gt;&lt;/a&gt;&lt;span class="n"&gt;EMAIL_BACKEND&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'django_ses.SESBackend'&lt;/span&gt;
+&lt;a name="rest_code_756c56119c65477fb01dc0c5bcaaefab-2"&gt;&lt;/a&gt;
+&lt;a name="rest_code_756c56119c65477fb01dc0c5bcaaefab-3"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 本当は settings には書かない&lt;/span&gt;
+&lt;a name="rest_code_756c56119c65477fb01dc0c5bcaaefab-4"&gt;&lt;/a&gt;&lt;span class="n"&gt;AWS_ACCESS_KEY_ID&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'MY-ACCESS-KEY-ID'&lt;/span&gt;
+&lt;a name="rest_code_756c56119c65477fb01dc0c5bcaaefab-5"&gt;&lt;/a&gt;&lt;span class="n"&gt;AWS_SECRET_ACCESS_KEY&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'MY-SECRET-ACCESS-KEY'&lt;/span&gt;
+&lt;a name="rest_code_756c56119c65477fb01dc0c5bcaaefab-6"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# us-east-1 以外のAWSリージョンを使用する場合はこれも必要↓&lt;/span&gt;
+&lt;a name="rest_code_756c56119c65477fb01dc0c5bcaaefab-7"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# AWS_SES_REGION_NAME = 'us-west-2'&lt;/span&gt;
+&lt;a name="rest_code_756c56119c65477fb01dc0c5bcaaefab-8"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# AWS_SES_REGION_ENDPOINT = 'email.us-west-2.amazonaws.com'&lt;/span&gt;
+&lt;a name="rest_code_756c56119c65477fb01dc0c5bcaaefab-9"&gt;&lt;/a&gt;
+&lt;a name="rest_code_756c56119c65477fb01dc0c5bcaaefab-10"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# DEFAULT_FROM_EMAIL: サイト管理者からの自動送信メールに使用するデフォルトの Email アドレス&lt;/span&gt;
+&lt;a name="rest_code_756c56119c65477fb01dc0c5bcaaefab-11"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# SERVER_EMAIL: ADMINS や MANAGERS に送信されるエラーメッセージの送信元 Email アドレス&lt;/span&gt;
+&lt;a name="rest_code_756c56119c65477fb01dc0c5bcaaefab-12"&gt;&lt;/a&gt;&lt;span class="n"&gt;DEFAULT_FROM_EMAIL&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;SERVER_EMAIL&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'no-reply &amp;lt;XXXXX@example.com&amp;gt;'&lt;/span&gt;
 &lt;/pre&gt;&lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Amazon SES を設定する&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;&lt;a class="reference external" href="https://32imuf.com/aws/madanai/"&gt;Amazon SES でメールを送信する 書き途中&lt;/a&gt; を参照のこと&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://32imuf.com/aws/ses-sending-email/"&gt;Amazon SES でメールを送信する&lt;/a&gt; を参照のこと&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
@@ -157,15 +157,15 @@
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Admin サイトで GitHub とソーシャル連携するために初期データを登録する&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_c2be8010d90b4af1869b0e9c02f5d0b0-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# django-allauth をインストールする&lt;/span&gt;
-&lt;a name="rest_code_c2be8010d90b4af1869b0e9c02f5d0b0-2"&gt;&lt;/a&gt;$ pip3 install django-allauth
-&lt;a name="rest_code_c2be8010d90b4af1869b0e9c02f5d0b0-3"&gt;&lt;/a&gt;
-&lt;a name="rest_code_c2be8010d90b4af1869b0e9c02f5d0b0-4"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# マイグレーション&lt;/span&gt;
-&lt;a name="rest_code_c2be8010d90b4af1869b0e9c02f5d0b0-5"&gt;&lt;/a&gt;$ python3 manage.py migrate
-&lt;a name="rest_code_c2be8010d90b4af1869b0e9c02f5d0b0-6"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# スーパーユーザー作成&lt;/span&gt;
-&lt;a name="rest_code_c2be8010d90b4af1869b0e9c02f5d0b0-7"&gt;&lt;/a&gt;$ python3 manage.py createsuperuser
-&lt;a name="rest_code_c2be8010d90b4af1869b0e9c02f5d0b0-8"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# Django アプリを起動&lt;/span&gt;
-&lt;a name="rest_code_c2be8010d90b4af1869b0e9c02f5d0b0-9"&gt;&lt;/a&gt;$ python3 manage.py runserver &lt;span class="m"&gt;0&lt;/span&gt;.0.0.0:8181
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_3ba1b64d458e47c2b543bec53b81ac46-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# django-allauth をインストールする&lt;/span&gt;
+&lt;a name="rest_code_3ba1b64d458e47c2b543bec53b81ac46-2"&gt;&lt;/a&gt;$ pip3 install django-allauth
+&lt;a name="rest_code_3ba1b64d458e47c2b543bec53b81ac46-3"&gt;&lt;/a&gt;
+&lt;a name="rest_code_3ba1b64d458e47c2b543bec53b81ac46-4"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# マイグレーション&lt;/span&gt;
+&lt;a name="rest_code_3ba1b64d458e47c2b543bec53b81ac46-5"&gt;&lt;/a&gt;$ python3 manage.py migrate
+&lt;a name="rest_code_3ba1b64d458e47c2b543bec53b81ac46-6"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# スーパーユーザー作成&lt;/span&gt;
+&lt;a name="rest_code_3ba1b64d458e47c2b543bec53b81ac46-7"&gt;&lt;/a&gt;$ python3 manage.py createsuperuser
+&lt;a name="rest_code_3ba1b64d458e47c2b543bec53b81ac46-8"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# Django アプリを起動&lt;/span&gt;
+&lt;a name="rest_code_3ba1b64d458e47c2b543bec53b81ac46-9"&gt;&lt;/a&gt;$ python3 manage.py runserver &lt;span class="m"&gt;0&lt;/span&gt;.0.0.0:8181
 &lt;/pre&gt;&lt;/blockquote&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="http://localhost:8181/admin/"&gt;http://localhost:8181/admin/&lt;/a&gt; へログインする&lt;/p&gt;&lt;/li&gt;
@@ -428,7 +428,7 @@
 &lt;span class="c1"&gt;# AWS_SES_REGION_NAME = 'us-west-2'&lt;/span&gt;
 &lt;span class="c1"&gt;# AWS_SES_REGION_ENDPOINT = 'email.us-west-2.amazonaws.com'&lt;/span&gt;
 
-&lt;span class="n"&gt;DEFAULT_FROM_EMAIL&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;SERVER_EMAIL&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'no-reply &amp;lt;XXXXX@example.com&amp;gt;'&lt;/span&gt;
+&lt;span class="n"&gt;DEFAULT_FROM_EMAIL&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;SERVER_EMAIL&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'no-reply &amp;lt;no-reply@32imuf.com&amp;gt;'&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -477,6 +477,13 @@
 &lt;blockquote&gt;
 &lt;p&gt;&lt;/p&gt;&lt;div class="figure"&gt;
 &lt;img alt="/images/django/allauth/15_home.png" src="https://32imuf.com/images/django/allauth/15_home.png"&gt;
+&lt;/div&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;おまけ: &lt;a class="reference external" href="https://32imuf.com/aws/ses-sending-email/"&gt;Amazon SES をセットアップした&lt;/a&gt; の図 (ちゃんと送られてきたー)&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;/p&gt;&lt;div class="figure"&gt;
+&lt;img alt="/images/django/allauth/16_mail-detail-aws-ses.png" src="https://32imuf.com/images/django/allauth/16_mail-detail-aws-ses.png"&gt;
 &lt;/div&gt;
 &lt;/blockquote&gt;
 &lt;/li&gt;
