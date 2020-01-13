@@ -1,6 +1,7 @@
 .. title: Django: メールを送信する
 .. tags: django
 .. date: 2019-12-08
+.. updated: 2020-01-13
 .. slug: index
 .. status: published
 
@@ -85,4 +86,4 @@ Amazon SES を使ってメール送信する
 
 3. Amazon SES を設定する
 
-    `Amazon SES でメールを送信する 書き途中 </aws/madanai/>`_ を参照のこと
+    `Amazon SES でメールを送信する </aws/ses-sending-email/>`_ を参照のこと

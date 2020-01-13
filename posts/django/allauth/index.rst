@@ -160,3 +160,7 @@ settings
   6. Confirm ボタンを押下するとホーム画面が表示される。
 
       {{% figure 15_home.png %}}
+
+  7. おまけ: `Amazon SES をセットアップした </aws/ses-sending-email/>`_ の図 (ちゃんと送られてきたー)
+
+      {{% figure 16_mail-detail-aws-ses.png %}}
