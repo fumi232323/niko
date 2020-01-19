@@ -116,15 +116,15 @@
 <li>
 <p>Admin サイトで GitHub とソーシャル連携するために初期データを登録する</p>
 <blockquote>
-<pre class="code bash"><a name="rest_code_3ba1b64d458e47c2b543bec53b81ac46-1"></a><span class="c1"># django-allauth をインストールする</span>
-<a name="rest_code_3ba1b64d458e47c2b543bec53b81ac46-2"></a>$ pip3 install django-allauth
-<a name="rest_code_3ba1b64d458e47c2b543bec53b81ac46-3"></a>
-<a name="rest_code_3ba1b64d458e47c2b543bec53b81ac46-4"></a><span class="c1"># マイグレーション</span>
-<a name="rest_code_3ba1b64d458e47c2b543bec53b81ac46-5"></a>$ python3 manage.py migrate
-<a name="rest_code_3ba1b64d458e47c2b543bec53b81ac46-6"></a><span class="c1"># スーパーユーザー作成</span>
-<a name="rest_code_3ba1b64d458e47c2b543bec53b81ac46-7"></a>$ python3 manage.py createsuperuser
-<a name="rest_code_3ba1b64d458e47c2b543bec53b81ac46-8"></a><span class="c1"># Django アプリを起動</span>
-<a name="rest_code_3ba1b64d458e47c2b543bec53b81ac46-9"></a>$ python3 manage.py runserver <span class="m">0</span>.0.0.0:8181
+<pre class="code bash"><a name="rest_code_4f97440842ff48bd97c234725cdf788d-1"></a><span class="c1"># django-allauth をインストールする</span>
+<a name="rest_code_4f97440842ff48bd97c234725cdf788d-2"></a>$ pip3 install django-allauth
+<a name="rest_code_4f97440842ff48bd97c234725cdf788d-3"></a>
+<a name="rest_code_4f97440842ff48bd97c234725cdf788d-4"></a><span class="c1"># マイグレーション</span>
+<a name="rest_code_4f97440842ff48bd97c234725cdf788d-5"></a>$ python3 manage.py migrate
+<a name="rest_code_4f97440842ff48bd97c234725cdf788d-6"></a><span class="c1"># スーパーユーザー作成</span>
+<a name="rest_code_4f97440842ff48bd97c234725cdf788d-7"></a>$ python3 manage.py createsuperuser
+<a name="rest_code_4f97440842ff48bd97c234725cdf788d-8"></a><span class="c1"># Django アプリを起動</span>
+<a name="rest_code_4f97440842ff48bd97c234725cdf788d-9"></a>$ python3 manage.py runserver <span class="m">0</span>.0.0.0:8181
 </pre>
 </blockquote>
 <ul class="simple">
@@ -241,6 +241,20 @@
 <span class="sd">"""</span>
 
 <span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">environ</span>  <span class="c1"># https://github.com/joke2k/django-environ</span>
+
+<span class="n">env</span> <span class="o">=</span> <span class="n">environ</span><span class="o">.</span><span class="n">Env</span><span class="p">(</span>
+    <span class="c1"># set casting, default value</span>
+    <span class="n">DEBUG</span><span class="o">=</span><span class="p">(</span><span class="nb">bool</span><span class="p">,</span> <span class="bp">False</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="c1"># reading .env file</span>
+<span class="n">environ</span><span class="o">.</span><span class="n">Env</span><span class="o">.</span><span class="n">read_env</span><span class="p">()</span>
+
+<span class="c1"># False if not in os.environ</span>
+<span class="n">DEBUG</span> <span class="o">=</span> <span class="n">env</span><span class="p">(</span><span class="s1">'DEBUG'</span><span class="p">)</span>
+
+<span class="c1"># Raises django's ImproperlyConfigured exception if SECRET_KEY not in os.environ</span>
+<span class="n">SECRET_KEY</span> <span class="o">=</span> <span class="n">env</span><span class="p">(</span><span class="s1">'SECRET_KEY'</span><span class="p">)</span>
 
 <span class="c1"># Build paths inside the project like this: os.path.join(BASE_DIR, ...)</span>
 <span class="n">BASE_DIR</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)))</span>
@@ -248,12 +262,6 @@
 
 <span class="c1"># Quick-start development settings - unsuitable for production</span>
 <span class="c1"># See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/</span>
-
-<span class="c1"># SECURITY WARNING: keep the secret key used in production secret!</span>
-<span class="n">SECRET_KEY</span> <span class="o">=</span> <span class="s1">'o=uce-pwytvkyjsg8vv12#5zvh765-w!ph==vxs#_(^nw(in$='</span>
-
-<span class="c1"># SECURITY WARNING: don't run with debug turned on in production!</span>
-<span class="n">DEBUG</span> <span class="o">=</span> <span class="bp">True</span>
 
 <span class="n">ALLOWED_HOSTS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'*'</span><span class="p">]</span>
 
@@ -393,9 +401,8 @@
 <span class="c1">##################</span>
 <span class="c1"># AWS settings   #</span>
 <span class="c1">##################</span>
-<span class="c1"># 本当は settings には書かない</span>
-<span class="n">AWS_ACCESS_KEY_ID</span> <span class="o">=</span> <span class="s1">'MY-ACCESS-KEY-ID'</span>
-<span class="n">AWS_SECRET_ACCESS_KEY</span> <span class="o">=</span> <span class="s1">'MY-SECRET-ACCESS-KEY'</span>
+<span class="n">AWS_ACCESS_KEY_ID</span> <span class="o">=</span> <span class="n">env</span><span class="p">(</span><span class="s1">'AWS_ACCESS_KEY_ID'</span><span class="p">)</span>
+<span class="n">AWS_SECRET_ACCESS_KEY</span> <span class="o">=</span> <span class="n">env</span><span class="p">(</span><span class="s1">'AWS_SECRET_ACCESS_KEY'</span><span class="p">)</span>
 
 <span class="c1">##################</span>
 <span class="c1"># Email settings #</span>
