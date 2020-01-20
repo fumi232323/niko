@@ -116,15 +116,15 @@
 <li>
 <p>Admin サイトで GitHub とソーシャル連携するために初期データを登録する</p>
 <blockquote>
-<pre class="code bash"><a name="rest_code_4f97440842ff48bd97c234725cdf788d-1"></a><span class="c1"># django-allauth をインストールする</span>
-<a name="rest_code_4f97440842ff48bd97c234725cdf788d-2"></a>$ pip3 install django-allauth
-<a name="rest_code_4f97440842ff48bd97c234725cdf788d-3"></a>
-<a name="rest_code_4f97440842ff48bd97c234725cdf788d-4"></a><span class="c1"># マイグレーション</span>
-<a name="rest_code_4f97440842ff48bd97c234725cdf788d-5"></a>$ python3 manage.py migrate
-<a name="rest_code_4f97440842ff48bd97c234725cdf788d-6"></a><span class="c1"># スーパーユーザー作成</span>
-<a name="rest_code_4f97440842ff48bd97c234725cdf788d-7"></a>$ python3 manage.py createsuperuser
-<a name="rest_code_4f97440842ff48bd97c234725cdf788d-8"></a><span class="c1"># Django アプリを起動</span>
-<a name="rest_code_4f97440842ff48bd97c234725cdf788d-9"></a>$ python3 manage.py runserver <span class="m">0</span>.0.0.0:8181
+<pre class="code bash"><a name="rest_code_fa5401ddb8aa473195a3b0e5e208dbe4-1"></a><span class="c1"># django-allauth をインストールする</span>
+<a name="rest_code_fa5401ddb8aa473195a3b0e5e208dbe4-2"></a>$ pip3 install django-allauth
+<a name="rest_code_fa5401ddb8aa473195a3b0e5e208dbe4-3"></a>
+<a name="rest_code_fa5401ddb8aa473195a3b0e5e208dbe4-4"></a><span class="c1"># マイグレーション</span>
+<a name="rest_code_fa5401ddb8aa473195a3b0e5e208dbe4-5"></a>$ python3 manage.py migrate
+<a name="rest_code_fa5401ddb8aa473195a3b0e5e208dbe4-6"></a><span class="c1"># スーパーユーザー作成</span>
+<a name="rest_code_fa5401ddb8aa473195a3b0e5e208dbe4-7"></a>$ python3 manage.py createsuperuser
+<a name="rest_code_fa5401ddb8aa473195a3b0e5e208dbe4-8"></a><span class="c1"># Django アプリを起動</span>
+<a name="rest_code_fa5401ddb8aa473195a3b0e5e208dbe4-9"></a>$ python3 manage.py runserver <span class="m">0</span>.0.0.0:8181
 </pre>
 </blockquote>
 <ul class="simple">
@@ -280,6 +280,7 @@
     <span class="s1">'allauth.account'</span><span class="p">,</span>
     <span class="s1">'allauth.socialaccount'</span><span class="p">,</span>
     <span class="s1">'allauth.socialaccount.providers.github'</span><span class="p">,</span>  <span class="c1"># GitHub とソーシャル連携</span>
+    <span class="s1">'bootstrap4'</span><span class="p">,</span>  <span class="c1"># https://pypi.org/project/django-bootstrap4/</span>
 <span class="p">]</span>
 
 <span class="n">MIDDLEWARE</span> <span class="o">=</span> <span class="p">[</span>
