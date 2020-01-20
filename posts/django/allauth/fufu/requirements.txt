@@ -2,3 +2,4 @@ Django>=2.2.7
 django-allauth>=0.40.0
 django-ses>=0.8.12
 django-environ>=0.4.5
+django-bootstrap4

@@ -1,13 +1,28 @@
 {% extends "base.html" %}
-
+{% load bootstrap4 %}
 {% block title %}ホーム{% endblock %}
 
 {% block content %}
   <h2>ホーム</h2>
   {% if user.is_authenticated %}
     ようこそ {{ user.get_username }} さん
-    <p><a href="{% url 'account_logout' %}">ログアウト</a></p>
+    <div class="alert alert-info" role="alert">
+      <a href="{% url 'account_logout' %}" class="alert-link">ログアウト</a>
+    </div>
   {% else %}
     <p><a href="{% url 'account_login' %}">ログイン</a></p>
   {% endif %}
+  <p>
+    <input class="form-control" type="text" placeholder="犬: form-control つけたよ">
+  </p>
+  <p><code>logger = logging.getLogger(__name__)</code></p>
+  <p>{% bootstrap_label "Email address" label_for="exampleInputEmail1" %}</p>
+  <p>To switch directories, type <kbd>husky</kbd> followed by the name of the directory.</p>
+  <p>
+    <button type="button" class="btn btn-primary btn-block">HeyHey!</button>
+  </p>
+  <p>
+    {% bootstrap_button "Save" button_type="submit" button_class="btn-primary" %}
+  </p>
+  <p>{% buttons submit='OK' reset="Cancel" %}{% endbuttons %}</p>
 {% endblock %}

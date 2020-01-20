@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.github',  # GitHub とソーシャル連携
+    'bootstrap4',  # https://pypi.org/project/django-bootstrap4/
 ]
 
 MIDDLEWARE = [
