@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<title>[読書メモ] SQL アンチパターン: II部 データベース物理設計のアンチパターン/ふみのて</title>
+<link rel="shortcut icon" href="../../../assets/icons/favicon.ico">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Griffy">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Vollkorn:400,700">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sawarabi+Mincho&amp;display=swap&amp;subset=japanese,latin-ext">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+<link rel="stylesheet" href="../../../assets/css/style.css?20200126">
+</head>
+<body>
+    <div class="container">
+      <div class="header"><header class="item item-header"><h1>
+    <a href="../../../">
+      <img class="logo" src="../../../assets/images/inuu.png" alt="犬"></a>
+  </h1>
+  <iframe src="../../../tags/" class="tags"></iframe>
+</header></div>
+      <div class="main">
+<div class="article-content">
+  <main class="item item-article item-sql"><time class="date" datetime="2020-01-26 00:00:00+09:00">
+      2020-01-26 Sun
+    </time><div class="title">[読書メモ] SQL アンチパターン: II部 データベース物理設計のアンチパターン</div>
+    <div class="category">
+      <a href="../../../tags/sql/">
+          sql
+      </a>
+    </div>
+    <div class="text">
+      <div>
+<details><summary>目次</summary><div class="contents topic" id="id1">
+<p class="topic-title first">目次</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#id2" id="id8">書籍</a></p></li>
+<li>
+<p><a class="reference internal" href="#id3" id="id9">1章 インデックスショットガン (闇雲インデックス)</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id4" id="id10">目的:</a></p></li>
+<li><p><a class="reference internal" href="#id5" id="id11">アンチパターン:</a></p></li>
+<li><p><a class="reference internal" href="#id6" id="id12">解決策:</a></p></li>
+<li><p><a class="reference internal" href="#id7" id="id13">まとめ</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+</details><div class="section" id="id2">
+<h2><a class="toc-backref" href="#id8">書籍</a></h2>
+<p><a class="reference external" href="https://www.oreilly.co.jp/books/9784873115894/">SQL アンチパターン SQL Antipatterns (2013年, オライリー・ジャパン)</a></p>
+<ul class="simple">
+<li><p>Bill Karwin 著</p></li>
+<li><p>和田 卓人, 和田 省二 監訳</p></li>
+<li><p>小島 修 訳</p></li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2><a class="toc-backref" href="#id9">1章 インデックスショットガン (闇雲インデックス)</a></h2>
+<div class="section" id="id4">
+<h3><a class="toc-backref" href="#id10">目的:</a></h3>
+<p>パフォーマンスを最適化する</p>
+<ul class="simple">
+<li><p>データベースのパフォーマンスを完全する最善の方法は、 <strong>インデックス</strong> を効果的に使用すること</p></li>
+<li>
+<p>インデックス:</p>
+<ul>
+<li><p>データベースが使うデータ構造で、対象とするデータベース列の値が、
+データベースに実際に格納されている行の位置に関連付けられている</p></li>
+<li><p>テーブルを最初から最後まで検索する方法に比べ、インデックスを用いることで検索を容易に行えるようになる</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h3><a class="toc-backref" href="#id11">アンチパターン:</a></h3>
+<p>闇雲にインデックスを使用する</p>
+<ul class="simple">
+<li>
+<p>インデックスを全く定義しない or 少ししか定義しない</p>
+<ul>
+<li><p>通常のアプリケーションでは、更新よりも参照のほうが何百倍も多い</p></li>
+<li><p>インデックス維持のためのオーバーヘッドを取り戻せる</p></li>
+</ul>
+</li>
+<li>
+<p>インデックスを定義し過ぎる or 役立たないインデックスを定義してしまう</p>
+<ul>
+<li><p>ほとんどのデータベースは、主キーのインデックスを自動的に作成するので、主キーに明示的にインデックスを定義するのは冗長</p></li>
+<li><p>検索やソートに使わない列につけても役立たない</p></li>
+<li><p>冗長だったり使用頻度の極めて低い複合インデックス</p></li>
+</ul>
+</li>
+<li>
+<p>インデックスを活用しないクエリを実行してしまう</p>
+<ul>
+<li><p>複合インデックスでは列の順序がとても重要!! 検索条件、結合条件、ソート順において、列を定義した順 (左から右) に使わなければならない。</p></li>
+<li>
+<p><code class="docutils literal">WHERE MONTH(date_reported) = 4</code></p>
+<ul>
+<li><p>このインデックスの順番は年ごとに1月1日を開始日とした連続した日付に基づいているため、月を基準にした検索には役立たない</p></li>
+</ul>
+</li>
+<li>
+<p><code class="docutils literal">LIKE '%crash%'</code></p>
+<ul>
+<li><p>この LIKE述語は、文字列のどの部分とも一致する可能性があるため、ソートされたインデックスデータ構造は役立たない</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id6">
+<h3><a class="toc-backref" href="#id12">解決策:</a></h3>
+<p>MENTOR の原則に基づいて効果的なインデックス管理を行う</p>
+<ul class="simple">
+<li>
+<p>Measure (測定)</p>
+<ul>
+<li>
+<p>MySQL と PostgreSQL は、指定された閾値より実行時間が長くかかったクエリを記録できる</p>
+<ul>
+<li><p>MySQL: スロークエリログ。 <code class="docutils literal">long_query_time</code> (デフォルト10秒)</p></li>
+<li><p>PostgreSQL: <code class="docutils literal">log_min_duration_statement</code> 。 pgFouine (クエリログ分析支援ツール) もある。</p></li>
+</ul>
+</li>
+<li><p>クエリパフォーマンス測定中は、クエリ結果のキャッシュをすべて無効化しましょう</p></li>
+</ul>
+</li>
+<li>
+<p>Explain (解析)</p>
+<ul>
+<li><p>クエリの処理が遅くなっている原因を分析します</p></li>
+<li><p>データベースは、クエリ実行計画 (Query Execution Plan: QEP) と呼ばれるクエリ最適化機能によって、クエリ実行にどのインデックスを使うかを判断している</p></li>
+<li>
+<p>各データベース製品における QEP 取得方法</p>
+<dl class="field-list simple">
+<dt>IBM DB2</dt>
+<dd>
+<p><code class="docutils literal">EXPLAIN</code>, <code class="docutils literal">db2expln</code> コマンドまたは <code class="docutils literal">Visual Explain</code></p>
+</dd>
+<dt>Microsoft SQL Server</dt>
+<dd>
+<p><code class="docutils literal">SET SHOWPLAN_XML</code> または <code class="docutils literal">Display Execution Plan</code></p>
+</dd>
+<dt>MySQL</dt>
+<dd>
+<p><code class="docutils literal">EXPLAIN</code></p>
+</dd>
+<dt>Oracle</dt>
+<dd>
+<p><code class="docutils literal">EXPLAIN PLAN</code></p>
+</dd>
+<dt>PostgresSQL</dt>
+<dd>
+<p><code class="docutils literal">EXPLAIN</code></p>
+</dd>
+<dt>SQLite</dt>
+<dd>
+<p><code class="docutils literal">EXPLAIN</code></p>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+<li>
+<p>Nominate (指名)</p>
+<ul>
+<li><p>クエリの QEP を読んで、クエリがインデックスを使わないでテーブルアクセスしている箇所を探しましょう</p></li>
+<li><p>カバーリングインデックス (P.139)</p></li>
+</ul>
+</li>
+<li>
+<p>Test (テスト)</p>
+<ul>
+<li><p>インデックスの作成後 (インデックス作成でなくても何か策を講じたら) 再びクエリをプロファイリングする</p></li>
+</ul>
+</li>
+<li>
+<p>Optimaize (最適化)</p>
+<ul>
+<li><p>インデックスはコンパクトで、使用頻度の高いデータ構造のため、キャッシュメモリに格納されやすい</p></li>
+<li><p>メモリ上のインデックスにアクセスすることにより、ディスクI/O を伴う読み込みよりもはるかにパフォーマンスを改善できる</p></li>
+<li><p>データベースサーバーでは、キャッシュに割り当てるシステムメモリ量を設定できる</p></li>
+<li><p>使用頻度の高いインデックスをあらかじめキャッシュにロードしておくことでメリットを得られる場合もあり ( <code class="docutils literal">LOAD INDEX INTO CACHE</code> )</p></li>
+</ul>
+</li>
+<li>
+<p>Rebuild (再構築)</p>
+<ul>
+<li><p>インデックスは、バランスが取れているときに最も効果的</p></li>
+<li><p>長期にわたって行の更新や削除を行っていくと次第に不均衡になっていく</p></li>
+<li><p>できる限りインデックスの効率を高めたいのであれば、定期的にメンテナンスする価値はある</p></li>
+<li>
+<p>各データベース製品におけるインデックスのメンテナンスコマンド</p>
+<dl class="field-list simple">
+<dt>IBM DB2</dt>
+<dd>
+<p><code class="docutils literal">REBUILD INDEX</code></p>
+</dd>
+<dt>Microsoft SQL Server</dt>
+<dd>
+<p><code class="docutils literal">ALTER INDEX ... REORGANIZE</code> 、 <code class="docutils literal">ALTER INDEX ... REBUILD</code> 、または <code class="docutils literal">DBCC DBREINDEX</code></p>
+</dd>
+<dt>MySQL</dt>
+<dd>
+<p><code class="docutils literal">ANALYZE TABLE</code> または <code class="docutils literal">OPTIMIZE TABLE</code></p>
+</dd>
+<dt>Oracle</dt>
+<dd>
+<p><code class="docutils literal">ALTER INDEX ... REBUILD</code></p>
+</dd>
+<dt>PostgresSQL</dt>
+<dd>
+<p><code class="docutils literal">VACUUM</code> または <code class="docutils literal">ANALYZE</code></p>
+</dd>
+<dt>SQLite</dt>
+<dd>
+<p><code class="docutils literal">VACUUM</code></p>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id7">
+<h3><a class="toc-backref" href="#id13">まとめ</a></h3>
+<p>推測のみに基づいて、闇雲にインデックスをつけてはならない</p>
+<ul class="simple">
+<li><p>データとクエリについての理解を深め、 MENTOR の原則に基づいてインデックスを管理しましょう</p></li>
+</ul>
+</div>
+</div>
+</div>
+    </div>
+  </main>
+</div>
+</div>
+    </div>
+  </body>
+</html>
