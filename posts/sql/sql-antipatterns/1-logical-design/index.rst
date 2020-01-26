@@ -1,21 +1,29 @@
-.. title: SQL アンチパターンまとめ
+.. title: [読書メモ] SQL アンチパターン: I部 データベース論理設計のアンチパターン
 .. tags: sql
 .. date: 2019-10-06
 .. slug: index
 .. status: published
 
 
+.. raw:: html
+
+  <details><summary>目次</summary>
+
+.. contents::
+
+.. raw:: html
+
+  </details>
+
+
 書籍
-======
+-----
 `SQL アンチパターン SQL Antipatterns (2013年, オライリー・ジャパン) <https://www.oreilly.co.jp/books/9784873115894/>`_
 
 * Bill Karwin 著
 * 和田 卓人, 和田 省二 監訳
 * 小島 修 訳
 
-
-I部 データベース論理設計のアンチパターン
-========================================
 
 1章 ジェイウォーク (信号無視)
 -------------------------------
