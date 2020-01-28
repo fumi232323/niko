@@ -34,17 +34,8 @@
   $ mysql -u user_name -D db_mame -p
 
 
-便利
-====
-
-.. code-block:: mysql
-
-  -- 拡張表示
-  SELECT * FROM users WHERE login = 'fumi23'\G
-
-
-データベース
-============
+データベース情報
+================
 
 .. code-block:: mysql
 
@@ -80,8 +71,8 @@
   ;
 
 
-テーブル
-========
+テーブル情報
+============
 
 .. code-block:: mysql
 
@@ -97,6 +88,47 @@
   SHOW CREATE TABLE table_name;
 
 
+INDEX
+=====
+
+.. code-block:: mysql
+
+  -- テーブルの INDEX 一覧
+  SHOW INDEX FROM table_name;
+
+  -- インデックス作成
+  ALTER TABLE table_name ADD INDEX index_name(index_col_name1, index_col_name2, ...);
+  -- インデックス削除
+  ALTER TABLE table_name DROP INDEX index_name;
+
+  /* インデックスヒント */
+  -- インデックスを指定
+  SELECT * FROM table1 USE INDEX (col1_index,col2_index)
+  WHERE col1=1 AND col2=2 AND col3=3;
+
+  -- インデックスを強制
+  SELECT * FROM table1 FORCE INDEX (col1_index,col2_index)
+  WHERE col1=1 AND col2=2 AND col3=3;
+
+  -- 指定したインデックスを無視
+  SELECT * FROM table1 IGNORE INDEX (col3_index)
+  WHERE col1=1 AND col2=2 AND col3=3;
+
+https://dev.mysql.com/doc/refman/5.7/en/index-hints.html
+
+
+CACHE
+=====
+
+.. code-block:: mysql
+
+  -- クエリキャッシュクリア
+  RESET QUERY CACHE;
+
+  -- キャッシュ状態確認
+  SHOW STATUS LIKE 'Qcache%';
+
+
 dump
 ====
 
@@ -107,6 +139,15 @@ dump
 
   # dump を入れる
   $ mysql -h localhost -u root -p db_mame < dump_filename.sql
+
+
+便利
+====
+
+.. code-block:: mysql
+
+  -- 拡張表示
+  SELECT * FROM users WHERE login = 'fumi23'\G
 
 
 おぼえがき
