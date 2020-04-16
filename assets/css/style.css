@@ -247,6 +247,10 @@ a:active {
 .item-django-rest-framework .title::before {
   border-color: #c8d85b;
 }
+.item-database,
+.item-database .title::before {
+  border-color: #f8e133;
+}
 /* --------------------------------
  * index page only
  * -------------------------------- */

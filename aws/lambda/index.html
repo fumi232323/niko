@@ -68,6 +68,57 @@
 </ul>
 </li>
 </ul>
+<div class="section" id="note">
+<h3>note</h3>
+<ul class="simple">
+<li>
+<p>AWS Lambda の概念: <a class="reference external" href="https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/gettingstarted-concepts.html">https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/gettingstarted-concepts.html</a></p>
+<ul>
+<li><p>用語の意味が書いてある</p></li>
+<li>
+<p>関数: AWS Lambda でコードを実行するために呼び出すことができるリソース</p>
+<ul>
+<li><p>イベントを処理するコード + Lambda と関数コード間で要求と応答を渡すランタイム</p></li>
+<li><p>コード: ユーザーが指定</p></li>
+<li><p>ランタイム: 提供されたものを使用するか、独自のものを作成することができる</p></li>
+</ul>
+</li>
+<li><p>ランタイム: 実行環境</p></li>
+<li>
+<p>イベント: 処理する関数のデータを含む JSON 形式のドキュメント</p>
+<ul>
+<li><p>Lambda ランタイムは、イベントをオブジェクトに変換し、それを関数コードに渡す</p></li>
+<li><p>関数を呼び出すときは、イベントの構造とコンテンツを決定する</p></li>
+</ul>
+</li>
+<li><p>Concurrency: 同時実行数, ある時点で関数が処理しているリクエストの数</p></li>
+<li>
+<p>Trigger: Lambda 関数を呼び出すリソースまたは設定</p>
+<ul>
+<li><p>関数を呼び出すように設定できる AWS のサービス、開発するアプリケーション、イベントソースマッピングなど</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>AWS Lambda の機能: <a class="reference external" href="https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/gettingstarted-features.html">https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/gettingstarted-features.html</a></p>
+<ul>
+<li><p>ここもいろいろ用語の説明が書いてある、たびたび見返しそう</p></li>
+<li><p>プログラミングモデル</p></li>
+<li><p>デプロイパッケージ</p></li>
+<li><p>レイヤー</p></li>
+<li><p>スケーリング</p></li>
+<li><p>同時実行制御</p></li>
+<li><p>非同期呼び出し</p></li>
+<li><p>イベントソースマッピング</p></li>
+<li><p>送信先</p></li>
+<li><p>関数ブループリント</p></li>
+<li><p>アプリケーションテンプレート</p></li>
+</ul>
+</li>
+<li><p>AWS Lambda の制限: <a class="reference external" href="https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/limits.html">https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/limits.html</a></p></li>
+</ul>
+</div>
 </div>
 <div class="section" id="aws-sam">
 <h2>AWS SAM</h2>
@@ -103,32 +154,32 @@
 <li><p>macOSにAWS SAM CLIをインストールする: <a class="reference external" href="https://docs.aws.amazon.com/ja_jp/serverless-application-model/latest/developerguide/serverless-sam-cli-install-mac.html">https://docs.aws.amazon.com/ja_jp/serverless-application-model/latest/developerguide/serverless-sam-cli-install-mac.html</a></p></li>
 <li>
 <p>チュートリアル: Hello Worldアプリケーションのデプロイ: <a class="reference external" href="https://docs.aws.amazon.com/ja_jp/serverless-application-model/latest/developerguide/serverless-getting-started-hello-world.html">https://docs.aws.amazon.com/ja_jp/serverless-application-model/latest/developerguide/serverless-getting-started-hello-world.html</a></p>
-<pre class="code bash"><a name="rest_code_71c872663f104e5cb65b9f712a2d00da-1"></a><span class="c1"># Make sure that the Region for this bucket aligns with where you deploy</span>
-<a name="rest_code_71c872663f104e5cb65b9f712a2d00da-2"></a><span class="c1"># aws s3 mb s3://bucketname --region region  # Example regions: us-east-1, ap-east-1, eu-central-1, sa-east-1</span>
-<a name="rest_code_71c872663f104e5cb65b9f712a2d00da-3"></a>$ aws s3 mb s3://fumi23-sam-repo --region ap-northeast-1
-<a name="rest_code_71c872663f104e5cb65b9f712a2d00da-4"></a>
-<a name="rest_code_71c872663f104e5cb65b9f712a2d00da-5"></a><span class="c1"># Step 1 - Download a sample application</span>
-<a name="rest_code_71c872663f104e5cb65b9f712a2d00da-6"></a>$ sam init --runtime python3.7 --dependency-manager pip --app-template hello-world --name sam-app
-<a name="rest_code_71c872663f104e5cb65b9f712a2d00da-7"></a>
-<a name="rest_code_71c872663f104e5cb65b9f712a2d00da-8"></a><span class="c1"># Step 2 - Build your application</span>
-<a name="rest_code_71c872663f104e5cb65b9f712a2d00da-9"></a>$ <span class="nb">cd</span> sam-app
-<a name="rest_code_71c872663f104e5cb65b9f712a2d00da-10"></a>$ sam build
-<a name="rest_code_71c872663f104e5cb65b9f712a2d00da-11"></a>
-<a name="rest_code_71c872663f104e5cb65b9f712a2d00da-12"></a><span class="c1"># Step 3 - Package your application</span>
-<a name="rest_code_71c872663f104e5cb65b9f712a2d00da-13"></a><span class="c1"># sam package --output-template packaged.yaml --s3-bucket bucketname</span>
-<a name="rest_code_71c872663f104e5cb65b9f712a2d00da-14"></a>$ sam package --output-template-file packaged.yaml --s3-bucket fumi23-sam-repo
-<a name="rest_code_71c872663f104e5cb65b9f712a2d00da-15"></a>
-<a name="rest_code_71c872663f104e5cb65b9f712a2d00da-16"></a><span class="c1"># Step 4 - Deploy your application</span>
-<a name="rest_code_71c872663f104e5cb65b9f712a2d00da-17"></a><span class="c1"># sam deploy --template-file packaged.yaml --region us-west-2 --capabilities CAPABILITY_IAM --stack-name aws-sam-getting-started</span>
-<a name="rest_code_71c872663f104e5cb65b9f712a2d00da-18"></a>$ sam deploy --template-file packaged.yaml --region ap-northeast-1 --capabilities CAPABILITY_IAM --stack-name aws-sam-getting-started
-<a name="rest_code_71c872663f104e5cb65b9f712a2d00da-19"></a>
-<a name="rest_code_71c872663f104e5cb65b9f712a2d00da-20"></a><span class="c1"># ステップ5: AWSクラウドでアプリケーションをテストする</span>
-<a name="rest_code_71c872663f104e5cb65b9f712a2d00da-21"></a>$ aws cloudformation describe-stacks --stack-name aws-sam-getting-started --region ap-northeast-1 --query <span class="s2">"Stacks[].Outputs"</span>
-<a name="rest_code_71c872663f104e5cb65b9f712a2d00da-22"></a>$ curl https://06eju0fof6.execute-api.ap-northeast-1.amazonaws.com/Prod/hello/
-<a name="rest_code_71c872663f104e5cb65b9f712a2d00da-23"></a>
-<a name="rest_code_71c872663f104e5cb65b9f712a2d00da-24"></a><span class="c1"># ステップ6: アプリケーションをローカルでテストする（オプション）</span>
-<a name="rest_code_71c872663f104e5cb65b9f712a2d00da-25"></a>$ sam <span class="nb">local</span> start-api
-<a name="rest_code_71c872663f104e5cb65b9f712a2d00da-26"></a>$ curl http://127.0.0.1:3000/hello
+<pre class="code bash"><a name="rest_code_6ddff2ac316d4e5ba93debac6fc31a21-1"></a><span class="c1"># Make sure that the Region for this bucket aligns with where you deploy</span>
+<a name="rest_code_6ddff2ac316d4e5ba93debac6fc31a21-2"></a><span class="c1"># aws s3 mb s3://bucketname --region region  # Example regions: us-east-1, ap-east-1, eu-central-1, sa-east-1</span>
+<a name="rest_code_6ddff2ac316d4e5ba93debac6fc31a21-3"></a>$ aws s3 mb s3://fumi23-sam-repo --region ap-northeast-1
+<a name="rest_code_6ddff2ac316d4e5ba93debac6fc31a21-4"></a>
+<a name="rest_code_6ddff2ac316d4e5ba93debac6fc31a21-5"></a><span class="c1"># Step 1 - Download a sample application</span>
+<a name="rest_code_6ddff2ac316d4e5ba93debac6fc31a21-6"></a>$ sam init --runtime python3.7 --dependency-manager pip --app-template hello-world --name sam-app
+<a name="rest_code_6ddff2ac316d4e5ba93debac6fc31a21-7"></a>
+<a name="rest_code_6ddff2ac316d4e5ba93debac6fc31a21-8"></a><span class="c1"># Step 2 - Build your application</span>
+<a name="rest_code_6ddff2ac316d4e5ba93debac6fc31a21-9"></a>$ <span class="nb">cd</span> sam-app
+<a name="rest_code_6ddff2ac316d4e5ba93debac6fc31a21-10"></a>$ sam build
+<a name="rest_code_6ddff2ac316d4e5ba93debac6fc31a21-11"></a>
+<a name="rest_code_6ddff2ac316d4e5ba93debac6fc31a21-12"></a><span class="c1"># Step 3 - Package your application</span>
+<a name="rest_code_6ddff2ac316d4e5ba93debac6fc31a21-13"></a><span class="c1"># sam package --output-template packaged.yaml --s3-bucket bucketname</span>
+<a name="rest_code_6ddff2ac316d4e5ba93debac6fc31a21-14"></a>$ sam package --output-template-file packaged.yaml --s3-bucket fumi23-sam-repo
+<a name="rest_code_6ddff2ac316d4e5ba93debac6fc31a21-15"></a>
+<a name="rest_code_6ddff2ac316d4e5ba93debac6fc31a21-16"></a><span class="c1"># Step 4 - Deploy your application</span>
+<a name="rest_code_6ddff2ac316d4e5ba93debac6fc31a21-17"></a><span class="c1"># sam deploy --template-file packaged.yaml --region us-west-2 --capabilities CAPABILITY_IAM --stack-name aws-sam-getting-started</span>
+<a name="rest_code_6ddff2ac316d4e5ba93debac6fc31a21-18"></a>$ sam deploy --template-file packaged.yaml --region ap-northeast-1 --capabilities CAPABILITY_IAM --stack-name aws-sam-getting-started
+<a name="rest_code_6ddff2ac316d4e5ba93debac6fc31a21-19"></a>
+<a name="rest_code_6ddff2ac316d4e5ba93debac6fc31a21-20"></a><span class="c1"># ステップ5: AWSクラウドでアプリケーションをテストする</span>
+<a name="rest_code_6ddff2ac316d4e5ba93debac6fc31a21-21"></a>$ aws cloudformation describe-stacks --stack-name aws-sam-getting-started --region ap-northeast-1 --query <span class="s2">"Stacks[].Outputs"</span>
+<a name="rest_code_6ddff2ac316d4e5ba93debac6fc31a21-22"></a>$ curl https://06eju0fof6.execute-api.ap-northeast-1.amazonaws.com/Prod/hello/
+<a name="rest_code_6ddff2ac316d4e5ba93debac6fc31a21-23"></a>
+<a name="rest_code_6ddff2ac316d4e5ba93debac6fc31a21-24"></a><span class="c1"># ステップ6: アプリケーションをローカルでテストする（オプション）</span>
+<a name="rest_code_6ddff2ac316d4e5ba93debac6fc31a21-25"></a>$ sam <span class="nb">local</span> start-api
+<a name="rest_code_6ddff2ac316d4e5ba93debac6fc31a21-26"></a>$ curl http://127.0.0.1:3000/hello
 </pre>
 <ul class="simple">
 <li><p>「Lambda &gt; アプリケーション」 に <code class="docutils literal"><span class="pre">aws-sam-getting-started</span></code> アプリケーションができあがる</p></li>
