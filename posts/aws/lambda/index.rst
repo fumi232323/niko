@@ -1,7 +1,7 @@
 .. title: AWS Lambda
 .. tags: aws
 .. date: 2019-11-10
-.. updated: 2019-11-10
+.. updated: 2020-02-02
 .. slug: index
 .. status: draft
 
@@ -30,6 +30,45 @@ AWS Lambda はサーバーをプロビジョニングしたり管理する必要
 * チュートリアル: Amazon S3 で AWS Lambda を使用する: https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/with-s3-example.html
 
   * サンプル Amazon S3 関数コード: https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/with-s3-example-deployment-pkg.html#with-s3-example-deployment-pkg-python
+
+note
+----
+
+* AWS Lambda の概念: https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/gettingstarted-concepts.html
+
+  * 用語の意味が書いてある
+  * 関数: AWS Lambda でコードを実行するために呼び出すことができるリソース
+
+    * イベントを処理するコード + Lambda と関数コード間で要求と応答を渡すランタイム
+    * コード: ユーザーが指定
+    * ランタイム: 提供されたものを使用するか、独自のものを作成することができる
+
+  * ランタイム: 実行環境
+  * イベント: 処理する関数のデータを含む JSON 形式のドキュメント
+
+    * Lambda ランタイムは、イベントをオブジェクトに変換し、それを関数コードに渡す
+    * 関数を呼び出すときは、イベントの構造とコンテンツを決定する
+
+  * Concurrency: 同時実行数, ある時点で関数が処理しているリクエストの数
+  * Trigger: Lambda 関数を呼び出すリソースまたは設定
+
+    * 関数を呼び出すように設定できる AWS のサービス、開発するアプリケーション、イベントソースマッピングなど
+
+* AWS Lambda の機能: https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/gettingstarted-features.html
+
+  * ここもいろいろ用語の説明が書いてある、たびたび見返しそう
+  * プログラミングモデル
+  * デプロイパッケージ
+  * レイヤー
+  * スケーリング
+  * 同時実行制御
+  * 非同期呼び出し
+  * イベントソースマッピング
+  * 送信先
+  * 関数ブループリント
+  * アプリケーションテンプレート
+
+* AWS Lambda の制限: https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/limits.html
 
 
 AWS SAM
