@@ -99,9 +99,11 @@ INDEX
   SHOW INDEX FROM table_name;
 
   -- インデックス作成
-  ALTER TABLE table_name ADD INDEX index_name(index_col_name1, index_col_name2, ...);
+  ALTER TABLE table_name ADD INDEX index_name(index_col_name1, index_col_name1, ...);
+  CREATE INDEX index_name ON table_name (index_col_name1, index_col_name1, ...);
   -- インデックス削除
   ALTER TABLE table_name DROP INDEX index_name;
+  DROP INDEX index_name ON table_name;
 
 * 13.1.14 CREATE INDEX Statement: https://dev.mysql.com/doc/refman/5.7/en/create-index.html
 
