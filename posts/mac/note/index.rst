@@ -1,6 +1,7 @@
 .. title: Mac のメモ
 .. tags: mac
 .. date: 2018-11-19
+.. updated: 2020-04-28
 .. slug: index
 .. status: published
 
@@ -27,18 +28,31 @@
 環境変数
 ========
 
-環境変数の一覧を表示する
-------------------------
+一覧表示する
+--------------
 
 .. code-block:: console
 
   $ printenv
 
 
-環境変数を追加する
-------------------
+追加する
+--------
 
-やりかたがわからない
+.. code-block:: console
+
+  $ export AWS_ACCESS_KEY_ID=XXXXXXXXX
+  $ export AWS_SECRET_ACCESS_KEY=XXXXXXXXX
+  $ export AWS_SESSION_TOKEN=XXXXXXXXX
+
+削除する
+--------
+
+.. code-block:: console
+
+  $ unset AWS_ACCESS_KEY_ID
+  $ unset AWS_SECRET_ACCESS_KEY
+  $ unset AWS_SESSION_TOKEN
 
 
 本体がどこに行ったかわからなくなったとき
