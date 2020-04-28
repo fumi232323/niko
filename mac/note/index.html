@@ -35,30 +35,40 @@
 <h2>ファイル操作</h2>
 <div class="section" id="id2">
 <h3>文字コードを変換</h3>
-<pre class="code console"><a name="rest_code_d4b1fec607db4ab385f4d13e3bd1d9c6-1"></a><span class="gp">$</span> iconv -f Shift-JIS -t UTF-8 &lt;変換前のファイル名&gt; &lt;変換後のファイル名&gt;
+<pre class="code console"><a name="rest_code_afff6f146ff84e3f8a49e153b70cc46b-1"></a><span class="gp">$</span> iconv -f Shift-JIS -t UTF-8 &lt;変換前のファイル名&gt; &lt;変換後のファイル名&gt;
 </pre>
 </div>
 <div class="section" id="gz">
 <h3>.gz に圧縮</h3>
-<pre class="code console"><a name="rest_code_9f29a408796b42738f0d32fb474c17a1-1"></a><span class="gp">$</span> gzip &lt;ファイル名&gt;
+<pre class="code console"><a name="rest_code_775faa710494423c986d9896d0c15741-1"></a><span class="gp">$</span> gzip &lt;ファイル名&gt;
 </pre>
 </div>
 </div>
 <div class="section" id="id3">
 <h2>環境変数</h2>
 <div class="section" id="id4">
-<h3>環境変数の一覧を表示する</h3>
-<pre class="code console"><a name="rest_code_a883a344f437418f87085c990d950aec-1"></a><span class="gp">$</span> printenv
+<h3>一覧表示する</h3>
+<pre class="code console"><a name="rest_code_c9d2bfde50c64338b1f2e7e520e79f6a-1"></a><span class="gp">$</span> printenv
 </pre>
 </div>
 <div class="section" id="id5">
-<h3>環境変数を追加する</h3>
-<p>やりかたがわからない</p>
-</div>
+<h3>追加する</h3>
+<pre class="code console"><a name="rest_code_9d1aa1ea6b754beaac65197c08f20b87-1"></a><span class="gp">$</span> <span class="nb">export</span> <span class="nv">AWS_ACCESS_KEY_ID</span><span class="o">=</span>XXXXXXXXX
+<a name="rest_code_9d1aa1ea6b754beaac65197c08f20b87-2"></a><span class="gp">$</span> <span class="nb">export</span> <span class="nv">AWS_SECRET_ACCESS_KEY</span><span class="o">=</span>XXXXXXXXX
+<a name="rest_code_9d1aa1ea6b754beaac65197c08f20b87-3"></a><span class="gp">$</span> <span class="nb">export</span> <span class="nv">AWS_SESSION_TOKEN</span><span class="o">=</span>XXXXXXXXX
+</pre>
 </div>
 <div class="section" id="id6">
+<h3>削除する</h3>
+<pre class="code console"><a name="rest_code_3fc179f032544cad92fa601f6dacd980-1"></a><span class="gp">$</span> <span class="nb">unset</span> AWS_ACCESS_KEY_ID
+<a name="rest_code_3fc179f032544cad92fa601f6dacd980-2"></a><span class="gp">$</span> <span class="nb">unset</span> AWS_SECRET_ACCESS_KEY
+<a name="rest_code_3fc179f032544cad92fa601f6dacd980-3"></a><span class="gp">$</span> <span class="nb">unset</span> AWS_SESSION_TOKEN
+</pre>
+</div>
+</div>
+<div class="section" id="id7">
 <h2>本体がどこに行ったかわからなくなったとき</h2>
-<pre class="code console"><a name="rest_code_88991898301045c997716d7ac570d7b4-1"></a><span class="gp">$</span> which python
+<pre class="code console"><a name="rest_code_b0d3d60b2c3342c5942fb948176c0a7a-1"></a><span class="gp">$</span> which python
 </pre>
 </div>
 </div>
