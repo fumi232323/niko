@@ -251,6 +251,10 @@ a:active {
 .item-database .title::before {
   border-color: #f8e133;
 }
+.item-javascript,
+.item-javascript .title::before {
+  border-color: #dbdf19;
+}
 /* --------------------------------
  * index page only
  * -------------------------------- */
