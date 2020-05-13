@@ -1,5 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ふみのて (javascriptについての文書)</title><link>https://32imuf.com/</link><description></description><atom:link href="https://32imuf.com/tags/javascript.xml" rel="self" type="application/rss+xml"></atom:link><language>ja</language><copyright>Contents © 2020 &lt;a href="mailto:fumi232323fumi2016@gmail.com"&gt;fumi23&lt;/a&gt; </copyright><lastBuildDate>Wed, 06 May 2020 06:00:13 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>JavaScript</title><link>https://32imuf.com/javascript/note/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;details&gt;
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ふみのて (javascriptについての文書)</title><link>https://32imuf.com/</link><description></description><atom:link href="https://32imuf.com/tags/javascript.xml" rel="self" type="application/rss+xml"></atom:link><language>ja</language><copyright>Contents © 2020 &lt;a href="mailto:fumi232323fumi2016@gmail.com"&gt;fumi23&lt;/a&gt; </copyright><lastBuildDate>Wed, 13 May 2020 14:57:58 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Firebase</title><link>https://32imuf.com/javascript/firebase/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;details&gt;
+  &lt;summary&gt;目次&lt;/summary&gt;&lt;div class="contents topic" id="id1"&gt;
+&lt;p class="topic-title first"&gt;目次&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/javascript/firebase/#id2" id="id3"&gt;リファレンス, 書籍&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/javascript/firebase/#note" id="id4"&gt;note&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/javascript/firebase/#memo" id="id5"&gt;コマンド memo&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/details&gt;&lt;div class="section" id="id2"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/javascript/firebase/#id3"&gt;リファレンス, 書籍&lt;/a&gt;&lt;/h2&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;React、Angular、Vue.js、React Nativeを使って学ぶ はじめてのフロントエンド開発: &lt;a class="reference external" href="https://gihyo.jp/book/2018/978-4-7741-9706-7"&gt;https://gihyo.jp/book/2018/978-4-7741-9706-7&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://firebase.google.com/docs"&gt;https://firebase.google.com/docs&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="note"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/javascript/firebase/#id4"&gt;note&lt;/a&gt;&lt;/h2&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;Firebase: Google社が提供するモバイルプラットフォーム。iOS、Android、Webなどでアプリケーションを構築し、モバイルサービスを提供する際に必要な機能を備えている。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Firebase Cloud Functions: Firebase の機能のイベントや HTTPSリクエストによるトリガに応じて関数を実行する&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Node.js 環境&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Firebase Realtime Database: NoSQL データベース。 JSON データを保存・同期する。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Firebase Hosting: SPAを簡単に公開できる。 CDN や HTTPS にも対応している。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Firebase Authentication: ユーザ認証システムを簡単に構築できる。ログインプロバイダとして、メールアドレス、電話認証、Google、Twitter、Facebook、GitHubおよび匿名がある。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://console.firebase.google.com"&gt;https://console.firebase.google.com&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Express: Express パッケージのルーティングを使ってAPIのエンドポイントを実装する&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;cors: cors パッケージを使ってクロスドメイン通信の許可をする&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;サーバーに Firebase Admin SDK を追加する: &lt;a class="reference external" href="https://firebase.google.com/docs/admin/setup"&gt;https://firebase.google.com/docs/admin/setup&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="memo"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/javascript/firebase/#id5"&gt;コマンド memo&lt;/a&gt;&lt;/h2&gt;
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_f74baaa346a54650859266c2de329271-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# Firebase CLI のインストール&lt;/span&gt;
+&lt;a name="rest_code_f74baaa346a54650859266c2de329271-2"&gt;&lt;/a&gt;$ sudo npm i -g firebase-tools
+&lt;a name="rest_code_f74baaa346a54650859266c2de329271-3"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# Firebase Admin SDK のインストール&lt;/span&gt;
+&lt;a name="rest_code_f74baaa346a54650859266c2de329271-4"&gt;&lt;/a&gt;$ npm install firebase-admin --save
+&lt;a name="rest_code_f74baaa346a54650859266c2de329271-5"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# Express, cors のインストール&lt;/span&gt;
+&lt;a name="rest_code_f74baaa346a54650859266c2de329271-6"&gt;&lt;/a&gt;$ npm i express cors
+&lt;a name="rest_code_f74baaa346a54650859266c2de329271-7"&gt;&lt;/a&gt;
+&lt;a name="rest_code_f74baaa346a54650859266c2de329271-8"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# Firebase へログイン&lt;/span&gt;
+&lt;a name="rest_code_f74baaa346a54650859266c2de329271-9"&gt;&lt;/a&gt;$ firebase login
+&lt;a name="rest_code_f74baaa346a54650859266c2de329271-10"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# Firebase からログアウト&lt;/span&gt;
+&lt;a name="rest_code_f74baaa346a54650859266c2de329271-11"&gt;&lt;/a&gt;$ firebase &lt;span class="nb"&gt;logout&lt;/span&gt;
+&lt;a name="rest_code_f74baaa346a54650859266c2de329271-12"&gt;&lt;/a&gt;
+&lt;a name="rest_code_f74baaa346a54650859266c2de329271-13"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# Firebase Hosting の設定&lt;/span&gt;
+&lt;a name="rest_code_f74baaa346a54650859266c2de329271-14"&gt;&lt;/a&gt;$ firebase init hosting
+&lt;a name="rest_code_f74baaa346a54650859266c2de329271-15"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# Firebase Functions の設定&lt;/span&gt;
+&lt;a name="rest_code_f74baaa346a54650859266c2de329271-16"&gt;&lt;/a&gt;$ firebase init functions
+&lt;a name="rest_code_f74baaa346a54650859266c2de329271-17"&gt;&lt;/a&gt;
+&lt;a name="rest_code_f74baaa346a54650859266c2de329271-18"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 作成したAPIのテスト&lt;/span&gt;
+&lt;a name="rest_code_f74baaa346a54650859266c2de329271-19"&gt;&lt;/a&gt;$ firebase serve --only functions
+&lt;a name="rest_code_f74baaa346a54650859266c2de329271-20"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 作成した Functions を公開する&lt;/span&gt;
+&lt;a name="rest_code_f74baaa346a54650859266c2de329271-21"&gt;&lt;/a&gt;$ firebase deploy --only functions
+&lt;a name="rest_code_f74baaa346a54650859266c2de329271-22"&gt;&lt;/a&gt;
+&lt;a name="rest_code_f74baaa346a54650859266c2de329271-23"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# チャンネル作成&lt;/span&gt;
+&lt;a name="rest_code_f74baaa346a54650859266c2de329271-24"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# http://localhost:5000/fumi23-chat-app/us-central1/v1&lt;/span&gt;
+&lt;a name="rest_code_f74baaa346a54650859266c2de329271-25"&gt;&lt;/a&gt;$ curl -H &lt;span class="s1"&gt;'Content-Type:application/json'&lt;/span&gt; -d &lt;span class="s1"&gt;'{"cname": "general"}'&lt;/span&gt; http://localhost:5000/fumi23-chat-app/us-central1/v1/channels
+&lt;a name="rest_code_f74baaa346a54650859266c2de329271-26"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# チャンネル一覧&lt;/span&gt;
+&lt;a name="rest_code_f74baaa346a54650859266c2de329271-27"&gt;&lt;/a&gt;$ curl http://localhost:5000/fumi23-chat-app/uscentral1/v1/channels
+&lt;a name="rest_code_f74baaa346a54650859266c2de329271-28"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 初期状態に戻す&lt;/span&gt;
+&lt;a name="rest_code_f74baaa346a54650859266c2de329271-29"&gt;&lt;/a&gt;$ curl -H &lt;span class="s1"&gt;'ContentType:application/json'&lt;/span&gt; -d &lt;span class="s1"&gt;'{}'&lt;/span&gt; https://us-central1-fumi23-chat-app.cloudfunctions.net/v1/reset
+&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</description><category>javascript</category><guid>https://32imuf.com/javascript/firebase/</guid><pubDate>Tue, 12 May 2020 15:00:00 GMT</pubDate></item><item><title>JavaScript</title><link>https://32imuf.com/javascript/note/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;details&gt;
   &lt;summary&gt;目次&lt;/summary&gt;&lt;div class="contents topic" id="id1"&gt;
 &lt;p class="topic-title first"&gt;目次&lt;/p&gt;
 &lt;ul class="simple"&gt;

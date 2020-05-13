@@ -1,5 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ふみのて</title><link>https://32imuf.com/</link><description>のてのて</description><atom:link href="https://32imuf.com/atom.xml" rel="self" type="application/rss+xml"></atom:link><language>ja</language><copyright>Contents © 2020 &lt;a href="mailto:fumi232323fumi2016@gmail.com"&gt;fumi23&lt;/a&gt; </copyright><lastBuildDate>Wed, 06 May 2020 06:00:13 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>JavaScript</title><link>https://32imuf.com/javascript/note/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;details&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ふみのて</title><link>https://32imuf.com/</link><description>のてのて</description><atom:link href="https://32imuf.com/atom.xml" rel="self" type="application/rss+xml"></atom:link><language>ja</language><copyright>Contents © 2020 &lt;a href="mailto:fumi232323fumi2016@gmail.com"&gt;fumi23&lt;/a&gt; </copyright><lastBuildDate>Wed, 13 May 2020 14:57:59 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Firebase</title><link>https://32imuf.com/javascript/firebase/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;details&gt;
+  &lt;summary&gt;目次&lt;/summary&gt;&lt;div class="contents topic" id="id1"&gt;
+&lt;p class="topic-title first"&gt;目次&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/javascript/firebase/#id2" id="id3"&gt;リファレンス, 書籍&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/javascript/firebase/#note" id="id4"&gt;note&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/javascript/firebase/#memo" id="id5"&gt;コマンド memo&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/details&gt;&lt;div class="section" id="id2"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/javascript/firebase/#id3"&gt;リファレンス, 書籍&lt;/a&gt;&lt;/h2&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;React、Angular、Vue.js、React Nativeを使って学ぶ はじめてのフロントエンド開発: &lt;a class="reference external" href="https://gihyo.jp/book/2018/978-4-7741-9706-7"&gt;https://gihyo.jp/book/2018/978-4-7741-9706-7&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://firebase.google.com/docs"&gt;https://firebase.google.com/docs&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="note"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/javascript/firebase/#id4"&gt;note&lt;/a&gt;&lt;/h2&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;Firebase: Google社が提供するモバイルプラットフォーム。iOS、Android、Webなどでアプリケーションを構築し、モバイルサービスを提供する際に必要な機能を備えている。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Firebase Cloud Functions: Firebase の機能のイベントや HTTPSリクエストによるトリガに応じて関数を実行する&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Node.js 環境&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Firebase Realtime Database: NoSQL データベース。 JSON データを保存・同期する。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Firebase Hosting: SPAを簡単に公開できる。 CDN や HTTPS にも対応している。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Firebase Authentication: ユーザ認証システムを簡単に構築できる。ログインプロバイダとして、メールアドレス、電話認証、Google、Twitter、Facebook、GitHubおよび匿名がある。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://console.firebase.google.com"&gt;https://console.firebase.google.com&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Express: Express パッケージのルーティングを使ってAPIのエンドポイントを実装する&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;cors: cors パッケージを使ってクロスドメイン通信の許可をする&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;サーバーに Firebase Admin SDK を追加する: &lt;a class="reference external" href="https://firebase.google.com/docs/admin/setup"&gt;https://firebase.google.com/docs/admin/setup&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="memo"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/javascript/firebase/#id5"&gt;コマンド memo&lt;/a&gt;&lt;/h2&gt;
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_f74baaa346a54650859266c2de329271-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# Firebase CLI のインストール&lt;/span&gt;
+&lt;a name="rest_code_f74baaa346a54650859266c2de329271-2"&gt;&lt;/a&gt;$ sudo npm i -g firebase-tools
+&lt;a name="rest_code_f74baaa346a54650859266c2de329271-3"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# Firebase Admin SDK のインストール&lt;/span&gt;
+&lt;a name="rest_code_f74baaa346a54650859266c2de329271-4"&gt;&lt;/a&gt;$ npm install firebase-admin --save
+&lt;a name="rest_code_f74baaa346a54650859266c2de329271-5"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# Express, cors のインストール&lt;/span&gt;
+&lt;a name="rest_code_f74baaa346a54650859266c2de329271-6"&gt;&lt;/a&gt;$ npm i express cors
+&lt;a name="rest_code_f74baaa346a54650859266c2de329271-7"&gt;&lt;/a&gt;
+&lt;a name="rest_code_f74baaa346a54650859266c2de329271-8"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# Firebase へログイン&lt;/span&gt;
+&lt;a name="rest_code_f74baaa346a54650859266c2de329271-9"&gt;&lt;/a&gt;$ firebase login
+&lt;a name="rest_code_f74baaa346a54650859266c2de329271-10"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# Firebase からログアウト&lt;/span&gt;
+&lt;a name="rest_code_f74baaa346a54650859266c2de329271-11"&gt;&lt;/a&gt;$ firebase &lt;span class="nb"&gt;logout&lt;/span&gt;
+&lt;a name="rest_code_f74baaa346a54650859266c2de329271-12"&gt;&lt;/a&gt;
+&lt;a name="rest_code_f74baaa346a54650859266c2de329271-13"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# Firebase Hosting の設定&lt;/span&gt;
+&lt;a name="rest_code_f74baaa346a54650859266c2de329271-14"&gt;&lt;/a&gt;$ firebase init hosting
+&lt;a name="rest_code_f74baaa346a54650859266c2de329271-15"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# Firebase Functions の設定&lt;/span&gt;
+&lt;a name="rest_code_f74baaa346a54650859266c2de329271-16"&gt;&lt;/a&gt;$ firebase init functions
+&lt;a name="rest_code_f74baaa346a54650859266c2de329271-17"&gt;&lt;/a&gt;
+&lt;a name="rest_code_f74baaa346a54650859266c2de329271-18"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 作成したAPIのテスト&lt;/span&gt;
+&lt;a name="rest_code_f74baaa346a54650859266c2de329271-19"&gt;&lt;/a&gt;$ firebase serve --only functions
+&lt;a name="rest_code_f74baaa346a54650859266c2de329271-20"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 作成した Functions を公開する&lt;/span&gt;
+&lt;a name="rest_code_f74baaa346a54650859266c2de329271-21"&gt;&lt;/a&gt;$ firebase deploy --only functions
+&lt;a name="rest_code_f74baaa346a54650859266c2de329271-22"&gt;&lt;/a&gt;
+&lt;a name="rest_code_f74baaa346a54650859266c2de329271-23"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# チャンネル作成&lt;/span&gt;
+&lt;a name="rest_code_f74baaa346a54650859266c2de329271-24"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# http://localhost:5000/fumi23-chat-app/us-central1/v1&lt;/span&gt;
+&lt;a name="rest_code_f74baaa346a54650859266c2de329271-25"&gt;&lt;/a&gt;$ curl -H &lt;span class="s1"&gt;'Content-Type:application/json'&lt;/span&gt; -d &lt;span class="s1"&gt;'{"cname": "general"}'&lt;/span&gt; http://localhost:5000/fumi23-chat-app/us-central1/v1/channels
+&lt;a name="rest_code_f74baaa346a54650859266c2de329271-26"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# チャンネル一覧&lt;/span&gt;
+&lt;a name="rest_code_f74baaa346a54650859266c2de329271-27"&gt;&lt;/a&gt;$ curl http://localhost:5000/fumi23-chat-app/uscentral1/v1/channels
+&lt;a name="rest_code_f74baaa346a54650859266c2de329271-28"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 初期状態に戻す&lt;/span&gt;
+&lt;a name="rest_code_f74baaa346a54650859266c2de329271-29"&gt;&lt;/a&gt;$ curl -H &lt;span class="s1"&gt;'ContentType:application/json'&lt;/span&gt; -d &lt;span class="s1"&gt;'{}'&lt;/span&gt; https://us-central1-fumi23-chat-app.cloudfunctions.net/v1/reset
+&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</description><category>javascript</category><guid>https://32imuf.com/javascript/firebase/</guid><pubDate>Tue, 12 May 2020 15:00:00 GMT</pubDate></item><item><title>JavaScript</title><link>https://32imuf.com/javascript/note/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;details&gt;
   &lt;summary&gt;目次&lt;/summary&gt;&lt;div class="contents topic" id="id1"&gt;
 &lt;p class="topic-title first"&gt;目次&lt;/p&gt;
 &lt;ul class="simple"&gt;
@@ -2345,487 +2410,4 @@ Sender Policy Framework (SPF) 認証はこれらのメッセージを正常に�
 &lt;li&gt;&lt;p&gt;&lt;code class="docutils literal"&gt;Python Weekly&lt;/code&gt;: とても人気のあるメールマガジンです。興味深いPythonパッケージやリソースについて毎週10本以上の記事を読者に配信しています。&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;プロフェッショナルな開発者の多くは何かしらの種類のデバッガを使うのを好みます。だって。&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/div&gt;&lt;/div&gt;</description><category>python</category><guid>https://32imuf.com/python/expert-python-programming-2/</guid><pubDate>Sat, 23 Nov 2019 15:00:00 GMT</pubDate></item><item><title>5. Kubernetes 入門</title><link>https://32imuf.com/docker/introduction-to-practice-container-development/5-kubernetes-getting-started/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;details&gt;
-  &lt;summary&gt;目次&lt;/summary&gt;&lt;div class="contents topic" id="id1"&gt;
-&lt;p class="topic-title first"&gt;目次&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/docker/introduction-to-practice-container-development/5-kubernetes-getting-started/#id2" id="id9"&gt;書籍/リファレンス&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/docker/introduction-to-practice-container-development/5-kubernetes-getting-started/#kubernetes" id="id10"&gt;5.1 Kubernetes とは&lt;/a&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/docker/introduction-to-practice-container-development/5-kubernetes-getting-started/#id3" id="id11"&gt;クラウドプラットフォームの Kubernetes サポート&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/docker/introduction-to-practice-container-development/5-kubernetes-getting-started/#id4" id="id12"&gt;5.2 ローカル環境で Kubernetes を実行する&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/docker/introduction-to-practice-container-development/5-kubernetes-getting-started/#id5" id="id13"&gt;5.3 Kubernetes の概念&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/docker/introduction-to-practice-container-development/5-kubernetes-getting-started/#kubernetes-node" id="id14"&gt;5.4 Kubernetes クラスタと Node&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/docker/introduction-to-practice-container-development/5-kubernetes-getting-started/#pod" id="id15"&gt;5.6 Pod を作成してデプロイする&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/docker/introduction-to-practice-container-development/5-kubernetes-getting-started/#replicaset" id="id16"&gt;5.7 ReplicaSet&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/docker/introduction-to-practice-container-development/5-kubernetes-getting-started/#deployment" id="id17"&gt;5.8  Deployment&lt;/a&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/docker/introduction-to-practice-container-development/5-kubernetes-getting-started/#id6" id="id18"&gt;ReplicaSet のライフサイクル&lt;/a&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/docker/introduction-to-practice-container-development/5-kubernetes-getting-started/#id7" id="id19"&gt;挙動まとめ&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/docker/introduction-to-practice-container-development/5-kubernetes-getting-started/#service" id="id20"&gt;5.9 Service&lt;/a&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/docker/introduction-to-practice-container-development/5-kubernetes-getting-started/#id8" id="id21"&gt;Service の名前解決&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;/details&gt;&lt;div class="section" id="id2"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/introduction-to-practice-container-development/5-kubernetes-getting-started/#id9"&gt;書籍/リファレンス&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;&lt;a class="reference external" href="https://gihyo.jp/book/2018/978-4-297-10033-9"&gt;Docker/Kubernetes 実践コンテナ開発入門&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="kubernetes"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/introduction-to-practice-container-development/5-kubernetes-getting-started/#id10"&gt;5.1 Kubernetes とは&lt;/a&gt;&lt;/h2&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;p&gt;Google 社主導で開発された、コンテナの運用を自動化するためのコンテナオーケストレーションシステム&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;コンテナオーケストレーションを実現・管理するための統合的なシステム&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;その操作のための API や CLI ツールも併せて提供する&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;コンテナを用いたアプリケーションのデプロイをはじめ、様々な運用管理の自動化を実現する&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Docker ホストの管理&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;サーバーリソースの空き具合を考慮したコンテナ配置&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;スケーリング&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;複数のコンテナ群へのアクセスを取りまとめるロードバランサー&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;死活監視&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;code class="docutils literal"&gt;クーバネティス&lt;/code&gt; と読むらしい&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class="section" id="id3"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/introduction-to-practice-container-development/5-kubernetes-getting-started/#id11"&gt;クラウドプラットフォームの Kubernetes サポート&lt;/a&gt;&lt;/h3&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;p&gt;Google: GKE&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Microsoft Azure: AKS&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;AWS: Amazon EKS&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="id4"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/introduction-to-practice-container-development/5-kubernetes-getting-started/#id12"&gt;5.2 ローカル環境で Kubernetes を実行する&lt;/a&gt;&lt;/h2&gt;
-&lt;ol class="arabic simple"&gt;
-&lt;li&gt;&lt;p&gt;Docker for Mac の Kubernetes 連携を有効にする&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_bf56554e5cc44523bed814ae6c031326-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 2. kubectl (Kubernetes を操作するためのコマンドラインツール) をインストールする&lt;/span&gt;
-&lt;a name="rest_code_bf56554e5cc44523bed814ae6c031326-2"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# https://kubernetes.io/docs/tasks/tools/install-kubectl/&lt;/span&gt;
-&lt;a name="rest_code_bf56554e5cc44523bed814ae6c031326-3"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# けっこう長かった&lt;/span&gt;
-&lt;a name="rest_code_bf56554e5cc44523bed814ae6c031326-4"&gt;&lt;/a&gt;$ brew install kubectl
-&lt;a name="rest_code_bf56554e5cc44523bed814ae6c031326-5"&gt;&lt;/a&gt;
-&lt;a name="rest_code_bf56554e5cc44523bed814ae6c031326-6"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 3. ダッシュボードの適用 (追加)&lt;/span&gt;
-&lt;a name="rest_code_bf56554e5cc44523bed814ae6c031326-7"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/&lt;/span&gt;
-&lt;a name="rest_code_bf56554e5cc44523bed814ae6c031326-8"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# これはすぐだった&lt;/span&gt;
-&lt;a name="rest_code_bf56554e5cc44523bed814ae6c031326-9"&gt;&lt;/a&gt;$ kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0-beta4/aio/deploy/recommended.yaml
-&lt;a name="rest_code_bf56554e5cc44523bed814ae6c031326-10"&gt;&lt;/a&gt;
-&lt;a name="rest_code_bf56554e5cc44523bed814ae6c031326-11"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 4. ダッシュボードへのプロキシサーバーを立ち上げる&lt;/span&gt;
-&lt;a name="rest_code_bf56554e5cc44523bed814ae6c031326-12"&gt;&lt;/a&gt;$ kubectl proxy
-&lt;/pre&gt;&lt;ol class="arabic simple" start="5"&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/"&gt;http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/&lt;/a&gt;. へアクセスする&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;
-&lt;div class="section" id="id5"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/introduction-to-practice-container-development/5-kubernetes-getting-started/#id13"&gt;5.3 Kubernetes の概念&lt;/a&gt;&lt;/h2&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;p&gt;P.173 に一覧表になっている&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class="section" id="kubernetes-node"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/introduction-to-practice-container-development/5-kubernetes-getting-started/#id14"&gt;5.4 Kubernetes クラスタと Node&lt;/a&gt;&lt;/h2&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;p&gt;大きい順: &lt;code class="docutils literal"&gt;クラスタ&lt;/code&gt; &amp;gt;&amp;gt;&amp;gt; &lt;code class="docutils literal"&gt;Node&lt;/code&gt; &amp;gt;&amp;gt;&amp;gt; &lt;code class="docutils literal"&gt;Pod&lt;/code&gt; &amp;gt;&amp;gt;&amp;gt; &lt;code class="docutils literal"&gt;コンテナ&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;クラスタ: Kubernetes の様々なリソースを管理する集合体&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;全体を管理するサーバーである Master が少なくとも1つは配置されている&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class="section" id="pod"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/introduction-to-practice-container-development/5-kubernetes-getting-started/#id15"&gt;5.6 Pod を作成してデプロイする&lt;/a&gt;&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Pod: コンテナの集合体の単位&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;p&gt;少なくとも 1つのコンテナを持つ&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Kubernetes では Pod 単位でコンテナをひとくくりにしてデプロイする&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Pod を定義したマニフェストファイルを作成する&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;p&gt;kubectl だけで Pod を作成することもできるが、バージョン管理の観点から yaml ファイルとして定義することがほとんど&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;kubernetes の各種リソースを定義するファイルを &lt;code class="docutils literal"&gt;マニフェストファイル&lt;/code&gt; と呼ぶ&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;/p&gt;&lt;div class="code-block "&gt;&lt;div class="code-block-label"&gt;simple-pod.yaml&lt;/div&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nt"&gt;apiVersion&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;v1&lt;/span&gt;
-&lt;span class="nt"&gt;kind&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;Pod&lt;/span&gt;  &lt;span class="c1"&gt;# リソースの種類を指定&lt;/span&gt;
-&lt;span class="nt"&gt;metadata&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;  &lt;span class="c1"&gt;# リソースに付与するメタデータ&lt;/span&gt;
-  &lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;simple-echo&lt;/span&gt;
-&lt;span class="nt"&gt;spec&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-  &lt;span class="nt"&gt;containers&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;  &lt;span class="c1"&gt;# 構成するコンテナ群を定義&lt;/span&gt;
-    &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;nginx&lt;/span&gt;
-      &lt;span class="nt"&gt;image&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;gihyodocker/nginx-proxy:latest&lt;/span&gt;  &lt;span class="c1"&gt;# 使うコンテナイメージ&lt;/span&gt;
-      &lt;span class="nt"&gt;env&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-        &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;BACKEND_HOST&lt;/span&gt;  &lt;span class="c1"&gt;# リクエストのプロキシ先&lt;/span&gt;
-          &lt;span class="nt"&gt;value&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;localhost:8080&lt;/span&gt;
-      &lt;span class="nt"&gt;ports&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;  &lt;span class="c1"&gt;# コンテナが EXPOSE するポート&lt;/span&gt;
-        &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="nt"&gt;containerPort&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;80&lt;/span&gt;
-    &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;echo&lt;/span&gt;
-      &lt;span class="nt"&gt;image&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;gihyodocker/echo:latest&lt;/span&gt;
-      &lt;span class="nt"&gt;ports&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-        &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="nt"&gt;containerPort&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;8080&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Kubernetes クラスタに反映する&lt;/p&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_0ebafbc8c19b41e495ab41c79f39a104-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# apply: 新規作成/内容に変更があったときだけ反映される&lt;/span&gt;
-&lt;a name="rest_code_0ebafbc8c19b41e495ab41c79f39a104-2"&gt;&lt;/a&gt;$ kubectl apply -f simple-pod.yaml
-&lt;a name="rest_code_0ebafbc8c19b41e495ab41c79f39a104-3"&gt;&lt;/a&gt;pod/simple-echo created
-&lt;a name="rest_code_0ebafbc8c19b41e495ab41c79f39a104-4"&gt;&lt;/a&gt;
-&lt;a name="rest_code_0ebafbc8c19b41e495ab41c79f39a104-5"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# Pod の状態を一覧表示&lt;/span&gt;
-&lt;a name="rest_code_0ebafbc8c19b41e495ab41c79f39a104-6"&gt;&lt;/a&gt;$ kubectl get pod
-&lt;a name="rest_code_0ebafbc8c19b41e495ab41c79f39a104-7"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# STATUS Running:  Pod 内のすべてのコンテナが実行状態&lt;/span&gt;
-&lt;a name="rest_code_0ebafbc8c19b41e495ab41c79f39a104-8"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# READY 2/2: 実行状態になったコンテナ数/Pod に定義されたコンテナ数&lt;/span&gt;
-&lt;a name="rest_code_0ebafbc8c19b41e495ab41c79f39a104-9"&gt;&lt;/a&gt;NAME          READY   STATUS    RESTARTS   AGE
-&lt;a name="rest_code_0ebafbc8c19b41e495ab41c79f39a104-10"&gt;&lt;/a&gt;simple-echo   &lt;span class="m"&gt;2&lt;/span&gt;/2     Running   &lt;span class="m"&gt;0&lt;/span&gt;          2m49s
-&lt;a name="rest_code_0ebafbc8c19b41e495ab41c79f39a104-11"&gt;&lt;/a&gt;
-&lt;a name="rest_code_0ebafbc8c19b41e495ab41c79f39a104-12"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# コンテナに入る&lt;/span&gt;
-&lt;a name="rest_code_0ebafbc8c19b41e495ab41c79f39a104-13"&gt;&lt;/a&gt;$ kubectl &lt;span class="nb"&gt;exec&lt;/span&gt; -it simple-echo sh -c nginx
-&lt;a name="rest_code_0ebafbc8c19b41e495ab41c79f39a104-14"&gt;&lt;/a&gt;/ &lt;span class="c1"&gt;#&lt;/span&gt;
-&lt;a name="rest_code_0ebafbc8c19b41e495ab41c79f39a104-15"&gt;&lt;/a&gt;
-&lt;a name="rest_code_0ebafbc8c19b41e495ab41c79f39a104-16"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# Pod 内のコンテナの標準出力を表示する&lt;/span&gt;
-&lt;a name="rest_code_0ebafbc8c19b41e495ab41c79f39a104-17"&gt;&lt;/a&gt;$ kubectl logs -f simple-echo -c &lt;span class="nb"&gt;echo&lt;/span&gt;
-&lt;a name="rest_code_0ebafbc8c19b41e495ab41c79f39a104-18"&gt;&lt;/a&gt;&lt;span class="m"&gt;2019&lt;/span&gt;/11/17 &lt;span class="m"&gt;04&lt;/span&gt;:50:42 start server
-&lt;a name="rest_code_0ebafbc8c19b41e495ab41c79f39a104-19"&gt;&lt;/a&gt;
-&lt;a name="rest_code_0ebafbc8c19b41e495ab41c79f39a104-20"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# Pod を削除する&lt;/span&gt;
-&lt;a name="rest_code_0ebafbc8c19b41e495ab41c79f39a104-21"&gt;&lt;/a&gt;$ kubectl delete pod simple-echo
-&lt;a name="rest_code_0ebafbc8c19b41e495ab41c79f39a104-22"&gt;&lt;/a&gt;pod &lt;span class="s2"&gt;"simple-echo"&lt;/span&gt; deleted
-&lt;a name="rest_code_0ebafbc8c19b41e495ab41c79f39a104-23"&gt;&lt;/a&gt;
-&lt;a name="rest_code_0ebafbc8c19b41e495ab41c79f39a104-24"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# マニフェストファイルベースで Pod を削除する&lt;/span&gt;
-&lt;a name="rest_code_0ebafbc8c19b41e495ab41c79f39a104-25"&gt;&lt;/a&gt;$ kubectl delete -f simple-pod.yaml
-&lt;/pre&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Pod と Pod 内コンテナのアドレス&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;p&gt;Pod にはそれぞれ固有の IPアドレスが割り振られる&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Pod に割り振られた仮想 IPアドレスは、その Pod に所属するすべてのコンテナと共有される =&amp;gt; 同一 Pod 内の全てのコンテナの仮想IPアドレスは同じ&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class="section" id="replicaset"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/introduction-to-practice-container-development/5-kubernetes-getting-started/#id16"&gt;5.7 ReplicaSet&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;同じ仕様の Pod を複数生成/管理するためのリソース&lt;/p&gt;
-&lt;p&gt;&lt;/p&gt;&lt;div class="code-block "&gt;&lt;div class="code-block-label"&gt;simple-replicaset.yaml&lt;/div&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nt"&gt;apiVersion&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;apps/v1&lt;/span&gt;
-&lt;span class="nt"&gt;kind&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;ReplicaSet&lt;/span&gt;  &lt;span class="c1"&gt;# リソースの種類を指定&lt;/span&gt;
-&lt;span class="nt"&gt;metadata&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;  &lt;span class="c1"&gt;# リソースに付与するメタデータ&lt;/span&gt;
-  &lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;echo&lt;/span&gt;
-  &lt;span class="nt"&gt;labels&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-    &lt;span class="nt"&gt;app&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;echo&lt;/span&gt;
-&lt;span class="nt"&gt;spec&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-  &lt;span class="nt"&gt;replicas&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;3&lt;/span&gt;  &lt;span class="c1"&gt;# 作成する Pod数&lt;/span&gt;
-  &lt;span class="nt"&gt;selector&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-    &lt;span class="nt"&gt;matchLabels&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-      &lt;span class="nt"&gt;app&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;echo&lt;/span&gt;
-  &lt;span class="nt"&gt;template&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;  &lt;span class="c1"&gt;# ここから Pod 定義と同じ&lt;/span&gt;
-    &lt;span class="nt"&gt;metadata&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-      &lt;span class="nt"&gt;labels&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-        &lt;span class="nt"&gt;app&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;echo&lt;/span&gt;
-    &lt;span class="nt"&gt;spec&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-      &lt;span class="nt"&gt;containers&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-        &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;nginx&lt;/span&gt;
-          &lt;span class="nt"&gt;image&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;gihyodocker/nginx-proxy:latest&lt;/span&gt;
-          &lt;span class="nt"&gt;env&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-            &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;BACKEND_HOST&lt;/span&gt;
-              &lt;span class="nt"&gt;value&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;localhost:8080&lt;/span&gt;
-          &lt;span class="nt"&gt;ports&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-            &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="nt"&gt;containerPort&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;80&lt;/span&gt;
-        &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;echo&lt;/span&gt;
-          &lt;span class="nt"&gt;image&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;gihyodocker/echo:latest&lt;/span&gt;
-          &lt;span class="nt"&gt;ports&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-            &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="nt"&gt;containerPort&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;8080&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_1dd756f2a5d041638787769d5e4a3d3a-1"&gt;&lt;/a&gt;$ kubectl apply -f simple-replicaset.yaml
-&lt;a name="rest_code_1dd756f2a5d041638787769d5e4a3d3a-2"&gt;&lt;/a&gt;replicaset.apps/echo created
-&lt;a name="rest_code_1dd756f2a5d041638787769d5e4a3d3a-3"&gt;&lt;/a&gt;
-&lt;a name="rest_code_1dd756f2a5d041638787769d5e4a3d3a-4"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# Pod が 3つ作成されている&lt;/span&gt;
-&lt;a name="rest_code_1dd756f2a5d041638787769d5e4a3d3a-5"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# ReplicaSet を操作して Pod の数を減らすと、減らした分の Pod は削除されて元に戻せない =&amp;gt; Stateless なものに向いてる&lt;/span&gt;
-&lt;a name="rest_code_1dd756f2a5d041638787769d5e4a3d3a-6"&gt;&lt;/a&gt;$ kubectl get pod
-&lt;a name="rest_code_1dd756f2a5d041638787769d5e4a3d3a-7"&gt;&lt;/a&gt;NAME         READY   STATUS    RESTARTS   AGE
-&lt;a name="rest_code_1dd756f2a5d041638787769d5e4a3d3a-8"&gt;&lt;/a&gt;echo-69gln   &lt;span class="m"&gt;2&lt;/span&gt;/2     Running   &lt;span class="m"&gt;0&lt;/span&gt;          39s
-&lt;a name="rest_code_1dd756f2a5d041638787769d5e4a3d3a-9"&gt;&lt;/a&gt;echo-hm7ns   &lt;span class="m"&gt;2&lt;/span&gt;/2     Running   &lt;span class="m"&gt;0&lt;/span&gt;          39s
-&lt;a name="rest_code_1dd756f2a5d041638787769d5e4a3d3a-10"&gt;&lt;/a&gt;echo-x9729   &lt;span class="m"&gt;2&lt;/span&gt;/2     Running   &lt;span class="m"&gt;0&lt;/span&gt;          39s
-&lt;a name="rest_code_1dd756f2a5d041638787769d5e4a3d3a-11"&gt;&lt;/a&gt;
-&lt;a name="rest_code_1dd756f2a5d041638787769d5e4a3d3a-12"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# ReplicaSet を削除する&lt;/span&gt;
-&lt;a name="rest_code_1dd756f2a5d041638787769d5e4a3d3a-13"&gt;&lt;/a&gt;$ kubectl delete -f simple-replicaset.yaml
-&lt;/pre&gt;&lt;/div&gt;
-&lt;div class="section" id="deployment"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/introduction-to-practice-container-development/5-kubernetes-getting-started/#id17"&gt;5.8  Deployment&lt;/a&gt;&lt;/h2&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;p&gt;アプリケーションデプロイの基本単位となるリソース&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;code class="docutils literal"&gt;Deployment&lt;/code&gt; &amp;gt;&amp;gt;&amp;gt; &lt;code class="docutils literal"&gt;ReplicaSet&lt;/code&gt; &amp;gt;&amp;gt;&amp;gt; &lt;code class="docutils literal"&gt;Pod&lt;/code&gt; たち&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;ReplicaSet を管理/操作する&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Deployment は ReplicaSet の世代管理できる&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;/p&gt;&lt;div class="code-block "&gt;&lt;div class="code-block-label"&gt;simple-deployment.yaml&lt;/div&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nt"&gt;apiVersion&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;apps/v1&lt;/span&gt;
-&lt;span class="nt"&gt;kind&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;Deployment&lt;/span&gt;  &lt;span class="c1"&gt;# ここが Deployment に&lt;/span&gt;
-&lt;span class="nt"&gt;metadata&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-  &lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;echo&lt;/span&gt;
-  &lt;span class="nt"&gt;labels&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-    &lt;span class="nt"&gt;app&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;echo&lt;/span&gt;
-&lt;span class="nt"&gt;spec&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-  &lt;span class="nt"&gt;replicas&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;3&lt;/span&gt;
-  &lt;span class="nt"&gt;selector&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-    &lt;span class="nt"&gt;matchLabels&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-      &lt;span class="nt"&gt;app&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;echo&lt;/span&gt;
-  &lt;span class="nt"&gt;template&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-    &lt;span class="nt"&gt;metadata&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-      &lt;span class="nt"&gt;labels&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-        &lt;span class="nt"&gt;app&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;echo&lt;/span&gt;
-    &lt;span class="nt"&gt;spec&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-      &lt;span class="nt"&gt;containers&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-        &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;nginx&lt;/span&gt;
-          &lt;span class="nt"&gt;image&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;gihyodocker/nginx-proxy:latest&lt;/span&gt;
-          &lt;span class="nt"&gt;env&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-            &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;BACKEND_HOST&lt;/span&gt;
-              &lt;span class="nt"&gt;value&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;localhost:8080&lt;/span&gt;
-          &lt;span class="nt"&gt;ports&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-            &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="nt"&gt;containerPort&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;80&lt;/span&gt;
-        &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;echo&lt;/span&gt;
-          &lt;span class="nt"&gt;image&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;gihyodocker/echo:patched&lt;/span&gt;
-&lt;span class="c1"&gt;#          image: gihyodocker/echo:latest&lt;/span&gt;
-          &lt;span class="nt"&gt;ports&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-            &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="nt"&gt;containerPort&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;8080&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_1202ef784b9945afba34dbb4f29bd495-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# コマンドを記録できる ``--record`` オプションをつけて反映&lt;/span&gt;
-&lt;a name="rest_code_1202ef784b9945afba34dbb4f29bd495-2"&gt;&lt;/a&gt;$ kubectl apply -f simple-deployment.yaml --record
-&lt;a name="rest_code_1202ef784b9945afba34dbb4f29bd495-3"&gt;&lt;/a&gt;deployment.apps/echo created
-&lt;a name="rest_code_1202ef784b9945afba34dbb4f29bd495-4"&gt;&lt;/a&gt;
-&lt;a name="rest_code_1202ef784b9945afba34dbb4f29bd495-5"&gt;&lt;/a&gt;$ kubectl get pod,replicaset,deployment --selector &lt;span class="nv"&gt;app&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;
-&lt;a name="rest_code_1202ef784b9945afba34dbb4f29bd495-6"&gt;&lt;/a&gt;NAME                        READY   STATUS    RESTARTS   AGE
-&lt;a name="rest_code_1202ef784b9945afba34dbb4f29bd495-7"&gt;&lt;/a&gt;pod/echo-679c46ddf9-8rhgm   &lt;span class="m"&gt;2&lt;/span&gt;/2     Running   &lt;span class="m"&gt;0&lt;/span&gt;          107s
-&lt;a name="rest_code_1202ef784b9945afba34dbb4f29bd495-8"&gt;&lt;/a&gt;pod/echo-679c46ddf9-hl22n   &lt;span class="m"&gt;2&lt;/span&gt;/2     Running   &lt;span class="m"&gt;0&lt;/span&gt;          107s
-&lt;a name="rest_code_1202ef784b9945afba34dbb4f29bd495-9"&gt;&lt;/a&gt;pod/echo-679c46ddf9-kbm2g   &lt;span class="m"&gt;2&lt;/span&gt;/2     Running   &lt;span class="m"&gt;0&lt;/span&gt;          107s
-&lt;a name="rest_code_1202ef784b9945afba34dbb4f29bd495-10"&gt;&lt;/a&gt;
-&lt;a name="rest_code_1202ef784b9945afba34dbb4f29bd495-11"&gt;&lt;/a&gt;NAME                                    DESIRED   CURRENT   READY   AGE
-&lt;a name="rest_code_1202ef784b9945afba34dbb4f29bd495-12"&gt;&lt;/a&gt;replicaset.extensions/echo-679c46ddf9   &lt;span class="m"&gt;3&lt;/span&gt;         &lt;span class="m"&gt;3&lt;/span&gt;         &lt;span class="m"&gt;3&lt;/span&gt;       107s
-&lt;a name="rest_code_1202ef784b9945afba34dbb4f29bd495-13"&gt;&lt;/a&gt;
-&lt;a name="rest_code_1202ef784b9945afba34dbb4f29bd495-14"&gt;&lt;/a&gt;NAME                         READY   UP-TO-DATE   AVAILABLE   AGE
-&lt;a name="rest_code_1202ef784b9945afba34dbb4f29bd495-15"&gt;&lt;/a&gt;deployment.extensions/echo   &lt;span class="m"&gt;3&lt;/span&gt;/3     &lt;span class="m"&gt;3&lt;/span&gt;            &lt;span class="m"&gt;3&lt;/span&gt;           107s
-&lt;a name="rest_code_1202ef784b9945afba34dbb4f29bd495-16"&gt;&lt;/a&gt;
-&lt;a name="rest_code_1202ef784b9945afba34dbb4f29bd495-17"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# Deployment のリビジョンを確認する&lt;/span&gt;
-&lt;a name="rest_code_1202ef784b9945afba34dbb4f29bd495-18"&gt;&lt;/a&gt;$ kubectl rollout &lt;span class="nb"&gt;history&lt;/span&gt; deployment &lt;span class="nb"&gt;echo&lt;/span&gt;
-&lt;a name="rest_code_1202ef784b9945afba34dbb4f29bd495-19"&gt;&lt;/a&gt;deployment.extensions/echo
-&lt;a name="rest_code_1202ef784b9945afba34dbb4f29bd495-20"&gt;&lt;/a&gt;REVISION  CHANGE-CAUSE
-&lt;a name="rest_code_1202ef784b9945afba34dbb4f29bd495-21"&gt;&lt;/a&gt;&lt;span class="m"&gt;1&lt;/span&gt;         kubectl apply --filename&lt;span class="o"&gt;=&lt;/span&gt;simple-deployment.yaml --record&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;true&lt;/span&gt;
-&lt;/pre&gt;&lt;div class="section" id="id6"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/introduction-to-practice-container-development/5-kubernetes-getting-started/#id18"&gt;ReplicaSet のライフサイクル&lt;/a&gt;&lt;/h3&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;p&gt;Kubernetes では Deployment を 1つの単位としてアプリケーションをデプロイする&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;実運用では ReplicaSet を直接用いることはほとんどない&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Deployment のマニフェストファイルを扱う運用にする&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;ReplicaSet 大事&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;指定された Pod 数の確保&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;新しいバージョンの Pod への入れ替え&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;以前のバージョンへの Pod のロールバック&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class="section" id="id7"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/introduction-to-practice-container-development/5-kubernetes-getting-started/#id19"&gt;挙動まとめ&lt;/a&gt;&lt;/h4&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;p&gt;Pod 数を変更: 新規 ReplicaSet 生まれない&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;コンテナ定義を更新: 新しいリビジョンが作成される&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_e03a780d7d7c466da5645299ef0cc655-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 特定のリビジョンの内容を確認できる&lt;/span&gt;
-&lt;a name="rest_code_e03a780d7d7c466da5645299ef0cc655-2"&gt;&lt;/a&gt;$ kubectl rollout &lt;span class="nb"&gt;history&lt;/span&gt; deployment &lt;span class="nb"&gt;echo&lt;/span&gt;  --revision&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;
-&lt;a name="rest_code_e03a780d7d7c466da5645299ef0cc655-3"&gt;&lt;/a&gt;deployment.extensions/echo with revision &lt;span class="c1"&gt;#1&lt;/span&gt;
-&lt;a name="rest_code_e03a780d7d7c466da5645299ef0cc655-4"&gt;&lt;/a&gt;Pod Template:
-&lt;a name="rest_code_e03a780d7d7c466da5645299ef0cc655-5"&gt;&lt;/a&gt;  Labels:     &lt;span class="nv"&gt;app&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;
-&lt;a name="rest_code_e03a780d7d7c466da5645299ef0cc655-6"&gt;&lt;/a&gt;  pod-template-hash&lt;span class="o"&gt;=&lt;/span&gt;679c46ddf9
-&lt;a name="rest_code_e03a780d7d7c466da5645299ef0cc655-7"&gt;&lt;/a&gt;  Annotations:        kubernetes.io/change-cause: kubectl apply --filename&lt;span class="o"&gt;=&lt;/span&gt;simple-deployment.yaml --record&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;true&lt;/span&gt;
-&lt;a name="rest_code_e03a780d7d7c466da5645299ef0cc655-8"&gt;&lt;/a&gt;  Containers:
-&lt;a name="rest_code_e03a780d7d7c466da5645299ef0cc655-9"&gt;&lt;/a&gt;   nginx:
-&lt;a name="rest_code_e03a780d7d7c466da5645299ef0cc655-10"&gt;&lt;/a&gt;    Image:    gihyodocker/nginx-proxy:latest
-&lt;a name="rest_code_e03a780d7d7c466da5645299ef0cc655-11"&gt;&lt;/a&gt;    Port:     &lt;span class="m"&gt;80&lt;/span&gt;/TCP
-&lt;a name="rest_code_e03a780d7d7c466da5645299ef0cc655-12"&gt;&lt;/a&gt;    Host Port:        &lt;span class="m"&gt;0&lt;/span&gt;/TCP
-&lt;a name="rest_code_e03a780d7d7c466da5645299ef0cc655-13"&gt;&lt;/a&gt;    Environment:
-&lt;a name="rest_code_e03a780d7d7c466da5645299ef0cc655-14"&gt;&lt;/a&gt;      BACKEND_HOST:   localhost:8080
-&lt;a name="rest_code_e03a780d7d7c466da5645299ef0cc655-15"&gt;&lt;/a&gt;    Mounts:   &amp;lt;none&amp;gt;
-&lt;a name="rest_code_e03a780d7d7c466da5645299ef0cc655-16"&gt;&lt;/a&gt;   echo:
-&lt;a name="rest_code_e03a780d7d7c466da5645299ef0cc655-17"&gt;&lt;/a&gt;    Image:    gihyodocker/echo:latest
-&lt;a name="rest_code_e03a780d7d7c466da5645299ef0cc655-18"&gt;&lt;/a&gt;    Port:     &lt;span class="m"&gt;8080&lt;/span&gt;/TCP
-&lt;a name="rest_code_e03a780d7d7c466da5645299ef0cc655-19"&gt;&lt;/a&gt;    Host Port:        &lt;span class="m"&gt;0&lt;/span&gt;/TCP
-&lt;a name="rest_code_e03a780d7d7c466da5645299ef0cc655-20"&gt;&lt;/a&gt;    Environment:      &amp;lt;none&amp;gt;
-&lt;a name="rest_code_e03a780d7d7c466da5645299ef0cc655-21"&gt;&lt;/a&gt;    Mounts:   &amp;lt;none&amp;gt;
-&lt;a name="rest_code_e03a780d7d7c466da5645299ef0cc655-22"&gt;&lt;/a&gt;  Volumes:    &amp;lt;none&amp;gt;
-&lt;a name="rest_code_e03a780d7d7c466da5645299ef0cc655-23"&gt;&lt;/a&gt;
-&lt;a name="rest_code_e03a780d7d7c466da5645299ef0cc655-24"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 直前の操作のリビジョンに Deployment をロールバックできる&lt;/span&gt;
-&lt;a name="rest_code_e03a780d7d7c466da5645299ef0cc655-25"&gt;&lt;/a&gt;$ kubectl rollout undo deployment &lt;span class="nb"&gt;echo&lt;/span&gt;
-&lt;a name="rest_code_e03a780d7d7c466da5645299ef0cc655-26"&gt;&lt;/a&gt;deployment.extensions/echo rolled back
-&lt;a name="rest_code_e03a780d7d7c466da5645299ef0cc655-27"&gt;&lt;/a&gt;
-&lt;a name="rest_code_e03a780d7d7c466da5645299ef0cc655-28"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 削除: 関連する ReplicaSet と Pod もいっしょに削除される&lt;/span&gt;
-&lt;a name="rest_code_e03a780d7d7c466da5645299ef0cc655-29"&gt;&lt;/a&gt;$ kubectl delete -f simple-deployment.yaml
-&lt;a name="rest_code_e03a780d7d7c466da5645299ef0cc655-30"&gt;&lt;/a&gt;deployment.apps &lt;span class="s2"&gt;"echo"&lt;/span&gt; deleted
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="service"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/introduction-to-practice-container-development/5-kubernetes-getting-started/#id20"&gt;5.9 Service&lt;/a&gt;&lt;/h2&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;p&gt;Kubernetes クラスタ内において、 Pod の集合 (主に ReplicaSet) に対する経路やサービスディスカバリを提供するためのリソース&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Service のターゲットとなる一連の Pod は、 Service で定義するラベルセレクタによって決定される&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;/p&gt;&lt;div class="code-block "&gt;&lt;div class="code-block-label"&gt;simple-replicaset-with-label.yaml&lt;/div&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# 例として、 release ラベル spring/summer をつけて ReplicaSet を二つ定義する&lt;/span&gt;
-&lt;span class="nt"&gt;apiVersion&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;apps/v1&lt;/span&gt;
-&lt;span class="nt"&gt;kind&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;ReplicaSet&lt;/span&gt;
-&lt;span class="nt"&gt;metadata&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-  &lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;echo-spring&lt;/span&gt;
-  &lt;span class="nt"&gt;labels&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-    &lt;span class="nt"&gt;app&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;echo&lt;/span&gt;
-    &lt;span class="nt"&gt;release&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;spring&lt;/span&gt;
-&lt;span class="nt"&gt;spec&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-  &lt;span class="nt"&gt;replicas&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;1&lt;/span&gt;
-  &lt;span class="nt"&gt;selector&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-    &lt;span class="nt"&gt;matchLabels&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-      &lt;span class="nt"&gt;app&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;echo&lt;/span&gt;
-      &lt;span class="nt"&gt;release&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;spring&lt;/span&gt;
-  &lt;span class="nt"&gt;template&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-    &lt;span class="nt"&gt;metadata&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-      &lt;span class="nt"&gt;labels&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-        &lt;span class="nt"&gt;app&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;echo&lt;/span&gt;
-        &lt;span class="nt"&gt;release&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;spring&lt;/span&gt;
-    &lt;span class="nt"&gt;spec&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-      &lt;span class="nt"&gt;containers&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-        &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;nginx&lt;/span&gt;
-          &lt;span class="nt"&gt;image&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;gihyodocker/nginx-proxy:latest&lt;/span&gt;
-          &lt;span class="nt"&gt;env&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-            &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;BACKEND_HOST&lt;/span&gt;
-              &lt;span class="nt"&gt;value&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;localhost:8080&lt;/span&gt;
-          &lt;span class="nt"&gt;ports&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-            &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="nt"&gt;containerPort&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;80&lt;/span&gt;
-        &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;echo&lt;/span&gt;
-          &lt;span class="nt"&gt;image&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;gihyodocker/echo:latest&lt;/span&gt;
-          &lt;span class="nt"&gt;ports&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-            &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="nt"&gt;containerPort&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;8080&lt;/span&gt;
-
-&lt;span class="nn"&gt;---&lt;/span&gt;
-&lt;span class="nt"&gt;apiVersion&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;apps/v1&lt;/span&gt;
-&lt;span class="nt"&gt;kind&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;ReplicaSet&lt;/span&gt;
-&lt;span class="nt"&gt;metadata&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-  &lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;echo-summer&lt;/span&gt;
-  &lt;span class="nt"&gt;labels&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-    &lt;span class="nt"&gt;app&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;echo&lt;/span&gt;
-    &lt;span class="nt"&gt;release&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;summer&lt;/span&gt;
-&lt;span class="nt"&gt;spec&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-  &lt;span class="nt"&gt;replicas&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;2&lt;/span&gt;
-  &lt;span class="nt"&gt;selector&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-    &lt;span class="nt"&gt;matchLabels&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-      &lt;span class="nt"&gt;app&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;echo&lt;/span&gt;
-      &lt;span class="nt"&gt;release&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;summer&lt;/span&gt;
-  &lt;span class="nt"&gt;template&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-    &lt;span class="nt"&gt;metadata&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-      &lt;span class="nt"&gt;labels&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-        &lt;span class="nt"&gt;app&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;echo&lt;/span&gt;
-        &lt;span class="nt"&gt;release&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;summer&lt;/span&gt;
-    &lt;span class="nt"&gt;spec&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-      &lt;span class="nt"&gt;containers&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-        &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;nginx&lt;/span&gt;
-          &lt;span class="nt"&gt;image&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;gihyodocker/nginx-proxy:latest&lt;/span&gt;
-          &lt;span class="nt"&gt;env&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-            &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;BACKEND_HOST&lt;/span&gt;
-              &lt;span class="nt"&gt;value&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;localhost:8080&lt;/span&gt;
-          &lt;span class="nt"&gt;ports&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-            &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="nt"&gt;containerPort&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;80&lt;/span&gt;
-        &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;echo&lt;/span&gt;
-          &lt;span class="nt"&gt;image&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;gihyodocker/echo:latest&lt;/span&gt;
-          &lt;span class="nt"&gt;ports&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-            &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="nt"&gt;containerPort&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;8080&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_a28356767391463d979a1c988ddab9dd-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# apply&lt;/span&gt;
-&lt;a name="rest_code_a28356767391463d979a1c988ddab9dd-2"&gt;&lt;/a&gt;$ kubectl apply -f simple-replicaset-with-label.yaml
-&lt;a name="rest_code_a28356767391463d979a1c988ddab9dd-3"&gt;&lt;/a&gt;replicaset.apps/echo-spring created
-&lt;a name="rest_code_a28356767391463d979a1c988ddab9dd-4"&gt;&lt;/a&gt;replicaset.apps/echo-summer created
-&lt;a name="rest_code_a28356767391463d979a1c988ddab9dd-5"&gt;&lt;/a&gt;
-&lt;a name="rest_code_a28356767391463d979a1c988ddab9dd-6"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# release ラベルに spring/summer を持つ Pod がそれぞれつくられる&lt;/span&gt;
-&lt;a name="rest_code_a28356767391463d979a1c988ddab9dd-7"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# release ラベルに spring を持つ Pod&lt;/span&gt;
-&lt;a name="rest_code_a28356767391463d979a1c988ddab9dd-8"&gt;&lt;/a&gt;$ kubectl get pod -l &lt;span class="nv"&gt;app&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; -l &lt;span class="nv"&gt;release&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;spring
-&lt;a name="rest_code_a28356767391463d979a1c988ddab9dd-9"&gt;&lt;/a&gt;NAME                READY   STATUS    RESTARTS   AGE
-&lt;a name="rest_code_a28356767391463d979a1c988ddab9dd-10"&gt;&lt;/a&gt;echo-spring-67s58   &lt;span class="m"&gt;2&lt;/span&gt;/2     Running   &lt;span class="m"&gt;0&lt;/span&gt;          92s
-&lt;a name="rest_code_a28356767391463d979a1c988ddab9dd-11"&gt;&lt;/a&gt;
-&lt;a name="rest_code_a28356767391463d979a1c988ddab9dd-12"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# release ラベルに summer を持つ Pod&lt;/span&gt;
-&lt;a name="rest_code_a28356767391463d979a1c988ddab9dd-13"&gt;&lt;/a&gt;$ kubectl get pod -l &lt;span class="nv"&gt;app&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; -l &lt;span class="nv"&gt;release&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;summer
-&lt;a name="rest_code_a28356767391463d979a1c988ddab9dd-14"&gt;&lt;/a&gt;NAME                READY   STATUS    RESTARTS   AGE
-&lt;a name="rest_code_a28356767391463d979a1c988ddab9dd-15"&gt;&lt;/a&gt;echo-summer-tnwb9   &lt;span class="m"&gt;2&lt;/span&gt;/2     Running   &lt;span class="m"&gt;0&lt;/span&gt;          110s
-&lt;a name="rest_code_a28356767391463d979a1c988ddab9dd-16"&gt;&lt;/a&gt;echo-summer-vb44t   &lt;span class="m"&gt;2&lt;/span&gt;/2     Running   &lt;span class="m"&gt;0&lt;/span&gt;          110s
-&lt;/pre&gt;&lt;p&gt;&lt;/p&gt;&lt;div class="code-block "&gt;&lt;div class="code-block-label"&gt;simple-service.yaml&lt;/div&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# release=summer を持つ Pod だけにアクセスできる Service をつくる&lt;/span&gt;
-&lt;span class="nt"&gt;apiVersion&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;v1&lt;/span&gt;
-&lt;span class="nt"&gt;kind&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;Service&lt;/span&gt;
-&lt;span class="nt"&gt;metadata&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-  &lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;echo&lt;/span&gt;
-&lt;span class="nt"&gt;spec&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-  &lt;span class="nt"&gt;selector&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-    &lt;span class="nt"&gt;app&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;echo&lt;/span&gt;
-    &lt;span class="nt"&gt;release&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;summer&lt;/span&gt;
-  &lt;span class="nt"&gt;ports&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-    &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;http&lt;/span&gt;
-      &lt;span class="nt"&gt;port&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;80&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_724f7c1460104015b4e19dfc54848f90-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# apply して Service を作成する&lt;/span&gt;
-&lt;a name="rest_code_724f7c1460104015b4e19dfc54848f90-2"&gt;&lt;/a&gt;$ kubectl apply -f simple-service.yaml
-&lt;a name="rest_code_724f7c1460104015b4e19dfc54848f90-3"&gt;&lt;/a&gt;service/echo created
-&lt;a name="rest_code_724f7c1460104015b4e19dfc54848f90-4"&gt;&lt;/a&gt;
-&lt;a name="rest_code_724f7c1460104015b4e19dfc54848f90-5"&gt;&lt;/a&gt;$ kubectl get svc &lt;span class="nb"&gt;echo&lt;/span&gt;
-&lt;a name="rest_code_724f7c1460104015b4e19dfc54848f90-6"&gt;&lt;/a&gt;NAME   TYPE        CLUSTER-IP       EXTERNAL-IP   PORT&lt;span class="o"&gt;(&lt;/span&gt;S&lt;span class="o"&gt;)&lt;/span&gt;   AGE
-&lt;a name="rest_code_724f7c1460104015b4e19dfc54848f90-7"&gt;&lt;/a&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;   ClusterIP   &lt;span class="m"&gt;10&lt;/span&gt;.106.145.240   &amp;lt;none&amp;gt;        &lt;span class="m"&gt;80&lt;/span&gt;/TCP    51s
-&lt;a name="rest_code_724f7c1460104015b4e19dfc54848f90-8"&gt;&lt;/a&gt;
-&lt;a name="rest_code_724f7c1460104015b4e19dfc54848f90-9"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 基本的に Service は Kubernetes クラスタの中からしかアクセスできないので、&lt;/span&gt;
-&lt;a name="rest_code_724f7c1460104015b4e19dfc54848f90-10"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# Kubernetes クラスタ内に一時的なデバッグコンテナをデプロイ&lt;/span&gt;
-&lt;a name="rest_code_724f7c1460104015b4e19dfc54848f90-11"&gt;&lt;/a&gt;$ kubectl run -i --rm --tty debug --image&lt;span class="o"&gt;=&lt;/span&gt;gihyodocker/fundamental:0.1.0 --restart&lt;span class="o"&gt;=&lt;/span&gt;Never -- bash -il
-&lt;a name="rest_code_724f7c1460104015b4e19dfc54848f90-12"&gt;&lt;/a&gt;If you don&lt;span class="err"&gt;'&lt;/span&gt;t see a &lt;span class="nb"&gt;command&lt;/span&gt; prompt, try pressing enter.
-&lt;a name="rest_code_724f7c1460104015b4e19dfc54848f90-13"&gt;&lt;/a&gt;
-&lt;a name="rest_code_724f7c1460104015b4e19dfc54848f90-14"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# curl で HTTP リクエストを送信してみる&lt;/span&gt;
-&lt;a name="rest_code_724f7c1460104015b4e19dfc54848f90-15"&gt;&lt;/a&gt;debug:/# curl http://echo/
-&lt;a name="rest_code_724f7c1460104015b4e19dfc54848f90-16"&gt;&lt;/a&gt;Hello Docker!!debug:/# curl http://echo/
-&lt;a name="rest_code_724f7c1460104015b4e19dfc54848f90-17"&gt;&lt;/a&gt;Hello Docker!!debug:/# curl http://echo/
-&lt;a name="rest_code_724f7c1460104015b4e19dfc54848f90-18"&gt;&lt;/a&gt;Hello Docker!!debug:/# curl http://echo/
-&lt;a name="rest_code_724f7c1460104015b4e19dfc54848f90-19"&gt;&lt;/a&gt;Hello Docker!!debug:/# curl http://echo/
-&lt;a name="rest_code_724f7c1460104015b4e19dfc54848f90-20"&gt;&lt;/a&gt;Hello Docker!!debug:/#
-&lt;a name="rest_code_724f7c1460104015b4e19dfc54848f90-21"&gt;&lt;/a&gt;
-&lt;a name="rest_code_724f7c1460104015b4e19dfc54848f90-22"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# summer にはリクエストが来ている&lt;/span&gt;
-&lt;a name="rest_code_724f7c1460104015b4e19dfc54848f90-23"&gt;&lt;/a&gt;$ kubectl logs -f echo-summer-vb44t -c &lt;span class="nb"&gt;echo&lt;/span&gt;
-&lt;a name="rest_code_724f7c1460104015b4e19dfc54848f90-24"&gt;&lt;/a&gt;&lt;span class="m"&gt;2019&lt;/span&gt;/11/17 &lt;span class="m"&gt;06&lt;/span&gt;:56:15 start server
-&lt;a name="rest_code_724f7c1460104015b4e19dfc54848f90-25"&gt;&lt;/a&gt;&lt;span class="m"&gt;2019&lt;/span&gt;/11/17 &lt;span class="m"&gt;07&lt;/span&gt;:23:53 received request
-&lt;a name="rest_code_724f7c1460104015b4e19dfc54848f90-26"&gt;&lt;/a&gt;&lt;span class="m"&gt;2019&lt;/span&gt;/11/17 &lt;span class="m"&gt;07&lt;/span&gt;:23:54 received request
-&lt;a name="rest_code_724f7c1460104015b4e19dfc54848f90-27"&gt;&lt;/a&gt;&lt;span class="m"&gt;2019&lt;/span&gt;/11/17 &lt;span class="m"&gt;07&lt;/span&gt;:23:56 received request
-&lt;a name="rest_code_724f7c1460104015b4e19dfc54848f90-28"&gt;&lt;/a&gt;
-&lt;a name="rest_code_724f7c1460104015b4e19dfc54848f90-29"&gt;&lt;/a&gt;$ kubectl logs -f echo-summer-tnwb9 -c &lt;span class="nb"&gt;echo&lt;/span&gt;
-&lt;a name="rest_code_724f7c1460104015b4e19dfc54848f90-30"&gt;&lt;/a&gt;&lt;span class="m"&gt;2019&lt;/span&gt;/11/17 &lt;span class="m"&gt;06&lt;/span&gt;:56:12 start server
-&lt;a name="rest_code_724f7c1460104015b4e19dfc54848f90-31"&gt;&lt;/a&gt;&lt;span class="m"&gt;2019&lt;/span&gt;/11/17 &lt;span class="m"&gt;07&lt;/span&gt;:18:24 received request
-&lt;a name="rest_code_724f7c1460104015b4e19dfc54848f90-32"&gt;&lt;/a&gt;&lt;span class="m"&gt;2019&lt;/span&gt;/11/17 &lt;span class="m"&gt;07&lt;/span&gt;:23:45 received request
-&lt;a name="rest_code_724f7c1460104015b4e19dfc54848f90-33"&gt;&lt;/a&gt;
-&lt;a name="rest_code_724f7c1460104015b4e19dfc54848f90-34"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# spring にはリクエストが来ていない&lt;/span&gt;
-&lt;a name="rest_code_724f7c1460104015b4e19dfc54848f90-35"&gt;&lt;/a&gt;$ kubectl logs -f echo-spring-67s58 -c &lt;span class="nb"&gt;echo&lt;/span&gt;
-&lt;a name="rest_code_724f7c1460104015b4e19dfc54848f90-36"&gt;&lt;/a&gt;&lt;span class="m"&gt;2019&lt;/span&gt;/11/17 &lt;span class="m"&gt;06&lt;/span&gt;:56:09 start server
-&lt;/pre&gt;&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;p&gt;Service による名前解決は欠かせません&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class="section" id="id8"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/docker/introduction-to-practice-container-development/5-kubernetes-getting-started/#id21"&gt;Service の名前解決&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;Kubernetes クラスタ内の DNS では、 Service を &lt;code class="docutils literal"&gt;Service名.Namespace名.svc.local&lt;/code&gt; で名前解決できるようになっている&lt;/p&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_cb041c6e9b3f4b3c9a3a4be8796b17a4-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# echo は default の Namespace に配置しているので、&lt;/span&gt;
-&lt;a name="rest_code_cb041c6e9b3f4b3c9a3a4be8796b17a4-2"&gt;&lt;/a&gt;$ curl http://echo.default.svc.local
-&lt;a name="rest_code_cb041c6e9b3f4b3c9a3a4be8796b17a4-3"&gt;&lt;/a&gt;
-&lt;a name="rest_code_cb041c6e9b3f4b3c9a3a4be8796b17a4-4"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# .svc.local は省略可能&lt;/span&gt;
-&lt;a name="rest_code_cb041c6e9b3f4b3c9a3a4be8796b17a4-5"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 異なる Namespace の Service の名前解決は↓が最短&lt;/span&gt;
-&lt;a name="rest_code_cb041c6e9b3f4b3c9a3a4be8796b17a4-6"&gt;&lt;/a&gt;$ curl http://echo.default
-&lt;a name="rest_code_cb041c6e9b3f4b3c9a3a4be8796b17a4-7"&gt;&lt;/a&gt;
-&lt;a name="rest_code_cb041c6e9b3f4b3c9a3a4be8796b17a4-8"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 同一の Namespace だと Service 名だけで名前解決できる&lt;/span&gt;
-&lt;a name="rest_code_cb041c6e9b3f4b3c9a3a4be8796b17a4-9"&gt;&lt;/a&gt;$ curl http://echo
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;&lt;/div&gt;</description><category>docker</category><guid>https://32imuf.com/docker/introduction-to-practice-container-development/5-kubernetes-getting-started/</guid><pubDate>Fri, 15 Nov 2019 15:00:00 GMT</pubDate></item></channel></rss>
+&lt;/div&gt;&lt;/div&gt;</description><category>python</category><guid>https://32imuf.com/python/expert-python-programming-2/</guid><pubDate>Sat, 23 Nov 2019 15:00:00 GMT</pubDate></item></channel></rss>

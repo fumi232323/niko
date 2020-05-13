@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<title>Firebase/ふみのて</title>
+<link rel="shortcut icon" href="../../assets/icons/favicon.ico">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Griffy">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Vollkorn:400,700">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sawarabi+Mincho&amp;display=swap&amp;subset=japanese,latin-ext">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+<link rel="stylesheet" href="../../assets/css/style.css?20200126">
+</head>
+<body>
+    <div class="container">
+      <div class="header"><header class="item item-header"><h1>
+    <a href="../../">
+      <img class="logo" src="../../assets/images/inuu.png" alt="犬"></a>
+  </h1>
+  <iframe src="../../tags/" class="tags"></iframe>
+</header></div>
+      <div class="main">
+<div class="article-content">
+  <main class="item item-article item-javascript"><time class="date" datetime="2020-05-13 00:00:00+09:00">
+      2020-05-13 Wed
+    </time><div class="title">Firebase</div>
+    <div class="category">
+      <a href="../../tags/javascript/">
+          javascript
+      </a>
+    </div>
+    <div class="text">
+      <div>
+<details><summary>目次</summary><div class="contents topic" id="id1">
+<p class="topic-title first">目次</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#id2" id="id3">リファレンス, 書籍</a></p></li>
+<li><p><a class="reference internal" href="#note" id="id4">note</a></p></li>
+<li><p><a class="reference internal" href="#memo" id="id5">コマンド memo</a></p></li>
+</ul>
+</div>
+</details><div class="section" id="id2">
+<h2><a class="toc-backref" href="#id3">リファレンス, 書籍</a></h2>
+<ul class="simple">
+<li><p>React、Angular、Vue.js、React Nativeを使って学ぶ はじめてのフロントエンド開発: <a class="reference external" href="https://gihyo.jp/book/2018/978-4-7741-9706-7">https://gihyo.jp/book/2018/978-4-7741-9706-7</a></p></li>
+<li><p><a class="reference external" href="https://firebase.google.com/docs">https://firebase.google.com/docs</a></p></li>
+</ul>
+</div>
+<div class="section" id="note">
+<h2><a class="toc-backref" href="#id4">note</a></h2>
+<ul class="simple">
+<li><p>Firebase: Google社が提供するモバイルプラットフォーム。iOS、Android、Webなどでアプリケーションを構築し、モバイルサービスを提供する際に必要な機能を備えている。</p></li>
+<li>
+<p>Firebase Cloud Functions: Firebase の機能のイベントや HTTPSリクエストによるトリガに応じて関数を実行する</p>
+<ul>
+<li><p>Node.js 環境</p></li>
+</ul>
+</li>
+<li><p>Firebase Realtime Database: NoSQL データベース。 JSON データを保存・同期する。</p></li>
+<li><p>Firebase Hosting: SPAを簡単に公開できる。 CDN や HTTPS にも対応している。</p></li>
+<li><p>Firebase Authentication: ユーザ認証システムを簡単に構築できる。ログインプロバイダとして、メールアドレス、電話認証、Google、Twitter、Facebook、GitHubおよび匿名がある。</p></li>
+<li><p><a class="reference external" href="https://console.firebase.google.com">https://console.firebase.google.com</a></p></li>
+<li><p>Express: Express パッケージのルーティングを使ってAPIのエンドポイントを実装する</p></li>
+<li><p>cors: cors パッケージを使ってクロスドメイン通信の許可をする</p></li>
+<li><p>サーバーに Firebase Admin SDK を追加する: <a class="reference external" href="https://firebase.google.com/docs/admin/setup">https://firebase.google.com/docs/admin/setup</a></p></li>
+</ul>
+</div>
+<div class="section" id="memo">
+<h2><a class="toc-backref" href="#id5">コマンド memo</a></h2>
+<pre class="code bash"><a name="rest_code_f74baaa346a54650859266c2de329271-1"></a><span class="c1"># Firebase CLI のインストール</span>
+<a name="rest_code_f74baaa346a54650859266c2de329271-2"></a>$ sudo npm i -g firebase-tools
+<a name="rest_code_f74baaa346a54650859266c2de329271-3"></a><span class="c1"># Firebase Admin SDK のインストール</span>
+<a name="rest_code_f74baaa346a54650859266c2de329271-4"></a>$ npm install firebase-admin --save
+<a name="rest_code_f74baaa346a54650859266c2de329271-5"></a><span class="c1"># Express, cors のインストール</span>
+<a name="rest_code_f74baaa346a54650859266c2de329271-6"></a>$ npm i express cors
+<a name="rest_code_f74baaa346a54650859266c2de329271-7"></a>
+<a name="rest_code_f74baaa346a54650859266c2de329271-8"></a><span class="c1"># Firebase へログイン</span>
+<a name="rest_code_f74baaa346a54650859266c2de329271-9"></a>$ firebase login
+<a name="rest_code_f74baaa346a54650859266c2de329271-10"></a><span class="c1"># Firebase からログアウト</span>
+<a name="rest_code_f74baaa346a54650859266c2de329271-11"></a>$ firebase <span class="nb">logout</span>
+<a name="rest_code_f74baaa346a54650859266c2de329271-12"></a>
+<a name="rest_code_f74baaa346a54650859266c2de329271-13"></a><span class="c1"># Firebase Hosting の設定</span>
+<a name="rest_code_f74baaa346a54650859266c2de329271-14"></a>$ firebase init hosting
+<a name="rest_code_f74baaa346a54650859266c2de329271-15"></a><span class="c1"># Firebase Functions の設定</span>
+<a name="rest_code_f74baaa346a54650859266c2de329271-16"></a>$ firebase init functions
+<a name="rest_code_f74baaa346a54650859266c2de329271-17"></a>
+<a name="rest_code_f74baaa346a54650859266c2de329271-18"></a><span class="c1"># 作成したAPIのテスト</span>
+<a name="rest_code_f74baaa346a54650859266c2de329271-19"></a>$ firebase serve --only functions
+<a name="rest_code_f74baaa346a54650859266c2de329271-20"></a><span class="c1"># 作成した Functions を公開する</span>
+<a name="rest_code_f74baaa346a54650859266c2de329271-21"></a>$ firebase deploy --only functions
+<a name="rest_code_f74baaa346a54650859266c2de329271-22"></a>
+<a name="rest_code_f74baaa346a54650859266c2de329271-23"></a><span class="c1"># チャンネル作成</span>
+<a name="rest_code_f74baaa346a54650859266c2de329271-24"></a><span class="c1"># http://localhost:5000/fumi23-chat-app/us-central1/v1</span>
+<a name="rest_code_f74baaa346a54650859266c2de329271-25"></a>$ curl -H <span class="s1">'Content-Type:application/json'</span> -d <span class="s1">'{"cname": "general"}'</span> http://localhost:5000/fumi23-chat-app/us-central1/v1/channels
+<a name="rest_code_f74baaa346a54650859266c2de329271-26"></a><span class="c1"># チャンネル一覧</span>
+<a name="rest_code_f74baaa346a54650859266c2de329271-27"></a>$ curl http://localhost:5000/fumi23-chat-app/uscentral1/v1/channels
+<a name="rest_code_f74baaa346a54650859266c2de329271-28"></a><span class="c1"># 初期状態に戻す</span>
+<a name="rest_code_f74baaa346a54650859266c2de329271-29"></a>$ curl -H <span class="s1">'ContentType:application/json'</span> -d <span class="s1">'{}'</span> https://us-central1-fumi23-chat-app.cloudfunctions.net/v1/reset
+</pre>
+</div>
+</div>
+    </div>
+  </main>
+</div>
+</div>
+    </div>
+  </body>
+</html>
