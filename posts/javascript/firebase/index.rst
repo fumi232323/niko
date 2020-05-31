@@ -61,14 +61,20 @@ note
   $ firebase init functions
 
   # 作成したAPIのテスト
-  $ firebase serve --only functions
-  # 作成した Functions を公開する
-  $ firebase deploy --only functions
+  # 事前に環境変数 GOOGLE_APPLICATION_CREDENTIALS に、サービス アカウント キーが含まれる JSON ファイルのファイルパスを設定する。
+  # Path は絶対パスでないといけない模様
+  $ export GOOGLE_APPLICATION_CREDENTIALS="/path/to/fumi23-chat-app-firebase-adminsdk-e09li-560aa95e27.json"
 
+  # テスト用サーバーの起動
+  $ cd {firebase.json のあるディレクトリ}
+  $ firebase serve --only functions
   # チャンネル作成
   # http://localhost:5000/fumi23-chat-app/us-central1/v1
   $ curl -H 'Content-Type:application/json' -d '{"cname": "general"}' http://localhost:5000/fumi23-chat-app/us-central1/v1/channels
   # チャンネル一覧
   $ curl http://localhost:5000/fumi23-chat-app/uscentral1/v1/channels
+
+  # 作成した Functions を公開する
+  $ firebase deploy --only functions
   # 初期状態に戻す
   $ curl -H 'ContentType:application/json' -d '{}' https://us-central1-fumi23-chat-app.cloudfunctions.net/v1/reset
