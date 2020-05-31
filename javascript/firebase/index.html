@@ -67,35 +67,41 @@
 </div>
 <div class="section" id="memo">
 <h2><a class="toc-backref" href="#id5">コマンド memo</a></h2>
-<pre class="code bash"><a name="rest_code_f74baaa346a54650859266c2de329271-1"></a><span class="c1"># Firebase CLI のインストール</span>
-<a name="rest_code_f74baaa346a54650859266c2de329271-2"></a>$ sudo npm i -g firebase-tools
-<a name="rest_code_f74baaa346a54650859266c2de329271-3"></a><span class="c1"># Firebase Admin SDK のインストール</span>
-<a name="rest_code_f74baaa346a54650859266c2de329271-4"></a>$ npm install firebase-admin --save
-<a name="rest_code_f74baaa346a54650859266c2de329271-5"></a><span class="c1"># Express, cors のインストール</span>
-<a name="rest_code_f74baaa346a54650859266c2de329271-6"></a>$ npm i express cors
-<a name="rest_code_f74baaa346a54650859266c2de329271-7"></a>
-<a name="rest_code_f74baaa346a54650859266c2de329271-8"></a><span class="c1"># Firebase へログイン</span>
-<a name="rest_code_f74baaa346a54650859266c2de329271-9"></a>$ firebase login
-<a name="rest_code_f74baaa346a54650859266c2de329271-10"></a><span class="c1"># Firebase からログアウト</span>
-<a name="rest_code_f74baaa346a54650859266c2de329271-11"></a>$ firebase <span class="nb">logout</span>
-<a name="rest_code_f74baaa346a54650859266c2de329271-12"></a>
-<a name="rest_code_f74baaa346a54650859266c2de329271-13"></a><span class="c1"># Firebase Hosting の設定</span>
-<a name="rest_code_f74baaa346a54650859266c2de329271-14"></a>$ firebase init hosting
-<a name="rest_code_f74baaa346a54650859266c2de329271-15"></a><span class="c1"># Firebase Functions の設定</span>
-<a name="rest_code_f74baaa346a54650859266c2de329271-16"></a>$ firebase init functions
-<a name="rest_code_f74baaa346a54650859266c2de329271-17"></a>
-<a name="rest_code_f74baaa346a54650859266c2de329271-18"></a><span class="c1"># 作成したAPIのテスト</span>
-<a name="rest_code_f74baaa346a54650859266c2de329271-19"></a>$ firebase serve --only functions
-<a name="rest_code_f74baaa346a54650859266c2de329271-20"></a><span class="c1"># 作成した Functions を公開する</span>
-<a name="rest_code_f74baaa346a54650859266c2de329271-21"></a>$ firebase deploy --only functions
-<a name="rest_code_f74baaa346a54650859266c2de329271-22"></a>
-<a name="rest_code_f74baaa346a54650859266c2de329271-23"></a><span class="c1"># チャンネル作成</span>
-<a name="rest_code_f74baaa346a54650859266c2de329271-24"></a><span class="c1"># http://localhost:5000/fumi23-chat-app/us-central1/v1</span>
-<a name="rest_code_f74baaa346a54650859266c2de329271-25"></a>$ curl -H <span class="s1">'Content-Type:application/json'</span> -d <span class="s1">'{"cname": "general"}'</span> http://localhost:5000/fumi23-chat-app/us-central1/v1/channels
-<a name="rest_code_f74baaa346a54650859266c2de329271-26"></a><span class="c1"># チャンネル一覧</span>
-<a name="rest_code_f74baaa346a54650859266c2de329271-27"></a>$ curl http://localhost:5000/fumi23-chat-app/uscentral1/v1/channels
-<a name="rest_code_f74baaa346a54650859266c2de329271-28"></a><span class="c1"># 初期状態に戻す</span>
-<a name="rest_code_f74baaa346a54650859266c2de329271-29"></a>$ curl -H <span class="s1">'ContentType:application/json'</span> -d <span class="s1">'{}'</span> https://us-central1-fumi23-chat-app.cloudfunctions.net/v1/reset
+<pre class="code bash"><a name="rest_code_5e9954ae5ed7438abf290fc6b13c272c-1"></a><span class="c1"># Firebase CLI のインストール</span>
+<a name="rest_code_5e9954ae5ed7438abf290fc6b13c272c-2"></a>$ sudo npm i -g firebase-tools
+<a name="rest_code_5e9954ae5ed7438abf290fc6b13c272c-3"></a><span class="c1"># Firebase Admin SDK のインストール</span>
+<a name="rest_code_5e9954ae5ed7438abf290fc6b13c272c-4"></a>$ npm install firebase-admin --save
+<a name="rest_code_5e9954ae5ed7438abf290fc6b13c272c-5"></a><span class="c1"># Express, cors のインストール</span>
+<a name="rest_code_5e9954ae5ed7438abf290fc6b13c272c-6"></a>$ npm i express cors
+<a name="rest_code_5e9954ae5ed7438abf290fc6b13c272c-7"></a>
+<a name="rest_code_5e9954ae5ed7438abf290fc6b13c272c-8"></a><span class="c1"># Firebase へログイン</span>
+<a name="rest_code_5e9954ae5ed7438abf290fc6b13c272c-9"></a>$ firebase login
+<a name="rest_code_5e9954ae5ed7438abf290fc6b13c272c-10"></a><span class="c1"># Firebase からログアウト</span>
+<a name="rest_code_5e9954ae5ed7438abf290fc6b13c272c-11"></a>$ firebase <span class="nb">logout</span>
+<a name="rest_code_5e9954ae5ed7438abf290fc6b13c272c-12"></a>
+<a name="rest_code_5e9954ae5ed7438abf290fc6b13c272c-13"></a><span class="c1"># Firebase Hosting の設定</span>
+<a name="rest_code_5e9954ae5ed7438abf290fc6b13c272c-14"></a>$ firebase init hosting
+<a name="rest_code_5e9954ae5ed7438abf290fc6b13c272c-15"></a><span class="c1"># Firebase Functions の設定</span>
+<a name="rest_code_5e9954ae5ed7438abf290fc6b13c272c-16"></a>$ firebase init functions
+<a name="rest_code_5e9954ae5ed7438abf290fc6b13c272c-17"></a>
+<a name="rest_code_5e9954ae5ed7438abf290fc6b13c272c-18"></a><span class="c1"># 作成したAPIのテスト</span>
+<a name="rest_code_5e9954ae5ed7438abf290fc6b13c272c-19"></a><span class="c1"># 事前に環境変数 GOOGLE_APPLICATION_CREDENTIALS に、サービス アカウント キーが含まれる JSON ファイルのファイルパスを設定する。</span>
+<a name="rest_code_5e9954ae5ed7438abf290fc6b13c272c-20"></a><span class="c1"># Path は絶対パスでないといけない模様</span>
+<a name="rest_code_5e9954ae5ed7438abf290fc6b13c272c-21"></a>$ <span class="nb">export</span> <span class="nv">GOOGLE_APPLICATION_CREDENTIALS</span><span class="o">=</span><span class="s2">"/path/to/fumi23-chat-app-firebase-adminsdk-e09li-560aa95e27.json"</span>
+<a name="rest_code_5e9954ae5ed7438abf290fc6b13c272c-22"></a>
+<a name="rest_code_5e9954ae5ed7438abf290fc6b13c272c-23"></a><span class="c1"># テスト用サーバーの起動</span>
+<a name="rest_code_5e9954ae5ed7438abf290fc6b13c272c-24"></a>$ <span class="nb">cd</span> <span class="o">{</span>firebase.json のあるディレクトリ<span class="o">}</span>
+<a name="rest_code_5e9954ae5ed7438abf290fc6b13c272c-25"></a>$ firebase serve --only functions
+<a name="rest_code_5e9954ae5ed7438abf290fc6b13c272c-26"></a><span class="c1"># チャンネル作成</span>
+<a name="rest_code_5e9954ae5ed7438abf290fc6b13c272c-27"></a><span class="c1"># http://localhost:5000/fumi23-chat-app/us-central1/v1</span>
+<a name="rest_code_5e9954ae5ed7438abf290fc6b13c272c-28"></a>$ curl -H <span class="s1">'Content-Type:application/json'</span> -d <span class="s1">'{"cname": "general"}'</span> http://localhost:5000/fumi23-chat-app/us-central1/v1/channels
+<a name="rest_code_5e9954ae5ed7438abf290fc6b13c272c-29"></a><span class="c1"># チャンネル一覧</span>
+<a name="rest_code_5e9954ae5ed7438abf290fc6b13c272c-30"></a>$ curl http://localhost:5000/fumi23-chat-app/uscentral1/v1/channels
+<a name="rest_code_5e9954ae5ed7438abf290fc6b13c272c-31"></a>
+<a name="rest_code_5e9954ae5ed7438abf290fc6b13c272c-32"></a><span class="c1"># 作成した Functions を公開する</span>
+<a name="rest_code_5e9954ae5ed7438abf290fc6b13c272c-33"></a>$ firebase deploy --only functions
+<a name="rest_code_5e9954ae5ed7438abf290fc6b13c272c-34"></a><span class="c1"># 初期状態に戻す</span>
+<a name="rest_code_5e9954ae5ed7438abf290fc6b13c272c-35"></a>$ curl -H <span class="s1">'ContentType:application/json'</span> -d <span class="s1">'{}'</span> https://us-central1-fumi23-chat-app.cloudfunctions.net/v1/reset
 </pre>
 </div>
 </div>

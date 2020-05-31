@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ふみのて (javascriptについての文書)</title><link>https://32imuf.com/</link><description></description><atom:link href="https://32imuf.com/tags/javascript.xml" rel="self" type="application/rss+xml"></atom:link><language>ja</language><copyright>Contents © 2020 &lt;a href="mailto:fumi232323fumi2016@gmail.com"&gt;fumi23&lt;/a&gt; </copyright><lastBuildDate>Mon, 25 May 2020 14:36:38 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>React</title><link>https://32imuf.com/javascript/react/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;details&gt;
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ふみのて (javascriptについての文書)</title><link>https://32imuf.com/</link><description></description><atom:link href="https://32imuf.com/tags/javascript.xml" rel="self" type="application/rss+xml"></atom:link><language>ja</language><copyright>Contents © 2020 &lt;a href="mailto:fumi232323fumi2016@gmail.com"&gt;fumi23&lt;/a&gt; </copyright><lastBuildDate>Sun, 31 May 2020 15:03:21 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>React その１</title><link>https://32imuf.com/javascript/react/part1/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;details&gt;
   &lt;summary&gt;目次&lt;/summary&gt;&lt;div class="contents topic" id="id1"&gt;
 &lt;p class="topic-title first"&gt;目次&lt;/p&gt;
 &lt;ul class="simple"&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/javascript/react/#id2" id="id6"&gt;リファレンス, 書籍&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/javascript/react/#id3" id="id7"&gt;これが大事&lt;/a&gt;&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/javascript/react/part1/#id2" id="id6"&gt;リファレンス, 書籍&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/javascript/react/part1/#id3" id="id7"&gt;これが大事&lt;/a&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/javascript/react/#component" id="id8"&gt;Component の構成要素&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/javascript/react/#props-state" id="id9"&gt;props と state&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/javascript/react/#id4" id="id10"&gt;Component ライフサイクル&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/javascript/react/part1/#component" id="id8"&gt;Component の構成要素&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/javascript/react/part1/#props-state" id="id9"&gt;props と state&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/javascript/react/part1/#id4" id="id10"&gt;Component ライフサイクル&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/javascript/react/#id5" id="id11"&gt;その他&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/javascript/react/part1/#id5" id="id11"&gt;その他&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;/details&gt;&lt;div class="section" id="id2"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/javascript/react/#id6"&gt;リファレンス, 書籍&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/javascript/react/part1/#id6"&gt;リファレンス, 書籍&lt;/a&gt;&lt;/h2&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;p&gt;React、Angular、Vue.js、React Nativeを使って学ぶ はじめてのフロントエンド開発: &lt;a class="reference external" href="https://gihyo.jp/book/2018/978-4-7741-9706-7"&gt;https://gihyo.jp/book/2018/978-4-7741-9706-7&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://reactjs.org/"&gt;https://reactjs.org/&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
@@ -23,13 +23,13 @@
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id3"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/javascript/react/#id7"&gt;これが大事&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/javascript/react/part1/#id7"&gt;これが大事&lt;/a&gt;&lt;/h2&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;p&gt;props と state の役割と利用方法&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Component ライフサイクルの管理&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class="section" id="component"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/javascript/react/#id8"&gt;Component の構成要素&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/javascript/react/part1/#id8"&gt;Component の構成要素&lt;/a&gt;&lt;/h3&gt;
 &lt;blockquote&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;p&gt;&lt;code class="docutils literal"&gt;constructor()&lt;/code&gt;: ECMAScript 2015 から利用できるようになったクラスのコンストラクタ&lt;/p&gt;
@@ -56,7 +56,7 @@
 &lt;/blockquote&gt;
 &lt;/div&gt;
 &lt;div class="section" id="props-state"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/javascript/react/#id9"&gt;props と state&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/javascript/react/part1/#id9"&gt;props と state&lt;/a&gt;&lt;/h3&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;p&gt;props:&lt;/p&gt;
 &lt;ul&gt;
@@ -86,7 +86,7 @@
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id4"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/javascript/react/#id10"&gt;Component ライフサイクル&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/javascript/react/part1/#id10"&gt;Component ライフサイクル&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;ライフサイクル: 「 Component がマウントされたとき」や「 Component が props (読み取り専用のやつ) を受け取るとき」といった Component の状態の推移のこと&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;ライフサイクルのわかりやすい図: &lt;a class="reference external" href="https://reactjs.org/docs/react-component.html#the-component-lifecycle"&gt;https://reactjs.org/docs/react-component.html#the-component-lifecycle&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
@@ -111,12 +111,12 @@
 &lt;li&gt;&lt;p&gt;マウントされた Component が新しい props を受け取るときに実行される&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;「新しく受け取る」 props を引数に取る&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;現在の props の内容と、新しく受け取る props の内容を比較して処理を分岐できる&lt;/p&gt;
-&lt;pre class="code javascript"&gt;&lt;a name="rest_code_80eaa0a57cda47ba816ff5a44538c5cd-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;// 例&lt;/span&gt;
-&lt;a name="rest_code_80eaa0a57cda47ba816ff5a44538c5cd-2"&gt;&lt;/a&gt;&lt;span class="kr"&gt;public&lt;/span&gt; &lt;span class="nx"&gt;componentWillReceiveProps&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;nextProps&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-&lt;a name="rest_code_80eaa0a57cda47ba816ff5a44538c5cd-3"&gt;&lt;/a&gt;  &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;props&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;hoge&lt;/span&gt; &lt;span class="o"&gt;!==&lt;/span&gt; &lt;span class="nx"&gt;nextProps&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;hoge&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-&lt;a name="rest_code_80eaa0a57cda47ba816ff5a44538c5cd-4"&gt;&lt;/a&gt;    &lt;span class="c1"&gt;//props.hogeが変更された場合の処理&lt;/span&gt;
-&lt;a name="rest_code_80eaa0a57cda47ba816ff5a44538c5cd-5"&gt;&lt;/a&gt;  &lt;span class="p"&gt;}&lt;/span&gt;
-&lt;a name="rest_code_80eaa0a57cda47ba816ff5a44538c5cd-6"&gt;&lt;/a&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;pre class="code javascript"&gt;&lt;a name="rest_code_bb36704c20694eb38256f4828e78083f-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;// 例&lt;/span&gt;
+&lt;a name="rest_code_bb36704c20694eb38256f4828e78083f-2"&gt;&lt;/a&gt;&lt;span class="kr"&gt;public&lt;/span&gt; &lt;span class="nx"&gt;componentWillReceiveProps&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;nextProps&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;a name="rest_code_bb36704c20694eb38256f4828e78083f-3"&gt;&lt;/a&gt;  &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;props&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;hoge&lt;/span&gt; &lt;span class="o"&gt;!==&lt;/span&gt; &lt;span class="nx"&gt;nextProps&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;hoge&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;a name="rest_code_bb36704c20694eb38256f4828e78083f-4"&gt;&lt;/a&gt;    &lt;span class="c1"&gt;//props.hogeが変更された場合の処理&lt;/span&gt;
+&lt;a name="rest_code_bb36704c20694eb38256f4828e78083f-5"&gt;&lt;/a&gt;  &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;a name="rest_code_bb36704c20694eb38256f4828e78083f-6"&gt;&lt;/a&gt;&lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
@@ -146,7 +146,7 @@
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id5"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/javascript/react/#id11"&gt;その他&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/javascript/react/part1/#id11"&gt;その他&lt;/a&gt;&lt;/h2&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;p&gt;スターターキット (ボイラテンプレートツール)&lt;/p&gt;
 &lt;ul&gt;
@@ -162,7 +162,7 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;/div&gt;&lt;/div&gt;</description><category>javascript</category><guid>https://32imuf.com/javascript/react/</guid><pubDate>Sat, 23 May 2020 15:00:00 GMT</pubDate></item><item><title>Firebase</title><link>https://32imuf.com/javascript/firebase/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;details&gt;
+&lt;/div&gt;&lt;/div&gt;</description><category>javascript</category><guid>https://32imuf.com/javascript/react/part1/</guid><pubDate>Sat, 23 May 2020 15:00:00 GMT</pubDate></item><item><title>Firebase</title><link>https://32imuf.com/javascript/firebase/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;details&gt;
   &lt;summary&gt;目次&lt;/summary&gt;&lt;div class="contents topic" id="id1"&gt;
 &lt;p class="topic-title first"&gt;目次&lt;/p&gt;
 &lt;ul class="simple"&gt;
@@ -198,35 +198,41 @@
 &lt;/div&gt;
 &lt;div class="section" id="memo"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/javascript/firebase/#id5"&gt;コマンド memo&lt;/a&gt;&lt;/h2&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_f74baaa346a54650859266c2de329271-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# Firebase CLI のインストール&lt;/span&gt;
-&lt;a name="rest_code_f74baaa346a54650859266c2de329271-2"&gt;&lt;/a&gt;$ sudo npm i -g firebase-tools
-&lt;a name="rest_code_f74baaa346a54650859266c2de329271-3"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# Firebase Admin SDK のインストール&lt;/span&gt;
-&lt;a name="rest_code_f74baaa346a54650859266c2de329271-4"&gt;&lt;/a&gt;$ npm install firebase-admin --save
-&lt;a name="rest_code_f74baaa346a54650859266c2de329271-5"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# Express, cors のインストール&lt;/span&gt;
-&lt;a name="rest_code_f74baaa346a54650859266c2de329271-6"&gt;&lt;/a&gt;$ npm i express cors
-&lt;a name="rest_code_f74baaa346a54650859266c2de329271-7"&gt;&lt;/a&gt;
-&lt;a name="rest_code_f74baaa346a54650859266c2de329271-8"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# Firebase へログイン&lt;/span&gt;
-&lt;a name="rest_code_f74baaa346a54650859266c2de329271-9"&gt;&lt;/a&gt;$ firebase login
-&lt;a name="rest_code_f74baaa346a54650859266c2de329271-10"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# Firebase からログアウト&lt;/span&gt;
-&lt;a name="rest_code_f74baaa346a54650859266c2de329271-11"&gt;&lt;/a&gt;$ firebase &lt;span class="nb"&gt;logout&lt;/span&gt;
-&lt;a name="rest_code_f74baaa346a54650859266c2de329271-12"&gt;&lt;/a&gt;
-&lt;a name="rest_code_f74baaa346a54650859266c2de329271-13"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# Firebase Hosting の設定&lt;/span&gt;
-&lt;a name="rest_code_f74baaa346a54650859266c2de329271-14"&gt;&lt;/a&gt;$ firebase init hosting
-&lt;a name="rest_code_f74baaa346a54650859266c2de329271-15"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# Firebase Functions の設定&lt;/span&gt;
-&lt;a name="rest_code_f74baaa346a54650859266c2de329271-16"&gt;&lt;/a&gt;$ firebase init functions
-&lt;a name="rest_code_f74baaa346a54650859266c2de329271-17"&gt;&lt;/a&gt;
-&lt;a name="rest_code_f74baaa346a54650859266c2de329271-18"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 作成したAPIのテスト&lt;/span&gt;
-&lt;a name="rest_code_f74baaa346a54650859266c2de329271-19"&gt;&lt;/a&gt;$ firebase serve --only functions
-&lt;a name="rest_code_f74baaa346a54650859266c2de329271-20"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 作成した Functions を公開する&lt;/span&gt;
-&lt;a name="rest_code_f74baaa346a54650859266c2de329271-21"&gt;&lt;/a&gt;$ firebase deploy --only functions
-&lt;a name="rest_code_f74baaa346a54650859266c2de329271-22"&gt;&lt;/a&gt;
-&lt;a name="rest_code_f74baaa346a54650859266c2de329271-23"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# チャンネル作成&lt;/span&gt;
-&lt;a name="rest_code_f74baaa346a54650859266c2de329271-24"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# http://localhost:5000/fumi23-chat-app/us-central1/v1&lt;/span&gt;
-&lt;a name="rest_code_f74baaa346a54650859266c2de329271-25"&gt;&lt;/a&gt;$ curl -H &lt;span class="s1"&gt;'Content-Type:application/json'&lt;/span&gt; -d &lt;span class="s1"&gt;'{"cname": "general"}'&lt;/span&gt; http://localhost:5000/fumi23-chat-app/us-central1/v1/channels
-&lt;a name="rest_code_f74baaa346a54650859266c2de329271-26"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# チャンネル一覧&lt;/span&gt;
-&lt;a name="rest_code_f74baaa346a54650859266c2de329271-27"&gt;&lt;/a&gt;$ curl http://localhost:5000/fumi23-chat-app/uscentral1/v1/channels
-&lt;a name="rest_code_f74baaa346a54650859266c2de329271-28"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 初期状態に戻す&lt;/span&gt;
-&lt;a name="rest_code_f74baaa346a54650859266c2de329271-29"&gt;&lt;/a&gt;$ curl -H &lt;span class="s1"&gt;'ContentType:application/json'&lt;/span&gt; -d &lt;span class="s1"&gt;'{}'&lt;/span&gt; https://us-central1-fumi23-chat-app.cloudfunctions.net/v1/reset
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_5e9954ae5ed7438abf290fc6b13c272c-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# Firebase CLI のインストール&lt;/span&gt;
+&lt;a name="rest_code_5e9954ae5ed7438abf290fc6b13c272c-2"&gt;&lt;/a&gt;$ sudo npm i -g firebase-tools
+&lt;a name="rest_code_5e9954ae5ed7438abf290fc6b13c272c-3"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# Firebase Admin SDK のインストール&lt;/span&gt;
+&lt;a name="rest_code_5e9954ae5ed7438abf290fc6b13c272c-4"&gt;&lt;/a&gt;$ npm install firebase-admin --save
+&lt;a name="rest_code_5e9954ae5ed7438abf290fc6b13c272c-5"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# Express, cors のインストール&lt;/span&gt;
+&lt;a name="rest_code_5e9954ae5ed7438abf290fc6b13c272c-6"&gt;&lt;/a&gt;$ npm i express cors
+&lt;a name="rest_code_5e9954ae5ed7438abf290fc6b13c272c-7"&gt;&lt;/a&gt;
+&lt;a name="rest_code_5e9954ae5ed7438abf290fc6b13c272c-8"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# Firebase へログイン&lt;/span&gt;
+&lt;a name="rest_code_5e9954ae5ed7438abf290fc6b13c272c-9"&gt;&lt;/a&gt;$ firebase login
+&lt;a name="rest_code_5e9954ae5ed7438abf290fc6b13c272c-10"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# Firebase からログアウト&lt;/span&gt;
+&lt;a name="rest_code_5e9954ae5ed7438abf290fc6b13c272c-11"&gt;&lt;/a&gt;$ firebase &lt;span class="nb"&gt;logout&lt;/span&gt;
+&lt;a name="rest_code_5e9954ae5ed7438abf290fc6b13c272c-12"&gt;&lt;/a&gt;
+&lt;a name="rest_code_5e9954ae5ed7438abf290fc6b13c272c-13"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# Firebase Hosting の設定&lt;/span&gt;
+&lt;a name="rest_code_5e9954ae5ed7438abf290fc6b13c272c-14"&gt;&lt;/a&gt;$ firebase init hosting
+&lt;a name="rest_code_5e9954ae5ed7438abf290fc6b13c272c-15"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# Firebase Functions の設定&lt;/span&gt;
+&lt;a name="rest_code_5e9954ae5ed7438abf290fc6b13c272c-16"&gt;&lt;/a&gt;$ firebase init functions
+&lt;a name="rest_code_5e9954ae5ed7438abf290fc6b13c272c-17"&gt;&lt;/a&gt;
+&lt;a name="rest_code_5e9954ae5ed7438abf290fc6b13c272c-18"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 作成したAPIのテスト&lt;/span&gt;
+&lt;a name="rest_code_5e9954ae5ed7438abf290fc6b13c272c-19"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 事前に環境変数 GOOGLE_APPLICATION_CREDENTIALS に、サービス アカウント キーが含まれる JSON ファイルのファイルパスを設定する。&lt;/span&gt;
+&lt;a name="rest_code_5e9954ae5ed7438abf290fc6b13c272c-20"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# Path は絶対パスでないといけない模様&lt;/span&gt;
+&lt;a name="rest_code_5e9954ae5ed7438abf290fc6b13c272c-21"&gt;&lt;/a&gt;$ &lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;GOOGLE_APPLICATION_CREDENTIALS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"/path/to/fumi23-chat-app-firebase-adminsdk-e09li-560aa95e27.json"&lt;/span&gt;
+&lt;a name="rest_code_5e9954ae5ed7438abf290fc6b13c272c-22"&gt;&lt;/a&gt;
+&lt;a name="rest_code_5e9954ae5ed7438abf290fc6b13c272c-23"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# テスト用サーバーの起動&lt;/span&gt;
+&lt;a name="rest_code_5e9954ae5ed7438abf290fc6b13c272c-24"&gt;&lt;/a&gt;$ &lt;span class="nb"&gt;cd&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;firebase.json のあるディレクトリ&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;a name="rest_code_5e9954ae5ed7438abf290fc6b13c272c-25"&gt;&lt;/a&gt;$ firebase serve --only functions
+&lt;a name="rest_code_5e9954ae5ed7438abf290fc6b13c272c-26"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# チャンネル作成&lt;/span&gt;
+&lt;a name="rest_code_5e9954ae5ed7438abf290fc6b13c272c-27"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# http://localhost:5000/fumi23-chat-app/us-central1/v1&lt;/span&gt;
+&lt;a name="rest_code_5e9954ae5ed7438abf290fc6b13c272c-28"&gt;&lt;/a&gt;$ curl -H &lt;span class="s1"&gt;'Content-Type:application/json'&lt;/span&gt; -d &lt;span class="s1"&gt;'{"cname": "general"}'&lt;/span&gt; http://localhost:5000/fumi23-chat-app/us-central1/v1/channels
+&lt;a name="rest_code_5e9954ae5ed7438abf290fc6b13c272c-29"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# チャンネル一覧&lt;/span&gt;
+&lt;a name="rest_code_5e9954ae5ed7438abf290fc6b13c272c-30"&gt;&lt;/a&gt;$ curl http://localhost:5000/fumi23-chat-app/uscentral1/v1/channels
+&lt;a name="rest_code_5e9954ae5ed7438abf290fc6b13c272c-31"&gt;&lt;/a&gt;
+&lt;a name="rest_code_5e9954ae5ed7438abf290fc6b13c272c-32"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 作成した Functions を公開する&lt;/span&gt;
+&lt;a name="rest_code_5e9954ae5ed7438abf290fc6b13c272c-33"&gt;&lt;/a&gt;$ firebase deploy --only functions
+&lt;a name="rest_code_5e9954ae5ed7438abf290fc6b13c272c-34"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 初期状態に戻す&lt;/span&gt;
+&lt;a name="rest_code_5e9954ae5ed7438abf290fc6b13c272c-35"&gt;&lt;/a&gt;$ curl -H &lt;span class="s1"&gt;'ContentType:application/json'&lt;/span&gt; -d &lt;span class="s1"&gt;'{}'&lt;/span&gt; https://us-central1-fumi23-chat-app.cloudfunctions.net/v1/reset
 &lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</description><category>javascript</category><guid>https://32imuf.com/javascript/firebase/</guid><pubDate>Tue, 12 May 2020 15:00:00 GMT</pubDate></item><item><title>JavaScript</title><link>https://32imuf.com/javascript/note/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;details&gt;
   &lt;summary&gt;目次&lt;/summary&gt;&lt;div class="contents topic" id="id1"&gt;
 &lt;p class="topic-title first"&gt;目次&lt;/p&gt;
