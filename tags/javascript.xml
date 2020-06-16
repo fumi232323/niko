@@ -1,5 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ふみのて (javascriptについての文書)</title><link>https://32imuf.com/</link><description></description><atom:link href="https://32imuf.com/tags/javascript.xml" rel="self" type="application/rss+xml"></atom:link><language>ja</language><copyright>Contents © 2020 &lt;a href="mailto:fumi232323fumi2016@gmail.com"&gt;fumi23&lt;/a&gt; </copyright><lastBuildDate>Sun, 31 May 2020 15:03:21 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>React その１</title><link>https://32imuf.com/javascript/react/part1/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;details&gt;
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ふみのて (javascriptについての文書)</title><link>https://32imuf.com/</link><description></description><atom:link href="https://32imuf.com/tags/javascript.xml" rel="self" type="application/rss+xml"></atom:link><language>ja</language><copyright>Contents © 2020 &lt;a href="mailto:fumi232323fumi2016@gmail.com"&gt;fumi23&lt;/a&gt; </copyright><lastBuildDate>Tue, 16 Jun 2020 12:12:38 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>React そのに</title><link>https://32imuf.com/javascript/react/part2/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;details&gt;
+  &lt;summary&gt;目次&lt;/summary&gt;&lt;div class="contents topic" id="id1"&gt;
+&lt;p class="topic-title first"&gt;目次&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/javascript/react/part2/#id2" id="id4"&gt;リファレンス, 書籍&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/javascript/react/part2/#id3" id="id5"&gt;ほむほむ&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/javascript/react/part2/#memo" id="id6"&gt;コマンド memo&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/details&gt;&lt;div class="section" id="id2"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/javascript/react/part2/#id4"&gt;リファレンス, 書籍&lt;/a&gt;&lt;/h2&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;React、Angular、Vue.js、React Nativeを使って学ぶ はじめてのフロントエンド開発: &lt;a class="reference external" href="https://gihyo.jp/book/2018/978-4-7741-9706-7"&gt;https://gihyo.jp/book/2018/978-4-7741-9706-7&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://reactjs.org/"&gt;https://reactjs.org/&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://ja.reactjs.org/"&gt;https://ja.reactjs.org/&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id3"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/javascript/react/part2/#id5"&gt;ほむほむ&lt;/a&gt;&lt;/h2&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;react-router: Routing 機能を提供するサードパーティパッケージ&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;semantic-ui-react: UIツールキット Semantic UI に実装された UI に関する機能を React Component として利用できるようにしたもの&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;axios: Promise をベースとした HTTP クライアント。サーバーサイドアプリケーションにリクエストを送信する。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;RESTful API のクライアントとしてよく利用する機能や設定があらかじめ用意されている&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code class="docutils literal"&gt;.tsx&lt;/code&gt;: TypeScriptで記述し、かつJSXを利用するもの&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code class="docutils literal"&gt;.ts&lt;/code&gt;: TypeScriptでJSXを利用しないもの&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;小さい中身も Component だし、まわりの外側も Component&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;props として渡せるのは値だけではない。オブジェクトや関数などあらゆるものを受け渡せる。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;React では、データは親Component から子Component へ流れるというデータフローの原則がある。親子関係にない Component間で情報を直接やりとりすることはできない。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;そういうときは、 親Component を経由して props で受け渡す&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;スピナー: &lt;code class="docutils literal"&gt;import {Dimmer, Loader} from &lt;span class="pre"&gt;'semantic-ui-react'&lt;/span&gt;&lt;/code&gt; とか&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Component のアンマウントと HTTPリクエストのキャンセル: Axios の場合、 CancelToken のしくみを利用して処理の中断を実現できる&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="memo"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/javascript/react/part2/#id6"&gt;コマンド memo&lt;/a&gt;&lt;/h2&gt;
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_0e5e0075250f45419124732d2430e021-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# プロジェクト作成&lt;/span&gt;
+&lt;a name="rest_code_0e5e0075250f45419124732d2430e021-2"&gt;&lt;/a&gt;$ mkdir react-sample-app
+&lt;a name="rest_code_0e5e0075250f45419124732d2430e021-3"&gt;&lt;/a&gt;$ &lt;span class="nb"&gt;cd&lt;/span&gt; react-sample-app
+&lt;a name="rest_code_0e5e0075250f45419124732d2430e021-4"&gt;&lt;/a&gt;$ npm init -y
+&lt;a name="rest_code_0e5e0075250f45419124732d2430e021-5"&gt;&lt;/a&gt;
+&lt;a name="rest_code_0e5e0075250f45419124732d2430e021-6"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 依存パッケージのインストール&lt;/span&gt;
+&lt;a name="rest_code_0e5e0075250f45419124732d2430e021-7"&gt;&lt;/a&gt;$ npm i react@ react-dom@
+&lt;a name="rest_code_0e5e0075250f45419124732d2430e021-8"&gt;&lt;/a&gt;$ npm i react-router@ react-router-dom@
+&lt;a name="rest_code_0e5e0075250f45419124732d2430e021-9"&gt;&lt;/a&gt;$ npm i semantic-ui-react@
+&lt;a name="rest_code_0e5e0075250f45419124732d2430e021-10"&gt;&lt;/a&gt;$ npm i axios@
+&lt;a name="rest_code_0e5e0075250f45419124732d2430e021-11"&gt;&lt;/a&gt;
+&lt;a name="rest_code_0e5e0075250f45419124732d2430e021-12"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 依存パッケージのインストール (開発環境用)&lt;/span&gt;
+&lt;a name="rest_code_0e5e0075250f45419124732d2430e021-13"&gt;&lt;/a&gt;$ npm i -D @types/react@ @types/react-dom@
+&lt;a name="rest_code_0e5e0075250f45419124732d2430e021-14"&gt;&lt;/a&gt;$ npm i -D @types/react-router@ @types/react-router-dom@
+&lt;a name="rest_code_0e5e0075250f45419124732d2430e021-15"&gt;&lt;/a&gt;$ npm i -D typescript@ ts-loader@
+&lt;a name="rest_code_0e5e0075250f45419124732d2430e021-16"&gt;&lt;/a&gt;$ npm i -D webpack webpack-cli webpack-dev-server
+&lt;a name="rest_code_0e5e0075250f45419124732d2430e021-17"&gt;&lt;/a&gt;
+&lt;a name="rest_code_0e5e0075250f45419124732d2430e021-18"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# tslint (2019年から非推奨) のインストール&lt;/span&gt;
+&lt;a name="rest_code_0e5e0075250f45419124732d2430e021-19"&gt;&lt;/a&gt;$ npm i -D tslint
+&lt;a name="rest_code_0e5e0075250f45419124732d2430e021-20"&gt;&lt;/a&gt;$ npm i tslint-config-typings
+&lt;a name="rest_code_0e5e0075250f45419124732d2430e021-21"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# eslint のインストール&lt;/span&gt;
+&lt;a name="rest_code_0e5e0075250f45419124732d2430e021-22"&gt;&lt;/a&gt;$ npm i -D eslint
+&lt;a name="rest_code_0e5e0075250f45419124732d2430e021-23"&gt;&lt;/a&gt;
+&lt;a name="rest_code_0e5e0075250f45419124732d2430e021-24"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# しばしアプリを実装...&lt;/span&gt;
+&lt;a name="rest_code_0e5e0075250f45419124732d2430e021-25"&gt;&lt;/a&gt;
+&lt;a name="rest_code_0e5e0075250f45419124732d2430e021-26"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# アプリケーションの起動&lt;/span&gt;
+&lt;a name="rest_code_0e5e0075250f45419124732d2430e021-27"&gt;&lt;/a&gt;$ &lt;span class="nb"&gt;cd&lt;/span&gt; react-sample-app
+&lt;a name="rest_code_0e5e0075250f45419124732d2430e021-28"&gt;&lt;/a&gt;$ npm run start
+&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</description><category>javascript</category><guid>https://32imuf.com/javascript/react/part2/</guid><pubDate>Mon, 15 Jun 2020 15:00:00 GMT</pubDate></item><item><title>React その１</title><link>https://32imuf.com/javascript/react/part1/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;details&gt;
   &lt;summary&gt;目次&lt;/summary&gt;&lt;div class="contents topic" id="id1"&gt;
 &lt;p class="topic-title first"&gt;目次&lt;/p&gt;
 &lt;ul class="simple"&gt;
