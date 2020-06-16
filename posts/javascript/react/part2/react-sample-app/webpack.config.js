@@ -1,0 +1,36 @@
+// アプリケーションのビルドには webpack を利用する
+// https://github.com/okachijs/jsframeworkbook/tree/master/3_6_react
+
+const webpack = require('webpack');
+const path = require('path');
+
+module.exports = [{
+  cache: true,
+  devtool: 'source-map',
+  devServer: {
+    historyApiFallback: true,
+  },
+  context: path.resolve(__dirname, 'src'),
+  entry: './Routes.tsx',
+  output: {
+    filename: './dist/js/build.js'
+  },
+  module: {
+    rules: [
+      {
+        test: /\.ts(x?)$/,
+        exclude: /node_modules/,
+        use: ['ts-loader'],
+      },
+    ]
+  },
+  resolve: {
+    modules: [
+      path.join(__dirname, 'src'),
+      'node_modules'
+    ],
+    // .tsx: TypeScript、かつ、JSX 使う
+    // .ts: TypeScript、かつ、JSX 使わない
+    extensions: ['.ts', '.tsx', '.js']
+  }
+}];

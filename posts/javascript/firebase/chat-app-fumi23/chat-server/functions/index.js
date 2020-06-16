@@ -119,7 +119,7 @@ app.post('/channels/:cname/messages', (req, res) => {
   // POST リクエストの :cname の位置にある値が req.params.cname にセットされる
   let cname = req.params.cname;
   let message = {
-    date: newDate().toJSON(),
+    date: new Date().toJSON(),
     body: req.body.body,
     user: req.user
   };
@@ -139,7 +139,7 @@ app.get('/channels/:cname/messages', (req, res) => {
   // .limitToLast(): 最後から 20件
   let messagesRef = admin.database().ref(`channels/${cname}/messages`).orderByChild('date').limitToLast(20);
   messagesRef.once('value', function(snapshot) {
-    let items = newArray();
+    let items = new Array();
     snapshot.forEach(function(childSnapshot) {
       let message = childSnapshot.val();
       message.id = childSnapshot.key;
