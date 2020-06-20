@@ -5,7 +5,7 @@ import {Segment, Image, Comment, Header} from 'semantic-ui-react';
 interface MessageFeedProps {
   channelName: string;
   shouldReload: boolean;
-  setShouldReload: (shouldReload:boolean) => void;
+  setShouldReload: (shouldReload: boolean) => void;
 }
 
 interface MessageFeedState {

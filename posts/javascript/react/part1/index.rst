@@ -1,4 +1,4 @@
-.. title: React その１
+.. title: React そのいち
 .. tags: javascript
 .. date: 2020-05-24
 .. slug: index
