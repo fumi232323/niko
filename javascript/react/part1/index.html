@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-<title>React その１/ふみのて</title>
+<title>React そのいち/ふみのて</title>
 <link rel="shortcut icon" href="../../../assets/icons/favicon.ico">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Griffy">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Vollkorn:400,700">
@@ -23,7 +23,7 @@
 <div class="article-content">
   <main class="item item-article item-javascript"><time class="date" datetime="2020-05-24 00:00:00+09:00">
       2020-05-24 Sun
-    </time><div class="title">React その１</div>
+    </time><div class="title">React そのいち</div>
     <div class="category">
       <a href="../../../tags/javascript/">
           javascript
@@ -154,12 +154,12 @@
 <li><p>「新しく受け取る」 props を引数に取る</p></li>
 <li>
 <p>現在の props の内容と、新しく受け取る props の内容を比較して処理を分岐できる</p>
-<pre class="code javascript"><a name="rest_code_bb36704c20694eb38256f4828e78083f-1"></a><span class="c1">// 例</span>
-<a name="rest_code_bb36704c20694eb38256f4828e78083f-2"></a><span class="kr">public</span> <span class="nx">componentWillReceiveProps</span><span class="p">(</span><span class="nx">nextProps</span><span class="p">)</span> <span class="p">{</span>
-<a name="rest_code_bb36704c20694eb38256f4828e78083f-3"></a>  <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">hoge</span> <span class="o">!==</span> <span class="nx">nextProps</span><span class="p">.</span><span class="nx">hoge</span><span class="p">)</span> <span class="p">{</span>
-<a name="rest_code_bb36704c20694eb38256f4828e78083f-4"></a>    <span class="c1">//props.hogeが変更された場合の処理</span>
-<a name="rest_code_bb36704c20694eb38256f4828e78083f-5"></a>  <span class="p">}</span>
-<a name="rest_code_bb36704c20694eb38256f4828e78083f-6"></a><span class="p">}</span>
+<pre class="code javascript"><a name="rest_code_da3bc7dd76a046978190d053fb7017a8-1"></a><span class="c1">// 例</span>
+<a name="rest_code_da3bc7dd76a046978190d053fb7017a8-2"></a><span class="kr">public</span> <span class="nx">componentWillReceiveProps</span><span class="p">(</span><span class="nx">nextProps</span><span class="p">)</span> <span class="p">{</span>
+<a name="rest_code_da3bc7dd76a046978190d053fb7017a8-3"></a>  <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">hoge</span> <span class="o">!==</span> <span class="nx">nextProps</span><span class="p">.</span><span class="nx">hoge</span><span class="p">)</span> <span class="p">{</span>
+<a name="rest_code_da3bc7dd76a046978190d053fb7017a8-4"></a>    <span class="c1">//props.hogeが変更された場合の処理</span>
+<a name="rest_code_da3bc7dd76a046978190d053fb7017a8-5"></a>  <span class="p">}</span>
+<a name="rest_code_da3bc7dd76a046978190d053fb7017a8-6"></a><span class="p">}</span>
 </pre>
 </li>
 </ul>
