@@ -37,31 +37,33 @@
 <details><summary>目次</summary><div class="contents topic" id="id1">
 <p class="topic-title first">目次</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#id2" id="id4">リファレンス・ガイド</a></p></li>
+<li><p><a class="reference internal" href="#id2" id="id5">リファレンス・ガイド</a></p></li>
 <li>
-<p><a class="reference internal" href="#string-length" id="id5">モデル定義の String 型カラムの length</a></p>
+<p><a class="reference internal" href="#string-length" id="id6">モデル定義の String 型カラムの length</a></p>
 <ul>
-<li><p><a class="reference internal" href="#ddl" id="id6">DDL を発行する場合</a></p></li>
-<li><p><a class="reference internal" href="#id3" id="id7">DDL を発行しない場合</a></p></li>
+<li><p><a class="reference internal" href="#ddl" id="id7">DDL を発行する場合</a></p></li>
+<li><p><a class="reference internal" href="#id3" id="id8">DDL を発行しない場合</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#sqlsoup" id="id8">SQLSoup</a></p></li>
+<li><p><a class="reference internal" href="#sqlsoup" id="id9">SQLSoup</a></p></li>
+<li><p><a class="reference internal" href="#id4" id="id10">大事</a></p></li>
 </ul>
 </div>
 </details><div class="section" id="id2">
-<h2><a class="toc-backref" href="#id4">リファレンス・ガイド</a></h2>
+<h2><a class="toc-backref" href="#id5">リファレンス・ガイド</a></h2>
 <ul class="simple">
-<li><p><a class="reference external" href="https://docs.sqlalchemy.org/en/13/orm/index.html">SQLAlchemy ORM</a></p></li>
+<li><p>SQLAlchemy ORM <a class="reference external" href="https://docs.sqlalchemy.org/en/13/orm/index.html">https://docs.sqlalchemy.org/en/13/orm/index.html</a></p></li>
+<li><p>SQLAlchemy Core: <a class="reference external" href="https://docs.sqlalchemy.org/en/13/core/index.html">https://docs.sqlalchemy.org/en/13/core/index.html</a></p></li>
 </ul>
 </div>
 <div class="section" id="string-length">
-<h2><a class="toc-backref" href="#id5">モデル定義の String 型カラムの length</a></h2>
-<p>リファレンスには <cite>length</cite> は安全に省略可能と書いてある (DDL を発行する機会がある場合は DB によって例外が発生するのでDBによっては必須) が指定するべきか否か</p>
+<h2><a class="toc-backref" href="#id6">モデル定義の String 型カラムの length</a></h2>
+<p>リファレンスには <code class="docutils literal">length</code> は安全に省略可能と書いてある (DDL を発行する機会がある場合は DB によって例外が発生するのでDBによっては必須) が指定するべきか否か</p>
 <ul class="simple">
 <li><p>リファレンス: <a class="reference external" href="https://docs.sqlalchemy.org/en/13/core/type_basics.html?highlight=string#sqlalchemy.types.String">https://docs.sqlalchemy.org/en/13/core/type_basics.html?highlight=string#sqlalchemy.types.String</a></p></li>
 </ul>
 <div class="section" id="ddl">
-<h3><a class="toc-backref" href="#id6">DDL を発行する場合</a></h3>
+<h3><a class="toc-backref" href="#id7">DDL を発行する場合</a></h3>
 <p>MySQL の場合は、指定するのが良い。</p>
 <ul class="simple">
 <li><p>MySQL はインデックスを貼れるデータ長の最大値があるため、通常は length 指定するのが良い</p></li>
@@ -70,7 +72,7 @@
 </ul>
 </div>
 <div class="section" id="id3">
-<h3><a class="toc-backref" href="#id7">DDL を発行しない場合</a></h3>
+<h3><a class="toc-backref" href="#id8">DDL を発行しない場合</a></h3>
 <p>DDLしないなら length 指定しないほうが無難。</p>
 <ul class="simple">
 <li><p>クエリしかしないなら気にすることはないはず</p></li>
@@ -79,10 +81,17 @@
 </div>
 </div>
 <div class="section" id="sqlsoup">
-<h2><a class="toc-backref" href="#id8">SQLSoup</a></h2>
+<h2><a class="toc-backref" href="#id9">SQLSoup</a></h2>
 <p>DB から定義をとってくるのでアプリ側でのモデル定義が不要。すごい...</p>
 <p><a class="reference external" href="https://sqlsoup.readthedocs.io/en/latest/tutorial.html">https://sqlsoup.readthedocs.io/en/latest/tutorial.html</a></p>
 <p>aodag さんありがとうございました。</p>
+</div>
+<div class="section" id="id4">
+<h2><a class="toc-backref" href="#id10">大事</a></h2>
+<p><code class="docutils literal">and_</code> には一発で渡しましょう</p>
+<ul class="simple">
+<li><p>例えば for 中に1つずつ生成するといずれ <code class="docutils literal">RecursionError</code> エラーになります</p></li>
+</ul>
 </div>
 </div>
     </div>
