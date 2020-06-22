@@ -7,7 +7,7 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>https://32imuf.com/</loc>
-  <lastmod>2020-05-06T05:44:00Z</lastmod>
+  <lastmod>2020-06-22T12:03:00Z</lastmod>
  </url>
  <url>
   <loc>https://32imuf.com/2018/</loc>
@@ -40,6 +40,10 @@
  <url>
   <loc>https://32imuf.com/aws/iroiro/</loc>
   <lastmod>2019-06-27T14:20:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://32imuf.com/aws/redshift/note/</loc>
+  <lastmod>2020-06-22T12:02:00Z</lastmod>
  </url>
  <url>
   <loc>https://32imuf.com/aws/s3-response-error/</loc>
@@ -232,6 +236,10 @@
  <url>
   <loc>https://32imuf.com/miyadaiku/build/</loc>
   <lastmod>2019-06-02T07:16:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://32imuf.com/mysql/note/</loc>
+  <lastmod>2020-06-22T12:03:00Z</lastmod>
  </url>
  <url>
   <loc>https://32imuf.com/nikola/note/</loc>

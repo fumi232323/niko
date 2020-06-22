@@ -7,15 +7,15 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <sitemap>
   <loc>https://32imuf.com/atom.xml</loc>
-  <lastmod>2020-06-20T16:04:00Z</lastmod>
+  <lastmod>2020-06-22T12:03:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://32imuf.com/sitemap.xml</loc>
-  <lastmod>2020-06-20T16:12:00Z</lastmod>
+  <lastmod>2020-06-22T12:03:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://32imuf.com/tags/aws.xml</loc>
-  <lastmod>2020-01-13T13:54:00Z</lastmod>
+  <lastmod>2020-06-22T12:02:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://32imuf.com/tags/blog.xml</loc>
@@ -27,7 +27,7 @@
  </sitemap>
  <sitemap>
   <loc>https://32imuf.com/tags/database.xml</loc>
-  <lastmod>2020-04-22T09:31:00Z</lastmod>
+  <lastmod>2020-06-22T11:55:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://32imuf.com/tags/django-rest-framework.xml</loc>
@@ -67,7 +67,7 @@
  </sitemap>
  <sitemap>
   <loc>https://32imuf.com/tags/mysql.xml</loc>
-  <lastmod>2020-04-22T09:31:00Z</lastmod>
+  <lastmod>2020-06-22T12:03:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://32imuf.com/tags/nikola.xml</loc>
