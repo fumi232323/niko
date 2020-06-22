@@ -141,6 +141,20 @@ CACHE
 * `The query cache is deprecated as of MySQL 5.7.20, and is removed in MySQL 8.0.` だそうです
 
 
+PROCESSLIST
+===========
+
+.. code-block:: mysql
+
+  -- 実行中のスレッドを表示する
+  SHOW [FULL] PROCESSLIST
+  -- スレッドを終了する
+  KILL [CONNECTION | QUERY] processlist_id
+
+* 13.7.5.29 SHOW PROCESSLIST Statement: https://dev.mysql.com/doc/refman/5.7/en/show-processlist.html
+* 13.7.6.4 KILL Statement: https://dev.mysql.com/doc/refman/5.7/en/kill.html
+
+
 dump
 ====
 
@@ -228,13 +242,7 @@ https://dev.mysql.com/doc/refman/5.7/en/partitioning.html
   -- 拡張表示
   SELECT * FROM users WHERE login = 'fumi23'\G
 
-  -- 実行中のスレッドを表示する
-  SHOW [FULL] PROCESSLIST
-  -- スレッドを終了する
-  KILL [CONNECTION | QUERY] processlist_id
-
-* 13.7.5.29 SHOW PROCESSLIST Statement: https://dev.mysql.com/doc/refman/5.7/en/show-processlist.html
-* 13.7.6.4 KILL Statement: https://dev.mysql.com/doc/refman/5.7/en/kill.html
+* これ便利ですねえ: `INSERT ... ON DUPLICATE KEY UPDATE Statement <https://dev.mysql.com/doc/refman/5.7/en/insert-on-duplicate.html>`_
 
 
 おぼえがき

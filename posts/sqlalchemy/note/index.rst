@@ -20,13 +20,14 @@
 リファレンス・ガイド
 =====================
 
-- `SQLAlchemy ORM <https://docs.sqlalchemy.org/en/13/orm/index.html>`_
+* SQLAlchemy ORM https://docs.sqlalchemy.org/en/13/orm/index.html
+* SQLAlchemy Core: https://docs.sqlalchemy.org/en/13/core/index.html
 
 
 
 モデル定義の String 型カラムの length
 =====================================
-リファレンスには `length` は安全に省略可能と書いてある (DDL を発行する機会がある場合は DB によって例外が発生するのでDBによっては必須) が指定するべきか否か
+リファレンスには ``length`` は安全に省略可能と書いてある (DDL を発行する機会がある場合は DB によって例外が発生するのでDBによっては必須) が指定するべきか否か
 
 - リファレンス: https://docs.sqlalchemy.org/en/13/core/type_basics.html?highlight=string#sqlalchemy.types.String
 
@@ -55,3 +56,11 @@ DB から定義をとってくるのでアプリ側でのモデル定義が不�
 https://sqlsoup.readthedocs.io/en/latest/tutorial.html
 
 aodag さんありがとうございました。
+
+
+大事
+====
+
+``and_`` には一発で渡しましょう
+
+* 例えば for 中に1つずつ生成するといずれ ``RecursionError`` エラーになります
