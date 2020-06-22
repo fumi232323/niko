@@ -1,7 +1,7 @@
 .. title: MySQL のメモ
 .. tags: mysql, database
 .. date: 2019-04-30
-.. updated: 2020-02-02
+.. updated: 2020-06-22
 .. slug: index
 .. status: published
 
@@ -192,6 +192,32 @@ EXPLAIN
 * 8.8.2 EXPLAIN Output Format: https://dev.mysql.com/doc/refman/5.7/en/explain-output.html
 
   * 出力項目の説明が載っている
+
+
+Partitioning
+============
+
+https://dev.mysql.com/doc/refman/5.7/en/partitioning.html
+
+* いろんなタイプがあるので用途に応じて使い分けよう: https://dev.mysql.com/doc/refman/5.7/en/partitioning-types.html
+* 制約と制限もいろいろあるので注意: https://dev.mysql.com/doc/refman/5.7/en/partitioning-limitations.html
+
+.. code-block:: mysql
+
+  -- primary key を変更
+  -- すでに主キーがついているテーブルの場合、主キーなしに変更 or パーティショニングキーに使いたいキーを主キーに追加する必要がある
+  ALTER TABLE  table_name DROP PRIMARY KEY, ADD PRIMARY KEY(id, other_col_name);
+
+  -- partition つける
+  -- https://dev.mysql.com/doc/refman/5.7/en/partitioning-list.html
+  ALTER TABLE table_name
+  PARTITION BY LIST (other_col_name) (  -- LIST タイプ
+      PARTITION pDog VALUES IN (0),     -- LIST なので値は複数指定できるよ
+      PARTITION pCat VALUES IN (1)
+  );
+
+  -- partition 確認
+  select TABLE_SCHEMA,TABLE_NAME,PARTITION_NAME,PARTITION_ORDINAL_POSITION,TABLE_ROWS from INFORMATION_SCHEMA.PARTITIONS WHERE TABLE_NAME='table_name';
 
 
 便利
