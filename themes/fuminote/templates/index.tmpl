@@ -29,6 +29,11 @@
           <time class="date" datetime="{{ post.date }}">
             {{ post.date.strftime('%Y-%m-%d %a') }}
           </time>
+          {% if post.updated %}
+            <time class="date" datetime="{{ post.updated }}">
+              updated: {{ post.updated.strftime('%Y-%m-%d %a') }}
+            </time>
+          {% endif %}
         </a>
       </section>
     {% endfor %}

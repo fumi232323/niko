@@ -1,5 +1,5 @@
 .. title: Redshift のメモ
-.. tags: database, redshift
+.. tags: aws
 .. date: 2018-09-02
 .. slug: index
 .. status: published

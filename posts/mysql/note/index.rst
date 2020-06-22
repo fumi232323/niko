@@ -1,5 +1,5 @@
 .. title: MySQL のメモ
-.. tags: mysql, database
+.. tags: mysql
 .. date: 2019-04-30
 .. updated: 2020-06-22
 .. slug: index
