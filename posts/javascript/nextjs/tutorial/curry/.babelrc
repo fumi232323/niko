@@ -1,0 +1,9 @@
+/*
+  .babelrc:
+  Next.jsでは .babelrc を作成・編集してビルド設定を変更できる。
+*/
+{
+  // TypeScript を使って Next.js を ビルドする
+  "presets": ["next/babel", "@zeit/next-typescript/babel"],
+  "plugins": []
+}
