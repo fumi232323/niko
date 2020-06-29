@@ -7,11 +7,11 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <sitemap>
   <loc>https://32imuf.com/atom.xml</loc>
-  <lastmod>2020-06-22T12:17:00Z</lastmod>
+  <lastmod>2020-06-29T14:09:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://32imuf.com/sitemap.xml</loc>
-  <lastmod>2020-06-22T12:17:00Z</lastmod>
+  <lastmod>2020-06-29T14:09:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://32imuf.com/tags/aws.xml</loc>
@@ -47,7 +47,7 @@
  </sitemap>
  <sitemap>
   <loc>https://32imuf.com/tags/javascript.xml</loc>
-  <lastmod>2020-06-20T16:04:00Z</lastmod>
+  <lastmod>2020-06-29T14:09:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://32imuf.com/tags/linux.xml</loc>
@@ -63,7 +63,7 @@
  </sitemap>
  <sitemap>
   <loc>https://32imuf.com/tags/mysql.xml</loc>
-  <lastmod>2020-06-22T12:03:00Z</lastmod>
+  <lastmod>2020-06-22T12:24:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://32imuf.com/tags/nikola.xml</loc>
@@ -91,7 +91,7 @@
  </sitemap>
  <sitemap>
   <loc>https://32imuf.com/tags/sqlalchemy.xml</loc>
-  <lastmod>2020-06-22T12:17:00Z</lastmod>
+  <lastmod>2020-06-22T13:45:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://32imuf.com/tags/ssh.xml</loc>

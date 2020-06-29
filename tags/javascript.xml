@@ -1,5 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ふみのて (javascriptについての文書)</title><link>https://32imuf.com/</link><description></description><atom:link href="https://32imuf.com/tags/javascript.xml" rel="self" type="application/rss+xml"></atom:link><language>ja</language><copyright>Contents © 2020 &lt;a href="mailto:fumi232323fumi2016@gmail.com"&gt;fumi23&lt;/a&gt; </copyright><lastBuildDate>Sat, 20 Jun 2020 16:04:54 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>React チュートリアル</title><link>https://32imuf.com/javascript/react/tutorial/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;details&gt;
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ふみのて (javascriptについての文書)</title><link>https://32imuf.com/</link><description></description><atom:link href="https://32imuf.com/tags/javascript.xml" rel="self" type="application/rss+xml"></atom:link><language>ja</language><copyright>Contents © 2020 &lt;a href="mailto:fumi232323fumi2016@gmail.com"&gt;fumi23&lt;/a&gt; </copyright><lastBuildDate>Mon, 29 Jun 2020 14:14:04 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Next.js TypeScript チュートリアル</title><link>https://32imuf.com/javascript/nextjs/tutorial/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;details&gt;
+  &lt;summary&gt;目次&lt;/summary&gt;&lt;div class="contents topic" id="id1"&gt;
+&lt;p class="topic-title first"&gt;目次&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/javascript/nextjs/tutorial/#id2" id="id4"&gt;リファレンス, 書籍&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/javascript/nextjs/tutorial/#next-js-note" id="id5"&gt;Next.js の note&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/javascript/nextjs/tutorial/#note" id="id6"&gt;その他 note&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/javascript/nextjs/tutorial/#id3" id="id7"&gt;コマンド書き留め&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/details&gt;&lt;div class="section" id="id2"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/javascript/nextjs/tutorial/#id4"&gt;リファレンス, 書籍&lt;/a&gt;&lt;/h2&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://programmagick.com/sections/nextjs_tutorial/sample"&gt;https://programmagick.com/sections/nextjs_tutorial/sample&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://nextjs.org/docs/"&gt;https://nextjs.org/docs/&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="next-js-note"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/javascript/nextjs/tutorial/#id5"&gt;Next.js の note&lt;/a&gt;&lt;/h2&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;Next.js 公式のサンプル集: &lt;a class="reference external" href="https://github.com/vercel/next.js/tree/master/examples"&gt;https://github.com/vercel/next.js/tree/master/examples&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code class="docutils literal"&gt;.babelrc&lt;/code&gt; ファイル: ビルド設定&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Next.jsでは &lt;code class="docutils literal"&gt;.babelrc&lt;/code&gt; を作成・編集してビルド設定を変更できる&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code class="docutils literal"&gt;next.config.js&lt;/code&gt; ファイル: Next.js 全般の設定&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;TypeScript を使うよ、もここに書く&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Custom App:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://nextjs.org/docs/advanced-features/custom-app"&gt;https://nextjs.org/docs/advanced-features/custom-app&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://nextjs.org/docs/basic-features/typescript#custom-app"&gt;https://nextjs.org/docs/basic-features/typescript#custom-app&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;ファイル名と配置先は決まっているもよう =&amp;gt; こう &lt;code class="docutils literal"&gt;./pages/_app.tsx&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Next.js は App コンポーネントを使用してページを初期化する。そいつをオーバーライドしてページの初期化をコントロールできる。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;すべてのページで共有するコンポーネント （メニューやツールバーなど） が必要な場合は、App を使う&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Custom Document: &lt;a class="reference external" href="https://nextjs.org/docs/advanced-features/custom-document"&gt;https://nextjs.org/docs/advanced-features/custom-document&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;ファイル名と配置先は決まっているもよう =&amp;gt; こう &lt;code class="docutils literal"&gt;./pages/_document.tsx&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;自分のアプリケーションの &lt;code class="docutils literal"&gt;&amp;lt;html&amp;gt;&lt;/code&gt; や &lt;code class="docutils literal"&gt;&amp;lt;body&amp;gt;&lt;/code&gt; タグを拡張するために使う感じ&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code class="docutils literal"&gt;&amp;lt;Html&amp;gt;&lt;/code&gt;, &lt;code class="docutils literal"&gt;&amp;lt;Head /&amp;gt;&lt;/code&gt;, &lt;code class="docutils literal"&gt;&amp;lt;Main /&amp;gt;&lt;/code&gt; and &lt;code class="docutils literal"&gt;&amp;lt;NextScript /&amp;gt;&lt;/code&gt; は必ず必要のもよう&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Document はサーバーサイドのみでレンダリングされる。 &lt;code class="docutils literal"&gt;onClick&lt;/code&gt; とかは働かない。&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code class="docutils literal"&gt;static&lt;/code&gt; ディレクトリ: 配下に画像などの静的ファイルを置くと、
+Node.js 経由で静的ファイルを配信できる。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;本番では Node.js (Next.js) をアプリケーション処理に特化させ、
+Nginx や各種CDN などに静的ファイル配信を任せる構成が一般的とのこと&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code class="docutils literal"&gt;getInitialProps&lt;/code&gt;: &lt;a class="reference external" href="https://nextjs.org/docs/api-reference/data-fetching/getInitialProps"&gt;https://nextjs.org/docs/api-reference/data-fetching/getInitialProps&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;サーバーサイドレンダリングを可能にし、初期データ設定できる (SEO に役立つらしい)&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;非同期でデータを取得し、 Props に初期値を設定できる&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;static メソッドとして任意の Page にくっつけられる非同期関数&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;引数に &lt;code class="docutils literal"&gt;context&lt;/code&gt; オブジェクトを受け取る (いろいろ properties が入っている)&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Next.js 9.3 以降を使っている場合は &lt;code class="docutils literal"&gt;getInitialProps&lt;/code&gt; のかわりに &lt;code class="docutils literal"&gt;getStaticProps&lt;/code&gt; や &lt;code class="docutils literal"&gt;getServerSideProps&lt;/code&gt; がオススメとのこと。&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;# TODO: Next.js の Getting Started もやると良さそう&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="section" id="note"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/javascript/nextjs/tutorial/#id6"&gt;その他 note&lt;/a&gt;&lt;/h3&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;&lt;code class="docutils literal"&gt;export&lt;/code&gt; : export するとほかのモジュールから import できる&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code class="docutils literal"&gt;&lt;span class="pre"&gt;...initialProps&lt;/span&gt;&lt;/code&gt; : 可変長引数&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id3"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/javascript/nextjs/tutorial/#id7"&gt;コマンド書き留め&lt;/a&gt;&lt;/h2&gt;
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_521fb6c634d94441b2b3e84386a97891-1"&gt;&lt;/a&gt;$ mkdir curry
+&lt;a name="rest_code_521fb6c634d94441b2b3e84386a97891-2"&gt;&lt;/a&gt;$ npm init -y
+&lt;a name="rest_code_521fb6c634d94441b2b3e84386a97891-3"&gt;&lt;/a&gt;$ npm install next react react-dom styled-components
+&lt;a name="rest_code_521fb6c634d94441b2b3e84386a97891-4"&gt;&lt;/a&gt;
+&lt;a name="rest_code_521fb6c634d94441b2b3e84386a97891-5"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# TypeScript で Next.js を動作させるため、 Zeit社が提供する公式プラグインをインストールする&lt;/span&gt;
+&lt;a name="rest_code_521fb6c634d94441b2b3e84386a97891-6"&gt;&lt;/a&gt;$ npm install --save-dev @zeit/next-typescript
+&lt;a name="rest_code_521fb6c634d94441b2b3e84386a97891-7"&gt;&lt;/a&gt;
+&lt;a name="rest_code_521fb6c634d94441b2b3e84386a97891-8"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# React等の型定義ファイルをインストールする&lt;/span&gt;
+&lt;a name="rest_code_521fb6c634d94441b2b3e84386a97891-9"&gt;&lt;/a&gt;$ npm install --save-dev @types/react
+&lt;a name="rest_code_521fb6c634d94441b2b3e84386a97891-10"&gt;&lt;/a&gt;$ npm install --save-dev @types/react-dom
+&lt;a name="rest_code_521fb6c634d94441b2b3e84386a97891-11"&gt;&lt;/a&gt;$ npm install --save-dev @types/next
+&lt;a name="rest_code_521fb6c634d94441b2b3e84386a97891-12"&gt;&lt;/a&gt;$ npm install --save-dev @types/styled-components
+&lt;a name="rest_code_521fb6c634d94441b2b3e84386a97891-13"&gt;&lt;/a&gt;
+&lt;a name="rest_code_521fb6c634d94441b2b3e84386a97891-14"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# これもいるっぽい&lt;/span&gt;
+&lt;a name="rest_code_521fb6c634d94441b2b3e84386a97891-15"&gt;&lt;/a&gt;$ npm install --save-dev typescript @types/node
+&lt;a name="rest_code_521fb6c634d94441b2b3e84386a97891-16"&gt;&lt;/a&gt;
+&lt;a name="rest_code_521fb6c634d94441b2b3e84386a97891-17"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# ビルド &amp;amp; アプリ起動&lt;/span&gt;
+&lt;a name="rest_code_521fb6c634d94441b2b3e84386a97891-18"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# http://localhost:3000 でアクセスできる&lt;/span&gt;
+&lt;a name="rest_code_521fb6c634d94441b2b3e84386a97891-19"&gt;&lt;/a&gt;$ npm run dev
+&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</description><category>javascript</category><guid>https://32imuf.com/javascript/nextjs/tutorial/</guid><pubDate>Sun, 21 Jun 2020 15:00:00 GMT</pubDate></item><item><title>React チュートリアル</title><link>https://32imuf.com/javascript/react/tutorial/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;details&gt;
   &lt;summary&gt;目次&lt;/summary&gt;&lt;div class="contents topic" id="id1"&gt;
 &lt;p class="topic-title first"&gt;目次&lt;/p&gt;
 &lt;ul class="simple"&gt;
