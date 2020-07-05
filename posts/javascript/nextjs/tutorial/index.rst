@@ -74,6 +74,7 @@ Next.js の note
 
 * ``export`` : export するとほかのモジュールから import できる
 * ``...initialProps`` : 可変長引数
+* 「antdesign と styled-components は使わないと損なレベルで完成度高い。」との情報を得た。
 
 
 コマンド書き留め
