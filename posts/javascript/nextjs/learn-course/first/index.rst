@@ -245,8 +245,8 @@ Adding Global CSS
 * global CSS files は、配置先と名前はなんでもよい
 * 例)
 
-  {{% codeblock nextjs-blog/styles/global.css label="styles/global.css" lexer="css" %}}
-  {{% codeblock nextjs-blog/pages/_app.js label="pages/_app.js" lexer="css" %}}
+  {{% codeblock ../nextjs-blog/styles/global.css label="styles/global.css" lexer="css" %}}
+  {{% codeblock ../nextjs-blog/pages/_app.js label="pages/_app.js" lexer="css" %}}
 
 まとめ
 ------
