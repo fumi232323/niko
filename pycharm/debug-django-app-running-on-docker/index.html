@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
@@ -34,22 +34,22 @@
         
       </time><div class="text">
       <div>
-<details><summary>目次</summary><div class="contents topic" id="id1">
-<p class="topic-title first">目次</p>
+<details><summary>目次</summary><div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#id2" id="id5">ガイド</a></p></li>
-<li><p><a class="reference internal" href="#id3" id="id6">実行/デバッグ構成を作成する</a></p></li>
-<li><p><a class="reference internal" href="#id4" id="id7">デバッグする</a></p></li>
+<li><p><a class="reference internal" href="#id1" id="id4">ガイド</a></p></li>
+<li><p><a class="reference internal" href="#id2" id="id5">実行/デバッグ構成を作成する</a></p></li>
+<li><p><a class="reference internal" href="#id3" id="id6">デバッグする</a></p></li>
 </ul>
 </div>
-</details><div class="section" id="id2">
-<h2><a class="toc-backref" href="#id5">ガイド</a></h2>
+</details><div class="section" id="id1">
+<h2><a class="toc-backref" href="#id4">ガイド</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://pleiades.io/help/pycharm/run-debug-configuration-django-server.html">実行/デバッグ構成: Django サーバー</a></p></li>
 </ul>
 </div>
-<div class="section" id="id3">
-<h2><a class="toc-backref" href="#id6">実行/デバッグ構成を作成する</a></h2>
+<div class="section" id="id2">
+<h2><a class="toc-backref" href="#id5">実行/デバッグ構成を作成する</a></h2>
 <ol class="arabic">
 <li>
 <p>Run -&gt; Edit Configurations...</p>
@@ -87,11 +87,11 @@
 <li><p><code class="docutils literal">127.0.0.1</code> とか <code class="docutils literal">localhost</code> だと動かなかった</p></li>
 <li>
 <p>docker-compose.yml 内でこうしているからかもしれない</p>
-<pre class="code yaml"><a name="rest_code_d181259aa3de4990a3dd4385acb46f55-1"></a><span class="nt">command</span><span class="p">:</span>
-<a name="rest_code_d181259aa3de4990a3dd4385acb46f55-2"></a>  <span class="p p-Indicator">-</span> <span class="s">"python"</span>
-<a name="rest_code_d181259aa3de4990a3dd4385acb46f55-3"></a>  <span class="p p-Indicator">-</span> <span class="s">"fufufu/manage.py"</span>
-<a name="rest_code_d181259aa3de4990a3dd4385acb46f55-4"></a>  <span class="p p-Indicator">-</span> <span class="s">"runserver"</span>
-<a name="rest_code_d181259aa3de4990a3dd4385acb46f55-5"></a>  <span class="p p-Indicator">-</span> <span class="s">"0.0.0.0:8000"</span>
+<pre class="code yaml"><a name="rest_code_eb65f249d02744e9a5365243f1b3f8ec-1"></a><span class="nt">command</span><span class="p">:</span>
+<a name="rest_code_eb65f249d02744e9a5365243f1b3f8ec-2"></a>  <span class="p p-Indicator">-</span> <span class="s">"python"</span>
+<a name="rest_code_eb65f249d02744e9a5365243f1b3f8ec-3"></a>  <span class="p p-Indicator">-</span> <span class="s">"fufufu/manage.py"</span>
+<a name="rest_code_eb65f249d02744e9a5365243f1b3f8ec-4"></a>  <span class="p p-Indicator">-</span> <span class="s">"runserver"</span>
+<a name="rest_code_eb65f249d02744e9a5365243f1b3f8ec-5"></a>  <span class="p p-Indicator">-</span> <span class="s">"0.0.0.0:8000"</span>
 </pre>
 </li>
 </ul>
@@ -101,8 +101,8 @@
 <ul>
 <li>
 <p>たぶん docker-compose.yml 内でこうしているからだろう</p>
-<pre class="code yaml"><a name="rest_code_f131f527ebd14e8195bf9e909d1ebc01-1"></a><span class="nt">ports</span><span class="p">:</span>
-<a name="rest_code_f131f527ebd14e8195bf9e909d1ebc01-2"></a>  <span class="p p-Indicator">-</span> <span class="s">"8000:8000"</span>
+<pre class="code yaml"><a name="rest_code_b7c28fad6019486b89c76fc9aa2bf7bf-1"></a><span class="nt">ports</span><span class="p">:</span>
+<a name="rest_code_b7c28fad6019486b89c76fc9aa2bf7bf-2"></a>  <span class="p p-Indicator">-</span> <span class="s">"8000:8000"</span>
 </pre>
 </li>
 </ul>
@@ -113,7 +113,7 @@
 <ul>
 <li>
 <p>わたしの場合は docker-compose.yml 内でこうしているので、そこからの相対位置を指定する必要があったのだろう (このプロジェクトの settings はコンテナ内だと <code class="docutils literal">/var/www/fufufu/fufufu</code> 配下にある)</p>
-<pre class="code yaml"><a name="rest_code_5d3dcdc199a84d79a94562035e3ea234-1"></a><span class="nt">working_dir</span><span class="p">:</span> <span class="s">"/var/www/fufufu"</span>
+<pre class="code yaml"><a name="rest_code_20aaacdf52114af3bf2c0855eb0f6ef5-1"></a><span class="nt">working_dir</span><span class="p">:</span> <span class="s">"/var/www/fufufu"</span>
 </pre>
 </li>
 </ul>
@@ -126,8 +126,8 @@
 <li><p>Apply -&gt; OK</p></li>
 </ol>
 </div>
-<div class="section" id="id4">
-<h2><a class="toc-backref" href="#id7">デバッグする</a></h2>
+<div class="section" id="id3">
+<h2><a class="toc-backref" href="#id6">デバッグする</a></h2>
 <ol class="arabic">
 <li>
 <p>左上のほうにあるプルダウンで↑で作った「実行/デバッグ構成」選択する</p>

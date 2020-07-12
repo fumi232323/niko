@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
@@ -34,48 +34,48 @@
         
       </time><div class="text">
       <div>
-<details><summary>目次</summary><div class="contents topic" id="id1">
-<p class="topic-title first">目次</p>
+<details><summary>目次</summary><div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#id2" id="id7">リファレンス/書籍</a></p></li>
-<li><p><a class="reference internal" href="#id4" id="id8">関数ベースのビュー</a></p></li>
+<li><p><a class="reference internal" href="#id1" id="id6">リファレンス/書籍</a></p></li>
+<li><p><a class="reference internal" href="#id3" id="id7">関数ベースのビュー</a></p></li>
 <li>
-<p><a class="reference internal" href="#class-based-views" id="id9">クラスベースのビュー (Class-based views)</a></p>
+<p><a class="reference internal" href="#class-based-views" id="id8">クラスベースのビュー (Class-based views)</a></p>
 <ul>
-<li><p><a class="reference internal" href="#as-view" id="id10">as_view</a></p></li>
+<li><p><a class="reference internal" href="#as-view" id="id9">as_view</a></p></li>
 </ul>
 </li>
 <li>
-<p><a class="reference internal" href="#base-views" id="id11">Base views</a></p>
+<p><a class="reference internal" href="#base-views" id="id10">Base views</a></p>
 <ul>
-<li><p><a class="reference internal" href="#view" id="id12">View</a></p></li>
+<li><p><a class="reference internal" href="#view" id="id11">View</a></p></li>
 <li>
-<p><a class="reference internal" href="#templateview" id="id13">TemplateView</a></p>
+<p><a class="reference internal" href="#templateview" id="id12">TemplateView</a></p>
 <ul>
-<li><p><a class="reference internal" href="#get-context-data" id="id14">get_context_data</a></p></li>
+<li><p><a class="reference internal" href="#get-context-data" id="id13">get_context_data</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#redirectview" id="id15">RedirectView</a></p></li>
-</ul>
-</li>
-<li>
-<p><a class="reference internal" href="#generic-views" id="id16">いろいろな Generic views</a></p>
-<ul>
-<li><p><a class="reference internal" href="#listview" id="id17">ListView</a></p></li>
-<li><p><a class="reference internal" href="#formview" id="id18">FormView</a></p></li>
+<li><p><a class="reference internal" href="#redirectview" id="id14">RedirectView</a></p></li>
 </ul>
 </li>
 <li>
-<p><a class="reference internal" href="#id5" id="id19">ログイン・ログアウト</a></p>
+<p><a class="reference internal" href="#generic-views" id="id15">いろいろな Generic views</a></p>
 <ul>
-<li><p><a class="reference internal" href="#loginview-logoutview" id="id20">LoginView, LogoutView</a></p></li>
-<li><p><a class="reference internal" href="#loginrequiredmixin" id="id21">LoginRequiredMixin</a></p></li>
+<li><p><a class="reference internal" href="#listview" id="id16">ListView</a></p></li>
+<li><p><a class="reference internal" href="#formview" id="id17">FormView</a></p></li>
+</ul>
+</li>
+<li>
+<p><a class="reference internal" href="#id4" id="id18">ログイン・ログアウト</a></p>
+<ul>
+<li><p><a class="reference internal" href="#loginview-logoutview" id="id19">LoginView, LogoutView</a></p></li>
+<li><p><a class="reference internal" href="#loginrequiredmixin" id="id20">LoginRequiredMixin</a></p></li>
 </ul>
 </li>
 </ul>
 </div>
-</details><div class="section" id="id2">
-<h2><a class="toc-backref" href="#id7">リファレンス/書籍</a></h2>
+</details><div class="section" id="id1">
+<h2><a class="toc-backref" href="#id6">リファレンス/書籍</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://docs.djangoproject.com/ja/2.2/topics/class-based-views/">Django documentation &gt; クラスベースビュー</a></p></li>
 <li><p><a class="reference external" href="https://docs.djangoproject.com/ja/2.2/ref/class-based-views/">Django documentation &gt; ビルトインのクラスベースビュー API</a></p></li>
@@ -84,29 +84,29 @@
 <li><p>crohaco さん、 shimizukawa さん、 tell-k さん</p></li>
 </ul>
 </div>
-<div class="section" id="id4">
-<h2><a class="toc-backref" href="#id8">関数ベースのビュー</a></h2>
+<div class="section" id="id3">
+<h2><a class="toc-backref" href="#id7">関数ベースのビュー</a></h2>
 <ul class="simple">
 <li><p>第一引数に django.http.request.HttpRequest を受け取る</p></li>
 <li><p>戻り値に django.http.response.HttpResponse を返す</p></li>
 </ul>
-<pre class="code python"><a name="rest_code_49ba8750feeb4474bb194c1f46c2f1ce-1"></a><span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span>
-<a name="rest_code_49ba8750feeb4474bb194c1f46c2f1ce-2"></a>
-<a name="rest_code_49ba8750feeb4474bb194c1f46c2f1ce-3"></a>
-<a name="rest_code_49ba8750feeb4474bb194c1f46c2f1ce-4"></a><span class="k">def</span> <span class="nf">HelloView</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
-<a name="rest_code_49ba8750feeb4474bb194c1f46c2f1ce-5"></a>    <span class="sd">"""関数ベースのビュー"""</span>
-<a name="rest_code_49ba8750feeb4474bb194c1f46c2f1ce-6"></a>    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">'GET'</span><span class="p">:</span>
-<a name="rest_code_49ba8750feeb4474bb194c1f46c2f1ce-7"></a>        <span class="n">context</span> <span class="o">=</span> <span class="p">{</span>
-<a name="rest_code_49ba8750feeb4474bb194c1f46c2f1ce-8"></a>            <span class="s1">'message'</span><span class="p">:</span> <span class="s2">"Hello World!"</span><span class="p">,</span>
-<a name="rest_code_49ba8750feeb4474bb194c1f46c2f1ce-9"></a>        <span class="p">}</span>
-<a name="rest_code_49ba8750feeb4474bb194c1f46c2f1ce-10"></a>        <span class="c1"># render:</span>
-<a name="rest_code_49ba8750feeb4474bb194c1f46c2f1ce-11"></a>        <span class="c1">#   * HttpResponse を作ってくれる</span>
-<a name="rest_code_49ba8750feeb4474bb194c1f46c2f1ce-12"></a>        <span class="c1">#   * テンプレートをレンダリングするとき使う</span>
-<a name="rest_code_49ba8750feeb4474bb194c1f46c2f1ce-13"></a>        <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">'hello.html'</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
+<pre class="code python"><a name="rest_code_7826188368c44a72be8e41d1853019fc-1"></a><span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span>
+<a name="rest_code_7826188368c44a72be8e41d1853019fc-2"></a>
+<a name="rest_code_7826188368c44a72be8e41d1853019fc-3"></a>
+<a name="rest_code_7826188368c44a72be8e41d1853019fc-4"></a><span class="k">def</span> <span class="nf">HelloView</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<a name="rest_code_7826188368c44a72be8e41d1853019fc-5"></a>    <span class="sd">"""関数ベースのビュー"""</span>
+<a name="rest_code_7826188368c44a72be8e41d1853019fc-6"></a>    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">'GET'</span><span class="p">:</span>
+<a name="rest_code_7826188368c44a72be8e41d1853019fc-7"></a>        <span class="n">context</span> <span class="o">=</span> <span class="p">{</span>
+<a name="rest_code_7826188368c44a72be8e41d1853019fc-8"></a>            <span class="s1">'message'</span><span class="p">:</span> <span class="s2">"Hello World!"</span><span class="p">,</span>
+<a name="rest_code_7826188368c44a72be8e41d1853019fc-9"></a>        <span class="p">}</span>
+<a name="rest_code_7826188368c44a72be8e41d1853019fc-10"></a>        <span class="c1"># render:</span>
+<a name="rest_code_7826188368c44a72be8e41d1853019fc-11"></a>        <span class="c1">#   * HttpResponse を作ってくれる</span>
+<a name="rest_code_7826188368c44a72be8e41d1853019fc-12"></a>        <span class="c1">#   * テンプレートをレンダリングするとき使う</span>
+<a name="rest_code_7826188368c44a72be8e41d1853019fc-13"></a>        <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">'hello.html'</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
 </pre>
 </div>
 <div class="section" id="class-based-views">
-<h2><a class="toc-backref" href="#id9">クラスベースのビュー (Class-based views)</a></h2>
+<h2><a class="toc-backref" href="#id8">クラスベースのビュー (Class-based views)</a></h2>
 <ul class="simple">
 <li><p>関数形式の view はコンテキスト、テンプレート、フォーム、全部変えしてあげないといけなかった。つまり全部関数内に書く必要があった。
 必要なものを切り離して属性として定義できるようにしたのが genericview (class based view)。</p></li>
@@ -119,61 +119,61 @@
 </ul>
 </li>
 </ul>
-<pre class="code python"><a name="rest_code_cdab5a83b33146f993223eab6d123c65-1"></a><span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span>
-<a name="rest_code_cdab5a83b33146f993223eab6d123c65-2"></a><span class="kn">from</span> <span class="nn">django.views</span> <span class="kn">import</span> <span class="n">View</span>
-<a name="rest_code_cdab5a83b33146f993223eab6d123c65-3"></a><span class="c1"># from django.views.generic import View と同義↑</span>
-<a name="rest_code_cdab5a83b33146f993223eab6d123c65-4"></a>
-<a name="rest_code_cdab5a83b33146f993223eab6d123c65-5"></a>
-<a name="rest_code_cdab5a83b33146f993223eab6d123c65-6"></a><span class="k">class</span> <span class="nc">HelloView</span><span class="p">(</span><span class="n">View</span><span class="p">):</span>
-<a name="rest_code_cdab5a83b33146f993223eab6d123c65-7"></a>    <span class="sd">"""クラスベースのビュー"""</span>
-<a name="rest_code_cdab5a83b33146f993223eab6d123c65-8"></a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<a name="rest_code_cdab5a83b33146f993223eab6d123c65-9"></a>        <span class="n">context</span> <span class="o">=</span> <span class="p">{</span>
-<a name="rest_code_cdab5a83b33146f993223eab6d123c65-10"></a>            <span class="s1">'message'</span><span class="p">:</span> <span class="s2">"Hello World!"</span><span class="p">,</span>
-<a name="rest_code_cdab5a83b33146f993223eab6d123c65-11"></a>        <span class="p">}</span>
-<a name="rest_code_cdab5a83b33146f993223eab6d123c65-12"></a>        <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">'hello.html'</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
-<a name="rest_code_cdab5a83b33146f993223eab6d123c65-13"></a>
-<a name="rest_code_cdab5a83b33146f993223eab6d123c65-14"></a>
-<a name="rest_code_cdab5a83b33146f993223eab6d123c65-15"></a><span class="n">hello</span> <span class="o">=</span> <span class="n">HelloView</span><span class="o">.</span><span class="n">as_view</span><span class="p">()</span>
+<pre class="code python"><a name="rest_code_5a564d13f8de40558fa477fb8e7d3190-1"></a><span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span>
+<a name="rest_code_5a564d13f8de40558fa477fb8e7d3190-2"></a><span class="kn">from</span> <span class="nn">django.views</span> <span class="kn">import</span> <span class="n">View</span>
+<a name="rest_code_5a564d13f8de40558fa477fb8e7d3190-3"></a><span class="c1"># from django.views.generic import View と同義↑</span>
+<a name="rest_code_5a564d13f8de40558fa477fb8e7d3190-4"></a>
+<a name="rest_code_5a564d13f8de40558fa477fb8e7d3190-5"></a>
+<a name="rest_code_5a564d13f8de40558fa477fb8e7d3190-6"></a><span class="k">class</span> <span class="nc">HelloView</span><span class="p">(</span><span class="n">View</span><span class="p">):</span>
+<a name="rest_code_5a564d13f8de40558fa477fb8e7d3190-7"></a>    <span class="sd">"""クラスベースのビュー"""</span>
+<a name="rest_code_5a564d13f8de40558fa477fb8e7d3190-8"></a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<a name="rest_code_5a564d13f8de40558fa477fb8e7d3190-9"></a>        <span class="n">context</span> <span class="o">=</span> <span class="p">{</span>
+<a name="rest_code_5a564d13f8de40558fa477fb8e7d3190-10"></a>            <span class="s1">'message'</span><span class="p">:</span> <span class="s2">"Hello World!"</span><span class="p">,</span>
+<a name="rest_code_5a564d13f8de40558fa477fb8e7d3190-11"></a>        <span class="p">}</span>
+<a name="rest_code_5a564d13f8de40558fa477fb8e7d3190-12"></a>        <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">'hello.html'</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
+<a name="rest_code_5a564d13f8de40558fa477fb8e7d3190-13"></a>
+<a name="rest_code_5a564d13f8de40558fa477fb8e7d3190-14"></a>
+<a name="rest_code_5a564d13f8de40558fa477fb8e7d3190-15"></a><span class="n">hello</span> <span class="o">=</span> <span class="n">HelloView</span><span class="o">.</span><span class="n">as_view</span><span class="p">()</span>
 </pre>
-<pre class="code python"><a name="rest_code_2f256ce78711418c886bb9c6d4a53288-1"></a><span class="kn">from</span> <span class="nn">django.contrib.auth</span> <span class="kn">import</span> <span class="n">login</span> <span class="k">as</span> <span class="n">auth_login</span>
-<a name="rest_code_2f256ce78711418c886bb9c6d4a53288-2"></a><span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span><span class="p">,</span> <span class="n">redirect</span>
-<a name="rest_code_2f256ce78711418c886bb9c6d4a53288-3"></a><span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">reverse</span>
-<a name="rest_code_2f256ce78711418c886bb9c6d4a53288-4"></a><span class="kn">from</span> <span class="nn">django.views</span> <span class="kn">import</span> <span class="n">View</span>
-<a name="rest_code_2f256ce78711418c886bb9c6d4a53288-5"></a>
-<a name="rest_code_2f256ce78711418c886bb9c6d4a53288-6"></a>
-<a name="rest_code_2f256ce78711418c886bb9c6d4a53288-7"></a><span class="k">class</span> <span class="nc">LoginView</span><span class="p">(</span><span class="n">View</span><span class="p">):</span>
-<a name="rest_code_2f256ce78711418c886bb9c6d4a53288-8"></a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<a name="rest_code_2f256ce78711418c886bb9c6d4a53288-9"></a>        <span class="sd">"""GET リクエスト"""</span>
-<a name="rest_code_2f256ce78711418c886bb9c6d4a53288-10"></a>        <span class="n">context</span> <span class="o">=</span> <span class="p">{</span>
-<a name="rest_code_2f256ce78711418c886bb9c6d4a53288-11"></a>            <span class="s1">'form'</span><span class="p">:</span> <span class="n">LoginForm</span><span class="p">(),</span>
-<a name="rest_code_2f256ce78711418c886bb9c6d4a53288-12"></a>        <span class="p">}</span>
-<a name="rest_code_2f256ce78711418c886bb9c6d4a53288-13"></a>        <span class="c1"># ログイン画面用のテンプレートに値が空のフォームをレンダリング</span>
-<a name="rest_code_2f256ce78711418c886bb9c6d4a53288-14"></a>        <span class="c1"># render: テンプレートをレンダリングするとき使う</span>
-<a name="rest_code_2f256ce78711418c886bb9c6d4a53288-15"></a>        <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">'accounts/login.html'</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
-<a name="rest_code_2f256ce78711418c886bb9c6d4a53288-16"></a>
-<a name="rest_code_2f256ce78711418c886bb9c6d4a53288-17"></a>    <span class="k">def</span> <span class="nf">post</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<a name="rest_code_2f256ce78711418c886bb9c6d4a53288-18"></a>        <span class="sd">"""POST リクエスト"""</span>
-<a name="rest_code_2f256ce78711418c886bb9c6d4a53288-19"></a>        <span class="c1"># リクエストからフォームを作成</span>
-<a name="rest_code_2f256ce78711418c886bb9c6d4a53288-20"></a>        <span class="n">form</span> <span class="o">=</span> <span class="n">LoginForm</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">)</span>
-<a name="rest_code_2f256ce78711418c886bb9c6d4a53288-21"></a>        <span class="c1"># バリデーション (ユーザーの認証も併せて実施)</span>
-<a name="rest_code_2f256ce78711418c886bb9c6d4a53288-22"></a>        <span class="k">if</span> <span class="ow">not</span> <span class="n">form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
-<a name="rest_code_2f256ce78711418c886bb9c6d4a53288-23"></a>            <span class="c1"># バリデーション NG の場合はログイン画面のテンプレートを再表示</span>
-<a name="rest_code_2f256ce78711418c886bb9c6d4a53288-24"></a>            <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">'accounts/login.html'</span><span class="p">,</span> <span class="p">{</span><span class="s1">'form'</span><span class="p">:</span> <span class="n">form</span><span class="p">})</span>
-<a name="rest_code_2f256ce78711418c886bb9c6d4a53288-25"></a>
-<a name="rest_code_2f256ce78711418c886bb9c6d4a53288-26"></a>        <span class="c1"># User オブジェクトをフォームから取得</span>
-<a name="rest_code_2f256ce78711418c886bb9c6d4a53288-27"></a>        <span class="n">user</span> <span class="o">=</span> <span class="n">form</span><span class="o">.</span><span class="n">get_user</span><span class="p">()</span>
-<a name="rest_code_2f256ce78711418c886bb9c6d4a53288-28"></a>
-<a name="rest_code_2f256ce78711418c886bb9c6d4a53288-29"></a>        <span class="c1"># ログイン処理 (取得した User オブジェクトをセッションに保存 &amp; User データを更新)</span>
-<a name="rest_code_2f256ce78711418c886bb9c6d4a53288-30"></a>        <span class="n">auth_login</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">user</span><span class="p">)</span>
-<a name="rest_code_2f256ce78711418c886bb9c6d4a53288-31"></a>
-<a name="rest_code_2f256ce78711418c886bb9c6d4a53288-32"></a>        <span class="c1"># ショップ画面にリダイレクト</span>
-<a name="rest_code_2f256ce78711418c886bb9c6d4a53288-33"></a>        <span class="c1"># redirect: リダイレクトするとき使う</span>
-<a name="rest_code_2f256ce78711418c886bb9c6d4a53288-34"></a>        <span class="c1">#   * リダイレクト先のURLは reverse を使って取得する</span>
-<a name="rest_code_2f256ce78711418c886bb9c6d4a53288-35"></a>        <span class="c1">#   * ハードコーディングするなかれ</span>
-<a name="rest_code_2f256ce78711418c886bb9c6d4a53288-36"></a>        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="s1">'shop:index'</span><span class="p">))</span>
+<pre class="code python"><a name="rest_code_f1bec470430a494b8a2dfe0f11d43dfc-1"></a><span class="kn">from</span> <span class="nn">django.contrib.auth</span> <span class="kn">import</span> <span class="n">login</span> <span class="k">as</span> <span class="n">auth_login</span>
+<a name="rest_code_f1bec470430a494b8a2dfe0f11d43dfc-2"></a><span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span><span class="p">,</span> <span class="n">redirect</span>
+<a name="rest_code_f1bec470430a494b8a2dfe0f11d43dfc-3"></a><span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">reverse</span>
+<a name="rest_code_f1bec470430a494b8a2dfe0f11d43dfc-4"></a><span class="kn">from</span> <span class="nn">django.views</span> <span class="kn">import</span> <span class="n">View</span>
+<a name="rest_code_f1bec470430a494b8a2dfe0f11d43dfc-5"></a>
+<a name="rest_code_f1bec470430a494b8a2dfe0f11d43dfc-6"></a>
+<a name="rest_code_f1bec470430a494b8a2dfe0f11d43dfc-7"></a><span class="k">class</span> <span class="nc">LoginView</span><span class="p">(</span><span class="n">View</span><span class="p">):</span>
+<a name="rest_code_f1bec470430a494b8a2dfe0f11d43dfc-8"></a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<a name="rest_code_f1bec470430a494b8a2dfe0f11d43dfc-9"></a>        <span class="sd">"""GET リクエスト"""</span>
+<a name="rest_code_f1bec470430a494b8a2dfe0f11d43dfc-10"></a>        <span class="n">context</span> <span class="o">=</span> <span class="p">{</span>
+<a name="rest_code_f1bec470430a494b8a2dfe0f11d43dfc-11"></a>            <span class="s1">'form'</span><span class="p">:</span> <span class="n">LoginForm</span><span class="p">(),</span>
+<a name="rest_code_f1bec470430a494b8a2dfe0f11d43dfc-12"></a>        <span class="p">}</span>
+<a name="rest_code_f1bec470430a494b8a2dfe0f11d43dfc-13"></a>        <span class="c1"># ログイン画面用のテンプレートに値が空のフォームをレンダリング</span>
+<a name="rest_code_f1bec470430a494b8a2dfe0f11d43dfc-14"></a>        <span class="c1"># render: テンプレートをレンダリングするとき使う</span>
+<a name="rest_code_f1bec470430a494b8a2dfe0f11d43dfc-15"></a>        <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">'accounts/login.html'</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
+<a name="rest_code_f1bec470430a494b8a2dfe0f11d43dfc-16"></a>
+<a name="rest_code_f1bec470430a494b8a2dfe0f11d43dfc-17"></a>    <span class="k">def</span> <span class="nf">post</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<a name="rest_code_f1bec470430a494b8a2dfe0f11d43dfc-18"></a>        <span class="sd">"""POST リクエスト"""</span>
+<a name="rest_code_f1bec470430a494b8a2dfe0f11d43dfc-19"></a>        <span class="c1"># リクエストからフォームを作成</span>
+<a name="rest_code_f1bec470430a494b8a2dfe0f11d43dfc-20"></a>        <span class="n">form</span> <span class="o">=</span> <span class="n">LoginForm</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">)</span>
+<a name="rest_code_f1bec470430a494b8a2dfe0f11d43dfc-21"></a>        <span class="c1"># バリデーション (ユーザーの認証も併せて実施)</span>
+<a name="rest_code_f1bec470430a494b8a2dfe0f11d43dfc-22"></a>        <span class="k">if</span> <span class="ow">not</span> <span class="n">form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
+<a name="rest_code_f1bec470430a494b8a2dfe0f11d43dfc-23"></a>            <span class="c1"># バリデーション NG の場合はログイン画面のテンプレートを再表示</span>
+<a name="rest_code_f1bec470430a494b8a2dfe0f11d43dfc-24"></a>            <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">'accounts/login.html'</span><span class="p">,</span> <span class="p">{</span><span class="s1">'form'</span><span class="p">:</span> <span class="n">form</span><span class="p">})</span>
+<a name="rest_code_f1bec470430a494b8a2dfe0f11d43dfc-25"></a>
+<a name="rest_code_f1bec470430a494b8a2dfe0f11d43dfc-26"></a>        <span class="c1"># User オブジェクトをフォームから取得</span>
+<a name="rest_code_f1bec470430a494b8a2dfe0f11d43dfc-27"></a>        <span class="n">user</span> <span class="o">=</span> <span class="n">form</span><span class="o">.</span><span class="n">get_user</span><span class="p">()</span>
+<a name="rest_code_f1bec470430a494b8a2dfe0f11d43dfc-28"></a>
+<a name="rest_code_f1bec470430a494b8a2dfe0f11d43dfc-29"></a>        <span class="c1"># ログイン処理 (取得した User オブジェクトをセッションに保存 &amp; User データを更新)</span>
+<a name="rest_code_f1bec470430a494b8a2dfe0f11d43dfc-30"></a>        <span class="n">auth_login</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">user</span><span class="p">)</span>
+<a name="rest_code_f1bec470430a494b8a2dfe0f11d43dfc-31"></a>
+<a name="rest_code_f1bec470430a494b8a2dfe0f11d43dfc-32"></a>        <span class="c1"># ショップ画面にリダイレクト</span>
+<a name="rest_code_f1bec470430a494b8a2dfe0f11d43dfc-33"></a>        <span class="c1"># redirect: リダイレクトするとき使う</span>
+<a name="rest_code_f1bec470430a494b8a2dfe0f11d43dfc-34"></a>        <span class="c1">#   * リダイレクト先のURLは reverse を使って取得する</span>
+<a name="rest_code_f1bec470430a494b8a2dfe0f11d43dfc-35"></a>        <span class="c1">#   * ハードコーディングするなかれ</span>
+<a name="rest_code_f1bec470430a494b8a2dfe0f11d43dfc-36"></a>        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="s1">'shop:index'</span><span class="p">))</span>
 </pre>
 <div class="section" id="as-view">
-<h3><a class="toc-backref" href="#id10">as_view</a></h3>
+<h3><a class="toc-backref" href="#id9">as_view</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/django/django/blob/master/django/views/generic/base.py#L49">https://github.com/django/django/blob/master/django/views/generic/base.py#L49</a></p></li>
 <li>
@@ -200,105 +200,105 @@
 </div>
 </div>
 <div class="section" id="base-views">
-<h2><a class="toc-backref" href="#id11">Base views</a></h2>
+<h2><a class="toc-backref" href="#id10">Base views</a></h2>
 <div class="section" id="view">
-<h3><a class="toc-backref" href="#id12">View</a></h3>
+<h3><a class="toc-backref" href="#id11">View</a></h3>
 <ul class="simple">
 <li><p>django.views.generic.base.View</p></li>
 <li><p>すべての元となるクラスベースビューです。他の全てのクラスベースビューは、この基本クラスを継承しています。</p></li>
 </ul>
 </div>
 <div class="section" id="templateview">
-<h3><a class="toc-backref" href="#id13">TemplateView</a></h3>
+<h3><a class="toc-backref" href="#id12">TemplateView</a></h3>
 <ul class="simple">
 <li><p>テンプレートを表示することに特化した Generic View</p></li>
 <li><p>トップ画面やヘルプ画面などの単純なテンプレートを表示するのによく使う</p></li>
 <li><p>オーバーライドできる変数やメソッドがいくつか用意されていて、デフォルトの挙動をある程度自由に変更できる</p></li>
 </ul>
-<pre class="code python"><a name="rest_code_076fcb186b9a47e384da425035a67c2a-1"></a><span class="kn">from</span> <span class="nn">django.views.generic</span> <span class="kn">import</span> <span class="n">TemplateView</span>
-<a name="rest_code_076fcb186b9a47e384da425035a67c2a-2"></a><span class="kn">from</span> <span class="nn">django.contrib.auth.models</span> <span class="kn">import</span> <span class="n">User</span>
-<a name="rest_code_076fcb186b9a47e384da425035a67c2a-3"></a>
-<a name="rest_code_076fcb186b9a47e384da425035a67c2a-4"></a>
-<a name="rest_code_076fcb186b9a47e384da425035a67c2a-5"></a><span class="k">class</span> <span class="nc">IndexView</span><span class="p">(</span><span class="n">TemplateView</span><span class="p">):</span>
-<a name="rest_code_076fcb186b9a47e384da425035a67c2a-6"></a>    <span class="n">template_name</span> <span class="o">=</span> <span class="s1">'index.html'</span>
-<a name="rest_code_076fcb186b9a47e384da425035a67c2a-7"></a>
-<a name="rest_code_076fcb186b9a47e384da425035a67c2a-8"></a>    <span class="k">def</span> <span class="nf">get_context_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<a name="rest_code_076fcb186b9a47e384da425035a67c2a-9"></a>        <span class="c1"># get_context_data をオーバーライドした例</span>
-<a name="rest_code_076fcb186b9a47e384da425035a67c2a-10"></a>        <span class="c1"># テンプレートに渡すコンテキストに任意の変数を追加できる</span>
-<a name="rest_code_076fcb186b9a47e384da425035a67c2a-11"></a>        <span class="n">context</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">IndexView</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">get_context_data</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<a name="rest_code_076fcb186b9a47e384da425035a67c2a-12"></a>        <span class="c1"># テンプレートに渡すコンテキストに `user_count` という変数を追加</span>
-<a name="rest_code_076fcb186b9a47e384da425035a67c2a-13"></a>        <span class="n">context</span><span class="p">[</span><span class="s1">'user_count'</span><span class="p">]</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
-<a name="rest_code_076fcb186b9a47e384da425035a67c2a-14"></a>        <span class="k">return</span> <span class="n">context</span>
-<a name="rest_code_076fcb186b9a47e384da425035a67c2a-15"></a>
-<a name="rest_code_076fcb186b9a47e384da425035a67c2a-16"></a>
-<a name="rest_code_076fcb186b9a47e384da425035a67c2a-17"></a><span class="n">index</span> <span class="o">=</span> <span class="n">IndexView</span><span class="o">.</span><span class="n">as_view</span><span class="p">()</span>
+<pre class="code python"><a name="rest_code_f91b71a45eff48db9e0a21e0481f8df1-1"></a><span class="kn">from</span> <span class="nn">django.views.generic</span> <span class="kn">import</span> <span class="n">TemplateView</span>
+<a name="rest_code_f91b71a45eff48db9e0a21e0481f8df1-2"></a><span class="kn">from</span> <span class="nn">django.contrib.auth.models</span> <span class="kn">import</span> <span class="n">User</span>
+<a name="rest_code_f91b71a45eff48db9e0a21e0481f8df1-3"></a>
+<a name="rest_code_f91b71a45eff48db9e0a21e0481f8df1-4"></a>
+<a name="rest_code_f91b71a45eff48db9e0a21e0481f8df1-5"></a><span class="k">class</span> <span class="nc">IndexView</span><span class="p">(</span><span class="n">TemplateView</span><span class="p">):</span>
+<a name="rest_code_f91b71a45eff48db9e0a21e0481f8df1-6"></a>    <span class="n">template_name</span> <span class="o">=</span> <span class="s1">'index.html'</span>
+<a name="rest_code_f91b71a45eff48db9e0a21e0481f8df1-7"></a>
+<a name="rest_code_f91b71a45eff48db9e0a21e0481f8df1-8"></a>    <span class="k">def</span> <span class="nf">get_context_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<a name="rest_code_f91b71a45eff48db9e0a21e0481f8df1-9"></a>        <span class="c1"># get_context_data をオーバーライドした例</span>
+<a name="rest_code_f91b71a45eff48db9e0a21e0481f8df1-10"></a>        <span class="c1"># テンプレートに渡すコンテキストに任意の変数を追加できる</span>
+<a name="rest_code_f91b71a45eff48db9e0a21e0481f8df1-11"></a>        <span class="n">context</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">IndexView</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">get_context_data</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<a name="rest_code_f91b71a45eff48db9e0a21e0481f8df1-12"></a>        <span class="c1"># テンプレートに渡すコンテキストに `user_count` という変数を追加</span>
+<a name="rest_code_f91b71a45eff48db9e0a21e0481f8df1-13"></a>        <span class="n">context</span><span class="p">[</span><span class="s1">'user_count'</span><span class="p">]</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<a name="rest_code_f91b71a45eff48db9e0a21e0481f8df1-14"></a>        <span class="k">return</span> <span class="n">context</span>
+<a name="rest_code_f91b71a45eff48db9e0a21e0481f8df1-15"></a>
+<a name="rest_code_f91b71a45eff48db9e0a21e0481f8df1-16"></a>
+<a name="rest_code_f91b71a45eff48db9e0a21e0481f8df1-17"></a><span class="n">index</span> <span class="o">=</span> <span class="n">IndexView</span><span class="o">.</span><span class="n">as_view</span><span class="p">()</span>
 </pre>
 <div class="section" id="get-context-data">
-<h4><a class="toc-backref" href="#id14">get_context_data</a></h4>
+<h4><a class="toc-backref" href="#id13">get_context_data</a></h4>
 <ul class="simple">
 <li><p>大抵の場合、ビューというのはレンダリングに必要なコンテキストを組み立てるものなので 大体の処理は <code class="docutils literal">get_context_data</code> というメソッドに書く。</p></li>
 </ul>
 </div>
 </div>
 <div class="section" id="redirectview">
-<h3><a class="toc-backref" href="#id15">RedirectView</a></h3>
+<h3><a class="toc-backref" href="#id14">RedirectView</a></h3>
 <ul class="simple">
 <li><p>リダイレクトに特化した Generic View</p></li>
 <li><p>任意の URL にリダイレクトすることに特化したやつ</p></li>
 </ul>
-<pre class="code python"><a name="rest_code_bb2ef1660b5247b28cb32740d3ab9dec-1"></a><span class="kn">from</span> <span class="nn">django.views.generic</span> <span class="kn">import</span> <span class="n">RedirectView</span>
-<a name="rest_code_bb2ef1660b5247b28cb32740d3ab9dec-2"></a>
-<a name="rest_code_bb2ef1660b5247b28cb32740d3ab9dec-3"></a>
-<a name="rest_code_bb2ef1660b5247b28cb32740d3ab9dec-4"></a><span class="k">class</span> <span class="nc">IndexView</span><span class="p">(</span><span class="n">RedirectView</span><span class="p">):</span>
-<a name="rest_code_bb2ef1660b5247b28cb32740d3ab9dec-5"></a>    <span class="n">url</span> <span class="o">=</span> <span class="s1">'/accounts/login/'</span>
-<a name="rest_code_bb2ef1660b5247b28cb32740d3ab9dec-6"></a>    <span class="c1"># pattern_name = 'accounts:login'  # パターンで URL を指定する場合</span>
-<a name="rest_code_bb2ef1660b5247b28cb32740d3ab9dec-7"></a>
-<a name="rest_code_bb2ef1660b5247b28cb32740d3ab9dec-8"></a>    <span class="k">def</span> <span class="nf">get_redirect_url</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<a name="rest_code_bb2ef1660b5247b28cb32740d3ab9dec-9"></a>        <span class="c1"># リダイレクトする URL を動的に組み立てるためのやつをオーバーライドできる</span>
-<a name="rest_code_bb2ef1660b5247b28cb32740d3ab9dec-10"></a>        <span class="k">pass</span>
-<a name="rest_code_bb2ef1660b5247b28cb32740d3ab9dec-11"></a>
-<a name="rest_code_bb2ef1660b5247b28cb32740d3ab9dec-12"></a>
-<a name="rest_code_bb2ef1660b5247b28cb32740d3ab9dec-13"></a><span class="n">index</span> <span class="o">=</span> <span class="n">IndexView</span><span class="o">.</span><span class="n">as_view</span><span class="p">()</span>
+<pre class="code python"><a name="rest_code_b3da6c84c2874ab59e095d418af6cf10-1"></a><span class="kn">from</span> <span class="nn">django.views.generic</span> <span class="kn">import</span> <span class="n">RedirectView</span>
+<a name="rest_code_b3da6c84c2874ab59e095d418af6cf10-2"></a>
+<a name="rest_code_b3da6c84c2874ab59e095d418af6cf10-3"></a>
+<a name="rest_code_b3da6c84c2874ab59e095d418af6cf10-4"></a><span class="k">class</span> <span class="nc">IndexView</span><span class="p">(</span><span class="n">RedirectView</span><span class="p">):</span>
+<a name="rest_code_b3da6c84c2874ab59e095d418af6cf10-5"></a>    <span class="n">url</span> <span class="o">=</span> <span class="s1">'/accounts/login/'</span>
+<a name="rest_code_b3da6c84c2874ab59e095d418af6cf10-6"></a>    <span class="c1"># pattern_name = 'accounts:login'  # パターンで URL を指定する場合</span>
+<a name="rest_code_b3da6c84c2874ab59e095d418af6cf10-7"></a>
+<a name="rest_code_b3da6c84c2874ab59e095d418af6cf10-8"></a>    <span class="k">def</span> <span class="nf">get_redirect_url</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<a name="rest_code_b3da6c84c2874ab59e095d418af6cf10-9"></a>        <span class="c1"># リダイレクトする URL を動的に組み立てるためのやつをオーバーライドできる</span>
+<a name="rest_code_b3da6c84c2874ab59e095d418af6cf10-10"></a>        <span class="k">pass</span>
+<a name="rest_code_b3da6c84c2874ab59e095d418af6cf10-11"></a>
+<a name="rest_code_b3da6c84c2874ab59e095d418af6cf10-12"></a>
+<a name="rest_code_b3da6c84c2874ab59e095d418af6cf10-13"></a><span class="n">index</span> <span class="o">=</span> <span class="n">IndexView</span><span class="o">.</span><span class="n">as_view</span><span class="p">()</span>
 </pre>
 </div>
 </div>
 <div class="section" id="generic-views">
-<h2><a class="toc-backref" href="#id16">いろいろな Generic views</a></h2>
+<h2><a class="toc-backref" href="#id15">いろいろな Generic views</a></h2>
 <ul class="simple">
 <li><p>これが便利とのこと: <a class="reference external" href="https://ccbv.co.uk/">https://ccbv.co.uk/</a></p></li>
 </ul>
 <div class="section" id="listview">
-<h3><a class="toc-backref" href="#id17">ListView</a></h3>
+<h3><a class="toc-backref" href="#id16">ListView</a></h3>
 <ul class="simple">
 <li><p>モデルオブジェクトの一覧を表示するための View</p></li>
 </ul>
-<pre class="code python"><a name="rest_code_9789826e8ca94e4cb9ef752a5eca8aa3-1"></a><span class="kn">from</span> <span class="nn">django.views.generic</span> <span class="kn">import</span> <span class="n">ListView</span>
-<a name="rest_code_9789826e8ca94e4cb9ef752a5eca8aa3-2"></a><span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Book</span>
-<a name="rest_code_9789826e8ca94e4cb9ef752a5eca8aa3-3"></a>
-<a name="rest_code_9789826e8ca94e4cb9ef752a5eca8aa3-4"></a>
-<a name="rest_code_9789826e8ca94e4cb9ef752a5eca8aa3-5"></a><span class="k">class</span> <span class="nc">BookListView1</span><span class="p">(</span><span class="n">ListView</span><span class="p">):</span>
-<a name="rest_code_9789826e8ca94e4cb9ef752a5eca8aa3-6"></a>    <span class="c1"># リストしたいモデルを指定する</span>
-<a name="rest_code_9789826e8ca94e4cb9ef752a5eca8aa3-7"></a>    <span class="c1"># これだけで、 `shop/book_list.html` という名前のテンプレートに、</span>
-<a name="rest_code_9789826e8ca94e4cb9ef752a5eca8aa3-8"></a>    <span class="c1"># object_list (or book_list) という変数名で、</span>
-<a name="rest_code_9789826e8ca94e4cb9ef752a5eca8aa3-9"></a>    <span class="c1"># Book モデルの全てのレコードの一覧を渡してくれる</span>
-<a name="rest_code_9789826e8ca94e4cb9ef752a5eca8aa3-10"></a>    <span class="n">model</span> <span class="o">=</span> <span class="n">Book</span>
+<pre class="code python"><a name="rest_code_36aaa39ba150449f9f19aa73d65deb00-1"></a><span class="kn">from</span> <span class="nn">django.views.generic</span> <span class="kn">import</span> <span class="n">ListView</span>
+<a name="rest_code_36aaa39ba150449f9f19aa73d65deb00-2"></a><span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Book</span>
+<a name="rest_code_36aaa39ba150449f9f19aa73d65deb00-3"></a>
+<a name="rest_code_36aaa39ba150449f9f19aa73d65deb00-4"></a>
+<a name="rest_code_36aaa39ba150449f9f19aa73d65deb00-5"></a><span class="k">class</span> <span class="nc">BookListView1</span><span class="p">(</span><span class="n">ListView</span><span class="p">):</span>
+<a name="rest_code_36aaa39ba150449f9f19aa73d65deb00-6"></a>    <span class="c1"># リストしたいモデルを指定する</span>
+<a name="rest_code_36aaa39ba150449f9f19aa73d65deb00-7"></a>    <span class="c1"># これだけで、 `shop/book_list.html` という名前のテンプレートに、</span>
+<a name="rest_code_36aaa39ba150449f9f19aa73d65deb00-8"></a>    <span class="c1"># object_list (or book_list) という変数名で、</span>
+<a name="rest_code_36aaa39ba150449f9f19aa73d65deb00-9"></a>    <span class="c1"># Book モデルの全てのレコードの一覧を渡してくれる</span>
+<a name="rest_code_36aaa39ba150449f9f19aa73d65deb00-10"></a>    <span class="n">model</span> <span class="o">=</span> <span class="n">Book</span>
 </pre>
-<pre class="code python"><a name="rest_code_845084d7c2f247ea95ef579664e2bcec-1"></a><span class="c1"># ほかにもいろいろある...</span>
-<a name="rest_code_845084d7c2f247ea95ef579664e2bcec-2"></a><span class="c1"># 利用するテンプレートを指定する</span>
-<a name="rest_code_845084d7c2f247ea95ef579664e2bcec-3"></a><span class="n">template_name</span> <span class="o">=</span> <span class="s1">'husky.html'</span>
-<a name="rest_code_845084d7c2f247ea95ef579664e2bcec-4"></a><span class="c1"># オブジェクトの一覧を取得するためのクエリセットを指定する</span>
-<a name="rest_code_845084d7c2f247ea95ef579664e2bcec-5"></a><span class="n">queryset</span> <span class="o">=</span> <span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">price__gt</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<pre class="code python"><a name="rest_code_2180ee9254bc4a439956eeadb83befd6-1"></a><span class="c1"># ほかにもいろいろある...</span>
+<a name="rest_code_2180ee9254bc4a439956eeadb83befd6-2"></a><span class="c1"># 利用するテンプレートを指定する</span>
+<a name="rest_code_2180ee9254bc4a439956eeadb83befd6-3"></a><span class="n">template_name</span> <span class="o">=</span> <span class="s1">'husky.html'</span>
+<a name="rest_code_2180ee9254bc4a439956eeadb83befd6-4"></a><span class="c1"># オブジェクトの一覧を取得するためのクエリセットを指定する</span>
+<a name="rest_code_2180ee9254bc4a439956eeadb83befd6-5"></a><span class="n">queryset</span> <span class="o">=</span> <span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">price__gt</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
 </pre>
 </div>
 <div class="section" id="formview">
-<h3><a class="toc-backref" href="#id18">FormView</a></h3>
+<h3><a class="toc-backref" href="#id17">FormView</a></h3>
 <ul class="simple">
 <li><p>何らかの登録・更新処理で <code class="docutils literal">form</code> を使ったバリデーションが必要なら 大体 <code class="docutils literal">FormView</code> を使う</p></li>
 </ul>
 </div>
 </div>
-<div class="section" id="id5">
-<h2><a class="toc-backref" href="#id19">ログイン・ログアウト</a></h2>
+<div class="section" id="id4">
+<h2><a class="toc-backref" href="#id18">ログイン・ログアウト</a></h2>
 <ul class="simple">
 <li>
 <p><a class="reference external" href="https://www.amazon.co.jp/dp/B07GK7BWB7/">現場で使える Django の教科書</a> P.43 によく書いてあるのでそちらを参照のこと</p>
@@ -322,29 +322,29 @@
 </li>
 </ul>
 <div class="section" id="loginview-logoutview">
-<h3><a class="toc-backref" href="#id20">LoginView, LogoutView</a></h3>
+<h3><a class="toc-backref" href="#id19">LoginView, LogoutView</a></h3>
 <ul class="simple">
 <li><p>ログインに特化した View: django.contrib.auth.views.LoginView</p></li>
 <li><p>ログアウトに特化した View: django.contrib.auth.views.LogoutView</p></li>
 </ul>
-<pre class="code python"><a name="rest_code_029b63fc44a14ef1b55dee98d7ccc9d4-1"></a><span class="kn">from</span> <span class="nn">django.contrib.auth.views</span> <span class="kn">import</span> <span class="n">LoginView</span> <span class="k">as</span> <span class="n">AuthLoginView</span>
-<a name="rest_code_029b63fc44a14ef1b55dee98d7ccc9d4-2"></a>
-<a name="rest_code_029b63fc44a14ef1b55dee98d7ccc9d4-3"></a>
-<a name="rest_code_029b63fc44a14ef1b55dee98d7ccc9d4-4"></a><span class="k">class</span> <span class="nc">LoginView</span><span class="p">(</span><span class="n">AuthLoginView</span><span class="p">):</span>
-<a name="rest_code_029b63fc44a14ef1b55dee98d7ccc9d4-5"></a>    <span class="sd">"""</span>
-<a name="rest_code_029b63fc44a14ef1b55dee98d7ccc9d4-6"></a><span class="sd">    ログインビューの実装例</span>
-<a name="rest_code_029b63fc44a14ef1b55dee98d7ccc9d4-7"></a>
-<a name="rest_code_029b63fc44a14ef1b55dee98d7ccc9d4-8"></a><span class="sd">    * 設定値の調整が必要になることもあるよ</span>
-<a name="rest_code_029b63fc44a14ef1b55dee98d7ccc9d4-9"></a>
-<a name="rest_code_029b63fc44a14ef1b55dee98d7ccc9d4-10"></a><span class="sd">      * LOGIN_URL</span>
-<a name="rest_code_029b63fc44a14ef1b55dee98d7ccc9d4-11"></a><span class="sd">      * LOGIN_REDIRECT_URL</span>
-<a name="rest_code_029b63fc44a14ef1b55dee98d7ccc9d4-12"></a><span class="sd">      * LOGOUT_REDIRECT_URL</span>
-<a name="rest_code_029b63fc44a14ef1b55dee98d7ccc9d4-13"></a><span class="sd">    """</span>
-<a name="rest_code_029b63fc44a14ef1b55dee98d7ccc9d4-14"></a>    <span class="n">template_name</span> <span class="o">=</span> <span class="s1">'accounts/login.html'</span>
+<pre class="code python"><a name="rest_code_a561ef060b7b459686b1fedbf02c39a2-1"></a><span class="kn">from</span> <span class="nn">django.contrib.auth.views</span> <span class="kn">import</span> <span class="n">LoginView</span> <span class="k">as</span> <span class="n">AuthLoginView</span>
+<a name="rest_code_a561ef060b7b459686b1fedbf02c39a2-2"></a>
+<a name="rest_code_a561ef060b7b459686b1fedbf02c39a2-3"></a>
+<a name="rest_code_a561ef060b7b459686b1fedbf02c39a2-4"></a><span class="k">class</span> <span class="nc">LoginView</span><span class="p">(</span><span class="n">AuthLoginView</span><span class="p">):</span>
+<a name="rest_code_a561ef060b7b459686b1fedbf02c39a2-5"></a>    <span class="sd">"""</span>
+<a name="rest_code_a561ef060b7b459686b1fedbf02c39a2-6"></a><span class="sd">    ログインビューの実装例</span>
+<a name="rest_code_a561ef060b7b459686b1fedbf02c39a2-7"></a>
+<a name="rest_code_a561ef060b7b459686b1fedbf02c39a2-8"></a><span class="sd">    * 設定値の調整が必要になることもあるよ</span>
+<a name="rest_code_a561ef060b7b459686b1fedbf02c39a2-9"></a>
+<a name="rest_code_a561ef060b7b459686b1fedbf02c39a2-10"></a><span class="sd">      * LOGIN_URL</span>
+<a name="rest_code_a561ef060b7b459686b1fedbf02c39a2-11"></a><span class="sd">      * LOGIN_REDIRECT_URL</span>
+<a name="rest_code_a561ef060b7b459686b1fedbf02c39a2-12"></a><span class="sd">      * LOGOUT_REDIRECT_URL</span>
+<a name="rest_code_a561ef060b7b459686b1fedbf02c39a2-13"></a><span class="sd">    """</span>
+<a name="rest_code_a561ef060b7b459686b1fedbf02c39a2-14"></a>    <span class="n">template_name</span> <span class="o">=</span> <span class="s1">'accounts/login.html'</span>
 </pre>
 </div>
 <div class="section" id="loginrequiredmixin">
-<h3><a class="toc-backref" href="#id21">LoginRequiredMixin</a></h3>
+<h3><a class="toc-backref" href="#id20">LoginRequiredMixin</a></h3>
 <ul class="simple">
 <li>
 <p>LoginRequiredMixin: 未ログインのユーザーがアクセスしようとしたときに何らかのペナルティを課すための Mixin</p>
@@ -354,16 +354,16 @@
 </ul>
 </li>
 </ul>
-<pre class="code python"><a name="rest_code_96def53e40e94409bf28509494f25193-1"></a><span class="kn">from</span> <span class="nn">django.contrib.auth.mixins</span> <span class="kn">import</span> <span class="n">LoginRequiredMixin</span>
-<a name="rest_code_96def53e40e94409bf28509494f25193-2"></a><span class="kn">from</span> <span class="nn">django.views.generic</span> <span class="kn">import</span> <span class="n">ListView</span>
-<a name="rest_code_96def53e40e94409bf28509494f25193-3"></a>
-<a name="rest_code_96def53e40e94409bf28509494f25193-4"></a><span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Book</span>
-<a name="rest_code_96def53e40e94409bf28509494f25193-5"></a>
-<a name="rest_code_96def53e40e94409bf28509494f25193-6"></a>
-<a name="rest_code_96def53e40e94409bf28509494f25193-7"></a><span class="k">class</span> <span class="nc">BookListView</span><span class="p">(</span><span class="n">LoginRequiredMixin</span><span class="p">,</span> <span class="n">ListView</span><span class="p">):</span>
-<a name="rest_code_96def53e40e94409bf28509494f25193-8"></a>    <span class="n">model</span> <span class="o">=</span> <span class="n">Book</span>
-<a name="rest_code_96def53e40e94409bf28509494f25193-9"></a>    <span class="c1"># 403 エラー画面を表示する場合は次のコメントアウトを外す</span>
-<a name="rest_code_96def53e40e94409bf28509494f25193-10"></a>    <span class="c1"># raise_exception = True</span>
+<pre class="code python"><a name="rest_code_368616ae9a9f48f3917c6e9dd338f3b2-1"></a><span class="kn">from</span> <span class="nn">django.contrib.auth.mixins</span> <span class="kn">import</span> <span class="n">LoginRequiredMixin</span>
+<a name="rest_code_368616ae9a9f48f3917c6e9dd338f3b2-2"></a><span class="kn">from</span> <span class="nn">django.views.generic</span> <span class="kn">import</span> <span class="n">ListView</span>
+<a name="rest_code_368616ae9a9f48f3917c6e9dd338f3b2-3"></a>
+<a name="rest_code_368616ae9a9f48f3917c6e9dd338f3b2-4"></a><span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Book</span>
+<a name="rest_code_368616ae9a9f48f3917c6e9dd338f3b2-5"></a>
+<a name="rest_code_368616ae9a9f48f3917c6e9dd338f3b2-6"></a>
+<a name="rest_code_368616ae9a9f48f3917c6e9dd338f3b2-7"></a><span class="k">class</span> <span class="nc">BookListView</span><span class="p">(</span><span class="n">LoginRequiredMixin</span><span class="p">,</span> <span class="n">ListView</span><span class="p">):</span>
+<a name="rest_code_368616ae9a9f48f3917c6e9dd338f3b2-8"></a>    <span class="n">model</span> <span class="o">=</span> <span class="n">Book</span>
+<a name="rest_code_368616ae9a9f48f3917c6e9dd338f3b2-9"></a>    <span class="c1"># 403 エラー画面を表示する場合は次のコメントアウトを外す</span>
+<a name="rest_code_368616ae9a9f48f3917c6e9dd338f3b2-10"></a>    <span class="c1"># raise_exception = True</span>
 </pre>
 </div>
 </div>

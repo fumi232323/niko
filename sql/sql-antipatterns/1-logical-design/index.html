@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
@@ -34,21 +34,21 @@
         
       </time><div class="text">
       <div>
-<details><summary>目次</summary><div class="contents topic" id="id1">
-<p class="topic-title first">目次</p>
+<details><summary>目次</summary><div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#id2" id="id8">書籍</a></p></li>
-<li><p><a class="reference internal" href="#id3" id="id9">1章 ジェイウォーク (信号無視)</a></p></li>
-<li><p><a class="reference internal" href="#id4" id="id10">2章 ナイーブツリー (素朴な木)</a></p></li>
-<li><p><a class="reference internal" href="#id-id" id="id11">3章 ID リクワイアド (とりあえずID)</a></p></li>
-<li><p><a class="reference internal" href="#id5" id="id12">4章 キーレスエントリー (外部キー嫌い)</a></p></li>
-<li><p><a class="reference internal" href="#eav" id="id13">5章 EAV (エンティティ・アトリビュート・バリュー)</a></p></li>
-<li><p><a class="reference internal" href="#id6" id="id14">6章 ポリモーフィック関連</a></p></li>
-<li><p><a class="reference internal" href="#id7" id="id15">7章 マルチカラムアトリビュート (複数列属性)</a></p></li>
+<li><p><a class="reference internal" href="#id1" id="id7">書籍</a></p></li>
+<li><p><a class="reference internal" href="#id2" id="id8">1章 ジェイウォーク (信号無視)</a></p></li>
+<li><p><a class="reference internal" href="#id3" id="id9">2章 ナイーブツリー (素朴な木)</a></p></li>
+<li><p><a class="reference internal" href="#id-id" id="id10">3章 ID リクワイアド (とりあえずID)</a></p></li>
+<li><p><a class="reference internal" href="#id4" id="id11">4章 キーレスエントリー (外部キー嫌い)</a></p></li>
+<li><p><a class="reference internal" href="#eav" id="id12">5章 EAV (エンティティ・アトリビュート・バリュー)</a></p></li>
+<li><p><a class="reference internal" href="#id5" id="id13">6章 ポリモーフィック関連</a></p></li>
+<li><p><a class="reference internal" href="#id6" id="id14">7章 マルチカラムアトリビュート (複数列属性)</a></p></li>
 </ul>
 </div>
-</details><div class="section" id="id2">
-<h2><a class="toc-backref" href="#id8">書籍</a></h2>
+</details><div class="section" id="id1">
+<h2><a class="toc-backref" href="#id7">書籍</a></h2>
 <p><a class="reference external" href="https://www.oreilly.co.jp/books/9784873115894/">SQL アンチパターン SQL Antipatterns (2013年, オライリー・ジャパン)</a></p>
 <ul class="simple">
 <li><p>Bill Karwin 著</p></li>
@@ -56,8 +56,8 @@
 <li><p>小島 修 訳</p></li>
 </ul>
 </div>
-<div class="section" id="id3">
-<h2><a class="toc-backref" href="#id9">1章 ジェイウォーク (信号無視)</a></h2>
+<div class="section" id="id2">
+<h2><a class="toc-backref" href="#id8">1章 ジェイウォーク (信号無視)</a></h2>
 <p>１つの製品に複数ユーザーを連絡先として登録できるようにしたい</p>
 <dl class="field-list simple">
 <dt>目的</dt>
@@ -82,8 +82,8 @@
 </dd>
 </dl>
 </div>
-<div class="section" id="id4">
-<h2><a class="toc-backref" href="#id10">2章 ナイーブツリー (素朴な木)</a></h2>
+<div class="section" id="id3">
+<h2><a class="toc-backref" href="#id9">2章 ナイーブツリー (素朴な木)</a></h2>
 <p>スレッド形式のコメント欄</p>
 <dl class="field-list simple">
 <dt>目的</dt>
@@ -113,24 +113,24 @@
 <p>再帰クエリめちゃくちゃ便利だな</p>
 </dd>
 </dl>
-<pre class="code mysql"><a name="rest_code_07419fca883f45408c517af0b7e11933-1"></a><span class="c1">-- ※ 再帰クエリの例</span>
-<a name="rest_code_07419fca883f45408c517af0b7e11933-2"></a><span class="k">WITH</span> <span class="n">RECURSIVE</span> <span class="nf">CommentTree</span>
-<a name="rest_code_07419fca883f45408c517af0b7e11933-3"></a>  <span class="p">(</span><span class="n">comment_id</span><span class="p">,</span> <span class="n">bug_id</span><span class="p">,</span> <span class="n">parent_id</span><span class="p">,</span> <span class="n">author</span><span class="p">,</span> <span class="n">comment</span><span class="p">,</span> <span class="n">depth</span><span class="p">)</span>
-<a name="rest_code_07419fca883f45408c517af0b7e11933-4"></a><span class="k">AS</span> <span class="p">(</span>
-<a name="rest_code_07419fca883f45408c517af0b7e11933-5"></a>    <span class="k">SELECT</span> <span class="o">*</span><span class="p">,</span> <span class="mi">0</span> <span class="k">AS</span> <span class="n">depth</span> <span class="k">FROM</span> <span class="n">Comments</span>
-<a name="rest_code_07419fca883f45408c517af0b7e11933-6"></a>    <span class="k">WHERE</span> <span class="n">parent_id</span> <span class="k">IS</span> <span class="no">NULL</span>
-<a name="rest_code_07419fca883f45408c517af0b7e11933-7"></a>  <span class="k">UNION</span> <span class="k">ALL</span>
-<a name="rest_code_07419fca883f45408c517af0b7e11933-8"></a>    <span class="k">SELECT</span> <span class="n">c</span><span class="p">.</span><span class="o">*</span><span class="p">,</span> <span class="n">ct</span><span class="p">.</span><span class="n">depth</span><span class="o">+</span><span class="mi">1</span> <span class="k">AS</span> <span class="n">depth</span> <span class="k">FROM</span> <span class="n">CommentTree</span> <span class="n">ct</span>
-<a name="rest_code_07419fca883f45408c517af0b7e11933-9"></a>    <span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">Comments</span> <span class="n">c</span> <span class="k">ON</span> <span class="n">ct</span><span class="p">.</span><span class="n">comment_id</span> <span class="o">=</span> <span class="n">c</span><span class="p">.</span><span class="n">parent_id</span>
-<a name="rest_code_07419fca883f45408c517af0b7e11933-10"></a><span class="p">)</span>
-<a name="rest_code_07419fca883f45408c517af0b7e11933-11"></a><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">CommentTree</span> <span class="k">WHERE</span> <span class="n">bug_id</span> <span class="o">=</span> <span class="mi">1234</span><span class="p">;</span>
+<pre class="code mysql"><a name="rest_code_0b4ee119c27e4f86ba452448fba27dc4-1"></a><span class="c1">-- ※ 再帰クエリの例</span>
+<a name="rest_code_0b4ee119c27e4f86ba452448fba27dc4-2"></a><span class="k">WITH</span> <span class="n">RECURSIVE</span> <span class="nf">CommentTree</span>
+<a name="rest_code_0b4ee119c27e4f86ba452448fba27dc4-3"></a>  <span class="p">(</span><span class="n">comment_id</span><span class="p">,</span> <span class="n">bug_id</span><span class="p">,</span> <span class="n">parent_id</span><span class="p">,</span> <span class="n">author</span><span class="p">,</span> <span class="n">comment</span><span class="p">,</span> <span class="n">depth</span><span class="p">)</span>
+<a name="rest_code_0b4ee119c27e4f86ba452448fba27dc4-4"></a><span class="k">AS</span> <span class="p">(</span>
+<a name="rest_code_0b4ee119c27e4f86ba452448fba27dc4-5"></a>    <span class="k">SELECT</span> <span class="o">*</span><span class="p">,</span> <span class="mi">0</span> <span class="k">AS</span> <span class="n">depth</span> <span class="k">FROM</span> <span class="n">Comments</span>
+<a name="rest_code_0b4ee119c27e4f86ba452448fba27dc4-6"></a>    <span class="k">WHERE</span> <span class="n">parent_id</span> <span class="k">IS</span> <span class="no">NULL</span>
+<a name="rest_code_0b4ee119c27e4f86ba452448fba27dc4-7"></a>  <span class="k">UNION</span> <span class="k">ALL</span>
+<a name="rest_code_0b4ee119c27e4f86ba452448fba27dc4-8"></a>    <span class="k">SELECT</span> <span class="n">c</span><span class="p">.</span><span class="o">*</span><span class="p">,</span> <span class="n">ct</span><span class="p">.</span><span class="n">depth</span><span class="o">+</span><span class="mi">1</span> <span class="k">AS</span> <span class="n">depth</span> <span class="k">FROM</span> <span class="n">CommentTree</span> <span class="n">ct</span>
+<a name="rest_code_0b4ee119c27e4f86ba452448fba27dc4-9"></a>    <span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">Comments</span> <span class="n">c</span> <span class="k">ON</span> <span class="n">ct</span><span class="p">.</span><span class="n">comment_id</span> <span class="o">=</span> <span class="n">c</span><span class="p">.</span><span class="n">parent_id</span>
+<a name="rest_code_0b4ee119c27e4f86ba452448fba27dc4-10"></a><span class="p">)</span>
+<a name="rest_code_0b4ee119c27e4f86ba452448fba27dc4-11"></a><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">CommentTree</span> <span class="k">WHERE</span> <span class="n">bug_id</span> <span class="o">=</span> <span class="mi">1234</span><span class="p">;</span>
 </pre>
 <ul class="simple">
 <li><p>MySQL 8.0 ~ , PostgreSQL 8.4 ~ ... はサポートしている</p></li>
 </ul>
 </div>
 <div class="section" id="id-id">
-<h2><a class="toc-backref" href="#id11">3章 ID リクワイアド (とりあえずID)</a></h2>
+<h2><a class="toc-backref" href="#id10">3章 ID リクワイアド (とりあえずID)</a></h2>
 <p>「行の重複を避けるにはどうすればよいか」と質問された</p>
 <dl class="field-list simple">
 <dt>目的</dt>
@@ -160,8 +160,8 @@
 </dd>
 </dl>
 </div>
-<div class="section" id="id5">
-<h2><a class="toc-backref" href="#id12">4章 キーレスエントリー (外部キー嫌い)</a></h2>
+<div class="section" id="id4">
+<h2><a class="toc-backref" href="#id11">4章 キーレスエントリー (外部キー嫌い)</a></h2>
 <p>研究所の設備がダブルブッキングされた</p>
 <dl class="field-list simple">
 <dt>目的</dt>
@@ -191,7 +191,7 @@
 </dl>
 </div>
 <div class="section" id="eav">
-<h2><a class="toc-backref" href="#id13">5章 EAV (エンティティ・アトリビュート・バリュー)</a></h2>
+<h2><a class="toc-backref" href="#id12">5章 EAV (エンティティ・アトリビュート・バリュー)</a></h2>
 <p>Issue と Bug と FeatureRequest (機能要望) のはなし</p>
 <dl class="field-list simple">
 <dt>目的</dt>
@@ -255,8 +255,8 @@
 </dd>
 </dl>
 </div>
-<div class="section" id="id6">
-<h2><a class="toc-backref" href="#id14">6章 ポリモーフィック関連</a></h2>
+<div class="section" id="id5">
+<h2><a class="toc-backref" href="#id13">6章 ポリモーフィック関連</a></h2>
 <ul class="simple">
 <li><p>ユーザーがバグについてのコメントを書き込める =&gt; Bugs と Comments が １対多</p></li>
 <li><p>ユーザーが機能要望についてのコメントを書き込める =&gt; FeatureRequests と Comments が １対多</p></li>
@@ -290,8 +290,8 @@
 </dd>
 </dl>
 </div>
-<div class="section" id="id7">
-<h2><a class="toc-backref" href="#id15">7章 マルチカラムアトリビュート (複数列属性)</a></h2>
+<div class="section" id="id6">
+<h2><a class="toc-backref" href="#id14">7章 マルチカラムアトリビュート (複数列属性)</a></h2>
 <p>バグデータベースに、バグを分類するための「タグ付機能」を追加したい</p>
 <dl class="field-list simple">
 <dt>目的</dt>

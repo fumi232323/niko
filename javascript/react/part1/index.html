@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
@@ -34,37 +34,37 @@
         
       </time><div class="text">
       <div>
-<details><summary>目次</summary><div class="contents topic" id="id1">
-<p class="topic-title first">目次</p>
+<details><summary>目次</summary><div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#id2" id="id6">リファレンス, 書籍</a></p></li>
+<li><p><a class="reference internal" href="#id1" id="id5">リファレンス, 書籍</a></p></li>
 <li>
-<p><a class="reference internal" href="#id3" id="id7">これが大事</a></p>
+<p><a class="reference internal" href="#id2" id="id6">これが大事</a></p>
 <ul>
-<li><p><a class="reference internal" href="#component" id="id8">Component の構成要素</a></p></li>
-<li><p><a class="reference internal" href="#props-state" id="id9">props と state</a></p></li>
-<li><p><a class="reference internal" href="#id4" id="id10">Component ライフサイクル</a></p></li>
+<li><p><a class="reference internal" href="#component" id="id7">Component の構成要素</a></p></li>
+<li><p><a class="reference internal" href="#props-state" id="id8">props と state</a></p></li>
+<li><p><a class="reference internal" href="#id3" id="id9">Component ライフサイクル</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#id5" id="id11">その他</a></p></li>
+<li><p><a class="reference internal" href="#id4" id="id10">その他</a></p></li>
 </ul>
 </div>
-</details><div class="section" id="id2">
-<h2><a class="toc-backref" href="#id6">リファレンス, 書籍</a></h2>
+</details><div class="section" id="id1">
+<h2><a class="toc-backref" href="#id5">リファレンス, 書籍</a></h2>
 <ul class="simple">
 <li><p>React、Angular、Vue.js、React Nativeを使って学ぶ はじめてのフロントエンド開発: <a class="reference external" href="https://gihyo.jp/book/2018/978-4-7741-9706-7">https://gihyo.jp/book/2018/978-4-7741-9706-7</a></p></li>
 <li><p><a class="reference external" href="https://reactjs.org/">https://reactjs.org/</a></p></li>
 <li><p><a class="reference external" href="https://ja.reactjs.org/">https://ja.reactjs.org/</a></p></li>
 </ul>
 </div>
-<div class="section" id="id3">
-<h2><a class="toc-backref" href="#id7">これが大事</a></h2>
+<div class="section" id="id2">
+<h2><a class="toc-backref" href="#id6">これが大事</a></h2>
 <ul class="simple">
 <li><p>props と state の役割と利用方法</p></li>
 <li><p>Component ライフサイクルの管理</p></li>
 </ul>
 <div class="section" id="component">
-<h3><a class="toc-backref" href="#id8">Component の構成要素</a></h3>
+<h3><a class="toc-backref" href="#id7">Component の構成要素</a></h3>
 <blockquote>
 <ul class="simple">
 <li>
@@ -94,7 +94,7 @@
 </blockquote>
 </div>
 <div class="section" id="props-state">
-<h3><a class="toc-backref" href="#id9">props と state</a></h3>
+<h3><a class="toc-backref" href="#id8">props と state</a></h3>
 <ul class="simple">
 <li>
 <p>props:</p>
@@ -127,8 +127,8 @@
 </li>
 </ul>
 </div>
-<div class="section" id="id4">
-<h3><a class="toc-backref" href="#id10">Component ライフサイクル</a></h3>
+<div class="section" id="id3">
+<h3><a class="toc-backref" href="#id9">Component ライフサイクル</a></h3>
 <p>ライフサイクル: 「 Component がマウントされたとき」や「 Component が props (読み取り専用のやつ) を受け取るとき」といった Component の状態の推移のこと</p>
 <ul>
 <li><p>ライフサイクルのわかりやすい図: <a class="reference external" href="https://reactjs.org/docs/react-component.html#the-component-lifecycle">https://reactjs.org/docs/react-component.html#the-component-lifecycle</a></p></li>
@@ -157,12 +157,12 @@
 <li><p>「新しく受け取る」 props を引数に取る</p></li>
 <li>
 <p>現在の props の内容と、新しく受け取る props の内容を比較して処理を分岐できる</p>
-<pre class="code javascript"><a name="rest_code_da3bc7dd76a046978190d053fb7017a8-1"></a><span class="c1">// 例</span>
-<a name="rest_code_da3bc7dd76a046978190d053fb7017a8-2"></a><span class="kr">public</span> <span class="nx">componentWillReceiveProps</span><span class="p">(</span><span class="nx">nextProps</span><span class="p">)</span> <span class="p">{</span>
-<a name="rest_code_da3bc7dd76a046978190d053fb7017a8-3"></a>  <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">hoge</span> <span class="o">!==</span> <span class="nx">nextProps</span><span class="p">.</span><span class="nx">hoge</span><span class="p">)</span> <span class="p">{</span>
-<a name="rest_code_da3bc7dd76a046978190d053fb7017a8-4"></a>    <span class="c1">//props.hogeが変更された場合の処理</span>
-<a name="rest_code_da3bc7dd76a046978190d053fb7017a8-5"></a>  <span class="p">}</span>
-<a name="rest_code_da3bc7dd76a046978190d053fb7017a8-6"></a><span class="p">}</span>
+<pre class="code javascript"><a name="rest_code_ff641e53764f4200a6fa66093d096039-1"></a><span class="c1">// 例</span>
+<a name="rest_code_ff641e53764f4200a6fa66093d096039-2"></a><span class="kr">public</span> <span class="nx">componentWillReceiveProps</span><span class="p">(</span><span class="nx">nextProps</span><span class="p">)</span> <span class="p">{</span>
+<a name="rest_code_ff641e53764f4200a6fa66093d096039-3"></a>  <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">hoge</span> <span class="o">!==</span> <span class="nx">nextProps</span><span class="p">.</span><span class="nx">hoge</span><span class="p">)</span> <span class="p">{</span>
+<a name="rest_code_ff641e53764f4200a6fa66093d096039-4"></a>    <span class="c1">//props.hogeが変更された場合の処理</span>
+<a name="rest_code_ff641e53764f4200a6fa66093d096039-5"></a>  <span class="p">}</span>
+<a name="rest_code_ff641e53764f4200a6fa66093d096039-6"></a><span class="p">}</span>
 </pre>
 </li>
 </ul>
@@ -195,8 +195,8 @@
 </ul>
 </div>
 </div>
-<div class="section" id="id5">
-<h2><a class="toc-backref" href="#id11">その他</a></h2>
+<div class="section" id="id4">
+<h2><a class="toc-backref" href="#id10">その他</a></h2>
 <ul class="simple">
 <li>
 <p>スターターキット (ボイラテンプレートツール)</p>

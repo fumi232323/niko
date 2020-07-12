@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
@@ -34,30 +34,30 @@
         
       </time><div class="text">
       <div>
-<details><summary>目次</summary><div class="contents topic" id="id1">
-<p class="topic-title first">目次</p>
+<details><summary>目次</summary><div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
 <ul class="simple">
 <li>
-<p><a class="reference internal" href="#id2" id="id7">リファレンス</a></p>
+<p><a class="reference internal" href="#id1" id="id6">リファレンス</a></p>
 <ul>
-<li><p><a class="reference internal" href="#id3" id="id8">~/.ssh/config</a></p></li>
-<li><p><a class="reference internal" href="#etc-ssh-ssh-config" id="id9">/etc/ssh/ssh_config</a></p></li>
+<li><p><a class="reference internal" href="#id2" id="id7">~/.ssh/config</a></p></li>
+<li><p><a class="reference internal" href="#etc-ssh-ssh-config" id="id8">/etc/ssh/ssh_config</a></p></li>
 </ul>
 </li>
 <li>
-<p><a class="reference internal" href="#proxycommand" id="id10">ProxyCommand</a></p>
+<p><a class="reference internal" href="#proxycommand" id="id9">ProxyCommand</a></p>
 <ul>
-<li><p><a class="reference internal" href="#id4" id="id11">キーワードやオプションの意味</a></p></li>
-<li><p><a class="reference internal" href="#id5" id="id12">参考</a></p></li>
+<li><p><a class="reference internal" href="#id3" id="id10">キーワードやオプションの意味</a></p></li>
+<li><p><a class="reference internal" href="#id4" id="id11">参考</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#forwardagent-yes" id="id13">ForwardAgent yes</a></p></li>
+<li><p><a class="reference internal" href="#forwardagent-yes" id="id12">ForwardAgent yes</a></p></li>
 </ul>
 </div>
 </details><p>TODO: 整理中
 TODO: ssh config のメモとして整理しようと思う</p>
-<div class="section" id="id2">
-<h2><a class="toc-backref" href="#id7">リファレンス</a></h2>
+<div class="section" id="id1">
+<h2><a class="toc-backref" href="#id6">リファレンス</a></h2>
 <p>ubuntu のやつ</p>
 <ul class="simple">
 <li><p><a class="reference external" href="http://manpages.ubuntu.com/manpages/bionic/en/man5/ssh_config.5.html">ssh_config</a></p></li>
@@ -66,50 +66,50 @@ TODO: ssh config のメモとして整理しようと思う</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.freebsd.org/cgi/man.cgi?query=ssh&amp;apropos=0&amp;sektion=0&amp;manpath=CentOS+6.5&amp;arch=default&amp;format=html">SSH(1)</a></p></li>
 </ul>
-<div class="section" id="id3">
-<h3><a class="toc-backref" href="#id8">~/.ssh/config</a></h3>
+<div class="section" id="id2">
+<h3><a class="toc-backref" href="#id7">~/.ssh/config</a></h3>
 <p>ユーザごとの個人用設定ファイルです。ファイル形式は上で説明されています。このファイルは SSH クライアントによって使われます。このファイルは潜在的に悪用される危険性があるため、パーミッションは厳しくしておくのがいいでしょう。所有者のみが読み書き可能で、他からはアクセスできないようにしておくべきです。 |</p>
 </div>
 <div class="section" id="etc-ssh-ssh-config">
-<h3><a class="toc-backref" href="#id9">/etc/ssh/ssh_config</a></h3>
+<h3><a class="toc-backref" href="#id8">/etc/ssh/ssh_config</a></h3>
 <p>システム全体にわたる設定ファイルです。このファイルはユーザの設定ファイルでは指定されなかった値を提供し、また設定ファイルを持たないユーザのためのデフォルトにもなります。このファイルは誰にでも読み込み可能でなければいけません。</p>
 </div>
 </div>
 <div class="section" id="proxycommand">
-<h2><a class="toc-backref" href="#id10">ProxyCommand</a></h2>
+<h2><a class="toc-backref" href="#id9">ProxyCommand</a></h2>
 <p>ローカルから、B へ ssh する</p>
-<pre class="code bash"><a name="rest_code_1c2b5d9fb2b547f581beaab173be7494-1"></a>$ ssh-add ~/.ssh/id_rsa
-<a name="rest_code_1c2b5d9fb2b547f581beaab173be7494-2"></a>$ ssh my-host
-<a name="rest_code_1c2b5d9fb2b547f581beaab173be7494-3"></a>
-<a name="rest_code_1c2b5d9fb2b547f581beaab173be7494-4"></a><span class="m">1</span>. まず、<span class="o">(</span><span class="m">1</span><span class="o">)</span> の <span class="sb">``</span>ssh -W %h:%p my-gateway<span class="sb">``</span> が実行される
-<a name="rest_code_1c2b5d9fb2b547f581beaab173be7494-5"></a><span class="m">2</span>. <span class="sb">``</span>$ ssh my-gateway<span class="sb">``</span> が実行される
-<a name="rest_code_1c2b5d9fb2b547f581beaab173be7494-6"></a>  - HostName, User, IdentityFile は <span class="o">(</span><span class="m">3</span><span class="o">)</span> に記述のものが使用される
-<a name="rest_code_1c2b5d9fb2b547f581beaab173be7494-7"></a>  -
-<a name="rest_code_1c2b5d9fb2b547f581beaab173be7494-8"></a><span class="m">3</span>. <span class="sb">``</span>my-gateway<span class="sb">``</span> から <span class="sb">``</span>$ ssh my-host<span class="sb">``</span> が実行される
-<a name="rest_code_1c2b5d9fb2b547f581beaab173be7494-9"></a>  - <span class="sb">``</span>ForwardAgent yes<span class="sb">``</span> のため、 <span class="sb">``</span>IdentityFile<span class="sb">``</span> は、 <span class="o">(</span><span class="m">3</span><span class="o">)</span> で指定されたものが使用される
+<pre class="code bash"><a name="rest_code_e862a44d8cc34dbeb348c5f515aa1fdc-1"></a>$ ssh-add ~/.ssh/id_rsa
+<a name="rest_code_e862a44d8cc34dbeb348c5f515aa1fdc-2"></a>$ ssh my-host
+<a name="rest_code_e862a44d8cc34dbeb348c5f515aa1fdc-3"></a>
+<a name="rest_code_e862a44d8cc34dbeb348c5f515aa1fdc-4"></a><span class="m">1</span>. まず、<span class="o">(</span><span class="m">1</span><span class="o">)</span> の <span class="sb">``</span>ssh -W %h:%p my-gateway<span class="sb">``</span> が実行される
+<a name="rest_code_e862a44d8cc34dbeb348c5f515aa1fdc-5"></a><span class="m">2</span>. <span class="sb">``</span>$ ssh my-gateway<span class="sb">``</span> が実行される
+<a name="rest_code_e862a44d8cc34dbeb348c5f515aa1fdc-6"></a>  - HostName, User, IdentityFile は <span class="o">(</span><span class="m">3</span><span class="o">)</span> に記述のものが使用される
+<a name="rest_code_e862a44d8cc34dbeb348c5f515aa1fdc-7"></a>  -
+<a name="rest_code_e862a44d8cc34dbeb348c5f515aa1fdc-8"></a><span class="m">3</span>. <span class="sb">``</span>my-gateway<span class="sb">``</span> から <span class="sb">``</span>$ ssh my-host<span class="sb">``</span> が実行される
+<a name="rest_code_e862a44d8cc34dbeb348c5f515aa1fdc-9"></a>  - <span class="sb">``</span>ForwardAgent yes<span class="sb">``</span> のため、 <span class="sb">``</span>IdentityFile<span class="sb">``</span> は、 <span class="o">(</span><span class="m">3</span><span class="o">)</span> で指定されたものが使用される
 </pre>
 <p><code class="docutils literal"><span class="pre">~/.ssh/config</span></code></p>
 <blockquote>
-<pre class="code console"><a name="rest_code_deefcf2ca1624772ab6ef1e6e40bb1e6-1"></a><span class="gp">#</span> エージェント転送を行う
-<a name="rest_code_deefcf2ca1624772ab6ef1e6e40bb1e6-2"></a><span class="go">ForwardAgent yes</span>
-<a name="rest_code_deefcf2ca1624772ab6ef1e6e40bb1e6-3"></a>
-<a name="rest_code_deefcf2ca1624772ab6ef1e6e40bb1e6-4"></a><span class="gp">#</span> A: gateway
-<a name="rest_code_deefcf2ca1624772ab6ef1e6e40bb1e6-5"></a><span class="go">Host my-gateway                                 # (3)</span>
-<a name="rest_code_deefcf2ca1624772ab6ef1e6e40bb1e6-6"></a><span class="go">  HostName      my-gateway.com</span>
-<a name="rest_code_deefcf2ca1624772ab6ef1e6e40bb1e6-7"></a><span class="go">  User          my-user                         # (2)</span>
-<a name="rest_code_deefcf2ca1624772ab6ef1e6e40bb1e6-8"></a><span class="go">  IdentityFile  ~/.ssh/id_rsa</span>
-<a name="rest_code_deefcf2ca1624772ab6ef1e6e40bb1e6-9"></a>
-<a name="rest_code_deefcf2ca1624772ab6ef1e6e40bb1e6-10"></a><span class="gp">#</span> B: アプリケーションがデプロイしてあるサーバー
-<a name="rest_code_deefcf2ca1624772ab6ef1e6e40bb1e6-11"></a><span class="go">Host my-host</span>
-<a name="rest_code_deefcf2ca1624772ab6ef1e6e40bb1e6-12"></a><span class="go">  HostName      my-host-name</span>
-<a name="rest_code_deefcf2ca1624772ab6ef1e6e40bb1e6-13"></a><span class="go">  User          my-user                         # (2)</span>
-<a name="rest_code_deefcf2ca1624772ab6ef1e6e40bb1e6-14"></a><span class="go">  ProxyCommand  ssh -W %h:%p my-gateway         # (1)</span>
+<pre class="code console"><a name="rest_code_b797e489013246e4b1d6c3ba3bbeab86-1"></a><span class="gp">#</span> エージェント転送を行う
+<a name="rest_code_b797e489013246e4b1d6c3ba3bbeab86-2"></a><span class="go">ForwardAgent yes</span>
+<a name="rest_code_b797e489013246e4b1d6c3ba3bbeab86-3"></a>
+<a name="rest_code_b797e489013246e4b1d6c3ba3bbeab86-4"></a><span class="gp">#</span> A: gateway
+<a name="rest_code_b797e489013246e4b1d6c3ba3bbeab86-5"></a><span class="go">Host my-gateway                                 # (3)</span>
+<a name="rest_code_b797e489013246e4b1d6c3ba3bbeab86-6"></a><span class="go">  HostName      my-gateway.com</span>
+<a name="rest_code_b797e489013246e4b1d6c3ba3bbeab86-7"></a><span class="go">  User          my-user                         # (2)</span>
+<a name="rest_code_b797e489013246e4b1d6c3ba3bbeab86-8"></a><span class="go">  IdentityFile  ~/.ssh/id_rsa</span>
+<a name="rest_code_b797e489013246e4b1d6c3ba3bbeab86-9"></a>
+<a name="rest_code_b797e489013246e4b1d6c3ba3bbeab86-10"></a><span class="gp">#</span> B: アプリケーションがデプロイしてあるサーバー
+<a name="rest_code_b797e489013246e4b1d6c3ba3bbeab86-11"></a><span class="go">Host my-host</span>
+<a name="rest_code_b797e489013246e4b1d6c3ba3bbeab86-12"></a><span class="go">  HostName      my-host-name</span>
+<a name="rest_code_b797e489013246e4b1d6c3ba3bbeab86-13"></a><span class="go">  User          my-user                         # (2)</span>
+<a name="rest_code_b797e489013246e4b1d6c3ba3bbeab86-14"></a><span class="go">  ProxyCommand  ssh -W %h:%p my-gateway         # (1)</span>
 </pre>
 </blockquote>
 <ol class="arabic simple"><li>
 </li></ol>
-<div class="section" id="id4">
-<h3><a class="toc-backref" href="#id11">キーワードやオプションの意味</a></h3>
+<div class="section" id="id3">
+<h3><a class="toc-backref" href="#id10">キーワードやオプションの意味</a></h3>
 <ul>
 <li>
 <p>ssh_config のマニュアルページの <code class="docutils literal">ProxyCommand</code> の説明</p>
@@ -125,15 +125,15 @@ The command can be basically anything, and should read from its standard input a
 </li>
 </ul>
 </div>
-<div class="section" id="id5">
-<h3><a class="toc-backref" href="#id12">参考</a></h3>
+<div class="section" id="id4">
+<h3><a class="toc-backref" href="#id11">参考</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="http://note.crohaco.net/2017/ssh-tunnel/#proxycommand">ProxyCommand</a></p></li>
 </ul>
 </div>
 </div>
 <div class="section" id="forwardagent-yes">
-<h2><a class="toc-backref" href="#id13">ForwardAgent yes</a></h2>
+<h2><a class="toc-backref" href="#id12">ForwardAgent yes</a></h2>
 <p>ForwardAgent (エージェント転送)
 認証エージェントへの接続を、(それが存在する時は) リモートマシン上に転送するかどうかを指定します。この引数の値は"yes"あるいは"no"でなければならず、デフォルトは"no (エージェント転送をおこなわない)"です。
 認証エージェントの転送には注意が必要です。リモートホスト上で (エージェントの UNIX ドメインソケットに対する)ファイルアクセス権限を無視できてしまうユーザがいる場合は、転送された接続を介してローカル側の認証エージェントにアクセスできてしまうことになります。攻撃側は認証エージェントから鍵そのものを盗むことはできませんが、認証エージェントがもっている鍵に認証をおこなわせることはできます。</p>

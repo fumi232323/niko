@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
@@ -54,25 +54,25 @@
 <li><p>~/.gitignore_global</p></li>
 <li>
 <p>~/.gitconfig に以下を記述</p>
-<pre class="code ini"><a name="rest_code_8fce9264fc65406b803289f73f8c6d0c-1"></a><span class="k">[core]</span>
-<a name="rest_code_8fce9264fc65406b803289f73f8c6d0c-2"></a>  <span class="na">excludesfile</span> <span class="o">=</span> <span class="s">/path/to/userhome/.gitignore_global</span>
+<pre class="code ini"><a name="rest_code_55048e858ce14de1bc932ba722e37dbc-1"></a><span class="k">[core]</span>
+<a name="rest_code_55048e858ce14de1bc932ba722e37dbc-2"></a>  <span class="na">excludesfile</span> <span class="o">=</span> <span class="s">/path/to/userhome/.gitignore_global</span>
 </pre>
 </li>
 </ul>
 </li>
 <li>
 <p>エディタに Vim に設定する</p>
-<pre class="code console"><a name="rest_code_b14054469c63420a84bf877d77598b86-1"></a><span class="gp">$</span> git config --global core.editor <span class="s1">'vim -c "set fenc=utf-8"'</span>
+<pre class="code console"><a name="rest_code_04628f58f5d94e1796f8d24b065fdfa9-1"></a><span class="gp">$</span> git config --global core.editor <span class="s1">'vim -c "set fenc=utf-8"'</span>
 </pre>
 </li>
 <li>
 <p>git status で日本語のファイル名をちゃんと出す</p>
-<pre class="code console"><a name="rest_code_424a6545a0fd4bc790f5e62c27bc2cdc-1"></a><span class="gp">$</span> git config --global core.quotepath off
+<pre class="code console"><a name="rest_code_892c542ab45f4bfc9ab2d97ab439171a-1"></a><span class="gp">$</span> git config --global core.quotepath off
 </pre>
 </li>
 <li>
 <p>現在の設定を確認する</p>
-<pre class="code console"><a name="rest_code_e16dd257d79e4431bfc062dba4f6f555-1"></a><span class="gp">$</span> git config --list
+<pre class="code console"><a name="rest_code_56cce1a796cf432096a78ec35e57e7a6-1"></a><span class="gp">$</span> git config --list
 </pre>
 </li>
 </ul>

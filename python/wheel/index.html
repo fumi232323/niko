@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
@@ -34,27 +34,27 @@
         
       </time><div class="text">
       <div>
-<details><summary>目次</summary><div class="contents topic" id="id1">
-<p class="topic-title first">目次</p>
+<details><summary>目次</summary><div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
 <ul class="simple">
 <li>
-<p><a class="reference internal" href="#wheel" id="id5">wheel</a></p>
+<p><a class="reference internal" href="#wheel" id="id4">wheel</a></p>
 <ul>
-<li><p><a class="reference internal" href="#id2" id="id6">インストール</a></p></li>
+<li><p><a class="reference internal" href="#id1" id="id5">インストール</a></p></li>
 <li>
-<p><a class="reference internal" href="#id3" id="id7">wheel の作り方</a></p>
+<p><a class="reference internal" href="#id2" id="id6">wheel の作り方</a></p>
 <ul>
-<li><p><a class="reference internal" href="#pypi-sdist-wheel" id="id8">PyPI で sdist で配布されているパッケージを wheel 形式のパッケージに変換してローカルに保存する</a></p></li>
-<li><p><a class="reference internal" href="#setuptools-wheel" id="id9">setuptools ベースのプロジェクトから wheel を作成する</a></p></li>
+<li><p><a class="reference internal" href="#pypi-sdist-wheel" id="id7">PyPI で sdist で配布されているパッケージを wheel 形式のパッケージに変換してローカルに保存する</a></p></li>
+<li><p><a class="reference internal" href="#setuptools-wheel" id="id8">setuptools ベースのプロジェクトから wheel を作成する</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#id4" id="id10">ガイド/リファレンス</a></p></li>
+<li><p><a class="reference internal" href="#id3" id="id9">ガイド/リファレンス</a></p></li>
 </ul>
 </li>
 </ul>
 </div>
 </details><div class="section" id="wheel">
-<h2><a class="toc-backref" href="#id5">wheel</a></h2>
+<h2><a class="toc-backref" href="#id4">wheel</a></h2>
 <ul>
 <li>
 <p>wheel: ビルド済みの C 拡張や Python パッケージのみを含み、ファイルを展開するだけでインストールが完了する</p>
@@ -63,7 +63,7 @@
 <li><p>pip コマンドは、 wheel 形式を優先して利用する</p></li>
 <li>
 <p>pip は、 PyPI にアップロードされている wheel 形式のパッケージを直接インストールできる</p>
-<pre class="code console"><a name="rest_code_3d4ceab231e244b5bed523a5dfc41453-1"></a><span class="gp">$</span> pip install <span class="nv">django</span><span class="o">==</span><span class="m">1</span>.11.15
+<pre class="code console"><a name="rest_code_1eb19a69ebfc4ba59422910aa8568206-1"></a><span class="gp">$</span> pip install <span class="nv">django</span><span class="o">==</span><span class="m">1</span>.11.15
 </pre>
 </li>
 <li><p><a class="reference external" href="https://pythonwheels.com/">https://pythonwheels.com/</a> : 定番パッケージの wheel 配布状況を確認できる</p></li>
@@ -77,17 +77,17 @@ Python パッケージを確認して、 site-packages へコピーする</p></l
 </ul>
 </li>
 </ul>
-<div class="section" id="id2">
-<h3><a class="toc-backref" href="#id6">インストール</a></h3>
-<pre class="code bash"><a name="rest_code_a7fcebe01361452a8b59515558a3fb7a-1"></a>$ pip install wheel
+<div class="section" id="id1">
+<h3><a class="toc-backref" href="#id5">インストール</a></h3>
+<pre class="code bash"><a name="rest_code_5e4404d22aed499b808f144a220f562b-1"></a>$ pip install wheel
 </pre>
 </div>
-<div class="section" id="id3">
-<h3><a class="toc-backref" href="#id7">wheel の作り方</a></h3>
+<div class="section" id="id2">
+<h3><a class="toc-backref" href="#id6">wheel の作り方</a></h3>
 <div class="section" id="pypi-sdist-wheel">
-<h4><a class="toc-backref" href="#id8">PyPI で sdist で配布されているパッケージを wheel 形式のパッケージに変換してローカルに保存する</a></h4>
-<pre class="code bash"><a name="rest_code_06a9de4de42746b490e19bb94952dffc-1"></a><span class="c1"># wheelhouse ディレクトリに wheel 形式パッケージを作成する</span>
-<a name="rest_code_06a9de4de42746b490e19bb94952dffc-2"></a>$ pip wheel markupsafe -w wheelhouse
+<h4><a class="toc-backref" href="#id7">PyPI で sdist で配布されているパッケージを wheel 形式のパッケージに変換してローカルに保存する</a></h4>
+<pre class="code bash"><a name="rest_code_7c742cfea775407a9427dd945b6ef1d7-1"></a><span class="c1"># wheelhouse ディレクトリに wheel 形式パッケージを作成する</span>
+<a name="rest_code_7c742cfea775407a9427dd945b6ef1d7-2"></a>$ pip wheel markupsafe -w wheelhouse
 </pre>
 <ul class="simple">
 <li><p><code class="docutils literal">wheelhouse</code> ディレクトリがなくても、 <code class="docutils literal"><span class="pre">-w</span> wheelhouse</code> を指定すると勝手に作ってくれる</p></li>
@@ -95,8 +95,8 @@ Python パッケージを確認して、 site-packages へコピーする</p></l
 </ul>
 </div>
 <div class="section" id="setuptools-wheel">
-<h4><a class="toc-backref" href="#id9">setuptools ベースのプロジェクトから wheel を作成する</a></h4>
-<pre class="code bash"><a name="rest_code_7bb83d5a49224ed0812b978508e9193d-1"></a>$ python setup.py bdist_wheel
+<h4><a class="toc-backref" href="#id8">setuptools ベースのプロジェクトから wheel を作成する</a></h4>
+<pre class="code bash"><a name="rest_code_b475b4f136aa411a9b1f14f3b45e863f-1"></a>$ python setup.py bdist_wheel
 </pre>
 <ul>
 <li>
@@ -111,24 +111,24 @@ Python パッケージを確認して、 site-packages へコピーする</p></l
 <ul class="simple">
 <li><p>一般的には setuptools が提供する機能拡張された setup 関数を使う</p></li>
 </ul>
-<pre class="code python"><a name="rest_code_ba7b06a175b647bd80de8be19d354d69-1"></a><span class="c1"># 詳しくは PyPro P.70 を見よ</span>
-<a name="rest_code_ba7b06a175b647bd80de8be19d354d69-2"></a><span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">find_packages</span><span class="p">,</span> <span class="n">setup</span>
-<a name="rest_code_ba7b06a175b647bd80de8be19d354d69-3"></a>
-<a name="rest_code_ba7b06a175b647bd80de8be19d354d69-4"></a>
-<a name="rest_code_ba7b06a175b647bd80de8be19d354d69-5"></a><span class="n">setup</span><span class="p">(</span>
-<a name="rest_code_ba7b06a175b647bd80de8be19d354d69-6"></a>    <span class="n">name</span><span class="o">=</span><span class="s2">"hey"</span><span class="p">,</span>
-<a name="rest_code_ba7b06a175b647bd80de8be19d354d69-7"></a>    <span class="n">version</span><span class="o">=</span><span class="s1">'1.2.3'</span><span class="p">,</span>
-<a name="rest_code_ba7b06a175b647bd80de8be19d354d69-8"></a>    <span class="n">packages</span><span class="o">=</span><span class="n">find_packages</span><span class="p">(),</span>
-<a name="rest_code_ba7b06a175b647bd80de8be19d354d69-9"></a>    <span class="n">include_package_data</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
-<a name="rest_code_ba7b06a175b647bd80de8be19d354d69-10"></a>    <span class="n">install_requires</span><span class="o">=</span><span class="p">[</span><span class="s1">'Django&gt;=2.1'</span><span class="p">],</span>
-<a name="rest_code_ba7b06a175b647bd80de8be19d354d69-11"></a><span class="p">)</span>
+<pre class="code python"><a name="rest_code_e81d437e3bc34cedb6df42302d12ed39-1"></a><span class="c1"># 詳しくは PyPro P.70 を見よ</span>
+<a name="rest_code_e81d437e3bc34cedb6df42302d12ed39-2"></a><span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">find_packages</span><span class="p">,</span> <span class="n">setup</span>
+<a name="rest_code_e81d437e3bc34cedb6df42302d12ed39-3"></a>
+<a name="rest_code_e81d437e3bc34cedb6df42302d12ed39-4"></a>
+<a name="rest_code_e81d437e3bc34cedb6df42302d12ed39-5"></a><span class="n">setup</span><span class="p">(</span>
+<a name="rest_code_e81d437e3bc34cedb6df42302d12ed39-6"></a>    <span class="n">name</span><span class="o">=</span><span class="s2">"hey"</span><span class="p">,</span>
+<a name="rest_code_e81d437e3bc34cedb6df42302d12ed39-7"></a>    <span class="n">version</span><span class="o">=</span><span class="s1">'1.2.3'</span><span class="p">,</span>
+<a name="rest_code_e81d437e3bc34cedb6df42302d12ed39-8"></a>    <span class="n">packages</span><span class="o">=</span><span class="n">find_packages</span><span class="p">(),</span>
+<a name="rest_code_e81d437e3bc34cedb6df42302d12ed39-9"></a>    <span class="n">include_package_data</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+<a name="rest_code_e81d437e3bc34cedb6df42302d12ed39-10"></a>    <span class="n">install_requires</span><span class="o">=</span><span class="p">[</span><span class="s1">'Django&gt;=2.1'</span><span class="p">],</span>
+<a name="rest_code_e81d437e3bc34cedb6df42302d12ed39-11"></a><span class="p">)</span>
 </pre>
 </li>
 </ul>
 </div>
 </div>
-<div class="section" id="id4">
-<h3><a class="toc-backref" href="#id10">ガイド/リファレンス</a></h3>
+<div class="section" id="id3">
+<h3><a class="toc-backref" href="#id9">ガイド/リファレンス</a></h3>
 <ul class="simple">
 <li><p>Python プロフェッショナルプログラミング 第3版 P.66, P.70</p></li>
 <li><p>Python プロフェッショナルプログラミング 第3版 P.256 - P.259</p></li>

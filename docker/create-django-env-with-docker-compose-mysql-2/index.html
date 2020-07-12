@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
@@ -34,67 +34,67 @@
         
       </time><div class="text">
       <div>
-<details><summary>目次</summary><div class="contents topic" id="id1">
-<p class="topic-title first">目次</p>
+<details><summary>目次</summary><div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#id2" id="id12">リファレンス・ガイド・参考書籍</a></p></li>
+<li><p><a class="reference internal" href="#id1" id="id11">リファレンス・ガイド・参考書籍</a></p></li>
 <li>
-<p><a class="reference internal" href="#id3" id="id13">環境構築</a></p>
+<p><a class="reference internal" href="#id2" id="id12">環境構築</a></p>
 <ul>
 <li>
-<p><a class="reference internal" href="#id4" id="id14">1. 準備</a></p>
+<p><a class="reference internal" href="#id3" id="id13">1. 準備</a></p>
 <ul>
-<li><p><a class="reference internal" href="#id5" id="id15">ディレクトリ構成</a></p></li>
-<li><p><a class="reference internal" href="#id6" id="id16">設定ファイル</a></p></li>
+<li><p><a class="reference internal" href="#id4" id="id14">ディレクトリ構成</a></p></li>
+<li><p><a class="reference internal" href="#id5" id="id15">設定ファイル</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#id8" id="id17">2. 最初の1回だけ実行</a></p></li>
-<li><p><a class="reference internal" href="#id9" id="id18">3. 実行後の状態</a></p></li>
-<li><p><a class="reference internal" href="#settings-mysql" id="id19">4. settings に mysql の定義を追記する</a></p></li>
-<li><p><a class="reference internal" href="#webdb" id="id20">5. web・db コンテナを起動する</a></p></li>
-</ul>
-</li>
-<li>
-<p><a class="reference internal" href="#id10" id="id21">環境構築メモ</a></p>
-<ul>
-<li><p><a class="reference internal" href="#default-authentication-plugin-mysql-native-password" id="id22"><strong>※1</strong>: default-authentication-plugin=mysql_native_password について</a></p></li>
-<li><p><a class="reference internal" href="#skip-host-cache-skip-name-resolve" id="id23"><strong>※2</strong>: skip-host-cache, skip-name-resolve について</a></p></li>
+<li><p><a class="reference internal" href="#id7" id="id16">2. 最初の1回だけ実行</a></p></li>
+<li><p><a class="reference internal" href="#id8" id="id17">3. 実行後の状態</a></p></li>
+<li><p><a class="reference internal" href="#settings-mysql" id="id18">4. settings に mysql の定義を追記する</a></p></li>
+<li><p><a class="reference internal" href="#webdb" id="id19">5. web・db コンテナを起動する</a></p></li>
 </ul>
 </li>
 <li>
-<p><a class="reference internal" href="#id11" id="id24">使い方メモ</a></p>
+<p><a class="reference internal" href="#id9" id="id20">環境構築メモ</a></p>
 <ul>
-<li><p><a class="reference internal" href="#image" id="id25">再び image ビルドしたくなったら</a></p></li>
+<li><p><a class="reference internal" href="#default-authentication-plugin-mysql-native-password" id="id21"><strong>※1</strong>: default-authentication-plugin=mysql_native_password について</a></p></li>
+<li><p><a class="reference internal" href="#skip-host-cache-skip-name-resolve" id="id22"><strong>※2</strong>: skip-host-cache, skip-name-resolve について</a></p></li>
+</ul>
+</li>
+<li>
+<p><a class="reference internal" href="#id10" id="id23">使い方メモ</a></p>
+<ul>
+<li><p><a class="reference internal" href="#image" id="id24">再び image ビルドしたくなったら</a></p></li>
 </ul>
 </li>
 </ul>
 </div>
-</details><div class="section" id="id2">
-<h2><a class="toc-backref" href="#id12">リファレンス・ガイド・参考書籍</a></h2>
+</details><div class="section" id="id1">
+<h2><a class="toc-backref" href="#id11">リファレンス・ガイド・参考書籍</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="../create-django-env-with-docker-compose-mysql">Docker Compose で Django/MySQL 環境をつくる</a> と同じ</p></li>
 <li><p>現場で使える Django の教科書《基礎編》</p></li>
 </ul>
 </div>
+<div class="section" id="id2">
+<h2><a class="toc-backref" href="#id12">環境構築</a></h2>
 <div class="section" id="id3">
-<h2><a class="toc-backref" href="#id13">環境構築</a></h2>
+<h3><a class="toc-backref" href="#id13">1. 準備</a></h3>
 <div class="section" id="id4">
-<h3><a class="toc-backref" href="#id14">1. 準備</a></h3>
-<div class="section" id="id5">
-<h4><a class="toc-backref" href="#id15">ディレクトリ構成</a></h4>
-<pre class="code shell"><a name="rest_code_98a70846372d4be1a899dd993af532fd-1"></a>$ tree fufu
-<a name="rest_code_98a70846372d4be1a899dd993af532fd-2"></a>fufu
-<a name="rest_code_98a70846372d4be1a899dd993af532fd-3"></a>├── Dockerfile-mysql
-<a name="rest_code_98a70846372d4be1a899dd993af532fd-4"></a>├── Dockerfile-web
-<a name="rest_code_98a70846372d4be1a899dd993af532fd-5"></a>├── docker-compose.yml
-<a name="rest_code_98a70846372d4be1a899dd993af532fd-6"></a>├── mysql
-<a name="rest_code_98a70846372d4be1a899dd993af532fd-7"></a>│   └── conf.d
-<a name="rest_code_98a70846372d4be1a899dd993af532fd-8"></a>│       └── mysql.cnf
-<a name="rest_code_98a70846372d4be1a899dd993af532fd-9"></a>└── requirements.txt
+<h4><a class="toc-backref" href="#id14">ディレクトリ構成</a></h4>
+<pre class="code shell"><a name="rest_code_ffb84bbee38e47339980de1eb7a60df7-1"></a>$ tree fufu
+<a name="rest_code_ffb84bbee38e47339980de1eb7a60df7-2"></a>fufu
+<a name="rest_code_ffb84bbee38e47339980de1eb7a60df7-3"></a>├── Dockerfile-mysql
+<a name="rest_code_ffb84bbee38e47339980de1eb7a60df7-4"></a>├── Dockerfile-web
+<a name="rest_code_ffb84bbee38e47339980de1eb7a60df7-5"></a>├── docker-compose.yml
+<a name="rest_code_ffb84bbee38e47339980de1eb7a60df7-6"></a>├── mysql
+<a name="rest_code_ffb84bbee38e47339980de1eb7a60df7-7"></a>│   └── conf.d
+<a name="rest_code_ffb84bbee38e47339980de1eb7a60df7-8"></a>│       └── mysql.cnf
+<a name="rest_code_ffb84bbee38e47339980de1eb7a60df7-9"></a>└── requirements.txt
 </pre>
 </div>
-<div class="section" id="id6">
-<h4><a class="toc-backref" href="#id16">設定ファイル</a></h4>
+<div class="section" id="id5">
+<h4><a class="toc-backref" href="#id15">設定ファイル</a></h4>
 <ul>
 <li>
 <p>Dockerfile-web</p>
@@ -229,8 +229,8 @@
 </ul>
 </div>
 </div>
-<div class="section" id="id8">
-<h3><a class="toc-backref" href="#id17">2. 最初の1回だけ実行</a></h3>
+<div class="section" id="id7">
+<h3><a class="toc-backref" href="#id16">2. 最初の1回だけ実行</a></h3>
 <p>web, db の docker image をビルド -&gt; web で startproject する。 (ログを良く見ると、たぶん db コンテナの起動もしている。)</p>
 <p></p>
 <div class="code-block ">
@@ -382,66 +382,66 @@ WARNING: Image <span class="k">for</span> service web was built because it did n
 </pre></div>
 </div>
 </div>
-<div class="section" id="id9">
-<h3><a class="toc-backref" href="#id18">3. 実行後の状態</a></h3>
-<pre class="code shell"><a name="rest_code_5094b684b35a4cde9bfc254d557f8f66-1"></a>$ tree fufu
-<a name="rest_code_5094b684b35a4cde9bfc254d557f8f66-2"></a>fufu
-<a name="rest_code_5094b684b35a4cde9bfc254d557f8f66-3"></a>├── Dockerfile-mysql
-<a name="rest_code_5094b684b35a4cde9bfc254d557f8f66-4"></a>├── Dockerfile-web
-<a name="rest_code_5094b684b35a4cde9bfc254d557f8f66-5"></a>├── apps
-<a name="rest_code_5094b684b35a4cde9bfc254d557f8f66-6"></a>│   ├── config
-<a name="rest_code_5094b684b35a4cde9bfc254d557f8f66-7"></a>│   │   ├── __init__.py
-<a name="rest_code_5094b684b35a4cde9bfc254d557f8f66-8"></a>│   │   ├── settings.py
-<a name="rest_code_5094b684b35a4cde9bfc254d557f8f66-9"></a>│   │   ├── urls.py
-<a name="rest_code_5094b684b35a4cde9bfc254d557f8f66-10"></a>│   │   └── wsgi.py
-<a name="rest_code_5094b684b35a4cde9bfc254d557f8f66-11"></a>│   └── manage.py
-<a name="rest_code_5094b684b35a4cde9bfc254d557f8f66-12"></a>├── docker-compose.yml
-<a name="rest_code_5094b684b35a4cde9bfc254d557f8f66-13"></a>├── mysql
-<a name="rest_code_5094b684b35a4cde9bfc254d557f8f66-14"></a>│   └── conf.d
-<a name="rest_code_5094b684b35a4cde9bfc254d557f8f66-15"></a>│       └── mysql.cnf
-<a name="rest_code_5094b684b35a4cde9bfc254d557f8f66-16"></a>└── requirements.txt
+<div class="section" id="id8">
+<h3><a class="toc-backref" href="#id17">3. 実行後の状態</a></h3>
+<pre class="code shell"><a name="rest_code_e5362a89be5c4600b2cecf61b292004b-1"></a>$ tree fufu
+<a name="rest_code_e5362a89be5c4600b2cecf61b292004b-2"></a>fufu
+<a name="rest_code_e5362a89be5c4600b2cecf61b292004b-3"></a>├── Dockerfile-mysql
+<a name="rest_code_e5362a89be5c4600b2cecf61b292004b-4"></a>├── Dockerfile-web
+<a name="rest_code_e5362a89be5c4600b2cecf61b292004b-5"></a>├── apps
+<a name="rest_code_e5362a89be5c4600b2cecf61b292004b-6"></a>│   ├── config
+<a name="rest_code_e5362a89be5c4600b2cecf61b292004b-7"></a>│   │   ├── __init__.py
+<a name="rest_code_e5362a89be5c4600b2cecf61b292004b-8"></a>│   │   ├── settings.py
+<a name="rest_code_e5362a89be5c4600b2cecf61b292004b-9"></a>│   │   ├── urls.py
+<a name="rest_code_e5362a89be5c4600b2cecf61b292004b-10"></a>│   │   └── wsgi.py
+<a name="rest_code_e5362a89be5c4600b2cecf61b292004b-11"></a>│   └── manage.py
+<a name="rest_code_e5362a89be5c4600b2cecf61b292004b-12"></a>├── docker-compose.yml
+<a name="rest_code_e5362a89be5c4600b2cecf61b292004b-13"></a>├── mysql
+<a name="rest_code_e5362a89be5c4600b2cecf61b292004b-14"></a>│   └── conf.d
+<a name="rest_code_e5362a89be5c4600b2cecf61b292004b-15"></a>│       └── mysql.cnf
+<a name="rest_code_e5362a89be5c4600b2cecf61b292004b-16"></a>└── requirements.txt
 </pre>
 </div>
 <div class="section" id="settings-mysql">
-<h3><a class="toc-backref" href="#id19">4. settings に mysql の定義を追記する</a></h3>
+<h3><a class="toc-backref" href="#id18">4. settings に mysql の定義を追記する</a></h3>
 <p>settings は環境ごとに分けたいので、 <code class="docutils literal">apps</code> 配下に settings ディレクトリを作ってそこ移動する</p>
-<pre class="code bash"><a name="rest_code_1f7154c8b864447eb65f1e545922a5e5-1"></a>$ tree apps
-<a name="rest_code_1f7154c8b864447eb65f1e545922a5e5-2"></a>apps
-<a name="rest_code_1f7154c8b864447eb65f1e545922a5e5-3"></a>├── config
-<a name="rest_code_1f7154c8b864447eb65f1e545922a5e5-4"></a>│   ├── __init__.py
-<a name="rest_code_1f7154c8b864447eb65f1e545922a5e5-5"></a>│   ├── urls.py
-<a name="rest_code_1f7154c8b864447eb65f1e545922a5e5-6"></a>│   └── wsgi.py
-<a name="rest_code_1f7154c8b864447eb65f1e545922a5e5-7"></a>├── manage.py
-<a name="rest_code_1f7154c8b864447eb65f1e545922a5e5-8"></a>└── settings
-<a name="rest_code_1f7154c8b864447eb65f1e545922a5e5-9"></a>    └── local.py  <span class="c1"># ← ローカル環境用</span>
+<pre class="code bash"><a name="rest_code_fb91b92304674d48af673d6c1f5b38c7-1"></a>$ tree apps
+<a name="rest_code_fb91b92304674d48af673d6c1f5b38c7-2"></a>apps
+<a name="rest_code_fb91b92304674d48af673d6c1f5b38c7-3"></a>├── config
+<a name="rest_code_fb91b92304674d48af673d6c1f5b38c7-4"></a>│   ├── __init__.py
+<a name="rest_code_fb91b92304674d48af673d6c1f5b38c7-5"></a>│   ├── urls.py
+<a name="rest_code_fb91b92304674d48af673d6c1f5b38c7-6"></a>│   └── wsgi.py
+<a name="rest_code_fb91b92304674d48af673d6c1f5b38c7-7"></a>├── manage.py
+<a name="rest_code_fb91b92304674d48af673d6c1f5b38c7-8"></a>└── settings
+<a name="rest_code_fb91b92304674d48af673d6c1f5b38c7-9"></a>    └── local.py  <span class="c1"># ← ローカル環境用</span>
 </pre>
 <ul>
 <li>
 <p>settings/local.py</p>
-<pre class="code python"><a name="rest_code_3ac2821040774676a791c15939470a3d-1"></a><span class="n">DATABASES</span> <span class="o">=</span> <span class="p">{</span>
-<a name="rest_code_3ac2821040774676a791c15939470a3d-2"></a>    <span class="s1">'default'</span><span class="p">:</span> <span class="p">{</span>
-<a name="rest_code_3ac2821040774676a791c15939470a3d-3"></a>        <span class="s1">'ENGINE'</span><span class="p">:</span> <span class="s1">'django.db.backends.mysql'</span><span class="p">,</span>
-<a name="rest_code_3ac2821040774676a791c15939470a3d-4"></a>        <span class="s1">'NAME'</span><span class="p">:</span> <span class="s1">'fufu'</span><span class="p">,</span>
-<a name="rest_code_3ac2821040774676a791c15939470a3d-5"></a>        <span class="s1">'USER'</span><span class="p">:</span> <span class="s1">'fufu'</span><span class="p">,</span>
-<a name="rest_code_3ac2821040774676a791c15939470a3d-6"></a>        <span class="s1">'PASSWORD'</span><span class="p">:</span> <span class="s1">'fufu'</span><span class="p">,</span>
-<a name="rest_code_3ac2821040774676a791c15939470a3d-7"></a>        <span class="s1">'HOST'</span><span class="p">:</span> <span class="s1">'db'</span><span class="p">,</span>  <span class="c1"># ここは docker-compose ファイルに指定したサービス名でないといけないらしい</span>
-<a name="rest_code_3ac2821040774676a791c15939470a3d-8"></a>        <span class="s1">'PORT'</span><span class="p">:</span> <span class="mi">3306</span><span class="p">,</span>
-<a name="rest_code_3ac2821040774676a791c15939470a3d-9"></a>    <span class="p">}</span>
-<a name="rest_code_3ac2821040774676a791c15939470a3d-10"></a><span class="p">}</span>
+<pre class="code python"><a name="rest_code_59ece0304025491fa3ec3c22e5160315-1"></a><span class="n">DATABASES</span> <span class="o">=</span> <span class="p">{</span>
+<a name="rest_code_59ece0304025491fa3ec3c22e5160315-2"></a>    <span class="s1">'default'</span><span class="p">:</span> <span class="p">{</span>
+<a name="rest_code_59ece0304025491fa3ec3c22e5160315-3"></a>        <span class="s1">'ENGINE'</span><span class="p">:</span> <span class="s1">'django.db.backends.mysql'</span><span class="p">,</span>
+<a name="rest_code_59ece0304025491fa3ec3c22e5160315-4"></a>        <span class="s1">'NAME'</span><span class="p">:</span> <span class="s1">'fufu'</span><span class="p">,</span>
+<a name="rest_code_59ece0304025491fa3ec3c22e5160315-5"></a>        <span class="s1">'USER'</span><span class="p">:</span> <span class="s1">'fufu'</span><span class="p">,</span>
+<a name="rest_code_59ece0304025491fa3ec3c22e5160315-6"></a>        <span class="s1">'PASSWORD'</span><span class="p">:</span> <span class="s1">'fufu'</span><span class="p">,</span>
+<a name="rest_code_59ece0304025491fa3ec3c22e5160315-7"></a>        <span class="s1">'HOST'</span><span class="p">:</span> <span class="s1">'db'</span><span class="p">,</span>  <span class="c1"># ここは docker-compose ファイルに指定したサービス名でないといけないらしい</span>
+<a name="rest_code_59ece0304025491fa3ec3c22e5160315-8"></a>        <span class="s1">'PORT'</span><span class="p">:</span> <span class="mi">3306</span><span class="p">,</span>
+<a name="rest_code_59ece0304025491fa3ec3c22e5160315-9"></a>    <span class="p">}</span>
+<a name="rest_code_59ece0304025491fa3ec3c22e5160315-10"></a><span class="p">}</span>
 </pre>
 </li>
 </ul>
 </div>
 <div class="section" id="webdb">
-<h3><a class="toc-backref" href="#id20">5. web・db コンテナを起動する</a></h3>
-<pre class="code bash"><a name="rest_code_c53335db6fcc40db94d559e34d59e72d-1"></a>$ docker-compose up
+<h3><a class="toc-backref" href="#id19">5. web・db コンテナを起動する</a></h3>
+<pre class="code bash"><a name="rest_code_3d72310557a04e38a779bfb8311c994e-1"></a>$ docker-compose up
 </pre>
 </div>
 </div>
-<div class="section" id="id10">
-<h2><a class="toc-backref" href="#id21">環境構築メモ</a></h2>
+<div class="section" id="id9">
+<h2><a class="toc-backref" href="#id20">環境構築メモ</a></h2>
 <div class="section" id="default-authentication-plugin-mysql-native-password">
-<h3><a class="toc-backref" href="#id22"><strong>※1</strong>: default-authentication-plugin=mysql_native_password について</a></h3>
+<h3><a class="toc-backref" href="#id21"><strong>※1</strong>: default-authentication-plugin=mysql_native_password について</a></h3>
 <ul>
 <li><p>MySQL 8.0.4 からデフォルトの認証 plugin のデフォルト値が <code class="docutils literal">mysql_native_password</code> から <code class="docutils literal">caching_sha2_password</code> へ変更になった</p></li>
 <li><p>そのため、 <code class="docutils literal"><span class="pre">default-authentication-plugin</span></code> を指定していない状態で <code class="docutils literal">caching_sha2_password</code> に対応していないクライアント (今回の場合は <code class="docutils literal">web</code> ) から接続しようとすると、</p></li>
@@ -511,15 +511,15 @@ web_1  <span class="p">|</span> django.db.utils.OperationalError: <span class="o
 <li><p><code class="docutils literal"><span class="pre">default-authentication-plugin=mysql_native_password</span></code> の指定が必要 (なんだと思う)</p></li>
 <li>
 <p>後から該当ユーザーの <code class="docutils literal"><span class="pre">default-authentication-plugin</span></code> を変更するにはこう↓</p>
-<pre class="code shell"><a name="rest_code_8e23bcc263014029966fdcc539015909-1"></a>ALTER USER <span class="s1">'fufu'</span>
-<a name="rest_code_8e23bcc263014029966fdcc539015909-2"></a>  IDENTIFIED WITH mysql_native_password
-<a name="rest_code_8e23bcc263014029966fdcc539015909-3"></a>  BY <span class="s1">'fufu'</span><span class="p">;</span>
+<pre class="code shell"><a name="rest_code_a426a7fc80c34393aeec5b0d8ba80b2e-1"></a>ALTER USER <span class="s1">'fufu'</span>
+<a name="rest_code_a426a7fc80c34393aeec5b0d8ba80b2e-2"></a>  IDENTIFIED WITH mysql_native_password
+<a name="rest_code_a426a7fc80c34393aeec5b0d8ba80b2e-3"></a>  BY <span class="s1">'fufu'</span><span class="p">;</span>
 </pre>
 </li>
 </ul>
 </div>
 <div class="section" id="skip-host-cache-skip-name-resolve">
-<h3><a class="toc-backref" href="#id23"><strong>※2</strong>: skip-host-cache, skip-name-resolve について</a></h3>
+<h3><a class="toc-backref" href="#id22"><strong>※2</strong>: skip-host-cache, skip-name-resolve について</a></h3>
 <ul>
 <li><p>Docker Hub の MySQL 公式イメージ <code class="docutils literal">mysql:latest</code> からコンテナをそのまま起動すると、</p></li>
 <li>
@@ -906,8 +906,8 @@ fufu_db exited with code <span class="m">1</span>
 </li>
 <li>
 <p>わたしの場合は、 docker-compose ファイルでこう↓しているので、デフォルト状態では存在した <code class="docutils literal">/etc/mysql/conf.d/docker.cnf</code> を抹殺してしまっている</p>
-<pre class="code yaml"><a name="rest_code_fd5bac892c22457f89eb2ab974c12e59-1"></a><span class="nt">volumes</span><span class="p">:</span>
-<a name="rest_code_fd5bac892c22457f89eb2ab974c12e59-2"></a>  <span class="p p-Indicator">-</span> <span class="s">"./mysql/conf.d:/etc/mysql/conf.d"</span>
+<pre class="code yaml"><a name="rest_code_8641135faa21472da3d49716633c3efe-1"></a><span class="nt">volumes</span><span class="p">:</span>
+<a name="rest_code_8641135faa21472da3d49716633c3efe-2"></a>  <span class="p p-Indicator">-</span> <span class="s">"./mysql/conf.d:/etc/mysql/conf.d"</span>
 </pre>
 </li>
 <li><p>しかたがないので、自分の <code class="docutils literal">mysql.cnf</code> に転記することにした</p></li>
@@ -916,22 +916,22 @@ fufu_db exited with code <span class="m">1</span>
 </ul>
 </div>
 </div>
-<div class="section" id="id11">
-<h2><a class="toc-backref" href="#id24">使い方メモ</a></h2>
+<div class="section" id="id10">
+<h2><a class="toc-backref" href="#id23">使い方メモ</a></h2>
 <div class="section" id="image">
-<h3><a class="toc-backref" href="#id25">再び image ビルドしたくなったら</a></h3>
-<pre class="code shell"><a name="rest_code_87a4bc164b954ed7b5a239f96d3620e0-1"></a>$ docker-compose run web django-admin.py startproject config .
+<h3><a class="toc-backref" href="#id24">再び image ビルドしたくなったら</a></h3>
+<pre class="code shell"><a name="rest_code_2992a1b7439e49dca96ca06053e686ff-1"></a>$ docker-compose run web django-admin.py startproject config .
 </pre>
 <p>とか</p>
-<pre class="code shell"><a name="rest_code_e70d9bd1759b4b78bf5a0ac1f7c23a13-1"></a>$ docker-compose run web django-admin.py startproject config .
-<a name="rest_code_e70d9bd1759b4b78bf5a0ac1f7c23a13-2"></a>$ docker-compose up
+<pre class="code shell"><a name="rest_code_8fd75c9cb5bf42f5a0ac7a234b73def3-1"></a>$ docker-compose run web django-admin.py startproject config .
+<a name="rest_code_8fd75c9cb5bf42f5a0ac7a234b73def3-2"></a>$ docker-compose up
 </pre>
 <p>したあとに、再び image ビルドしたくなったら、</p>
-<pre class="code shell"><a name="rest_code_78aa042654ce44108a964505292b784d-1"></a><span class="c1"># web をビルド</span>
-<a name="rest_code_78aa042654ce44108a964505292b784d-2"></a>$ docker-compose build web
-<a name="rest_code_78aa042654ce44108a964505292b784d-3"></a>
-<a name="rest_code_78aa042654ce44108a964505292b784d-4"></a><span class="c1"># db をビルド</span>
-<a name="rest_code_78aa042654ce44108a964505292b784d-5"></a>$ docker-compose build db
+<pre class="code shell"><a name="rest_code_3884f16c069d4b5d96caf358a44da4d5-1"></a><span class="c1"># web をビルド</span>
+<a name="rest_code_3884f16c069d4b5d96caf358a44da4d5-2"></a>$ docker-compose build web
+<a name="rest_code_3884f16c069d4b5d96caf358a44da4d5-3"></a>
+<a name="rest_code_3884f16c069d4b5d96caf358a44da4d5-4"></a><span class="c1"># db をビルド</span>
+<a name="rest_code_3884f16c069d4b5d96caf358a44da4d5-5"></a>$ docker-compose build db
 </pre>
 </div>
 </div>

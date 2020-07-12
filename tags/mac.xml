@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ふみのて (macについての文書)</title><link>https://32imuf.com/</link><description></description><atom:link href="https://32imuf.com/tags/mac.xml" rel="self" type="application/rss+xml"></atom:link><language>ja</language><copyright>Contents © 2020 &lt;a href="mailto:fumi232323fumi2016@gmail.com"&gt;fumi23&lt;/a&gt; </copyright><lastBuildDate>Tue, 28 Apr 2020 01:57:28 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Mac のメモ</title><link>https://32imuf.com/mac/note/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;div class="section" id="id1"&gt;
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ふみのて (Posts about mac)</title><link>https://32imuf.com/</link><description></description><atom:link href="https://32imuf.com/tags/mac.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2020 &lt;a href="mailto:fumi232323fumi2016@gmail.com"&gt;fumi23&lt;/a&gt; </copyright><lastBuildDate>Sat, 11 Jul 2020 14:58:38 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Mac のメモ</title><link>https://32imuf.com/mac/note/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;div class="section" id="id1"&gt;
 &lt;h2&gt;ファイル操作&lt;/h2&gt;
 &lt;div class="section" id="id2"&gt;
 &lt;h3&gt;文字コードを変換&lt;/h3&gt;
-&lt;pre class="code console"&gt;&lt;a name="rest_code_afff6f146ff84e3f8a49e153b70cc46b-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; iconv -f Shift-JIS -t UTF-8 &amp;lt;変換前のファイル名&amp;gt; &amp;lt;変換後のファイル名&amp;gt;
+&lt;pre class="code console"&gt;&lt;a name="rest_code_4d39d904ef00497d889e56e2d3fbb984-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; iconv -f Shift-JIS -t UTF-8 &amp;lt;変換前のファイル名&amp;gt; &amp;lt;変換後のファイル名&amp;gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;div class="section" id="gz"&gt;
 &lt;h3&gt;.gz に圧縮&lt;/h3&gt;
-&lt;pre class="code console"&gt;&lt;a name="rest_code_775faa710494423c986d9896d0c15741-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; gzip &amp;lt;ファイル名&amp;gt;
+&lt;pre class="code console"&gt;&lt;a name="rest_code_3682612256a74f5b86ba1a7461176419-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; gzip &amp;lt;ファイル名&amp;gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id3"&gt;
 &lt;h2&gt;環境変数&lt;/h2&gt;
 &lt;div class="section" id="id4"&gt;
 &lt;h3&gt;一覧表示する&lt;/h3&gt;
-&lt;pre class="code console"&gt;&lt;a name="rest_code_c9d2bfde50c64338b1f2e7e520e79f6a-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; printenv
+&lt;pre class="code console"&gt;&lt;a name="rest_code_8ff7d7a2aed542479853e03f1c251bd3-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; printenv
 &lt;/pre&gt;&lt;/div&gt;
 &lt;div class="section" id="id5"&gt;
 &lt;h3&gt;追加する&lt;/h3&gt;
-&lt;pre class="code console"&gt;&lt;a name="rest_code_9d1aa1ea6b754beaac65197c08f20b87-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; &lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;AWS_ACCESS_KEY_ID&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;XXXXXXXXX
-&lt;a name="rest_code_9d1aa1ea6b754beaac65197c08f20b87-2"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; &lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;AWS_SECRET_ACCESS_KEY&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;XXXXXXXXX
-&lt;a name="rest_code_9d1aa1ea6b754beaac65197c08f20b87-3"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; &lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;AWS_SESSION_TOKEN&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;XXXXXXXXX
+&lt;pre class="code console"&gt;&lt;a name="rest_code_4aecd43eb418492daff667bc50930514-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; &lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;AWS_ACCESS_KEY_ID&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;XXXXXXXXX
+&lt;a name="rest_code_4aecd43eb418492daff667bc50930514-2"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; &lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;AWS_SECRET_ACCESS_KEY&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;XXXXXXXXX
+&lt;a name="rest_code_4aecd43eb418492daff667bc50930514-3"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; &lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;AWS_SESSION_TOKEN&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;XXXXXXXXX
 &lt;/pre&gt;&lt;/div&gt;
 &lt;div class="section" id="id6"&gt;
 &lt;h3&gt;削除する&lt;/h3&gt;
-&lt;pre class="code console"&gt;&lt;a name="rest_code_3fc179f032544cad92fa601f6dacd980-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; &lt;span class="nb"&gt;unset&lt;/span&gt; AWS_ACCESS_KEY_ID
-&lt;a name="rest_code_3fc179f032544cad92fa601f6dacd980-2"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; &lt;span class="nb"&gt;unset&lt;/span&gt; AWS_SECRET_ACCESS_KEY
-&lt;a name="rest_code_3fc179f032544cad92fa601f6dacd980-3"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; &lt;span class="nb"&gt;unset&lt;/span&gt; AWS_SESSION_TOKEN
+&lt;pre class="code console"&gt;&lt;a name="rest_code_7ae417ad542441eb9b0896cc5e222e9e-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; &lt;span class="nb"&gt;unset&lt;/span&gt; AWS_ACCESS_KEY_ID
+&lt;a name="rest_code_7ae417ad542441eb9b0896cc5e222e9e-2"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; &lt;span class="nb"&gt;unset&lt;/span&gt; AWS_SECRET_ACCESS_KEY
+&lt;a name="rest_code_7ae417ad542441eb9b0896cc5e222e9e-3"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; &lt;span class="nb"&gt;unset&lt;/span&gt; AWS_SESSION_TOKEN
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id7"&gt;
 &lt;h2&gt;本体がどこに行ったかわからなくなったとき&lt;/h2&gt;
-&lt;pre class="code console"&gt;&lt;a name="rest_code_b0d3d60b2c3342c5942fb948176c0a7a-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; which python
+&lt;pre class="code console"&gt;&lt;a name="rest_code_979cbc853916488696627df44f233504-1"&gt;&lt;/a&gt;&lt;span class="gp"&gt;$&lt;/span&gt; which python
 &lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</description><category>mac</category><guid>https://32imuf.com/mac/note/</guid><pubDate>Sun, 18 Nov 2018 15:00:00 GMT</pubDate></item></channel></rss>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
@@ -40,29 +40,29 @@
 <li>
 <p>acceptance にチェックアウトする</p>
 <blockquote>
-<pre class="code console"><a name="rest_code_25071b1597464f31ba45e20163018d36-1"></a><span class="gp">$</span> git checkout acceptance
+<pre class="code console"><a name="rest_code_41824dcf719e468489e5de759045690a-1"></a><span class="gp">$</span> git checkout acceptance
 </pre>
 </blockquote>
 </li>
 <li>
 <p>topic をマージします</p>
 <blockquote>
-<pre class="code console"><a name="rest_code_d1f7bcb102214ec18e6e91092d192e09-1"></a><span class="gp">$</span> git merge topic
+<pre class="code console"><a name="rest_code_18dd0db138d14bf88bd0f2acfee974c8-1"></a><span class="gp">$</span> git merge topic
 </pre>
 </blockquote>
 </li>
 <li>
 <p>コンフリクトしたら、解消して、</p>
 <blockquote>
-<pre class="code console"><a name="rest_code_58542a6d757a47f889b7111e94953eb4-1"></a><span class="gp">$</span> git add .
-<a name="rest_code_58542a6d757a47f889b7111e94953eb4-2"></a><span class="gp">$</span> git commit -m <span class="s2">"Merge branch 'topic-branch-name' into acceptance"</span>
+<pre class="code console"><a name="rest_code_395fb383dd7a4d24ac48ef68b0830d32-1"></a><span class="gp">$</span> git add .
+<a name="rest_code_395fb383dd7a4d24ac48ef68b0830d32-2"></a><span class="gp">$</span> git commit -m <span class="s2">"Merge branch 'topic-branch-name' into acceptance"</span>
 </pre>
 </blockquote>
 </li>
 <li>
 <p>マージに成功したら、強制push</p>
 <blockquote>
-<pre class="code console"><a name="rest_code_00fb225d4dea44b1be56d67d011f4d91-1"></a><span class="gp">$</span> git push -u origin acceptance -f
+<pre class="code console"><a name="rest_code_5a6ec3e9c3d6495d8ba9bffb887389d6-1"></a><span class="gp">$</span> git push -u origin acceptance -f
 </pre>
 </blockquote>
 </li>

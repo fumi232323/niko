@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
@@ -34,73 +34,73 @@
         
       </time><div class="text">
       <div>
-<details><summary>目次</summary><div class="contents topic" id="id1">
-<p class="topic-title first">目次</p>
+<details><summary>目次</summary><div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
 <ul class="simple">
 <li>
-<p><a class="reference internal" href="#id2" id="id6">リベース</a></p>
+<p><a class="reference internal" href="#id1" id="id5">リベース</a></p>
 <ul>
-<li><p><a class="reference internal" href="#master" id="id7">master ブランチにリベースする</a></p></li>
+<li><p><a class="reference internal" href="#master" id="id6">master ブランチにリベースする</a></p></li>
 <li>
-<p><a class="reference internal" href="#id3" id="id8">間違えてリベースして元に戻したい</a></p>
+<p><a class="reference internal" href="#id2" id="id7">間違えてリベースして元に戻したい</a></p>
 <ul>
-<li><p><a class="reference internal" href="#push" id="id9">push しちゃった場合</a></p></li>
-<li><p><a class="reference internal" href="#id4" id="id10">push してない場合</a></p></li>
+<li><p><a class="reference internal" href="#push" id="id8">push しちゃった場合</a></p></li>
+<li><p><a class="reference internal" href="#id3" id="id9">push してない場合</a></p></li>
 </ul>
 </li>
 <li>
-<p><a class="reference internal" href="#preserve-merges" id="id11">preserve-merges オプション</a></p>
+<p><a class="reference internal" href="#preserve-merges" id="id10">preserve-merges オプション</a></p>
 <ul>
-<li><p><a class="reference internal" href="#id5" id="id12">リファレンス</a></p></li>
+<li><p><a class="reference internal" href="#id4" id="id11">リファレンス</a></p></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
 </div>
-</details><div class="section" id="id2">
-<h2><a class="toc-backref" href="#id6">リベース</a></h2>
+</details><div class="section" id="id1">
+<h2><a class="toc-backref" href="#id5">リベース</a></h2>
 <div class="section" id="master">
-<h3><a class="toc-backref" href="#id7">master ブランチにリベースする</a></h3>
-<pre class="code console"><a name="rest_code_0f9c7c0a8686412699224f1cd2b0e620-1"></a><span class="gp">$</span> git rebase master
+<h3><a class="toc-backref" href="#id6">master ブランチにリベースする</a></h3>
+<pre class="code console"><a name="rest_code_bed6ea2cb4cd4c33bf3b9da7e3e1dac6-1"></a><span class="gp">$</span> git rebase master
 </pre>
 <p>コンフリクトしたらコンフリクトを解消して、</p>
-<pre class="code console"><a name="rest_code_a69bdf2c8c08400dafe045444e72bc82-1"></a><span class="gp">$</span> git add .
-<a name="rest_code_a69bdf2c8c08400dafe045444e72bc82-2"></a><span class="gp">$</span> git rebase --continue
+<pre class="code console"><a name="rest_code_aa50fa913ada42aeb46db4c8b4cd52fc-1"></a><span class="gp">$</span> git add .
+<a name="rest_code_aa50fa913ada42aeb46db4c8b4cd52fc-2"></a><span class="gp">$</span> git rebase --continue
 </pre>
 <p>リベースが終わったらフォースプッシュ</p>
-<pre class="code console"><a name="rest_code_3cd9e42f32924994894449b60b134a8c-1"></a><span class="gp">$</span> git push -f
+<pre class="code console"><a name="rest_code_d68ab2aa9e294f0d927a5ee8ebb9e28a-1"></a><span class="gp">$</span> git push -f
 </pre>
 </div>
-<div class="section" id="id3">
-<h3><a class="toc-backref" href="#id8">間違えてリベースして元に戻したい</a></h3>
+<div class="section" id="id2">
+<h3><a class="toc-backref" href="#id7">間違えてリベースして元に戻したい</a></h3>
 <div class="section" id="push">
-<h4><a class="toc-backref" href="#id9">push しちゃった場合</a></h4>
+<h4><a class="toc-backref" href="#id8">push しちゃった場合</a></h4>
 <blockquote>
-<pre class="code console"><a name="rest_code_80d09aabc69a484b8c955a25595c24ef-1"></a><span class="gp">$</span> git reflog
-<a name="rest_code_80d09aabc69a484b8c955a25595c24ef-2"></a><span class="gp">$</span> git reset --hard HEAD@<span class="o">{</span><span class="m">6</span><span class="o">}</span>  <span class="c1"># 戻りたい番号そのものを書けばよいみたい</span>
-<a name="rest_code_80d09aabc69a484b8c955a25595c24ef-3"></a><span class="gp">$</span> git push -f
+<pre class="code console"><a name="rest_code_44d7f5d4addc4695aaaf9f15fcd77622-1"></a><span class="gp">$</span> git reflog
+<a name="rest_code_44d7f5d4addc4695aaaf9f15fcd77622-2"></a><span class="gp">$</span> git reset --hard HEAD@<span class="o">{</span><span class="m">6</span><span class="o">}</span>  <span class="c1"># 戻りたい番号そのものを書けばよいみたい</span>
+<a name="rest_code_44d7f5d4addc4695aaaf9f15fcd77622-3"></a><span class="gp">$</span> git push -f
 </pre>
 </blockquote>
 </div>
-<div class="section" id="id4">
-<h4><a class="toc-backref" href="#id10">push してない場合</a></h4>
+<div class="section" id="id3">
+<h4><a class="toc-backref" href="#id9">push してない場合</a></h4>
 <blockquote>
 <p>間違えてリベースしたブランチを origin に戻す</p>
 <blockquote>
-<pre class="code console"><a name="rest_code_062d5fcfa9844fe48385ca9be078c1c5-1"></a><span class="gp">$</span> git checkout -B &lt;branch-you-want-to-restore&gt; origin/&lt;branch-you-want-to-restore&gt;
+<pre class="code console"><a name="rest_code_b1d08cbad2a440fbafb2656b9d833439-1"></a><span class="gp">$</span> git checkout -B &lt;branch-you-want-to-restore&gt; origin/&lt;branch-you-want-to-restore&gt;
 </pre>
 </blockquote>
 </blockquote>
 </div>
 </div>
 <div class="section" id="preserve-merges">
-<h3><a class="toc-backref" href="#id11">preserve-merges オプション</a></h3>
+<h3><a class="toc-backref" href="#id10">preserve-merges オプション</a></h3>
 <p>分岐してマージしたよ、という履歴みたいなのを保ったまま、リベースしてくれる</p>
-<pre class="code console"><a name="rest_code_bbb0d0fad44f4f728b1e6479f6e02828-1"></a><span class="gp">$</span> git rebase --preserve-merges master
+<pre class="code console"><a name="rest_code_0379f865cf1d4af194a46e28cc2c430f-1"></a><span class="gp">$</span> git rebase --preserve-merges master
 </pre>
-<div class="section" id="id5">
-<h4><a class="toc-backref" href="#id12">リファレンス</a></h4>
+<div class="section" id="id4">
+<h4><a class="toc-backref" href="#id11">リファレンス</a></h4>
 <ul class="simple">
 <li><p><a class="reference external" href="https://git-scm.com/docs/git-rebase">https://git-scm.com/docs/git-rebase</a></p></li>
 <li><p><a class="reference external" href="https://git-scm.com/book/ja/v2/Git-%E3%81%AE%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E6%A9%9F%E8%83%BD-%E3%83%AA%E3%83%99%E3%83%BC%E3%82%B9">3.6 Git のブランチ機能 - リベース</a></p></li>

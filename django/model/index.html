@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
@@ -34,61 +34,61 @@
         
       </time><div class="text">
       <div>
-<details><summary>目次</summary><div class="contents topic" id="id1">
-<p class="topic-title first">目次</p>
+<details><summary>目次</summary><div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#id2" id="id14">リファレンス</a></p></li>
+<li><p><a class="reference internal" href="#id1" id="id13">リファレンス</a></p></li>
 <li>
-<p><a class="reference internal" href="#model" id="id15">Model</a></p>
+<p><a class="reference internal" href="#model" id="id14">Model</a></p>
 <ul>
-<li><p><a class="reference internal" href="#id3" id="id16">リレーションまとめ</a></p></li>
-<li><p><a class="reference internal" href="#id4" id="id17">Model の実装例</a></p></li>
-<li><p><a class="reference internal" href="#on-delete" id="id18">on_delete</a></p></li>
-<li><p><a class="reference internal" href="#usermanager" id="id19">UserManager</a></p></li>
+<li><p><a class="reference internal" href="#id2" id="id15">リレーションまとめ</a></p></li>
+<li><p><a class="reference internal" href="#id3" id="id16">Model の実装例</a></p></li>
+<li><p><a class="reference internal" href="#on-delete" id="id17">on_delete</a></p></li>
+<li><p><a class="reference internal" href="#usermanager" id="id18">UserManager</a></p></li>
 </ul>
 </li>
 <li>
-<p><a class="reference internal" href="#django-orm" id="id20">Django ORM</a></p>
+<p><a class="reference internal" href="#django-orm" id="id19">Django ORM</a></p>
 <ul>
-<li><p><a class="reference internal" href="#id5" id="id21">1件だけ取得する</a></p></li>
-<li><p><a class="reference internal" href="#id6" id="id22">全件取得する</a></p></li>
+<li><p><a class="reference internal" href="#id4" id="id20">1件だけ取得する</a></p></li>
+<li><p><a class="reference internal" href="#id5" id="id21">全件取得する</a></p></li>
 <li>
-<p><a class="reference internal" href="#id7" id="id23">検索条件をつけて取得する</a></p>
+<p><a class="reference internal" href="#id6" id="id22">検索条件をつけて取得する</a></p>
 <ul>
-<li><p><a class="reference internal" href="#filter" id="id24">filter をつなげる例</a></p></li>
+<li><p><a class="reference internal" href="#filter" id="id23">filter をつなげる例</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#and" id="id25">AND 条件</a></p></li>
-<li><p><a class="reference internal" href="#or" id="id26">OR 条件</a></p></li>
-<li><p><a class="reference internal" href="#id8" id="id27">&gt;, &lt;, &gt;=, &lt;=</a></p></li>
-<li><p><a class="reference internal" href="#in" id="id28">IN</a></p></li>
-<li><p><a class="reference internal" href="#like" id="id29">LIKE</a></p></li>
-<li><p><a class="reference internal" href="#exists" id="id30">EXISTS</a></p></li>
-<li><p><a class="reference internal" href="#order-by" id="id31">ORDER BY</a></p></li>
-<li><p><a class="reference internal" href="#q-object" id="id32">Q Object</a></p></li>
-<li><p><a class="reference internal" href="#id9" id="id33">リレーション先のモデルを使った条件検索</a></p></li>
-<li><p><a class="reference internal" href="#set" id="id34">モデルクラス名を全部小文字にしたのに <code class="docutils literal">_set</code> がつく</a></p></li>
+<li><p><a class="reference internal" href="#and" id="id24">AND 条件</a></p></li>
+<li><p><a class="reference internal" href="#or" id="id25">OR 条件</a></p></li>
+<li><p><a class="reference internal" href="#id7" id="id26">&gt;, &lt;, &gt;=, &lt;=</a></p></li>
+<li><p><a class="reference internal" href="#in" id="id27">IN</a></p></li>
+<li><p><a class="reference internal" href="#like" id="id28">LIKE</a></p></li>
+<li><p><a class="reference internal" href="#exists" id="id29">EXISTS</a></p></li>
+<li><p><a class="reference internal" href="#order-by" id="id30">ORDER BY</a></p></li>
+<li><p><a class="reference internal" href="#q-object" id="id31">Q Object</a></p></li>
+<li><p><a class="reference internal" href="#id8" id="id32">リレーション先のモデルを使った条件検索</a></p></li>
+<li><p><a class="reference internal" href="#set" id="id33">モデルクラス名を全部小文字にしたのに <code class="docutils literal">_set</code> がつく</a></p></li>
 <li>
-<p><a class="reference internal" href="#values-values-list" id="id35">values() と values_list()</a></p>
+<p><a class="reference internal" href="#values-values-list" id="id34">values() と values_list()</a></p>
 <ul>
-<li><p><a class="reference internal" href="#values" id="id36">values()</a></p></li>
-<li><p><a class="reference internal" href="#values-list" id="id37">values_list()</a></p></li>
+<li><p><a class="reference internal" href="#values" id="id35">values()</a></p></li>
+<li><p><a class="reference internal" href="#values-list" id="id36">values_list()</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#aggregate-annotate" id="id38">aggregate と annotate</a></p></li>
-<li><p><a class="reference internal" href="#left-outer-join" id="id39">LEFT OUTER JOIN</a></p></li>
-<li><p><a class="reference internal" href="#select-related-prefetch-related" id="id40">select_related, prefetch_related</a></p></li>
-<li><p><a class="reference internal" href="#id11" id="id41">遅延評価</a></p></li>
-<li><p><a class="reference internal" href="#id12" id="id42">トランザクション</a></p></li>
-<li><p><a class="reference internal" href="#select-for-update" id="id43">select_for_update()</a></p></li>
+<li><p><a class="reference internal" href="#aggregate-annotate" id="id37">aggregate と annotate</a></p></li>
+<li><p><a class="reference internal" href="#left-outer-join" id="id38">LEFT OUTER JOIN</a></p></li>
+<li><p><a class="reference internal" href="#select-related-prefetch-related" id="id39">select_related, prefetch_related</a></p></li>
+<li><p><a class="reference internal" href="#id10" id="id40">遅延評価</a></p></li>
+<li><p><a class="reference internal" href="#id11" id="id41">トランザクション</a></p></li>
+<li><p><a class="reference internal" href="#select-for-update" id="id42">select_for_update()</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#user" id="id44">User モデルを拡張したい</a></p></li>
-<li><p><a class="reference internal" href="#id13" id="id45">発行されるクエリを見たい</a></p></li>
+<li><p><a class="reference internal" href="#user" id="id43">User モデルを拡張したい</a></p></li>
+<li><p><a class="reference internal" href="#id12" id="id44">発行されるクエリを見たい</a></p></li>
 </ul>
 </div>
-</details><div class="section" id="id2">
-<h2><a class="toc-backref" href="#id14">リファレンス</a></h2>
+</details><div class="section" id="id1">
+<h2><a class="toc-backref" href="#id13">リファレンス</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://docs.djangoproject.com/ja/2.2/ref/models/fields/">Django documentation &gt; モデルフィールドリファレンス</a></p></li>
 <li><p><a class="reference external" href="https://docs.djangoproject.com/ja/2.2/ref/models/querysets/">Django documentation &gt; QuerySet API reference</a></p></li>
@@ -96,12 +96,12 @@
 </ul>
 </div>
 <div class="section" id="model">
-<h2><a class="toc-backref" href="#id15">Model</a></h2>
+<h2><a class="toc-backref" href="#id14">Model</a></h2>
 <ul class="simple">
 <li><p>複合キーは主キーにできない</p></li>
 </ul>
-<div class="section" id="id3">
-<h3><a class="toc-backref" href="#id16">リレーションまとめ</a></h3>
+<div class="section" id="id2">
+<h3><a class="toc-backref" href="#id15">リレーションまとめ</a></h3>
 <table class="colwidths-auto">
 <thead><tr>
 <th class="head stub"><p>リレーション</p></th>
@@ -127,90 +127,90 @@
 </tbody>
 </table>
 </div>
-<div class="section" id="id4">
-<h3><a class="toc-backref" href="#id17">Model の実装例</a></h3>
-<pre class="code python"><a name="rest_code_1e2c040939da460b9ffbe1b7a2e742c6-1"></a><span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
-<a name="rest_code_1e2c040939da460b9ffbe1b7a2e742c6-2"></a>
-<a name="rest_code_1e2c040939da460b9ffbe1b7a2e742c6-3"></a>
-<a name="rest_code_1e2c040939da460b9ffbe1b7a2e742c6-4"></a><span class="k">class</span> <span class="nc">Publisher</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
-<a name="rest_code_1e2c040939da460b9ffbe1b7a2e742c6-5"></a>    <span class="sd">"""出版社モデル"""</span>
-<a name="rest_code_1e2c040939da460b9ffbe1b7a2e742c6-6"></a>    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
-<a name="rest_code_1e2c040939da460b9ffbe1b7a2e742c6-7"></a>        <span class="n">db_table</span> <span class="o">=</span> <span class="s1">'publisher'</span>
-<a name="rest_code_1e2c040939da460b9ffbe1b7a2e742c6-8"></a>
-<a name="rest_code_1e2c040939da460b9ffbe1b7a2e742c6-9"></a>    <span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">verbose_name</span><span class="o">=</span><span class="s1">'出版社名'</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">255</span><span class="p">)</span>
-<a name="rest_code_1e2c040939da460b9ffbe1b7a2e742c6-10"></a>
-<a name="rest_code_1e2c040939da460b9ffbe1b7a2e742c6-11"></a>    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a name="rest_code_1e2c040939da460b9ffbe1b7a2e742c6-12"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span>
-<a name="rest_code_1e2c040939da460b9ffbe1b7a2e742c6-13"></a>
-<a name="rest_code_1e2c040939da460b9ffbe1b7a2e742c6-14"></a>
-<a name="rest_code_1e2c040939da460b9ffbe1b7a2e742c6-15"></a><span class="k">class</span> <span class="nc">Author</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
-<a name="rest_code_1e2c040939da460b9ffbe1b7a2e742c6-16"></a>    <span class="sd">"""著者モデル"""</span>
-<a name="rest_code_1e2c040939da460b9ffbe1b7a2e742c6-17"></a>    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
-<a name="rest_code_1e2c040939da460b9ffbe1b7a2e742c6-18"></a>        <span class="n">db_table</span> <span class="o">=</span> <span class="s1">'author'</span>
-<a name="rest_code_1e2c040939da460b9ffbe1b7a2e742c6-19"></a>
-<a name="rest_code_1e2c040939da460b9ffbe1b7a2e742c6-20"></a>    <span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">verbose_name</span><span class="o">=</span><span class="s1">'著者名'</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">255</span><span class="p">)</span>
-<a name="rest_code_1e2c040939da460b9ffbe1b7a2e742c6-21"></a>
-<a name="rest_code_1e2c040939da460b9ffbe1b7a2e742c6-22"></a>    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a name="rest_code_1e2c040939da460b9ffbe1b7a2e742c6-23"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span>
-<a name="rest_code_1e2c040939da460b9ffbe1b7a2e742c6-24"></a>
-<a name="rest_code_1e2c040939da460b9ffbe1b7a2e742c6-25"></a>
-<a name="rest_code_1e2c040939da460b9ffbe1b7a2e742c6-26"></a><span class="k">class</span> <span class="nc">Book</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
-<a name="rest_code_1e2c040939da460b9ffbe1b7a2e742c6-27"></a>    <span class="sd">"""本モデル"""</span>
-<a name="rest_code_1e2c040939da460b9ffbe1b7a2e742c6-28"></a>    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
-<a name="rest_code_1e2c040939da460b9ffbe1b7a2e742c6-29"></a>        <span class="sd">"""</span>
-<a name="rest_code_1e2c040939da460b9ffbe1b7a2e742c6-30"></a><span class="sd">        対応するテーブルや、複数カラムに対するインデックスやユニーク制約などの</span>
-<a name="rest_code_1e2c040939da460b9ffbe1b7a2e742c6-31"></a><span class="sd">        モデル全体に対する付加情報を記述する</span>
-<a name="rest_code_1e2c040939da460b9ffbe1b7a2e742c6-32"></a><span class="sd">        """</span>
-<a name="rest_code_1e2c040939da460b9ffbe1b7a2e742c6-33"></a>        <span class="c1"># テーブル名を定義</span>
-<a name="rest_code_1e2c040939da460b9ffbe1b7a2e742c6-34"></a>        <span class="c1"># 定義しないと、 `アプリケーション名_モデルのクラス名をスネークケースにした文字列` がテーブル名になる</span>
-<a name="rest_code_1e2c040939da460b9ffbe1b7a2e742c6-35"></a>        <span class="n">db_table</span> <span class="o">=</span> <span class="s1">'book'</span>
-<a name="rest_code_1e2c040939da460b9ffbe1b7a2e742c6-36"></a>
-<a name="rest_code_1e2c040939da460b9ffbe1b7a2e742c6-37"></a>    <span class="n">title</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span>
-<a name="rest_code_1e2c040939da460b9ffbe1b7a2e742c6-38"></a>        <span class="n">verbose_name</span><span class="o">=</span><span class="s1">'タイトル'</span><span class="p">,</span>  <span class="c1"># フィールド名</span>
-<a name="rest_code_1e2c040939da460b9ffbe1b7a2e742c6-39"></a>        <span class="n">max_length</span><span class="o">=</span><span class="mi">255</span><span class="p">,</span>  <span class="c1"># 文字列の最大文字数</span>
-<a name="rest_code_1e2c040939da460b9ffbe1b7a2e742c6-40"></a>        <span class="c1"># choices: フォーム利用時にセレクトボックスに表示する選択肢</span>
-<a name="rest_code_1e2c040939da460b9ffbe1b7a2e742c6-41"></a>        <span class="c1"># validators: 文字種チェックなどのバリデーションを指定</span>
-<a name="rest_code_1e2c040939da460b9ffbe1b7a2e742c6-42"></a>        <span class="n">error_messages</span><span class="o">=</span><span class="p">{</span><span class="s1">'invalid'</span><span class="p">:</span> <span class="s1">'title ちがうよー'</span><span class="p">}</span>  <span class="c1"># バリデーションNGの場合のエラーメッセージ</span>
-<a name="rest_code_1e2c040939da460b9ffbe1b7a2e742c6-43"></a>    <span class="p">)</span>
-<a name="rest_code_1e2c040939da460b9ffbe1b7a2e742c6-44"></a>    <span class="n">publisher</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span>
-<a name="rest_code_1e2c040939da460b9ffbe1b7a2e742c6-45"></a>        <span class="c1"># 多対一のリレーション: 多側に ForeignKey をくっつける</span>
-<a name="rest_code_1e2c040939da460b9ffbe1b7a2e742c6-46"></a>        <span class="n">Publisher</span><span class="p">,</span> <span class="n">verbose_name</span><span class="o">=</span><span class="s1">'出版社'</span><span class="p">,</span>
-<a name="rest_code_1e2c040939da460b9ffbe1b7a2e742c6-47"></a>        <span class="c1"># ForeignKey と OneToOneField には on_delete をつける癖をつけよう</span>
-<a name="rest_code_1e2c040939da460b9ffbe1b7a2e742c6-48"></a>        <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">PROTECT</span><span class="p">,</span>  <span class="c1"># 自身のレコードは削除されない</span>
-<a name="rest_code_1e2c040939da460b9ffbe1b7a2e742c6-49"></a>    <span class="p">)</span>
-<a name="rest_code_1e2c040939da460b9ffbe1b7a2e742c6-50"></a>    <span class="n">authors</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ManyToManyField</span><span class="p">(</span>
-<a name="rest_code_1e2c040939da460b9ffbe1b7a2e742c6-51"></a>        <span class="c1"># 多対多のリレーション: 一方のモデルに ManyToManyField をくっつける</span>
-<a name="rest_code_1e2c040939da460b9ffbe1b7a2e742c6-52"></a>        <span class="c1">#   * マイグレーション実行すると Django が自動的に中間テーブルを作成してくれる</span>
-<a name="rest_code_1e2c040939da460b9ffbe1b7a2e742c6-53"></a>        <span class="n">Author</span><span class="p">,</span> <span class="n">verbose_name</span><span class="o">=</span><span class="s1">'著者'</span>
-<a name="rest_code_1e2c040939da460b9ffbe1b7a2e742c6-54"></a>    <span class="p">)</span>
-<a name="rest_code_1e2c040939da460b9ffbe1b7a2e742c6-55"></a>    <span class="n">price</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">IntegerField</span><span class="p">(</span>
-<a name="rest_code_1e2c040939da460b9ffbe1b7a2e742c6-56"></a>        <span class="n">verbose_name</span><span class="o">=</span><span class="s1">'価格'</span><span class="p">,</span>
-<a name="rest_code_1e2c040939da460b9ffbe1b7a2e742c6-57"></a>        <span class="n">null</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>       <span class="c1"># NULL制約</span>
-<a name="rest_code_1e2c040939da460b9ffbe1b7a2e742c6-58"></a>        <span class="n">unique</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>    <span class="c1"># ユニーク制約</span>
-<a name="rest_code_1e2c040939da460b9ffbe1b7a2e742c6-59"></a>        <span class="n">blank</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>      <span class="c1"># フォーム利用時に入力必須にするかどうか</span>
-<a name="rest_code_1e2c040939da460b9ffbe1b7a2e742c6-60"></a>        <span class="n">db_index</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>  <span class="c1"># DB のインデックスを設定するかどうか</span>
-<a name="rest_code_1e2c040939da460b9ffbe1b7a2e742c6-61"></a>        <span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>       <span class="c1"># レコード登録時に値が指定されなかったときのデフォルト値</span>
-<a name="rest_code_1e2c040939da460b9ffbe1b7a2e742c6-62"></a>    <span class="p">)</span>
-<a name="rest_code_1e2c040939da460b9ffbe1b7a2e742c6-63"></a>    <span class="n">description</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">TextField</span><span class="p">(</span><span class="n">verbose_name</span><span class="o">=</span><span class="s1">'概要'</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-<a name="rest_code_1e2c040939da460b9ffbe1b7a2e742c6-64"></a>    <span class="n">publisher_date</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateField</span><span class="p">(</span><span class="n">verbose_name</span><span class="o">=</span><span class="s1">'出版日'</span><span class="p">)</span>
-<a name="rest_code_1e2c040939da460b9ffbe1b7a2e742c6-65"></a>
-<a name="rest_code_1e2c040939da460b9ffbe1b7a2e742c6-66"></a>    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a name="rest_code_1e2c040939da460b9ffbe1b7a2e742c6-67"></a>        <span class="c1"># 管理サイトに表示されるよ</span>
-<a name="rest_code_1e2c040939da460b9ffbe1b7a2e742c6-68"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">title</span>
-<a name="rest_code_1e2c040939da460b9ffbe1b7a2e742c6-69"></a>
-<a name="rest_code_1e2c040939da460b9ffbe1b7a2e742c6-70"></a>
-<a name="rest_code_1e2c040939da460b9ffbe1b7a2e742c6-71"></a><span class="k">class</span> <span class="nc">BookStock</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
-<a name="rest_code_1e2c040939da460b9ffbe1b7a2e742c6-72"></a>    <span class="sd">"""本の在庫モデル"""</span>
-<a name="rest_code_1e2c040939da460b9ffbe1b7a2e742c6-73"></a>    <span class="n">book</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">OneToOneField</span><span class="p">(</span>
-<a name="rest_code_1e2c040939da460b9ffbe1b7a2e742c6-74"></a>        <span class="c1"># 一対一のリレーション: どちらか一方のテーブルに OneToOneField をくっつける</span>
-<a name="rest_code_1e2c040939da460b9ffbe1b7a2e742c6-75"></a>        <span class="n">Book</span><span class="p">,</span> <span class="n">verbose_name</span><span class="o">=</span><span class="s1">'本'</span><span class="p">,</span>
-<a name="rest_code_1e2c040939da460b9ffbe1b7a2e742c6-76"></a>        <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">CASCADE</span>  <span class="c1"># 自身のレコードも削除される</span>
-<a name="rest_code_1e2c040939da460b9ffbe1b7a2e742c6-77"></a>    <span class="p">)</span>
-<a name="rest_code_1e2c040939da460b9ffbe1b7a2e742c6-78"></a>    <span class="n">quantity</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">IntegerField</span><span class="p">(</span><span class="n">verbose_name</span><span class="o">=</span><span class="s1">'在庫数'</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<div class="section" id="id3">
+<h3><a class="toc-backref" href="#id16">Model の実装例</a></h3>
+<pre class="code python"><a name="rest_code_73cd25fd7376409b9ee8d08e6bee4c03-1"></a><span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
+<a name="rest_code_73cd25fd7376409b9ee8d08e6bee4c03-2"></a>
+<a name="rest_code_73cd25fd7376409b9ee8d08e6bee4c03-3"></a>
+<a name="rest_code_73cd25fd7376409b9ee8d08e6bee4c03-4"></a><span class="k">class</span> <span class="nc">Publisher</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+<a name="rest_code_73cd25fd7376409b9ee8d08e6bee4c03-5"></a>    <span class="sd">"""出版社モデル"""</span>
+<a name="rest_code_73cd25fd7376409b9ee8d08e6bee4c03-6"></a>    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+<a name="rest_code_73cd25fd7376409b9ee8d08e6bee4c03-7"></a>        <span class="n">db_table</span> <span class="o">=</span> <span class="s1">'publisher'</span>
+<a name="rest_code_73cd25fd7376409b9ee8d08e6bee4c03-8"></a>
+<a name="rest_code_73cd25fd7376409b9ee8d08e6bee4c03-9"></a>    <span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">verbose_name</span><span class="o">=</span><span class="s1">'出版社名'</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">255</span><span class="p">)</span>
+<a name="rest_code_73cd25fd7376409b9ee8d08e6bee4c03-10"></a>
+<a name="rest_code_73cd25fd7376409b9ee8d08e6bee4c03-11"></a>    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a name="rest_code_73cd25fd7376409b9ee8d08e6bee4c03-12"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span>
+<a name="rest_code_73cd25fd7376409b9ee8d08e6bee4c03-13"></a>
+<a name="rest_code_73cd25fd7376409b9ee8d08e6bee4c03-14"></a>
+<a name="rest_code_73cd25fd7376409b9ee8d08e6bee4c03-15"></a><span class="k">class</span> <span class="nc">Author</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+<a name="rest_code_73cd25fd7376409b9ee8d08e6bee4c03-16"></a>    <span class="sd">"""著者モデル"""</span>
+<a name="rest_code_73cd25fd7376409b9ee8d08e6bee4c03-17"></a>    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+<a name="rest_code_73cd25fd7376409b9ee8d08e6bee4c03-18"></a>        <span class="n">db_table</span> <span class="o">=</span> <span class="s1">'author'</span>
+<a name="rest_code_73cd25fd7376409b9ee8d08e6bee4c03-19"></a>
+<a name="rest_code_73cd25fd7376409b9ee8d08e6bee4c03-20"></a>    <span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">verbose_name</span><span class="o">=</span><span class="s1">'著者名'</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">255</span><span class="p">)</span>
+<a name="rest_code_73cd25fd7376409b9ee8d08e6bee4c03-21"></a>
+<a name="rest_code_73cd25fd7376409b9ee8d08e6bee4c03-22"></a>    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a name="rest_code_73cd25fd7376409b9ee8d08e6bee4c03-23"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span>
+<a name="rest_code_73cd25fd7376409b9ee8d08e6bee4c03-24"></a>
+<a name="rest_code_73cd25fd7376409b9ee8d08e6bee4c03-25"></a>
+<a name="rest_code_73cd25fd7376409b9ee8d08e6bee4c03-26"></a><span class="k">class</span> <span class="nc">Book</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+<a name="rest_code_73cd25fd7376409b9ee8d08e6bee4c03-27"></a>    <span class="sd">"""本モデル"""</span>
+<a name="rest_code_73cd25fd7376409b9ee8d08e6bee4c03-28"></a>    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+<a name="rest_code_73cd25fd7376409b9ee8d08e6bee4c03-29"></a>        <span class="sd">"""</span>
+<a name="rest_code_73cd25fd7376409b9ee8d08e6bee4c03-30"></a><span class="sd">        対応するテーブルや、複数カラムに対するインデックスやユニーク制約などの</span>
+<a name="rest_code_73cd25fd7376409b9ee8d08e6bee4c03-31"></a><span class="sd">        モデル全体に対する付加情報を記述する</span>
+<a name="rest_code_73cd25fd7376409b9ee8d08e6bee4c03-32"></a><span class="sd">        """</span>
+<a name="rest_code_73cd25fd7376409b9ee8d08e6bee4c03-33"></a>        <span class="c1"># テーブル名を定義</span>
+<a name="rest_code_73cd25fd7376409b9ee8d08e6bee4c03-34"></a>        <span class="c1"># 定義しないと、 `アプリケーション名_モデルのクラス名をスネークケースにした文字列` がテーブル名になる</span>
+<a name="rest_code_73cd25fd7376409b9ee8d08e6bee4c03-35"></a>        <span class="n">db_table</span> <span class="o">=</span> <span class="s1">'book'</span>
+<a name="rest_code_73cd25fd7376409b9ee8d08e6bee4c03-36"></a>
+<a name="rest_code_73cd25fd7376409b9ee8d08e6bee4c03-37"></a>    <span class="n">title</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span>
+<a name="rest_code_73cd25fd7376409b9ee8d08e6bee4c03-38"></a>        <span class="n">verbose_name</span><span class="o">=</span><span class="s1">'タイトル'</span><span class="p">,</span>  <span class="c1"># フィールド名</span>
+<a name="rest_code_73cd25fd7376409b9ee8d08e6bee4c03-39"></a>        <span class="n">max_length</span><span class="o">=</span><span class="mi">255</span><span class="p">,</span>  <span class="c1"># 文字列の最大文字数</span>
+<a name="rest_code_73cd25fd7376409b9ee8d08e6bee4c03-40"></a>        <span class="c1"># choices: フォーム利用時にセレクトボックスに表示する選択肢</span>
+<a name="rest_code_73cd25fd7376409b9ee8d08e6bee4c03-41"></a>        <span class="c1"># validators: 文字種チェックなどのバリデーションを指定</span>
+<a name="rest_code_73cd25fd7376409b9ee8d08e6bee4c03-42"></a>        <span class="n">error_messages</span><span class="o">=</span><span class="p">{</span><span class="s1">'invalid'</span><span class="p">:</span> <span class="s1">'title ちがうよー'</span><span class="p">}</span>  <span class="c1"># バリデーションNGの場合のエラーメッセージ</span>
+<a name="rest_code_73cd25fd7376409b9ee8d08e6bee4c03-43"></a>    <span class="p">)</span>
+<a name="rest_code_73cd25fd7376409b9ee8d08e6bee4c03-44"></a>    <span class="n">publisher</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span>
+<a name="rest_code_73cd25fd7376409b9ee8d08e6bee4c03-45"></a>        <span class="c1"># 多対一のリレーション: 多側に ForeignKey をくっつける</span>
+<a name="rest_code_73cd25fd7376409b9ee8d08e6bee4c03-46"></a>        <span class="n">Publisher</span><span class="p">,</span> <span class="n">verbose_name</span><span class="o">=</span><span class="s1">'出版社'</span><span class="p">,</span>
+<a name="rest_code_73cd25fd7376409b9ee8d08e6bee4c03-47"></a>        <span class="c1"># ForeignKey と OneToOneField には on_delete をつける癖をつけよう</span>
+<a name="rest_code_73cd25fd7376409b9ee8d08e6bee4c03-48"></a>        <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">PROTECT</span><span class="p">,</span>  <span class="c1"># 自身のレコードは削除されない</span>
+<a name="rest_code_73cd25fd7376409b9ee8d08e6bee4c03-49"></a>    <span class="p">)</span>
+<a name="rest_code_73cd25fd7376409b9ee8d08e6bee4c03-50"></a>    <span class="n">authors</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ManyToManyField</span><span class="p">(</span>
+<a name="rest_code_73cd25fd7376409b9ee8d08e6bee4c03-51"></a>        <span class="c1"># 多対多のリレーション: 一方のモデルに ManyToManyField をくっつける</span>
+<a name="rest_code_73cd25fd7376409b9ee8d08e6bee4c03-52"></a>        <span class="c1">#   * マイグレーション実行すると Django が自動的に中間テーブルを作成してくれる</span>
+<a name="rest_code_73cd25fd7376409b9ee8d08e6bee4c03-53"></a>        <span class="n">Author</span><span class="p">,</span> <span class="n">verbose_name</span><span class="o">=</span><span class="s1">'著者'</span>
+<a name="rest_code_73cd25fd7376409b9ee8d08e6bee4c03-54"></a>    <span class="p">)</span>
+<a name="rest_code_73cd25fd7376409b9ee8d08e6bee4c03-55"></a>    <span class="n">price</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">IntegerField</span><span class="p">(</span>
+<a name="rest_code_73cd25fd7376409b9ee8d08e6bee4c03-56"></a>        <span class="n">verbose_name</span><span class="o">=</span><span class="s1">'価格'</span><span class="p">,</span>
+<a name="rest_code_73cd25fd7376409b9ee8d08e6bee4c03-57"></a>        <span class="n">null</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>       <span class="c1"># NULL制約</span>
+<a name="rest_code_73cd25fd7376409b9ee8d08e6bee4c03-58"></a>        <span class="n">unique</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>    <span class="c1"># ユニーク制約</span>
+<a name="rest_code_73cd25fd7376409b9ee8d08e6bee4c03-59"></a>        <span class="n">blank</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>      <span class="c1"># フォーム利用時に入力必須にするかどうか</span>
+<a name="rest_code_73cd25fd7376409b9ee8d08e6bee4c03-60"></a>        <span class="n">db_index</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>  <span class="c1"># DB のインデックスを設定するかどうか</span>
+<a name="rest_code_73cd25fd7376409b9ee8d08e6bee4c03-61"></a>        <span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>       <span class="c1"># レコード登録時に値が指定されなかったときのデフォルト値</span>
+<a name="rest_code_73cd25fd7376409b9ee8d08e6bee4c03-62"></a>    <span class="p">)</span>
+<a name="rest_code_73cd25fd7376409b9ee8d08e6bee4c03-63"></a>    <span class="n">description</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">TextField</span><span class="p">(</span><span class="n">verbose_name</span><span class="o">=</span><span class="s1">'概要'</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<a name="rest_code_73cd25fd7376409b9ee8d08e6bee4c03-64"></a>    <span class="n">publisher_date</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateField</span><span class="p">(</span><span class="n">verbose_name</span><span class="o">=</span><span class="s1">'出版日'</span><span class="p">)</span>
+<a name="rest_code_73cd25fd7376409b9ee8d08e6bee4c03-65"></a>
+<a name="rest_code_73cd25fd7376409b9ee8d08e6bee4c03-66"></a>    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a name="rest_code_73cd25fd7376409b9ee8d08e6bee4c03-67"></a>        <span class="c1"># 管理サイトに表示されるよ</span>
+<a name="rest_code_73cd25fd7376409b9ee8d08e6bee4c03-68"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">title</span>
+<a name="rest_code_73cd25fd7376409b9ee8d08e6bee4c03-69"></a>
+<a name="rest_code_73cd25fd7376409b9ee8d08e6bee4c03-70"></a>
+<a name="rest_code_73cd25fd7376409b9ee8d08e6bee4c03-71"></a><span class="k">class</span> <span class="nc">BookStock</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+<a name="rest_code_73cd25fd7376409b9ee8d08e6bee4c03-72"></a>    <span class="sd">"""本の在庫モデル"""</span>
+<a name="rest_code_73cd25fd7376409b9ee8d08e6bee4c03-73"></a>    <span class="n">book</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">OneToOneField</span><span class="p">(</span>
+<a name="rest_code_73cd25fd7376409b9ee8d08e6bee4c03-74"></a>        <span class="c1"># 一対一のリレーション: どちらか一方のテーブルに OneToOneField をくっつける</span>
+<a name="rest_code_73cd25fd7376409b9ee8d08e6bee4c03-75"></a>        <span class="n">Book</span><span class="p">,</span> <span class="n">verbose_name</span><span class="o">=</span><span class="s1">'本'</span><span class="p">,</span>
+<a name="rest_code_73cd25fd7376409b9ee8d08e6bee4c03-76"></a>        <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">CASCADE</span>  <span class="c1"># 自身のレコードも削除される</span>
+<a name="rest_code_73cd25fd7376409b9ee8d08e6bee4c03-77"></a>    <span class="p">)</span>
+<a name="rest_code_73cd25fd7376409b9ee8d08e6bee4c03-78"></a>    <span class="n">quantity</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">IntegerField</span><span class="p">(</span><span class="n">verbose_name</span><span class="o">=</span><span class="s1">'在庫数'</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 </pre>
 </div>
 <div class="section" id="on-delete">
-<h3><a class="toc-backref" href="#id18">on_delete</a></h3>
+<h3><a class="toc-backref" href="#id17">on_delete</a></h3>
 <p><a class="reference external" href="https://docs.djangoproject.com/ja/2.2/ref/models/fields/#django.db.models.ForeignKey.on_delete">ForeignKey.on_delete</a></p>
 <ul class="simple">
 <li><p>6種類くらいあって、用途に応じて選べる</p></li>
@@ -219,7 +219,7 @@
 </ul>
 </div>
 <div class="section" id="usermanager">
-<h3><a class="toc-backref" href="#id19">UserManager</a></h3>
+<h3><a class="toc-backref" href="#id18">UserManager</a></h3>
 <ul>
 <li><p><a class="reference external" href="https://docs.djangoproject.com/ja/2.2/ref/contrib/auth/#manager-methods">Django documentation &gt; django.contrib.auth &gt; マネージャメソッド</a></p></li>
 <li><p><a class="reference external" href="https://docs.djangoproject.com/ja/2.2/topics/auth/customizing/#a-full-example">Django documentation &gt; Django の認証方法のカスタマイズ &gt; 完全な具体例</a></p></li>
@@ -227,7 +227,7 @@
 <li>
 <p>こうすると登録できる</p>
 <blockquote>
-<pre class="code python"><a name="rest_code_f2131f8558c1479da849b25925759a34-1"></a><span class="n">objects</span> <span class="o">=</span> <span class="n">MyUserManager</span><span class="p">()</span>
+<pre class="code python"><a name="rest_code_6e1508f668e34bde90f17547dcb50233-1"></a><span class="n">objects</span> <span class="o">=</span> <span class="n">MyUserManager</span><span class="p">()</span>
 </pre>
 </blockquote>
 </li>
@@ -236,7 +236,7 @@
 </div>
 </div>
 <div class="section" id="django-orm">
-<h2><a class="toc-backref" href="#id20">Django ORM</a></h2>
+<h2><a class="toc-backref" href="#id19">Django ORM</a></h2>
 <ul class="simple">
 <li><p>単体のオブジェクトを保存・更新するような行レベルのクエリ操作: モデルオブジェクトのメソッドを利用する</p></li>
 <li>
@@ -246,9 +246,9 @@
 </ul>
 </li>
 </ul>
-<div class="section" id="id5">
-<h3><a class="toc-backref" href="#id21">1件だけ取得する</a></h3>
-<pre class="code python"><a name="rest_code_915b58cdcde8482489c2d8fe0c736fee-1"></a><span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>  <span class="c1"># この `objects` がモデルマネージャー</span>
+<div class="section" id="id4">
+<h3><a class="toc-backref" href="#id20">1件だけ取得する</a></h3>
+<pre class="code python"><a name="rest_code_9a4a40b8cca24405bfac5ffe55b2ba8c-1"></a><span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>  <span class="c1"># この `objects` がモデルマネージャー</span>
 </pre>
 <ul class="simple">
 <li><p>モデルが返る</p></li>
@@ -256,9 +256,9 @@
 <li><p>2件以上見つかると <code class="docutils literal">MultipleObjectsReturn</code></p></li>
 </ul>
 </div>
-<div class="section" id="id6">
-<h3><a class="toc-backref" href="#id22">全件取得する</a></h3>
-<pre class="code python"><a name="rest_code_9275a2c3e42a429caf70f5070444f836-1"></a><span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+<div class="section" id="id5">
+<h3><a class="toc-backref" href="#id21">全件取得する</a></h3>
+<pre class="code python"><a name="rest_code_158b926308dd4e6899f65505fbd1af30-1"></a><span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
 </pre>
 <ul class="simple">
 <li><p>即座にデータベースにはアクセスせず、クエリセットオブジェクトを返す</p></li>
@@ -266,23 +266,23 @@
 <li><p>1件も見つからなくても例外発生しない、空のリストを返す</p></li>
 </ul>
 </div>
-<div class="section" id="id7">
-<h3><a class="toc-backref" href="#id23">検索条件をつけて取得する</a></h3>
-<pre class="code python"><a name="rest_code_88f232a199f94bf4be74836fac5e0f68-1"></a><span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">is_active</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<div class="section" id="id6">
+<h3><a class="toc-backref" href="#id22">検索条件をつけて取得する</a></h3>
+<pre class="code python"><a name="rest_code_8b2329edef3e4daba56add4cd6280360-1"></a><span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">is_active</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 </pre>
 <ul class="simple">
 <li><p>即座にデータベースにはアクセスせず、クエリセットオブジェクトを返す</p></li>
 <li><p><code class="docutils literal">filter()</code> を何度も繋げて書ける</p></li>
 </ul>
 <div class="section" id="filter">
-<h4><a class="toc-backref" href="#id24">filter をつなげる例</a></h4>
-<pre class="code python"><a name="rest_code_3dc19cbf01444ecc9089dea8211bb611-1"></a><span class="n">keyword</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">GET</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'keyword'</span><span class="p">)</span>
-<a name="rest_code_3dc19cbf01444ecc9089dea8211bb611-2"></a><span class="n">queryset</span> <span class="o">=</span> <span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">()</span>
-<a name="rest_code_3dc19cbf01444ecc9089dea8211bb611-3"></a><span class="k">if</span> <span class="n">keyword</span><span class="p">:</span>
-<a name="rest_code_3dc19cbf01444ecc9089dea8211bb611-4"></a>    <span class="n">queryset</span> <span class="o">=</span> <span class="n">queryset</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="n">keyword</span><span class="p">)</span>
-<a name="rest_code_3dc19cbf01444ecc9089dea8211bb611-5"></a>
-<a name="rest_code_3dc19cbf01444ecc9089dea8211bb611-6"></a><span class="c1"># ここでクエリが発行される (print すると発行される)</span>
-<a name="rest_code_3dc19cbf01444ecc9089dea8211bb611-7"></a><span class="k">print</span><span class="p">(</span><span class="n">queryset</span><span class="p">)</span>
+<h4><a class="toc-backref" href="#id23">filter をつなげる例</a></h4>
+<pre class="code python"><a name="rest_code_0384ed8e63e9476d90d3fccb6634d555-1"></a><span class="n">keyword</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">GET</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'keyword'</span><span class="p">)</span>
+<a name="rest_code_0384ed8e63e9476d90d3fccb6634d555-2"></a><span class="n">queryset</span> <span class="o">=</span> <span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">()</span>
+<a name="rest_code_0384ed8e63e9476d90d3fccb6634d555-3"></a><span class="k">if</span> <span class="n">keyword</span><span class="p">:</span>
+<a name="rest_code_0384ed8e63e9476d90d3fccb6634d555-4"></a>    <span class="n">queryset</span> <span class="o">=</span> <span class="n">queryset</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="n">keyword</span><span class="p">)</span>
+<a name="rest_code_0384ed8e63e9476d90d3fccb6634d555-5"></a>
+<a name="rest_code_0384ed8e63e9476d90d3fccb6634d555-6"></a><span class="c1"># ここでクエリが発行される (print すると発行される)</span>
+<a name="rest_code_0384ed8e63e9476d90d3fccb6634d555-7"></a><span class="k">print</span><span class="p">(</span><span class="n">queryset</span><span class="p">)</span>
 </pre>
 <ul class="simple">
 <li><p>この例の場合、発行されるクエリの総数は1本</p></li>
@@ -290,36 +290,36 @@
 </div>
 </div>
 <div class="section" id="and">
-<h3><a class="toc-backref" href="#id25">AND 条件</a></h3>
-<pre class="code python"><a name="rest_code_52a4009c0a2240bc85cd56e2221ae52d-1"></a><span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">'Django Book'</span><span class="p">,</span> <span class="n">price</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<h3><a class="toc-backref" href="#id24">AND 条件</a></h3>
+<pre class="code python"><a name="rest_code_a8f1171c2c7c40dc90c7de04828d34c5-1"></a><span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">'Django Book'</span><span class="p">,</span> <span class="n">price</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
 </pre>
 <ul class="simple">
 <li><p>検索条件を列挙すれば AND 条件</p></li>
 </ul>
 </div>
 <div class="section" id="or">
-<h3><a class="toc-backref" href="#id26">OR 条件</a></h3>
-<pre class="code python"><a name="rest_code_1e0bf849f14141c9b454df8d92d8b98e-1"></a><span class="kn">from</span> <span class="nn">django.db.models</span> <span class="kn">import</span> <span class="n">Q</span>
-<a name="rest_code_1e0bf849f14141c9b454df8d92d8b98e-2"></a><span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">Q</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">'Django Book'</span><span class="p">)</span> <span class="o">|</span> <span class="n">Q</span><span class="p">(</span><span class="n">price</span><span class="o">=</span><span class="mi">1000</span><span class="p">))</span>
+<h3><a class="toc-backref" href="#id25">OR 条件</a></h3>
+<pre class="code python"><a name="rest_code_d07da6e13b6d4a6aa5022de913eed6c6-1"></a><span class="kn">from</span> <span class="nn">django.db.models</span> <span class="kn">import</span> <span class="n">Q</span>
+<a name="rest_code_d07da6e13b6d4a6aa5022de913eed6c6-2"></a><span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">Q</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">'Django Book'</span><span class="p">)</span> <span class="o">|</span> <span class="n">Q</span><span class="p">(</span><span class="n">price</span><span class="o">=</span><span class="mi">1000</span><span class="p">))</span>
 </pre>
 <ul class="simple">
 <li><p><code class="docutils literal">Q</code> と <code class="docutils literal">|</code> (パイプ) を使う</p></li>
 </ul>
 </div>
-<div class="section" id="id8">
-<h3><a class="toc-backref" href="#id27">&gt;, &lt;, &gt;=, &lt;=</a></h3>
-<pre class="code python"><a name="rest_code_7be4fa8636cf492b9f8f777081aaf58c-1"></a><span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">price__gt</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>  <span class="c1"># &gt;1000</span>
-<a name="rest_code_7be4fa8636cf492b9f8f777081aaf58c-2"></a><span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">price__lt</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>  <span class="c1"># &lt;1000</span>
-<a name="rest_code_7be4fa8636cf492b9f8f777081aaf58c-3"></a><span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">price__gte</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>  <span class="c1"># &gt;=1000</span>
-<a name="rest_code_7be4fa8636cf492b9f8f777081aaf58c-4"></a><span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">price__lte</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>  <span class="c1"># &lt;=1000</span>
+<div class="section" id="id7">
+<h3><a class="toc-backref" href="#id26">&gt;, &lt;, &gt;=, &lt;=</a></h3>
+<pre class="code python"><a name="rest_code_f502690446754005bd3606edde4942e6-1"></a><span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">price__gt</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>  <span class="c1"># &gt;1000</span>
+<a name="rest_code_f502690446754005bd3606edde4942e6-2"></a><span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">price__lt</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>  <span class="c1"># &lt;1000</span>
+<a name="rest_code_f502690446754005bd3606edde4942e6-3"></a><span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">price__gte</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>  <span class="c1"># &gt;=1000</span>
+<a name="rest_code_f502690446754005bd3606edde4942e6-4"></a><span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">price__lte</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>  <span class="c1"># &lt;=1000</span>
 </pre>
 <ul class="simple">
 <li><p><code class="docutils literal">__</code> (アンダーバー2つ) でフィールド名とキーワード (<code class="docutils literal">gt</code>, <code class="docutils literal">lt</code>, <code class="docutils literal">gte</code>, <code class="docutils literal">lte</code>) をつなぐ</p></li>
 </ul>
 </div>
 <div class="section" id="in">
-<h3><a class="toc-backref" href="#id28">IN</a></h3>
-<pre class="code python"><a name="rest_code_a8bacc0079ec4eb792b3950a5b76e016-1"></a><span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">price__in</span><span class="o">=</span><span class="p">[</span><span class="mi">900</span><span class="p">,</span> <span class="mi">1000</span><span class="p">])</span>  <span class="c1"># IN(900, 1000)</span>
+<h3><a class="toc-backref" href="#id27">IN</a></h3>
+<pre class="code python"><a name="rest_code_9dcad065ce2140988d67242ebe0d42bc-1"></a><span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">price__in</span><span class="o">=</span><span class="p">[</span><span class="mi">900</span><span class="p">,</span> <span class="mi">1000</span><span class="p">])</span>  <span class="c1"># IN(900, 1000)</span>
 </pre>
 <ul class="simple">
 <li><p><code class="docutils literal">__</code> (アンダーバー2つ) でフィールド名とキーワード (<code class="docutils literal">in</code>) をつなぐ</p></li>
@@ -327,9 +327,9 @@
 </ul>
 </div>
 <div class="section" id="like">
-<h3><a class="toc-backref" href="#id29">LIKE</a></h3>
-<pre class="code python"><a name="rest_code_8515e2fc323f45cdad2c335cb531049e-1"></a><span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">title__icontains</span><span class="o">=</span><span class="s1">'Django'</span><span class="p">)</span>  <span class="c1"># ILIKE '%Django%'</span>
-<a name="rest_code_8515e2fc323f45cdad2c335cb531049e-2"></a><span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">title__contains</span><span class="o">=</span><span class="s1">'Django'</span><span class="p">)</span>  <span class="c1"># LIKE '%Django%'</span>
+<h3><a class="toc-backref" href="#id28">LIKE</a></h3>
+<pre class="code python"><a name="rest_code_d8e25199ce7c4dde82d93e8d70dd5538-1"></a><span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">title__icontains</span><span class="o">=</span><span class="s1">'Django'</span><span class="p">)</span>  <span class="c1"># ILIKE '%Django%'</span>
+<a name="rest_code_d8e25199ce7c4dde82d93e8d70dd5538-2"></a><span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">title__contains</span><span class="o">=</span><span class="s1">'Django'</span><span class="p">)</span>  <span class="c1"># LIKE '%Django%'</span>
 </pre>
 <ul class="simple">
 <li><p><code class="docutils literal">__</code> (アンダーバー2つ) でフィールド名とキーワード (<code class="docutils literal">icontains</code>, <code class="docutils literal">contains</code>) をつなぐ</p></li>
@@ -338,35 +338,35 @@
 </ul>
 </div>
 <div class="section" id="exists">
-<h3><a class="toc-backref" href="#id30">EXISTS</a></h3>
+<h3><a class="toc-backref" href="#id29">EXISTS</a></h3>
 <ul class="simple">
 <li><p>exists: レコードが存在するか否か True/False で返す</p></li>
 </ul>
-<pre class="code python"><a name="rest_code_35f357f287034c05aac80fb094d89ed5-1"></a><span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span>
-<a name="rest_code_35f357f287034c05aac80fb094d89ed5-2"></a><span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">title__icontains</span><span class="o">=</span><span class="s1">'Django'</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span>
+<pre class="code python"><a name="rest_code_c807363d14e541f783efd2ec3b6f386f-1"></a><span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span>
+<a name="rest_code_c807363d14e541f783efd2ec3b6f386f-2"></a><span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">title__icontains</span><span class="o">=</span><span class="s1">'Django'</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span>
 </pre>
 </div>
 <div class="section" id="order-by">
-<h3><a class="toc-backref" href="#id31">ORDER BY</a></h3>
+<h3><a class="toc-backref" href="#id30">ORDER BY</a></h3>
 <ul class="simple">
 <li><p>order_by:</p></li>
 </ul>
-<pre class="code python"><a name="rest_code_a1bc9e79a71a4a87bd58486e2e2be499-1"></a><span class="c1"># 降順はフィールド名の前に ``-`` つける</span>
-<a name="rest_code_a1bc9e79a71a4a87bd58486e2e2be499-2"></a><span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s1">'-price'</span><span class="p">)</span>
-<a name="rest_code_a1bc9e79a71a4a87bd58486e2e2be499-3"></a>
-<a name="rest_code_a1bc9e79a71a4a87bd58486e2e2be499-4"></a><span class="c1"># 複数フィールドでソートするときはカンマ区切り</span>
-<a name="rest_code_a1bc9e79a71a4a87bd58486e2e2be499-5"></a><span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s1">'price'</span><span class="p">,</span> <span class="s1">'publish_date'</span><span class="p">)</span>
+<pre class="code python"><a name="rest_code_5398d7ef5e1942528119a8f3b7a5a759-1"></a><span class="c1"># 降順はフィールド名の前に ``-`` つける</span>
+<a name="rest_code_5398d7ef5e1942528119a8f3b7a5a759-2"></a><span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s1">'-price'</span><span class="p">)</span>
+<a name="rest_code_5398d7ef5e1942528119a8f3b7a5a759-3"></a>
+<a name="rest_code_5398d7ef5e1942528119a8f3b7a5a759-4"></a><span class="c1"># 複数フィールドでソートするときはカンマ区切り</span>
+<a name="rest_code_5398d7ef5e1942528119a8f3b7a5a759-5"></a><span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s1">'price'</span><span class="p">,</span> <span class="s1">'publish_date'</span><span class="p">)</span>
 </pre>
 </div>
 <div class="section" id="q-object">
-<h3><a class="toc-backref" href="#id32">Q Object</a></h3>
+<h3><a class="toc-backref" href="#id31">Q Object</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://docs.djangoproject.com/ja/2.2/topics/db/queries/#complex-lookups-with-q">Q オブジェクトを用いた複雑な検索</a></p></li>
 </ul>
 </div>
-<div class="section" id="id9">
-<h3><a class="toc-backref" href="#id33">リレーション先のモデルを使った条件検索</a></h3>
-<pre class="code python"><a name="rest_code_e128352be7ea42929654e8e23eb7af67-1"></a><span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">publisher__name</span><span class="o">=</span><span class="s1">'自費出版社'</span><span class="p">)</span>
+<div class="section" id="id8">
+<h3><a class="toc-backref" href="#id32">リレーション先のモデルを使った条件検索</a></h3>
+<pre class="code python"><a name="rest_code_e89b55d1bb0046a2b8647c81bf400e01-1"></a><span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">publisher__name</span><span class="o">=</span><span class="s1">'自費出版社'</span><span class="p">)</span>
 </pre>
 <ul class="simple">
 <li><p><code class="docutils literal">OneToOneField</code>, <code class="docutils literal">ForeignKey</code>, <code class="docutils literal">ManyToManyField</code> でリレーションしていると、
@@ -374,7 +374,7 @@
 </ul>
 </div>
 <div class="section" id="set">
-<h3><a class="toc-backref" href="#id34">モデルクラス名を全部小文字にしたのに <code class="docutils literal">_set</code> がつく</a></h3>
+<h3><a class="toc-backref" href="#id33">モデルクラス名を全部小文字にしたのに <code class="docutils literal">_set</code> がつく</a></h3>
 <p><a class="reference external" href="https://docs.djangoproject.com/ja/1.11/ref/models/relations/">Related objects reference</a></p>
 <ul class="simple">
 <li><p><code class="docutils literal">_set</code> というのは子テーブルのデータを参照する django の機能</p></li>
@@ -382,33 +382,33 @@
 </ul>
 </div>
 <div class="section" id="values-values-list">
-<h3><a class="toc-backref" href="#id35">values() と values_list()</a></h3>
+<h3><a class="toc-backref" href="#id34">values() と values_list()</a></h3>
 <div class="section" id="values">
-<h4><a class="toc-backref" href="#id36">values()</a></h4>
+<h4><a class="toc-backref" href="#id35">values()</a></h4>
 <p>辞書のクエリセットで取得できる。</p>
 <ul>
 <li>
 <p><a class="reference external" href="https://docs.djangoproject.com/ja/2.1/ref/models/querysets/#values">https://docs.djangoproject.com/ja/2.1/ref/models/querysets/#values</a></p>
-<pre class="code python"><a name="rest_code_1c9f75d917494aa2b3cdbe0351a46634-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">Blog</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">name__startswith</span><span class="o">=</span><span class="s1">'Beatles'</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
-<a name="rest_code_1c9f75d917494aa2b3cdbe0351a46634-2"></a><span class="o">&lt;</span><span class="n">QuerySet</span> <span class="p">[{</span><span class="s1">'id'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">'name'</span><span class="p">:</span> <span class="s1">'Beatles Blog'</span><span class="p">,</span> <span class="s1">'tagline'</span><span class="p">:</span> <span class="s1">'All the latest Beatles news.'</span><span class="p">}]</span><span class="o">&gt;</span>
+<pre class="code python"><a name="rest_code_664440141f5d41a9bb7d5e9475d44709-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">Blog</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">name__startswith</span><span class="o">=</span><span class="s1">'Beatles'</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+<a name="rest_code_664440141f5d41a9bb7d5e9475d44709-2"></a><span class="o">&lt;</span><span class="n">QuerySet</span> <span class="p">[{</span><span class="s1">'id'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">'name'</span><span class="p">:</span> <span class="s1">'Beatles Blog'</span><span class="p">,</span> <span class="s1">'tagline'</span><span class="p">:</span> <span class="s1">'All the latest Beatles news.'</span><span class="p">}]</span><span class="o">&gt;</span>
 </pre>
 </li>
 </ul>
 </div>
 <div class="section" id="values-list">
-<h4><a class="toc-backref" href="#id37">values_list()</a></h4>
+<h4><a class="toc-backref" href="#id36">values_list()</a></h4>
 <p>タプルのリストのクエリセットで取得できる。</p>
 <ul>
 <li>
 <p><a class="reference external" href="https://docs.djangoproject.com/ja/2.1/ref/models/querysets/#values-list">https://docs.djangoproject.com/ja/2.1/ref/models/querysets/#values-list</a></p>
-<pre class="code python"><a name="rest_code_0a350a22200947b7916fa1bbfba62249-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">Entry</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">values_list</span><span class="p">(</span><span class="s1">'id'</span><span class="p">,</span> <span class="s1">'headline'</span><span class="p">)</span>
-<a name="rest_code_0a350a22200947b7916fa1bbfba62249-2"></a><span class="o">&lt;</span><span class="n">QuerySet</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">'First entry'</span><span class="p">),</span> <span class="o">...</span><span class="p">]</span><span class="o">&gt;</span>
+<pre class="code python"><a name="rest_code_d1d7167c7b6047aa8b496a3fe8efa71e-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">Entry</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">values_list</span><span class="p">(</span><span class="s1">'id'</span><span class="p">,</span> <span class="s1">'headline'</span><span class="p">)</span>
+<a name="rest_code_d1d7167c7b6047aa8b496a3fe8efa71e-2"></a><span class="o">&lt;</span><span class="n">QuerySet</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">'First entry'</span><span class="p">),</span> <span class="o">...</span><span class="p">]</span><span class="o">&gt;</span>
 </pre>
 <ul>
 <li>
 <p>1カラムしか取得しない場合は、 <code class="docutils literal">flat=True</code> をつけると、リストのクエリセットで取得できる。</p>
-<pre class="code python"><a name="rest_code_870ff28e77cd448caed02cc10a910660-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">Entry</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">values_list</span><span class="p">(</span><span class="s1">'id'</span><span class="p">,</span> <span class="n">flat</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s1">'id'</span><span class="p">)</span>
-<a name="rest_code_870ff28e77cd448caed02cc10a910660-2"></a><span class="o">&lt;</span><span class="n">QuerySet</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span><span class="o">&gt;</span>
+<pre class="code python"><a name="rest_code_e89f2e58322e4d6eb95cd79a97e60c5a-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">Entry</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">values_list</span><span class="p">(</span><span class="s1">'id'</span><span class="p">,</span> <span class="n">flat</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s1">'id'</span><span class="p">)</span>
+<a name="rest_code_e89f2e58322e4d6eb95cd79a97e60c5a-2"></a><span class="o">&lt;</span><span class="n">QuerySet</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span><span class="o">&gt;</span>
 </pre>
 </li>
 </ul>
@@ -417,21 +417,21 @@
 </div>
 </div>
 <div class="section" id="aggregate-annotate">
-<h3><a class="toc-backref" href="#id38">aggregate と annotate</a></h3>
+<h3><a class="toc-backref" href="#id37">aggregate と annotate</a></h3>
 <p><code class="docutils literal">aggregate</code> と <code class="docutils literal">annotate</code> の違いがわかりやすい</p>
 <ul class="simple">
 <li><p><a class="reference external" href="http://note.crohaco.net/2014/django-aggregate/">Djangoの集計について</a></p></li>
 </ul>
 </div>
 <div class="section" id="left-outer-join">
-<h3><a class="toc-backref" href="#id39">LEFT OUTER JOIN</a></h3>
+<h3><a class="toc-backref" href="#id38">LEFT OUTER JOIN</a></h3>
 <p>Django のクエリセットは LEFT OUTER JOIN を表現できない</p>
 <ul class="simple">
 <li><p>SQLAlchemy でやろう</p></li>
 </ul>
 </div>
 <div class="section" id="select-related-prefetch-related">
-<h3><a class="toc-backref" href="#id40">select_related, prefetch_related</a></h3>
+<h3><a class="toc-backref" href="#id39">select_related, prefetch_related</a></h3>
 <table class="colwidths-given">
 <colgroup>
 <col style="width: 50%">
@@ -451,9 +451,9 @@
 <td><p>取得したオブジェクト群をオブジェクト内部のキャッシュに保持し、それを使い回すことで同じクエリが何度も発行されないようにする</p></td>
 </tr>
 <tr>
-<td><pre class="code python"><a name="rest_code_1e44e91198a244bfa8184a87c734dc00-1"></a><span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">select_related</span><span class="p">(</span><span class="s1">'publisher'</span><span class="p">)</span>
+<td><pre class="code python"><a name="rest_code_555d1f9ba0f24961b4df4e186a97b04c-1"></a><span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">select_related</span><span class="p">(</span><span class="s1">'publisher'</span><span class="p">)</span>
 </pre></td>
-<td><pre class="code python"><a name="rest_code_57c7de97618344fea9c029f1babbaaad-1"></a><span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">prefetch_related</span><span class="p">(</span><span class="s1">'authors'</span><span class="p">)</span>
+<td><pre class="code python"><a name="rest_code_50973108bfec4894b0a60d5a41c63535-1"></a><span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">prefetch_related</span><span class="p">(</span><span class="s1">'authors'</span><span class="p">)</span>
 </pre></td>
 </tr>
 </tbody>
@@ -470,8 +470,8 @@
 </li>
 </ul>
 </div>
-<div class="section" id="id11">
-<h3><a class="toc-backref" href="#id41">遅延評価</a></h3>
+<div class="section" id="id10">
+<h3><a class="toc-backref" href="#id40">遅延評価</a></h3>
 <p>クエリセットを返す <code class="docutils literal">all()</code> や <code class="docutils literal">filter()</code> がクエリを発行するタイミング (データベースアクセスするタイミング) はこれら</p>
 <ul class="simple">
 <li><p><code class="docutils literal">for</code> ループなどイテレーションが開始されたタイミング</p></li>
@@ -488,16 +488,16 @@
 <li><p><code class="docutils literal">bool()</code> で強制的に <code class="docutils literal">Boolean</code> に変換したタイミング</p></li>
 </ul>
 </div>
-<div class="section" id="id12">
-<h3><a class="toc-backref" href="#id42">トランザクション</a></h3>
+<div class="section" id="id11">
+<h3><a class="toc-backref" href="#id41">トランザクション</a></h3>
 <ul>
 <li><p>デフォルト設定では、オブジェクトの保存・更新・削除は即時反映 (実行した時点でデータベースに反映される)</p></li>
 <li>
 <p>トランザクションの範囲指定する場合は、</p>
-<pre class="code python"><a name="rest_code_f8b98c4464804026a70839f85033f72a-1"></a><span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">transaction</span>
-<a name="rest_code_f8b98c4464804026a70839f85033f72a-2"></a><span class="k">with</span> <span class="n">transaction</span><span class="o">.</span><span class="n">atomic</span><span class="p">():</span>
-<a name="rest_code_f8b98c4464804026a70839f85033f72a-3"></a>    <span class="n">User</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s1">'fumi23'</span><span class="p">)</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
-<a name="rest_code_f8b98c4464804026a70839f85033f72a-4"></a>    <span class="n">User</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s1">'fumi23'</span><span class="p">)</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+<pre class="code python"><a name="rest_code_1c8a328a533944b6b3624ce2f61d6d38-1"></a><span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">transaction</span>
+<a name="rest_code_1c8a328a533944b6b3624ce2f61d6d38-2"></a><span class="k">with</span> <span class="n">transaction</span><span class="o">.</span><span class="n">atomic</span><span class="p">():</span>
+<a name="rest_code_1c8a328a533944b6b3624ce2f61d6d38-3"></a>    <span class="n">User</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s1">'fumi23'</span><span class="p">)</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+<a name="rest_code_1c8a328a533944b6b3624ce2f61d6d38-4"></a>    <span class="n">User</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s1">'fumi23'</span><span class="p">)</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
 </pre>
 </li>
 <li>
@@ -505,12 +505,12 @@
 <ul>
 <li>
 <p>settings.py</p>
-<pre class="code python"><a name="rest_code_9b4ea7810d9e4ebf9cd4c52aaf2c8521-1"></a><span class="n">DATABASES</span> <span class="o">=</span> <span class="p">[</span>
-<a name="rest_code_9b4ea7810d9e4ebf9cd4c52aaf2c8521-2"></a>    <span class="s1">'default'</span><span class="p">:</span> <span class="p">{</span>
-<a name="rest_code_9b4ea7810d9e4ebf9cd4c52aaf2c8521-3"></a>        <span class="c1"># リクエストの開始から終了までに設定</span>
-<a name="rest_code_9b4ea7810d9e4ebf9cd4c52aaf2c8521-4"></a>        <span class="s1">'ATOMIC_REQUESTS'</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
-<a name="rest_code_9b4ea7810d9e4ebf9cd4c52aaf2c8521-5"></a>    <span class="p">}</span>
-<a name="rest_code_9b4ea7810d9e4ebf9cd4c52aaf2c8521-6"></a><span class="p">]</span>
+<pre class="code python"><a name="rest_code_9efa2358fa00412e8a75c5871b7354f5-1"></a><span class="n">DATABASES</span> <span class="o">=</span> <span class="p">[</span>
+<a name="rest_code_9efa2358fa00412e8a75c5871b7354f5-2"></a>    <span class="s1">'default'</span><span class="p">:</span> <span class="p">{</span>
+<a name="rest_code_9efa2358fa00412e8a75c5871b7354f5-3"></a>        <span class="c1"># リクエストの開始から終了までに設定</span>
+<a name="rest_code_9efa2358fa00412e8a75c5871b7354f5-4"></a>        <span class="s1">'ATOMIC_REQUESTS'</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+<a name="rest_code_9efa2358fa00412e8a75c5871b7354f5-5"></a>    <span class="p">}</span>
+<a name="rest_code_9efa2358fa00412e8a75c5871b7354f5-6"></a><span class="p">]</span>
 </pre>
 </li>
 </ul>
@@ -518,7 +518,7 @@
 </ul>
 </div>
 <div class="section" id="select-for-update">
-<h3><a class="toc-backref" href="#id43">select_for_update()</a></h3>
+<h3><a class="toc-backref" href="#id42">select_for_update()</a></h3>
 <p><a class="reference external" href="https://docs.djangoproject.com/ja/2.2/ref/models/querysets/#django.db.models.query.QuerySet.select_for_update">https://docs.djangoproject.com/ja/2.2/ref/models/querysets/#django.db.models.query.QuerySet.select_for_update</a></p>
 <ul class="simple">
 <li>
@@ -533,18 +533,18 @@
 </div>
 </div>
 <div class="section" id="user">
-<h2><a class="toc-backref" href="#id44">User モデルを拡張したい</a></h2>
+<h2><a class="toc-backref" href="#id43">User モデルを拡張したい</a></h2>
 <ul class="simple">
 <li><p>現場で使える Django の教科書《基礎編》 P.63 参照のこと</p></li>
 </ul>
 </div>
-<div class="section" id="id13">
-<h2><a class="toc-backref" href="#id45">発行されるクエリを見たい</a></h2>
+<div class="section" id="id12">
+<h2><a class="toc-backref" href="#id44">発行されるクエリを見たい</a></h2>
 <ul>
 <li>
 <p>Django シェル</p>
-<pre class="code shell"><a name="rest_code_70f972310a8640b38e1b07197697b418-1"></a>$ python manage.py shell --settings<span class="o">=</span>settings._
-<a name="rest_code_70f972310a8640b38e1b07197697b418-2"></a>&gt;&gt;&gt; print<span class="o">(</span>Book.objects.filter<span class="o">(</span><span class="nv">title__icontains</span><span class="o">=</span><span class="s1">'Django'</span><span class="o">)</span>.query<span class="o">)</span>
+<pre class="code shell"><a name="rest_code_1747c92caca64de0b002bf3e4b40cb06-1"></a>$ python manage.py shell --settings<span class="o">=</span>settings._
+<a name="rest_code_1747c92caca64de0b002bf3e4b40cb06-2"></a>&gt;&gt;&gt; print<span class="o">(</span>Book.objects.filter<span class="o">(</span><span class="nv">title__icontains</span><span class="o">=</span><span class="s1">'Django'</span><span class="o">)</span>.query<span class="o">)</span>
 </pre>
 </li>
 <li><p>ロギング</p></li>

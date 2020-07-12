@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
@@ -34,24 +34,24 @@
         
       </time><div class="text">
       <div>
-<details><summary>目次</summary><div class="contents topic" id="id1">
-<p class="topic-title first">目次</p>
+<details><summary>目次</summary><div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#id2" id="id6">リファレンス</a></p></li>
-<li><p><a class="reference internal" href="#type-hints" id="id7">Type hints 覚書き</a></p></li>
-<li><p><a class="reference internal" href="#id3" id="id8">これ</a></p></li>
-<li><p><a class="reference internal" href="#id4" id="id9">Type hints はどこに必要か、どこに書くべきか</a></p></li>
-<li><p><a class="reference internal" href="#python3" id="id10">python3 ではこういうふうに書ける</a></p></li>
-<li><p><a class="reference internal" href="#tips" id="id11">Tips</a></p></li>
-<li><p><a class="reference internal" href="#id5" id="id12">情報</a></p></li>
+<li><p><a class="reference internal" href="#id1" id="id5">リファレンス</a></p></li>
+<li><p><a class="reference internal" href="#type-hints" id="id6">Type hints 覚書き</a></p></li>
+<li><p><a class="reference internal" href="#id2" id="id7">これ</a></p></li>
+<li><p><a class="reference internal" href="#id3" id="id8">Type hints はどこに必要か、どこに書くべきか</a></p></li>
+<li><p><a class="reference internal" href="#python3" id="id9">python3 ではこういうふうに書ける</a></p></li>
+<li><p><a class="reference internal" href="#tips" id="id10">Tips</a></p></li>
+<li><p><a class="reference internal" href="#id4" id="id11">情報</a></p></li>
 </ul>
 </div>
-</details><div class="section" id="id2">
-<h2><a class="toc-backref" href="#id6">リファレンス</a></h2>
+</details><div class="section" id="id1">
+<h2><a class="toc-backref" href="#id5">リファレンス</a></h2>
 <p><a class="reference external" href="https://mypy.readthedocs.io/en/latest/index.html">https://mypy.readthedocs.io/en/latest/index.html</a></p>
 </div>
 <div class="section" id="type-hints">
-<h2><a class="toc-backref" href="#id7">Type hints 覚書き</a></h2>
+<h2><a class="toc-backref" href="#id6">Type hints 覚書き</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://mypy.readthedocs.io/en/latest/cheat_sheet_py3.html">Type hints cheat sheet (Python 3)</a></p></li>
 <li><p><a class="reference external" href="https://mypy.readthedocs.io/en/latest/cheat_sheet.html">Type hints cheat sheet (Python 2)</a></p></li>
@@ -75,8 +75,8 @@
 </dd>
 </dl>
 </div>
-<div class="section" id="id3">
-<h2><a class="toc-backref" href="#id8">これ</a></h2>
+<div class="section" id="id2">
+<h2><a class="toc-backref" href="#id7">これ</a></h2>
 <ul class="simple">
 <li><p><cite>Any は型チェックの敗北</cite></p></li>
 <li><p><cite>ignore は敗北その2</cite></p></li>
@@ -84,8 +84,8 @@
 <li><p><cite>mypy が解釈できないなら人間にも読みにくい</cite></p></li>
 </ul>
 </div>
-<div class="section" id="id4">
-<h2><a class="toc-backref" href="#id9">Type hints はどこに必要か、どこに書くべきか</a></h2>
+<div class="section" id="id3">
+<h2><a class="toc-backref" href="#id8">Type hints はどこに必要か、どこに書くべきか</a></h2>
 <ul class="simple">
 <li><p>引数と戻り値</p></li>
 <li><p>定数の初期化時 (空の場合のみ)</p></li>
@@ -97,14 +97,14 @@
 </ul>
 </div>
 <div class="section" id="python3">
-<h2><a class="toc-backref" href="#id10">python3 ではこういうふうに書ける</a></h2>
-<pre class="code python"><a name="rest_code_db879afd70264c4ea24172c41d197613-1"></a><span class="c1"># https://mypy.readthedocs.io/en/latest/cheat_sheet_py3.html</span>
-<a name="rest_code_db879afd70264c4ea24172c41d197613-2"></a>
-<a name="rest_code_db879afd70264c4ea24172c41d197613-3"></a><span class="n">age</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span>
-<a name="rest_code_db879afd70264c4ea24172c41d197613-4"></a><span class="n">x</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-<a name="rest_code_db879afd70264c4ea24172c41d197613-5"></a>
-<a name="rest_code_db879afd70264c4ea24172c41d197613-6"></a><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">num1</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">my_float</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">3.5</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
-<a name="rest_code_db879afd70264c4ea24172c41d197613-7"></a>  <span class="k">return</span> <span class="n">num1</span> <span class="o">+</span> <span class="n">my_float</span>
+<h2><a class="toc-backref" href="#id9">python3 ではこういうふうに書ける</a></h2>
+<pre class="code python"><a name="rest_code_65269b6919a847bb82bd30836b357d0c-1"></a><span class="c1"># https://mypy.readthedocs.io/en/latest/cheat_sheet_py3.html</span>
+<a name="rest_code_65269b6919a847bb82bd30836b357d0c-2"></a>
+<a name="rest_code_65269b6919a847bb82bd30836b357d0c-3"></a><span class="n">age</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span>
+<a name="rest_code_65269b6919a847bb82bd30836b357d0c-4"></a><span class="n">x</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<a name="rest_code_65269b6919a847bb82bd30836b357d0c-5"></a>
+<a name="rest_code_65269b6919a847bb82bd30836b357d0c-6"></a><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">num1</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">my_float</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">3.5</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<a name="rest_code_65269b6919a847bb82bd30836b357d0c-7"></a>  <span class="k">return</span> <span class="n">num1</span> <span class="o">+</span> <span class="n">my_float</span>
 </pre>
 <ul class="simple">
 <li><p><a class="reference external" href="https://docs.python.org/ja/3/library/typing.html">typing --- 型ヒントのサポート</a> ( <cite>バージョン 3.5 で追加</cite> と言っている)</p></li>
@@ -112,7 +112,7 @@
 </ul>
 </div>
 <div class="section" id="tips">
-<h2><a class="toc-backref" href="#id11">Tips</a></h2>
+<h2><a class="toc-backref" href="#id10">Tips</a></h2>
 <ul class="simple">
 <li>
 <p>PyCharm で、 <code class="docutils literal">関数名やら定数やら変数やらを範囲選択</code> -&gt; <code class="docutils literal">Option + Enter</code> で type hints を自動追加できる</p>
@@ -123,8 +123,8 @@
 </li>
 </ul>
 </div>
-<div class="section" id="id5">
-<h2><a class="toc-backref" href="#id12">情報</a></h2>
+<div class="section" id="id4">
+<h2><a class="toc-backref" href="#id11">情報</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.slideshare.net/t2y/python-typechecker-20180519">Python と型チェッカー</a></p></li>
 <li><p><a class="reference external" href="http://mypy-lang.blogspot.com/2018/05/">Mypy 0.600 Released</a></p></li>

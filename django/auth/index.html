@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
@@ -34,22 +34,22 @@
         
       </time><div class="text">
       <div>
-<details><summary>目次</summary><div class="contents topic" id="id1">
-<p class="topic-title first">目次</p>
+<details><summary>目次</summary><div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#id2" id="id4">リファレンスなど</a></p></li>
-<li><p><a class="reference internal" href="#id3" id="id5">説明</a></p></li>
+<li><p><a class="reference internal" href="#id1" id="id3">リファレンスなど</a></p></li>
+<li><p><a class="reference internal" href="#id2" id="id4">説明</a></p></li>
 </ul>
 </div>
-</details><div class="section" id="id2">
-<h2><a class="toc-backref" href="#id4">リファレンスなど</a></h2>
+</details><div class="section" id="id1">
+<h2><a class="toc-backref" href="#id3">リファレンスなど</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://docs.djangoproject.com/ja/2.2/topics/auth/">https://docs.djangoproject.com/ja/2.2/topics/auth/</a></p></li>
 <li><p><a class="reference external" href="https://booth.pm/ja/items/1030026">現場で使える Django の教科書《実践編》</a> 2章</p></li>
 </ul>
 </div>
-<div class="section" id="id3">
-<h2><a class="toc-backref" href="#id5">説明</a></h2>
+<div class="section" id="id2">
+<h2><a class="toc-backref" href="#id4">説明</a></h2>
 <p>Djangoの認証は、認証機能と権限機能の両方を共に提供しています。そして、一般的に、これらの機能を合わせて認証システムと呼びます。</p>
 <ul>
 <li><p>ユーザー登録/ユーザー情報変更とかはない感じ</p></li>
@@ -57,10 +57,10 @@
 <li>
 <p>設定ディレクトリの <code class="docutils literal">urls.py</code> に <code class="docutils literal">django.contrib.auth.urls</code> の include を追加すると、 以下の URL パターンが設定される</p>
 <p><a class="reference external" href="https://docs.djangoproject.com/ja/2.2/topics/auth/default/#module-django.contrib.auth.views">https://docs.djangoproject.com/ja/2.2/topics/auth/default/#module-django.contrib.auth.views</a></p>
-<pre class="code python"><a name="rest_code_109f21d4a0394486839da806613899cf-1"></a><span class="c1"># これを追加すると、↓が全部使える!! しゅごい!</span>
-<a name="rest_code_109f21d4a0394486839da806613899cf-2"></a><span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
-<a name="rest_code_109f21d4a0394486839da806613899cf-3"></a>    <span class="n">path</span><span class="p">(</span><span class="s1">'accounts/'</span><span class="p">,</span> <span class="n">include</span><span class="p">(</span><span class="s1">'django.contrib.auth.urls'</span><span class="p">)),</span>
-<a name="rest_code_109f21d4a0394486839da806613899cf-4"></a><span class="p">]</span>
+<pre class="code python"><a name="rest_code_12cf98c1e4ab4d6d8d6ba8ab8bbfd27e-1"></a><span class="c1"># これを追加すると、↓が全部使える!! しゅごい!</span>
+<a name="rest_code_12cf98c1e4ab4d6d8d6ba8ab8bbfd27e-2"></a><span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+<a name="rest_code_12cf98c1e4ab4d6d8d6ba8ab8bbfd27e-3"></a>    <span class="n">path</span><span class="p">(</span><span class="s1">'accounts/'</span><span class="p">,</span> <span class="n">include</span><span class="p">(</span><span class="s1">'django.contrib.auth.urls'</span><span class="p">)),</span>
+<a name="rest_code_12cf98c1e4ab4d6d8d6ba8ab8bbfd27e-4"></a><span class="p">]</span>
 </pre>
 <table class="colwidths-auto">
 <thead><tr>
