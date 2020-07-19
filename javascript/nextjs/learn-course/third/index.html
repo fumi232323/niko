@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<title>Next.js: Tutorial 下/ふみのて</title>
+<link rel="shortcut icon" href="../../../../assets/icons/favicon.ico">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Griffy">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Vollkorn:400,700">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sawarabi+Mincho&amp;display=swap&amp;subset=japanese,latin-ext">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+<link rel="stylesheet" href="../../../../assets/css/style.css?20200705">
+</head>
+<body>
+    <div class="container">
+      <div class="header"><header class="item item-header"><h1>
+    <a href="../../../../">
+      <img class="logo" src="../../../../assets/images/inuu.png" alt="犬"></a>
+  </h1>
+  <iframe src="../../../../tags/" class="tags"></iframe>
+</header></div>
+      <div class="main">
+<div class="article-content">
+  <main class="item item-article item-javascript"><div class="category">
+      <a href="../../../../tags/javascript/">
+          javascript
+      </a>
+    </div>
+    <div class="title">Next.js: Tutorial 下</div>
+    <time class="date" datetime="2020-07-19 00:00:00+09:00">
+      created: 2020-07-19 Sun
+    </time><time class="date" datetime="2020-07-19 00:00:00+09:00">
+        updated: 2020-07-19 Sun
+        
+      </time><div class="text">
+      <div>
+<details><summary>目次</summary><div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#id1" id="id5">リファレンス, 書籍</a></p></li>
+<li>
+<p><a class="reference internal" href="#dynamic-routes" id="id6">Dynamic Routes</a></p>
+<ul>
+<li><p><a class="reference internal" href="#how-to-statically-generate-pages-with-dynamic-routes" id="id7">How to Statically Generate Pages with Dynamic Routes</a></p></li>
+<li><p><a class="reference internal" href="#id2" id="id8">実行の順番</a></p></li>
+<li><p><a class="reference internal" href="#id3" id="id9">他のページからリンクするとき</a></p></li>
+<li><p><a class="reference internal" href="#getstaticpaths" id="id10">getStaticPaths が実行されるタイミング</a></p></li>
+<li><p><a class="reference internal" href="#fallback" id="id11">Fallback</a></p></li>
+<li><p><a class="reference internal" href="#catch-all-routes" id="id12">Catch-all Routes</a></p></li>
+<li><p><a class="reference internal" href="#router" id="id13">Router</a></p></li>
+<li><p><a class="reference internal" href="#pages" id="id14">404 Pages</a></p></li>
+<li><p><a class="reference internal" href="#dynamic-routes-details" id="id15">Dynamic Routes Details</a></p></li>
+<li><p><a class="reference internal" href="#id4" id="id16">ライブラリ</a></p></li>
+</ul>
+</li>
+<li>
+<p><a class="reference internal" href="#api-routes" id="id17">API Routes</a></p>
+<ul>
+<li><p><a class="reference internal" href="#creating-api-routes" id="id18">Creating API Routes</a></p></li>
+<li><p><a class="reference internal" href="#dynamic-api-routes" id="id19">Dynamic API Routes</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+</details><div class="section" id="id1">
+<h2><a class="toc-backref" href="#id5">リファレンス, 書籍</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://nextjs.org/learn/basics/dynamic-routes">https://nextjs.org/learn/basics/dynamic-routes</a></p></li>
+<li><p><a class="reference external" href="https://nextjs.org/learn/basics/api-routes">https://nextjs.org/learn/basics/api-routes</a></p></li>
+</ul>
+</div>
+<div class="section" id="dynamic-routes">
+<h2><a class="toc-backref" href="#id6">Dynamic Routes</a></h2>
+<ul class="simple">
+<li><p>Next.js は、外部データに依存するパスを持つページを静的に生成できる。</p></li>
+<li><p>これは、 Next.js において <code class="docutils literal">dynamic URLs</code> を可能にする。</p></li>
+</ul>
+<div class="section" id="how-to-statically-generate-pages-with-dynamic-routes">
+<h3><a class="toc-backref" href="#id7">How to Statically Generate Pages with Dynamic Routes</a></h3>
+<ol class="arabic simple">
+<li>
+<p><code class="docutils literal">page</code> ディレクトリ配下に、 <code class="docutils literal">[</code> で始まり <code class="docutils literal">]</code> で終わるファイルを作る</p>
+<ul class="simple">
+<li><p>ファイル名: <code class="docutils literal"><span class="pre">pages/posts/[id].js</span></code>  =&gt; パス: <code class="docutils literal"><span class="pre">/posts/{id}</span></code></p></li>
+<li><p><code class="docutils literal">[</code> で始まり <code class="docutils literal">]</code> で終わるのが動的 page</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal"><span class="pre">pages/posts/[id].js</span></code> の中に、 <code class="docutils literal">getStaticPaths</code> という非同期関数を export する。</p></li>
+</ol>
+<p></p>
+<div class="code-block ">
+<div class="code-block-label">pages/posts/[id].js</div>
+<div class="highlight"><pre><span></span><span class="kr">import</span> <span class="nx">Layout</span> <span class="nx">from</span> <span class="s2">"../../components/layout"</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">getAllPostIds</span><span class="p">,</span> <span class="nx">getPostData</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">"../../lib/posts"</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">Head</span> <span class="nx">from</span> <span class="s2">"next/head"</span>
+<span class="kr">import</span> <span class="nb">Date</span> <span class="nx">from</span> <span class="s1">'../../components//date'</span>
+<span class="kr">import</span> <span class="nx">utilStyles</span> <span class="nx">from</span> <span class="s1">'../../styles/utils.module.css'</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nx">Post</span><span class="p">({</span> <span class="nx">postData</span> <span class="p">})</span> <span class="p">{</span>
+  <span class="cm">/* page を返す */</span>
+  <span class="c1">// 受け取った `postData` を使って page を生成</span>
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="o">&lt;</span><span class="nx">Layout</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nx">Head</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">title</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">postData</span><span class="p">.</span><span class="nx">title</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/title&gt;</span>
+      <span class="o">&lt;</span><span class="err">/Head&gt;</span>
+      <span class="o">&lt;</span><span class="nx">article</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">h1</span> <span class="nx">className</span><span class="o">=</span><span class="p">{</span><span class="nx">utilStyles</span><span class="p">.</span><span class="nx">headingXl</span><span class="p">}</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">postData</span><span class="p">.</span><span class="nx">title</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/h1&gt;</span>
+        <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="p">{</span><span class="nx">utilStyles</span><span class="p">.</span><span class="nx">lightText</span><span class="p">}</span><span class="o">&gt;</span>
+          <span class="o">&lt;</span><span class="nb">Date</span> <span class="nx">dateString</span><span class="o">=</span><span class="p">{</span><span class="nx">postData</span><span class="p">.</span><span class="nx">date</span><span class="p">}</span> <span class="o">/&gt;</span>
+        <span class="o">&lt;</span><span class="err">/div&gt;</span>
+        <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">dangerouslySetInnerHTML</span><span class="o">=</span><span class="p">{{</span> <span class="nx">__html</span><span class="o">:</span> <span class="nx">postData</span><span class="p">.</span><span class="nx">contentHtml</span> <span class="p">}}</span> <span class="o">/&gt;</span>
+      <span class="o">&lt;</span><span class="err">/article&gt;</span>
+    <span class="o">&lt;</span><span class="err">/Layout&gt;</span>
+  <span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kr">export</span> <span class="nx">async</span> <span class="kd">function</span> <span class="nx">getStaticPaths</span><span class="p">()</span> <span class="p">{</span>
+  <span class="cm">/* ブログIDの一覧を返す</span>
+<span class="cm">  *</span>
+<span class="cm">  * `/posts/{id}.js` というパスで page を返すべき ID の一覧を返すよ。</span>
+<span class="cm">  * 取得するのは単なる文字列の配列ではなく、オブジェクトの配列である必要がある。</span>
+<span class="cm">  * 各オブジェクトには `params` キーが必要、かつ、 `id` キーを持つオブジェクトが含まれている必要がある。</span>
+<span class="cm">  * (`[id]` をファイル名に使用しているため。でないと `getStaticPaths` がこけちゃうよ。)</span>
+<span class="cm">  */</span>
+  <span class="kr">const</span> <span class="nx">paths</span> <span class="o">=</span> <span class="nx">getAllPostIds</span><span class="p">()</span>
+  <span class="k">return</span> <span class="p">{</span>
+    <span class="nx">paths</span><span class="p">,</span>
+    <span class="nx">fallback</span><span class="o">:</span> <span class="kc">false</span>
+    <span class="c1">// fallback: true</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kr">export</span> <span class="nx">async</span> <span class="kd">function</span> <span class="nx">getStaticProps</span><span class="p">({</span> <span class="nx">params</span> <span class="p">})</span> <span class="p">{</span>
+  <span class="cm">/* ブログID に紐づく、ページの生成に必要なデータを返す</span>
+<span class="cm">  *</span>
+<span class="cm">  * 引数の `params` の中に `id` が入ってる</span>
+<span class="cm">  * (この page は `/posts/{id}.js` というパスでアクセスされる)</span>
+<span class="cm">  */</span>
+  <span class="c1">// どこぞから id をキーにブログのデータを取得している</span>
+  <span class="kr">const</span> <span class="nx">postData</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">getPostData</span><span class="p">(</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span><span class="p">)</span>
+  <span class="c1">// The value of the `props` key will be</span>
+  <span class="c1">//  passed to the `Post` component</span>
+  <span class="k">return</span> <span class="p">{</span>
+    <span class="nx">props</span><span class="o">:</span> <span class="p">{</span>
+      <span class="c1">// `props` key の inside で結果を返す</span>
+      <span class="nx">postData</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h3><a class="toc-backref" href="#id8">実行の順番</a></h3>
+<ol class="arabic simple">
+<li><p><code class="docutils literal">getStaticPaths()</code></p></li>
+<li><p><code class="docutils literal">getStaticProps()</code></p></li>
+<li><p><code class="docutils literal">Post()</code></p></li>
+</ol>
+</div>
+<div class="section" id="id3">
+<h3><a class="toc-backref" href="#id9">他のページからリンクするとき</a></h3>
+<pre class="code javascript"><a name="rest_code_55e95825a91c4601b2c9058c21eb6d51-1"></a><span class="c1">// href に `[]` を使い、 `as` prop に実際のパス (id) を入れてあげる</span>
+<a name="rest_code_55e95825a91c4601b2c9058c21eb6d51-2"></a><span class="o">&lt;</span><span class="nx">Link</span> <span class="nx">href</span><span class="o">=</span><span class="s2">"/posts/[id]"</span> <span class="nx">as</span><span class="o">=</span><span class="s2">"/posts/ssg-ssr"</span><span class="o">&gt;</span>
+<a name="rest_code_55e95825a91c4601b2c9058c21eb6d51-3"></a>  <span class="o">&lt;</span><span class="nx">a</span><span class="o">&gt;</span><span class="p">...</span><span class="o">&lt;</span><span class="err">/a&gt;</span>
+<a name="rest_code_55e95825a91c4601b2c9058c21eb6d51-4"></a><span class="o">&lt;</span><span class="err">/Link&gt;</span>
+</pre>
+</div>
+<div class="section" id="getstaticpaths">
+<h3><a class="toc-backref" href="#id10">getStaticPaths が実行されるタイミング</a></h3>
+<ul class="simple">
+<li><p>開発時: リクエスト毎</p></li>
+<li><p>本番時: ビルド時</p></li>
+</ul>
+</div>
+<div class="section" id="fallback">
+<h3><a class="toc-backref" href="#id11">Fallback</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal">fallback: false</code>: <code class="docutils literal">getStaticPaths</code> から返されるどのページにも合致しないパスがリクエストされた場合、404 page を返す</p></li>
+<li>
+<p><code class="docutils literal">fallback: true</code>: 404 page を返さない</p>
+<ul>
+<li><p>のはわかったけれどあとは良くわからないので、ここを読んでください: <a class="reference external" href="https://nextjs.org/docs/basic-features/data-fetching#fallback-pageshttps://nextjs.org/docs/basic-features/data">https://nextjs.org/docs/basic-features/data-fetching#fallback-pageshttps://nextjs.org/docs/basic-features/data</a>-fetching#fallback-pages</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="catch-all-routes">
+<h3><a class="toc-backref" href="#id12">Catch-all Routes</a></h3>
+<p><code class="docutils literal">[]</code> の中に <code class="docutils literal">...</code> (three dots) を入れるとすべてのパスをキャッチできるようになる</p>
+<ul class="simple">
+<li><p><code class="docutils literal"><span class="pre">pages/posts/[...id].js</span></code> =&gt; <code class="docutils literal">/posts/a</code> も <code class="docutils literal">/posts/a/b</code> も <code class="docutils literal">/posts/a/b/c</code> もマッチする。</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>詳しくは: <a class="reference external" href="https://nextjs.org/docs/routing/dynamic-routes">https://nextjs.org/docs/routing/dynamic-routes</a></p>
+</div>
+</div>
+<div class="section" id="router">
+<h3><a class="toc-backref" href="#id13">Router</a></h3>
+<p>Next.js router にアクセスしたい場合は、 <code class="docutils literal">next/router</code> から <code class="docutils literal">useRouter</code> hook を import する</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>詳しくは: <a class="reference external" href="https://nextjs.org/docs/routing/dynamic-routes">https://nextjs.org/docs/routing/dynamic-routes</a></p>
+</div>
+</div>
+<div class="section" id="pages">
+<h3><a class="toc-backref" href="#id14">404 Pages</a></h3>
+<p>カスタム 404 Page を作成できる</p>
+<ul class="simple">
+<li><p><code class="docutils literal">pages/404.js</code> というファイルを作れば良い</p></li>
+<li><p>ビルド時に静的生成される</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>詳しくは: <a class="reference external" href="https://nextjs.org/docs/advanced-features/custom-error-page#404-page">https://nextjs.org/docs/advanced-features/custom-error-page#404-page</a></p>
+</div>
+</div>
+<div class="section" id="dynamic-routes-details">
+<h3><a class="toc-backref" href="#id15">Dynamic Routes Details</a></h3>
+<ul class="simple">
+<li><p>Data Fetching: <a class="reference external" href="https://nextjs.org/docs/basic-features/data-fetching">https://nextjs.org/docs/basic-features/data-fetching</a></p></li>
+<li><p>Dynamic Routes: <a class="reference external" href="https://nextjs.org/docs/routing/dynamic-routes">https://nextjs.org/docs/routing/dynamic-routes</a></p></li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h3><a class="toc-backref" href="#id16">ライブラリ</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal">remark</code>: Markdown コンテンツのレンダリング</p></li>
+<li><p><code class="docutils literal"><span class="pre">date-fns</span></code>: 日付フォーマット</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="api-routes">
+<h2><a class="toc-backref" href="#id17">API Routes</a></h2>
+<ul class="simple">
+<li><p>Next.js は API Routes をサポートしている</p></li>
+<li><p>Node.js 関数として APIエンドポイントを簡単に作成できる</p></li>
+</ul>
+<div class="section" id="creating-api-routes">
+<h3><a class="toc-backref" href="#id18">Creating API Routes</a></h3>
+<p><code class="docutils literal">pages/api</code> 配下にこんな関数を作る</p>
+<p></p>
+<div class="code-block ">
+<div class="code-block-label">pages/api/hello.js</div>
+<div class="highlight"><pre><span></span><span class="c1">// req = request data, res = response data</span>
+<span class="kr">export</span> <span class="k">default</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// http://localhost:3000/api/hello でアクセスできる</span>
+  <span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mi">200</span><span class="p">).</span><span class="nx">json</span><span class="p">({</span> <span class="nx">text</span><span class="o">:</span> <span class="s1">'Hello'</span> <span class="p">})</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Serverless Functions (also known as Lambdas) としてデプロイできる</p></li>
+<li><p>Do Not Fetch an API Route from <code class="docutils literal">getStaticProps</code> or <code class="docutils literal">getStaticPaths</code></p></li>
+<li>
+<p>良い Use Case は、入力フォームのハンドリングです</p>
+<ul>
+<li><p>page にフォームを作る</p></li>
+<li><p>=&gt; API Route に POSTリクエストする</p></li>
+<li><p>=&gt; API Route で直接 DBに保存する</p></li>
+</ul>
+</li>
+<li><p>API Route のコードはクライアントバンドルされないので、安全にサーバーサイドコードが記述できる</p></li>
+</ul>
+</div>
+<div class="section" id="dynamic-api-routes">
+<h3><a class="toc-backref" href="#id19">Dynamic API Routes</a></h3>
+<p>API Routes は、通常の page と同様に動的にできる</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>詳しくは: <a class="reference external" href="https://nextjs.org/docs/api-routes/dynamic-api-routes">https://nextjs.org/docs/api-routes/dynamic-api-routes</a></p>
+</div>
+</div>
+</div>
+</div>
+    </div>
+  </main>
+</div>
+</div>
+    </div>
+  </body>
+</html>
