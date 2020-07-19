@@ -1,4 +1,4 @@
-.. title: Next.js: Tutorial 前半
+.. title: Next.js: Tutorial 上
 .. tags: javascript
 .. date: 2020-07-05
 .. slug: index
