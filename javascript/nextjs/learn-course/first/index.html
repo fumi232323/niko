@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-<title>Next.js: Tutorial 前半/ふみのて</title>
+<title>Next.js: Tutorial 上/ふみのて</title>
 <link rel="shortcut icon" href="../../../../assets/icons/favicon.ico">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Griffy">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Vollkorn:400,700">
@@ -26,7 +26,7 @@
           javascript
       </a>
     </div>
-    <div class="title">Next.js: Tutorial 前半</div>
+    <div class="title">Next.js: Tutorial 上</div>
     <time class="date" datetime="2020-07-05 00:00:00+09:00">
       created: 2020-07-05 Sun
     </time><time class="date" datetime="2020-07-05 00:00:00+09:00">
@@ -73,21 +73,21 @@
 </div>
 <div class="section" id="create-a-next-js-app">
 <h2><a class="toc-backref" href="#id4">Create a Next.js App</a></h2>
-<pre class="code bash"><a name="rest_code_8683ae15cee04facb10c32bbf045e075-1"></a><span class="c1"># Node.js がインストールされていること</span>
-<a name="rest_code_8683ae15cee04facb10c32bbf045e075-2"></a>$ node -v
-<a name="rest_code_8683ae15cee04facb10c32bbf045e075-3"></a>
-<a name="rest_code_8683ae15cee04facb10c32bbf045e075-4"></a><span class="c1"># アプリを作成するディレクトリを作成</span>
-<a name="rest_code_8683ae15cee04facb10c32bbf045e075-5"></a>$ mkdir learn-course
-<a name="rest_code_8683ae15cee04facb10c32bbf045e075-6"></a>$ <span class="nb">cd</span> learn-course
-<a name="rest_code_8683ae15cee04facb10c32bbf045e075-7"></a>
-<a name="rest_code_8683ae15cee04facb10c32bbf045e075-8"></a><span class="c1"># Next.jsアプリを作成する</span>
-<a name="rest_code_8683ae15cee04facb10c32bbf045e075-9"></a><span class="c1"># 内部では `create-next-app` というツールを使っている</span>
-<a name="rest_code_8683ae15cee04facb10c32bbf045e075-10"></a>$ npm init next-app nextjs-blog --example <span class="s2">"https://github.com/vercel/next-learn-starter/tree/master/learn-starter"</span>
-<a name="rest_code_8683ae15cee04facb10c32bbf045e075-11"></a>
-<a name="rest_code_8683ae15cee04facb10c32bbf045e075-12"></a><span class="c1"># 開発サーバーの起動</span>
-<a name="rest_code_8683ae15cee04facb10c32bbf045e075-13"></a>$ <span class="nb">cd</span> nextjs-blog
-<a name="rest_code_8683ae15cee04facb10c32bbf045e075-14"></a><span class="c1"># port 3000 で起動する (http://localhost:3000/)</span>
-<a name="rest_code_8683ae15cee04facb10c32bbf045e075-15"></a>$ npm run dev
+<pre class="code bash"><a name="rest_code_49bf0976e2ca4d7993d39ee6d69e31c4-1"></a><span class="c1"># Node.js がインストールされていること</span>
+<a name="rest_code_49bf0976e2ca4d7993d39ee6d69e31c4-2"></a>$ node -v
+<a name="rest_code_49bf0976e2ca4d7993d39ee6d69e31c4-3"></a>
+<a name="rest_code_49bf0976e2ca4d7993d39ee6d69e31c4-4"></a><span class="c1"># アプリを作成するディレクトリを作成</span>
+<a name="rest_code_49bf0976e2ca4d7993d39ee6d69e31c4-5"></a>$ mkdir learn-course
+<a name="rest_code_49bf0976e2ca4d7993d39ee6d69e31c4-6"></a>$ <span class="nb">cd</span> learn-course
+<a name="rest_code_49bf0976e2ca4d7993d39ee6d69e31c4-7"></a>
+<a name="rest_code_49bf0976e2ca4d7993d39ee6d69e31c4-8"></a><span class="c1"># Next.jsアプリを作成する</span>
+<a name="rest_code_49bf0976e2ca4d7993d39ee6d69e31c4-9"></a><span class="c1"># 内部では `create-next-app` というツールを使っている</span>
+<a name="rest_code_49bf0976e2ca4d7993d39ee6d69e31c4-10"></a>$ npm init next-app nextjs-blog --example <span class="s2">"https://github.com/vercel/next-learn-starter/tree/master/learn-starter"</span>
+<a name="rest_code_49bf0976e2ca4d7993d39ee6d69e31c4-11"></a>
+<a name="rest_code_49bf0976e2ca4d7993d39ee6d69e31c4-12"></a><span class="c1"># 開発サーバーの起動</span>
+<a name="rest_code_49bf0976e2ca4d7993d39ee6d69e31c4-13"></a>$ <span class="nb">cd</span> nextjs-blog
+<a name="rest_code_49bf0976e2ca4d7993d39ee6d69e31c4-14"></a><span class="c1"># port 3000 で起動する (http://localhost:3000/)</span>
+<a name="rest_code_49bf0976e2ca4d7993d39ee6d69e31c4-15"></a>$ npm run dev
 </pre>
 </div>
 <div class="section" id="navigate-between-pages">
@@ -109,10 +109,10 @@
 <h3><a class="toc-backref" href="#id7">Link Component</a></h3>
 <p>ページ間のリンクは <code class="docutils literal">&lt;Link&gt;</code> React Component を使う</p>
 <blockquote>
-<pre class="code javascript"><a name="rest_code_9269e9f734fe4e5fba129eb0506a59a9-1"></a><span class="kr">import</span> <span class="nx">Link</span> <span class="nx">from</span> <span class="s1">'next/link'</span>
-<a name="rest_code_9269e9f734fe4e5fba129eb0506a59a9-2"></a>
-<a name="rest_code_9269e9f734fe4e5fba129eb0506a59a9-3"></a><span class="c1">// 中に a tag が入る</span>
-<a name="rest_code_9269e9f734fe4e5fba129eb0506a59a9-4"></a><span class="nx">Read</span> <span class="o">&lt;</span><span class="nx">Link</span> <span class="nx">href</span><span class="o">=</span><span class="s2">"/posts/first-post"</span><span class="o">&gt;&lt;</span><span class="nx">a</span><span class="o">&gt;</span><span class="k">this</span> <span class="nx">page</span><span class="o">!&lt;</span><span class="err">/a&gt;&lt;/Link&gt;</span>
+<pre class="code javascript"><a name="rest_code_514fb375268345fda4f7a3541ac63e67-1"></a><span class="kr">import</span> <span class="nx">Link</span> <span class="nx">from</span> <span class="s1">'next/link'</span>
+<a name="rest_code_514fb375268345fda4f7a3541ac63e67-2"></a>
+<a name="rest_code_514fb375268345fda4f7a3541ac63e67-3"></a><span class="c1">// 中に a tag が入る</span>
+<a name="rest_code_514fb375268345fda4f7a3541ac63e67-4"></a><span class="nx">Read</span> <span class="o">&lt;</span><span class="nx">Link</span> <span class="nx">href</span><span class="o">=</span><span class="s2">"/posts/first-post"</span><span class="o">&gt;&lt;</span><span class="nx">a</span><span class="o">&gt;</span><span class="k">this</span> <span class="nx">page</span><span class="o">!&lt;</span><span class="err">/a&gt;&lt;/Link&gt;</span>
 </pre>
 </blockquote>
 </div>
@@ -143,8 +143,8 @@ Next.js があらかじめ自動的にバックグラウンドでリンク先ペ
 <li><p>静的ファイルは、アプリケーションのトップレベルの <code class="docutils literal">public</code> ディレクトリに配置する</p></li>
 <li>
 <p><code class="docutils literal">public</code> ディレクトリ配下の静的ファイルは、 <code class="docutils literal">pages</code> と同様に、アプリケーションルートから参照できる</p>
-<pre class="code javascript"><a name="rest_code_44920a99cb734c5e95d7f10a500dcdb5-1"></a><span class="c1">// app_root/public/vercel.svg を参照する場合</span>
-<a name="rest_code_44920a99cb734c5e95d7f10a500dcdb5-2"></a><span class="o">&lt;</span><span class="nx">img</span> <span class="nx">src</span><span class="o">=</span><span class="s2">"/vercel.svg"</span> <span class="nx">alt</span><span class="o">=</span><span class="s2">"Vercel Logo"</span> <span class="nx">className</span><span class="o">=</span><span class="s2">"logo"</span> <span class="o">/&gt;</span>
+<pre class="code javascript"><a name="rest_code_82cf68c5d1d3497fa888c1135fb8af51-1"></a><span class="c1">// app_root/public/vercel.svg を参照する場合</span>
+<a name="rest_code_82cf68c5d1d3497fa888c1135fb8af51-2"></a><span class="o">&lt;</span><span class="nx">img</span> <span class="nx">src</span><span class="o">=</span><span class="s2">"/vercel.svg"</span> <span class="nx">alt</span><span class="o">=</span><span class="s2">"Vercel Logo"</span> <span class="nx">className</span><span class="o">=</span><span class="s2">"logo"</span> <span class="o">/&gt;</span>
 </pre>
 </li>
 <li><p><code class="docutils literal">public</code> ディレクトリには、そのほかにも <code class="docutils literal">robots.txt</code> など静的な aseets を置くとよい</p></li>
@@ -153,12 +153,12 @@ Next.js があらかじめ自動的にバックグラウンドでリンク先ペ
 <div class="section" id="metadata">
 <h3><a class="toc-backref" href="#id11">Metadata</a></h3>
 <p><code class="docutils literal">&lt;title&gt;</code> など、ページのメタデータを変更したい場合は <code class="docutils literal">&lt;Head&gt;</code> React Component を使う</p>
-<pre class="code javascript"><a name="rest_code_7aa1094a1142473888d9b6ca2e4f4e25-1"></a><span class="kr">import</span> <span class="nx">Head</span> <span class="nx">from</span> <span class="s1">'next/head'</span>
-<a name="rest_code_7aa1094a1142473888d9b6ca2e4f4e25-2"></a>
-<a name="rest_code_7aa1094a1142473888d9b6ca2e4f4e25-3"></a><span class="c1">// Head の H は大文字</span>
-<a name="rest_code_7aa1094a1142473888d9b6ca2e4f4e25-4"></a><span class="o">&lt;</span><span class="nx">Head</span><span class="o">&gt;</span>
-<a name="rest_code_7aa1094a1142473888d9b6ca2e4f4e25-5"></a>  <span class="o">&lt;</span><span class="nx">title</span><span class="o">&gt;</span><span class="nx">First</span> <span class="nx">Post</span><span class="o">&lt;</span><span class="err">/title&gt;</span>
-<a name="rest_code_7aa1094a1142473888d9b6ca2e4f4e25-6"></a><span class="o">&lt;</span><span class="err">/Head&gt;</span>
+<pre class="code javascript"><a name="rest_code_c629f8604bc744aaacb374840e7df083-1"></a><span class="kr">import</span> <span class="nx">Head</span> <span class="nx">from</span> <span class="s1">'next/head'</span>
+<a name="rest_code_c629f8604bc744aaacb374840e7df083-2"></a>
+<a name="rest_code_c629f8604bc744aaacb374840e7df083-3"></a><span class="c1">// Head の H は大文字</span>
+<a name="rest_code_c629f8604bc744aaacb374840e7df083-4"></a><span class="o">&lt;</span><span class="nx">Head</span><span class="o">&gt;</span>
+<a name="rest_code_c629f8604bc744aaacb374840e7df083-5"></a>  <span class="o">&lt;</span><span class="nx">title</span><span class="o">&gt;</span><span class="nx">First</span> <span class="nx">Post</span><span class="o">&lt;</span><span class="err">/title&gt;</span>
+<a name="rest_code_c629f8604bc744aaacb374840e7df083-6"></a><span class="o">&lt;</span><span class="err">/Head&gt;</span>
 </pre>
 </div>
 <div class="section" id="css-styling">
@@ -170,10 +170,10 @@ Next.js があらかじめ自動的にバックグラウンドでリンク先ペ
 <li><p>React Component 内で CSS を記述できる</p></li>
 <li><p>CSS スタイルがスコープされる（他の Component は影響を受けない）</p></li>
 </ul>
-<pre class="code javascript"><a name="rest_code_7bf2ae2fdab449a68809c188f0de5ed3-1"></a><span class="c1">// e.g. styled-jsx を使ってページ内で有効な CSS をあてる</span>
-<a name="rest_code_7bf2ae2fdab449a68809c188f0de5ed3-2"></a><span class="o">&lt;</span><span class="nx">style</span> <span class="nx">jsx</span><span class="o">&gt;</span><span class="p">{</span><span class="sb">`</span>
-<a name="rest_code_7bf2ae2fdab449a68809c188f0de5ed3-3"></a><span class="sb">  …</span>
-<a name="rest_code_7bf2ae2fdab449a68809c188f0de5ed3-4"></a><span class="sb">`</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/style&gt;</span>
+<pre class="code javascript"><a name="rest_code_f941008d1f994185944aa362f28ecc78-1"></a><span class="c1">// e.g. styled-jsx を使ってページ内で有効な CSS をあてる</span>
+<a name="rest_code_f941008d1f994185944aa362f28ecc78-2"></a><span class="o">&lt;</span><span class="nx">style</span> <span class="nx">jsx</span><span class="o">&gt;</span><span class="p">{</span><span class="sb">`</span>
+<a name="rest_code_f941008d1f994185944aa362f28ecc78-3"></a><span class="sb">  …</span>
+<a name="rest_code_f941008d1f994185944aa362f28ecc78-4"></a><span class="sb">`</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/style&gt;</span>
 </pre>
 </li>
 <li><p>Next.js は <code class="docutils literal"><span class="pre">styled-jsx</span></code> ライブラリを built-in support しているが、</p></li>
@@ -198,34 +198,34 @@ Next.js があらかじめ自動的にバックグラウンドでリンク先ペ
 <ul>
 <li>
 <p>すべてのページに共通の <code class="docutils literal">Layout</code> Component を、 <code class="docutils literal">components</code> top-level ディレクトリに作る</p>
-<pre class="code javascript"><a name="rest_code_12d6e560f2204b7b8c49c747ea20579c-1"></a><span class="c1">// components/layout.js</span>
-<a name="rest_code_12d6e560f2204b7b8c49c747ea20579c-2"></a><span class="kd">function</span> <span class="nx">Layout</span><span class="p">({</span> <span class="nx">children</span> <span class="p">})</span> <span class="p">{</span>
-<a name="rest_code_12d6e560f2204b7b8c49c747ea20579c-3"></a>  <span class="k">return</span> <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">children</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/div&gt;</span>
-<a name="rest_code_12d6e560f2204b7b8c49c747ea20579c-4"></a><span class="p">}</span>
-<a name="rest_code_12d6e560f2204b7b8c49c747ea20579c-5"></a>
-<a name="rest_code_12d6e560f2204b7b8c49c747ea20579c-6"></a><span class="kr">export</span> <span class="k">default</span> <span class="nx">Layout</span>
+<pre class="code javascript"><a name="rest_code_b6116d8dca2c4bb389acaa44172d505e-1"></a><span class="c1">// components/layout.js</span>
+<a name="rest_code_b6116d8dca2c4bb389acaa44172d505e-2"></a><span class="kd">function</span> <span class="nx">Layout</span><span class="p">({</span> <span class="nx">children</span> <span class="p">})</span> <span class="p">{</span>
+<a name="rest_code_b6116d8dca2c4bb389acaa44172d505e-3"></a>  <span class="k">return</span> <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">children</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/div&gt;</span>
+<a name="rest_code_b6116d8dca2c4bb389acaa44172d505e-4"></a><span class="p">}</span>
+<a name="rest_code_b6116d8dca2c4bb389acaa44172d505e-5"></a>
+<a name="rest_code_b6116d8dca2c4bb389acaa44172d505e-6"></a><span class="kr">export</span> <span class="k">default</span> <span class="nx">Layout</span>
 </pre>
 </li>
 <li>
 <p>それを、各 page から import して利用できる</p>
-<pre class="code javascript"><a name="rest_code_a0287a05753e49cfb6540b99fd6df844-1"></a><span class="c1">// pages/posts/first-post.js</span>
-<a name="rest_code_a0287a05753e49cfb6540b99fd6df844-2"></a><span class="kr">import</span> <span class="nx">Layout</span> <span class="nx">from</span> <span class="s2">"../../components/layout"</span>
-<a name="rest_code_a0287a05753e49cfb6540b99fd6df844-3"></a>
-<a name="rest_code_a0287a05753e49cfb6540b99fd6df844-4"></a><span class="kr">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nx">FirstPost</span><span class="p">()</span> <span class="p">{</span>
-<a name="rest_code_a0287a05753e49cfb6540b99fd6df844-5"></a>  <span class="k">return</span> <span class="p">(</span>
-<a name="rest_code_a0287a05753e49cfb6540b99fd6df844-6"></a>    <span class="o">&lt;</span><span class="nx">Layout</span><span class="o">&gt;</span>
-<a name="rest_code_a0287a05753e49cfb6540b99fd6df844-7"></a>      <span class="o">&lt;</span><span class="nx">Head</span><span class="o">&gt;</span>
-<a name="rest_code_a0287a05753e49cfb6540b99fd6df844-8"></a>        <span class="o">&lt;</span><span class="nx">title</span><span class="o">&gt;</span><span class="nx">First</span> <span class="nx">Post</span><span class="o">&lt;</span><span class="err">/title&gt;</span>
-<a name="rest_code_a0287a05753e49cfb6540b99fd6df844-9"></a>      <span class="o">&lt;</span><span class="err">/Head&gt;</span>
-<a name="rest_code_a0287a05753e49cfb6540b99fd6df844-10"></a>      <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">First</span> <span class="nx">Post</span><span class="o">&lt;</span><span class="err">/h1&gt;</span>
-<a name="rest_code_a0287a05753e49cfb6540b99fd6df844-11"></a>      <span class="o">&lt;</span><span class="nx">h2</span><span class="o">&gt;</span>
-<a name="rest_code_a0287a05753e49cfb6540b99fd6df844-12"></a>        <span class="o">&lt;</span><span class="nx">Link</span> <span class="nx">href</span><span class="o">=</span><span class="s2">"/"</span><span class="o">&gt;</span>
-<a name="rest_code_a0287a05753e49cfb6540b99fd6df844-13"></a>          <span class="o">&lt;</span><span class="nx">a</span><span class="o">&gt;</span><span class="nx">Back</span> <span class="nx">to</span> <span class="nx">home</span><span class="o">&lt;</span><span class="err">/a&gt;</span>
-<a name="rest_code_a0287a05753e49cfb6540b99fd6df844-14"></a>        <span class="o">&lt;</span><span class="err">/Link&gt;</span>
-<a name="rest_code_a0287a05753e49cfb6540b99fd6df844-15"></a>      <span class="o">&lt;</span><span class="err">/h2&gt;</span>
-<a name="rest_code_a0287a05753e49cfb6540b99fd6df844-16"></a>    <span class="o">&lt;</span><span class="err">/Layout&gt;</span>
-<a name="rest_code_a0287a05753e49cfb6540b99fd6df844-17"></a>  <span class="p">)</span>
-<a name="rest_code_a0287a05753e49cfb6540b99fd6df844-18"></a><span class="p">}</span>
+<pre class="code javascript"><a name="rest_code_f49a3b67cdb04d40b25de423a39acd90-1"></a><span class="c1">// pages/posts/first-post.js</span>
+<a name="rest_code_f49a3b67cdb04d40b25de423a39acd90-2"></a><span class="kr">import</span> <span class="nx">Layout</span> <span class="nx">from</span> <span class="s2">"../../components/layout"</span>
+<a name="rest_code_f49a3b67cdb04d40b25de423a39acd90-3"></a>
+<a name="rest_code_f49a3b67cdb04d40b25de423a39acd90-4"></a><span class="kr">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nx">FirstPost</span><span class="p">()</span> <span class="p">{</span>
+<a name="rest_code_f49a3b67cdb04d40b25de423a39acd90-5"></a>  <span class="k">return</span> <span class="p">(</span>
+<a name="rest_code_f49a3b67cdb04d40b25de423a39acd90-6"></a>    <span class="o">&lt;</span><span class="nx">Layout</span><span class="o">&gt;</span>
+<a name="rest_code_f49a3b67cdb04d40b25de423a39acd90-7"></a>      <span class="o">&lt;</span><span class="nx">Head</span><span class="o">&gt;</span>
+<a name="rest_code_f49a3b67cdb04d40b25de423a39acd90-8"></a>        <span class="o">&lt;</span><span class="nx">title</span><span class="o">&gt;</span><span class="nx">First</span> <span class="nx">Post</span><span class="o">&lt;</span><span class="err">/title&gt;</span>
+<a name="rest_code_f49a3b67cdb04d40b25de423a39acd90-9"></a>      <span class="o">&lt;</span><span class="err">/Head&gt;</span>
+<a name="rest_code_f49a3b67cdb04d40b25de423a39acd90-10"></a>      <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">First</span> <span class="nx">Post</span><span class="o">&lt;</span><span class="err">/h1&gt;</span>
+<a name="rest_code_f49a3b67cdb04d40b25de423a39acd90-11"></a>      <span class="o">&lt;</span><span class="nx">h2</span><span class="o">&gt;</span>
+<a name="rest_code_f49a3b67cdb04d40b25de423a39acd90-12"></a>        <span class="o">&lt;</span><span class="nx">Link</span> <span class="nx">href</span><span class="o">=</span><span class="s2">"/"</span><span class="o">&gt;</span>
+<a name="rest_code_f49a3b67cdb04d40b25de423a39acd90-13"></a>          <span class="o">&lt;</span><span class="nx">a</span><span class="o">&gt;</span><span class="nx">Back</span> <span class="nx">to</span> <span class="nx">home</span><span class="o">&lt;</span><span class="err">/a&gt;</span>
+<a name="rest_code_f49a3b67cdb04d40b25de423a39acd90-14"></a>        <span class="o">&lt;</span><span class="err">/Link&gt;</span>
+<a name="rest_code_f49a3b67cdb04d40b25de423a39acd90-15"></a>      <span class="o">&lt;</span><span class="err">/h2&gt;</span>
+<a name="rest_code_f49a3b67cdb04d40b25de423a39acd90-16"></a>    <span class="o">&lt;</span><span class="err">/Layout&gt;</span>
+<a name="rest_code_f49a3b67cdb04d40b25de423a39acd90-17"></a>  <span class="p">)</span>
+<a name="rest_code_f49a3b67cdb04d40b25de423a39acd90-18"></a><span class="p">}</span>
 </pre>
 </li>
 </ul>
@@ -234,19 +234,19 @@ Next.js があらかじめ自動的にバックグラウンドでリンク先ペ
 <h3><a class="toc-backref" href="#id15">Adding CSS</a></h3>
 <p>CSS Modules を使うと、 React Component に CSSファイルをインポートできる</p>
 <blockquote>
-<pre class="code css"><a name="rest_code_db212cf87c3e4e94a1b426d3b3a88a4a-1"></a><span class="c">/* components/layout.module.css */</span>
-<a name="rest_code_db212cf87c3e4e94a1b426d3b3a88a4a-2"></a><span class="p">.</span><span class="nc">container</span> <span class="p">{</span>
-<a name="rest_code_db212cf87c3e4e94a1b426d3b3a88a4a-3"></a>  <span class="k">max-width</span><span class="p">:</span> <span class="mi">36</span><span class="kt">rem</span><span class="p">;</span>
-<a name="rest_code_db212cf87c3e4e94a1b426d3b3a88a4a-4"></a>  <span class="k">padding</span><span class="p">:</span> <span class="mi">0</span> <span class="mi">1</span><span class="kt">rem</span><span class="p">;</span>
-<a name="rest_code_db212cf87c3e4e94a1b426d3b3a88a4a-5"></a>  <span class="k">margin</span><span class="p">:</span> <span class="mi">3</span><span class="kt">rem</span> <span class="kc">auto</span> <span class="mi">6</span><span class="kt">rem</span><span class="p">;</span>
-<a name="rest_code_db212cf87c3e4e94a1b426d3b3a88a4a-6"></a><span class="p">}</span>
+<pre class="code css"><a name="rest_code_e3cf5325c34b4d858d76b1f90e3fef5c-1"></a><span class="c">/* components/layout.module.css */</span>
+<a name="rest_code_e3cf5325c34b4d858d76b1f90e3fef5c-2"></a><span class="p">.</span><span class="nc">container</span> <span class="p">{</span>
+<a name="rest_code_e3cf5325c34b4d858d76b1f90e3fef5c-3"></a>  <span class="k">max-width</span><span class="p">:</span> <span class="mi">36</span><span class="kt">rem</span><span class="p">;</span>
+<a name="rest_code_e3cf5325c34b4d858d76b1f90e3fef5c-4"></a>  <span class="k">padding</span><span class="p">:</span> <span class="mi">0</span> <span class="mi">1</span><span class="kt">rem</span><span class="p">;</span>
+<a name="rest_code_e3cf5325c34b4d858d76b1f90e3fef5c-5"></a>  <span class="k">margin</span><span class="p">:</span> <span class="mi">3</span><span class="kt">rem</span> <span class="kc">auto</span> <span class="mi">6</span><span class="kt">rem</span><span class="p">;</span>
+<a name="rest_code_e3cf5325c34b4d858d76b1f90e3fef5c-6"></a><span class="p">}</span>
 </pre>
-<pre class="code javascript"><a name="rest_code_7b6128d5e5e84edf9bf9bb5170e30c94-1"></a><span class="c1">// components/layout.js</span>
-<a name="rest_code_7b6128d5e5e84edf9bf9bb5170e30c94-2"></a><span class="kr">import</span> <span class="nx">styles</span> <span class="nx">from</span> <span class="s2">"./layout.module.css"</span>
-<a name="rest_code_7b6128d5e5e84edf9bf9bb5170e30c94-3"></a>
-<a name="rest_code_7b6128d5e5e84edf9bf9bb5170e30c94-4"></a><span class="kr">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nx">Layout</span><span class="p">({</span> <span class="nx">children</span> <span class="p">})</span> <span class="p">{</span>
-<a name="rest_code_7b6128d5e5e84edf9bf9bb5170e30c94-5"></a>  <span class="k">return</span> <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="p">{</span><span class="nx">styles</span><span class="p">.</span><span class="nx">container</span><span class="p">}</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">children</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/div&gt;</span>
-<a name="rest_code_7b6128d5e5e84edf9bf9bb5170e30c94-6"></a><span class="p">}</span>
+<pre class="code javascript"><a name="rest_code_898cff602a32492f9b6f7be02c647092-1"></a><span class="c1">// components/layout.js</span>
+<a name="rest_code_898cff602a32492f9b6f7be02c647092-2"></a><span class="kr">import</span> <span class="nx">styles</span> <span class="nx">from</span> <span class="s2">"./layout.module.css"</span>
+<a name="rest_code_898cff602a32492f9b6f7be02c647092-3"></a>
+<a name="rest_code_898cff602a32492f9b6f7be02c647092-4"></a><span class="kr">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nx">Layout</span><span class="p">({</span> <span class="nx">children</span> <span class="p">})</span> <span class="p">{</span>
+<a name="rest_code_898cff602a32492f9b6f7be02c647092-5"></a>  <span class="k">return</span> <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="p">{</span><span class="nx">styles</span><span class="p">.</span><span class="nx">container</span><span class="p">}</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">children</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/div&gt;</span>
+<a name="rest_code_898cff602a32492f9b6f7be02c647092-6"></a><span class="p">}</span>
 </pre>
 </blockquote>
 <ul class="simple">
@@ -268,10 +268,10 @@ Next.js によって自動的にロードされる <code class="docutils literal
 <li><p>すべてのページにスタイルを適用したいときは <code class="docutils literal">App</code> Compnent を使う</p></li>
 <li>
 <p><code class="docutils literal">pages</code> ディレクトリに <code class="docutils literal">_app.js</code> を作成し、↓のような感じで書く</p>
-<pre class="code javascript"><a name="rest_code_5540cd3d141d4a98b9e26ed3ecaf5d4e-1"></a><span class="c1">// pages/_app.js</span>
-<a name="rest_code_5540cd3d141d4a98b9e26ed3ecaf5d4e-2"></a><span class="kr">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nx">App</span><span class="p">({</span> <span class="nx">Component</span><span class="p">,</span> <span class="nx">pageProps</span> <span class="p">})</span> <span class="p">{</span>
-<a name="rest_code_5540cd3d141d4a98b9e26ed3ecaf5d4e-3"></a>  <span class="k">return</span> <span class="o">&lt;</span><span class="nx">Component</span> <span class="p">{...</span><span class="nx">pageProps</span><span class="p">}</span> <span class="o">/&gt;</span>
-<a name="rest_code_5540cd3d141d4a98b9e26ed3ecaf5d4e-4"></a><span class="p">}</span>
+<pre class="code javascript"><a name="rest_code_564c9d26e9e64e8eb73f3361717dba6c-1"></a><span class="c1">// pages/_app.js</span>
+<a name="rest_code_564c9d26e9e64e8eb73f3361717dba6c-2"></a><span class="kr">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nx">App</span><span class="p">({</span> <span class="nx">Component</span><span class="p">,</span> <span class="nx">pageProps</span> <span class="p">})</span> <span class="p">{</span>
+<a name="rest_code_564c9d26e9e64e8eb73f3361717dba6c-3"></a>  <span class="k">return</span> <span class="o">&lt;</span><span class="nx">Component</span> <span class="p">{...</span><span class="nx">pageProps</span><span class="p">}</span> <span class="o">/&gt;</span>
+<a name="rest_code_564c9d26e9e64e8eb73f3361717dba6c-4"></a><span class="p">}</span>
 </pre>
 </li>
 <li><p><code class="docutils literal">App</code> Compnent はすべてのページに共通する top-level Component です</p></li>
