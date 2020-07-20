@@ -15,7 +15,7 @@ body {
   background-position: 0 0, 10px 10px;
   color: #333;
   font-size: 1.2rem;
-  font-family: Griffy, "Sawarabi Mincho", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+  font-family: 'Fredericka the Great', "Sawarabi Mincho", "Hiragino Kaku Gothic ProN", Meiryo, cursive;
 }
 @media (max-width: 768px) {
   body {
@@ -407,7 +407,6 @@ a:active {
   font-weight: bold;
   letter-spacing: 1px;
   line-height: 1.4;
-  font-family: 'Vollkorn', "Sawarabi Mincho", "Hiragino Kaku Gothic ProN", serif;
 }
 @media (max-width: 768px) {
   .article-content .title {

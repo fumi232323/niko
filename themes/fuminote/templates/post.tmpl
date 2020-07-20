@@ -10,7 +10,7 @@
     </div>
     <div class="title">{{ post.title() }}</div>
     <time class="date" datetime="{{ post.date }}">
-      created: {{ post.date.strftime('%Y-%m-%d %a') }}
+      {{ post.date.strftime('%Y-%m-%d %a') }}
     </time>
     {% if post.updated %}
       <time class="date" datetime="{{ post.updated }}">
