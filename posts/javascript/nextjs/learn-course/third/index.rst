@@ -39,7 +39,7 @@ How to Statically Generate Pages with Dynamic Routes
 
 2. ``pages/posts/[id].js`` の中に、 ``getStaticPaths`` という非同期関数を export する。
 
-{{% codeblock ../nextjs-blog/pages/posts/[id].js label="pages/posts/[id].js" lexer="javascript" %}}
+{{% codeblock ../nextjs-blog/pages/posts/[id].tsx label="pages/posts/[id].tsx" lexer="typescript" %}}
 
 実行の順番
 ----------
@@ -106,6 +106,7 @@ Next.js router にアクセスしたい場合は、 ``next/router`` から ``use
 
 Dynamic Routes Details
 ----------------------
+
 * Data Fetching: https://nextjs.org/docs/basic-features/data-fetching
 * Dynamic Routes: https://nextjs.org/docs/routing/dynamic-routes
 
@@ -126,7 +127,7 @@ Creating API Routes
 
 ``pages/api`` 配下にこんな関数を作る
 
-{{% codeblock ../nextjs-blog/pages/api/hello.js label="pages/api/hello.js" lexer="javascript" %}}
+{{% codeblock ../nextjs-blog/pages/api/hello.ts label="pages/api/hello.ts" lexer="typescript" %}}
 
 * Serverless Functions (also known as Lambdas) としてデプロイできる
 * Do Not Fetch an API Route from ``getStaticProps`` or ``getStaticPaths``

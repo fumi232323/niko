@@ -51,6 +51,7 @@ Navigate Between Pages
 
 Pages in Next.js
 ----------------
+
 * Next.js では、ページは ``pages`` ディレクトリ配下のファイルから export された React Component です。
 * ファイル名とパスが関連付いている。
 
@@ -246,7 +247,7 @@ Adding Global CSS
 * 例)
 
   {{% codeblock ../nextjs-blog/styles/global.css label="styles/global.css" lexer="css" %}}
-  {{% codeblock ../nextjs-blog/pages/_app.js label="pages/_app.js" lexer="css" %}}
+  {{% codeblock ../nextjs-blog/pages/_app.tsx label="pages/_app.tsx" lexer="typescript" %}}
 
 まとめ
 ------

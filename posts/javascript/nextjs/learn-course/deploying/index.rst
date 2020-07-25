@@ -1,4 +1,4 @@
-.. title: Next.js: Tutorial deploying
+.. title: Next.js: Tutorial Deploying
 .. tags: javascript
 .. date: 2020-07-20
 .. slug: index

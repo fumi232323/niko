@@ -3,8 +3,17 @@ import { getAllPostIds, getPostData } from "../../lib/posts";
 import Head from "next/head"
 import Date from '../../components//date'
 import utilStyles from '../../styles/utils.module.css'
+import { GetStaticProps, GetStaticPaths } from "next";
 
-export default function Post({ postData }) {
+export default function Post({
+  postData
+}: {
+  postData: {
+    title: string,
+    date: string,
+    contentHtml: string
+  }
+}) {
   /* page を返す */
   // 受け取った `postData` を使って page を生成
   return (
@@ -23,7 +32,7 @@ export default function Post({ postData }) {
   )
 }
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
   /* ブログIDの一覧を返す
   *
   * `/posts/{id}.js` というパスで page を返すべき ID の一覧を返すよ。
@@ -39,14 +48,14 @@ export async function getStaticPaths() {
   }
 }
 
-export async function getStaticProps({ params }) {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
   /* ブログID に紐づく、ページの生成に必要なデータを返す
   *
   * 引数の `params` の中に `id` が入ってる
   * (この page は `/posts/{id}.js` というパスでアクセスされる)
   */
   // どこぞから id をキーにブログのデータを取得している
-  const postData = await getPostData(params.id)
+  const postData = await getPostData(params.id as string)
   // The value of the `props` key will be
   //  passed to the `Post` component
   return {
