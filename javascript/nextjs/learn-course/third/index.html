@@ -89,14 +89,23 @@
 </ol>
 <p></p>
 <div class="code-block ">
-<div class="code-block-label">pages/posts/[id].js</div>
+<div class="code-block-label">pages/posts/[id].tsx</div>
 <div class="highlight"><pre><span></span><span class="kr">import</span> <span class="nx">Layout</span> <span class="nx">from</span> <span class="s2">"../../components/layout"</span><span class="p">;</span>
 <span class="kr">import</span> <span class="p">{</span> <span class="nx">getAllPostIds</span><span class="p">,</span> <span class="nx">getPostData</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">"../../lib/posts"</span><span class="p">;</span>
 <span class="kr">import</span> <span class="nx">Head</span> <span class="nx">from</span> <span class="s2">"next/head"</span>
 <span class="kr">import</span> <span class="nb">Date</span> <span class="nx">from</span> <span class="s1">'../../components//date'</span>
 <span class="kr">import</span> <span class="nx">utilStyles</span> <span class="nx">from</span> <span class="s1">'../../styles/utils.module.css'</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">GetStaticProps</span><span class="p">,</span> <span class="nx">GetStaticPaths</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">"next"</span><span class="p">;</span>
 
-<span class="kr">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nx">Post</span><span class="p">({</span> <span class="nx">postData</span> <span class="p">})</span> <span class="p">{</span>
+<span class="kr">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nx">Post</span><span class="p">({</span>
+  <span class="nx">postData</span>
+<span class="p">}</span><span class="o">:</span> <span class="p">{</span>
+  <span class="nx">postData</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">title</span>: <span class="kt">string</span><span class="p">,</span>
+    <span class="nx">date</span>: <span class="kt">string</span><span class="p">,</span>
+    <span class="nx">contentHtml</span>: <span class="kt">string</span>
+  <span class="p">}</span>
+<span class="p">})</span> <span class="p">{</span>
   <span class="cm">/* page を返す */</span>
   <span class="c1">// 受け取った `postData` を使って page を生成</span>
   <span class="k">return</span> <span class="p">(</span>
@@ -109,13 +118,13 @@
         <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="p">{</span><span class="nx">utilStyles</span><span class="p">.</span><span class="nx">lightText</span><span class="p">}</span><span class="o">&gt;</span>
           <span class="o">&lt;</span><span class="nb">Date</span> <span class="nx">dateString</span><span class="o">=</span><span class="p">{</span><span class="nx">postData</span><span class="p">.</span><span class="nx">date</span><span class="p">}</span> <span class="o">/&gt;</span>
         <span class="o">&lt;</span><span class="err">/div&gt;</span>
-        <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">dangerouslySetInnerHTML</span><span class="o">=</span><span class="p">{{</span> <span class="nx">__html</span><span class="o">:</span> <span class="nx">postData</span><span class="p">.</span><span class="nx">contentHtml</span> <span class="p">}}</span> <span class="o">/&gt;</span>
+        <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">dangerouslySetInnerHTML</span><span class="o">=</span><span class="p">{{</span> <span class="nx">__html</span>: <span class="kt">postData.contentHtml</span> <span class="p">}}</span> <span class="o">/&gt;</span>
       <span class="o">&lt;</span><span class="err">/article&gt;</span>
     <span class="o">&lt;</span><span class="err">/Layout&gt;</span>
   <span class="p">)</span>
 <span class="p">}</span>
 
-<span class="kr">export</span> <span class="nx">async</span> <span class="kd">function</span> <span class="nx">getStaticPaths</span><span class="p">()</span> <span class="p">{</span>
+<span class="kr">export</span> <span class="kr">const</span> <span class="nx">getStaticPaths</span>: <span class="kt">GetStaticPaths</span> <span class="o">=</span> <span class="nx">async</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
   <span class="cm">/* ブログIDの一覧を返す</span>
 <span class="cm">  *</span>
 <span class="cm">  * `/posts/{id}.js` というパスで page を返すべき ID の一覧を返すよ。</span>
@@ -126,19 +135,19 @@
   <span class="kr">const</span> <span class="nx">paths</span> <span class="o">=</span> <span class="nx">getAllPostIds</span><span class="p">()</span>
   <span class="k">return</span> <span class="p">{</span>
     <span class="nx">paths</span><span class="p">,</span>
-    <span class="nx">fallback</span><span class="o">:</span> <span class="kc">false</span>
+    <span class="nx">fallback</span>: <span class="kt">false</span>
     <span class="c1">// fallback: true</span>
   <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="kr">export</span> <span class="nx">async</span> <span class="kd">function</span> <span class="nx">getStaticProps</span><span class="p">({</span> <span class="nx">params</span> <span class="p">})</span> <span class="p">{</span>
+<span class="kr">export</span> <span class="kr">const</span> <span class="nx">getStaticProps</span>: <span class="kt">GetStaticProps</span> <span class="o">=</span> <span class="nx">async</span> <span class="p">({</span> <span class="nx">params</span> <span class="p">})</span> <span class="o">=&gt;</span> <span class="p">{</span>
   <span class="cm">/* ブログID に紐づく、ページの生成に必要なデータを返す</span>
 <span class="cm">  *</span>
 <span class="cm">  * 引数の `params` の中に `id` が入ってる</span>
 <span class="cm">  * (この page は `/posts/{id}.js` というパスでアクセスされる)</span>
 <span class="cm">  */</span>
   <span class="c1">// どこぞから id をキーにブログのデータを取得している</span>
-  <span class="kr">const</span> <span class="nx">postData</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">getPostData</span><span class="p">(</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span><span class="p">)</span>
+  <span class="kr">const</span> <span class="nx">postData</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">getPostData</span><span class="p">(</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span> <span class="kr">as</span> <span class="kt">string</span><span class="p">)</span>
   <span class="c1">// The value of the `props` key will be</span>
   <span class="c1">//  passed to the `Post` component</span>
   <span class="k">return</span> <span class="p">{</span>
@@ -161,10 +170,10 @@
 </div>
 <div class="section" id="id3">
 <h3><a class="toc-backref" href="#id9">他のページからリンクするとき</a></h3>
-<pre class="code javascript"><a name="rest_code_55e95825a91c4601b2c9058c21eb6d51-1"></a><span class="c1">// href に `[]` を使い、 `as` prop に実際のパス (id) を入れてあげる</span>
-<a name="rest_code_55e95825a91c4601b2c9058c21eb6d51-2"></a><span class="o">&lt;</span><span class="nx">Link</span> <span class="nx">href</span><span class="o">=</span><span class="s2">"/posts/[id]"</span> <span class="nx">as</span><span class="o">=</span><span class="s2">"/posts/ssg-ssr"</span><span class="o">&gt;</span>
-<a name="rest_code_55e95825a91c4601b2c9058c21eb6d51-3"></a>  <span class="o">&lt;</span><span class="nx">a</span><span class="o">&gt;</span><span class="p">...</span><span class="o">&lt;</span><span class="err">/a&gt;</span>
-<a name="rest_code_55e95825a91c4601b2c9058c21eb6d51-4"></a><span class="o">&lt;</span><span class="err">/Link&gt;</span>
+<pre class="code javascript"><a name="rest_code_d0c29915b22f46da8bf611a4e1e7047f-1"></a><span class="c1">// href に `[]` を使い、 `as` prop に実際のパス (id) を入れてあげる</span>
+<a name="rest_code_d0c29915b22f46da8bf611a4e1e7047f-2"></a><span class="o">&lt;</span><span class="nx">Link</span> <span class="nx">href</span><span class="o">=</span><span class="s2">"/posts/[id]"</span> <span class="nx">as</span><span class="o">=</span><span class="s2">"/posts/ssg-ssr"</span><span class="o">&gt;</span>
+<a name="rest_code_d0c29915b22f46da8bf611a4e1e7047f-3"></a>  <span class="o">&lt;</span><span class="nx">a</span><span class="o">&gt;</span><span class="p">...</span><span class="o">&lt;</span><span class="err">/a&gt;</span>
+<a name="rest_code_d0c29915b22f46da8bf611a4e1e7047f-4"></a><span class="o">&lt;</span><span class="err">/Link&gt;</span>
 </pre>
 </div>
 <div class="section" id="getstaticpaths">
@@ -243,9 +252,11 @@
 <p><code class="docutils literal">pages/api</code> 配下にこんな関数を作る</p>
 <p></p>
 <div class="code-block ">
-<div class="code-block-label">pages/api/hello.js</div>
-<div class="highlight"><pre><span></span><span class="c1">// req = request data, res = response data</span>
-<span class="kr">export</span> <span class="k">default</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+<div class="code-block-label">pages/api/hello.ts</div>
+<div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">NextApiRequest</span><span class="p">,</span> <span class="nx">NextApiResponse</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">"next"</span><span class="p">;</span>
+
+<span class="c1">// req = request data, res = response data</span>
+<span class="kr">export</span> <span class="k">default</span> <span class="p">(</span><span class="nx">_</span>: <span class="kt">NextApiRequest</span><span class="p">,</span> <span class="nx">res</span>: <span class="kt">NextApiResponse</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
   <span class="c1">// http://localhost:3000/api/hello でアクセスできる</span>
   <span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mi">200</span><span class="p">).</span><span class="nx">json</span><span class="p">({</span> <span class="nx">text</span><span class="o">:</span> <span class="s1">'Hello'</span> <span class="p">})</span>
 <span class="p">}</span>
