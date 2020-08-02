@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<title>React Hooks/ふみのて</title>
+<link rel="shortcut icon" href="../../../assets/icons/favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Vollkorn:400,700">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sawarabi+Mincho&amp;display=swap&amp;subset=japanese,latin-ext">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+<link rel="stylesheet" href="../../../assets/css/style.css?20200720">
+</head>
+<body>
+    <div class="container">
+      <div class="header"><header class="item item-header"><h1>
+    <a href="../../../">
+      <img class="logo" src="../../../assets/images/inuu.png" alt="犬"></a>
+  </h1>
+  <iframe src="../../../tags/" class="tags"></iframe>
+</header></div>
+      <div class="main">
+<div class="article-content">
+  <main class="item item-article item-javascript"><div class="category">
+      <a href="../../../tags/javascript/">
+          javascript
+      </a>
+    </div>
+    <div class="title">React Hooks</div>
+    <time class="date" datetime="2020-08-02 00:00:00+09:00">
+      2020-08-02 Sun
+    </time><time class="date" datetime="2020-08-02 00:00:00+09:00">
+        updated: 2020-08-02 Sun
+        
+      </time><div class="text">
+      <div>
+<details><summary>目次</summary><div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#id1" id="id12">リファレンス, 書籍</a></p></li>
+<li>
+<p><a class="reference internal" href="#id2" id="id13">ステートフック</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id3" id="id14">要するにフックとは？</a></p></li>
+</ul>
+</li>
+<li>
+<p><a class="reference internal" href="#id4" id="id15">副作用フック</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id5" id="id16">クリーンアップを必要としない副作用</a></p></li>
+<li><p><a class="reference internal" href="#id6" id="id17">クリーンアップを有する副作用</a></p></li>
+<li><p><a class="reference internal" href="#id7" id="id18">副作用のスキップによるパフォーマンス改善</a></p></li>
+</ul>
+</li>
+<li>
+<p><a class="reference internal" href="#id8" id="id19">フックのルール</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id9" id="id20">ルール</a></p></li>
+<li><p><a class="reference internal" href="#eslint" id="id21">ESLint プラグイン</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#id10" id="id22">独自フックの作成</a></p></li>
+<li><p><a class="reference internal" href="#id11" id="id23">その他のフック</a></p></li>
+</ul>
+</div>
+</details><div class="section" id="id1">
+<h2><a class="toc-backref" href="#id12">リファレンス, 書籍</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ja.reactjs.org/docs/hooks-intro.html">https://ja.reactjs.org/docs/hooks-intro.html</a></p></li>
+<li><p><a class="reference external" href="https://ja.reactjs.org/docs/hooks-overview.html">https://ja.reactjs.org/docs/hooks-overview.html</a></p></li>
+<li><p><a class="reference external" href="https://ja.reactjs.org/docs/hooks-state.html">https://ja.reactjs.org/docs/hooks-state.html</a></p></li>
+<li><p><a class="reference external" href="https://ja.reactjs.org/docs/hooks-effect.html">https://ja.reactjs.org/docs/hooks-effect.html</a></p></li>
+<li><p><a class="reference external" href="https://ja.reactjs.org/docs/hooks-rules.html">https://ja.reactjs.org/docs/hooks-rules.html</a></p></li>
+<li><p><a class="reference external" href="https://ja.reactjs.org/docs/hooks-custom.html">https://ja.reactjs.org/docs/hooks-custom.html</a></p></li>
+<li><p>フック API リファレンス: <a class="reference external" href="https://ja.reactjs.org/docs/hooks-reference.html">https://ja.reactjs.org/docs/hooks-reference.html</a></p></li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2><a class="toc-backref" href="#id13">ステートフック</a></h2>
+<pre class="code javascript"><a name="rest_code_01cec06fd60c45ab9fa44d90fbb8799d-1"></a><span class="kr">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">useState</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">'react'</span><span class="p">;</span>
+<a name="rest_code_01cec06fd60c45ab9fa44d90fbb8799d-2"></a>
+<a name="rest_code_01cec06fd60c45ab9fa44d90fbb8799d-3"></a><span class="kd">function</span> <span class="nx">Example</span><span class="p">()</span> <span class="p">{</span>
+<a name="rest_code_01cec06fd60c45ab9fa44d90fbb8799d-4"></a>  <span class="c1">// Declare a new state variable, which we'll call "count"</span>
+<a name="rest_code_01cec06fd60c45ab9fa44d90fbb8799d-5"></a>  <span class="c1">// 現在の state の値と、それを更新するための関数とをペアにして返す</span>
+<a name="rest_code_01cec06fd60c45ab9fa44d90fbb8799d-6"></a>  <span class="c1">// 引数は state の初期値のみ</span>
+<a name="rest_code_01cec06fd60c45ab9fa44d90fbb8799d-7"></a>  <span class="c1">// state はオブジェクトでもそうでなくてもOK</span>
+<a name="rest_code_01cec06fd60c45ab9fa44d90fbb8799d-8"></a>  <span class="c1">// 引数として渡された state の初期値は最初のレンダー時にのみ使用される</span>
+<a name="rest_code_01cec06fd60c45ab9fa44d90fbb8799d-9"></a>  <span class="kr">const</span> <span class="p">[</span><span class="nx">count</span><span class="p">,</span> <span class="nx">setCount</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<a name="rest_code_01cec06fd60c45ab9fa44d90fbb8799d-10"></a>
+<a name="rest_code_01cec06fd60c45ab9fa44d90fbb8799d-11"></a>  <span class="c1">// count が 『state変数』</span>
+<a name="rest_code_01cec06fd60c45ab9fa44d90fbb8799d-12"></a>  <span class="c1">// state 変数には好きな名前をつけられる</span>
+<a name="rest_code_01cec06fd60c45ab9fa44d90fbb8799d-13"></a>  <span class="c1">// useState は何を返すのか？ =&gt; 現在の state と、それを更新するための関数とを、ペアにして返す</span>
+<a name="rest_code_01cec06fd60c45ab9fa44d90fbb8799d-14"></a>
+<a name="rest_code_01cec06fd60c45ab9fa44d90fbb8799d-15"></a>  <span class="c1">// state が「作成」されるのはコンポーネントの初回レンダー時だけ</span>
+<a name="rest_code_01cec06fd60c45ab9fa44d90fbb8799d-16"></a>  <span class="c1">// 通常、関数が終了すると変数は『消えて』しまうけれど、state 変数は React によって保持される</span>
+<a name="rest_code_01cec06fd60c45ab9fa44d90fbb8799d-17"></a>
+<a name="rest_code_01cec06fd60c45ab9fa44d90fbb8799d-18"></a>  <span class="c1">// 関数内では、`this.state.count` とかせずに、直接 count を使うことができる↓</span>
+<a name="rest_code_01cec06fd60c45ab9fa44d90fbb8799d-19"></a>  <span class="c1">// setCount で、 state を更新↓</span>
+<a name="rest_code_01cec06fd60c45ab9fa44d90fbb8799d-20"></a>  <span class="k">return</span> <span class="p">(</span>
+<a name="rest_code_01cec06fd60c45ab9fa44d90fbb8799d-21"></a>    <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+<a name="rest_code_01cec06fd60c45ab9fa44d90fbb8799d-22"></a>      <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">You</span> <span class="nx">clicked</span> <span class="p">{</span><span class="nx">count</span><span class="p">}</span> <span class="nx">times</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+<a name="rest_code_01cec06fd60c45ab9fa44d90fbb8799d-23"></a>      <span class="o">&lt;</span><span class="nx">button</span> <span class="nx">onClick</span><span class="o">=</span><span class="p">{()</span> <span class="p">=&gt;</span> <span class="nx">setCount</span><span class="p">(</span><span class="nx">count</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)}</span><span class="o">&gt;</span>
+<a name="rest_code_01cec06fd60c45ab9fa44d90fbb8799d-24"></a>        <span class="nx">Click</span> <span class="nx">me</span>
+<a name="rest_code_01cec06fd60c45ab9fa44d90fbb8799d-25"></a>      <span class="o">&lt;</span><span class="err">/button&gt;</span>
+<a name="rest_code_01cec06fd60c45ab9fa44d90fbb8799d-26"></a>    <span class="o">&lt;</span><span class="err">/div&gt;</span>
+<a name="rest_code_01cec06fd60c45ab9fa44d90fbb8799d-27"></a>  <span class="p">);</span>
+<a name="rest_code_01cec06fd60c45ab9fa44d90fbb8799d-28"></a><span class="p">}</span>
+</pre>
+<pre class="code javascript"><a name="rest_code_f9b7b206c2594e66b8bb4303834e1191-1"></a><span class="kd">function</span> <span class="nx">ExampleWithManyStates</span><span class="p">()</span> <span class="p">{</span>
+<a name="rest_code_f9b7b206c2594e66b8bb4303834e1191-2"></a>  <span class="c1">// Declare multiple state variables!</span>
+<a name="rest_code_f9b7b206c2594e66b8bb4303834e1191-3"></a>  <span class="c1">// 1つのコンポーネント内で 2 回以上ステートフックを使うことができる</span>
+<a name="rest_code_f9b7b206c2594e66b8bb4303834e1191-4"></a>  <span class="c1">// React は useState を何度も呼び出す場合は、それらが全てのレンダー間で同じ順番で呼び出されるものと仮定する</span>
+<a name="rest_code_f9b7b206c2594e66b8bb4303834e1191-5"></a>  <span class="kr">const</span> <span class="p">[</span><span class="nx">age</span><span class="p">,</span> <span class="nx">setAge</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="mi">42</span><span class="p">);</span>
+<a name="rest_code_f9b7b206c2594e66b8bb4303834e1191-6"></a>  <span class="kr">const</span> <span class="p">[</span><span class="nx">fruit</span><span class="p">,</span> <span class="nx">setFruit</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="s1">'banana'</span><span class="p">);</span>
+<a name="rest_code_f9b7b206c2594e66b8bb4303834e1191-7"></a>  <span class="kr">const</span> <span class="p">[</span><span class="nx">todos</span><span class="p">,</span> <span class="nx">setTodos</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">([{</span> <span class="nx">text</span><span class="o">:</span> <span class="s1">'Learn Hooks'</span> <span class="p">}]);</span>
+<a name="rest_code_f9b7b206c2594e66b8bb4303834e1191-8"></a>  <span class="c1">// ...</span>
+<a name="rest_code_f9b7b206c2594e66b8bb4303834e1191-9"></a><span class="p">}</span>
+</pre>
+<div class="section" id="id3">
+<h3><a class="toc-backref" href="#id14">要するにフックとは？</a></h3>
+<ul class="simple">
+<li><p>関数コンポーネントに <code class="docutils literal">state</code> やライフサイクルといった React の機能を <code class="docutils literal">接続する (hook into)</code> ための関数</p></li>
+<li><p>フックは React をクラスなしに使うための機能なので、クラス内では機能しない</p></li>
+<li><p>React は <code class="docutils literal">useState</code> のような幾つかのビルトインのフックを提供する</p></li>
+<li><p>異なるコンポーネント間でステートフルな振る舞いを共有するために自分自身のフックを作成することもできる</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id4">
+<h2><a class="toc-backref" href="#id15">副作用フック</a></h2>
+<p>副作用のためのフック</p>
+<ul class="simple">
+<li>
+<p><code class="docutils literal">副作用 <span class="pre">(side-effects)</span></code>、あるいは省略して <code class="docutils literal">作用 (effects)</code></p>
+<ul>
+<li><p>外部データの取得や購読 (subscription)、あるいは手動での DOM 更新</p></li>
+<li><p>他のコンポーネントに影響することがあり、またレンダーの最中に実行することができない</p></li>
+</ul>
+</li>
+<li><p>React が DOM を更新した後で追加のコードを実行したい場合に使う</p></li>
+<li><p>クラスコンポーネントにおける <code class="docutils literal">componentDidMount</code>, <code class="docutils literal">componentDidUpdate</code> および <code class="docutils literal">componentWillUnmount</code> と同様の目的で使うもの</p></li>
+<li>
+<p>React コンポーネントにおける副作用は 2 種類ある</p>
+<ul>
+<li><p>クリーンアップコードを必要としない副作用</p></li>
+<li><p>必要とする副作用</p></li>
+</ul>
+</li>
+</ul>
+<div class="section" id="id5">
+<h3><a class="toc-backref" href="#id16">クリーンアップを必要としない副作用</a></h3>
+<p>ネットワークリクエストの送信、手動での DOM 改変、ログの記録、といったものがクリーンアップを必要としない</p>
+<pre class="code javascript"><a name="rest_code_8afd060209b142acbeefd186a76ebea3-1"></a><span class="kr">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">useState</span><span class="p">,</span> <span class="nx">useEffect</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">'react'</span><span class="p">;</span>
+<a name="rest_code_8afd060209b142acbeefd186a76ebea3-2"></a>
+<a name="rest_code_8afd060209b142acbeefd186a76ebea3-3"></a><span class="kd">function</span> <span class="nx">Example</span><span class="p">()</span> <span class="p">{</span>
+<a name="rest_code_8afd060209b142acbeefd186a76ebea3-4"></a>  <span class="kr">const</span> <span class="p">[</span><span class="nx">count</span><span class="p">,</span> <span class="nx">setCount</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<a name="rest_code_8afd060209b142acbeefd186a76ebea3-5"></a>
+<a name="rest_code_8afd060209b142acbeefd186a76ebea3-6"></a>  <span class="c1">// Similar to componentDidMount and componentDidUpdate:</span>
+<a name="rest_code_8afd060209b142acbeefd186a76ebea3-7"></a>  <span class="c1">// useEffect フックを使うことで、レンダー後に何かの処理をしないといけない、ということを React に伝えられる</span>
+<a name="rest_code_8afd060209b142acbeefd186a76ebea3-8"></a>  <span class="nx">useEffect</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+<a name="rest_code_8afd060209b142acbeefd186a76ebea3-9"></a>    <span class="c1">// Update the document title using the browser API</span>
+<a name="rest_code_8afd060209b142acbeefd186a76ebea3-10"></a>    <span class="c1">// React が DOM を更新した後で、HTML ドキュメントのタイトルを設定する</span>
+<a name="rest_code_8afd060209b142acbeefd186a76ebea3-11"></a>
+<a name="rest_code_8afd060209b142acbeefd186a76ebea3-12"></a>    <span class="c1">// DOM の更新後に呼び出される</span>
+<a name="rest_code_8afd060209b142acbeefd186a76ebea3-13"></a>    <span class="c1">// 非同期的に行われる (useEffect でスケジュールされた副作用はブラウザによる画面更新をブロックしない)</span>
+<a name="rest_code_8afd060209b142acbeefd186a76ebea3-14"></a>    <span class="c1">// 副作用はコンポーネント内で宣言されるので、props や state にアクセスすることが可能</span>
+<a name="rest_code_8afd060209b142acbeefd186a76ebea3-15"></a>    <span class="c1">// デフォルトでは初回のレンダーも含む毎回のレンダー時にこの副作用関数が呼び出される</span>
+<a name="rest_code_8afd060209b142acbeefd186a76ebea3-16"></a>    <span class="nb">document</span><span class="p">.</span><span class="nx">title</span> <span class="o">=</span> <span class="sb">`You clicked </span><span class="si">${</span><span class="nx">count</span><span class="si">}</span><span class="sb"> times`</span><span class="p">;</span>
+<a name="rest_code_8afd060209b142acbeefd186a76ebea3-17"></a>  <span class="p">});</span>
+<a name="rest_code_8afd060209b142acbeefd186a76ebea3-18"></a>
+<a name="rest_code_8afd060209b142acbeefd186a76ebea3-19"></a>  <span class="k">return</span> <span class="p">(</span>
+<a name="rest_code_8afd060209b142acbeefd186a76ebea3-20"></a>    <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+<a name="rest_code_8afd060209b142acbeefd186a76ebea3-21"></a>      <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">You</span> <span class="nx">clicked</span> <span class="p">{</span><span class="nx">count</span><span class="p">}</span> <span class="nx">times</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+<a name="rest_code_8afd060209b142acbeefd186a76ebea3-22"></a>      <span class="o">&lt;</span><span class="nx">button</span> <span class="nx">onClick</span><span class="o">=</span><span class="p">{()</span> <span class="p">=&gt;</span> <span class="nx">setCount</span><span class="p">(</span><span class="nx">count</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)}</span><span class="o">&gt;</span>
+<a name="rest_code_8afd060209b142acbeefd186a76ebea3-23"></a>        <span class="nx">Click</span> <span class="nx">me</span>
+<a name="rest_code_8afd060209b142acbeefd186a76ebea3-24"></a>      <span class="o">&lt;</span><span class="err">/button&gt;</span>
+<a name="rest_code_8afd060209b142acbeefd186a76ebea3-25"></a>    <span class="o">&lt;</span><span class="err">/div&gt;</span>
+<a name="rest_code_8afd060209b142acbeefd186a76ebea3-26"></a>  <span class="p">);</span>
+<a name="rest_code_8afd060209b142acbeefd186a76ebea3-27"></a><span class="p">}</span>
+</pre>
+<ul class="simple">
+<li><p>同期的に行う必要がある稀なケース（レイアウトの測定など）のために、<code class="docutils literal">useEffect</code> と同一の API を有する <code class="docutils literal">useLayoutEffect</code> という別のフックがある</p></li>
+</ul>
+</div>
+<div class="section" id="id6">
+<h3><a class="toc-backref" href="#id17">クリーンアップを有する副作用</a></h3>
+<p>例えば何らかの外部のデータソースへの購読をセットアップしたいことがあります。そのような場合、メモリリークが発生しないようにクリーンアップが必要です！</p>
+<pre class="code javascript"><a name="rest_code_837fbfc0636c4f0eb0997167549e8302-1"></a><span class="kr">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">useState</span><span class="p">,</span> <span class="nx">useEffect</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">'react'</span><span class="p">;</span>
+<a name="rest_code_837fbfc0636c4f0eb0997167549e8302-2"></a>
+<a name="rest_code_837fbfc0636c4f0eb0997167549e8302-3"></a><span class="kd">function</span> <span class="nx">FriendStatus</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">{</span>
+<a name="rest_code_837fbfc0636c4f0eb0997167549e8302-4"></a>  <span class="kr">const</span> <span class="p">[</span><span class="nx">isOnline</span><span class="p">,</span> <span class="nx">setIsOnline</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+<a name="rest_code_837fbfc0636c4f0eb0997167549e8302-5"></a>
+<a name="rest_code_837fbfc0636c4f0eb0997167549e8302-6"></a>  <span class="nx">useEffect</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+<a name="rest_code_837fbfc0636c4f0eb0997167549e8302-7"></a>    <span class="kd">function</span> <span class="nx">handleStatusChange</span><span class="p">(</span><span class="nx">status</span><span class="p">)</span> <span class="p">{</span>
+<a name="rest_code_837fbfc0636c4f0eb0997167549e8302-8"></a>      <span class="nx">setIsOnline</span><span class="p">(</span><span class="nx">status</span><span class="p">.</span><span class="nx">isOnline</span><span class="p">);</span>
+<a name="rest_code_837fbfc0636c4f0eb0997167549e8302-9"></a>    <span class="p">}</span>
+<a name="rest_code_837fbfc0636c4f0eb0997167549e8302-10"></a>    <span class="nx">ChatAPI</span><span class="p">.</span><span class="nx">subscribeToFriendStatus</span><span class="p">(</span><span class="nx">props</span><span class="p">.</span><span class="nx">friend</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span> <span class="nx">handleStatusChange</span><span class="p">);</span>
+<a name="rest_code_837fbfc0636c4f0eb0997167549e8302-11"></a>    <span class="c1">// Specify how to clean up after this effect:</span>
+<a name="rest_code_837fbfc0636c4f0eb0997167549e8302-12"></a>    <span class="c1">// すべての副作用は、それをクリーンアップするための関数を返すことができる</span>
+<a name="rest_code_837fbfc0636c4f0eb0997167549e8302-13"></a>    <span class="c1">// 関数を返した場合、 React はクリーンアップのタイミングが来たらそれを実行してくれる、しゅごい</span>
+<a name="rest_code_837fbfc0636c4f0eb0997167549e8302-14"></a>
+<a name="rest_code_837fbfc0636c4f0eb0997167549e8302-15"></a>    <span class="c1">// React はコンポーネントがアンマウントされるときにクリーンアップを実行する</span>
+<a name="rest_code_837fbfc0636c4f0eb0997167549e8302-16"></a>    <span class="c1">// ひとつ前のレンダーによる副作用を、次回の副作用を実行する前にもクリーンアップする</span>
+<a name="rest_code_837fbfc0636c4f0eb0997167549e8302-17"></a>    <span class="k">return</span> <span class="kd">function</span> <span class="nx">cleanup</span><span class="p">()</span> <span class="p">{</span>
+<a name="rest_code_837fbfc0636c4f0eb0997167549e8302-18"></a>      <span class="c1">// 名前付き関数でなくともよい、アロー関数でもOK</span>
+<a name="rest_code_837fbfc0636c4f0eb0997167549e8302-19"></a>      <span class="nx">ChatAPI</span><span class="p">.</span><span class="nx">unsubscribeFromFriendStatus</span><span class="p">(</span><span class="nx">props</span><span class="p">.</span><span class="nx">friend</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span> <span class="nx">handleStatusChange</span><span class="p">);</span>
+<a name="rest_code_837fbfc0636c4f0eb0997167549e8302-20"></a>    <span class="p">};</span>
+<a name="rest_code_837fbfc0636c4f0eb0997167549e8302-21"></a>  <span class="p">});</span>
+<a name="rest_code_837fbfc0636c4f0eb0997167549e8302-22"></a>
+<a name="rest_code_837fbfc0636c4f0eb0997167549e8302-23"></a>  <span class="k">if</span> <span class="p">(</span><span class="nx">isOnline</span> <span class="o">===</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+<a name="rest_code_837fbfc0636c4f0eb0997167549e8302-24"></a>    <span class="k">return</span> <span class="s1">'Loading...'</span><span class="p">;</span>
+<a name="rest_code_837fbfc0636c4f0eb0997167549e8302-25"></a>  <span class="p">}</span>
+<a name="rest_code_837fbfc0636c4f0eb0997167549e8302-26"></a>  <span class="k">return</span> <span class="nx">isOnline</span> <span class="o">?</span> <span class="s1">'Online'</span> <span class="o">:</span> <span class="s1">'Offline'</span><span class="p">;</span>
+<a name="rest_code_837fbfc0636c4f0eb0997167549e8302-27"></a><span class="p">}</span>
+</pre>
+</div>
+<div class="section" id="id7">
+<h3><a class="toc-backref" href="#id18">副作用のスキップによるパフォーマンス改善</a></h3>
+<pre class="code javascript"><a name="rest_code_ed1f90d0eff3477b8ead4cba0e16d60a-1"></a><span class="c1">// 再レンダー間で特定の値が変わっていない場合には副作用の適用をスキップするよう、React に伝えることができる</span>
+<a name="rest_code_ed1f90d0eff3477b8ead4cba0e16d60a-2"></a><span class="nx">useEffect</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+<a name="rest_code_ed1f90d0eff3477b8ead4cba0e16d60a-3"></a>  <span class="nb">document</span><span class="p">.</span><span class="nx">title</span> <span class="o">=</span> <span class="sb">`You clicked </span><span class="si">${</span><span class="nx">count</span><span class="si">}</span><span class="sb"> times`</span><span class="p">;</span>
+<a name="rest_code_ed1f90d0eff3477b8ead4cba0e16d60a-4"></a><span class="p">},</span> <span class="p">[</span><span class="nx">count</span><span class="p">]);</span> <span class="c1">// Only re-run the effect if count changes</span>
+<a name="rest_code_ed1f90d0eff3477b8ead4cba0e16d60a-5"></a>
+<a name="rest_code_ed1f90d0eff3477b8ead4cba0e16d60a-6"></a><span class="c1">// useEffect のオプションの第 2 引数として配列を渡す ↑</span>
+</pre>
+</div>
+</div>
+<div class="section" id="id8">
+<h2><a class="toc-backref" href="#id19">フックのルール</a></h2>
+<div class="section" id="id9">
+<h3><a class="toc-backref" href="#id20">ルール</a></h3>
+<ol class="arabic simple">
+<li>
+<p>フックを呼び出すのはトップレベルのみ</p>
+<ul class="simple">
+<li><p>ループや条件分岐、あるいはネストされた関数内で呼び出してはいけません。</p></li>
+<li><p>これを守ることで、コンポーネントがレンダーされる際に毎回同じ順番で呼び出されるということが保証される</p></li>
+</ul>
+</li>
+<li>
+<p>フックを呼び出すのは React の関数内のみ</p>
+<ul class="simple">
+<li><p>フックは React の関数コンポーネントの内部のみで呼び出してください。通常の JavaScript 関数内では呼び出さないでください。</p></li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="eslint">
+<h3><a class="toc-backref" href="#id21">ESLint プラグイン</a></h3>
+<p>↑のルールを強制できる ESLint のプラグイン</p>
+<ul class="simple">
+<li><p>linter plugin : <a class="reference external" href="https://www.npmjs.com/package/eslint-plugin-react-hooks">https://www.npmjs.com/package/eslint-plugin-react-hooks</a></p></li>
+<li><p>Create React App ではデフォルトで含まれている</p></li>
+<li>
+<p>React はフックが呼ばれる順番に依存している</p>
+<ul>
+<li><p>フックへの呼び出しの順番がレンダー間で変わらない限り、React はそれらのフックにローカル <code class="docutils literal">state</code> を割り当てることができる</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id10">
+<h2><a class="toc-backref" href="#id22">独自フックの作成</a></h2>
+<p>カスタムフックとは、名前が <code class="docutils literal">use</code> で始まり、ほかのフックを呼び出せる JavaScript の関数のことです</p>
+<ul class="simple">
+<li><p>state を用いたロジックをコンポーネント間で再利用できる。</p></li>
+<li>
+<p>フックは state を用いたロジックを再利用するものであって、state そのものを再利用するものではない。</p>
+<ul>
+<li><p>カスタムフックを使う場所ごとで、内部の state や副作用は完全に分離している</p></li>
+</ul>
+</li>
+<li><p>カスタムフックは、機能というよりはむしろ慣習のようなもの。関数の名前が <code class="docutils literal">use</code> から始まって、その関数が他のフックを呼び出している。</p></li>
+<li><p>React のコンポーネントと違い、カスタムフックは特定のシグネチャを持つ必要はありません。
+何を引数として受け取り、そして（必要なら）何を返すのか、といったことは自分で決めることができる。</p></li>
+</ul>
+</div>
+<div class="section" id="id11">
+<h2><a class="toc-backref" href="#id23">その他のフック</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal">useContext</code></p></li>
+<li><p><code class="docutils literal">useReducer</code></p></li>
+<li><p>フック API リファレンス: <a class="reference external" href="https://ja.reactjs.org/docs/hooks-reference.html">https://ja.reactjs.org/docs/hooks-reference.html</a></p></li>
+</ul>
+</div>
+</div>
+    </div>
+  </main>
+</div>
+</div>
+    </div>
+  </body>
+</html>
