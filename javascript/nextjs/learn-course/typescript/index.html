@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-<title>Next.js: Tutorial TypeScript/ふみのて</title>
+<title>Next.js: TypeScript/ふみのて</title>
 <link rel="shortcut icon" href="../../../../assets/icons/favicon.ico">
 <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Vollkorn:400,700">
@@ -26,7 +26,7 @@
           javascript
       </a>
     </div>
-    <div class="title">Next.js: Tutorial TypeScript</div>
+    <div class="title">Next.js: TypeScript</div>
     <time class="date" datetime="2020-07-25 00:00:00+09:00">
       2020-07-25 Sat
     </time><time class="date" datetime="2020-07-25 00:00:00+09:00">
@@ -69,14 +69,14 @@
 <li>
 <p>TypeScript をインストールする</p>
 <blockquote>
-<pre class="code bash"><a name="rest_code_629c1d1c808f45e3bada2fd69288f55e-1"></a>$ npm install --save-dev typescript @types/react @types/node
+<pre class="code bash"><a name="rest_code_446080401b484ba687f188dd81e43449-1"></a>$ npm install --save-dev typescript @types/react @types/node
 </pre>
 </blockquote>
 </li>
 <li>
 <p>開発サーバーを再起動する</p>
 <blockquote>
-<pre class="code bash"><a name="rest_code_59c506cdda2947959e043a1c59a2a43d-1"></a>$ npm run dev
+<pre class="code bash"><a name="rest_code_bf11459cdc214023a549623ed1342508-1"></a>$ npm run dev
 </pre>
 </blockquote>
 </li>
@@ -103,51 +103,51 @@
 <ul>
 <li>
 <p>TypeScript</p>
-<pre class="code typescript"><a name="rest_code_acd7a3c0068148f8b97aa76a4aa42485-1"></a><span class="kr">import</span> <span class="p">{</span> <span class="nx">GetStaticProps</span><span class="p">,</span> <span class="nx">GetStaticPaths</span><span class="p">,</span> <span class="nx">GetServerSideProps</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">'next'</span>
-<a name="rest_code_acd7a3c0068148f8b97aa76a4aa42485-2"></a>
-<a name="rest_code_acd7a3c0068148f8b97aa76a4aa42485-3"></a><span class="kr">export</span> <span class="kr">const</span> <span class="nx">getStaticProps</span>: <span class="kt">GetStaticProps</span> <span class="o">=</span> <span class="nx">async</span> <span class="nx">context</span> <span class="o">=&gt;</span> <span class="p">{</span>
-<a name="rest_code_acd7a3c0068148f8b97aa76a4aa42485-4"></a>  <span class="c1">// ...</span>
-<a name="rest_code_acd7a3c0068148f8b97aa76a4aa42485-5"></a><span class="p">}</span>
-<a name="rest_code_acd7a3c0068148f8b97aa76a4aa42485-6"></a>
-<a name="rest_code_acd7a3c0068148f8b97aa76a4aa42485-7"></a><span class="kr">export</span> <span class="kr">const</span> <span class="nx">getStaticPaths</span>: <span class="kt">GetStaticPaths</span> <span class="o">=</span> <span class="nx">async</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-<a name="rest_code_acd7a3c0068148f8b97aa76a4aa42485-8"></a>  <span class="c1">// ...</span>
-<a name="rest_code_acd7a3c0068148f8b97aa76a4aa42485-9"></a><span class="p">}</span>
-<a name="rest_code_acd7a3c0068148f8b97aa76a4aa42485-10"></a>
-<a name="rest_code_acd7a3c0068148f8b97aa76a4aa42485-11"></a><span class="kr">export</span> <span class="kr">const</span> <span class="nx">getServerSideProps</span>: <span class="kt">GetServerSideProps</span> <span class="o">=</span> <span class="nx">async</span> <span class="nx">context</span> <span class="o">=&gt;</span> <span class="p">{</span>
-<a name="rest_code_acd7a3c0068148f8b97aa76a4aa42485-12"></a>  <span class="c1">// ...</span>
-<a name="rest_code_acd7a3c0068148f8b97aa76a4aa42485-13"></a><span class="p">}</span>
+<pre class="code typescript"><a name="rest_code_e9e8e719daa94e8db2c406b332176675-1"></a><span class="kr">import</span> <span class="p">{</span> <span class="nx">GetStaticProps</span><span class="p">,</span> <span class="nx">GetStaticPaths</span><span class="p">,</span> <span class="nx">GetServerSideProps</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">'next'</span>
+<a name="rest_code_e9e8e719daa94e8db2c406b332176675-2"></a>
+<a name="rest_code_e9e8e719daa94e8db2c406b332176675-3"></a><span class="kr">export</span> <span class="kr">const</span> <span class="nx">getStaticProps</span>: <span class="kt">GetStaticProps</span> <span class="o">=</span> <span class="nx">async</span> <span class="nx">context</span> <span class="o">=&gt;</span> <span class="p">{</span>
+<a name="rest_code_e9e8e719daa94e8db2c406b332176675-4"></a>  <span class="c1">// ...</span>
+<a name="rest_code_e9e8e719daa94e8db2c406b332176675-5"></a><span class="p">}</span>
+<a name="rest_code_e9e8e719daa94e8db2c406b332176675-6"></a>
+<a name="rest_code_e9e8e719daa94e8db2c406b332176675-7"></a><span class="kr">export</span> <span class="kr">const</span> <span class="nx">getStaticPaths</span>: <span class="kt">GetStaticPaths</span> <span class="o">=</span> <span class="nx">async</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+<a name="rest_code_e9e8e719daa94e8db2c406b332176675-8"></a>  <span class="c1">// ...</span>
+<a name="rest_code_e9e8e719daa94e8db2c406b332176675-9"></a><span class="p">}</span>
+<a name="rest_code_e9e8e719daa94e8db2c406b332176675-10"></a>
+<a name="rest_code_e9e8e719daa94e8db2c406b332176675-11"></a><span class="kr">export</span> <span class="kr">const</span> <span class="nx">getServerSideProps</span>: <span class="kt">GetServerSideProps</span> <span class="o">=</span> <span class="nx">async</span> <span class="nx">context</span> <span class="o">=&gt;</span> <span class="p">{</span>
+<a name="rest_code_e9e8e719daa94e8db2c406b332176675-12"></a>  <span class="c1">// ...</span>
+<a name="rest_code_e9e8e719daa94e8db2c406b332176675-13"></a><span class="p">}</span>
 </pre>
 </li>
 <li>
 <p>JavaScript</p>
-<pre class="code javascript"><a name="rest_code_32e9ccf1891843e8aa022598c05b8707-1"></a><span class="kr">export</span> <span class="nx">async</span> <span class="kd">function</span> <span class="nx">getStaticProps</span><span class="p">(</span><span class="nx">context</span><span class="p">)</span> <span class="p">{</span>
-<a name="rest_code_32e9ccf1891843e8aa022598c05b8707-2"></a>  <span class="c1">// ...</span>
-<a name="rest_code_32e9ccf1891843e8aa022598c05b8707-3"></a><span class="p">}</span>
-<a name="rest_code_32e9ccf1891843e8aa022598c05b8707-4"></a>
-<a name="rest_code_32e9ccf1891843e8aa022598c05b8707-5"></a><span class="kr">export</span> <span class="nx">async</span> <span class="kd">function</span> <span class="nx">getStaticPaths</span><span class="p">()</span> <span class="p">{</span>
-<a name="rest_code_32e9ccf1891843e8aa022598c05b8707-6"></a>  <span class="c1">// ...</span>
-<a name="rest_code_32e9ccf1891843e8aa022598c05b8707-7"></a><span class="p">}</span>
-<a name="rest_code_32e9ccf1891843e8aa022598c05b8707-8"></a>
-<a name="rest_code_32e9ccf1891843e8aa022598c05b8707-9"></a><span class="kr">export</span> <span class="nx">async</span> <span class="kd">function</span> <span class="nx">getServerSideProps</span><span class="p">(</span><span class="nx">context</span><span class="p">)</span> <span class="p">{</span>
-<a name="rest_code_32e9ccf1891843e8aa022598c05b8707-10"></a>  <span class="c1">// ...</span>
-<a name="rest_code_32e9ccf1891843e8aa022598c05b8707-11"></a><span class="p">}</span>
+<pre class="code javascript"><a name="rest_code_cddd2f79f591419a9e108a019901d8e9-1"></a><span class="kr">export</span> <span class="nx">async</span> <span class="kd">function</span> <span class="nx">getStaticProps</span><span class="p">(</span><span class="nx">context</span><span class="p">)</span> <span class="p">{</span>
+<a name="rest_code_cddd2f79f591419a9e108a019901d8e9-2"></a>  <span class="c1">// ...</span>
+<a name="rest_code_cddd2f79f591419a9e108a019901d8e9-3"></a><span class="p">}</span>
+<a name="rest_code_cddd2f79f591419a9e108a019901d8e9-4"></a>
+<a name="rest_code_cddd2f79f591419a9e108a019901d8e9-5"></a><span class="kr">export</span> <span class="nx">async</span> <span class="kd">function</span> <span class="nx">getStaticPaths</span><span class="p">()</span> <span class="p">{</span>
+<a name="rest_code_cddd2f79f591419a9e108a019901d8e9-6"></a>  <span class="c1">// ...</span>
+<a name="rest_code_cddd2f79f591419a9e108a019901d8e9-7"></a><span class="p">}</span>
+<a name="rest_code_cddd2f79f591419a9e108a019901d8e9-8"></a>
+<a name="rest_code_cddd2f79f591419a9e108a019901d8e9-9"></a><span class="kr">export</span> <span class="nx">async</span> <span class="kd">function</span> <span class="nx">getServerSideProps</span><span class="p">(</span><span class="nx">context</span><span class="p">)</span> <span class="p">{</span>
+<a name="rest_code_cddd2f79f591419a9e108a019901d8e9-10"></a>  <span class="c1">// ...</span>
+<a name="rest_code_cddd2f79f591419a9e108a019901d8e9-11"></a><span class="p">}</span>
 </pre>
 </li>
 </ul>
 </div>
 <div class="section" id="api-routes">
 <h4><a class="toc-backref" href="#id7">API Routes</a></h4>
-<pre class="code typescript"><a name="rest_code_7e5bfc6df81447dcba182a93728e0d1e-1"></a><span class="cm">/* TypeScript */</span>
-<a name="rest_code_7e5bfc6df81447dcba182a93728e0d1e-2"></a><span class="kr">import</span> <span class="p">{</span> <span class="nx">NextApiRequest</span><span class="p">,</span> <span class="nx">NextApiResponse</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">'next'</span>
-<a name="rest_code_7e5bfc6df81447dcba182a93728e0d1e-3"></a>
-<a name="rest_code_7e5bfc6df81447dcba182a93728e0d1e-4"></a><span class="kr">export</span> <span class="k">default</span> <span class="p">(</span><span class="nx">req</span>: <span class="kt">NextApiRequest</span><span class="p">,</span> <span class="nx">res</span>: <span class="kt">NextApiResponse</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-<a name="rest_code_7e5bfc6df81447dcba182a93728e0d1e-5"></a>  <span class="c1">// ...</span>
-<a name="rest_code_7e5bfc6df81447dcba182a93728e0d1e-6"></a><span class="p">}</span>
-<a name="rest_code_7e5bfc6df81447dcba182a93728e0d1e-7"></a>
-<a name="rest_code_7e5bfc6df81447dcba182a93728e0d1e-8"></a><span class="cm">/* JavaScript */</span>
-<a name="rest_code_7e5bfc6df81447dcba182a93728e0d1e-9"></a><span class="kr">export</span> <span class="k">default</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-<a name="rest_code_7e5bfc6df81447dcba182a93728e0d1e-10"></a>  <span class="c1">// ...</span>
-<a name="rest_code_7e5bfc6df81447dcba182a93728e0d1e-11"></a><span class="p">}</span>
+<pre class="code typescript"><a name="rest_code_721ff16bc4c04d829488a37919bc29b5-1"></a><span class="cm">/* TypeScript */</span>
+<a name="rest_code_721ff16bc4c04d829488a37919bc29b5-2"></a><span class="kr">import</span> <span class="p">{</span> <span class="nx">NextApiRequest</span><span class="p">,</span> <span class="nx">NextApiResponse</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">'next'</span>
+<a name="rest_code_721ff16bc4c04d829488a37919bc29b5-3"></a>
+<a name="rest_code_721ff16bc4c04d829488a37919bc29b5-4"></a><span class="kr">export</span> <span class="k">default</span> <span class="p">(</span><span class="nx">req</span>: <span class="kt">NextApiRequest</span><span class="p">,</span> <span class="nx">res</span>: <span class="kt">NextApiResponse</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+<a name="rest_code_721ff16bc4c04d829488a37919bc29b5-5"></a>  <span class="c1">// ...</span>
+<a name="rest_code_721ff16bc4c04d829488a37919bc29b5-6"></a><span class="p">}</span>
+<a name="rest_code_721ff16bc4c04d829488a37919bc29b5-7"></a>
+<a name="rest_code_721ff16bc4c04d829488a37919bc29b5-8"></a><span class="cm">/* JavaScript */</span>
+<a name="rest_code_721ff16bc4c04d829488a37919bc29b5-9"></a><span class="kr">export</span> <span class="k">default</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+<a name="rest_code_721ff16bc4c04d829488a37919bc29b5-10"></a>  <span class="c1">// ...</span>
+<a name="rest_code_721ff16bc4c04d829488a37919bc29b5-11"></a><span class="p">}</span>
 </pre>
 </div>
 <div class="section" id="custom-app">
@@ -155,21 +155,21 @@
 <ul>
 <li>
 <p>TypeScript</p>
-<pre class="code typescript"><a name="rest_code_1e522e4c76024654beb4be52e3a7785f-1"></a><span class="c1">// built-in type</span>
-<a name="rest_code_1e522e4c76024654beb4be52e3a7785f-2"></a><span class="kr">import</span> <span class="p">{</span> <span class="nx">AppProps</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">'next/app'</span>
-<a name="rest_code_1e522e4c76024654beb4be52e3a7785f-3"></a>
-<a name="rest_code_1e522e4c76024654beb4be52e3a7785f-4"></a><span class="kd">function</span> <span class="nx">App</span><span class="p">({</span> <span class="nx">Component</span><span class="p">,</span> <span class="nx">pageProps</span> <span class="p">}</span><span class="o">:</span> <span class="nx">AppProps</span><span class="p">)</span> <span class="p">{</span>
-<a name="rest_code_1e522e4c76024654beb4be52e3a7785f-5"></a>  <span class="k">return</span> <span class="o">&lt;</span><span class="nx">Component</span> <span class="p">{...</span><span class="nx">pageProps</span><span class="p">}</span> <span class="o">/&gt;</span>
-<a name="rest_code_1e522e4c76024654beb4be52e3a7785f-6"></a><span class="p">}</span>
-<a name="rest_code_1e522e4c76024654beb4be52e3a7785f-7"></a>
-<a name="rest_code_1e522e4c76024654beb4be52e3a7785f-8"></a><span class="kr">export</span> <span class="k">default</span> <span class="nx">App</span>
+<pre class="code typescript"><a name="rest_code_b6b5fda9e94c40c29f9c39e20245b245-1"></a><span class="c1">// built-in type</span>
+<a name="rest_code_b6b5fda9e94c40c29f9c39e20245b245-2"></a><span class="kr">import</span> <span class="p">{</span> <span class="nx">AppProps</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">'next/app'</span>
+<a name="rest_code_b6b5fda9e94c40c29f9c39e20245b245-3"></a>
+<a name="rest_code_b6b5fda9e94c40c29f9c39e20245b245-4"></a><span class="kd">function</span> <span class="nx">App</span><span class="p">({</span> <span class="nx">Component</span><span class="p">,</span> <span class="nx">pageProps</span> <span class="p">}</span><span class="o">:</span> <span class="nx">AppProps</span><span class="p">)</span> <span class="p">{</span>
+<a name="rest_code_b6b5fda9e94c40c29f9c39e20245b245-5"></a>  <span class="k">return</span> <span class="o">&lt;</span><span class="nx">Component</span> <span class="p">{...</span><span class="nx">pageProps</span><span class="p">}</span> <span class="o">/&gt;</span>
+<a name="rest_code_b6b5fda9e94c40c29f9c39e20245b245-6"></a><span class="p">}</span>
+<a name="rest_code_b6b5fda9e94c40c29f9c39e20245b245-7"></a>
+<a name="rest_code_b6b5fda9e94c40c29f9c39e20245b245-8"></a><span class="kr">export</span> <span class="k">default</span> <span class="nx">App</span>
 </pre>
 </li>
 <li>
 <p>JavaScript</p>
-<pre class="code javascript"><a name="rest_code_fae85363291844b5814b66c455a747dc-1"></a><span class="kr">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nx">App</span><span class="p">({</span> <span class="nx">Component</span><span class="p">,</span> <span class="nx">pageProps</span> <span class="p">})</span> <span class="p">{</span>
-<a name="rest_code_fae85363291844b5814b66c455a747dc-2"></a>  <span class="k">return</span> <span class="o">&lt;</span><span class="nx">Component</span> <span class="p">{...</span><span class="nx">pageProps</span><span class="p">}</span> <span class="o">/&gt;</span>
-<a name="rest_code_fae85363291844b5814b66c455a747dc-3"></a><span class="p">}</span>
+<pre class="code javascript"><a name="rest_code_0f8c30d727e34ac5b051f9b4223fe313-1"></a><span class="kr">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nx">App</span><span class="p">({</span> <span class="nx">Component</span><span class="p">,</span> <span class="nx">pageProps</span> <span class="p">})</span> <span class="p">{</span>
+<a name="rest_code_0f8c30d727e34ac5b051f9b4223fe313-2"></a>  <span class="k">return</span> <span class="o">&lt;</span><span class="nx">Component</span> <span class="p">{...</span><span class="nx">pageProps</span><span class="p">}</span> <span class="o">/&gt;</span>
+<a name="rest_code_0f8c30d727e34ac5b051f9b4223fe313-3"></a><span class="p">}</span>
 </pre>
 </li>
 </ul>

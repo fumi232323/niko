@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-<title>Next.js: Tutorial Deploying/ふみのて</title>
+<title>Next.js: Deploying/ふみのて</title>
 <link rel="shortcut icon" href="../../../../assets/icons/favicon.ico">
 <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Vollkorn:400,700">
@@ -26,7 +26,7 @@
           javascript
       </a>
     </div>
-    <div class="title">Next.js: Tutorial Deploying</div>
+    <div class="title">Next.js: Deploying</div>
     <time class="date" datetime="2020-07-20 00:00:00+09:00">
       2020-07-20 Mon
     </time><time class="date" datetime="2020-07-20 00:00:00+09:00">
@@ -132,23 +132,23 @@ Next.jsの作成者が開発した Vercel プラットフォームを使用す�
 <h3><a class="toc-backref" href="#id10">Other Hosting Options</a></h3>
 <p>Next.js は、 Node.js をサポートするどのホスティングプロバイダーにもデプロイできる。</p>
 <p><code class="docutils literal">package.json</code> がこうなっているとするでしょ。</p>
-<pre class="code json"><a name="rest_code_d50b564a1dac4c5fbdd538822f284c59-1"></a><span class="p">{</span>
-<a name="rest_code_d50b564a1dac4c5fbdd538822f284c59-2"></a>  <span class="nt">"scripts"</span><span class="p">:</span> <span class="p">{</span>
-<a name="rest_code_d50b564a1dac4c5fbdd538822f284c59-3"></a>    <span class="nt">"dev"</span><span class="p">:</span> <span class="s2">"next"</span><span class="p">,</span>
-<a name="rest_code_d50b564a1dac4c5fbdd538822f284c59-4"></a>    <span class="nt">"build"</span><span class="p">:</span> <span class="s2">"next build"</span><span class="p">,</span>
-<a name="rest_code_d50b564a1dac4c5fbdd538822f284c59-5"></a>    <span class="nt">"start"</span><span class="p">:</span> <span class="s2">"next start"</span>
-<a name="rest_code_d50b564a1dac4c5fbdd538822f284c59-6"></a>  <span class="p">}</span>
-<a name="rest_code_d50b564a1dac4c5fbdd538822f284c59-7"></a><span class="p">}</span>
+<pre class="code json"><a name="rest_code_e7438e4b7a8f48b8808068cd7104d924-1"></a><span class="p">{</span>
+<a name="rest_code_e7438e4b7a8f48b8808068cd7104d924-2"></a>  <span class="nt">"scripts"</span><span class="p">:</span> <span class="p">{</span>
+<a name="rest_code_e7438e4b7a8f48b8808068cd7104d924-3"></a>    <span class="nt">"dev"</span><span class="p">:</span> <span class="s2">"next"</span><span class="p">,</span>
+<a name="rest_code_e7438e4b7a8f48b8808068cd7104d924-4"></a>    <span class="nt">"build"</span><span class="p">:</span> <span class="s2">"next build"</span><span class="p">,</span>
+<a name="rest_code_e7438e4b7a8f48b8808068cd7104d924-5"></a>    <span class="nt">"start"</span><span class="p">:</span> <span class="s2">"next start"</span>
+<a name="rest_code_e7438e4b7a8f48b8808068cd7104d924-6"></a>  <span class="p">}</span>
+<a name="rest_code_e7438e4b7a8f48b8808068cd7104d924-7"></a><span class="p">}</span>
 </pre>
 <p>するとこう。</p>
-<pre class="code bash"><a name="rest_code_5f088c345a744e129382e84acfea7b82-1"></a><span class="c1"># 自分のホスティングプロバイダー上で ``build`` スクリプトを1回実行すると、</span>
-<a name="rest_code_5f088c345a744e129382e84acfea7b82-2"></a><span class="c1"># ``.next`` フォルダーに本番アプリケーションがビルドされる。</span>
-<a name="rest_code_5f088c345a744e129382e84acfea7b82-3"></a>$ npm run build
-<a name="rest_code_5f088c345a744e129382e84acfea7b82-4"></a>
-<a name="rest_code_5f088c345a744e129382e84acfea7b82-5"></a><span class="c1"># ビルドしたらに ``start`` スクリプトでハイブリッドページをサポートする Node.js server を起動し、</span>
-<a name="rest_code_5f088c345a744e129382e84acfea7b82-6"></a><span class="c1"># 静的生成されたページとサーバーサイドレンダリングされたページの両方を提供する</span>
-<a name="rest_code_5f088c345a744e129382e84acfea7b82-7"></a><span class="c1"># API Routes もまたサポートしているよ</span>
-<a name="rest_code_5f088c345a744e129382e84acfea7b82-8"></a>$ npm run start
+<pre class="code bash"><a name="rest_code_2715a245ef2b4bfaa7c1ca9a229bbe7a-1"></a><span class="c1"># 自分のホスティングプロバイダー上で ``build`` スクリプトを1回実行すると、</span>
+<a name="rest_code_2715a245ef2b4bfaa7c1ca9a229bbe7a-2"></a><span class="c1"># ``.next`` フォルダーに本番アプリケーションがビルドされる。</span>
+<a name="rest_code_2715a245ef2b4bfaa7c1ca9a229bbe7a-3"></a>$ npm run build
+<a name="rest_code_2715a245ef2b4bfaa7c1ca9a229bbe7a-4"></a>
+<a name="rest_code_2715a245ef2b4bfaa7c1ca9a229bbe7a-5"></a><span class="c1"># ビルドしたらに ``start`` スクリプトでハイブリッドページをサポートする Node.js server を起動し、</span>
+<a name="rest_code_2715a245ef2b4bfaa7c1ca9a229bbe7a-6"></a><span class="c1"># 静的生成されたページとサーバーサイドレンダリングされたページの両方を提供する</span>
+<a name="rest_code_2715a245ef2b4bfaa7c1ca9a229bbe7a-7"></a><span class="c1"># API Routes もまたサポートしているよ</span>
+<a name="rest_code_2715a245ef2b4bfaa7c1ca9a229bbe7a-8"></a>$ npm run start
 </pre>
 </div>
 </div>

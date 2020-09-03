@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-<title>Next.js: Tutorial 中/ふみのて</title>
+<title>Next.js: Pre-rendering, Data Fetching/ふみのて</title>
 <link rel="shortcut icon" href="../../../../assets/icons/favicon.ico">
 <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Vollkorn:400,700">
@@ -26,7 +26,7 @@
           javascript
       </a>
     </div>
-    <div class="title">Next.js: Tutorial 中</div>
+    <div class="title">Next.js: Pre-rendering, Data Fetching</div>
     <time class="date" datetime="2020-07-12 00:00:00+09:00">
       2020-07-12 Sun
     </time><time class="date" datetime="2020-07-12 00:00:00+09:00">
@@ -161,15 +161,15 @@
 <li>
 <p>Server-side Rendering するには、 <code class="docutils literal">getStaticProps</code> のかわりに <code class="docutils literal">getServerSideProps</code> を
 page から export する</p>
-<pre class="code javascript"><a name="rest_code_a5df498427464c01a6a057934654ab40-1"></a><span class="kr">export</span> <span class="nx">async</span> <span class="kd">function</span> <span class="nx">getServerSideProps</span><span class="p">(</span><span class="nx">context</span><span class="p">)</span> <span class="p">{</span>
-<a name="rest_code_a5df498427464c01a6a057934654ab40-2"></a>  <span class="c1">// `getServerSideProps` はリクエスト時に呼び出されるものなので、</span>
-<a name="rest_code_a5df498427464c01a6a057934654ab40-3"></a>  <span class="c1">//  context にはリクエストパラメーターが含まれている</span>
-<a name="rest_code_a5df498427464c01a6a057934654ab40-4"></a>  <span class="k">return</span> <span class="p">{</span>
-<a name="rest_code_a5df498427464c01a6a057934654ab40-5"></a>    <span class="nx">props</span><span class="o">:</span> <span class="p">{</span>
-<a name="rest_code_a5df498427464c01a6a057934654ab40-6"></a>      <span class="c1">// props for your component</span>
-<a name="rest_code_a5df498427464c01a6a057934654ab40-7"></a>    <span class="p">}</span>
-<a name="rest_code_a5df498427464c01a6a057934654ab40-8"></a>  <span class="p">}</span>
-<a name="rest_code_a5df498427464c01a6a057934654ab40-9"></a><span class="p">}</span>
+<pre class="code javascript"><a name="rest_code_2badd6b2e4f342ad94fdfbce7056de73-1"></a><span class="kr">export</span> <span class="nx">async</span> <span class="kd">function</span> <span class="nx">getServerSideProps</span><span class="p">(</span><span class="nx">context</span><span class="p">)</span> <span class="p">{</span>
+<a name="rest_code_2badd6b2e4f342ad94fdfbce7056de73-2"></a>  <span class="c1">// `getServerSideProps` はリクエスト時に呼び出されるものなので、</span>
+<a name="rest_code_2badd6b2e4f342ad94fdfbce7056de73-3"></a>  <span class="c1">//  context にはリクエストパラメーターが含まれている</span>
+<a name="rest_code_2badd6b2e4f342ad94fdfbce7056de73-4"></a>  <span class="k">return</span> <span class="p">{</span>
+<a name="rest_code_2badd6b2e4f342ad94fdfbce7056de73-5"></a>    <span class="nx">props</span><span class="o">:</span> <span class="p">{</span>
+<a name="rest_code_2badd6b2e4f342ad94fdfbce7056de73-6"></a>      <span class="c1">// props for your component</span>
+<a name="rest_code_2badd6b2e4f342ad94fdfbce7056de73-7"></a>    <span class="p">}</span>
+<a name="rest_code_2badd6b2e4f342ad94fdfbce7056de73-8"></a>  <span class="p">}</span>
+<a name="rest_code_2badd6b2e4f342ad94fdfbce7056de73-9"></a><span class="p">}</span>
 </pre>
 </li>
 <li><p>Time to first byte (TTFB) は <code class="docutils literal">getStaticProps</code> より遅くなる</p></li>

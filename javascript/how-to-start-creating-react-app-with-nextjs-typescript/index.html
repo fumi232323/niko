@@ -48,39 +48,39 @@
 </div>
 <div class="section" id="id2">
 <h2><a class="toc-backref" href="#id4">アプリの種をつくる</a></h2>
-<pre class="code zsh"><a name="rest_code_9fbde619825d46ab951784671d703d38-1"></a><span class="c1"># 新しいNext.jsアプリを作成</span>
-<a name="rest_code_9fbde619825d46ab951784671d703d38-2"></a>npx create-next-app
-<a name="rest_code_9fbde619825d46ab951784671d703d38-3"></a>
-<a name="rest_code_9fbde619825d46ab951784671d703d38-4"></a><span class="c1"># Starts the development server.</span>
-<a name="rest_code_9fbde619825d46ab951784671d703d38-5"></a><span class="nb">cd</span> path/to/app
-<a name="rest_code_9fbde619825d46ab951784671d703d38-6"></a>npm run dev
-<a name="rest_code_9fbde619825d46ab951784671d703d38-7"></a>
-<a name="rest_code_9fbde619825d46ab951784671d703d38-8"></a><span class="c1"># Builds the app for production.</span>
-<a name="rest_code_9fbde619825d46ab951784671d703d38-9"></a>npm run build
-<a name="rest_code_9fbde619825d46ab951784671d703d38-10"></a>
-<a name="rest_code_9fbde619825d46ab951784671d703d38-11"></a><span class="c1"># Runs the built app in production mode.</span>
-<a name="rest_code_9fbde619825d46ab951784671d703d38-12"></a>npm start
-<a name="rest_code_9fbde619825d46ab951784671d703d38-13"></a>
-<a name="rest_code_9fbde619825d46ab951784671d703d38-14"></a><span class="c1"># TypeScript の導入</span>
-<a name="rest_code_9fbde619825d46ab951784671d703d38-15"></a>npm install --save-dev typescript @types/react @types/node
-<a name="rest_code_9fbde619825d46ab951784671d703d38-16"></a>touch tsconfig.json
-<a name="rest_code_9fbde619825d46ab951784671d703d38-17"></a><span class="c1"># dev サーバーの再起動が必要</span>
-<a name="rest_code_9fbde619825d46ab951784671d703d38-18"></a>npm run dev
-<a name="rest_code_9fbde619825d46ab951784671d703d38-19"></a>
-<a name="rest_code_9fbde619825d46ab951784671d703d38-20"></a><span class="c1"># React Bootstrap の導入</span>
-<a name="rest_code_9fbde619825d46ab951784671d703d38-21"></a><span class="c1"># https://react-bootstrap.github.io/getting-started/introduction</span>
-<a name="rest_code_9fbde619825d46ab951784671d703d38-22"></a><span class="c1"># _app.tsx に `import 'bootstrap/dist/css/bootstrap.min.css';`</span>
-<a name="rest_code_9fbde619825d46ab951784671d703d38-23"></a>npm install react-bootstrap bootstrap
-<a name="rest_code_9fbde619825d46ab951784671d703d38-24"></a>
-<a name="rest_code_9fbde619825d46ab951784671d703d38-25"></a><span class="c1"># styled components の導入</span>
-<a name="rest_code_9fbde619825d46ab951784671d703d38-26"></a><span class="c1"># https://styled-components.com/</span>
-<a name="rest_code_9fbde619825d46ab951784671d703d38-27"></a>npm install --save styled-components
-<a name="rest_code_9fbde619825d46ab951784671d703d38-28"></a>npm install @types/styled-components
-<a name="rest_code_9fbde619825d46ab951784671d703d38-29"></a>
-<a name="rest_code_9fbde619825d46ab951784671d703d38-30"></a><span class="c1"># styled components: Babel Plugin</span>
-<a name="rest_code_9fbde619825d46ab951784671d703d38-31"></a><span class="c1"># https://styled-components.com/docs/tooling#babel-plugin</span>
-<a name="rest_code_9fbde619825d46ab951784671d703d38-32"></a><span class="c1"># .babelrc も書く</span>
-<a name="rest_code_9fbde619825d46ab951784671d703d38-33"></a>npm install --save-dev babel-plugin-styled-components
+<pre class="code zsh"><a name="rest_code_bf41482a61364e2c81c8d4c78847040c-1"></a><span class="c1"># 新しいNext.jsアプリを作成</span>
+<a name="rest_code_bf41482a61364e2c81c8d4c78847040c-2"></a>npx create-next-app
+<a name="rest_code_bf41482a61364e2c81c8d4c78847040c-3"></a>
+<a name="rest_code_bf41482a61364e2c81c8d4c78847040c-4"></a><span class="c1"># Starts the development server.</span>
+<a name="rest_code_bf41482a61364e2c81c8d4c78847040c-5"></a><span class="nb">cd</span> path/to/app
+<a name="rest_code_bf41482a61364e2c81c8d4c78847040c-6"></a>npm run dev
+<a name="rest_code_bf41482a61364e2c81c8d4c78847040c-7"></a>
+<a name="rest_code_bf41482a61364e2c81c8d4c78847040c-8"></a><span class="c1"># Builds the app for production.</span>
+<a name="rest_code_bf41482a61364e2c81c8d4c78847040c-9"></a>npm run build
+<a name="rest_code_bf41482a61364e2c81c8d4c78847040c-10"></a>
+<a name="rest_code_bf41482a61364e2c81c8d4c78847040c-11"></a><span class="c1"># Runs the built app in production mode.</span>
+<a name="rest_code_bf41482a61364e2c81c8d4c78847040c-12"></a>npm start
+<a name="rest_code_bf41482a61364e2c81c8d4c78847040c-13"></a>
+<a name="rest_code_bf41482a61364e2c81c8d4c78847040c-14"></a><span class="c1"># TypeScript の導入</span>
+<a name="rest_code_bf41482a61364e2c81c8d4c78847040c-15"></a>npm install --save-dev typescript @types/react @types/node
+<a name="rest_code_bf41482a61364e2c81c8d4c78847040c-16"></a>touch tsconfig.json
+<a name="rest_code_bf41482a61364e2c81c8d4c78847040c-17"></a><span class="c1"># dev サーバーの再起動が必要</span>
+<a name="rest_code_bf41482a61364e2c81c8d4c78847040c-18"></a>npm run dev
+<a name="rest_code_bf41482a61364e2c81c8d4c78847040c-19"></a>
+<a name="rest_code_bf41482a61364e2c81c8d4c78847040c-20"></a><span class="c1"># React Bootstrap の導入</span>
+<a name="rest_code_bf41482a61364e2c81c8d4c78847040c-21"></a><span class="c1"># https://react-bootstrap.github.io/getting-started/introduction</span>
+<a name="rest_code_bf41482a61364e2c81c8d4c78847040c-22"></a><span class="c1"># _app.tsx に `import 'bootstrap/dist/css/bootstrap.min.css';`</span>
+<a name="rest_code_bf41482a61364e2c81c8d4c78847040c-23"></a>npm install react-bootstrap bootstrap
+<a name="rest_code_bf41482a61364e2c81c8d4c78847040c-24"></a>
+<a name="rest_code_bf41482a61364e2c81c8d4c78847040c-25"></a><span class="c1"># styled components の導入</span>
+<a name="rest_code_bf41482a61364e2c81c8d4c78847040c-26"></a><span class="c1"># https://styled-components.com/</span>
+<a name="rest_code_bf41482a61364e2c81c8d4c78847040c-27"></a>npm install --save styled-components
+<a name="rest_code_bf41482a61364e2c81c8d4c78847040c-28"></a>npm install @types/styled-components
+<a name="rest_code_bf41482a61364e2c81c8d4c78847040c-29"></a>
+<a name="rest_code_bf41482a61364e2c81c8d4c78847040c-30"></a><span class="c1"># styled components: Babel Plugin</span>
+<a name="rest_code_bf41482a61364e2c81c8d4c78847040c-31"></a><span class="c1"># https://styled-components.com/docs/tooling#babel-plugin</span>
+<a name="rest_code_bf41482a61364e2c81c8d4c78847040c-32"></a><span class="c1"># .babelrc も書く</span>
+<a name="rest_code_bf41482a61364e2c81c8d4c78847040c-33"></a>npm install --save-dev babel-plugin-styled-components
 </pre>
 </div>
 <div class="section" id="vercel-deploy">

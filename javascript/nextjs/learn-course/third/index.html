@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-<title>Next.js: Tutorial 下/ふみのて</title>
+<title>Next.js: Dynamic Routes, API Routes/ふみのて</title>
 <link rel="shortcut icon" href="../../../../assets/icons/favicon.ico">
 <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Vollkorn:400,700">
@@ -26,7 +26,7 @@
           javascript
       </a>
     </div>
-    <div class="title">Next.js: Tutorial 下</div>
+    <div class="title">Next.js: Dynamic Routes, API Routes</div>
     <time class="date" datetime="2020-07-19 00:00:00+09:00">
       2020-07-19 Sun
     </time><time class="date" datetime="2020-07-19 00:00:00+09:00">
@@ -170,10 +170,10 @@
 </div>
 <div class="section" id="id3">
 <h3><a class="toc-backref" href="#id9">他のページからリンクするとき</a></h3>
-<pre class="code javascript"><a name="rest_code_d0c29915b22f46da8bf611a4e1e7047f-1"></a><span class="c1">// href に `[]` を使い、 `as` prop に実際のパス (id) を入れてあげる</span>
-<a name="rest_code_d0c29915b22f46da8bf611a4e1e7047f-2"></a><span class="o">&lt;</span><span class="nx">Link</span> <span class="nx">href</span><span class="o">=</span><span class="s2">"/posts/[id]"</span> <span class="nx">as</span><span class="o">=</span><span class="s2">"/posts/ssg-ssr"</span><span class="o">&gt;</span>
-<a name="rest_code_d0c29915b22f46da8bf611a4e1e7047f-3"></a>  <span class="o">&lt;</span><span class="nx">a</span><span class="o">&gt;</span><span class="p">...</span><span class="o">&lt;</span><span class="err">/a&gt;</span>
-<a name="rest_code_d0c29915b22f46da8bf611a4e1e7047f-4"></a><span class="o">&lt;</span><span class="err">/Link&gt;</span>
+<pre class="code javascript"><a name="rest_code_2c9ccc526cd84ce685a5206319b88e42-1"></a><span class="c1">// href に `[]` を使い、 `as` prop に実際のパス (id) を入れてあげる</span>
+<a name="rest_code_2c9ccc526cd84ce685a5206319b88e42-2"></a><span class="o">&lt;</span><span class="nx">Link</span> <span class="nx">href</span><span class="o">=</span><span class="s2">"/posts/[id]"</span> <span class="nx">as</span><span class="o">=</span><span class="s2">"/posts/ssg-ssr"</span><span class="o">&gt;</span>
+<a name="rest_code_2c9ccc526cd84ce685a5206319b88e42-3"></a>  <span class="o">&lt;</span><span class="nx">a</span><span class="o">&gt;</span><span class="p">...</span><span class="o">&lt;</span><span class="err">/a&gt;</span>
+<a name="rest_code_2c9ccc526cd84ce685a5206319b88e42-4"></a><span class="o">&lt;</span><span class="err">/Link&gt;</span>
 </pre>
 </div>
 <div class="section" id="getstaticpaths">

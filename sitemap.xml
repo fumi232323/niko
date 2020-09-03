@@ -35,7 +35,7 @@
  </url>
  <url>
   <loc>https://32imuf.com/archive.html</loc>
-  <lastmod>2020-08-15T15:37:00Z</lastmod>
+  <lastmod>2020-09-03T05:59:00Z</lastmod>
  </url>
  <url>
   <loc>https://32imuf.com/aws/iroiro/</loc>
@@ -198,10 +198,6 @@
   <lastmod>2020-05-13T14:57:00Z</lastmod>
  </url>
  <url>
-  <loc>https://32imuf.com/javascript/hey/</loc>
-  <lastmod>2020-08-02T13:24:00Z</lastmod>
- </url>
- <url>
   <loc>https://32imuf.com/javascript/how-to-start-creating-react-app-with-nextjs-typescript/</loc>
   <lastmod>2020-08-23T05:18:00Z</lastmod>
  </url>
@@ -248,6 +244,10 @@
  <url>
   <loc>https://32imuf.com/javascript/react/tutorial/</loc>
   <lastmod>2020-06-16T13:13:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://32imuf.com/javascript/yarn/</loc>
+  <lastmod>2020-09-03T04:33:00Z</lastmod>
  </url>
  <url>
   <loc>https://32imuf.com/linux/note/</loc>
