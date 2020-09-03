@@ -1,4 +1,4 @@
-.. title: Next.js: Tutorial 中
+.. title: Next.js: Pre-rendering, Data Fetching
 .. tags: javascript
 .. date: 2020-07-12
 .. slug: index

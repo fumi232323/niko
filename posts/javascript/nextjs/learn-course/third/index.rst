@@ -1,4 +1,4 @@
-.. title: Next.js: Tutorial 下
+.. title: Next.js: Dynamic Routes, API Routes
 .. tags: javascript
 .. date: 2020-07-19
 .. slug: index

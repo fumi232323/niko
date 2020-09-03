@@ -1,4 +1,4 @@
-.. title: Next.js: Tutorial TypeScript
+.. title: Next.js: TypeScript
 .. tags: javascript
 .. date: 2020-07-25
 .. slug: index

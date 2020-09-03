@@ -1,4 +1,4 @@
-.. title: React そのに
+.. title: React: [読書メモ] React、Angular、Vue.js、React Nativeを使って学ぶ はじめてのフロントエンド開発 (その他)
 .. tags: javascript
 .. date: 2020-06-16
 .. slug: index

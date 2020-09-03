@@ -1,4 +1,4 @@
-.. title: React チュートリアル
+.. title: React: 公式チュートリアルやってみた React のメモ
 .. tags: javascript
 .. date: 2020-06-21
 .. slug: index

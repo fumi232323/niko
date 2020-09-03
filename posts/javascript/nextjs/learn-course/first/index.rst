@@ -1,4 +1,4 @@
-.. title: Next.js: Tutorial 上
+.. title: Next.js: Navigation, Styling
 .. tags: javascript
 .. date: 2020-07-05
 .. slug: index

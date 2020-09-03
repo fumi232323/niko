@@ -1,4 +1,4 @@
-.. title: React Hooks
+.. title: React: Hooks
 .. tags: javascript
 .. date: 2020-08-02
 .. slug: index
