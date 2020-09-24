@@ -42,7 +42,7 @@
 
   # sudo 権限確認
   $ grep sudo /etc/group
-  sudo:x:27:beproud,altnight,fumi23
+  sudo:x:27:fumi12,fumi23,fumi45
 
   # ユーザーをグループに追加
   # USER_NAME を、GROUP_NAME グループに追加する
