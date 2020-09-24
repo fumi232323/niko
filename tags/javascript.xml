@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ふみのて (Posts about javascript)</title><link>https://32imuf.com/</link><description></description><atom:link href="https://32imuf.com/tags/javascript.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2020 &lt;a href="mailto:fumi232323fumi2016@gmail.com"&gt;fumi23&lt;/a&gt; </copyright><lastBuildDate>Thu, 03 Sep 2020 12:10:02 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>React * Next.js * TypeScript で何か作ろう</title><link>https://32imuf.com/javascript/how-to-start-creating-react-app-with-nextjs-typescript/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;details&gt;
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ふみのて (Posts about javascript)</title><link>https://32imuf.com/</link><description></description><atom:link href="https://32imuf.com/tags/javascript.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2020 &lt;a href="mailto:fumi232323fumi2016@gmail.com"&gt;fumi23&lt;/a&gt; </copyright><lastBuildDate>Thu, 24 Sep 2020 12:45:57 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>React * Next.js * TypeScript で何か作ろう</title><link>https://32imuf.com/javascript/how-to-start-creating-react-app-with-nextjs-typescript/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;details&gt;
   &lt;summary&gt;目次&lt;/summary&gt;&lt;div class="contents topic" id="contents"&gt;
 &lt;p class="topic-title first"&gt;Contents&lt;/p&gt;
 &lt;ul class="simple"&gt;
@@ -14,39 +14,58 @@
 &lt;/div&gt;
 &lt;div class="section" id="id2"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/javascript/how-to-start-creating-react-app-with-nextjs-typescript/#id4"&gt;アプリの種をつくる&lt;/a&gt;&lt;/h2&gt;
-&lt;pre class="code zsh"&gt;&lt;a name="rest_code_bf41482a61364e2c81c8d4c78847040c-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 新しいNext.jsアプリを作成&lt;/span&gt;
-&lt;a name="rest_code_bf41482a61364e2c81c8d4c78847040c-2"&gt;&lt;/a&gt;npx create-next-app
-&lt;a name="rest_code_bf41482a61364e2c81c8d4c78847040c-3"&gt;&lt;/a&gt;
-&lt;a name="rest_code_bf41482a61364e2c81c8d4c78847040c-4"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# Starts the development server.&lt;/span&gt;
-&lt;a name="rest_code_bf41482a61364e2c81c8d4c78847040c-5"&gt;&lt;/a&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; path/to/app
-&lt;a name="rest_code_bf41482a61364e2c81c8d4c78847040c-6"&gt;&lt;/a&gt;npm run dev
-&lt;a name="rest_code_bf41482a61364e2c81c8d4c78847040c-7"&gt;&lt;/a&gt;
-&lt;a name="rest_code_bf41482a61364e2c81c8d4c78847040c-8"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# Builds the app for production.&lt;/span&gt;
-&lt;a name="rest_code_bf41482a61364e2c81c8d4c78847040c-9"&gt;&lt;/a&gt;npm run build
-&lt;a name="rest_code_bf41482a61364e2c81c8d4c78847040c-10"&gt;&lt;/a&gt;
-&lt;a name="rest_code_bf41482a61364e2c81c8d4c78847040c-11"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# Runs the built app in production mode.&lt;/span&gt;
-&lt;a name="rest_code_bf41482a61364e2c81c8d4c78847040c-12"&gt;&lt;/a&gt;npm start
-&lt;a name="rest_code_bf41482a61364e2c81c8d4c78847040c-13"&gt;&lt;/a&gt;
-&lt;a name="rest_code_bf41482a61364e2c81c8d4c78847040c-14"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# TypeScript の導入&lt;/span&gt;
-&lt;a name="rest_code_bf41482a61364e2c81c8d4c78847040c-15"&gt;&lt;/a&gt;npm install --save-dev typescript @types/react @types/node
-&lt;a name="rest_code_bf41482a61364e2c81c8d4c78847040c-16"&gt;&lt;/a&gt;touch tsconfig.json
-&lt;a name="rest_code_bf41482a61364e2c81c8d4c78847040c-17"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# dev サーバーの再起動が必要&lt;/span&gt;
-&lt;a name="rest_code_bf41482a61364e2c81c8d4c78847040c-18"&gt;&lt;/a&gt;npm run dev
-&lt;a name="rest_code_bf41482a61364e2c81c8d4c78847040c-19"&gt;&lt;/a&gt;
-&lt;a name="rest_code_bf41482a61364e2c81c8d4c78847040c-20"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# React Bootstrap の導入&lt;/span&gt;
-&lt;a name="rest_code_bf41482a61364e2c81c8d4c78847040c-21"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# https://react-bootstrap.github.io/getting-started/introduction&lt;/span&gt;
-&lt;a name="rest_code_bf41482a61364e2c81c8d4c78847040c-22"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# _app.tsx に `import 'bootstrap/dist/css/bootstrap.min.css';`&lt;/span&gt;
-&lt;a name="rest_code_bf41482a61364e2c81c8d4c78847040c-23"&gt;&lt;/a&gt;npm install react-bootstrap bootstrap
-&lt;a name="rest_code_bf41482a61364e2c81c8d4c78847040c-24"&gt;&lt;/a&gt;
-&lt;a name="rest_code_bf41482a61364e2c81c8d4c78847040c-25"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# styled components の導入&lt;/span&gt;
-&lt;a name="rest_code_bf41482a61364e2c81c8d4c78847040c-26"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# https://styled-components.com/&lt;/span&gt;
-&lt;a name="rest_code_bf41482a61364e2c81c8d4c78847040c-27"&gt;&lt;/a&gt;npm install --save styled-components
-&lt;a name="rest_code_bf41482a61364e2c81c8d4c78847040c-28"&gt;&lt;/a&gt;npm install @types/styled-components
-&lt;a name="rest_code_bf41482a61364e2c81c8d4c78847040c-29"&gt;&lt;/a&gt;
-&lt;a name="rest_code_bf41482a61364e2c81c8d4c78847040c-30"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# styled components: Babel Plugin&lt;/span&gt;
-&lt;a name="rest_code_bf41482a61364e2c81c8d4c78847040c-31"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# https://styled-components.com/docs/tooling#babel-plugin&lt;/span&gt;
-&lt;a name="rest_code_bf41482a61364e2c81c8d4c78847040c-32"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# .babelrc も書く&lt;/span&gt;
-&lt;a name="rest_code_bf41482a61364e2c81c8d4c78847040c-33"&gt;&lt;/a&gt;npm install --save-dev babel-plugin-styled-components
+&lt;pre class="code zsh"&gt;&lt;a name="rest_code_bba61e161af84b608ad064b50c5eac58-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 新しいNext.jsアプリを作成&lt;/span&gt;
+&lt;a name="rest_code_bba61e161af84b608ad064b50c5eac58-2"&gt;&lt;/a&gt;npx create-next-app
+&lt;a name="rest_code_bba61e161af84b608ad064b50c5eac58-3"&gt;&lt;/a&gt;
+&lt;a name="rest_code_bba61e161af84b608ad064b50c5eac58-4"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# Starts the development server.&lt;/span&gt;
+&lt;a name="rest_code_bba61e161af84b608ad064b50c5eac58-5"&gt;&lt;/a&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; path/to/app
+&lt;a name="rest_code_bba61e161af84b608ad064b50c5eac58-6"&gt;&lt;/a&gt;npm run dev
+&lt;a name="rest_code_bba61e161af84b608ad064b50c5eac58-7"&gt;&lt;/a&gt;
+&lt;a name="rest_code_bba61e161af84b608ad064b50c5eac58-8"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# Builds the app for production.&lt;/span&gt;
+&lt;a name="rest_code_bba61e161af84b608ad064b50c5eac58-9"&gt;&lt;/a&gt;npm run build
+&lt;a name="rest_code_bba61e161af84b608ad064b50c5eac58-10"&gt;&lt;/a&gt;
+&lt;a name="rest_code_bba61e161af84b608ad064b50c5eac58-11"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# Runs the built app in production mode.&lt;/span&gt;
+&lt;a name="rest_code_bba61e161af84b608ad064b50c5eac58-12"&gt;&lt;/a&gt;npm start
+&lt;a name="rest_code_bba61e161af84b608ad064b50c5eac58-13"&gt;&lt;/a&gt;
+&lt;a name="rest_code_bba61e161af84b608ad064b50c5eac58-14"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# TypeScript の導入&lt;/span&gt;
+&lt;a name="rest_code_bba61e161af84b608ad064b50c5eac58-15"&gt;&lt;/a&gt;npm install --save-dev typescript @types/react @types/node
+&lt;a name="rest_code_bba61e161af84b608ad064b50c5eac58-16"&gt;&lt;/a&gt;touch tsconfig.json
+&lt;a name="rest_code_bba61e161af84b608ad064b50c5eac58-17"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# dev サーバーの再起動が必要&lt;/span&gt;
+&lt;a name="rest_code_bba61e161af84b608ad064b50c5eac58-18"&gt;&lt;/a&gt;npm run dev
+&lt;a name="rest_code_bba61e161af84b608ad064b50c5eac58-19"&gt;&lt;/a&gt;
+&lt;a name="rest_code_bba61e161af84b608ad064b50c5eac58-20"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# React Bootstrap の導入&lt;/span&gt;
+&lt;a name="rest_code_bba61e161af84b608ad064b50c5eac58-21"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# https://react-bootstrap.github.io/getting-started/introduction&lt;/span&gt;
+&lt;a name="rest_code_bba61e161af84b608ad064b50c5eac58-22"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# _app.tsx に `import 'bootstrap/dist/css/bootstrap.min.css';`&lt;/span&gt;
+&lt;a name="rest_code_bba61e161af84b608ad064b50c5eac58-23"&gt;&lt;/a&gt;npm install react-bootstrap bootstrap
+&lt;a name="rest_code_bba61e161af84b608ad064b50c5eac58-24"&gt;&lt;/a&gt;
+&lt;a name="rest_code_bba61e161af84b608ad064b50c5eac58-25"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# styled components の導入&lt;/span&gt;
+&lt;a name="rest_code_bba61e161af84b608ad064b50c5eac58-26"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# https://styled-components.com/&lt;/span&gt;
+&lt;a name="rest_code_bba61e161af84b608ad064b50c5eac58-27"&gt;&lt;/a&gt;npm install --save styled-components
+&lt;a name="rest_code_bba61e161af84b608ad064b50c5eac58-28"&gt;&lt;/a&gt;npm install @types/styled-components
+&lt;a name="rest_code_bba61e161af84b608ad064b50c5eac58-29"&gt;&lt;/a&gt;
+&lt;a name="rest_code_bba61e161af84b608ad064b50c5eac58-30"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# styled components: Babel Plugin&lt;/span&gt;
+&lt;a name="rest_code_bba61e161af84b608ad064b50c5eac58-31"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# https://styled-components.com/docs/tooling#babel-plugin&lt;/span&gt;
+&lt;a name="rest_code_bba61e161af84b608ad064b50c5eac58-32"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# .babelrc も書く&lt;/span&gt;
+&lt;a name="rest_code_bba61e161af84b608ad064b50c5eac58-33"&gt;&lt;/a&gt;npm install --save-dev babel-plugin-styled-components
+&lt;a name="rest_code_bba61e161af84b608ad064b50c5eac58-34"&gt;&lt;/a&gt;
+&lt;a name="rest_code_bba61e161af84b608ad064b50c5eac58-35"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# yarn をインストール (こっから yarn でやってみる)&lt;/span&gt;
+&lt;a name="rest_code_bba61e161af84b608ad064b50c5eac58-36"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# package.json をそのまま使える&lt;/span&gt;
+&lt;a name="rest_code_bba61e161af84b608ad064b50c5eac58-37"&gt;&lt;/a&gt;sudo npm install -g yarn
+&lt;a name="rest_code_bba61e161af84b608ad064b50c5eac58-38"&gt;&lt;/a&gt;
+&lt;a name="rest_code_bba61e161af84b608ad064b50c5eac58-39"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# Material-UI をインストール&lt;/span&gt;
+&lt;a name="rest_code_bba61e161af84b608ad064b50c5eac58-40"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# https://material-ui.com/&lt;/span&gt;
+&lt;a name="rest_code_bba61e161af84b608ad064b50c5eac58-41"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# React Bootstrap よりも使い方がややこしいが、 Component の種類が豊富&lt;/span&gt;
+&lt;a name="rest_code_bba61e161af84b608ad064b50c5eac58-42"&gt;&lt;/a&gt;yarn add @material-ui/core @material-ui/icons
+&lt;a name="rest_code_bba61e161af84b608ad064b50c5eac58-43"&gt;&lt;/a&gt;
+&lt;a name="rest_code_bba61e161af84b608ad064b50c5eac58-44"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# react-copy-to-clipboard をインストール&lt;/span&gt;
+&lt;a name="rest_code_bba61e161af84b608ad064b50c5eac58-45"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# https://www.npmjs.com/package/react-copy-to-clipboard&lt;/span&gt;
+&lt;a name="rest_code_bba61e161af84b608ad064b50c5eac58-46"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# Clip board にコピーしてくれるさん&lt;/span&gt;
+&lt;a name="rest_code_bba61e161af84b608ad064b50c5eac58-47"&gt;&lt;/a&gt;yarn add react-copy-to-clipboard
+&lt;a name="rest_code_bba61e161af84b608ad064b50c5eac58-48"&gt;&lt;/a&gt;yarn add --dev @types/react-copy-to-clipboard
+&lt;a name="rest_code_bba61e161af84b608ad064b50c5eac58-49"&gt;&lt;/a&gt;
+&lt;a name="rest_code_bba61e161af84b608ad064b50c5eac58-50"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# Axios をインストール&lt;/span&gt;
+&lt;a name="rest_code_bba61e161af84b608ad064b50c5eac58-51"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# https://github.com/axios/axios&lt;/span&gt;
+&lt;a name="rest_code_bba61e161af84b608ad064b50c5eac58-52"&gt;&lt;/a&gt;yarn add axios
 &lt;/pre&gt;&lt;/div&gt;
 &lt;div class="section" id="vercel-deploy"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/javascript/how-to-start-creating-react-app-with-nextjs-typescript/#id5"&gt;Vercel へ deploy&lt;/a&gt;&lt;/h2&gt;
