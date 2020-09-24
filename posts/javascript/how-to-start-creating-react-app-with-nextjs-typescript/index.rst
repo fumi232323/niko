@@ -62,6 +62,26 @@ https://fuminote-tools.vercel.app/
   # .babelrc も書く
   npm install --save-dev babel-plugin-styled-components
 
+  # yarn をインストール (こっから yarn でやってみる)
+  # package.json をそのまま使える
+  sudo npm install -g yarn
+
+  # Material-UI をインストール
+  # https://material-ui.com/
+  # React Bootstrap よりも使い方がややこしいが、 Component の種類が豊富
+  yarn add @material-ui/core @material-ui/icons
+
+  # react-copy-to-clipboard をインストール
+  # https://www.npmjs.com/package/react-copy-to-clipboard
+  # Clip board にコピーしてくれるさん
+  yarn add react-copy-to-clipboard
+  yarn add --dev @types/react-copy-to-clipboard
+
+  # Axios をインストール
+  # https://github.com/axios/axios
+  yarn add axios
+
+
 
 Vercel へ deploy
 ==================

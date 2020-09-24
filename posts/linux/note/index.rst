@@ -17,8 +17,11 @@
   </details>
 
 
-ユーザー/ユーザーグループを確認したい
-=====================================
+ユーザー/ユーザーグループ
+=========================
+
+一覧を確認したい
+-----------------
 
 .. code-block:: bash
 
@@ -29,8 +32,26 @@
 
   # ユーザーグループの一覧
   $ cat /etc/group
-  # グループ名:暗号化されたパスワード:グループID:サブグループとして所属しているユーザーアカウントのリスト
+  # グループ名:暗号化されたパスワード:グループID:サブグループとして所属しているユーザーアカウントのリスト (カンマ区切り)
   dev:x:1001:
+
+追加/削除
+----------
+
+.. code-block:: bash
+
+  # sudo 権限確認
+  $ grep sudo /etc/group
+  sudo:x:27:beproud,altnight,fumi23
+
+  # ユーザーをグループに追加
+  # USER_NAME を、GROUP_NAME グループに追加する
+  # sudo gpasswd -a {USER_NAME} {GROUP_NAME}
+  $ sudo gpasswd -a  fumi23 sudo
+
+  # ユーザー削除
+  # -r (--remove): ユーザディレクトリも消す
+  $ sudo userdel -r {USER_NAME}
 
 
 ディスク容量/使用量を確認したい
@@ -92,8 +113,11 @@ SFTP
   sftp> quit
 
 
-サービスの起動/停止とか
-========================
+サービス
+========
+
+起動/停止とか
+-------------
 
 .. code-block:: bash
 
@@ -110,6 +134,21 @@ SFTP
   $ sudo service nginx start
   # ステータス表示
   $ sudo service nginx status
+
+
+ログ見る
+--------
+
+.. code-block:: bash
+
+  # 時間指定
+  $ journalctl -u {SERVICE_NAME} -S "2020-09-11 09:41:00" -U "2020-09-10 09:42:00"
+
+  # 最近のやつ
+  $ journalctl -u {SERVICE_NAME} -e
+
+  # 末尾 n行分
+  $ journalctl -u {SERVICE_NAME} -n 100
 
 
 ls -l
