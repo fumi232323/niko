@@ -35,7 +35,7 @@
  </url>
  <url>
   <loc>https://32imuf.com/archive.html</loc>
-  <lastmod>2020-09-03T05:59:00Z</lastmod>
+  <lastmod>2020-09-24T14:56:00Z</lastmod>
  </url>
  <url>
   <loc>https://32imuf.com/aws/iroiro/</loc>
@@ -140,6 +140,10 @@
  <url>
   <loc>https://32imuf.com/docker/introduction-to-practice-container-development/5-kubernetes-getting-started/</loc>
   <lastmod>2019-11-24T07:01:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://32imuf.com/docker/jenkins/</loc>
+  <lastmod>2020-09-24T14:56:00Z</lastmod>
  </url>
  <url>
   <loc>https://32imuf.com/docker/use-volumes-with-docker-compose/</loc>

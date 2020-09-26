@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ふみのて (Posts about linux)</title><link>https://32imuf.com/</link><description></description><atom:link href="https://32imuf.com/tags/linux.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2020 &lt;a href="mailto:fumi232323fumi2016@gmail.com"&gt;fumi23&lt;/a&gt; </copyright><lastBuildDate>Thu, 24 Sep 2020 14:24:34 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Linux いろいろメモ</title><link>https://32imuf.com/linux/note/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;details&gt;
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ふみのて (Posts about linux)</title><link>https://32imuf.com/</link><description></description><atom:link href="https://32imuf.com/tags/linux.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2020 &lt;a href="mailto:fumi232323fumi2016@gmail.com"&gt;fumi23&lt;/a&gt; </copyright><lastBuildDate>Sat, 26 Sep 2020 08:25:23 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Linux いろいろメモ</title><link>https://32imuf.com/linux/note/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;details&gt;
   &lt;summary&gt;目次&lt;/summary&gt;&lt;div class="contents topic" id="contents"&gt;
 &lt;p class="topic-title first"&gt;Contents&lt;/p&gt;
 &lt;ul class="simple"&gt;
@@ -38,129 +38,129 @@
 &lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/linux/note/#id13"&gt;ユーザー/ユーザーグループ&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="section" id="id2"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/linux/note/#id14"&gt;一覧を確認したい&lt;/a&gt;&lt;/h3&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_bf1563fd7f5440f39ec1758e8b951043-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# ユーザーの一覧&lt;/span&gt;
-&lt;a name="rest_code_bf1563fd7f5440f39ec1758e8b951043-2"&gt;&lt;/a&gt;$ cat /etc/passwd
-&lt;a name="rest_code_bf1563fd7f5440f39ec1758e8b951043-3"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# ユーザー名:暗号化されたパスワード:ユーザーID:グループID:コメント:ホームディレクトリー:ログインシェル（ログインした際、最初に起動するシェル）&lt;/span&gt;
-&lt;a name="rest_code_bf1563fd7f5440f39ec1758e8b951043-4"&gt;&lt;/a&gt;fumi23:x:1061:1001::/home/fumi23:/bin/bash
-&lt;a name="rest_code_bf1563fd7f5440f39ec1758e8b951043-5"&gt;&lt;/a&gt;
-&lt;a name="rest_code_bf1563fd7f5440f39ec1758e8b951043-6"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# ユーザーグループの一覧&lt;/span&gt;
-&lt;a name="rest_code_bf1563fd7f5440f39ec1758e8b951043-7"&gt;&lt;/a&gt;$ cat /etc/group
-&lt;a name="rest_code_bf1563fd7f5440f39ec1758e8b951043-8"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# グループ名:暗号化されたパスワード:グループID:サブグループとして所属しているユーザーアカウントのリスト (カンマ区切り)&lt;/span&gt;
-&lt;a name="rest_code_bf1563fd7f5440f39ec1758e8b951043-9"&gt;&lt;/a&gt;dev:x:1001:
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_c69ea8f857db4508a8002f319a34b3e4-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# ユーザーの一覧&lt;/span&gt;
+&lt;a name="rest_code_c69ea8f857db4508a8002f319a34b3e4-2"&gt;&lt;/a&gt;$ cat /etc/passwd
+&lt;a name="rest_code_c69ea8f857db4508a8002f319a34b3e4-3"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# ユーザー名:暗号化されたパスワード:ユーザーID:グループID:コメント:ホームディレクトリー:ログインシェル（ログインした際、最初に起動するシェル）&lt;/span&gt;
+&lt;a name="rest_code_c69ea8f857db4508a8002f319a34b3e4-4"&gt;&lt;/a&gt;fumi23:x:1061:1001::/home/fumi23:/bin/bash
+&lt;a name="rest_code_c69ea8f857db4508a8002f319a34b3e4-5"&gt;&lt;/a&gt;
+&lt;a name="rest_code_c69ea8f857db4508a8002f319a34b3e4-6"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# ユーザーグループの一覧&lt;/span&gt;
+&lt;a name="rest_code_c69ea8f857db4508a8002f319a34b3e4-7"&gt;&lt;/a&gt;$ cat /etc/group
+&lt;a name="rest_code_c69ea8f857db4508a8002f319a34b3e4-8"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# グループ名:暗号化されたパスワード:グループID:サブグループとして所属しているユーザーアカウントのリスト (カンマ区切り)&lt;/span&gt;
+&lt;a name="rest_code_c69ea8f857db4508a8002f319a34b3e4-9"&gt;&lt;/a&gt;dev:x:1001:
 &lt;/pre&gt;&lt;/div&gt;
 &lt;div class="section" id="id3"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/linux/note/#id15"&gt;追加/削除&lt;/a&gt;&lt;/h3&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_a52893c650bd41d89a27166c322f6a0f-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# sudo 権限確認&lt;/span&gt;
-&lt;a name="rest_code_a52893c650bd41d89a27166c322f6a0f-2"&gt;&lt;/a&gt;$ grep sudo /etc/group
-&lt;a name="rest_code_a52893c650bd41d89a27166c322f6a0f-3"&gt;&lt;/a&gt;sudo:x:27:fumi12,fumi23,fumi45
-&lt;a name="rest_code_a52893c650bd41d89a27166c322f6a0f-4"&gt;&lt;/a&gt;
-&lt;a name="rest_code_a52893c650bd41d89a27166c322f6a0f-5"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# ユーザーをグループに追加&lt;/span&gt;
-&lt;a name="rest_code_a52893c650bd41d89a27166c322f6a0f-6"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# USER_NAME を、GROUP_NAME グループに追加する&lt;/span&gt;
-&lt;a name="rest_code_a52893c650bd41d89a27166c322f6a0f-7"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# sudo gpasswd -a {USER_NAME} {GROUP_NAME}&lt;/span&gt;
-&lt;a name="rest_code_a52893c650bd41d89a27166c322f6a0f-8"&gt;&lt;/a&gt;$ sudo gpasswd -a  fumi23 sudo
-&lt;a name="rest_code_a52893c650bd41d89a27166c322f6a0f-9"&gt;&lt;/a&gt;
-&lt;a name="rest_code_a52893c650bd41d89a27166c322f6a0f-10"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# ユーザー削除&lt;/span&gt;
-&lt;a name="rest_code_a52893c650bd41d89a27166c322f6a0f-11"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# -r (--remove): ユーザディレクトリも消す&lt;/span&gt;
-&lt;a name="rest_code_a52893c650bd41d89a27166c322f6a0f-12"&gt;&lt;/a&gt;$ sudo userdel -r &lt;span class="o"&gt;{&lt;/span&gt;USER_NAME&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_278bc3dbfa2b48438c272e224df2c67e-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# sudo 権限確認&lt;/span&gt;
+&lt;a name="rest_code_278bc3dbfa2b48438c272e224df2c67e-2"&gt;&lt;/a&gt;$ grep sudo /etc/group
+&lt;a name="rest_code_278bc3dbfa2b48438c272e224df2c67e-3"&gt;&lt;/a&gt;sudo:x:27:fumi12,fumi23,fumi45
+&lt;a name="rest_code_278bc3dbfa2b48438c272e224df2c67e-4"&gt;&lt;/a&gt;
+&lt;a name="rest_code_278bc3dbfa2b48438c272e224df2c67e-5"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# ユーザーをグループに追加&lt;/span&gt;
+&lt;a name="rest_code_278bc3dbfa2b48438c272e224df2c67e-6"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# USER_NAME を、GROUP_NAME グループに追加する&lt;/span&gt;
+&lt;a name="rest_code_278bc3dbfa2b48438c272e224df2c67e-7"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# sudo gpasswd -a {USER_NAME} {GROUP_NAME}&lt;/span&gt;
+&lt;a name="rest_code_278bc3dbfa2b48438c272e224df2c67e-8"&gt;&lt;/a&gt;$ sudo gpasswd -a  fumi23 sudo
+&lt;a name="rest_code_278bc3dbfa2b48438c272e224df2c67e-9"&gt;&lt;/a&gt;
+&lt;a name="rest_code_278bc3dbfa2b48438c272e224df2c67e-10"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# ユーザー削除&lt;/span&gt;
+&lt;a name="rest_code_278bc3dbfa2b48438c272e224df2c67e-11"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# -r (--remove): ユーザディレクトリも消す&lt;/span&gt;
+&lt;a name="rest_code_278bc3dbfa2b48438c272e224df2c67e-12"&gt;&lt;/a&gt;$ sudo userdel -r &lt;span class="o"&gt;{&lt;/span&gt;USER_NAME&lt;span class="o"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id4"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/linux/note/#id16"&gt;ディスク容量/使用量を確認したい&lt;/a&gt;&lt;/h2&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_00a2be9749b94f6aa76f9e7ce23e4ca7-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# ファイルシステムの使用領域と空き領域を表示する&lt;/span&gt;
-&lt;a name="rest_code_00a2be9749b94f6aa76f9e7ce23e4ca7-2"&gt;&lt;/a&gt;$ df -h
-&lt;a name="rest_code_00a2be9749b94f6aa76f9e7ce23e4ca7-3"&gt;&lt;/a&gt;
-&lt;a name="rest_code_00a2be9749b94f6aa76f9e7ce23e4ca7-4"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 指定したディレクトリのディスク使用量を表示する&lt;/span&gt;
-&lt;a name="rest_code_00a2be9749b94f6aa76f9e7ce23e4ca7-5"&gt;&lt;/a&gt;$ du -sh /path/to/husky
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_e2e7831e05ce47babaeda4eb4fa62a68-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# ファイルシステムの使用領域と空き領域を表示する&lt;/span&gt;
+&lt;a name="rest_code_e2e7831e05ce47babaeda4eb4fa62a68-2"&gt;&lt;/a&gt;$ df -h
+&lt;a name="rest_code_e2e7831e05ce47babaeda4eb4fa62a68-3"&gt;&lt;/a&gt;
+&lt;a name="rest_code_e2e7831e05ce47babaeda4eb4fa62a68-4"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 指定したディレクトリのディスク使用量を表示する&lt;/span&gt;
+&lt;a name="rest_code_e2e7831e05ce47babaeda4eb4fa62a68-5"&gt;&lt;/a&gt;$ du -sh /path/to/husky
 &lt;/pre&gt;&lt;/div&gt;
 &lt;div class="section" id="id5"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/linux/note/#id17"&gt;圧縮・展開&lt;/a&gt;&lt;/h2&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_aa2166848c3146eaba06ffe54b4c903a-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 圧縮: 前のはなくなる&lt;/span&gt;
-&lt;a name="rest_code_aa2166848c3146eaba06ffe54b4c903a-2"&gt;&lt;/a&gt;$ gzip husky-dump.sql
-&lt;a name="rest_code_aa2166848c3146eaba06ffe54b4c903a-3"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 展開: 前のはなくなる&lt;/span&gt;
-&lt;a name="rest_code_aa2166848c3146eaba06ffe54b4c903a-4"&gt;&lt;/a&gt;$ gzip -d husky-dump.sql.gz
-&lt;a name="rest_code_aa2166848c3146eaba06ffe54b4c903a-5"&gt;&lt;/a&gt;
-&lt;a name="rest_code_aa2166848c3146eaba06ffe54b4c903a-6"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# アーカイブと圧縮: 前のはなくならない&lt;/span&gt;
-&lt;a name="rest_code_aa2166848c3146eaba06ffe54b4c903a-7"&gt;&lt;/a&gt;$ tar -cf husky.tar husky
-&lt;a name="rest_code_aa2166848c3146eaba06ffe54b4c903a-8"&gt;&lt;/a&gt;$ gzip husky.tar
-&lt;a name="rest_code_aa2166848c3146eaba06ffe54b4c903a-9"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 展開: 前のはなくならない&lt;/span&gt;
-&lt;a name="rest_code_aa2166848c3146eaba06ffe54b4c903a-10"&gt;&lt;/a&gt;$ tar -zxvf husky.tar.gz
-&lt;a name="rest_code_aa2166848c3146eaba06ffe54b4c903a-11"&gt;&lt;/a&gt;
-&lt;a name="rest_code_aa2166848c3146eaba06ffe54b4c903a-12"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# zip 圧縮&lt;/span&gt;
-&lt;a name="rest_code_aa2166848c3146eaba06ffe54b4c903a-13"&gt;&lt;/a&gt;$ zip -r /path/to/husky.zip /path/to/husky
-&lt;a name="rest_code_aa2166848c3146eaba06ffe54b4c903a-14"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# zip 展開&lt;/span&gt;
-&lt;a name="rest_code_aa2166848c3146eaba06ffe54b4c903a-15"&gt;&lt;/a&gt;$ unzip /path/to/husky.zip
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_344d996defde4900853fa415c774729c-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 圧縮: 前のはなくなる&lt;/span&gt;
+&lt;a name="rest_code_344d996defde4900853fa415c774729c-2"&gt;&lt;/a&gt;$ gzip husky-dump.sql
+&lt;a name="rest_code_344d996defde4900853fa415c774729c-3"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 展開: 前のはなくなる&lt;/span&gt;
+&lt;a name="rest_code_344d996defde4900853fa415c774729c-4"&gt;&lt;/a&gt;$ gzip -d husky-dump.sql.gz
+&lt;a name="rest_code_344d996defde4900853fa415c774729c-5"&gt;&lt;/a&gt;
+&lt;a name="rest_code_344d996defde4900853fa415c774729c-6"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# アーカイブと圧縮: 前のはなくならない&lt;/span&gt;
+&lt;a name="rest_code_344d996defde4900853fa415c774729c-7"&gt;&lt;/a&gt;$ tar -cf husky.tar husky
+&lt;a name="rest_code_344d996defde4900853fa415c774729c-8"&gt;&lt;/a&gt;$ gzip husky.tar
+&lt;a name="rest_code_344d996defde4900853fa415c774729c-9"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 展開: 前のはなくならない&lt;/span&gt;
+&lt;a name="rest_code_344d996defde4900853fa415c774729c-10"&gt;&lt;/a&gt;$ tar -zxvf husky.tar.gz
+&lt;a name="rest_code_344d996defde4900853fa415c774729c-11"&gt;&lt;/a&gt;
+&lt;a name="rest_code_344d996defde4900853fa415c774729c-12"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# zip 圧縮&lt;/span&gt;
+&lt;a name="rest_code_344d996defde4900853fa415c774729c-13"&gt;&lt;/a&gt;$ zip -r /path/to/husky.zip /path/to/husky
+&lt;a name="rest_code_344d996defde4900853fa415c774729c-14"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# zip 展開&lt;/span&gt;
+&lt;a name="rest_code_344d996defde4900853fa415c774729c-15"&gt;&lt;/a&gt;$ unzip /path/to/husky.zip
 &lt;/pre&gt;&lt;/div&gt;
 &lt;div class="section" id="id6"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/linux/note/#id18"&gt;転送&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="section" id="scp"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/linux/note/#id19"&gt;SCP&lt;/a&gt;&lt;/h3&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_8f568578c3a24ab49b296026b53a4a97-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# サーバー =&amp;gt; ローカル (踏み台サーバーを経由)&lt;/span&gt;
-&lt;a name="rest_code_8f568578c3a24ab49b296026b53a4a97-2"&gt;&lt;/a&gt;$ scp -r -o &lt;span class="s2"&gt;"ProxyCommand ssh &amp;lt;ユーザー名&amp;gt;@&amp;lt;踏み台サーバー名&amp;gt; -W %h:%p"&lt;/span&gt; &amp;lt;ユーザー名&amp;gt;@&amp;lt;サーバー名&amp;gt;:&amp;lt;転送元: サーバー上のファイルパス&amp;gt; &amp;lt;転送先: ローカルのパス&amp;gt;
-&lt;a name="rest_code_8f568578c3a24ab49b296026b53a4a97-3"&gt;&lt;/a&gt;$ scp -r -o &lt;span class="s2"&gt;"ProxyCommand ssh fumi23@fumidai-server -W %h:%p"&lt;/span&gt; fumi23@remote-server:/path/to/fumi23 ~/fumi23
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_ddbe292c8ee8432ba9c101e29b684af2-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# サーバー =&amp;gt; ローカル (踏み台サーバーを経由)&lt;/span&gt;
+&lt;a name="rest_code_ddbe292c8ee8432ba9c101e29b684af2-2"&gt;&lt;/a&gt;$ scp -r -o &lt;span class="s2"&gt;"ProxyCommand ssh &amp;lt;ユーザー名&amp;gt;@&amp;lt;踏み台サーバー名&amp;gt; -W %h:%p"&lt;/span&gt; &amp;lt;ユーザー名&amp;gt;@&amp;lt;サーバー名&amp;gt;:&amp;lt;転送元: サーバー上のファイルパス&amp;gt; &amp;lt;転送先: ローカルのパス&amp;gt;
+&lt;a name="rest_code_ddbe292c8ee8432ba9c101e29b684af2-3"&gt;&lt;/a&gt;$ scp -r -o &lt;span class="s2"&gt;"ProxyCommand ssh fumi23@fumidai-server -W %h:%p"&lt;/span&gt; fumi23@remote-server:/path/to/fumi23 ~/fumi23
 &lt;/pre&gt;&lt;/div&gt;
 &lt;div class="section" id="sftp"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/linux/note/#id20"&gt;SFTP&lt;/a&gt;&lt;/h3&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_904d8bd299c143b492790b79e4690b57-1"&gt;&lt;/a&gt;$ sftp &amp;lt;ユーザー名&amp;gt;@&amp;lt;サーバー名&amp;gt;
-&lt;a name="rest_code_904d8bd299c143b492790b79e4690b57-2"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# ローカル =&amp;gt; サーバー&lt;/span&gt;
-&lt;a name="rest_code_904d8bd299c143b492790b79e4690b57-3"&gt;&lt;/a&gt;sftp&amp;gt; put husky.tar.gz
-&lt;a name="rest_code_904d8bd299c143b492790b79e4690b57-4"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# サーバー =&amp;gt; ローカル&lt;/span&gt;
-&lt;a name="rest_code_904d8bd299c143b492790b79e4690b57-5"&gt;&lt;/a&gt;sftp&amp;gt; get husky.tar.gz
-&lt;a name="rest_code_904d8bd299c143b492790b79e4690b57-6"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# sftp をおしまいにする&lt;/span&gt;
-&lt;a name="rest_code_904d8bd299c143b492790b79e4690b57-7"&gt;&lt;/a&gt;sftp&amp;gt; quit
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_f8dfae17410b4289bee8341512759dc9-1"&gt;&lt;/a&gt;$ sftp &amp;lt;ユーザー名&amp;gt;@&amp;lt;サーバー名&amp;gt;
+&lt;a name="rest_code_f8dfae17410b4289bee8341512759dc9-2"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# ローカル =&amp;gt; サーバー&lt;/span&gt;
+&lt;a name="rest_code_f8dfae17410b4289bee8341512759dc9-3"&gt;&lt;/a&gt;sftp&amp;gt; put husky.tar.gz
+&lt;a name="rest_code_f8dfae17410b4289bee8341512759dc9-4"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# サーバー =&amp;gt; ローカル&lt;/span&gt;
+&lt;a name="rest_code_f8dfae17410b4289bee8341512759dc9-5"&gt;&lt;/a&gt;sftp&amp;gt; get husky.tar.gz
+&lt;a name="rest_code_f8dfae17410b4289bee8341512759dc9-6"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# sftp をおしまいにする&lt;/span&gt;
+&lt;a name="rest_code_f8dfae17410b4289bee8341512759dc9-7"&gt;&lt;/a&gt;sftp&amp;gt; quit
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id7"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/linux/note/#id21"&gt;サービス&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="section" id="id8"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/linux/note/#id22"&gt;起動/停止とか&lt;/a&gt;&lt;/h3&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_24555a250d7a4e9ebb8b3e0c9114740c-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 起動&lt;/span&gt;
-&lt;a name="rest_code_24555a250d7a4e9ebb8b3e0c9114740c-2"&gt;&lt;/a&gt;$ sudo systemctl start mysqld
-&lt;a name="rest_code_24555a250d7a4e9ebb8b3e0c9114740c-3"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 停止&lt;/span&gt;
-&lt;a name="rest_code_24555a250d7a4e9ebb8b3e0c9114740c-4"&gt;&lt;/a&gt;$ sudo systemctl stop mysqld
-&lt;a name="rest_code_24555a250d7a4e9ebb8b3e0c9114740c-5"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 再起動&lt;/span&gt;
-&lt;a name="rest_code_24555a250d7a4e9ebb8b3e0c9114740c-6"&gt;&lt;/a&gt;$ sudo systemctl restart mysqld
-&lt;a name="rest_code_24555a250d7a4e9ebb8b3e0c9114740c-7"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# ステータス表示&lt;/span&gt;
-&lt;a name="rest_code_24555a250d7a4e9ebb8b3e0c9114740c-8"&gt;&lt;/a&gt;$ systemctl status mysqld
-&lt;a name="rest_code_24555a250d7a4e9ebb8b3e0c9114740c-9"&gt;&lt;/a&gt;
-&lt;a name="rest_code_24555a250d7a4e9ebb8b3e0c9114740c-10"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 起動&lt;/span&gt;
-&lt;a name="rest_code_24555a250d7a4e9ebb8b3e0c9114740c-11"&gt;&lt;/a&gt;$ sudo service nginx start
-&lt;a name="rest_code_24555a250d7a4e9ebb8b3e0c9114740c-12"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# ステータス表示&lt;/span&gt;
-&lt;a name="rest_code_24555a250d7a4e9ebb8b3e0c9114740c-13"&gt;&lt;/a&gt;$ sudo service nginx status
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_83d8ec9e354147c5b6b85ce6cbeffb4f-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 起動&lt;/span&gt;
+&lt;a name="rest_code_83d8ec9e354147c5b6b85ce6cbeffb4f-2"&gt;&lt;/a&gt;$ sudo systemctl start mysqld
+&lt;a name="rest_code_83d8ec9e354147c5b6b85ce6cbeffb4f-3"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 停止&lt;/span&gt;
+&lt;a name="rest_code_83d8ec9e354147c5b6b85ce6cbeffb4f-4"&gt;&lt;/a&gt;$ sudo systemctl stop mysqld
+&lt;a name="rest_code_83d8ec9e354147c5b6b85ce6cbeffb4f-5"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 再起動&lt;/span&gt;
+&lt;a name="rest_code_83d8ec9e354147c5b6b85ce6cbeffb4f-6"&gt;&lt;/a&gt;$ sudo systemctl restart mysqld
+&lt;a name="rest_code_83d8ec9e354147c5b6b85ce6cbeffb4f-7"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# ステータス表示&lt;/span&gt;
+&lt;a name="rest_code_83d8ec9e354147c5b6b85ce6cbeffb4f-8"&gt;&lt;/a&gt;$ systemctl status mysqld
+&lt;a name="rest_code_83d8ec9e354147c5b6b85ce6cbeffb4f-9"&gt;&lt;/a&gt;
+&lt;a name="rest_code_83d8ec9e354147c5b6b85ce6cbeffb4f-10"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 起動&lt;/span&gt;
+&lt;a name="rest_code_83d8ec9e354147c5b6b85ce6cbeffb4f-11"&gt;&lt;/a&gt;$ sudo service nginx start
+&lt;a name="rest_code_83d8ec9e354147c5b6b85ce6cbeffb4f-12"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# ステータス表示&lt;/span&gt;
+&lt;a name="rest_code_83d8ec9e354147c5b6b85ce6cbeffb4f-13"&gt;&lt;/a&gt;$ sudo service nginx status
 &lt;/pre&gt;&lt;/div&gt;
 &lt;div class="section" id="id9"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/linux/note/#id23"&gt;ログ見る&lt;/a&gt;&lt;/h3&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_5df24e87bb18462fa0b5e592628eeaa2-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 時間指定&lt;/span&gt;
-&lt;a name="rest_code_5df24e87bb18462fa0b5e592628eeaa2-2"&gt;&lt;/a&gt;$ journalctl -u &lt;span class="o"&gt;{&lt;/span&gt;SERVICE_NAME&lt;span class="o"&gt;}&lt;/span&gt; -S &lt;span class="s2"&gt;"2020-09-11 09:41:00"&lt;/span&gt; -U &lt;span class="s2"&gt;"2020-09-10 09:42:00"&lt;/span&gt;
-&lt;a name="rest_code_5df24e87bb18462fa0b5e592628eeaa2-3"&gt;&lt;/a&gt;
-&lt;a name="rest_code_5df24e87bb18462fa0b5e592628eeaa2-4"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 最近のやつ&lt;/span&gt;
-&lt;a name="rest_code_5df24e87bb18462fa0b5e592628eeaa2-5"&gt;&lt;/a&gt;$ journalctl -u &lt;span class="o"&gt;{&lt;/span&gt;SERVICE_NAME&lt;span class="o"&gt;}&lt;/span&gt; -e
-&lt;a name="rest_code_5df24e87bb18462fa0b5e592628eeaa2-6"&gt;&lt;/a&gt;
-&lt;a name="rest_code_5df24e87bb18462fa0b5e592628eeaa2-7"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 末尾 n行分&lt;/span&gt;
-&lt;a name="rest_code_5df24e87bb18462fa0b5e592628eeaa2-8"&gt;&lt;/a&gt;$ journalctl -u &lt;span class="o"&gt;{&lt;/span&gt;SERVICE_NAME&lt;span class="o"&gt;}&lt;/span&gt; -n &lt;span class="m"&gt;100&lt;/span&gt;
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_278b27517130411185b2819bfcebc78b-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 時間指定&lt;/span&gt;
+&lt;a name="rest_code_278b27517130411185b2819bfcebc78b-2"&gt;&lt;/a&gt;$ journalctl -u &lt;span class="o"&gt;{&lt;/span&gt;SERVICE_NAME&lt;span class="o"&gt;}&lt;/span&gt; -S &lt;span class="s2"&gt;"2020-09-11 09:41:00"&lt;/span&gt; -U &lt;span class="s2"&gt;"2020-09-10 09:42:00"&lt;/span&gt;
+&lt;a name="rest_code_278b27517130411185b2819bfcebc78b-3"&gt;&lt;/a&gt;
+&lt;a name="rest_code_278b27517130411185b2819bfcebc78b-4"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 最近のやつ&lt;/span&gt;
+&lt;a name="rest_code_278b27517130411185b2819bfcebc78b-5"&gt;&lt;/a&gt;$ journalctl -u &lt;span class="o"&gt;{&lt;/span&gt;SERVICE_NAME&lt;span class="o"&gt;}&lt;/span&gt; -e
+&lt;a name="rest_code_278b27517130411185b2819bfcebc78b-6"&gt;&lt;/a&gt;
+&lt;a name="rest_code_278b27517130411185b2819bfcebc78b-7"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 末尾 n行分&lt;/span&gt;
+&lt;a name="rest_code_278b27517130411185b2819bfcebc78b-8"&gt;&lt;/a&gt;$ journalctl -u &lt;span class="o"&gt;{&lt;/span&gt;SERVICE_NAME&lt;span class="o"&gt;}&lt;/span&gt; -n &lt;span class="m"&gt;100&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="ls-l"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/linux/note/#id24"&gt;ls -l&lt;/a&gt;&lt;/h2&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_09fbd1dae60043309d65dc3d9761aacb-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# . から始まるファイルも全部表示する&lt;/span&gt;
-&lt;a name="rest_code_09fbd1dae60043309d65dc3d9761aacb-2"&gt;&lt;/a&gt;$ ls -la
-&lt;a name="rest_code_09fbd1dae60043309d65dc3d9761aacb-3"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# ファイルのパーミッション、所有ユーザ、所有グループ、ファイルサイズ、タイムスタンプ、ファイル名&lt;/span&gt;
-&lt;a name="rest_code_09fbd1dae60043309d65dc3d9761aacb-4"&gt;&lt;/a&gt;-rw-------  &lt;span class="m"&gt;1&lt;/span&gt; fumi23 dev   &lt;span class="m"&gt;1047&lt;/span&gt;  5月 &lt;span class="m"&gt;30&lt;/span&gt; &lt;span class="m"&gt;16&lt;/span&gt;:20 .viminfo
-&lt;a name="rest_code_09fbd1dae60043309d65dc3d9761aacb-5"&gt;&lt;/a&gt;-rwxr-xr-x  &lt;span class="m"&gt;1&lt;/span&gt; root   root &lt;span class="m"&gt;35359&lt;/span&gt;  5月 &lt;span class="m"&gt;30&lt;/span&gt; &lt;span class="m"&gt;12&lt;/span&gt;:15 shiba.dog
-&lt;a name="rest_code_09fbd1dae60043309d65dc3d9761aacb-6"&gt;&lt;/a&gt;drwxrwxr-x  &lt;span class="m"&gt;2&lt;/span&gt; fumi23 dev   &lt;span class="m"&gt;4096&lt;/span&gt;  4月 &lt;span class="m"&gt;18&lt;/span&gt; &lt;span class="m"&gt;13&lt;/span&gt;:38 husky
-&lt;a name="rest_code_09fbd1dae60043309d65dc3d9761aacb-7"&gt;&lt;/a&gt;
-&lt;a name="rest_code_09fbd1dae60043309d65dc3d9761aacb-8"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 更新日の新しい順&lt;/span&gt;
-&lt;a name="rest_code_09fbd1dae60043309d65dc3d9761aacb-9"&gt;&lt;/a&gt;$ ls -lt
-&lt;a name="rest_code_09fbd1dae60043309d65dc3d9761aacb-10"&gt;&lt;/a&gt;
-&lt;a name="rest_code_09fbd1dae60043309d65dc3d9761aacb-11"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 更新日の古い順&lt;/span&gt;
-&lt;a name="rest_code_09fbd1dae60043309d65dc3d9761aacb-12"&gt;&lt;/a&gt;$ ls -ltr
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_460a9190fcf14d3bb31efce97519ae52-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# . から始まるファイルも全部表示する&lt;/span&gt;
+&lt;a name="rest_code_460a9190fcf14d3bb31efce97519ae52-2"&gt;&lt;/a&gt;$ ls -la
+&lt;a name="rest_code_460a9190fcf14d3bb31efce97519ae52-3"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# ファイルのパーミッション、所有ユーザ、所有グループ、ファイルサイズ、タイムスタンプ、ファイル名&lt;/span&gt;
+&lt;a name="rest_code_460a9190fcf14d3bb31efce97519ae52-4"&gt;&lt;/a&gt;-rw-------  &lt;span class="m"&gt;1&lt;/span&gt; fumi23 dev   &lt;span class="m"&gt;1047&lt;/span&gt;  5月 &lt;span class="m"&gt;30&lt;/span&gt; &lt;span class="m"&gt;16&lt;/span&gt;:20 .viminfo
+&lt;a name="rest_code_460a9190fcf14d3bb31efce97519ae52-5"&gt;&lt;/a&gt;-rwxr-xr-x  &lt;span class="m"&gt;1&lt;/span&gt; root   root &lt;span class="m"&gt;35359&lt;/span&gt;  5月 &lt;span class="m"&gt;30&lt;/span&gt; &lt;span class="m"&gt;12&lt;/span&gt;:15 shiba.dog
+&lt;a name="rest_code_460a9190fcf14d3bb31efce97519ae52-6"&gt;&lt;/a&gt;drwxrwxr-x  &lt;span class="m"&gt;2&lt;/span&gt; fumi23 dev   &lt;span class="m"&gt;4096&lt;/span&gt;  4月 &lt;span class="m"&gt;18&lt;/span&gt; &lt;span class="m"&gt;13&lt;/span&gt;:38 husky
+&lt;a name="rest_code_460a9190fcf14d3bb31efce97519ae52-7"&gt;&lt;/a&gt;
+&lt;a name="rest_code_460a9190fcf14d3bb31efce97519ae52-8"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 更新日の新しい順&lt;/span&gt;
+&lt;a name="rest_code_460a9190fcf14d3bb31efce97519ae52-9"&gt;&lt;/a&gt;$ ls -lt
+&lt;a name="rest_code_460a9190fcf14d3bb31efce97519ae52-10"&gt;&lt;/a&gt;
+&lt;a name="rest_code_460a9190fcf14d3bb31efce97519ae52-11"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 更新日の古い順&lt;/span&gt;
+&lt;a name="rest_code_460a9190fcf14d3bb31efce97519ae52-12"&gt;&lt;/a&gt;$ ls -ltr
 &lt;/pre&gt;&lt;/div&gt;
 &lt;div class="section" id="su"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/linux/note/#id25"&gt;su&lt;/a&gt;&lt;/h2&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_0d16db40e22a457e8878ac35aaf34581-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# ユーザーを指定しないと root に切り替わる&lt;/span&gt;
-&lt;a name="rest_code_0d16db40e22a457e8878ac35aaf34581-2"&gt;&lt;/a&gt;$ sudo su -
-&lt;a name="rest_code_0d16db40e22a457e8878ac35aaf34581-3"&gt;&lt;/a&gt;
-&lt;a name="rest_code_0d16db40e22a457e8878ac35aaf34581-4"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# ユーザーを  www-data に切り替える&lt;/span&gt;
-&lt;a name="rest_code_0d16db40e22a457e8878ac35aaf34581-5"&gt;&lt;/a&gt;$ su -l -s /bin/bash www-data
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_9cb09758af2b48cea90c6d246eeaf7bd-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# ユーザーを指定しないと root に切り替わる&lt;/span&gt;
+&lt;a name="rest_code_9cb09758af2b48cea90c6d246eeaf7bd-2"&gt;&lt;/a&gt;$ sudo su -
+&lt;a name="rest_code_9cb09758af2b48cea90c6d246eeaf7bd-3"&gt;&lt;/a&gt;
+&lt;a name="rest_code_9cb09758af2b48cea90c6d246eeaf7bd-4"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# ユーザーを  www-data に切り替える&lt;/span&gt;
+&lt;a name="rest_code_9cb09758af2b48cea90c6d246eeaf7bd-5"&gt;&lt;/a&gt;$ su -l -s /bin/bash www-data
 &lt;/pre&gt;&lt;dl class="field-list simple"&gt;
 &lt;dt&gt;&lt;code class="docutils literal"&gt;-&lt;/code&gt;, &lt;code class="docutils literal"&gt;&lt;span class="pre"&gt;-l&lt;/span&gt;&lt;/code&gt;, &lt;code class="docutils literal"&gt;&lt;span class="pre"&gt;--login&lt;/span&gt;&lt;/code&gt;&lt;/dt&gt;
 &lt;dd&gt;&lt;p&gt;切り替え後のユーザーの設定を使用する&lt;/p&gt;
@@ -180,7 +180,7 @@
 &lt;/div&gt;
 &lt;div class="section" id="sudo"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/linux/note/#id26"&gt;sudo&lt;/a&gt;&lt;/h2&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_ef4ee264e6a14c9eb0870f90c35bff6c-1"&gt;&lt;/a&gt;$ sudo -iH
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_3bf6d7571b7f4ecab97e4510509560f6-1"&gt;&lt;/a&gt;$ sudo -iH
 &lt;/pre&gt;&lt;dl class="field-list simple"&gt;
 &lt;dt&gt;&lt;code class="docutils literal"&gt;&lt;span class="pre"&gt;-H&lt;/span&gt;&lt;/code&gt;&lt;/dt&gt;
 &lt;dd&gt;&lt;p&gt;環境変数「HOME」をrootユーザーのホームディレクトリに変更してコマンドを実行する&lt;/p&gt;
@@ -198,18 +198,18 @@
 &lt;/div&gt;
 &lt;div class="section" id="id10"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/linux/note/#id27"&gt;最初に叩くコマンドまとめ&lt;/a&gt;&lt;/h2&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_8f8a48e0e88541c6abfde9f9dfbc2c3d-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# メモリーの使用状況をMバイト単位で表示する&lt;/span&gt;
-&lt;a name="rest_code_8f8a48e0e88541c6abfde9f9dfbc2c3d-2"&gt;&lt;/a&gt;$ free -m
-&lt;a name="rest_code_8f8a48e0e88541c6abfde9f9dfbc2c3d-3"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# ディストリビューションのバージョンを確認する&lt;/span&gt;
-&lt;a name="rest_code_8f8a48e0e88541c6abfde9f9dfbc2c3d-4"&gt;&lt;/a&gt;$ cat /etc/redhat-release
-&lt;a name="rest_code_8f8a48e0e88541c6abfde9f9dfbc2c3d-5"&gt;&lt;/a&gt;$ ls
-&lt;a name="rest_code_8f8a48e0e88541c6abfde9f9dfbc2c3d-6"&gt;&lt;/a&gt;$ &lt;span class="nb"&gt;pwd&lt;/span&gt;
-&lt;a name="rest_code_8f8a48e0e88541c6abfde9f9dfbc2c3d-7"&gt;&lt;/a&gt;$ ls /home
-&lt;a name="rest_code_8f8a48e0e88541c6abfde9f9dfbc2c3d-8"&gt;&lt;/a&gt;$ df -h
-&lt;a name="rest_code_8f8a48e0e88541c6abfde9f9dfbc2c3d-9"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# パッケージキャッシュの削除&lt;/span&gt;
-&lt;a name="rest_code_8f8a48e0e88541c6abfde9f9dfbc2c3d-10"&gt;&lt;/a&gt;$ yum clean all
-&lt;a name="rest_code_8f8a48e0e88541c6abfde9f9dfbc2c3d-11"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# パッケージの更新&lt;/span&gt;
-&lt;a name="rest_code_8f8a48e0e88541c6abfde9f9dfbc2c3d-12"&gt;&lt;/a&gt;$ yum -y update
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_f6b24b2bec454a958617f27989c1c821-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# メモリーの使用状況をMバイト単位で表示する&lt;/span&gt;
+&lt;a name="rest_code_f6b24b2bec454a958617f27989c1c821-2"&gt;&lt;/a&gt;$ free -m
+&lt;a name="rest_code_f6b24b2bec454a958617f27989c1c821-3"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# ディストリビューションのバージョンを確認する&lt;/span&gt;
+&lt;a name="rest_code_f6b24b2bec454a958617f27989c1c821-4"&gt;&lt;/a&gt;$ cat /etc/redhat-release
+&lt;a name="rest_code_f6b24b2bec454a958617f27989c1c821-5"&gt;&lt;/a&gt;$ ls
+&lt;a name="rest_code_f6b24b2bec454a958617f27989c1c821-6"&gt;&lt;/a&gt;$ &lt;span class="nb"&gt;pwd&lt;/span&gt;
+&lt;a name="rest_code_f6b24b2bec454a958617f27989c1c821-7"&gt;&lt;/a&gt;$ ls /home
+&lt;a name="rest_code_f6b24b2bec454a958617f27989c1c821-8"&gt;&lt;/a&gt;$ df -h
+&lt;a name="rest_code_f6b24b2bec454a958617f27989c1c821-9"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# パッケージキャッシュの削除&lt;/span&gt;
+&lt;a name="rest_code_f6b24b2bec454a958617f27989c1c821-10"&gt;&lt;/a&gt;$ yum clean all
+&lt;a name="rest_code_f6b24b2bec454a958617f27989c1c821-11"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# パッケージの更新&lt;/span&gt;
+&lt;a name="rest_code_f6b24b2bec454a958617f27989c1c821-12"&gt;&lt;/a&gt;$ yum -y update
 &lt;/pre&gt;&lt;ul class="simple"&gt;
 &lt;li&gt;&lt;p&gt;これがわかりやすかった:&lt;/p&gt;
 &lt;ul&gt;
@@ -244,16 +244,16 @@
 &lt;/div&gt;
 &lt;div class="section" id="selinux"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/linux/note/#id30"&gt;SELinux&lt;/a&gt;&lt;/h2&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_efd14a6d84e2491e8e022bb2a322e633-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 有効になっている&lt;/span&gt;
-&lt;a name="rest_code_efd14a6d84e2491e8e022bb2a322e633-2"&gt;&lt;/a&gt;$ sudo getenforce
-&lt;a name="rest_code_efd14a6d84e2491e8e022bb2a322e633-3"&gt;&lt;/a&gt;Enforcing
-&lt;a name="rest_code_efd14a6d84e2491e8e022bb2a322e633-4"&gt;&lt;/a&gt;
-&lt;a name="rest_code_efd14a6d84e2491e8e022bb2a322e633-5"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 無効にする&lt;/span&gt;
-&lt;a name="rest_code_efd14a6d84e2491e8e022bb2a322e633-6"&gt;&lt;/a&gt;$ sudo setenforce &lt;span class="m"&gt;0&lt;/span&gt;
-&lt;a name="rest_code_efd14a6d84e2491e8e022bb2a322e633-7"&gt;&lt;/a&gt;
-&lt;a name="rest_code_efd14a6d84e2491e8e022bb2a322e633-8"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 無効になっている&lt;/span&gt;
-&lt;a name="rest_code_efd14a6d84e2491e8e022bb2a322e633-9"&gt;&lt;/a&gt;$ sudo getenforce
-&lt;a name="rest_code_efd14a6d84e2491e8e022bb2a322e633-10"&gt;&lt;/a&gt;Permissive
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_eed93a392dcd4ec3a19491d973247fbd-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 有効になっている&lt;/span&gt;
+&lt;a name="rest_code_eed93a392dcd4ec3a19491d973247fbd-2"&gt;&lt;/a&gt;$ sudo getenforce
+&lt;a name="rest_code_eed93a392dcd4ec3a19491d973247fbd-3"&gt;&lt;/a&gt;Enforcing
+&lt;a name="rest_code_eed93a392dcd4ec3a19491d973247fbd-4"&gt;&lt;/a&gt;
+&lt;a name="rest_code_eed93a392dcd4ec3a19491d973247fbd-5"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 無効にする&lt;/span&gt;
+&lt;a name="rest_code_eed93a392dcd4ec3a19491d973247fbd-6"&gt;&lt;/a&gt;$ sudo setenforce &lt;span class="m"&gt;0&lt;/span&gt;
+&lt;a name="rest_code_eed93a392dcd4ec3a19491d973247fbd-7"&gt;&lt;/a&gt;
+&lt;a name="rest_code_eed93a392dcd4ec3a19491d973247fbd-8"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 無効になっている&lt;/span&gt;
+&lt;a name="rest_code_eed93a392dcd4ec3a19491d973247fbd-9"&gt;&lt;/a&gt;$ sudo getenforce
+&lt;a name="rest_code_eed93a392dcd4ec3a19491d973247fbd-10"&gt;&lt;/a&gt;Permissive
 &lt;/pre&gt;&lt;ul class="simple"&gt;
 &lt;li&gt;&lt;p&gt;SELinux で拒否されたときのログは &lt;code class="docutils literal"&gt;/var/log/audit/audit.log&lt;/code&gt; にある&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://qiita.com/rikudai/items/884b203f4a72cfb62c02"&gt;https://qiita.com/rikudai/items/884b203f4a72cfb62c02&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;

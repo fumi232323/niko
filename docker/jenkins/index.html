@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<title>Jenkins のなぞ/ふみのて</title>
+<link rel="shortcut icon" href="../../assets/icons/favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Vollkorn:400,700">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sawarabi+Mincho&amp;display=swap&amp;subset=japanese,latin-ext">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+<link rel="stylesheet" href="../../assets/css/style.css?20200720">
+</head>
+<body>
+    <div class="container">
+      <div class="header"><header class="item item-header"><h1>
+    <a href="../../">
+      <img class="logo" src="../../assets/images/inuu.png" alt="犬"></a>
+  </h1>
+  <iframe src="../../tags/" class="tags"></iframe>
+</header></div>
+      <div class="main">
+<div class="article-content">
+  <main class="item item-article item-docker"><div class="category">
+      <a href="../../tags/docker/">
+          docker
+      </a>
+    </div>
+    <div class="title">Jenkins のなぞ</div>
+    <time class="date" datetime="2020-09-24 00:00:00+09:00">
+      2020-09-24 Thu
+    </time><time class="date" datetime="2020-09-24 00:00:00+09:00">
+        updated: 2020-09-24 Thu
+        
+      </time><div class="text">
+      <div>
+<details><summary>目次</summary><div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#id1" id="id2">なぞ</a></p></li>
+</ul>
+</div>
+</details><div class="section" id="id1">
+<h2><a class="toc-backref" href="#id2">なぞ</a></h2>
+<p>Docker (docker-compose) で動かしている Jenkins から Docker (docker-compose) を動かせるのが不思議だったので調べたメモ</p>
+<ul>
+<li><p>Jenkins 自体も Docker コンテナ</p></li>
+<li>
+<p>Jenkins の Dockerfile あり (こんな感じ↓)</p>
+<pre class="code docker"><a name="rest_code_35a25aafabdf4631956d90fda0fbc86f-1"></a><span class="k">FROM</span><span class="s"> jenkins/jenkins:lts</span>
+<a name="rest_code_35a25aafabdf4631956d90fda0fbc86f-2"></a>
+<a name="rest_code_35a25aafabdf4631956d90fda0fbc86f-3"></a><span class="c"># install docker</span>
+<a name="rest_code_35a25aafabdf4631956d90fda0fbc86f-4"></a><span class="k">USER</span><span class="s"> root</span>
+<a name="rest_code_35a25aafabdf4631956d90fda0fbc86f-5"></a><span class="k">RUN</span> curl -fL -o docker.tgz <span class="s2">"https://download.docker.com/linux/static/test/x86_64/docker-19.03.9.tgz"</span> <span class="se">\</span>
+<a name="rest_code_35a25aafabdf4631956d90fda0fbc86f-6"></a>    <span class="o">&amp;&amp;</span> tar --strip-components<span class="o">=</span><span class="m">1</span> -xvzf docker.tgz -C /usr/bin <span class="se">\</span>
+<a name="rest_code_35a25aafabdf4631956d90fda0fbc86f-7"></a>    # dockerグループの ID は環境によって変わるので調べておく
+<a name="rest_code_35a25aafabdf4631956d90fda0fbc86f-8"></a>    # cat /etc/group <span class="p">|</span> grep docker
+<a name="rest_code_35a25aafabdf4631956d90fda0fbc86f-9"></a>    # docker グループ作成, <span class="nv">グループID</span><span class="o">==</span><span class="m">999</span>
+<a name="rest_code_35a25aafabdf4631956d90fda0fbc86f-10"></a>    <span class="o">&amp;&amp;</span> groupadd -g <span class="m">999</span> docker <span class="se">\</span>
+<a name="rest_code_35a25aafabdf4631956d90fda0fbc86f-11"></a>    # docker グループに jenkins ユーザーを追加してる
+<a name="rest_code_35a25aafabdf4631956d90fda0fbc86f-12"></a>    <span class="o">&amp;&amp;</span> gpasswd -a jenkins docker
+<a name="rest_code_35a25aafabdf4631956d90fda0fbc86f-13"></a>
+<a name="rest_code_35a25aafabdf4631956d90fda0fbc86f-14"></a><span class="k">RUN</span> apt update <span class="o">&amp;&amp;</span> <span class="se">\</span>
+<a name="rest_code_35a25aafabdf4631956d90fda0fbc86f-15"></a>    apt install -y python-pip <span class="o">&amp;&amp;</span> <span class="se">\</span>
+<a name="rest_code_35a25aafabdf4631956d90fda0fbc86f-16"></a>    pip install docker-compose
+<a name="rest_code_35a25aafabdf4631956d90fda0fbc86f-17"></a><span class="k">USER</span><span class="s"> jenkins</span>
+</pre>
+</li>
+<li>
+<p>Jenkins 立ち上げるための docker-compose.yml もあり (こんな感じ↓)</p>
+<pre class="code yaml"><a name="rest_code_0d0c701c2ff74dde8ba8edaeb553450f-1"></a><span class="nt">version</span><span class="p">:</span> <span class="s">'3'</span>
+<a name="rest_code_0d0c701c2ff74dde8ba8edaeb553450f-2"></a>
+<a name="rest_code_0d0c701c2ff74dde8ba8edaeb553450f-3"></a><span class="nt">services</span><span class="p">:</span>
+<a name="rest_code_0d0c701c2ff74dde8ba8edaeb553450f-4"></a>  <span class="nt">jenkins</span><span class="p">:</span>
+<a name="rest_code_0d0c701c2ff74dde8ba8edaeb553450f-5"></a>    <span class="nt">build</span><span class="p">:</span>
+<a name="rest_code_0d0c701c2ff74dde8ba8edaeb553450f-6"></a>      <span class="nt">context</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">.</span>
+<a name="rest_code_0d0c701c2ff74dde8ba8edaeb553450f-7"></a>    <span class="nt">restart</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">always</span>
+<a name="rest_code_0d0c701c2ff74dde8ba8edaeb553450f-8"></a>    <span class="nt">ports</span><span class="p">:</span>
+<a name="rest_code_0d0c701c2ff74dde8ba8edaeb553450f-9"></a>      <span class="c1"># コンテナ外にポート開放してる</span>
+<a name="rest_code_0d0c701c2ff74dde8ba8edaeb553450f-10"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">2323:8080</span>
+<a name="rest_code_0d0c701c2ff74dde8ba8edaeb553450f-11"></a>    <span class="nt">privileged</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+<a name="rest_code_0d0c701c2ff74dde8ba8edaeb553450f-12"></a>    <span class="nt">environment</span><span class="p">:</span>
+<a name="rest_code_0d0c701c2ff74dde8ba8edaeb553450f-13"></a>      <span class="c1"># https://github.com/jenkinsci/docker/blob/master/README.md#configuring-reverse-proxy</span>
+<a name="rest_code_0d0c701c2ff74dde8ba8edaeb553450f-14"></a>      <span class="nt">JENKINS_OPTS</span><span class="p">:</span> <span class="s">'--prefix=/jenkins'</span>
+<a name="rest_code_0d0c701c2ff74dde8ba8edaeb553450f-15"></a>    <span class="nt">volumes</span><span class="p">:</span>
+<a name="rest_code_0d0c701c2ff74dde8ba8edaeb553450f-16"></a>      <span class="c1"># volume 使ってる、じゃないと down したら workspace 消えちゃうからね</span>
+<a name="rest_code_0d0c701c2ff74dde8ba8edaeb553450f-17"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">jenkins_home:/var/jenkins_home</span>
+<a name="rest_code_0d0c701c2ff74dde8ba8edaeb553450f-18"></a>      <span class="c1"># ここがみそだ!</span>
+<a name="rest_code_0d0c701c2ff74dde8ba8edaeb553450f-19"></a>      <span class="c1"># ホストの dockerデーモンが使用しているソケット (/var/run/docker.sock) をマウントして</span>
+<a name="rest_code_0d0c701c2ff74dde8ba8edaeb553450f-20"></a>      <span class="c1"># jenkins からアクセスできるようにしている</span>
+<a name="rest_code_0d0c701c2ff74dde8ba8edaeb553450f-21"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">/var/run/docker.sock:/var/run/docker.sock</span>
+<a name="rest_code_0d0c701c2ff74dde8ba8edaeb553450f-22"></a><span class="nt">volumes</span><span class="p">:</span>
+<a name="rest_code_0d0c701c2ff74dde8ba8edaeb553450f-23"></a>  <span class="nt">jenkins_home</span><span class="p">:</span>
+<a name="rest_code_0d0c701c2ff74dde8ba8edaeb553450f-24"></a>    <span class="c1"># Compose の外ですでに作成済みの volume なんだぜ</span>
+<a name="rest_code_0d0c701c2ff74dde8ba8edaeb553450f-25"></a>    <span class="nt">external</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+</pre>
+</li>
+<li><p>Jenkins 画面の URL はこんな感じ: <a class="reference external" href="http://our.web.application:2323/jenkins">http://our.web.application:2323/jenkins</a></p></li>
+<li>
+<p>workspace はこんな感じ: /var/jenkins_home/workspace/our_app</p>
+<ul class="simple">
+<li><p>これは jenikins コンテナの中だった</p></li>
+<li><p>ここにコードがある</p></li>
+<li><p>Jenkins ジョブのビルド開始時に workspace は削除される (そういう設定にしている)</p></li>
+</ul>
+</li>
+<li>
+<p>ジョブ自体は、</p>
+<ul class="simple">
+<li><p>GitHub のリポジトリからアプリを clone してきて、</p></li>
+<li><p>Docker イメージを build して、</p></li>
+<li><p>アプリ起動している (docker-compose up --build している)</p></li>
+<li><p>本番は gunicorn なので</p></li>
+</ul>
+</li>
+<li>
+<p>これだ! <a class="reference external" href="https://www.mmj.ne.jp/mmjblog/docker-on-jenkins/">https://www.mmj.ne.jp/mmjblog/docker-on-jenkins/</a></p>
+<ul class="simple">
+<li><p>ホストの docker デーモンを共有しているので、 docker (jenkins) から自分達の services が docker-compose up できているわけだ</p></li>
+<li><p>ありがとうございました</p></li>
+</ul>
+</li>
+<li><p>これもありがとうございます: <a class="reference external" href="https://techblog.recochoku.jp/1544">https://techblog.recochoku.jp/1544</a></p></li>
+<li><p><a class="reference external" href="https://github.com/jenkinsci/docker/blob/master/README.md">https://github.com/jenkinsci/docker/blob/master/README.md</a></p></li>
+</ul>
+</div>
+</div>
+    </div>
+  </main>
+</div>
+</div>
+    </div>
+  </body>
+</html>
