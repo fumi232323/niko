@@ -1,6 +1,7 @@
 .. title: Linux いろいろメモ
 .. tags: linux
 .. date: 2019-06-16
+.. updated: 2020-09-25
 .. slug: index
 .. status: published
 
