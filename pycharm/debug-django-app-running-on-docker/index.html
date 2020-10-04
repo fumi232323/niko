@@ -29,27 +29,28 @@
     <div class="title">docker-compose で動かしている Django アプリケーションを PyCharm で Dubug する</div>
     <time class="date" datetime="2020-04-16 00:00:00+09:00">
       2020-04-16 Thu
-    </time><time class="date" datetime="2020-04-16 00:00:00+09:00">
-        updated: 2020-04-16 Thu
+    </time><time class="date" datetime="2020-10-04 00:00:00+09:00">
+        updated: 2020-10-04 Sun
         
       </time><div class="text">
       <div>
 <details><summary>目次</summary><div class="contents topic" id="contents">
 <p class="topic-title first">Contents</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#id1" id="id4">ガイド</a></p></li>
-<li><p><a class="reference internal" href="#id2" id="id5">実行/デバッグ構成を作成する</a></p></li>
-<li><p><a class="reference internal" href="#id3" id="id6">デバッグする</a></p></li>
+<li><p><a class="reference internal" href="#id1" id="id5">ガイド/参考書籍</a></p></li>
+<li><p><a class="reference internal" href="#id2" id="id6">実行/デバッグ構成を作成する</a></p></li>
+<li><p><a class="reference internal" href="#id4" id="id7">デバッグする</a></p></li>
+<li><p><a class="reference internal" href="#pycharm-docker-compose" id="id8">PyCharm の docker-compose デバッグの仕組み</a></p></li>
 </ul>
 </div>
 </details><div class="section" id="id1">
-<h2><a class="toc-backref" href="#id4">ガイド</a></h2>
+<h2><a class="toc-backref" href="#id5">ガイド/参考書籍</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://pleiades.io/help/pycharm/run-debug-configuration-django-server.html">実行/デバッグ構成: Django サーバー</a></p></li>
 </ul>
 </div>
 <div class="section" id="id2">
-<h2><a class="toc-backref" href="#id5">実行/デバッグ構成を作成する</a></h2>
+<h2><a class="toc-backref" href="#id6">実行/デバッグ構成を作成する</a></h2>
 <ol class="arabic">
 <li>
 <p>Run -&gt; Edit Configurations...</p>
@@ -61,7 +62,7 @@
 </blockquote>
 </li>
 <li>
-<p>Run/Debug Configurations -&gt; <code class="docutils literal">+</code> ボタン -&gt; Django server</p>
+<p>Run/Debug Configurations -&gt; <code class="docutils literal">+</code> ボタン -&gt; <code class="docutils literal">Django server</code></p>
 <blockquote>
 <p></p>
 <div class="figure">
@@ -79,55 +80,69 @@
 <div class="figure">
 <img alt="/images/pycharm/debug-django-app-running-on-docker/RunDebugConfigurations.png" src="../../images/pycharm/debug-django-app-running-on-docker/RunDebugConfigurations.png">
 </div>
-<ul>
-<li><p>Name: 任意の名前</p></li>
+<table class="colwidths-auto">
+<thead><tr>
+<th class="head stub"><p>項目</p></th>
+<th class="head"><p>設定値</p></th>
+<th class="head"><p>説明</p></th>
+</tr></thead>
+<tbody>
+<tr>
+<th class="stub"><p>Name</p></th>
+<td><p>任意の名前</p></td>
+<td></td>
+</tr>
+<tr>
+<th class="stub"><p>Host</p></th>
+<td><p><code class="docutils literal">0.0.0.0</code></p></td>
+<td><ul class="simple">
+<li><p>ここが PyCharm が実行する runserver の IP 部分に渡される</p></li>
 <li>
-<p>Host: <code class="docutils literal">0.0.0.0</code></p>
+<p>コンテナ外 (ホストマシンのブラウザなど) からもアクセスしたいので、 <code class="docutils literal">0.0.0.0</code> を指定する</p>
 <ul>
-<li><p><code class="docutils literal">127.0.0.1</code> とか <code class="docutils literal">localhost</code> だと動かなかった</p></li>
-<li>
-<p>docker-compose.yml 内でこうしているからかもしれない</p>
-<pre class="code yaml"><a name="rest_code_eb65f249d02744e9a5365243f1b3f8ec-1"></a><span class="nt">command</span><span class="p">:</span>
-<a name="rest_code_eb65f249d02744e9a5365243f1b3f8ec-2"></a>  <span class="p p-Indicator">-</span> <span class="s">"python"</span>
-<a name="rest_code_eb65f249d02744e9a5365243f1b3f8ec-3"></a>  <span class="p p-Indicator">-</span> <span class="s">"fufufu/manage.py"</span>
-<a name="rest_code_eb65f249d02744e9a5365243f1b3f8ec-4"></a>  <span class="p p-Indicator">-</span> <span class="s">"runserver"</span>
-<a name="rest_code_eb65f249d02744e9a5365243f1b3f8ec-5"></a>  <span class="p p-Indicator">-</span> <span class="s">"0.0.0.0:8000"</span>
-</pre>
-</li>
+<li><p><code class="docutils literal">127.0.0.1</code> or <code class="docutils literal">localhost</code> で runserver すると、Django app が動いているコンテナ内からしか接続できない</p></li>
+<li><p>[参考] <a class="reference external" href="https://gihyo.jp/book/2020/978-4-297-11197-7">自走プログラマー</a> 105: 127.0.0.1 と 0.0.0.0 の違い</p></li>
 </ul>
 </li>
-<li>
-<p>Port: <code class="docutils literal">8000</code></p>
-<ul>
-<li>
-<p>たぶん docker-compose.yml 内でこうしているからだろう</p>
-<pre class="code yaml"><a name="rest_code_b7c28fad6019486b89c76fc9aa2bf7bf-1"></a><span class="nt">ports</span><span class="p">:</span>
-<a name="rest_code_b7c28fad6019486b89c76fc9aa2bf7bf-2"></a>  <span class="p p-Indicator">-</span> <span class="s">"8000:8000"</span>
-</pre>
-</li>
-</ul>
-</li>
-<li><p>Project: デバッグ対象のプロジェクトを選択する</p></li>
-<li>
-<p>Environment variables: デフォルトに加えて <code class="docutils literal">;DJANGO_SETTINGS_MODULE=fufufu.settings</code> を追記</p>
-<ul>
-<li>
-<p>わたしの場合は docker-compose.yml 内でこうしているので、そこからの相対位置を指定する必要があったのだろう (このプロジェクトの settings はコンテナ内だと <code class="docutils literal">/var/www/fufufu/fufufu</code> 配下にある)</p>
-<pre class="code yaml"><a name="rest_code_20aaacdf52114af3bf2c0855eb0f6ef5-1"></a><span class="nt">working_dir</span><span class="p">:</span> <span class="s">"/var/www/fufufu"</span>
-</pre>
-</li>
-</ul>
-</li>
-<li><p>Python interpreter: デバッグ対象のプロジェクトの interpreter を選択する</p></li>
-<li><p>Path mappings: ローカルのアプリのプロジェクトのパス:コンテナ内のアプリのパス (なくても動くかも)</p></li>
-</ul>
+</ul></td>
+</tr>
+<tr>
+<th class="stub"><p>Port</p></th>
+<td><p><code class="docutils literal">8000</code></p></td>
+<td><p>ここが PyCharm が実行する runserver の ポート部分に渡される</p></td>
+</tr>
+<tr>
+<th class="stub"><p>Project</p></th>
+<td><p>デバッグ対象のプロジェクトを選択する</p></td>
+<td></td>
+</tr>
+<tr>
+<th class="stub"><p>Environment variables</p></th>
+<td><p>デフォルトに加えて <code class="docutils literal">;DJANGO_SETTINGS_MODULE=fufufu.settings</code> (settings の場所) を追記</p></td>
+<td><ul class="simple">
+<li><p>Django の settings.DEBUG を環境変数で指定している場合は、 <code class="docutils literal">DEBUG=True</code> もここで渡せる</p></li>
+<li><p>settings の場所は、 Dockerfile or docker-compose.yml 内で指定した  working_dir からの相対位置を指定する</p></li>
+</ul></td>
+</tr>
+<tr>
+<th class="stub"><p>Python interpreter</p></th>
+<td><p>デバッグ対象のプロジェクトの Remote Python Interpreter を選択する</p></td>
+<td></td>
+</tr>
+<tr>
+<th class="stub"><p>Path mappings</p></th>
+<td><p>ホスト側のアプリのプロジェクトのパス:コンテナ内のアプリのパス</p></td>
+<td><p>なくても動くかも</p></td>
+</tr>
+</tbody>
+</table>
 </blockquote>
 </li>
 <li><p>Apply -&gt; OK</p></li>
 </ol>
 </div>
-<div class="section" id="id3">
-<h2><a class="toc-backref" href="#id6">デバッグする</a></h2>
+<div class="section" id="id4">
+<h2><a class="toc-backref" href="#id7">デバッグする</a></h2>
 <ol class="arabic">
 <li>
 <p>左上のほうにあるプルダウンで↑で作った「実行/デバッグ構成」選択する</p>
@@ -149,6 +164,54 @@
 </li>
 <li><p>あとは、コード上のブレイクしたいポイントに印をつけて、アプリを呼び出す</p></li>
 </ol>
+</div>
+<div class="section" id="pycharm-docker-compose">
+<h2><a class="toc-backref" href="#id8">PyCharm の docker-compose デバッグの仕組み</a></h2>
+<ul>
+<li><p>PyCharm はデバッグ実行時に docker-compose.override.yaml ファイルを自動生成する</p></li>
+<li><p>自動生成した docker-compose.override.yaml で、
+デバッグ対象アプリの Dockerfile/docker-compose ファイルの CMD/command を上書きしてデバッガーを注入している</p></li>
+<li>
+<p>Debug 実行時のコンソールをじっと見ていると以下のようなコマンドが実行されていて、</p>
+<pre class="code console"><a name="rest_code_c144a80a46bb43ec9a606d580ee60cd7-1"></a><span class="go">/usr/local/bin/docker-compose -f /Users/fumi23/projects/fufufu/docker-compose.yml -f /Users/fumi23/projects/fufufu/docker-compose.override.yml -f /Users/fumi23/Library/Caches/JetBrains/PyCharm2020.2/tmp/docker-compose.override.397.yml up --exit-code-from web --abort-on-container-exit web</span>
+</pre>
+</li>
+<li><p><code class="docutils literal"><span class="pre">/Users/fumi23/Library/Caches/JetBrains/PyCharm2020.2/tmp/docker-compose.override.397.yml</span></code> が
+PyCharm が自動生成した docker-compose.override ファイル</p></li>
+<li>
+<p>中を見てみると、こんな感じになっている↓</p>
+<pre class="code yaml"><a name="rest_code_fa6e1b53e39b490b8cd2bf09f9bcc3c9-1"></a><span class="nt">version</span><span class="p">:</span> <span class="s">"3"</span>
+<a name="rest_code_fa6e1b53e39b490b8cd2bf09f9bcc3c9-2"></a><span class="nt">services</span><span class="p">:</span>
+<a name="rest_code_fa6e1b53e39b490b8cd2bf09f9bcc3c9-3"></a>  <span class="nt">app</span><span class="p">:</span>
+<a name="rest_code_fa6e1b53e39b490b8cd2bf09f9bcc3c9-4"></a>    <span class="nt">command</span><span class="p">:</span>
+<a name="rest_code_fa6e1b53e39b490b8cd2bf09f9bcc3c9-5"></a>    <span class="p p-Indicator">-</span> <span class="s">"python"</span>
+<a name="rest_code_fa6e1b53e39b490b8cd2bf09f9bcc3c9-6"></a>    <span class="p p-Indicator">-</span> <span class="s">"-u"</span>
+<a name="rest_code_fa6e1b53e39b490b8cd2bf09f9bcc3c9-7"></a>    <span class="p p-Indicator">-</span> <span class="s">"/opt/.pycharm_helpers/pydev/pydevd.py"</span>
+<a name="rest_code_fa6e1b53e39b490b8cd2bf09f9bcc3c9-8"></a>    <span class="p p-Indicator">-</span> <span class="s">"--multiprocess"</span>
+<a name="rest_code_fa6e1b53e39b490b8cd2bf09f9bcc3c9-9"></a>    <span class="p p-Indicator">-</span> <span class="s">"--qt-support=auto"</span>
+<a name="rest_code_fa6e1b53e39b490b8cd2bf09f9bcc3c9-10"></a>    <span class="p p-Indicator">-</span> <span class="s">"--port"</span>
+<a name="rest_code_fa6e1b53e39b490b8cd2bf09f9bcc3c9-11"></a>    <span class="p p-Indicator">-</span> <span class="s">"50596"</span>
+<a name="rest_code_fa6e1b53e39b490b8cd2bf09f9bcc3c9-12"></a>    <span class="p p-Indicator">-</span> <span class="s">"--file"</span>
+<a name="rest_code_fa6e1b53e39b490b8cd2bf09f9bcc3c9-13"></a>    <span class="p p-Indicator">-</span> <span class="s">"/var/www/fufufu/fufufu/manage.py"</span>
+<a name="rest_code_fa6e1b53e39b490b8cd2bf09f9bcc3c9-14"></a>    <span class="p p-Indicator">-</span> <span class="s">"runserver"</span>
+<a name="rest_code_fa6e1b53e39b490b8cd2bf09f9bcc3c9-15"></a>    <span class="p p-Indicator">-</span> <span class="s">"0.0.0.0:8000"</span>
+<a name="rest_code_fa6e1b53e39b490b8cd2bf09f9bcc3c9-16"></a>    <span class="l l-Scalar l-Scalar-Plain">(後略)</span>
+</pre>
+</li>
+<li>
+<p>Dockerfile で ENTRYPOINT を定義していて、かつ、その ENTRYPOINT の定義内容がコマンドラインオプションを無視するものになっていると、
+PyCharm が CMD を上書きしてデバッガーを注入できず、デバッグできない状態になってしまうので、注意</p>
+<ul class="simple">
+<li>
+<p>[参考]</p>
+<ul>
+<li><p>PyCharm remote debug times out: <a class="reference external" href="https://intellij-support.jetbrains.com/hc/en-us/community/posts/360003328800-PyCharm-remote-debug-times-out">https://intellij-support.jetbrains.com/hc/en-us/community/posts/360003328800-PyCharm-remote-debug-times-out</a></p></li>
+<li><p>Best practices for writing Dockerfiles &gt; ENTRYPOINT: <a class="reference external" href="https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#entrypoint">https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#entrypoint</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 </div>
 </div>
     </div>
