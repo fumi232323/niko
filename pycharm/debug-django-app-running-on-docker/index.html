@@ -173,29 +173,29 @@
 デバッグ対象アプリの Dockerfile/docker-compose ファイルの CMD/command を上書きしてデバッガーを注入している</p></li>
 <li>
 <p>Debug 実行時のコンソールをじっと見ていると以下のようなコマンドが実行されていて、</p>
-<pre class="code console"><a name="rest_code_c144a80a46bb43ec9a606d580ee60cd7-1"></a><span class="go">/usr/local/bin/docker-compose -f /Users/fumi23/projects/fufufu/docker-compose.yml -f /Users/fumi23/projects/fufufu/docker-compose.override.yml -f /Users/fumi23/Library/Caches/JetBrains/PyCharm2020.2/tmp/docker-compose.override.397.yml up --exit-code-from web --abort-on-container-exit web</span>
+<pre class="code console"><a name="rest_code_0134f8b255a640f69d88be1c30c87adf-1"></a><span class="go">/usr/local/bin/docker-compose -f /Users/fumi23/projects/fufufu/docker-compose.yml -f /Users/fumi23/projects/fufufu/docker-compose.override.yml -f /Users/fumi23/Library/Caches/JetBrains/PyCharm2020.2/tmp/docker-compose.override.397.yml up --exit-code-from web --abort-on-container-exit web</span>
 </pre>
 </li>
 <li><p><code class="docutils literal"><span class="pre">/Users/fumi23/Library/Caches/JetBrains/PyCharm2020.2/tmp/docker-compose.override.397.yml</span></code> が
 PyCharm が自動生成した docker-compose.override ファイル</p></li>
 <li>
 <p>中を見てみると、こんな感じになっている↓</p>
-<pre class="code yaml"><a name="rest_code_fa6e1b53e39b490b8cd2bf09f9bcc3c9-1"></a><span class="nt">version</span><span class="p">:</span> <span class="s">"3"</span>
-<a name="rest_code_fa6e1b53e39b490b8cd2bf09f9bcc3c9-2"></a><span class="nt">services</span><span class="p">:</span>
-<a name="rest_code_fa6e1b53e39b490b8cd2bf09f9bcc3c9-3"></a>  <span class="nt">app</span><span class="p">:</span>
-<a name="rest_code_fa6e1b53e39b490b8cd2bf09f9bcc3c9-4"></a>    <span class="nt">command</span><span class="p">:</span>
-<a name="rest_code_fa6e1b53e39b490b8cd2bf09f9bcc3c9-5"></a>    <span class="p p-Indicator">-</span> <span class="s">"python"</span>
-<a name="rest_code_fa6e1b53e39b490b8cd2bf09f9bcc3c9-6"></a>    <span class="p p-Indicator">-</span> <span class="s">"-u"</span>
-<a name="rest_code_fa6e1b53e39b490b8cd2bf09f9bcc3c9-7"></a>    <span class="p p-Indicator">-</span> <span class="s">"/opt/.pycharm_helpers/pydev/pydevd.py"</span>
-<a name="rest_code_fa6e1b53e39b490b8cd2bf09f9bcc3c9-8"></a>    <span class="p p-Indicator">-</span> <span class="s">"--multiprocess"</span>
-<a name="rest_code_fa6e1b53e39b490b8cd2bf09f9bcc3c9-9"></a>    <span class="p p-Indicator">-</span> <span class="s">"--qt-support=auto"</span>
-<a name="rest_code_fa6e1b53e39b490b8cd2bf09f9bcc3c9-10"></a>    <span class="p p-Indicator">-</span> <span class="s">"--port"</span>
-<a name="rest_code_fa6e1b53e39b490b8cd2bf09f9bcc3c9-11"></a>    <span class="p p-Indicator">-</span> <span class="s">"50596"</span>
-<a name="rest_code_fa6e1b53e39b490b8cd2bf09f9bcc3c9-12"></a>    <span class="p p-Indicator">-</span> <span class="s">"--file"</span>
-<a name="rest_code_fa6e1b53e39b490b8cd2bf09f9bcc3c9-13"></a>    <span class="p p-Indicator">-</span> <span class="s">"/var/www/fufufu/fufufu/manage.py"</span>
-<a name="rest_code_fa6e1b53e39b490b8cd2bf09f9bcc3c9-14"></a>    <span class="p p-Indicator">-</span> <span class="s">"runserver"</span>
-<a name="rest_code_fa6e1b53e39b490b8cd2bf09f9bcc3c9-15"></a>    <span class="p p-Indicator">-</span> <span class="s">"0.0.0.0:8000"</span>
-<a name="rest_code_fa6e1b53e39b490b8cd2bf09f9bcc3c9-16"></a>    <span class="l l-Scalar l-Scalar-Plain">(後略)</span>
+<pre class="code yaml"><a name="rest_code_784b0e367e0540828d277ec5e5154570-1"></a><span class="nt">version</span><span class="p">:</span> <span class="s">"3"</span>
+<a name="rest_code_784b0e367e0540828d277ec5e5154570-2"></a><span class="nt">services</span><span class="p">:</span>
+<a name="rest_code_784b0e367e0540828d277ec5e5154570-3"></a>  <span class="nt">app</span><span class="p">:</span>
+<a name="rest_code_784b0e367e0540828d277ec5e5154570-4"></a>    <span class="nt">command</span><span class="p">:</span>
+<a name="rest_code_784b0e367e0540828d277ec5e5154570-5"></a>    <span class="p p-Indicator">-</span> <span class="s">"python"</span>
+<a name="rest_code_784b0e367e0540828d277ec5e5154570-6"></a>    <span class="p p-Indicator">-</span> <span class="s">"-u"</span>
+<a name="rest_code_784b0e367e0540828d277ec5e5154570-7"></a>    <span class="p p-Indicator">-</span> <span class="s">"/opt/.pycharm_helpers/pydev/pydevd.py"</span>
+<a name="rest_code_784b0e367e0540828d277ec5e5154570-8"></a>    <span class="p p-Indicator">-</span> <span class="s">"--multiprocess"</span>
+<a name="rest_code_784b0e367e0540828d277ec5e5154570-9"></a>    <span class="p p-Indicator">-</span> <span class="s">"--qt-support=auto"</span>
+<a name="rest_code_784b0e367e0540828d277ec5e5154570-10"></a>    <span class="p p-Indicator">-</span> <span class="s">"--port"</span>
+<a name="rest_code_784b0e367e0540828d277ec5e5154570-11"></a>    <span class="p p-Indicator">-</span> <span class="s">"50596"</span>
+<a name="rest_code_784b0e367e0540828d277ec5e5154570-12"></a>    <span class="p p-Indicator">-</span> <span class="s">"--file"</span>
+<a name="rest_code_784b0e367e0540828d277ec5e5154570-13"></a>    <span class="p p-Indicator">-</span> <span class="s">"/var/www/fufufu/fufufu/manage.py"</span>
+<a name="rest_code_784b0e367e0540828d277ec5e5154570-14"></a>    <span class="p p-Indicator">-</span> <span class="s">"runserver"</span>
+<a name="rest_code_784b0e367e0540828d277ec5e5154570-15"></a>    <span class="p p-Indicator">-</span> <span class="s">"0.0.0.0:8000"</span>
+<a name="rest_code_784b0e367e0540828d277ec5e5154570-16"></a>    <span class="l l-Scalar l-Scalar-Plain">(後略)</span>
 </pre>
 </li>
 <li>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ふみのて (Posts about pycharm)</title><link>https://32imuf.com/</link><description></description><atom:link href="https://32imuf.com/tags/pycharm.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2020 &lt;a href="mailto:fumi232323fumi2016@gmail.com"&gt;fumi23&lt;/a&gt; </copyright><lastBuildDate>Sun, 04 Oct 2020 11:03:54 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>docker-compose で動かしている Django アプリケーションを PyCharm で Dubug する</title><link>https://32imuf.com/pycharm/debug-django-app-running-on-docker/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;details&gt;&lt;summary&gt;目次&lt;/summary&gt;&lt;div class="contents topic" id="contents"&gt;
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ふみのて (Posts about pycharm)</title><link>https://32imuf.com/</link><description></description><atom:link href="https://32imuf.com/tags/pycharm.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2020 &lt;a href="mailto:fumi232323fumi2016@gmail.com"&gt;fumi23&lt;/a&gt; </copyright><lastBuildDate>Sun, 04 Oct 2020 11:27:23 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>docker-compose で動かしている Django アプリケーションを PyCharm で Dubug する</title><link>https://32imuf.com/pycharm/debug-django-app-running-on-docker/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;details&gt;&lt;summary&gt;目次&lt;/summary&gt;&lt;div class="contents topic" id="contents"&gt;
 &lt;p class="topic-title first"&gt;Contents&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/pycharm/debug-django-app-running-on-docker/#id1" id="id5"&gt;ガイド/参考書籍&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
@@ -122,27 +122,27 @@
 &lt;li&gt;&lt;p&gt;自動生成した docker-compose.override.yaml で、
 デバッグ対象アプリの Dockerfile/docker-compose ファイルの CMD/command を上書きしてデバッガーを注入している&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Debug 実行時のコンソールをじっと見ていると以下のようなコマンドが実行されていて、&lt;/p&gt;
-&lt;pre class="code console"&gt;&lt;a name="rest_code_c144a80a46bb43ec9a606d580ee60cd7-1"&gt;&lt;/a&gt;&lt;span class="go"&gt;/usr/local/bin/docker-compose -f /Users/fumi23/projects/fufufu/docker-compose.yml -f /Users/fumi23/projects/fufufu/docker-compose.override.yml -f /Users/fumi23/Library/Caches/JetBrains/PyCharm2020.2/tmp/docker-compose.override.397.yml up --exit-code-from web --abort-on-container-exit web&lt;/span&gt;
+&lt;pre class="code console"&gt;&lt;a name="rest_code_0134f8b255a640f69d88be1c30c87adf-1"&gt;&lt;/a&gt;&lt;span class="go"&gt;/usr/local/bin/docker-compose -f /Users/fumi23/projects/fufufu/docker-compose.yml -f /Users/fumi23/projects/fufufu/docker-compose.override.yml -f /Users/fumi23/Library/Caches/JetBrains/PyCharm2020.2/tmp/docker-compose.override.397.yml up --exit-code-from web --abort-on-container-exit web&lt;/span&gt;
 &lt;/pre&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;code class="docutils literal"&gt;&lt;span class="pre"&gt;/Users/fumi23/Library/Caches/JetBrains/PyCharm2020.2/tmp/docker-compose.override.397.yml&lt;/span&gt;&lt;/code&gt; が
 PyCharm が自動生成した docker-compose.override ファイル&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;中を見てみると、こんな感じになっている↓&lt;/p&gt;
-&lt;pre class="code yaml"&gt;&lt;a name="rest_code_fa6e1b53e39b490b8cd2bf09f9bcc3c9-1"&gt;&lt;/a&gt;&lt;span class="nt"&gt;version&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;"3"&lt;/span&gt;
-&lt;a name="rest_code_fa6e1b53e39b490b8cd2bf09f9bcc3c9-2"&gt;&lt;/a&gt;&lt;span class="nt"&gt;services&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-&lt;a name="rest_code_fa6e1b53e39b490b8cd2bf09f9bcc3c9-3"&gt;&lt;/a&gt;  &lt;span class="nt"&gt;app&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-&lt;a name="rest_code_fa6e1b53e39b490b8cd2bf09f9bcc3c9-4"&gt;&lt;/a&gt;    &lt;span class="nt"&gt;command&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-&lt;a name="rest_code_fa6e1b53e39b490b8cd2bf09f9bcc3c9-5"&gt;&lt;/a&gt;    &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="s"&gt;"python"&lt;/span&gt;
-&lt;a name="rest_code_fa6e1b53e39b490b8cd2bf09f9bcc3c9-6"&gt;&lt;/a&gt;    &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="s"&gt;"-u"&lt;/span&gt;
-&lt;a name="rest_code_fa6e1b53e39b490b8cd2bf09f9bcc3c9-7"&gt;&lt;/a&gt;    &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="s"&gt;"/opt/.pycharm_helpers/pydev/pydevd.py"&lt;/span&gt;
-&lt;a name="rest_code_fa6e1b53e39b490b8cd2bf09f9bcc3c9-8"&gt;&lt;/a&gt;    &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="s"&gt;"--multiprocess"&lt;/span&gt;
-&lt;a name="rest_code_fa6e1b53e39b490b8cd2bf09f9bcc3c9-9"&gt;&lt;/a&gt;    &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="s"&gt;"--qt-support=auto"&lt;/span&gt;
-&lt;a name="rest_code_fa6e1b53e39b490b8cd2bf09f9bcc3c9-10"&gt;&lt;/a&gt;    &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="s"&gt;"--port"&lt;/span&gt;
-&lt;a name="rest_code_fa6e1b53e39b490b8cd2bf09f9bcc3c9-11"&gt;&lt;/a&gt;    &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="s"&gt;"50596"&lt;/span&gt;
-&lt;a name="rest_code_fa6e1b53e39b490b8cd2bf09f9bcc3c9-12"&gt;&lt;/a&gt;    &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="s"&gt;"--file"&lt;/span&gt;
-&lt;a name="rest_code_fa6e1b53e39b490b8cd2bf09f9bcc3c9-13"&gt;&lt;/a&gt;    &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="s"&gt;"/var/www/fufufu/fufufu/manage.py"&lt;/span&gt;
-&lt;a name="rest_code_fa6e1b53e39b490b8cd2bf09f9bcc3c9-14"&gt;&lt;/a&gt;    &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="s"&gt;"runserver"&lt;/span&gt;
-&lt;a name="rest_code_fa6e1b53e39b490b8cd2bf09f9bcc3c9-15"&gt;&lt;/a&gt;    &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="s"&gt;"0.0.0.0:8000"&lt;/span&gt;
-&lt;a name="rest_code_fa6e1b53e39b490b8cd2bf09f9bcc3c9-16"&gt;&lt;/a&gt;    &lt;span class="l l-Scalar l-Scalar-Plain"&gt;(後略)&lt;/span&gt;
+&lt;pre class="code yaml"&gt;&lt;a name="rest_code_784b0e367e0540828d277ec5e5154570-1"&gt;&lt;/a&gt;&lt;span class="nt"&gt;version&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;"3"&lt;/span&gt;
+&lt;a name="rest_code_784b0e367e0540828d277ec5e5154570-2"&gt;&lt;/a&gt;&lt;span class="nt"&gt;services&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;a name="rest_code_784b0e367e0540828d277ec5e5154570-3"&gt;&lt;/a&gt;  &lt;span class="nt"&gt;app&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;a name="rest_code_784b0e367e0540828d277ec5e5154570-4"&gt;&lt;/a&gt;    &lt;span class="nt"&gt;command&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;a name="rest_code_784b0e367e0540828d277ec5e5154570-5"&gt;&lt;/a&gt;    &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="s"&gt;"python"&lt;/span&gt;
+&lt;a name="rest_code_784b0e367e0540828d277ec5e5154570-6"&gt;&lt;/a&gt;    &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="s"&gt;"-u"&lt;/span&gt;
+&lt;a name="rest_code_784b0e367e0540828d277ec5e5154570-7"&gt;&lt;/a&gt;    &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="s"&gt;"/opt/.pycharm_helpers/pydev/pydevd.py"&lt;/span&gt;
+&lt;a name="rest_code_784b0e367e0540828d277ec5e5154570-8"&gt;&lt;/a&gt;    &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="s"&gt;"--multiprocess"&lt;/span&gt;
+&lt;a name="rest_code_784b0e367e0540828d277ec5e5154570-9"&gt;&lt;/a&gt;    &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="s"&gt;"--qt-support=auto"&lt;/span&gt;
+&lt;a name="rest_code_784b0e367e0540828d277ec5e5154570-10"&gt;&lt;/a&gt;    &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="s"&gt;"--port"&lt;/span&gt;
+&lt;a name="rest_code_784b0e367e0540828d277ec5e5154570-11"&gt;&lt;/a&gt;    &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="s"&gt;"50596"&lt;/span&gt;
+&lt;a name="rest_code_784b0e367e0540828d277ec5e5154570-12"&gt;&lt;/a&gt;    &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="s"&gt;"--file"&lt;/span&gt;
+&lt;a name="rest_code_784b0e367e0540828d277ec5e5154570-13"&gt;&lt;/a&gt;    &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="s"&gt;"/var/www/fufufu/fufufu/manage.py"&lt;/span&gt;
+&lt;a name="rest_code_784b0e367e0540828d277ec5e5154570-14"&gt;&lt;/a&gt;    &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="s"&gt;"runserver"&lt;/span&gt;
+&lt;a name="rest_code_784b0e367e0540828d277ec5e5154570-15"&gt;&lt;/a&gt;    &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="s"&gt;"0.0.0.0:8000"&lt;/span&gt;
+&lt;a name="rest_code_784b0e367e0540828d277ec5e5154570-16"&gt;&lt;/a&gt;    &lt;span class="l l-Scalar l-Scalar-Plain"&gt;(後略)&lt;/span&gt;
 &lt;/pre&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Dockerfile で ENTRYPOINT を定義していて、かつ、その ENTRYPOINT の定義内容がコマンドラインオプションを無視するものになっていると、
 PyCharm が CMD を上書きしてデバッガーを注入できず、デバッグできない状態になってしまうので、注意&lt;/p&gt;

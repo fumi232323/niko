@@ -34,16 +34,23 @@
         
       </time><div class="text">
       <div>
+<div class="section" id="font">
+<h2>font</h2>
+<p><code class="docutils literal">.ttf</code> という拡張子のファイルが取得できた場合は、以下へ移動するだけ</p>
+<pre class="code console"><a name="rest_code_04e9c9140c404317a70224a421cf0834-1"></a><span class="gp">$</span> mv xxx*.ttf ~/Library/Fonts/.
+</pre>
+<p>※もしかしたらもう1ステップ何かやるのかもしれない.. (VSCode に他所から持ってきた font を追加するのは↑だけでできた)</p>
+</div>
 <div class="section" id="id1">
 <h2>ファイル操作</h2>
 <div class="section" id="id2">
 <h3>文字コードを変換</h3>
-<pre class="code console"><a name="rest_code_4d39d904ef00497d889e56e2d3fbb984-1"></a><span class="gp">$</span> iconv -f Shift-JIS -t UTF-8 &lt;変換前のファイル名&gt; &lt;変換後のファイル名&gt;
+<pre class="code console"><a name="rest_code_0de719a09b3e4f0b84d7a47dbd59912a-1"></a><span class="gp">$</span> iconv -f Shift-JIS -t UTF-8 &lt;変換前のファイル名&gt; &lt;変換後のファイル名&gt;
 </pre>
 </div>
 <div class="section" id="gz">
 <h3>.gz に圧縮</h3>
-<pre class="code console"><a name="rest_code_3682612256a74f5b86ba1a7461176419-1"></a><span class="gp">$</span> gzip &lt;ファイル名&gt;
+<pre class="code console"><a name="rest_code_c3b046a86af94d3899f6493e4d086f2d-1"></a><span class="gp">$</span> gzip &lt;ファイル名&gt;
 </pre>
 </div>
 </div>
@@ -51,27 +58,27 @@
 <h2>環境変数</h2>
 <div class="section" id="id4">
 <h3>一覧表示する</h3>
-<pre class="code console"><a name="rest_code_8ff7d7a2aed542479853e03f1c251bd3-1"></a><span class="gp">$</span> printenv
+<pre class="code console"><a name="rest_code_2c6790abe4254797807afd59e328de84-1"></a><span class="gp">$</span> printenv
 </pre>
 </div>
 <div class="section" id="id5">
 <h3>追加する</h3>
-<pre class="code console"><a name="rest_code_4aecd43eb418492daff667bc50930514-1"></a><span class="gp">$</span> <span class="nb">export</span> <span class="nv">AWS_ACCESS_KEY_ID</span><span class="o">=</span>XXXXXXXXX
-<a name="rest_code_4aecd43eb418492daff667bc50930514-2"></a><span class="gp">$</span> <span class="nb">export</span> <span class="nv">AWS_SECRET_ACCESS_KEY</span><span class="o">=</span>XXXXXXXXX
-<a name="rest_code_4aecd43eb418492daff667bc50930514-3"></a><span class="gp">$</span> <span class="nb">export</span> <span class="nv">AWS_SESSION_TOKEN</span><span class="o">=</span>XXXXXXXXX
+<pre class="code console"><a name="rest_code_d835a7db3b494293b41c4b23ad52d302-1"></a><span class="gp">$</span> <span class="nb">export</span> <span class="nv">AWS_ACCESS_KEY_ID</span><span class="o">=</span>XXXXXXXXX
+<a name="rest_code_d835a7db3b494293b41c4b23ad52d302-2"></a><span class="gp">$</span> <span class="nb">export</span> <span class="nv">AWS_SECRET_ACCESS_KEY</span><span class="o">=</span>XXXXXXXXX
+<a name="rest_code_d835a7db3b494293b41c4b23ad52d302-3"></a><span class="gp">$</span> <span class="nb">export</span> <span class="nv">AWS_SESSION_TOKEN</span><span class="o">=</span>XXXXXXXXX
 </pre>
 </div>
 <div class="section" id="id6">
 <h3>削除する</h3>
-<pre class="code console"><a name="rest_code_7ae417ad542441eb9b0896cc5e222e9e-1"></a><span class="gp">$</span> <span class="nb">unset</span> AWS_ACCESS_KEY_ID
-<a name="rest_code_7ae417ad542441eb9b0896cc5e222e9e-2"></a><span class="gp">$</span> <span class="nb">unset</span> AWS_SECRET_ACCESS_KEY
-<a name="rest_code_7ae417ad542441eb9b0896cc5e222e9e-3"></a><span class="gp">$</span> <span class="nb">unset</span> AWS_SESSION_TOKEN
+<pre class="code console"><a name="rest_code_ffb9ca9a40584cc69b672878e281065c-1"></a><span class="gp">$</span> <span class="nb">unset</span> AWS_ACCESS_KEY_ID
+<a name="rest_code_ffb9ca9a40584cc69b672878e281065c-2"></a><span class="gp">$</span> <span class="nb">unset</span> AWS_SECRET_ACCESS_KEY
+<a name="rest_code_ffb9ca9a40584cc69b672878e281065c-3"></a><span class="gp">$</span> <span class="nb">unset</span> AWS_SESSION_TOKEN
 </pre>
 </div>
 </div>
 <div class="section" id="id7">
 <h2>本体がどこに行ったかわからなくなったとき</h2>
-<pre class="code console"><a name="rest_code_979cbc853916488696627df44f233504-1"></a><span class="gp">$</span> which python
+<pre class="code console"><a name="rest_code_d19a371c4041434bb9ac352504ce4ae2-1"></a><span class="gp">$</span> which python
 </pre>
 </div>
 </div>
