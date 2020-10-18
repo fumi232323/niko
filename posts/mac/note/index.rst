@@ -6,6 +6,18 @@
 .. status: published
 
 
+font
+====
+
+``.ttf`` という拡張子のファイルが取得できた場合は、以下へ移動するだけ
+
+.. code-block:: console
+
+  $ mv xxx*.ttf ~/Library/Fonts/.
+
+※もしかしたらもう1ステップ何かやるのかもしれない.. (VSCode に他所から持ってきた font を追加するのは↑だけでできた)
+
+
 ファイル操作
 ============
 

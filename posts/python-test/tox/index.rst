@@ -1,6 +1,7 @@
 .. title: tox
 .. tags: python-test
 .. date: 2018-11-17
+.. updated: 2020-10-18
 .. slug: index
 .. status: published
 
@@ -112,6 +113,8 @@ tox.ini
       radon
 
   # https://docs.python.org/ja/3/using/cmdline.html#envvar-PYTHONDONTWRITEBYTECODE (よくわからない)
+  # => わかりました。以下を見よ。
+  #  自走プログラマー78: ソースコードの更新が確実に動作に反映される工夫をしよう (P.189) > ベストプラクティス
   setenv =
       PYTHONDONTWRITEBYTECODE = 1
 
