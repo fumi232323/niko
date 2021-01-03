@@ -616,6 +616,7 @@ a:active {
 }
 .article-content .admonition {
   margin-top: 16px;
+  margin-bottom: 16px;
   background-color: #fdf5e6;
   color: #6c3a24;
   padding: 0.5em 32px;

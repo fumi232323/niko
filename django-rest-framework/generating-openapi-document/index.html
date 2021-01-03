@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<title>OpenAPI Document の自動生成/ふみのて</title>
+<link rel="shortcut icon" href="../../assets/icons/favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Vollkorn:400,700">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sawarabi+Mincho&amp;display=swap&amp;subset=japanese,latin-ext">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+<link rel="stylesheet" href="../../assets/css/style.css?20200720">
+</head>
+<body>
+    <div class="container">
+      <div class="header"><header class="item item-header"><h1>
+    <a href="../../">
+      <img class="logo" src="../../assets/images/inuu.png" alt="犬"></a>
+  </h1>
+  <iframe src="../../tags/" class="tags"></iframe>
+</header></div>
+      <div class="main">
+<div class="article-content">
+  <main class="item item-article item-django-rest-framework"><div class="category">
+      <a href="../../tags/django-rest-framework/">
+          django-rest-framework
+      </a>
+    </div>
+    <div class="title">OpenAPI Document の自動生成</div>
+    <time class="date" datetime="2021-01-02 00:00:00+09:00">
+      2021-01-02 Sat
+    </time><time class="date" datetime="2021-01-02 00:00:00+09:00">
+        updated: 2021-01-02 Sat
+        
+      </time><div class="text">
+      <div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>以前案件で Django REST framework のアプリケーションコードから OpenAPI document を自動生成する調査をしたので、自分用にここにもメモ。</p>
+<p>2020年9月時点の情報。</p>
+</div>
+<details><summary>目次</summary><div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#id1" id="id7">調査対象とした自動生成ライブラリ</a></p></li>
+<li><p><a class="reference internal" href="#id2" id="id8">挙動まとめ</a></p></li>
+<li>
+<p><a class="reference internal" href="#id3" id="id9">生成方法</a></p>
+<ul>
+<li>
+<p><a class="reference internal" href="#api-schemas-drf" id="id10">API schemas (DRF 標準)</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id4" id="id11">参考にしたページ</a></p></li>
+</ul>
+</li>
+<li>
+<p><a class="reference internal" href="#drf-yasg-third-party-package" id="id12">drf-yasg (Third party package)</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id5" id="id13">参考にしたページ</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#openapi-document" id="id14">OpenAPI document があるとうれしいこと</a></p></li>
+<li><p><a class="reference internal" href="#id6" id="id15">OpenAPI document を自動生成できるとうれしいこと</a></p></li>
+</ul>
+</div>
+</details><div class="section" id="id1">
+<h2><a class="toc-backref" href="#id7">調査対象とした自動生成ライブラリ</a></h2>
+<p>以下のふたつ。</p>
+<ul class="simple">
+<li><p>API schemas (DRF 標準): <a class="reference external" href="https://www.django-rest-framework.org/coreapi/schemas/">https://www.django-rest-framework.org/coreapi/schemas/</a></p></li>
+<li>
+<p>drf-yasg (Third party package): <a class="reference external" href="https://github.com/axnsan12/drf-yasg">https://github.com/axnsan12/drf-yasg</a></p>
+<ul>
+<li><p><a class="reference external" href="https://github.com/marcgibbons/django-rest-swagger">https://github.com/marcgibbons/django-rest-swagger</a> の後継</p></li>
+<li><p>現在は、 <a class="reference external" href="https://github.com/tfranzel/drf-spectacular">https://github.com/tfranzel/drf-spectacular</a> で OpenAPI 3.0 ベースの OpenAPI document が生成できるもよう</p></li>
+</ul>
+</li>
+</ul>
+<p>[理由]</p>
+<ul class="simple">
+<li><p>DRF の公式リファレンス <a class="reference external" href="https://www.django-rest-framework.org/topics/documenting-your-api/#documenting-your-api">Documenting your API</a> でオススメされているのはこの2つ</p></li>
+<li><p>web で検索してみると (現在有効なものだと) このふたつの情報がほとんど</p></li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2><a class="toc-backref" href="#id8">挙動まとめ</a></h2>
+<p>自分たちのアプリケーションコードに自動生成用のコードを追加する (※1) ことで生成結果をカスタマイズできる (より事実に近い状態の OpenAPI document を自動生成できる) もようだが、
+以下はコード追加せずデフォルト状態で生成した (※2)</p>
+<table class="colwidths-given">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 40%">
+<col style="width: 40%">
+</colgroup>
+<thead><tr>
+<th class="head stub"><p>項目</p></th>
+<th class="head"><p>API schemas (DRF 標準)</p></th>
+<th class="head"><p>drf-yasg</p></th>
+</tr></thead>
+<tbody>
+<tr>
+<th class="stub"><p>OpenAPI version</p></th>
+<td><p>openapi: 3.0.2</p></td>
+<td><p>swagger: 2.0</p></td>
+</tr>
+<tr>
+<th class="stub"><p>output format</p></th>
+<td><p>yaml, json</p></td>
+<td><p>yaml, json</p></td>
+</tr>
+<tr>
+<th class="stub"><p>UI</p></th>
+<td><p>Swagger UI, ReDoc</p></td>
+<td><p>Swagger UI, ReDoc</p></td>
+</tr>
+<tr>
+<th class="stub"><p>path</p></th>
+<td>
+<p>コード通り生成される</p>
+<ul class="simple">
+<li><p>urls.py から生成しているもよう</p></li>
+</ul>
+</td>
+<td><p>同左</p></td>
+</tr>
+<tr>
+<th class="stub"><p>method</p></th>
+<td>
+<p>コード通り生成される</p>
+<ul class="simple">
+<li><p>urls.py =&gt; viewクラス/関数を見て生成しているもよう</p></li>
+</ul>
+</td>
+<td><p>同左</p></td>
+</tr>
+<tr>
+<th class="stub"><p>operationId</p></th>
+<td>
+<p>実際のコードと相違がある</p>
+<ul class="simple">
+<li><p>path + method に応じて機械的につけているもよう</p></li>
+</ul>
+</td>
+<td><p>同左 (命名法則には違いがある)</p></td>
+</tr>
+<tr>
+<th class="stub"><p>description</p></th>
+<td>
+<p>コード通り生成される</p>
+<ul class="simple">
+<li><p>viewクラス/view関数のDocString が転記される</p></li>
+</ul>
+</td>
+<td><p>同左</p></td>
+</tr>
+<tr>
+<th class="stub"><p>ステータスコード</p></th>
+<td>
+<p>実際のコードと相違がある</p>
+<ul class="simple">
+<li>
+<p>method に応じて機械的につけているもよう</p>
+<ul>
+<li><p>GET: 200</p></li>
+<li><p>PUT: 200</p></li>
+<li><p>PATCH: 200</p></li>
+<li><p>POST: 200</p></li>
+<li><p>DELETE: 204</p></li>
+</ul>
+</li>
+</ul>
+</td>
+<td>
+<p>実際のコードと相違がある</p>
+<ul class="simple">
+<li>
+<p>method に応じて機械的につけているもよう</p>
+<ul>
+<li><p>GET: 200</p></li>
+<li><p>PUT: 200</p></li>
+<li><p>PATCH: 200</p></li>
+<li><p>POST: 201</p></li>
+<li><p>DELETE: 204</p></li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th class="stub"><p>parameters (path)</p></th>
+<td>
+<p>コード通り生成される</p>
+<ul class="simple">
+<li><p>ただし、ID などDRF としては int 型で受け取るものも一律 <code class="docutils literal">type: string</code> として出力される</p></li>
+</ul>
+</td>
+<td><p>同左</p></td>
+</tr>
+<tr>
+<th class="stub"><p>requestBody</p></th>
+<td>
+<p>一部コード通り?生成される</p>
+<ul class="simple">
+<li><p>Generic views を継承している view の場合は serializer_class に指定されたserializer から生成されるもよう</p></li>
+<li><p>APIView を継承した view は生成されない</p></li>
+</ul>
+</td>
+<td><p>同左</p></td>
+</tr>
+<tr>
+<th class="stub"><p>responses</p></th>
+<td>
+<p>同上</p>
+<ul class="simple">
+<li><p>ただし、ClassView の場合は、すべての method に同じ response がついてしまう (例えば実際は何も返さない post にも出力されてしまう)</p></li>
+</ul>
+</td>
+<td><p>同左</p></td>
+</tr>
+<tr>
+<th class="stub"><p>tags</p></th>
+<td><p>つかない</p></td>
+<td>
+<p>つく</p>
+<ul class="simple">
+<li><p>起点 (ROOT_CONF or app/urls) で付き方は変わる</p></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>※1 drf-yasg の場合。(試してないけど) View にデコレータをつけて、シリアライザやレスポンスコードなどを指定するようなイメージ。DRF 標準のほうでもできるのかは未確認。</p>
+<p>※2 drf-yasg のほうがチェックが甘く、多少ヘンテコなコードでも出力してくれた</p>
+</div>
+<div class="section" id="id3">
+<h2><a class="toc-backref" href="#id9">生成方法</a></h2>
+<div class="section" id="api-schemas-drf">
+<h3><a class="toc-backref" href="#id10">API schemas (DRF 標準)</a></h3>
+<ol class="arabic">
+<li><p>pyyaml, uritemplate を install</p></li>
+<li><p><code class="docutils literal">settings.DEFAULT_SCHEMA_CLASS</code> が指定されていたら、 default の <code class="docutils literal">rest_framework.schemas.openapi.AutoSchema</code> に戻しておく</p></li>
+<li>
+<p>以下のコマンドを実行する</p>
+<blockquote>
+<pre class="code console"><a name="rest_code_f15746ed00604c548b53e102a1acfa30-1"></a><span class="gp">$</span> python manage.py generateschema --title<span class="o">=</span><span class="s2">"fumi23API"</span> --description<span class="o">=</span><span class="s2">"[DFR標準] OpenAPI document 自動生成をテスト"</span> --urlconf<span class="o">=</span><span class="s1">'fumi23.urls'</span> &gt; openapi-schema.yaml
+</pre>
+</blockquote>
+</li>
+<li>
+<p>もしくは URLconf に以下を追記して、 runserver =&gt;  <a class="reference external" href="http://localhost:8000/openapi-schema/">http://localhost:8000/openapi-schema/</a> にアクセス</p>
+<blockquote>
+<pre class="code python"><a name="rest_code_fb06e0db03e342af87957ad3e968eeb2-1"></a><span class="c1"># urls.py (今回は ROOT_CONF に記載)</span>
+<a name="rest_code_fb06e0db03e342af87957ad3e968eeb2-2"></a><span class="kn">from</span> <span class="nn">rest_framework.schemas</span> <span class="kn">import</span> <span class="n">get_schema_view</span>
+<a name="rest_code_fb06e0db03e342af87957ad3e968eeb2-3"></a><span class="kn">from</span> <span class="nn">rest_framework</span> <span class="kn">import</span> <span class="n">permissions</span>
+<a name="rest_code_fb06e0db03e342af87957ad3e968eeb2-4"></a><span class="kn">from</span> <span class="nn">rest_framework.renderers</span> <span class="kn">import</span> <span class="n">OpenAPIRenderer</span>
+<a name="rest_code_fb06e0db03e342af87957ad3e968eeb2-5"></a><span class="kn">from</span> <span class="nn">django.views.generic.base</span> <span class="kn">import</span> <span class="n">TemplateView</span>
+<a name="rest_code_fb06e0db03e342af87957ad3e968eeb2-6"></a>
+<a name="rest_code_fb06e0db03e342af87957ad3e968eeb2-7"></a><span class="n">urlpatterns</span> <span class="o">+=</span> <span class="p">[</span>
+<a name="rest_code_fb06e0db03e342af87957ad3e968eeb2-8"></a>    <span class="c1"># yaml file download</span>
+<a name="rest_code_fb06e0db03e342af87957ad3e968eeb2-9"></a>    <span class="n">path</span><span class="p">(</span><span class="s1">'openapi-schema/'</span><span class="p">,</span> <span class="n">get_schema_view</span><span class="p">(</span>
+<a name="rest_code_fb06e0db03e342af87957ad3e968eeb2-10"></a>        <span class="n">title</span><span class="o">=</span><span class="s2">"fumi23 API"</span><span class="p">,</span>
+<a name="rest_code_fb06e0db03e342af87957ad3e968eeb2-11"></a>        <span class="n">description</span><span class="o">=</span><span class="s2">"[DFR標準] OpenAPI document 自動生成をテスト"</span><span class="p">,</span>
+<a name="rest_code_fb06e0db03e342af87957ad3e968eeb2-12"></a>        <span class="n">version</span><span class="o">=</span><span class="s2">"1.0.0"</span><span class="p">,</span>
+<a name="rest_code_fb06e0db03e342af87957ad3e968eeb2-13"></a>        <span class="n">public</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+<a name="rest_code_fb06e0db03e342af87957ad3e968eeb2-14"></a>        <span class="n">urlconf</span><span class="o">=</span><span class="s1">'fumi23.urls'</span><span class="p">,</span>
+<a name="rest_code_fb06e0db03e342af87957ad3e968eeb2-15"></a>        <span class="n">renderer_classes</span><span class="o">=</span><span class="p">[</span><span class="n">OpenAPIRenderer</span><span class="p">],</span>
+<a name="rest_code_fb06e0db03e342af87957ad3e968eeb2-16"></a>        <span class="n">permission_classes</span><span class="o">=</span><span class="p">(</span><span class="n">permissions</span><span class="o">.</span><span class="n">AllowAny</span><span class="p">,),</span>
+<a name="rest_code_fb06e0db03e342af87957ad3e968eeb2-17"></a>    <span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="s1">'openapi-schema'</span><span class="p">),</span>
+<a name="rest_code_fb06e0db03e342af87957ad3e968eeb2-18"></a>    <span class="c1"># Swagger UI view</span>
+<a name="rest_code_fb06e0db03e342af87957ad3e968eeb2-19"></a>    <span class="c1"># ここ https://www.django-rest-framework.org/topics/documenting-your-api/#a-minimal-example-with-swagger-ui に記載の template も用意する</span>
+<a name="rest_code_fb06e0db03e342af87957ad3e968eeb2-20"></a>    <span class="n">path</span><span class="p">(</span><span class="s1">'docs/'</span><span class="p">,</span> <span class="n">TemplateView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(</span>
+<a name="rest_code_fb06e0db03e342af87957ad3e968eeb2-21"></a>        <span class="n">template_name</span><span class="o">=</span><span class="s1">'swagger-ui.html'</span><span class="p">,</span>
+<a name="rest_code_fb06e0db03e342af87957ad3e968eeb2-22"></a>        <span class="n">extra_context</span><span class="o">=</span><span class="p">{</span><span class="s1">'schema_url'</span><span class="p">:</span> <span class="s1">'openapi-schema'</span><span class="p">}</span>
+<a name="rest_code_fb06e0db03e342af87957ad3e968eeb2-23"></a>    <span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="s1">'swagger-ui'</span><span class="p">),</span>
+<a name="rest_code_fb06e0db03e342af87957ad3e968eeb2-24"></a><span class="p">]</span>
+</pre>
+</blockquote>
+</li>
+</ol>
+<div class="section" id="id4">
+<h4><a class="toc-backref" href="#id11">参考にしたページ</a></h4>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.django-rest-framework.org/coreapi/schemas/">https://www.django-rest-framework.org/coreapi/schemas/</a></p></li>
+<li><p><a class="reference external" href="https://www.django-rest-framework.org/community/3.10-announcement/">https://www.django-rest-framework.org/community/3.10-announcement/</a></p></li>
+<li><p><a class="reference external" href="https://dev.to/errietta/documenting-a-django-api-with-openapi-and-dataclasses-1p6h">https://dev.to/errietta/documenting-a-django-api-with-openapi-and-dataclasses-1p6h</a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="drf-yasg-third-party-package">
+<h3><a class="toc-backref" href="#id12">drf-yasg (Third party package)</a></h3>
+<ol class="arabic">
+<li><p>drf-yasg を install</p></li>
+<li><p>settings.INSTALLED_APPS に <code class="docutils literal">drf_yasg</code> を追記</p></li>
+<li>
+<p>URLconf に以下を追記して runserver =&gt; <a class="reference external" href="http://localhost:8000/swagger/">http://localhost:8000/swagger/</a> にアクセス</p>
+<blockquote>
+<pre class="code python"><a name="rest_code_9cac7835989445d5a2467a5f7453897d-1"></a><span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">re_path</span>
+<a name="rest_code_9cac7835989445d5a2467a5f7453897d-2"></a><span class="kn">from</span> <span class="nn">rest_framework</span> <span class="kn">import</span> <span class="n">permissions</span>
+<a name="rest_code_9cac7835989445d5a2467a5f7453897d-3"></a><span class="kn">from</span> <span class="nn">drf_yasg.views</span> <span class="kn">import</span> <span class="n">get_schema_view</span>
+<a name="rest_code_9cac7835989445d5a2467a5f7453897d-4"></a><span class="kn">from</span> <span class="nn">drf_yasg</span> <span class="kn">import</span> <span class="n">openapi</span>
+<a name="rest_code_9cac7835989445d5a2467a5f7453897d-5"></a>
+<a name="rest_code_9cac7835989445d5a2467a5f7453897d-6"></a><span class="n">schema_view</span> <span class="o">=</span> <span class="n">get_schema_view</span><span class="p">(</span>
+<a name="rest_code_9cac7835989445d5a2467a5f7453897d-7"></a>    <span class="n">openapi</span><span class="o">.</span><span class="n">Info</span><span class="p">(</span>
+<a name="rest_code_9cac7835989445d5a2467a5f7453897d-8"></a>        <span class="n">title</span><span class="o">=</span><span class="s2">"fumi23 API"</span><span class="p">,</span>
+<a name="rest_code_9cac7835989445d5a2467a5f7453897d-9"></a>        <span class="n">default_version</span><span class="o">=</span><span class="s1">'v3'</span><span class="p">,</span>
+<a name="rest_code_9cac7835989445d5a2467a5f7453897d-10"></a>        <span class="n">description</span><span class="o">=</span><span class="s2">"[drf-yasg] OpenAPI document 自動生成をテスト"</span><span class="p">,</span>
+<a name="rest_code_9cac7835989445d5a2467a5f7453897d-11"></a>    <span class="p">),</span>
+<a name="rest_code_9cac7835989445d5a2467a5f7453897d-12"></a>    <span class="n">url</span><span class="o">=</span><span class="s1">'http://localhost:8000'</span><span class="p">,</span>
+<a name="rest_code_9cac7835989445d5a2467a5f7453897d-13"></a>    <span class="n">urlconf</span><span class="o">=</span><span class="s1">'fumi23.urls'</span><span class="p">,</span>
+<a name="rest_code_9cac7835989445d5a2467a5f7453897d-14"></a>    <span class="n">public</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+<a name="rest_code_9cac7835989445d5a2467a5f7453897d-15"></a>    <span class="n">permission_classes</span><span class="o">=</span><span class="p">(</span><span class="n">permissions</span><span class="o">.</span><span class="n">AllowAny</span><span class="p">,),</span>
+<a name="rest_code_9cac7835989445d5a2467a5f7453897d-16"></a><span class="p">)</span>
+<a name="rest_code_9cac7835989445d5a2467a5f7453897d-17"></a>
+<a name="rest_code_9cac7835989445d5a2467a5f7453897d-18"></a>    <span class="n">urlpatterns</span> <span class="o">+=</span> <span class="p">[</span>
+<a name="rest_code_9cac7835989445d5a2467a5f7453897d-19"></a>        <span class="c1"># yaml or json file download</span>
+<a name="rest_code_9cac7835989445d5a2467a5f7453897d-20"></a>        <span class="n">re_path</span><span class="p">(</span><span class="sa">r</span><span class="s1">'^swagger(?P&lt;format&gt;\.json|\.yaml)$'</span><span class="p">,</span> <span class="n">schema_view</span><span class="o">.</span><span class="n">without_ui</span><span class="p">(</span><span class="n">cache_timeout</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="s1">'schema-json'</span><span class="p">),</span>
+<a name="rest_code_9cac7835989445d5a2467a5f7453897d-21"></a>        <span class="c1"># Swagger UI view</span>
+<a name="rest_code_9cac7835989445d5a2467a5f7453897d-22"></a>        <span class="n">path</span><span class="p">(</span><span class="s1">'swagger/'</span><span class="p">,</span> <span class="n">schema_view</span><span class="o">.</span><span class="n">with_ui</span><span class="p">(</span><span class="s1">'swagger'</span><span class="p">,</span> <span class="n">cache_timeout</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="s1">'schema-swagger-ui'</span><span class="p">),</span>
+<a name="rest_code_9cac7835989445d5a2467a5f7453897d-23"></a>        <span class="c1"># ReDoc view</span>
+<a name="rest_code_9cac7835989445d5a2467a5f7453897d-24"></a>        <span class="n">path</span><span class="p">(</span><span class="s1">'redoc/'</span><span class="p">,</span> <span class="n">schema_view</span><span class="o">.</span><span class="n">with_ui</span><span class="p">(</span><span class="s1">'redoc'</span><span class="p">,</span> <span class="n">cache_timeout</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="s1">'schema-redoc'</span><span class="p">),</span>
+<a name="rest_code_9cac7835989445d5a2467a5f7453897d-25"></a>    <span class="p">]</span>
+</pre>
+</blockquote>
+</li>
+</ol>
+<div class="section" id="id5">
+<h4><a class="toc-backref" href="#id13">参考にしたページ</a></h4>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/axnsan12/drf-yasg">https://github.com/axnsan12/drf-yasg</a></p></li>
+<li><p><a class="reference external" href="https://qiita.com/jnuank/items/be163ffb2a0c41a130be">https://qiita.com/jnuank/items/be163ffb2a0c41a130be</a></p></li>
+<li><p><a class="reference external" href="https://qiita.com/T0000N/items/c982fd9586763747fb11">https://qiita.com/T0000N/items/c982fd9586763747fb11</a></p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="openapi-document">
+<h2><a class="toc-backref" href="#id14">OpenAPI document があるとうれしいこと</a></h2>
+<ul class="simple">
+<li>
+<p>コードを読んだり実際にアプリケーションを動かしてみなくても、API の I/F が一目瞭然</p>
+<ul>
+<li><p>運用・保守していく立場からするととても助かる</p></li>
+</ul>
+</li>
+<li>
+<p>フロントエンド の TypeScript の型ファイル? を自動生成できるもよう</p>
+<ul>
+<li><p>人間が手でやると、書き間違えたり、誤認・誤解したりする</p></li>
+<li><p>ちなみに、 Go など型がある言語だとどこも自動生成するものらしい</p></li>
+</ul>
+</li>
+<li>
+<p>バックエンドの モックサーバーをたてられるもよう</p>
+<ul>
+<li><p><a class="reference external" href="https://github.com/zalando/connexion">https://github.com/zalando/connexion</a></p></li>
+<li><p><a class="reference external" href="https://github.com/encode/apistar">https://github.com/encode/apistar</a></p></li>
+<li><p>同じ起点 (OpenAPI Document) から実装 =&gt; テストしていけば、例えばバックエンドとフロントエンドの担当者が違っても、認識齟齬によるバグと悲しい気持ちを生まない</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id6">
+<h2><a class="toc-backref" href="#id15">OpenAPI document を自動生成できるとうれしいこと</a></h2>
+<ul class="simple">
+<li><p>OAS に準拠した書き方を習得するのにちょっとだけ学習コストがかかるのと、</p></li>
+<li><p>書くのおっくうになっても、コード書けば勝手に yaml にしてくれたらうれしいかも</p></li>
+</ul>
+</div>
+</div>
+    </div>
+  </main>
+</div>
+</div>
+    </div>
+  </body>
+</html>
