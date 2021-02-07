@@ -29,8 +29,8 @@
     <div class="title">Python テストのメモ</div>
     <time class="date" datetime="2018-11-08 00:00:00+09:00">
       2018-11-08 Thu
-    </time><time class="date" datetime="2018-11-08 00:00:00+09:00">
-        updated: 2018-11-08 Thu
+    </time><time class="date" datetime="2021-02-07 00:00:00+09:00">
+        updated: 2021-02-07 Sun
         
       </time><div class="text">
       <div>
@@ -38,122 +38,31 @@
 <p class="topic-title first">Contents</p>
 <ul class="simple">
 <li>
-<p><a class="reference internal" href="#pytest" id="id6">pytest</a></p>
+<p><a class="reference internal" href="#testfixtures" id="id4">testfixtures</a></p>
 <ul>
-<li><p><a class="reference internal" href="#id1" id="id7">リファレンス</a></p></li>
-<li><p><a class="reference internal" href="#id2" id="id8">例外のテストはこれ</a></p></li>
-<li><p><a class="reference internal" href="#parametrize" id="id9">parametrize</a></p></li>
-<li><p><a class="reference internal" href="#pytest-fixture" id="id10">pytest.fixture</a></p></li>
-<li><p><a class="reference internal" href="#fixture" id="id11">fixture のスコープと実行順序</a></p></li>
-<li><p><a class="reference internal" href="#temporary-directories-and-files" id="id12">Temporary directories and files</a></p></li>
+<li><p><a class="reference internal" href="#id1" id="id5">リファレンス</a></p></li>
+<li><p><a class="reference internal" href="#date-datetime-mock" id="id6">date と datetime を mock できる</a></p></li>
 </ul>
 </li>
+<li><p><a class="reference internal" href="#flake8-3-6" id="id7">flake8 3.6 対応がわかりやすい</a></p></li>
 <li>
-<p><a class="reference internal" href="#pytest-django" id="id13">pytest-django</a></p>
+<p><a class="reference internal" href="#id2" id="id8">あれこれ</a></p>
 <ul>
-<li><p><a class="reference internal" href="#settings-fixture" id="id14">settings の fixture がある</a></p></li>
-</ul>
-</li>
-<li>
-<p><a class="reference internal" href="#testfixtures" id="id15">testfixtures</a></p>
-<ul>
-<li><p><a class="reference internal" href="#id3" id="id16">リファレンス</a></p></li>
-<li><p><a class="reference internal" href="#date-datetime-mock" id="id17">date と datetime を mock できる</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#flake8-3-6" id="id18">flake8 3.6 対応がわかりやすい</a></p></li>
-<li>
-<p><a class="reference internal" href="#id4" id="id19">あれこれ</a></p>
-<ul>
-<li><p><a class="reference internal" href="#a" id="id20">3a スタイル</a></p></li>
-<li><p><a class="reference internal" href="#testpyramid" id="id21">TestPyramid</a></p></li>
-<li><p><a class="reference internal" href="#id5" id="id22">テストターゲットの取得方法</a></p></li>
+<li><p><a class="reference internal" href="#a" id="id9">3a スタイル</a></p></li>
+<li><p><a class="reference internal" href="#testpyramid" id="id10">TestPyramid</a></p></li>
+<li><p><a class="reference internal" href="#id3" id="id11">テストターゲットの取得方法</a></p></li>
 </ul>
 </li>
 </ul>
 </div>
-</details><div class="section" id="pytest">
-<h2><a class="toc-backref" href="#id6">pytest</a></h2>
+</details><div class="section" id="testfixtures">
+<h2><a class="toc-backref" href="#id4">testfixtures</a></h2>
 <div class="section" id="id1">
-<h3><a class="toc-backref" href="#id7">リファレンス</a></h3>
-<p><a class="reference external" href="https://docs.pytest.org/en/latest/">https://docs.pytest.org/en/latest/</a></p>
-</div>
-<div class="section" id="id2">
-<h3><a class="toc-backref" href="#id8">例外のテストはこれ</a></h3>
-<p><a class="reference external" href="https://docs.pytest.org/en/latest/reference.html#pytest-raises">https://docs.pytest.org/en/latest/reference.html#pytest-raises</a></p>
-<ul>
-<li><p><code class="docutils literal">with pytest.raises(RuntimeError) as excinfo:</code> の <code class="docutils literal">excinfo</code> には、 <a class="reference external" href="https://docs.pytest.org/en/latest/reference.html#exceptioninfo">ExceptionInfo</a> が入ってくる</p></li>
-<li>
-<p>例外のインスタンスは、 <code class="docutils literal">value</code> フィールドに入っている</p>
-<pre class="code python"><a name="rest_code_7a289932b63e4846ba4f26010fb68ab1-1"></a><span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span><span class="n">ListFileError</span><span class="p">)</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-<a name="rest_code_7a289932b63e4846ba4f26010fb68ab1-2"></a>    <span class="n">target</span><span class="p">(</span><span class="n">list_file</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">'201803'</span><span class="p">)</span>
-<a name="rest_code_7a289932b63e4846ba4f26010fb68ab1-3"></a>
-<a name="rest_code_7a289932b63e4846ba4f26010fb68ab1-4"></a><span class="c1"># assert</span>
-<a name="rest_code_7a289932b63e4846ba4f26010fb68ab1-5"></a><span class="k">assert</span> <span class="n">e</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">line</span> <span class="o">==</span> <span class="mi">2</span>
-</pre>
-</li>
-</ul>
-</div>
-<div class="section" id="parametrize">
-<h3><a class="toc-backref" href="#id9">parametrize</a></h3>
-<p><code class="docutils literal">unittest.TestCase</code> を継承したテストクラス内では、 <code class="docutils literal">@pytest.mark.parametrize</code> を使えない。</p>
-</div>
-<div class="section" id="pytest-fixture">
-<h3><a class="toc-backref" href="#id10">pytest.fixture</a></h3>
-<p><a class="reference external" href="https://docs.pytest.org/en/latest/fixture.html">https://docs.pytest.org/en/latest/fixture.html</a></p>
-<pre class="literal-block">Test functions can receive fixture objects by naming them as an input argument. For each argument name, a fixture function with that name provides the fixture object. Fixture functions are registered by marking them with @pytest.fixture.</pre>
-</div>
-<div class="section" id="fixture">
-<h3><a class="toc-backref" href="#id11">fixture のスコープと実行順序</a></h3>
-<p><a class="reference external" href="https://docs.pytest.org/en/latest/fixture.html#order-higher-scoped-fixtures-are-instantiated-first">https://docs.pytest.org/en/latest/fixture.html#order-higher-scoped-fixtures-are-instantiated-first</a></p>
-<ul class="simple">
-<li><p>デフォルトは function</p></li>
-<li>
-<p><code class="docutils literal">autouse=True</code> すると、引数に与えなくても自動で実行される</p>
-<ul>
-<li><p>スコープは function</p></li>
-<li><p>同じスコープのほかの fixture の前にインスタンス化される</p></li>
-</ul>
-</li>
-</ul>
-</div>
-<div class="section" id="temporary-directories-and-files">
-<h3><a class="toc-backref" href="#id12">Temporary directories and files</a></h3>
-<p><a class="reference external" href="http://doc.pytest.org/en/latest/tmpdir.html#the-tmpdir-fixture">http://doc.pytest.org/en/latest/tmpdir.html#the-tmpdir-fixture</a></p>
-<ul class="simple">
-<li><p>一時ディレクトリやファイルの fixture がある</p></li>
-<li><p>こんな感じで使う、便利</p></li>
-</ul>
-<pre class="code python"><a name="rest_code_23bbe9e8a28c4475a5fa5af82bdb1e92-1"></a><span class="c1"># settings fixture 経由で storage の path を pytest の tempdir fixture の path に置き換える</span>
-<a name="rest_code_23bbe9e8a28c4475a5fa5af82bdb1e92-2"></a><span class="k">def</span> <span class="nf">test_csv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">settings</span><span class="p">,</span> <span class="n">tmpdir</span><span class="p">):</span>  <span class="c1"># &lt;- settings fixture と tmpdir fixture を受け取る</span>
-<a name="rest_code_23bbe9e8a28c4475a5fa5af82bdb1e92-3"></a>    <span class="n">settings</span><span class="o">.</span><span class="n">MEDIA_ROOT</span> <span class="o">=</span> <span class="n">tmpdir</span>               <span class="c1"># ダウンロードファイル出力先を置換</span>
-<a name="rest_code_23bbe9e8a28c4475a5fa5af82bdb1e92-4"></a>
-<a name="rest_code_23bbe9e8a28c4475a5fa5af82bdb1e92-5"></a>    <span class="c1"># ...</span>
-<a name="rest_code_23bbe9e8a28c4475a5fa5af82bdb1e92-6"></a>    <span class="c1"># これで、ファイルのパスがとれる</span>
-<a name="rest_code_23bbe9e8a28c4475a5fa5af82bdb1e92-7"></a>    <span class="n">p</span> <span class="o">=</span> <span class="n">tmpdir</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_file_path</span><span class="p">)</span>          <span class="c1"># &lt;- output_file_path はファイル名とか</span>
-</pre>
-</div>
-</div>
-<div class="section" id="pytest-django">
-<h2><a class="toc-backref" href="#id13">pytest-django</a></h2>
-<p><a class="reference external" href="https://pytest-django.readthedocs.io/en/latest/index.html">https://pytest-django.readthedocs.io/en/latest/index.html</a></p>
-<ul class="simple">
-<li><p>pytest-django is a plugin for pytest that provides a set of useful tools for testing Django applications and projects.</p></li>
-<li><p>Django アプリとプロジェクトのテストに便利な pytest のプラグイン</p></li>
-</ul>
-<div class="section" id="settings-fixture">
-<h3><a class="toc-backref" href="#id14">settings の fixture がある</a></h3>
-<p><a class="reference external" href="https://pytest-django.readthedocs.io/en/latest/helpers.html#settings">https://pytest-django.readthedocs.io/en/latest/helpers.html#settings</a></p>
-</div>
-</div>
-<div class="section" id="testfixtures">
-<h2><a class="toc-backref" href="#id15">testfixtures</a></h2>
-<div class="section" id="id3">
-<h3><a class="toc-backref" href="#id16">リファレンス</a></h3>
+<h3><a class="toc-backref" href="#id5">リファレンス</a></h3>
 <p><a class="reference external" href="https://testfixtures.readthedocs.io/en/latest/index.html">https://testfixtures.readthedocs.io/en/latest/index.html</a></p>
 </div>
 <div class="section" id="date-datetime-mock">
-<h3><a class="toc-backref" href="#id17">date と datetime を mock できる</a></h3>
+<h3><a class="toc-backref" href="#id6">date と datetime を mock できる</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://testfixtures.readthedocs.io/en/latest/datetime.html">https://testfixtures.readthedocs.io/en/latest/datetime.html</a></p></li>
 <li><p><a class="reference external" href="https://testfixtures.readthedocs.io/en/latest/api.html#testfixtures.test_date">https://testfixtures.readthedocs.io/en/latest/api.html#testfixtures.test_date</a></p></li>
@@ -165,31 +74,32 @@
 </ul>
 </li>
 </ul>
+<p>※近頃は、freezegun を使うほうが便利でしょう</p>
 </div>
 </div>
 <div class="section" id="flake8-3-6">
-<h2><a class="toc-backref" href="#id18">flake8 3.6 対応がわかりやすい</a></h2>
-<p><a class="reference external" href="https://scrapbox.io/shimizukawa/flake8-3.6.0_%E3%81%AB%E6%9B%B4%E6%96%B0%E3%81%97%E3%81%9F%E3%82%89%E8%AD%A6%E5%91%8A%E3%81%9F%E3%81%8F%E3%81%95%E3%82%93%E5%87%BA%E3%81%A6%E3%81%8D%E3%81%9F">https://scrapbox.io/shimizukawa/flake8-3.6.0_%E3%81%AB%E6%9B%B4%E6%96%B0%E3%81%97%E3%81%9F%E3%82%89%E8%AD%A6%E5%91%8A%E3%81%9F%E3%81%8F%E3%81%95%E3%82%93%E5%87%BA%E3%81%A6%E3%81%8D%E3%81%9F</a></p>
+<h2><a class="toc-backref" href="#id7">flake8 3.6 対応がわかりやすい</a></h2>
+<p><a class="reference external" href="https://scrapbox.io/shimizukawa/flake8-3.6">https://scrapbox.io/shimizukawa/flake8-3.6</a>.0_に更新したら警告たくさん出てきた</p>
 </div>
-<div class="section" id="id4">
-<h2><a class="toc-backref" href="#id19">あれこれ</a></h2>
+<div class="section" id="id2">
+<h2><a class="toc-backref" href="#id8">あれこれ</a></h2>
 <div class="section" id="a">
-<h3><a class="toc-backref" href="#id20">3a スタイル</a></h3>
-<pre class="code python"><a name="rest_code_3861b2ccf0594c30bd65b8c70f473491-1"></a><span class="c1"># arrange</span>
-<a name="rest_code_3861b2ccf0594c30bd65b8c70f473491-2"></a><span class="c1"># act</span>
-<a name="rest_code_3861b2ccf0594c30bd65b8c70f473491-3"></a><span class="c1"># assert</span>
+<h3><a class="toc-backref" href="#id9">3a スタイル</a></h3>
+<pre class="code python"><a name="rest_code_0e396b34e7cb4ca298991ccd12e69547-1"></a><span class="c1"># arrange</span>
+<a name="rest_code_0e396b34e7cb4ca298991ccd12e69547-2"></a><span class="c1"># act</span>
+<a name="rest_code_0e396b34e7cb4ca298991ccd12e69547-3"></a><span class="c1"># assert</span>
 </pre>
 <p><a class="reference external" href="http://wiki.c2.com/?arrangeactassert">http://wiki.c2.com/?arrangeactassert</a> (つながらない)</p>
 </div>
 <div class="section" id="testpyramid">
-<h3><a class="toc-backref" href="#id21">TestPyramid</a></h3>
+<h3><a class="toc-backref" href="#id10">TestPyramid</a></h3>
 <p>UI 寄りのテストは、コストと実行時間が長くなってしまうので、いきなり書かない方がいい</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://martinfowler.com/bliki/TestPyramid.html">https://martinfowler.com/bliki/TestPyramid.html</a></p></li>
 </ul>
 </div>
-<div class="section" id="id5">
-<h3><a class="toc-backref" href="#id22">テストターゲットの取得方法</a></h3>
+<div class="section" id="id3">
+<h3><a class="toc-backref" href="#id11">テストターゲットの取得方法</a></h3>
 <p><a class="reference external" href="http://pelican.aodag.jp/xiao-guo-de-naunittest-mataha-callfutnomi-mi.html">http://pelican.aodag.jp/xiao-guo-de-naunittest-mataha-callfutnomi-mi.html</a></p>
 </div>
 </div>

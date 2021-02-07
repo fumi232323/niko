@@ -29,8 +29,8 @@
     <div class="title">Django REST framework のメモ</div>
     <time class="date" datetime="2019-07-16 00:00:00+09:00">
       2019-07-16 Tue
-    </time><time class="date" datetime="2019-10-13 00:00:00+09:00">
-        updated: 2019-10-13 Sun
+    </time><time class="date" datetime="2021-02-06 00:00:00+09:00">
+        updated: 2021-02-06 Sat
         
       </time><div class="text">
       <div>
@@ -50,46 +50,48 @@
 </ul>
 </li>
 <li><p><a class="reference internal" href="#modelserializer" id="id13">ModelSerializer メモ</a></p></li>
+<li><p><a class="reference internal" href="#serializer" id="id14">Serializer の分け方の考え方</a></p></li>
 </ul>
 </li>
 <li>
-<p><a class="reference internal" href="#id3" id="id14">ちょっと動かしたい</a></p>
+<p><a class="reference internal" href="#requests-responses" id="id15">Requests/Responses</a></p>
 <ul>
-<li><p><a class="reference internal" href="#id4" id="id15">コマンドでアクセスする場合</a></p></li>
-<li><p><a class="reference internal" href="#browsable-api" id="id16">Browsable API</a></p></li>
-<li><p><a class="reference internal" href="#browsable-api-html-form" id="id17">Browsable API で HTML form タブが出せる</a></p></li>
+<li><p><a class="reference internal" href="#drf-request" id="id16">DRF の Request</a></p></li>
+<li><p><a class="reference internal" href="#drf-response" id="id17">DRF の Response</a></p></li>
+<li><p><a class="reference internal" href="#response" id="id18">Response</a></p></li>
 </ul>
 </li>
 <li>
-<p><a class="reference internal" href="#id5" id="id18">便利なライブラリ</a></p>
+<p><a class="reference internal" href="#views" id="id19">Views</a></p>
 <ul>
-<li><p><a class="reference internal" href="#django-rest-framework-json-camelcase" id="id19">Django REST Framework JSON CamelCase</a></p></li>
+<li><p><a class="reference internal" href="#api" id="id20">API ビュー</a></p></li>
+<li><p><a class="reference internal" href="#apiview" id="id21">クラスベース (APIView) で記述するのがおすすめ</a></p></li>
+</ul>
+</li>
 <li>
-<p><a class="reference internal" href="#django-cors-headers" id="id20">django-cors-headers</a></p>
+<p><a class="reference internal" href="#id3" id="id22">ちょっと動かしたい</a></p>
 <ul>
-<li><p><a class="reference internal" href="#cors" id="id21">CORS</a></p></li>
+<li><p><a class="reference internal" href="#id4" id="id23">コマンドでアクセスする場合</a></p></li>
+<li><p><a class="reference internal" href="#browsable-api" id="id24">Browsable API</a></p></li>
+<li><p><a class="reference internal" href="#browsable-api-html-form" id="id25">Browsable API で HTML form タブが出せる</a></p></li>
+</ul>
+</li>
+<li>
+<p><a class="reference internal" href="#id5" id="id26">便利なライブラリ</a></p>
+<ul>
+<li><p><a class="reference internal" href="#django-rest-framework-json-camelcase" id="id27">Django REST Framework JSON CamelCase</a></p></li>
+<li>
+<p><a class="reference internal" href="#django-cors-headers" id="id28">django-cors-headers</a></p>
+<ul>
+<li><p><a class="reference internal" href="#cors" id="id29">CORS</a></p></li>
 </ul>
 </li>
 </ul>
 </li>
 <li>
-<p><a class="reference internal" href="#requests-responses" id="id22">Requests/Responses</a></p>
+<p><a class="reference internal" href="#routers" id="id30">Routers</a></p>
 <ul>
-<li><p><a class="reference internal" href="#drf-request" id="id23">DRF の Request</a></p></li>
-<li><p><a class="reference internal" href="#drf-response" id="id24">DRF の Response</a></p></li>
-</ul>
-</li>
-<li>
-<p><a class="reference internal" href="#routers" id="id25">Routers</a></p>
-<ul>
-<li><p><a class="reference internal" href="#router" id="id26">Router</a></p></li>
-</ul>
-</li>
-<li>
-<p><a class="reference internal" href="#views" id="id27">Views</a></p>
-<ul>
-<li><p><a class="reference internal" href="#api" id="id28">API ビュー</a></p></li>
-<li><p><a class="reference internal" href="#apiview" id="id29">クラスベース (APIView) で記述するのがおすすめ</a></p></li>
+<li><p><a class="reference internal" href="#router" id="id31">Router</a></p></li>
 </ul>
 </li>
 </ul>
@@ -109,15 +111,15 @@
 <h3><a class="toc-backref" href="#id9">シリアライズとデシリアライズ</a></h3>
 <ul>
 <li>
-<p>デシリアライズ (入って来るほう)</p>
-<pre class="code python"><a name="rest_code_01da3b0a9ce84b9fa3753b18285de86f-1"></a><span class="n">serializer</span><span class="o">.</span><span class="n">is_valid</span><span class="p">()</span>
-<a name="rest_code_01da3b0a9ce84b9fa3753b18285de86f-2"></a><span class="n">serializer</span><span class="o">.</span><span class="n">validated_data</span>
+<p>デシリアライズ deserialize (入って来るほう)</p>
+<pre class="code python"><a name="rest_code_5945649d0fa1416bb952285321d56cfd-1"></a><span class="n">serializer</span><span class="o">.</span><span class="n">is_valid</span><span class="p">()</span>
+<a name="rest_code_5945649d0fa1416bb952285321d56cfd-2"></a><span class="n">serializer</span><span class="o">.</span><span class="n">validated_data</span>
 </pre>
 </li>
 <li>
-<p>シリアライズ (出て行くほう)</p>
-<pre class="code python"><a name="rest_code_845cbbae6c7549c4be81d13be40b14ce-1"></a><span class="n">serializer</span> <span class="o">=</span> <span class="n">CommentSerializer</span><span class="p">(</span><span class="n">comment</span><span class="p">)</span>
-<a name="rest_code_845cbbae6c7549c4be81d13be40b14ce-2"></a><span class="n">serializer</span><span class="o">.</span><span class="n">data</span>
+<p>シリアライズ serialize (出て行くほう)</p>
+<pre class="code python"><a name="rest_code_894a0b8d39754869aa3061c9d67bd668-1"></a><span class="n">serializer</span> <span class="o">=</span> <span class="n">CommentSerializer</span><span class="p">(</span><span class="n">comment</span><span class="p">)</span>
+<a name="rest_code_894a0b8d39754869aa3061c9d67bd668-2"></a><span class="n">serializer</span><span class="o">.</span><span class="n">data</span>
 </pre>
 </li>
 </ul>
@@ -125,35 +127,136 @@
 <div class="section" id="serializer-fields-required">
 <h3><a class="toc-backref" href="#id10">Serializer fields の required 挙動まとめ</a></h3>
 <p><a class="reference external" href="https://www.django-rest-framework.org/api-guide/fields/#required">https://www.django-rest-framework.org/api-guide/fields/#required</a></p>
-<ul class="simple">
-<li><p>デフォルトは <code class="docutils literal">required=True</code></p></li>
-</ul>
+<pre class="code python"><a name="rest_code_2f97c8ca8cac4a3e9217abfabb5a2d7a-1"></a><span class="kn">from</span> <span class="nn">rest_framework</span> <span class="kn">import</span> <span class="n">serializers</span>
+<a name="rest_code_2f97c8ca8cac4a3e9217abfabb5a2d7a-2"></a>
+<a name="rest_code_2f97c8ca8cac4a3e9217abfabb5a2d7a-3"></a><span class="k">class</span> <span class="nc">BookSerializer</span><span class="p">(</span><span class="n">serializers</span><span class="o">.</span><span class="n">Serializer</span><span class="p">):</span>
+<a name="rest_code_2f97c8ca8cac4a3e9217abfabb5a2d7a-4"></a>    <span class="sd">"""こういう Serializer があるとすると"""</span>
+<a name="rest_code_2f97c8ca8cac4a3e9217abfabb5a2d7a-5"></a>    <span class="nb">id</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">IntegerField</span><span class="p">()</span>  <span class="c1"># default は required=True</span>
+<a name="rest_code_2f97c8ca8cac4a3e9217abfabb5a2d7a-6"></a>    <span class="n">name</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">255</span><span class="p">)</span>
+<a name="rest_code_2f97c8ca8cac4a3e9217abfabb5a2d7a-7"></a>    <span class="n">author</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">allow_blank</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">255</span><span class="p">)</span>
+<a name="rest_code_2f97c8ca8cac4a3e9217abfabb5a2d7a-8"></a>    <span class="n">description</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">allow_null</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">255</span><span class="p">)</span>
+<a name="rest_code_2f97c8ca8cac4a3e9217abfabb5a2d7a-9"></a>    <span class="n">price</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">IntegerField</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<a name="rest_code_2f97c8ca8cac4a3e9217abfabb5a2d7a-10"></a>    <span class="n">total_pages</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">IntegerField</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre>
 <div class="section" id="deserialize">
 <h4><a class="toc-backref" href="#id11">deserialize 時</a></h4>
-<p><code class="docutils literal">required=True</code>:</p>
-<ul class="simple">
-<li><p>キーなしは当然エラー</p></li>
-<li><p>キーがないとだめ</p></li>
+<p><code class="docutils literal">required=True</code> (default):</p>
+<ul>
+<li>
+<p>キーなしは当然エラー</p>
+<pre class="code python"><a name="rest_code_a084d397ea884836958e8f758cb36420-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">data</span> <span class="o">=</span> <span class="p">{}</span>
+<a name="rest_code_a084d397ea884836958e8f758cb36420-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">serializer</span> <span class="o">=</span> <span class="n">BookSerializer</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+<a name="rest_code_a084d397ea884836958e8f758cb36420-3"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">serializer</span><span class="o">.</span><span class="n">is_valid</span><span class="p">()</span>
+<a name="rest_code_a084d397ea884836958e8f758cb36420-4"></a><span class="bp">False</span>
+</pre>
+</li>
 </ul>
 <p><code class="docutils literal">required=False</code>:</p>
-<ul class="simple">
-<li><p>キーなしは OK</p></li>
-<li><p>キーあると、 <code class="docutils literal">None</code> はエラー (必須エラー)</p></li>
-<li><p>キーある、かつ、 Datetime フィールドとか int フィールドだと <code class="docutils literal">''</code> はエラー (たぶん型違いエラー)</p></li>
+<ul>
+<li>
+<p>キーなしは OK、 <code class="docutils literal">serializer.validated_data</code> にキーは現れない</p>
+<pre class="code python"><a name="rest_code_970ea96c948d4f5d9e8d5a6d379800e8-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'id'</span><span class="p">:</span> <span class="mi">123</span><span class="p">}</span>
+<a name="rest_code_970ea96c948d4f5d9e8d5a6d379800e8-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">serializer</span> <span class="o">=</span> <span class="n">BookSerializer</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+<a name="rest_code_970ea96c948d4f5d9e8d5a6d379800e8-3"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">serializer</span><span class="o">.</span><span class="n">is_valid</span><span class="p">()</span>
+<a name="rest_code_970ea96c948d4f5d9e8d5a6d379800e8-4"></a><span class="bp">True</span>
+<a name="rest_code_970ea96c948d4f5d9e8d5a6d379800e8-5"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">serializer</span><span class="o">.</span><span class="n">validated_data</span>
+<a name="rest_code_970ea96c948d4f5d9e8d5a6d379800e8-6"></a><span class="n">OrderedDict</span><span class="p">([(</span><span class="s1">'id'</span><span class="p">,</span> <span class="mi">123</span><span class="p">)])</span>
+</pre>
+</li>
+<li>
+<p>キーありは <code class="docutils literal">None</code> はエラー、値が検証される</p>
+<pre class="code python"><a name="rest_code_5194b7571468431ca43858f92854e0ec-1"></a><span class="c1"># name は、 None を許容しないよ</span>
+<a name="rest_code_5194b7571468431ca43858f92854e0ec-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'id'</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="s1">'name'</span><span class="p">:</span> <span class="bp">None</span><span class="p">}</span>
+<a name="rest_code_5194b7571468431ca43858f92854e0ec-3"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">serializer</span> <span class="o">=</span> <span class="n">BookSerializer</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+<a name="rest_code_5194b7571468431ca43858f92854e0ec-4"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">serializer</span><span class="o">.</span><span class="n">is_valid</span><span class="p">()</span>
+<a name="rest_code_5194b7571468431ca43858f92854e0ec-5"></a><span class="bp">False</span>
+<a name="rest_code_5194b7571468431ca43858f92854e0ec-6"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">serializer</span><span class="o">.</span><span class="n">errors</span>
+<a name="rest_code_5194b7571468431ca43858f92854e0ec-7"></a><span class="p">{</span><span class="s1">'name'</span><span class="p">:</span> <span class="p">[</span><span class="n">ErrorDetail</span><span class="p">(</span><span class="n">string</span><span class="o">=</span><span class="s1">'この項目はnullにできません。'</span><span class="p">,</span> <span class="n">code</span><span class="o">=</span><span class="s1">'null'</span><span class="p">)]}</span>
+<a name="rest_code_5194b7571468431ca43858f92854e0ec-8"></a>
+<a name="rest_code_5194b7571468431ca43858f92854e0ec-9"></a><span class="c1"># name は、 blank を許容しないよ</span>
+<a name="rest_code_5194b7571468431ca43858f92854e0ec-10"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'id'</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="s1">'name'</span><span class="p">:</span> <span class="s1">''</span><span class="p">}</span>
+<a name="rest_code_5194b7571468431ca43858f92854e0ec-11"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">serializer</span> <span class="o">=</span> <span class="n">BookSerializer</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+<a name="rest_code_5194b7571468431ca43858f92854e0ec-12"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">serializer</span><span class="o">.</span><span class="n">is_valid</span><span class="p">()</span>
+<a name="rest_code_5194b7571468431ca43858f92854e0ec-13"></a><span class="bp">False</span>
+<a name="rest_code_5194b7571468431ca43858f92854e0ec-14"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">serializer</span><span class="o">.</span><span class="n">errors</span>
+<a name="rest_code_5194b7571468431ca43858f92854e0ec-15"></a><span class="p">{</span><span class="s1">'name'</span><span class="p">:</span> <span class="p">[</span><span class="n">ErrorDetail</span><span class="p">(</span><span class="n">string</span><span class="o">=</span><span class="s1">'この項目は空にできません。'</span><span class="p">,</span> <span class="n">code</span><span class="o">=</span><span class="s1">'blank'</span><span class="p">)]}</span>
+<a name="rest_code_5194b7571468431ca43858f92854e0ec-16"></a>
+<a name="rest_code_5194b7571468431ca43858f92854e0ec-17"></a><span class="c1"># price は、 整数フィールド</span>
+<a name="rest_code_5194b7571468431ca43858f92854e0ec-18"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'id'</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="s1">'price'</span><span class="p">:</span> <span class="s1">''</span><span class="p">}</span>
+<a name="rest_code_5194b7571468431ca43858f92854e0ec-19"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">serializer</span> <span class="o">=</span> <span class="n">BookSerializer</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+<a name="rest_code_5194b7571468431ca43858f92854e0ec-20"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">serializer</span><span class="o">.</span><span class="n">is_valid</span><span class="p">()</span>
+<a name="rest_code_5194b7571468431ca43858f92854e0ec-21"></a><span class="bp">False</span>
+<a name="rest_code_5194b7571468431ca43858f92854e0ec-22"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">serializer</span><span class="o">.</span><span class="n">errors</span>
+<a name="rest_code_5194b7571468431ca43858f92854e0ec-23"></a><span class="p">{</span><span class="s1">'price'</span><span class="p">:</span> <span class="p">[</span><span class="n">ErrorDetail</span><span class="p">(</span><span class="n">string</span><span class="o">=</span><span class="s1">'有効な整数を入力してください。'</span><span class="p">,</span> <span class="n">code</span><span class="o">=</span><span class="s1">'invalid'</span><span class="p">)]}</span>
+</pre>
+<ul>
+<li>
+<p><code class="docutils literal">allow_null=True</code> であれば None は OK、 <code class="docutils literal">serializer.validated_data</code> にキーは現れる</p>
+<pre class="code python"><a name="rest_code_6bea8d7fe89e48f5aeb1e7f9af4606d6-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'id'</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="s1">'description'</span><span class="p">:</span> <span class="bp">None</span><span class="p">}</span>
+<a name="rest_code_6bea8d7fe89e48f5aeb1e7f9af4606d6-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">serializer</span> <span class="o">=</span> <span class="n">BookSerializer</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+<a name="rest_code_6bea8d7fe89e48f5aeb1e7f9af4606d6-3"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">serializer</span><span class="o">.</span><span class="n">is_valid</span><span class="p">()</span>
+<a name="rest_code_6bea8d7fe89e48f5aeb1e7f9af4606d6-4"></a><span class="bp">True</span>
+<a name="rest_code_6bea8d7fe89e48f5aeb1e7f9af4606d6-5"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">serializer</span><span class="o">.</span><span class="n">validated_data</span>
+<a name="rest_code_6bea8d7fe89e48f5aeb1e7f9af4606d6-6"></a><span class="n">OrderedDict</span><span class="p">([(</span><span class="s1">'id'</span><span class="p">,</span> <span class="mi">123</span><span class="p">),</span> <span class="p">(</span><span class="s1">'description'</span><span class="p">,</span> <span class="bp">None</span><span class="p">)])</span>
+</pre>
+</li>
+<li>
+<p><code class="docutils literal">allow_blank=True</code> であれば <code class="docutils literal">''</code> (空文字) は OK、 <code class="docutils literal">serializer.validated_data</code> にキーは現れる</p>
+<pre class="code python"><a name="rest_code_b8559898f0eb47b3819cfe5a9cae4c9e-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'id'</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="s1">'author'</span><span class="p">:</span> <span class="s1">''</span><span class="p">}</span>
+<a name="rest_code_b8559898f0eb47b3819cfe5a9cae4c9e-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">serializer</span> <span class="o">=</span> <span class="n">BookSerializer</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+<a name="rest_code_b8559898f0eb47b3819cfe5a9cae4c9e-3"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">serializer</span><span class="o">.</span><span class="n">is_valid</span><span class="p">()</span>
+<a name="rest_code_b8559898f0eb47b3819cfe5a9cae4c9e-4"></a><span class="bp">True</span>
+<a name="rest_code_b8559898f0eb47b3819cfe5a9cae4c9e-5"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">serializer</span><span class="o">.</span><span class="n">validated_data</span>
+<a name="rest_code_b8559898f0eb47b3819cfe5a9cae4c9e-6"></a><span class="n">OrderedDict</span><span class="p">([(</span><span class="s1">'id'</span><span class="p">,</span> <span class="mi">123</span><span class="p">),</span> <span class="p">(</span><span class="s1">'author'</span><span class="p">,</span> <span class="s1">''</span><span class="p">)])</span>
+</pre>
+</li>
+</ul>
+</li>
 </ul>
 </div>
 <div class="section" id="serialize">
 <h4><a class="toc-backref" href="#id12">serialize 時</a></h4>
+<p><code class="docutils literal">required=True</code> (default):</p>
+<ul>
+<li>
+<p>キーなしは当然エラー</p>
+<pre class="code python"><a name="rest_code_4f77de788bdc4fe7918e4d291239bcfb-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">data</span> <span class="o">=</span> <span class="p">{}</span>
+<a name="rest_code_4f77de788bdc4fe7918e4d291239bcfb-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">serializer</span> <span class="o">=</span> <span class="n">BookSerializer</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<a name="rest_code_4f77de788bdc4fe7918e4d291239bcfb-3"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">serializer</span><span class="o">.</span><span class="n">data</span>
+<a name="rest_code_4f77de788bdc4fe7918e4d291239bcfb-4"></a><span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+<a name="rest_code_4f77de788bdc4fe7918e4d291239bcfb-5"></a>  <span class="n">File</span> <span class="s2">"/usr/local/lib/python3.7/site-packages/rest_framework/fields.py"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">454</span><span class="p">,</span> <span class="ow">in</span> <span class="n">get_attribute</span>
+<a name="rest_code_4f77de788bdc4fe7918e4d291239bcfb-6"></a>    <span class="k">return</span> <span class="n">get_attribute</span><span class="p">(</span><span class="n">instance</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">source_attrs</span><span class="p">)</span>
+<a name="rest_code_4f77de788bdc4fe7918e4d291239bcfb-7"></a>  <span class="n">File</span> <span class="s2">"/usr/local/lib/python3.7/site-packages/rest_framework/fields.py"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">92</span><span class="p">,</span> <span class="ow">in</span> <span class="n">get_attribute</span>
+<a name="rest_code_4f77de788bdc4fe7918e4d291239bcfb-8"></a>    <span class="n">instance</span> <span class="o">=</span> <span class="n">instance</span><span class="p">[</span><span class="n">attr</span><span class="p">]</span>
+<a name="rest_code_4f77de788bdc4fe7918e4d291239bcfb-9"></a><span class="ne">KeyError</span><span class="p">:</span> <span class="s1">'id'</span>
+</pre>
+</li>
+</ul>
 <p><code class="docutils literal">required=False</code>:</p>
 <ul>
 <li>
-<p>シリアライザに項目は渡すが中身が <code class="docutils literal">None</code> (or <code class="docutils literal">''</code> とか) の場合 =&gt; キーはあるが中身は <code class="docutils literal">None</code></p>
-<pre class="code python"><a name="rest_code_de45a6e0818946e293e954f6b7fb4f0d-1"></a><span class="p">{</span><span class="s1">'updatedAt'</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span> <span class="s1">'entries'</span><span class="p">:</span> <span class="p">[]}</span>  <span class="c1"># updatedAt = None で渡した</span>
+<p>シリアライザに項目ごと渡さない場合 =&gt; キーは現れない</p>
+<pre class="code python"><a name="rest_code_b18171eeb17040e7a89b49c38f2b0527-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'id'</span><span class="p">:</span> <span class="mi">123</span><span class="p">}</span>
+<a name="rest_code_b18171eeb17040e7a89b49c38f2b0527-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">serializer</span> <span class="o">=</span> <span class="n">BookSerializer</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<a name="rest_code_b18171eeb17040e7a89b49c38f2b0527-3"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">serializer</span><span class="o">.</span><span class="n">data</span>
+<a name="rest_code_b18171eeb17040e7a89b49c38f2b0527-4"></a><span class="c1"># description は allow_null なので、キー + None が現れる</span>
+<a name="rest_code_b18171eeb17040e7a89b49c38f2b0527-5"></a><span class="c1"># total_pages は default 値が設定されているので、 キー + default 値が現れる</span>
+<a name="rest_code_b18171eeb17040e7a89b49c38f2b0527-6"></a><span class="p">{</span><span class="s1">'id'</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="s1">'description'</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span> <span class="s1">'total_pages'</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
 </pre>
 </li>
 <li>
-<p>シリアライザに項目ごと渡さない場合 =&gt; キーが消える</p>
-<pre class="code python"><a name="rest_code_9724549da7c24af0b95d75cf28d07fd8-1"></a><span class="p">{</span><span class="s1">'entries'</span><span class="p">:</span> <span class="p">[]}</span>  <span class="c1"># updatedAt を渡さなかったので、キーがない</span>
+<p>シリアライザに項目は渡すが中身が <code class="docutils literal">None</code> や空 (<code class="docutils literal">''</code>) の場合 =&gt; キーは現れる + 中身は <code class="docutils literal">None</code> や 空 (<code class="docutils literal">''</code>)</p>
+<pre class="code python"><a name="rest_code_bb71bf4080254287aa49c1751eb73f0d-1"></a><span class="c1"># name は、項目としては required=False なので中身が None もまあいいかということなんだろう</span>
+<a name="rest_code_bb71bf4080254287aa49c1751eb73f0d-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'id'</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="s1">'name'</span><span class="p">:</span> <span class="bp">None</span><span class="p">}</span>
+<a name="rest_code_bb71bf4080254287aa49c1751eb73f0d-3"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">serializer</span> <span class="o">=</span> <span class="n">BookSerializer</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<a name="rest_code_bb71bf4080254287aa49c1751eb73f0d-4"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">serializer</span><span class="o">.</span><span class="n">data</span>
+<a name="rest_code_bb71bf4080254287aa49c1751eb73f0d-5"></a><span class="p">{</span><span class="s1">'id'</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="s1">'name'</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span> <span class="s1">'description'</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span> <span class="s1">'total_pages'</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+<a name="rest_code_bb71bf4080254287aa49c1751eb73f0d-6"></a>
+<a name="rest_code_bb71bf4080254287aa49c1751eb73f0d-7"></a><span class="c1"># name は、項目としては required=False なので中身が空もまあいいかということなんだろう</span>
+<a name="rest_code_bb71bf4080254287aa49c1751eb73f0d-8"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'id'</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="s1">'name'</span><span class="p">:</span> <span class="s1">''</span><span class="p">}</span>
+<a name="rest_code_bb71bf4080254287aa49c1751eb73f0d-9"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">serializer</span> <span class="o">=</span> <span class="n">BookSerializer</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<a name="rest_code_bb71bf4080254287aa49c1751eb73f0d-10"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">serializer</span><span class="o">.</span><span class="n">data</span>
+<a name="rest_code_bb71bf4080254287aa49c1751eb73f0d-11"></a><span class="p">{</span><span class="s1">'id'</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="s1">'name'</span><span class="p">:</span> <span class="s1">''</span><span class="p">,</span> <span class="s1">'description'</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span> <span class="s1">'total_pages'</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
 </pre>
 </li>
 </ul>
@@ -161,49 +264,132 @@
 </div>
 <div class="section" id="modelserializer">
 <h3><a class="toc-backref" href="#id13">ModelSerializer メモ</a></h3>
-<pre class="code python"><a name="rest_code_1bf96adfc7e64338bee9943c6d882dc9-1"></a><span class="k">class</span> <span class="nc">EntrySerializer</span><span class="p">(</span><span class="n">serializers</span><span class="o">.</span><span class="n">ModelSerializer</span><span class="p">):</span>
-<a name="rest_code_1bf96adfc7e64338bee9943c6d882dc9-2"></a>    <span class="sd">"""エントリー"""</span>
-<a name="rest_code_1bf96adfc7e64338bee9943c6d882dc9-3"></a>    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
-<a name="rest_code_1bf96adfc7e64338bee9943c6d882dc9-4"></a>        <span class="n">model</span> <span class="o">=</span> <span class="n">Entry</span>
-<a name="rest_code_1bf96adfc7e64338bee9943c6d882dc9-5"></a>        <span class="c1"># 除外したいフィールド</span>
-<a name="rest_code_1bf96adfc7e64338bee9943c6d882dc9-6"></a>        <span class="n">exclude</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'author'</span><span class="p">]</span>
-<a name="rest_code_1bf96adfc7e64338bee9943c6d882dc9-7"></a>        <span class="c1"># 読み取り専用指定 https://www.django-rest-framework.org/api-guide/serializers/#specifying-read-only-fields</span>
-<a name="rest_code_1bf96adfc7e64338bee9943c6d882dc9-8"></a>        <span class="c1"># AutoField はデフォルトで読み取り専用</span>
-<a name="rest_code_1bf96adfc7e64338bee9943c6d882dc9-9"></a>        <span class="n">read_only_fields</span> <span class="o">=</span> <span class="p">[</span>
-<a name="rest_code_1bf96adfc7e64338bee9943c6d882dc9-10"></a>            <span class="s1">'created_at'</span><span class="p">,</span>
-<a name="rest_code_1bf96adfc7e64338bee9943c6d882dc9-11"></a>            <span class="s1">'created_by'</span><span class="p">,</span>
-<a name="rest_code_1bf96adfc7e64338bee9943c6d882dc9-12"></a>            <span class="s1">'created_by_id'</span><span class="p">,</span>
-<a name="rest_code_1bf96adfc7e64338bee9943c6d882dc9-13"></a>            <span class="s1">'updated_at'</span><span class="p">,</span>
-<a name="rest_code_1bf96adfc7e64338bee9943c6d882dc9-14"></a>            <span class="s1">'updated_by'</span><span class="p">,</span>
-<a name="rest_code_1bf96adfc7e64338bee9943c6d882dc9-15"></a>            <span class="s1">'updated_by_id'</span><span class="p">,</span>
-<a name="rest_code_1bf96adfc7e64338bee9943c6d882dc9-16"></a>        <span class="p">]</span>
-<a name="rest_code_1bf96adfc7e64338bee9943c6d882dc9-17"></a>        <span class="n">extra_kwargs</span> <span class="o">=</span> <span class="p">{</span>
-<a name="rest_code_1bf96adfc7e64338bee9943c6d882dc9-18"></a>            <span class="c1"># モデル上は必須フィールドだけれど、シリアライザでは Not必須にしたい場合は、required を上書きする</span>
-<a name="rest_code_1bf96adfc7e64338bee9943c6d882dc9-19"></a>            <span class="s1">'display_order'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'required'</span><span class="p">:</span> <span class="bp">False</span><span class="p">}</span>
-<a name="rest_code_1bf96adfc7e64338bee9943c6d882dc9-20"></a>        <span class="p">}</span>
+<pre class="code python"><a name="rest_code_e6b54f9bc8304e3aa36c7bb1d0a0f7d8-1"></a><span class="k">class</span> <span class="nc">EntrySerializer</span><span class="p">(</span><span class="n">serializers</span><span class="o">.</span><span class="n">ModelSerializer</span><span class="p">):</span>
+<a name="rest_code_e6b54f9bc8304e3aa36c7bb1d0a0f7d8-2"></a>    <span class="sd">"""エントリー"""</span>
+<a name="rest_code_e6b54f9bc8304e3aa36c7bb1d0a0f7d8-3"></a>    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+<a name="rest_code_e6b54f9bc8304e3aa36c7bb1d0a0f7d8-4"></a>        <span class="n">model</span> <span class="o">=</span> <span class="n">Entry</span>
+<a name="rest_code_e6b54f9bc8304e3aa36c7bb1d0a0f7d8-5"></a>        <span class="c1"># 除外したいフィールド</span>
+<a name="rest_code_e6b54f9bc8304e3aa36c7bb1d0a0f7d8-6"></a>        <span class="n">exclude</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'author'</span><span class="p">]</span>
+<a name="rest_code_e6b54f9bc8304e3aa36c7bb1d0a0f7d8-7"></a>        <span class="c1"># 読み取り専用指定 https://www.django-rest-framework.org/api-guide/serializers/#specifying-read-only-fields</span>
+<a name="rest_code_e6b54f9bc8304e3aa36c7bb1d0a0f7d8-8"></a>        <span class="c1"># AutoField はデフォルトで読み取り専用</span>
+<a name="rest_code_e6b54f9bc8304e3aa36c7bb1d0a0f7d8-9"></a>        <span class="n">read_only_fields</span> <span class="o">=</span> <span class="p">[</span>
+<a name="rest_code_e6b54f9bc8304e3aa36c7bb1d0a0f7d8-10"></a>            <span class="s1">'created_at'</span><span class="p">,</span>
+<a name="rest_code_e6b54f9bc8304e3aa36c7bb1d0a0f7d8-11"></a>            <span class="s1">'created_by'</span><span class="p">,</span>
+<a name="rest_code_e6b54f9bc8304e3aa36c7bb1d0a0f7d8-12"></a>            <span class="s1">'created_by_id'</span><span class="p">,</span>
+<a name="rest_code_e6b54f9bc8304e3aa36c7bb1d0a0f7d8-13"></a>            <span class="s1">'updated_at'</span><span class="p">,</span>
+<a name="rest_code_e6b54f9bc8304e3aa36c7bb1d0a0f7d8-14"></a>            <span class="s1">'updated_by'</span><span class="p">,</span>
+<a name="rest_code_e6b54f9bc8304e3aa36c7bb1d0a0f7d8-15"></a>            <span class="s1">'updated_by_id'</span><span class="p">,</span>
+<a name="rest_code_e6b54f9bc8304e3aa36c7bb1d0a0f7d8-16"></a>        <span class="p">]</span>
+<a name="rest_code_e6b54f9bc8304e3aa36c7bb1d0a0f7d8-17"></a>        <span class="n">extra_kwargs</span> <span class="o">=</span> <span class="p">{</span>
+<a name="rest_code_e6b54f9bc8304e3aa36c7bb1d0a0f7d8-18"></a>            <span class="c1"># モデル上は必須フィールドだけれど、シリアライザでは Not必須にしたい場合は、required を上書きする</span>
+<a name="rest_code_e6b54f9bc8304e3aa36c7bb1d0a0f7d8-19"></a>            <span class="s1">'display_order'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'required'</span><span class="p">:</span> <span class="bp">False</span><span class="p">}</span>
+<a name="rest_code_e6b54f9bc8304e3aa36c7bb1d0a0f7d8-20"></a>        <span class="p">}</span>
 </pre>
+</div>
+<div class="section" id="serializer">
+<h3><a class="toc-backref" href="#id14">Serializer の分け方の考え方</a></h3>
+<ul class="simple">
+<li><p>Serializer も Form も使いまわそう (違う API 間で同じ Serializer や Form を共用する) とするとつらくなりがち</p></li>
+<li><p>同じ API でも取得系と更新系で分けるほうが、 read_only とかで頑張ってぐちゃぐちゃになるよりマシな場合もある。</p></li>
+<li><p>同じような項目を受け取るのでも、目的の数だけあって良い。</p></li>
+<li><p>共通化できるように考えるより、目的ごとに切り出したほうが、結果バグ入れ込む隙は減る。</p></li>
+<li><p>同じ Validator を複数 Serializer でコピペするようになりそうなら、親Serializer を作れば良い。</p></li>
+</ul>
+<p>(ae35 さんありがとうございました)</p>
+</div>
+</div>
+<div class="section" id="requests-responses">
+<h2><a class="toc-backref" href="#id15">Requests/Responses</a></h2>
+<div class="section" id="drf-request">
+<h3><a class="toc-backref" href="#id16">DRF の Request</a></h3>
+<dl class="field-list simple">
+<dt>request.data</dt>
+<dd>
+<p>Handles arbitrary data. Works for 'POST', 'PUT' and 'PATCH' methods.</p>
+<ul class="simple">
+<li><p>json request をはじめとして他の形式も処理できる</p></li>
+</ul>
+</dd>
+<dt>request.query_params</dt>
+<dd>
+<p>request.GET と同じ。こっちを使うほうがおすすめ (by DRF) 。</p>
+<ul class="simple">
+<li><p>GET じゃなくてもクエリストリングはつけられるので</p></li>
+</ul>
+</dd>
+<dt>request.POST</dt>
+<dd>
+<p>Only handles form data. Only works for 'POST' method.</p>
+</dd>
+<dt>request.GET</dt>
+<dd>
+<p>request.query_params と同じ</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="drf-response">
+<h3><a class="toc-backref" href="#id17">DRF の Response</a></h3>
+<table class="colwidths-auto"><tbody><tr>
+<th class="stub"><p>return Response(data)</p></th>
+<td>
+<p>Renders to content type as requested by the client.</p>
+<ul class="simple">
+<li><p>RESTフレームワークがレスポンスを正しいコンテンツタイプに変換してくれる</p></li>
+<li><p>レスポンスが単一のコンテンツタイプに固定されていない</p></li>
+</ul>
+</td>
+</tr></tbody></table>
+</div>
+<div class="section" id="response">
+<h3><a class="toc-backref" href="#id18">Response</a></h3>
+<p><a class="reference external" href="https://twitter.com/kazuho/status/1356204483412258816">https://twitter.com/kazuho/status/1356204483412258816</a></p>
+<p><a class="reference external" href="https://httpwg.org/http-extensions/draft-ietf-httpbis-bcp56bis.html#section-4.6">https://httpwg.org/http-extensions/draft-ietf-httpbis-bcp56bis.html#section-4.6</a></p>
+<p>(shimizukawa さんありがとうございました)</p>
+<p><strong>TODO: 整理する</strong></p>
+</div>
+</div>
+<div class="section" id="views">
+<h2><a class="toc-backref" href="#id19">Views</a></h2>
+<div class="section" id="api">
+<h3><a class="toc-backref" href="#id20">API ビュー</a></h3>
+<p>RESTフレームワークには、APIビューを書くために使用できる2つのラッパーがあります。</p>
+<ul class="simple">
+<li><p><code class="docutils literal">@api_view</code>: 関数ベースのビューを扱うためのデコレータ。</p></li>
+<li><p><code class="docutils literal">APIView</code>: クラスベースのビューを操作するためのクラス。</p></li>
+</ul>
+</div>
+<div class="section" id="apiview">
+<h3><a class="toc-backref" href="#id21">クラスベース (APIView) で記述するのがおすすめ</a></h3>
+<ul class="simple">
+<li>
+<p>特定のモデルに紐付かないような処理は クラスベースで記述するのがおすすめと言えるでしょう。 (くろのて)</p>
+<ul>
+<li><p>クエリが複雑すぎて queryset じゃ処理しきれないとかで SQLAlchemy で処理した結果を返したい という場合などに APIView を使っています。 (くろのて)</p></li>
+</ul>
+</li>
+</ul>
 </div>
 </div>
 <div class="section" id="id3">
-<h2><a class="toc-backref" href="#id14">ちょっと動かしたい</a></h2>
+<h2><a class="toc-backref" href="#id22">ちょっと動かしたい</a></h2>
 <div class="section" id="id4">
-<h3><a class="toc-backref" href="#id15">コマンドでアクセスする場合</a></h3>
-<pre class="code bash"><a name="rest_code_7d7f8012a8fc4221b78fddfb690ba33c-1"></a><span class="c1"># curl の場合</span>
-<a name="rest_code_7d7f8012a8fc4221b78fddfb690ba33c-2"></a>$ curl -H <span class="s1">'Accept: application/json; indent=4'</span> -u &lt;username&gt;:&lt;password&gt; http://127.0.0.1:xxxx/users/
-<a name="rest_code_7d7f8012a8fc4221b78fddfb690ba33c-3"></a>
-<a name="rest_code_7d7f8012a8fc4221b78fddfb690ba33c-4"></a><span class="c1"># HTTPie の場合</span>
-<a name="rest_code_7d7f8012a8fc4221b78fddfb690ba33c-5"></a><span class="c1"># https://httpie.org/doc</span>
-<a name="rest_code_7d7f8012a8fc4221b78fddfb690ba33c-6"></a>$ http -a &lt;username&gt;:&lt;password&gt; http://127.0.0.1:8989/users/
+<h3><a class="toc-backref" href="#id23">コマンドでアクセスする場合</a></h3>
+<pre class="code bash"><a name="rest_code_ea9ee766a720450cba082e52a4990a77-1"></a><span class="c1"># curl の場合</span>
+<a name="rest_code_ea9ee766a720450cba082e52a4990a77-2"></a>$ curl -H <span class="s1">'Accept: application/json; indent=4'</span> -u &lt;username&gt;:&lt;password&gt; http://127.0.0.1:xxxx/users/
+<a name="rest_code_ea9ee766a720450cba082e52a4990a77-3"></a>
+<a name="rest_code_ea9ee766a720450cba082e52a4990a77-4"></a><span class="c1"># HTTPie の場合</span>
+<a name="rest_code_ea9ee766a720450cba082e52a4990a77-5"></a><span class="c1"># https://httpie.org/doc</span>
+<a name="rest_code_ea9ee766a720450cba082e52a4990a77-6"></a>$ http -a &lt;username&gt;:&lt;password&gt; http://127.0.0.1:8989/users/
 </pre>
 </div>
 <div class="section" id="browsable-api">
-<h3><a class="toc-backref" href="#id16">Browsable API</a></h3>
+<h3><a class="toc-backref" href="#id24">Browsable API</a></h3>
 <ul class="simple">
 <li><p>rest_framework.response.Response を返すと Browsable API で見られるようだ!</p></li>
 </ul>
 </div>
 <div class="section" id="browsable-api-html-form">
-<h3><a class="toc-backref" href="#id17">Browsable API で HTML form タブが出せる</a></h3>
+<h3><a class="toc-backref" href="#id25">Browsable API で HTML form タブが出せる</a></h3>
 <table class="colwidths-auto"><tbody>
 <tr>
 <th class="stub"><p>viewsets.ModelViewSet</p></th>
@@ -229,9 +415,9 @@
 </div>
 </div>
 <div class="section" id="id5">
-<h2><a class="toc-backref" href="#id18">便利なライブラリ</a></h2>
+<h2><a class="toc-backref" href="#id26">便利なライブラリ</a></h2>
 <div class="section" id="django-rest-framework-json-camelcase">
-<h3><a class="toc-backref" href="#id19">Django REST Framework JSON CamelCase</a></h3>
+<h3><a class="toc-backref" href="#id27">Django REST Framework JSON CamelCase</a></h3>
 <p><a class="reference external" href="https://pypi.org/project/djangorestframework-camel-case/">https://pypi.org/project/djangorestframework-camel-case/</a></p>
 <ul class="simple">
 <li><p>Camel case JSON support for Django REST framework.</p></li>
@@ -239,7 +425,7 @@
 </ul>
 </div>
 <div class="section" id="django-cors-headers">
-<h3><a class="toc-backref" href="#id20">django-cors-headers</a></h3>
+<h3><a class="toc-backref" href="#id28">django-cors-headers</a></h3>
 <p><a class="reference external" href="https://pypi.org/project/django-cors-headers/">https://pypi.org/project/django-cors-headers/</a></p>
 <p><a class="reference external" href="https://github.com/ottoyiu/django-cors-headers">django-cors-headers</a></p>
 <ul class="simple">
@@ -255,7 +441,7 @@
 </li>
 </ul>
 <div class="section" id="cors">
-<h4><a class="toc-backref" href="#id21">CORS</a></h4>
+<h4><a class="toc-backref" href="#id29">CORS</a></h4>
 <p>オリジン間リソース共有 (Cross-Origin Resource Sharing)</p>
 <ul class="simple">
 <li>
@@ -270,67 +456,13 @@
 </div>
 </div>
 </div>
-<div class="section" id="requests-responses">
-<h2><a class="toc-backref" href="#id22">Requests/Responses</a></h2>
-<div class="section" id="drf-request">
-<h3><a class="toc-backref" href="#id23">DRF の Request</a></h3>
-<dl class="field-list simple">
-<dt>request.POST</dt>
-<dd>
-<p>Only handles form data. Only works for 'POST' method.</p>
-</dd>
-<dt>request.data</dt>
-<dd>
-<p>Handles arbitrary data. Works for 'POST', 'PUT' and 'PATCH' methods.</p>
-<ul class="simple">
-<li><p>json request をはじめとして他の形式も処理できる</p></li>
-</ul>
-</dd>
-</dl>
-</div>
-<div class="section" id="drf-response">
-<h3><a class="toc-backref" href="#id24">DRF の Response</a></h3>
-<table class="colwidths-auto"><tbody><tr>
-<th class="stub"><p>return Response(data)</p></th>
-<td>
-<p>Renders to content type as requested by the client.</p>
-<ul class="simple">
-<li><p>RESTフレームワークがレスポンスを正しいコンテンツタイプに変換してくれる</p></li>
-<li><p>レスポンスが単一のコンテンツタイプに固定されていない</p></li>
-</ul>
-</td>
-</tr></tbody></table>
-</div>
-</div>
 <div class="section" id="routers">
-<h2><a class="toc-backref" href="#id25">Routers</a></h2>
+<h2><a class="toc-backref" href="#id30">Routers</a></h2>
 <div class="section" id="router">
-<h3><a class="toc-backref" href="#id26">Router</a></h3>
+<h3><a class="toc-backref" href="#id31">Router</a></h3>
 <ul class="simple">
 <li><p>Router で登録できるのは ViewSet だけ</p></li>
 <li><p>DefaultRouter: Router のルート画面にアクセスしたときに API のリンク一覧を見せてくれる</p></li>
-</ul>
-</div>
-</div>
-<div class="section" id="views">
-<h2><a class="toc-backref" href="#id27">Views</a></h2>
-<div class="section" id="api">
-<h3><a class="toc-backref" href="#id28">API ビュー</a></h3>
-<p>RESTフレームワークには、APIビューを書くために使用できる2つのラッパーがあります。</p>
-<ul class="simple">
-<li><p><code class="docutils literal">@api_view</code>: 関数ベースのビューを扱うためのデコレータ。</p></li>
-<li><p><code class="docutils literal">APIView</code>: クラスベースのビューを操作するためのクラス。</p></li>
-</ul>
-</div>
-<div class="section" id="apiview">
-<h3><a class="toc-backref" href="#id29">クラスベース (APIView) で記述するのがおすすめ</a></h3>
-<ul class="simple">
-<li>
-<p>特定のモデルに紐付かないような処理は クラスベースで記述するのがおすすめと言えるでしょう。 (くろのて)</p>
-<ul>
-<li><p>クエリが複雑すぎて queryset じゃ処理しきれないとかで SQLAlchemy で処理した結果を返したい という場合などに APIView を使っています。 (くろのて)</p></li>
-</ul>
-</li>
 </ul>
 </div>
 </div>

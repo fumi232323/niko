@@ -7,11 +7,11 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <sitemap>
   <loc>https://32imuf.com/atom.xml</loc>
-  <lastmod>2021-01-02T16:02:00Z</lastmod>
+  <lastmod>2021-02-07T12:12:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://32imuf.com/sitemap.xml</loc>
-  <lastmod>2021-01-02T16:02:00Z</lastmod>
+  <lastmod>2021-02-07T12:12:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://32imuf.com/tags/aws.xml</loc>
@@ -27,7 +27,7 @@
  </sitemap>
  <sitemap>
   <loc>https://32imuf.com/tags/django-rest-framework.xml</loc>
-  <lastmod>2021-01-02T16:02:00Z</lastmod>
+  <lastmod>2021-02-07T11:51:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://32imuf.com/tags/django.xml</loc>
@@ -75,7 +75,7 @@
  </sitemap>
  <sitemap>
   <loc>https://32imuf.com/tags/python-test.xml</loc>
-  <lastmod>2020-10-18T08:20:00Z</lastmod>
+  <lastmod>2021-02-07T12:12:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://32imuf.com/tags/python.xml</loc>
@@ -103,6 +103,6 @@
  </sitemap>
  <sitemap>
   <loc>https://32imuf.com/tags/vim.xml</loc>
-  <lastmod>2020-07-11T14:58:00Z</lastmod>
+  <lastmod>2021-01-03T04:09:00Z</lastmod>
  </sitemap>
 </sitemapindex>
