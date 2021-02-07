@@ -1,6 +1,7 @@
 .. title: Python テストのメモ
 .. tags: python-test
 .. date: 2018-11-08
+.. updated: 2021-02-07
 .. slug: index
 .. status: published
 
@@ -14,83 +15,6 @@
 .. raw:: html
 
   </details>
-
-
-pytest
-======
-
-リファレンス
-------------
-https://docs.pytest.org/en/latest/
-
-例外のテストはこれ
-------------------
-https://docs.pytest.org/en/latest/reference.html#pytest-raises
-
-- ``with pytest.raises(RuntimeError) as excinfo:`` の ``excinfo`` には、 `ExceptionInfo <https://docs.pytest.org/en/latest/reference.html#exceptioninfo>`_ が入ってくる
-- 例外のインスタンスは、 ``value`` フィールドに入っている
-
-  .. code-block:: python
-
-      with pytest.raises(ListFileError) as e:
-          target(list_file).read('201803')
-
-      # assert
-      assert e.value.line == 2
-
-
-parametrize
------------
-``unittest.TestCase`` を継承したテストクラス内では、 ``@pytest.mark.parametrize`` を使えない。
-
-
-pytest.fixture
---------------
-https://docs.pytest.org/en/latest/fixture.html
-
-::
-
-  Test functions can receive fixture objects by naming them as an input argument. For each argument name, a fixture function with that name provides the fixture object. Fixture functions are registered by marking them with @pytest.fixture.
-
-fixture のスコープと実行順序
-----------------------------
-
-https://docs.pytest.org/en/latest/fixture.html#order-higher-scoped-fixtures-are-instantiated-first
-
-* デフォルトは function
-* ``autouse=True`` すると、引数に与えなくても自動で実行される
-
-  * スコープは function
-  * 同じスコープのほかの fixture の前にインスタンス化される
-
-Temporary directories and files
---------------------------------
-http://doc.pytest.org/en/latest/tmpdir.html#the-tmpdir-fixture
-
-* 一時ディレクトリやファイルの fixture がある
-* こんな感じで使う、便利
-
-.. code-block:: python
-
-  # settings fixture 経由で storage の path を pytest の tempdir fixture の path に置き換える
-  def test_csv(self, target, settings, tmpdir):  # <- settings fixture と tmpdir fixture を受け取る
-      settings.MEDIA_ROOT = tmpdir               # ダウンロードファイル出力先を置換
-
-      # ...
-      # これで、ファイルのパスがとれる
-      p = tmpdir.join(output_file_path)          # <- output_file_path はファイル名とか
-
-
-pytest-django
-===============
-https://pytest-django.readthedocs.io/en/latest/index.html
-
-* pytest-django is a plugin for pytest that provides a set of useful tools for testing Django applications and projects.
-* Django アプリとプロジェクトのテストに便利な pytest のプラグイン
-
-settings の fixture がある
----------------------------
-https://pytest-django.readthedocs.io/en/latest/helpers.html#settings
 
 
 testfixtures
@@ -112,9 +36,13 @@ date と datetime を mock できる
   - ``datetime.datetime.today()`` には何の効果もない
 
 
+※近頃は、freezegun を使うほうが便利でしょう
+
+
 flake8 3.6 対応がわかりやすい
 =============================
-https://scrapbox.io/shimizukawa/flake8-3.6.0_%E3%81%AB%E6%9B%B4%E6%96%B0%E3%81%97%E3%81%9F%E3%82%89%E8%AD%A6%E5%91%8A%E3%81%9F%E3%81%8F%E3%81%95%E3%82%93%E5%87%BA%E3%81%A6%E3%81%8D%E3%81%9F
+
+https://scrapbox.io/shimizukawa/flake8-3.6.0_に更新したら警告たくさん出てきた
 
 
 あれこれ
