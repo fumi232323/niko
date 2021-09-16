@@ -255,6 +255,10 @@ a:active {
 .item-frontend-test .title::before {
   border-color: #e2b2c0;
 }
+.item-graphql,
+.item-graphql .title::before {
+  border-color: #fff353;
+}
 /* --------------------------------
  * index page only
  * -------------------------------- */

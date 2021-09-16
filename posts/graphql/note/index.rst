@@ -3,7 +3,7 @@
 .. date: 2021-09-16
 .. updated: 2021-09-16
 .. slug: index
-.. status: draft
+.. status: published
 
 
 .. raw:: html
