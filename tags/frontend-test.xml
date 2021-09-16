@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ふみのて (Posts about frontend-test)</title><link>https://32imuf.com/</link><description></description><atom:link href="https://32imuf.com/tags/frontend-test.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2021 &lt;a href="mailto:fumi232323fumi2016@gmail.com"&gt;fumi23&lt;/a&gt; </copyright><lastBuildDate>Thu, 16 Sep 2021 03:48:42 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Test メモ</title><link>https://32imuf.com/frontend-test/note/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;details&gt;
+  &lt;summary&gt;目次&lt;/summary&gt;&lt;div class="contents topic" id="contents"&gt;
+&lt;p class="topic-title first"&gt;Contents&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/frontend-test/note/#id1" id="id3"&gt;テストフレームワーク&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/frontend-test/note/#id2" id="id4"&gt;設定など&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/details&gt;&lt;div class="section" id="id1"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/frontend-test/note/#id3"&gt;テストフレームワーク&lt;/a&gt;&lt;/h2&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;Jest: &lt;a class="reference external" href="https://jestjs.io/ja/"&gt;https://jestjs.io/ja/&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;JavaScript のテスティングライブラリー&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;React Testing Library: &lt;a class="reference external" href="https://testing-library.com/docs/react-testing-library/intro/"&gt;https://testing-library.com/docs/react-testing-library/intro/&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;React のテスティングライブラリー&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;フレームワーク (React) 独自の render などの部分をサポートしてくれるもよう&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Vue にも同様のものがある&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id2"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/frontend-test/note/#id4"&gt;設定など&lt;/a&gt;&lt;/h2&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://gist.github.com/kk6/d14da41f041296dd55c18fb3da8db788"&gt;jest で TypeScript のテストを書く場合の最低限度の設定など&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;kk6 さんありがとうございます!!!&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;&lt;/div&gt;</description><category>frontend-test</category><guid>https://32imuf.com/frontend-test/note/</guid><pubDate>Wed, 15 Sep 2021 15:00:00 GMT</pubDate></item></channel></rss>

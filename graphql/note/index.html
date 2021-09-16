@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<title>GraphQL メモ/ふみのて</title>
+<link rel="shortcut icon" href="../../assets/icons/favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Vollkorn:400,700">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sawarabi+Mincho&amp;display=swap&amp;subset=japanese,latin-ext">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+<link rel="stylesheet" href="../../assets/css/style.css?20200720">
+</head>
+<body>
+    <div class="container">
+      <div class="header"><header class="item item-header"><h1>
+    <a href="../../">
+      <img class="logo" src="../../assets/images/inuu.png" alt="犬"></a>
+  </h1>
+  <iframe src="../../tags/" class="tags"></iframe>
+</header></div>
+      <div class="main">
+<div class="article-content">
+  <main class="item item-article item-graphql"><div class="category">
+      <a href="../../tags/graphql/">
+          graphql
+      </a>
+    </div>
+    <div class="title">GraphQL メモ</div>
+    <time class="date" datetime="2021-09-16 00:00:00+09:00">
+      2021-09-16 Thu
+    </time><time class="date" datetime="2021-09-16 00:00:00+09:00">
+        updated: 2021-09-16 Thu
+        
+      </time><div class="text">
+      <div>
+<details><summary>目次</summary><div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li>
+<p><a class="reference internal" href="#graphql" id="id4">GraphQL</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id1" id="id5">リファレンス・ガイド</a></p></li>
+<li><p><a class="reference internal" href="#id2" id="id6">概要</a></p></li>
+<li><p><a class="reference internal" href="#tools" id="id7">ライブラリ・tools</a></p></li>
+<li><p><a class="reference internal" href="#id3" id="id8">耳より情報</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+</details><div class="section" id="graphql">
+<h2><a class="toc-backref" href="#id4">GraphQL</a></h2>
+<div class="section" id="id1">
+<h3><a class="toc-backref" href="#id5">リファレンス・ガイド</a></h3>
+<ul class="simple">
+<li><p>GraphQL: <a class="reference external" href="https://graphql.org/">https://graphql.org/</a></p></li>
+<li><p>GitHub の GraphQLガイド: <a class="reference external" href="https://docs.github.com/ja/graphql/guides/introduction-to-graphql">https://docs.github.com/ja/graphql/guides/introduction-to-graphql</a></p></li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h3><a class="toc-backref" href="#id6">概要</a></h3>
+<ul class="simple">
+<li>
+<p>GraphQL だと、自分のほしいデータのみをクライアント側で絞り込んで取得できる</p>
+<ul>
+<li><p>REST API: API のエンドポイントを叩くとデータが取得できる</p></li>
+<li><p>公開されているAPI だと、自分には不要なデータも大量にとれてきたりする</p></li>
+</ul>
+</li>
+<li><p>エンドポイントはひとつだけ</p></li>
+<li><p>JSON と SQL のあいのこみたいなクエリを書く</p></li>
+<li><p>Type 定義がサーバー側のテーブル定義のような雰囲気</p></li>
+<li><p>画面に合わせて API を何本も書かないとならない、というようなことが解消できそうな印象を受けた</p></li>
+</ul>
+</div>
+<div class="section" id="tools">
+<h3><a class="toc-backref" href="#id7">ライブラリ・tools</a></h3>
+<ul class="simple">
+<li>
+<p><a class="reference external" href="https://www.apollographql.com/docs/react/get-started/">https://www.apollographql.com/docs/react/get-started/</a></p>
+<ul>
+<li><p>React 向けの GraphQL 呼び出し? ライブラリ</p></li>
+<li><p>Vue には同様に apollo というライブラリがある</p></li>
+</ul>
+</li>
+<li>
+<p><a class="reference external" href="https://github.com/graphql/graphiql">https://github.com/graphql/graphiql</a></p>
+<ul>
+<li><p>オートコンプリートが効く</p></li>
+<li><p>クエリを書くのにDBのテーブル構造を知っている必要があるが、これを使うと IDE でオートコンプリートが効くので、
+いちいちテーブル定義書とか ER図とにらめっこしなくて便利</p></li>
+</ul>
+</li>
+<li>
+<p>GraphQL Code Generator</p>
+<ul>
+<li><p>紹介しているブログ: <a class="reference external" href="https://techlife.cookpad.com/entry/2021/03/24/123214">https://techlife.cookpad.com/entry/2021/03/24/123214</a></p></li>
+<li><p>GraphQL クエリを書いて、 Generator を叩くと TypeScript の型定義を自動で生成してくれる</p></li>
+<li><p>GraphQL は JSON しか返さないので、型がついていない</p></li>
+<li><p>これを使うと型がついた状態で Response してくれる</p></li>
+<li><p>yaml に hool = true のような設定があって、true にすると、クエリを叩くフックをつけることができて、クエリを叩くコードが自動生成される (べんりそうー: まだ使っていない)</p></li>
+<li>
+<p>apollo の Generator もある</p>
+<ul>
+<li><p>React だと、 GraphQL Code Generator のほうが良さそうな雰囲気 (会社の同僚談)</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>GitHub の Explorer</p>
+<ul>
+<li><p><a class="reference external" href="https://docs.github.com/en/graphql/overview/explorer">https://docs.github.com/en/graphql/overview/explorer</a></p></li>
+<li><p>GraphQL のクエリを書く練習はここでやると良さそう</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h3><a class="toc-backref" href="#id8">耳より情報</a></h3>
+<ul class="simple">
+<li>
+<p><a class="reference external" href="https://docs.github.com/en/graphql">https://docs.github.com/en/graphql</a></p>
+<ul>
+<li><p>GitHub が公開している GraphQL API</p></li>
+<li><p>練習用に良さそう</p></li>
+<li><p><a class="reference external" href="https://github.com/trending">https://github.com/trending</a> (星がたくさんついている repo を探せる) ライクなものを書いてみるとか</p></li>
+</ul>
+</li>
+<li>
+<p><a class="reference external" href="https://newrelic.com/jp">https://newrelic.com/jp</a></p>
+<ul>
+<li><p>ここも GraphQL API があるもよう</p></li>
+<li><p>システム・データ監視分析してくれるやつ</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+    </div>
+  </main>
+</div>
+</div>
+    </div>
+  </body>
+</html>
