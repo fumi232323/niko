@@ -251,6 +251,10 @@ a:active {
 .item-javascript .title::before {
   border-color: #f8e133;
 }
+.item-frontend-test,
+.item-frontend-test .title::before {
+  border-color: #e2b2c0;
+}
 /* --------------------------------
  * index page only
  * -------------------------------- */
