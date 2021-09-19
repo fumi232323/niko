@@ -61,7 +61,7 @@ GraphQL
   * GraphQL クエリを書いて、 Generator を叩くと TypeScript の型定義を自動で生成してくれる
   * GraphQL は JSON しか返さないので、型がついていない
   * これを使うと型がついた状態で Response してくれる
-  * yaml に hool = true のような設定があって、true にすると、クエリを叩くフックをつけることができて、クエリを叩くコードが自動生成される (べんりそうー: まだ使っていない)
+  * yaml に hook = true のような設定があって、true にすると、クエリを叩くフックをつけることができて、クエリを叩くコードが自動生成される (べんりそうー: まだ使っていない)
   * apollo の Generator もある
 
     * React だと、 GraphQL Code Generator のほうが良さそうな雰囲気 (会社の同僚談)
