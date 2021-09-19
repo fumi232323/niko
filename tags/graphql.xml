@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ふみのて (Posts about graphql)</title><link>https://32imuf.com/</link><description></description><atom:link href="https://32imuf.com/tags/graphql.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2021 &lt;a href="mailto:fumi232323fumi2016@gmail.com"&gt;fumi23&lt;/a&gt; </copyright><lastBuildDate>Thu, 16 Sep 2021 03:53:49 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>GraphQL メモ</title><link>https://32imuf.com/graphql/note/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;details&gt;
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ふみのて (Posts about graphql)</title><link>https://32imuf.com/</link><description></description><atom:link href="https://32imuf.com/tags/graphql.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2021 &lt;a href="mailto:fumi232323fumi2016@gmail.com"&gt;fumi23&lt;/a&gt; </copyright><lastBuildDate>Sun, 19 Sep 2021 09:44:28 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>GraphQL メモ</title><link>https://32imuf.com/graphql/note/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;details&gt;
   &lt;summary&gt;目次&lt;/summary&gt;&lt;div class="contents topic" id="contents"&gt;
 &lt;p class="topic-title first"&gt;Contents&lt;/p&gt;
 &lt;ul class="simple"&gt;
@@ -59,7 +59,7 @@
 &lt;li&gt;&lt;p&gt;GraphQL クエリを書いて、 Generator を叩くと TypeScript の型定義を自動で生成してくれる&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;GraphQL は JSON しか返さないので、型がついていない&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;これを使うと型がついた状態で Response してくれる&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;yaml に hool = true のような設定があって、true にすると、クエリを叩くフックをつけることができて、クエリを叩くコードが自動生成される (べんりそうー: まだ使っていない)&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;yaml に hook = true のような設定があって、true にすると、クエリを叩くフックをつけることができて、クエリを叩くコードが自動生成される (べんりそうー: まだ使っていない)&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;apollo の Generator もある&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;React だと、 GraphQL Code Generator のほうが良さそうな雰囲気 (会社の同僚談)&lt;/p&gt;&lt;/li&gt;

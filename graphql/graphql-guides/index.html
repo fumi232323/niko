@@ -38,20 +38,171 @@
 <p class="topic-title first">Contents</p>
 <ul class="simple">
 <li>
-<p><a class="reference internal" href="#graphql" id="id2">GraphQL</a></p>
+<p><a class="reference internal" href="#graphql" id="id3">GraphQL</a></p>
 <ul>
-<li><p><a class="reference internal" href="#id1" id="id3">リファレンス・ガイド</a></p></li>
+<li><p><a class="reference internal" href="#id1" id="id4">リファレンス・ガイド</a></p></li>
+<li><p><a class="reference internal" href="#id2" id="id5">めも</a></p></li>
 </ul>
 </li>
 </ul>
 </div>
 </details><div class="section" id="graphql">
-<h2><a class="toc-backref" href="#id2">GraphQL</a></h2>
+<h2><a class="toc-backref" href="#id3">GraphQL</a></h2>
 <div class="section" id="id1">
-<h3><a class="toc-backref" href="#id3">リファレンス・ガイド</a></h3>
+<h3><a class="toc-backref" href="#id4">リファレンス・ガイド</a></h3>
 <ul class="simple">
 <li><p>GraphQL: <a class="reference external" href="https://graphql.org/">https://graphql.org/</a></p></li>
 <li><p>GitHub の GraphQLガイド: <a class="reference external" href="https://docs.github.com/ja/graphql/guides/introduction-to-graphql">https://docs.github.com/ja/graphql/guides/introduction-to-graphql</a></p></li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h3><a class="toc-backref" href="#id5">めも</a></h3>
+<ul>
+<li>
+<p>クエリとミューテーション</p>
+<ul class="simple">
+<li><p>クエリ: <code class="docutils literal">GET</code> (取得系)</p></li>
+<li><p>ミューテーション: <code class="docutils literal">POST</code>/<code class="docutils literal">PATCH</code>/<code class="docutils literal">DELETE</code> (更新系)</p></li>
+</ul>
+</li>
+<li>
+<p>HTTP の動詞はなにをしていても基本 <code class="docutils literal">POST</code></p>
+<ul class="simple">
+<li><p>イントロスペクションクエリは <code class="docutils literal">GET</code></p></li>
+<li><p>イントロスペクションクエリ: GraphQLスキーマに関する詳細をクエリできる</p></li>
+</ul>
+</li>
+<li>
+<p>引数を与えられる</p>
+<ul class="simple">
+<li><p>たぶん、クエリの条件とか更新する情報とかを渡せるんだと思う</p></li>
+<li><p>クエリの場合は、 <code class="docutils literal">WHERE id = 3</code> とか <code class="docutils literal">LIMIT 5</code> とかみたいなのを <code class="docutils literal">variables</code> で指定できた</p></li>
+<li><p>=&gt; メソッドの引数みたいにも渡せた</p></li>
+</ul>
+</li>
+<li>
+<p>クエリ書くときは何かしらの仕様に沿った形で書く</p>
+<ul class="simple">
+<li><p>テーブル見て、SQL をそのまま (GraphQL のクエリで) 書くというわけでもない感じ</p></li>
+<li><p>なので、サーバー側 (GraphQL API を公開している側) で何かしら定義しているはず</p></li>
+<li><p>=&gt; それがスキーマ定義なのかなあ</p></li>
+<li><p>最初は SQL を json で書く、みたいに感じていたけれど、メソッドとか関数呼び出す、みたいな感じがしてきた</p></li>
+</ul>
+</li>
+<li>
+<p>クエリはこんなやつ</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.github.com/ja/graphql/guides/forming-calls-with-graphql">https://docs.github.com/ja/graphql/guides/forming-calls-with-graphql</a></p></li>
+</ul>
+<pre class="code python"><a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-1"></a><span class="c1"># 自分のリポジトリの最後から3つを取得する</span>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-2"></a><span class="c1"># クエリするときは、 `query` キーワード</span>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-3"></a><span class="c1"># ミューてションするときは、 `mutation` キーワード</span>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-4"></a><span class="n">query</span><span class="p">(</span><span class="err">$</span><span class="n">number_of_repos</span><span class="p">:</span><span class="n">Int</span><span class="err">!</span><span class="p">)</span> <span class="p">{</span>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-5"></a>  <span class="n">viewer</span> <span class="p">{</span>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-6"></a>    <span class="n">name</span>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-7"></a>     <span class="n">repositories</span><span class="p">(</span><span class="n">last</span><span class="p">:</span> <span class="err">$</span><span class="n">number_of_repos</span><span class="p">)</span> <span class="p">{</span>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-8"></a>       <span class="n">nodes</span> <span class="p">{</span>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-9"></a>         <span class="n">name</span>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-10"></a>       <span class="p">}</span>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-11"></a>     <span class="p">}</span>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-12"></a>   <span class="p">}</span>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-13"></a><span class="p">}</span>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-14"></a><span class="n">variables</span> <span class="p">{</span>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-15"></a>   <span class="s2">"number_of_repos"</span><span class="p">:</span> <span class="mi">3</span>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-16"></a><span class="p">}</span>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-17"></a>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-18"></a><span class="c1"># 以下のクエリはoctocat/Hello-Worldリポジトリをルックアップし、</span>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-19"></a><span class="c1"># 最も最近にクローズされた20個のIssueを見つけ、</span>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-20"></a><span class="c1"># それぞれのIssueのタイトル、URL、最初の5つのラベルを返す</span>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-21"></a><span class="n">query</span> <span class="p">{</span>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-22"></a>  <span class="n">repository</span><span class="p">(</span><span class="n">owner</span><span class="p">:</span><span class="s2">"octocat"</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span><span class="s2">"Hello-World"</span><span class="p">)</span> <span class="p">{</span>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-23"></a>    <span class="n">issues</span><span class="p">(</span><span class="n">last</span><span class="p">:</span><span class="mi">20</span><span class="p">,</span> <span class="n">states</span><span class="p">:</span><span class="n">CLOSED</span><span class="p">)</span> <span class="p">{</span>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-24"></a>      <span class="n">edges</span> <span class="p">{</span>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-25"></a>        <span class="n">node</span> <span class="p">{</span>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-26"></a>          <span class="n">title</span>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-27"></a>          <span class="n">url</span>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-28"></a>          <span class="n">labels</span><span class="p">(</span><span class="n">first</span><span class="p">:</span><span class="mi">5</span><span class="p">)</span> <span class="p">{</span>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-29"></a>            <span class="n">edges</span> <span class="p">{</span>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-30"></a>              <span class="n">node</span> <span class="p">{</span>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-31"></a>                <span class="n">name</span>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-32"></a>              <span class="p">}</span>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-33"></a>            <span class="p">}</span>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-34"></a>          <span class="p">}</span>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-35"></a>        <span class="p">}</span>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-36"></a>      <span class="p">}</span>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-37"></a>    <span class="p">}</span>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-38"></a>  <span class="p">}</span>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-39"></a><span class="p">}</span>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-40"></a>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-41"></a><span class="c1"># クエリに名前もつけられる</span>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-42"></a><span class="c1"># 名前はオプション</span>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-43"></a><span class="c1"># (これは SELECT)</span>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-44"></a><span class="n">query</span> <span class="n">FindIssueID</span> <span class="p">{</span>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-45"></a>  <span class="n">repository</span><span class="p">(</span><span class="n">owner</span><span class="p">:</span><span class="s2">"octocat"</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span><span class="s2">"Hello-World"</span><span class="p">)</span> <span class="p">{</span>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-46"></a>    <span class="n">issue</span><span class="p">(</span><span class="n">number</span><span class="p">:</span><span class="mi">349</span><span class="p">)</span> <span class="p">{</span>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-47"></a>      <span class="nb">id</span>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-48"></a>    <span class="p">}</span>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-49"></a>  <span class="p">}</span>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-50"></a><span class="p">}</span>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-51"></a>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-52"></a><span class="c1"># これはたぶん登録 (リアクションつけているから)</span>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-53"></a><span class="n">mutation</span> <span class="n">AddReactionToIssue</span> <span class="p">{</span>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-54"></a>  <span class="c1"># 呼び出すミューテンション名</span>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-55"></a>  <span class="c1"># input は必須の引数のキー、ミューテーションではいつも input という名前</span>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-56"></a>  <span class="n">addReaction</span><span class="p">(</span><span class="nb">input</span><span class="p">:{</span><span class="n">subjectId</span><span class="p">:</span><span class="s2">"MDU6SXNzdWUyMzEzOTE1NTE="</span><span class="p">,</span><span class="n">content</span><span class="p">:</span><span class="n">HOORAY</span><span class="p">})</span> <span class="p">{</span>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-57"></a>    <span class="c1"># これと</span>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-58"></a>    <span class="n">reaction</span> <span class="p">{</span>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-59"></a>      <span class="n">content</span>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-60"></a>    <span class="p">}</span>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-61"></a>    <span class="c1"># これは、Response にほしいものを指定している</span>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-62"></a>    <span class="n">subject</span> <span class="p">{</span>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-63"></a>      <span class="nb">id</span>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-64"></a>    <span class="p">}</span>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-65"></a>  <span class="p">}</span>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-66"></a><span class="p">}</span>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-67"></a>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-68"></a><span class="c1"># こんな風に、input に渡すものを変数に切り出すこともできる</span>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-69"></a><span class="n">mutation</span><span class="p">(</span><span class="err">$</span><span class="n">myVar</span><span class="p">:</span><span class="n">AddReactionInput</span><span class="err">!</span><span class="p">)</span> <span class="p">{</span>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-70"></a>  <span class="n">addReaction</span><span class="p">(</span><span class="nb">input</span><span class="p">:</span><span class="err">$</span><span class="n">myVar</span><span class="p">)</span> <span class="p">{</span>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-71"></a>    <span class="n">reaction</span> <span class="p">{</span>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-72"></a>      <span class="n">content</span>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-73"></a>    <span class="p">}</span>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-74"></a>    <span class="n">subject</span> <span class="p">{</span>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-75"></a>      <span class="nb">id</span>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-76"></a>    <span class="p">}</span>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-77"></a>  <span class="p">}</span>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-78"></a><span class="p">}</span>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-79"></a><span class="n">variables</span> <span class="p">{</span>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-80"></a>  <span class="s2">"myVar"</span><span class="p">:</span> <span class="p">{</span>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-81"></a>    <span class="s2">"subjectId"</span><span class="p">:</span><span class="s2">"MDU6SXNzdWUyMTc5NTQ0OTc="</span><span class="p">,</span>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-82"></a>    <span class="s2">"content"</span><span class="p">:</span><span class="s2">"HOORAY"</span>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-83"></a>  <span class="p">}</span>
+<a name="rest_code_4a499f478a904b8a8bc7ce729b76ad4f-84"></a><span class="p">}</span>
+</pre>
+</li>
+<li>
+<p>コネクション/エッジ/ノード</p>
+<ul class="simple">
+<li><p>というやつもある</p></li>
+<li><p>ノード はオブジェクトの総称 (まだよくわからない)</p></li>
+</ul>
+<pre class="code python"><a name="rest_code_3556beefa9574cdc8bf610dc7db1dd8f-1"></a><span class="c1"># これを投げると、</span>
+<a name="rest_code_3556beefa9574cdc8bf610dc7db1dd8f-2"></a><span class="n">query</span> <span class="p">{</span>
+<a name="rest_code_3556beefa9574cdc8bf610dc7db1dd8f-3"></a>  <span class="n">node</span><span class="p">(</span><span class="nb">id</span><span class="p">:</span><span class="s2">"MDQ6VXNlcjU4MzIzMQ=="</span><span class="p">)</span> <span class="p">{</span>
+<a name="rest_code_3556beefa9574cdc8bf610dc7db1dd8f-4"></a>     <span class="n">__typename</span>
+<a name="rest_code_3556beefa9574cdc8bf610dc7db1dd8f-5"></a>  <span class="p">}</span>
+<a name="rest_code_3556beefa9574cdc8bf610dc7db1dd8f-6"></a><span class="p">}</span>
+<a name="rest_code_3556beefa9574cdc8bf610dc7db1dd8f-7"></a>
+<a name="rest_code_3556beefa9574cdc8bf610dc7db1dd8f-8"></a><span class="c1"># これが返ってきて、オブジェクトの型がわかる</span>
+<a name="rest_code_3556beefa9574cdc8bf610dc7db1dd8f-9"></a><span class="p">{</span>
+<a name="rest_code_3556beefa9574cdc8bf610dc7db1dd8f-10"></a>  <span class="s2">"data"</span><span class="p">:</span> <span class="p">{</span>
+<a name="rest_code_3556beefa9574cdc8bf610dc7db1dd8f-11"></a>    <span class="s2">"node"</span><span class="p">:</span> <span class="p">{</span>
+<a name="rest_code_3556beefa9574cdc8bf610dc7db1dd8f-12"></a>      <span class="s2">"__typename"</span><span class="p">:</span> <span class="s2">"User"</span>
+<a name="rest_code_3556beefa9574cdc8bf610dc7db1dd8f-13"></a>    <span class="p">}</span>
+<a name="rest_code_3556beefa9574cdc8bf610dc7db1dd8f-14"></a>  <span class="p">}</span>
+<a name="rest_code_3556beefa9574cdc8bf610dc7db1dd8f-15"></a><span class="p">}</span>
+</pre>
+</li>
 </ul>
 </div>
 </div>
