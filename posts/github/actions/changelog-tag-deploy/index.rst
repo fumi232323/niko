@@ -1,4 +1,4 @@
-.. title: deploy 時に changelog を生成してタグを打ちたい
+.. title: GitHub Actions で deploy 時に changelog を生成してタグを打ちたい
 .. tags: github
 .. date: 2021-09-20
 .. slug: index
