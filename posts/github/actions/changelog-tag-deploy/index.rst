@@ -506,7 +506,8 @@ workflow は二本用意します
           env:
             TAG_MAME: ${{ steps.bump-tag.outputs.new_tag }}
           with:
-            # FIXME: repo scoped の PAT が必要
+            # repo scope の PAT を作成し、
+            # GitHub Actions の secrets に登録しておく
             token: ${{ secrets.PR_CHANGELOG_PAT }}
             branch: 'deploy/${{ env.TAG_MAME }}'
             commit-message: 'Updated CHANGELOG ${{ env.TAG_MAME }}'
