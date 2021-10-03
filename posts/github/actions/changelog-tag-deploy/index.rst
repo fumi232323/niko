@@ -473,20 +473,6 @@ workflow は二本用意します
         - name: Checkout
           uses: actions/checkout@v2
 
-        - name: Build services
-          run: |
-            cp example.env .env
-            docker-compose build --parallel
-          env:
-            DOCKER_BUILDKIT: 1
-
-        - name: Update CHANGELOG
-          run: docker-compose run -u 0 --rm djangoapp towncrier --yes
-
-        - name: Stop and remove containers, networks and volumes
-          run: docker-compose down -v
-          if: always()
-
         - name: Bump tag version
           # bump up したタグ名を払い出す
           # main 以外のブランチで実行した場合は `v1.2.3-{branch_name}.0` のようなタグがつくため、
@@ -499,6 +485,22 @@ workflow は二本用意します
             custom_tag: ${{ github.event.inputs.custom_tag }}
             # タグ打ちはまだしない
             dry_run: true
+
+        - name: Build services
+          run: |
+            cp example.env .env
+            docker-compose build --parallel
+          env:
+            DOCKER_BUILDKIT: 1
+
+        - name: Update CHANGELOG
+          env:
+            TAG_MAME: ${{ steps.bump-tag.outputs.new_tag }}
+          run: docker-compose run -u 0 --rm djangoapp towncrier --yes --version=${{ env.TAG_MAME }}
+
+        - name: Stop and remove containers, networks and volumes
+          run: docker-compose down -v
+          if: always()
 
         - name: Create Pull Request
           id: cpr
