@@ -132,114 +132,114 @@
 <ul class="simple">
 <li><p><a class="reference external" href="https://docs.github.com/ja/actions/managing-workflow-runs/manually-running-a-workflow">ワークフローの手動実行</a></p></li>
 </ul>
-<pre class="code yaml"><a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-1"></a><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Deploy (Case1)</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-2"></a>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-3"></a><span class="nt">on</span><span class="p">:</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-4"></a>  <span class="nt">workflow_dispatch</span><span class="p">:</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-5"></a>    <span class="c1"># 手動トリガー</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-6"></a>    <span class="nt">inputs</span><span class="p">:</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-7"></a>      <span class="nt">tag-name</span><span class="p">:</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-8"></a>        <span class="c1"># ここで入力したタグ名でタグを打つ</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-9"></a>        <span class="nt">description</span><span class="p">:</span> <span class="s">'Enter</span><span class="nv"> </span><span class="s">tag</span><span class="nv"> </span><span class="s">name</span><span class="nv"> </span><span class="s">(e.g.</span><span class="nv"> </span><span class="s">v1.2.3)'</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-10"></a>        <span class="nt">required</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-11"></a>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-12"></a><span class="nt">env</span><span class="p">:</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-13"></a>  <span class="c1"># 必要な環境変数を定義する</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-14"></a>  <span class="c1"># ここで定義した env はすべての job から参照できる</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-15"></a>  <span class="nt">AWS_REGION</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ap-northeast-1</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-16"></a>  <span class="c1"># (以下省略)</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-17"></a>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-18"></a><span class="nt">defaults</span><span class="p">:</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-19"></a>  <span class="nt">run</span><span class="p">:</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-20"></a>    <span class="nt">shell</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">bash</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-21"></a>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-22"></a><span class="nt">jobs</span><span class="p">:</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-23"></a>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-24"></a>  <span class="nt">changelog</span><span class="p">:</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-25"></a>    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Update CHANGELOG and create new tag</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-26"></a>    <span class="nt">runs-on</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-27"></a>    <span class="nt">outputs</span><span class="p">:</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-28"></a>      <span class="c1"># job の outputs として tag を打った (changelog を commit した) コミットの hash (SHA) を設定</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-29"></a>      <span class="nt">tagged-sha</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ steps.push-changelog-tag.outputs.commit_hash }}</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-30"></a>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-31"></a>    <span class="nt">steps</span><span class="p">:</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-32"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Checkout</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-33"></a>        <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">actions/checkout@v2</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-34"></a>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-35"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Build services</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-36"></a>        <span class="nt">run</span><span class="p">:</span> <span class="p p-Indicator">|</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-37"></a>          <span class="no">cp example.env .env</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-38"></a>          <span class="no">docker-compose build --parallel</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-39"></a>        <span class="nt">env</span><span class="p">:</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-40"></a>          <span class="nt">DOCKER_BUILDKIT</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-41"></a>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-42"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Update CHANGELOG</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-43"></a>        <span class="c1"># root ユーザーで実行する</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-44"></a>        <span class="c1"># root で実行しないと、 towncrier が見たい dir の参照権限がなかったりして、fail する</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-45"></a>        <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">docker-compose run -u 0 --rm djangoapp towncrier --yes</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-46"></a>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-47"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Stop and remove containers, networks and volumes</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-48"></a>        <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">docker-compose down -v</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-49"></a>        <span class="nt">if</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">always()</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-50"></a>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-51"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Restore git dir owner and group</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-52"></a>        <span class="c1"># CHANGELOG は root:root で作成される</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-53"></a>        <span class="c1"># そのままだと git-auto-commit-action に失敗することがあるため元に戻す</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-54"></a>        <span class="c1"># ※これは正しい解決策なのか否かちょっと自信なし</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-55"></a>        <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sudo chown -R runner:docker .git/objects/</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-56"></a>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-57"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Commit, push CHANGELOG and create new tag</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-58"></a>        <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">push-changelog-tag</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-59"></a>        <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">stefanzweifel/git-auto-commit-action@v4</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-60"></a>        <span class="nt">with</span><span class="p">:</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-61"></a>          <span class="nt">commit_message</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Updated CHANGELOG</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-62"></a>          <span class="c1"># 手動トリガーで受け取ったタグ名でタグを打つ</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-63"></a>          <span class="c1"># 手動トリガー時に受け取った inputs はこんな風に参照できる</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-64"></a>          <span class="nt">tagging_message</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ github.event.inputs.tag-name }}</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-65"></a>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-66"></a>  <span class="nt">deploy</span><span class="p">:</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-67"></a>    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Deploy</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-68"></a>    <span class="nt">runs-on</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-69"></a>    <span class="c1"># changelog job が正常終了したらこの job を実行する (直列で実行する)</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-70"></a>    <span class="c1"># needs を指定しないと並列実行される</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-71"></a>    <span class="nt">needs</span><span class="p">:</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-72"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">changelog</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-73"></a>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-74"></a>    <span class="nt">steps</span><span class="p">:</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-75"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Checkout</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-76"></a>        <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">actions/checkout@v2</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-77"></a>        <span class="nt">with</span><span class="p">:</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-78"></a>          <span class="c1"># すべての tag も fetch する</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-79"></a>          <span class="c1"># これをつけないと (デフォルトだと) 、ワークフローをトリガーした ref/SHA のコミットひとつだけが fetch される</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-80"></a>          <span class="nt">fetch-depth</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-81"></a>          <span class="c1"># changelog job で tag を打った (changelog を commit した) コミットをチェックアウトする</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-82"></a>          <span class="c1"># ※ changelog + tag のコミットを deploy したいため</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-83"></a>          <span class="c1"># needs に指定した job の outputs はこんな風に参照できる</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-84"></a>          <span class="nt">ref</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ needs.changelog.outputs.tagged_hash }}</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-85"></a>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-86"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Set tagged sha</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-87"></a>        <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">set-tag-sha</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-88"></a>        <span class="c1"># [確認用] チェックアウトしたブランチの最新の commit を取得</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-89"></a>        <span class="nt">run</span><span class="p">:</span> <span class="p p-Indicator">|</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-90"></a>          <span class="no">TAGGED_SHA=$(git log -1 --format='%H')</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-91"></a>          <span class="no">echo $TAGGED_SHA</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-92"></a>          <span class="no">echo "::set-output name=tag-sha::$TAGGED_SHA"</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-93"></a>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-94"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Echo github-ref</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-95"></a>        <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">echo "${{ github.ref }}"</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-96"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Echo github-sha</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-97"></a>        <span class="c1"># ワークフローをトリガーしたときの SHA</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-98"></a>        <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">echo "${{ github.sha }}"</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-99"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Echo changelog-tagged_hash</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-100"></a>        <span class="c1"># changelog job で tag を打った SHA</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-101"></a>        <span class="c1"># このワークフロー中で commit したので、 github.sha より一つ進んでいる</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-102"></a>        <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">echo "${{ needs.changelog.outputs.tagged_hash }}"</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-103"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Echo tag-sha</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-104"></a>        <span class="c1"># チェックアウトしたブランチの最新の commit の SHA</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-105"></a>        <span class="c1"># == changelog-tagged_hash</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-106"></a>        <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">echo "${{ steps.set-tag-sha.outputs.tag-sha }}"</span>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-107"></a>
-<a name="rest_code_e85a82f0a3354807991d9fc3323c25d7-108"></a>      <span class="c1"># あとは deploy する (省略)</span>
+<pre class="code yaml"><a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-1"></a><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Deploy (Case1)</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-2"></a>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-3"></a><span class="nt">on</span><span class="p">:</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-4"></a>  <span class="nt">workflow_dispatch</span><span class="p">:</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-5"></a>    <span class="c1"># 手動トリガー</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-6"></a>    <span class="nt">inputs</span><span class="p">:</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-7"></a>      <span class="nt">tag-name</span><span class="p">:</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-8"></a>        <span class="c1"># ここで入力したタグ名でタグを打つ</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-9"></a>        <span class="nt">description</span><span class="p">:</span> <span class="s">'Enter</span><span class="nv"> </span><span class="s">tag</span><span class="nv"> </span><span class="s">name</span><span class="nv"> </span><span class="s">(e.g.</span><span class="nv"> </span><span class="s">v1.2.3)'</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-10"></a>        <span class="nt">required</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-11"></a>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-12"></a><span class="nt">env</span><span class="p">:</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-13"></a>  <span class="c1"># 必要な環境変数を定義する</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-14"></a>  <span class="c1"># ここで定義した env はすべての job から参照できる</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-15"></a>  <span class="nt">AWS_REGION</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ap-northeast-1</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-16"></a>  <span class="c1"># (以下省略)</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-17"></a>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-18"></a><span class="nt">defaults</span><span class="p">:</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-19"></a>  <span class="nt">run</span><span class="p">:</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-20"></a>    <span class="nt">shell</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">bash</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-21"></a>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-22"></a><span class="nt">jobs</span><span class="p">:</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-23"></a>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-24"></a>  <span class="nt">changelog</span><span class="p">:</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-25"></a>    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Update CHANGELOG and create new tag</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-26"></a>    <span class="nt">runs-on</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-27"></a>    <span class="nt">outputs</span><span class="p">:</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-28"></a>      <span class="c1"># job の outputs として tag を打った (changelog を commit した) コミットの hash (SHA) を設定</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-29"></a>      <span class="nt">tagged-sha</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ steps.push-changelog-tag.outputs.commit_hash }}</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-30"></a>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-31"></a>    <span class="nt">steps</span><span class="p">:</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-32"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Checkout</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-33"></a>        <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">actions/checkout@v2</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-34"></a>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-35"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Build services</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-36"></a>        <span class="nt">run</span><span class="p">:</span> <span class="p p-Indicator">|</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-37"></a>          <span class="no">cp example.env .env</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-38"></a>          <span class="no">docker-compose build --parallel</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-39"></a>        <span class="nt">env</span><span class="p">:</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-40"></a>          <span class="nt">DOCKER_BUILDKIT</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-41"></a>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-42"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Update CHANGELOG</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-43"></a>        <span class="c1"># root ユーザーで実行する</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-44"></a>        <span class="c1"># root で実行しないと、 towncrier が見たい dir の参照権限がなかったりして、fail する</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-45"></a>        <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">docker-compose run -u 0 --rm djangoapp towncrier --yes</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-46"></a>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-47"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Stop and remove containers, networks and volumes</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-48"></a>        <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">docker-compose down -v</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-49"></a>        <span class="nt">if</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">always()</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-50"></a>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-51"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Restore git dir owner and group</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-52"></a>        <span class="c1"># CHANGELOG は root:root で作成される</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-53"></a>        <span class="c1"># そのままだと git-auto-commit-action に失敗することがあるため元に戻す</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-54"></a>        <span class="c1"># ※これは正しい解決策なのか否かちょっと自信なし</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-55"></a>        <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sudo chown -R runner:docker .git/objects/</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-56"></a>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-57"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Commit, push CHANGELOG and create new tag</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-58"></a>        <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">push-changelog-tag</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-59"></a>        <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">stefanzweifel/git-auto-commit-action@v4</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-60"></a>        <span class="nt">with</span><span class="p">:</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-61"></a>          <span class="nt">commit_message</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Updated CHANGELOG</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-62"></a>          <span class="c1"># 手動トリガーで受け取ったタグ名でタグを打つ</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-63"></a>          <span class="c1"># 手動トリガー時に受け取った inputs はこんな風に参照できる</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-64"></a>          <span class="nt">tagging_message</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ github.event.inputs.tag-name }}</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-65"></a>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-66"></a>  <span class="nt">deploy</span><span class="p">:</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-67"></a>    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Deploy</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-68"></a>    <span class="nt">runs-on</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-69"></a>    <span class="c1"># changelog job が正常終了したらこの job を実行する (直列で実行する)</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-70"></a>    <span class="c1"># needs を指定しないと並列実行される</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-71"></a>    <span class="nt">needs</span><span class="p">:</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-72"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">changelog</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-73"></a>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-74"></a>    <span class="nt">steps</span><span class="p">:</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-75"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Checkout</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-76"></a>        <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">actions/checkout@v2</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-77"></a>        <span class="nt">with</span><span class="p">:</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-78"></a>          <span class="c1"># すべての tag も fetch する</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-79"></a>          <span class="c1"># これをつけないと (デフォルトだと) 、ワークフローをトリガーした ref/SHA のコミットひとつだけが fetch される</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-80"></a>          <span class="nt">fetch-depth</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-81"></a>          <span class="c1"># changelog job で tag を打った (changelog を commit した) コミットをチェックアウトする</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-82"></a>          <span class="c1"># ※ changelog + tag のコミットを deploy したいため</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-83"></a>          <span class="c1"># needs に指定した job の outputs はこんな風に参照できる</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-84"></a>          <span class="nt">ref</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ needs.changelog.outputs.tagged_hash }}</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-85"></a>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-86"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Set tagged sha</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-87"></a>        <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">set-tag-sha</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-88"></a>        <span class="c1"># [確認用] チェックアウトしたブランチの最新の commit を取得</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-89"></a>        <span class="nt">run</span><span class="p">:</span> <span class="p p-Indicator">|</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-90"></a>          <span class="no">TAGGED_SHA=$(git log -1 --format='%H')</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-91"></a>          <span class="no">echo $TAGGED_SHA</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-92"></a>          <span class="no">echo "::set-output name=tag-sha::$TAGGED_SHA"</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-93"></a>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-94"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Echo github-ref</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-95"></a>        <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">echo "${{ github.ref }}"</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-96"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Echo github-sha</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-97"></a>        <span class="c1"># ワークフローをトリガーしたときの SHA</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-98"></a>        <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">echo "${{ github.sha }}"</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-99"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Echo changelog-tagged_hash</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-100"></a>        <span class="c1"># changelog job で tag を打った SHA</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-101"></a>        <span class="c1"># このワークフロー中で commit したので、 github.sha より一つ進んでいる</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-102"></a>        <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">echo "${{ needs.changelog.outputs.tagged_hash }}"</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-103"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Echo tag-sha</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-104"></a>        <span class="c1"># チェックアウトしたブランチの最新の commit の SHA</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-105"></a>        <span class="c1"># == changelog-tagged_hash</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-106"></a>        <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">echo "${{ steps.set-tag-sha.outputs.tag-sha }}"</span>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-107"></a>
+<a name="rest_code_748100c5b3434f1da0d0033c8369b3a7-108"></a>      <span class="c1"># あとは deploy する (省略)</span>
 </pre>
 </div>
 </div>
@@ -262,14 +262,14 @@
 <div class="section" id="id6">
 <h3><a class="toc-backref" href="#id26">workflow</a></h3>
 <p>Case1 と同じ</p>
-<pre class="code yaml"><a name="rest_code_f04af439b1944281be779fc423991391-1"></a><span class="nt">steps</span><span class="p">:</span>
-<a name="rest_code_f04af439b1944281be779fc423991391-2"></a>  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Checkout</span>
-<a name="rest_code_f04af439b1944281be779fc423991391-3"></a>    <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">actions/checkout@v2</span>
-<a name="rest_code_f04af439b1944281be779fc423991391-4"></a>    <span class="c1"># ここだけ変える</span>
-<a name="rest_code_f04af439b1944281be779fc423991391-5"></a>    <span class="nt">with</span><span class="p">:</span>
-<a name="rest_code_f04af439b1944281be779fc423991391-6"></a>      <span class="c1"># 管理者権限を持つユーザーで repo scope の PAT を作成し、</span>
-<a name="rest_code_f04af439b1944281be779fc423991391-7"></a>      <span class="c1"># GitHub Actions の secrets に登録しておく</span>
-<a name="rest_code_f04af439b1944281be779fc423991391-8"></a>      <span class="nt">token</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ secrets.REPO_SCOPED_PAT }}</span>
+<pre class="code yaml"><a name="rest_code_00287d705f4b4b7f8079708c5cbc97b7-1"></a><span class="nt">steps</span><span class="p">:</span>
+<a name="rest_code_00287d705f4b4b7f8079708c5cbc97b7-2"></a>  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Checkout</span>
+<a name="rest_code_00287d705f4b4b7f8079708c5cbc97b7-3"></a>    <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">actions/checkout@v2</span>
+<a name="rest_code_00287d705f4b4b7f8079708c5cbc97b7-4"></a>    <span class="c1"># ここだけ変える</span>
+<a name="rest_code_00287d705f4b4b7f8079708c5cbc97b7-5"></a>    <span class="nt">with</span><span class="p">:</span>
+<a name="rest_code_00287d705f4b4b7f8079708c5cbc97b7-6"></a>      <span class="c1"># 管理者権限を持つユーザーで repo scope の PAT を作成し、</span>
+<a name="rest_code_00287d705f4b4b7f8079708c5cbc97b7-7"></a>      <span class="c1"># GitHub Actions の secrets に登録しておく</span>
+<a name="rest_code_00287d705f4b4b7f8079708c5cbc97b7-8"></a>      <span class="nt">token</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ secrets.REPO_SCOPED_PAT }}</span>
 </pre>
 <ul class="simple">
 <li><p><a class="reference external" href="https://docs.github.com/ja/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token">個人アクセストークンを使用する</a></p></li>
@@ -357,131 +357,131 @@ workflow は fail します (changelog の push に失敗する) 。</p>
 <li><p>changelog を PR を自動 approve</p></li>
 <li><p>deploy</p></li>
 </ol>
-<pre class="code yaml"><a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-1"></a><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Deploy (Case3)</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-2"></a>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-3"></a><span class="nt">on</span><span class="p">:</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-4"></a>  <span class="nt">workflow_dispatch</span><span class="p">:</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-5"></a>    <span class="nt">inputs</span><span class="p">:</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-6"></a>      <span class="nt">custom_tag</span><span class="p">:</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-7"></a>        <span class="nt">description</span><span class="p">:</span> <span class="s">'メジャー/マイナーバージョンをインクリメントしたいときのみ指定してください</span><span class="nv"> </span><span class="s">(e.g.</span><span class="nv"> </span><span class="s">1.2.0)'</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-8"></a>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-9"></a><span class="nt">env</span><span class="p">:</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-10"></a>  <span class="nt">AWS_REGION</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ap-northeast-1</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-11"></a>  <span class="c1"># (以下省略)</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-12"></a>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-13"></a><span class="nt">defaults</span><span class="p">:</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-14"></a>  <span class="nt">run</span><span class="p">:</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-15"></a>    <span class="nt">shell</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">bash</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-16"></a>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-17"></a><span class="nt">jobs</span><span class="p">:</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-18"></a>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-19"></a>  <span class="nt">changelog</span><span class="p">:</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-20"></a>    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Update CHANGELOG and create new tag</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-21"></a>    <span class="nt">runs-on</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-22"></a>    <span class="nt">outputs</span><span class="p">:</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-23"></a>      <span class="c1"># changelog job の outputs として version を bump したタグ名設定</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-24"></a>      <span class="nt">new_tag</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ steps.create-tag.outputs.new_tag }}</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-25"></a>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-26"></a>    <span class="nt">steps</span><span class="p">:</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-27"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Checkout</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-28"></a>        <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">actions/checkout@v2</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-29"></a>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-30"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Build services</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-31"></a>        <span class="nt">run</span><span class="p">:</span> <span class="p p-Indicator">|</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-32"></a>          <span class="no">cp example.env .env</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-33"></a>          <span class="no">docker-compose build --parallel</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-34"></a>        <span class="nt">env</span><span class="p">:</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-35"></a>          <span class="nt">DOCKER_BUILDKIT</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-36"></a>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-37"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Update CHANGELOG</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-38"></a>        <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">docker-compose run -u 0 --rm djangoapp towncrier --yes</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-39"></a>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-40"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Stop and remove containers, networks and volumes</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-41"></a>        <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">docker-compose down -v</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-42"></a>        <span class="nt">if</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">always()</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-43"></a>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-44"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Bump version and push tag</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-45"></a>        <span class="c1"># changelog の PR が merge されるのをワークフロー中で待てないので、</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-46"></a>        <span class="c1"># あきらめて「ワークフローをトリガーしたコミット」にタグを打つ。</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-47"></a>        <span class="c1"># changelog のコミットは、「タグを打ったコミット」より後の別のコミットになる。</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-48"></a>        <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">create-tag</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-49"></a>        <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mathieudutour/github-tag-action@v5.6</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-50"></a>        <span class="c1"># main 以外のブランチで実行した場合は `v1.2.3-{branch_name}.0` のようなタグがつくため、</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-51"></a>        <span class="c1"># main ブランチの bump には影響しない。</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-52"></a>        <span class="c1"># ※ custom_tag に、 main ブランチのタグと同じ形式のタグ名を指定すると影響する</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-53"></a>        <span class="nt">with</span><span class="p">:</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-54"></a>          <span class="c1"># secrets.GITHUB_TOKEN は github.token と同義だそうです</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-55"></a>          <span class="nt">github_token</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ secrets.GITHUB_TOKEN }}</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-56"></a>          <span class="c1"># 手動トリガー時に custom_tag を受け取った場合は、</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-57"></a>          <span class="c1"># 受け取ったタグ名でタグを打つ</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-58"></a>          <span class="nt">custom_tag</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ github.event.inputs.custom_tag }}</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-59"></a>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-60"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Create Pull Request</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-61"></a>        <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cpr</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-62"></a>        <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">peter-evans/create-pull-request@v3</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-63"></a>        <span class="nt">env</span><span class="p">:</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-64"></a>          <span class="nt">TAG_MAME</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ steps.create-tag.outputs.new_tag }}</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-65"></a>        <span class="nt">with</span><span class="p">:</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-66"></a>          <span class="nt">token</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ secrets.PR_CHANGELOG_PAT }}</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-67"></a>          <span class="nt">branch</span><span class="p">:</span> <span class="s">'deploy/${{</span><span class="nv"> </span><span class="s">env.TAG_MAME</span><span class="nv"> </span><span class="s">}}'</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-68"></a>          <span class="nt">commit-message</span><span class="p">:</span> <span class="s">'Updated</span><span class="nv"> </span><span class="s">CHANGELOG</span><span class="nv"> </span><span class="s">${{</span><span class="nv"> </span><span class="s">env.TAG_MAME</span><span class="nv"> </span><span class="s">}}'</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-69"></a>          <span class="nt">title</span><span class="p">:</span> <span class="s">'Update</span><span class="nv"> </span><span class="s">CHANGELOG</span><span class="nv"> </span><span class="s">${{</span><span class="nv"> </span><span class="s">env.TAG_MAME</span><span class="nv"> </span><span class="s">}}'</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-70"></a>          <span class="c1"># どのコミットにタグを打ったかわからなくならないようにメモ↓</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-71"></a>          <span class="nt">body</span><span class="p">:</span> <span class="s">'Commit</span><span class="nv"> </span><span class="s">SHA:</span><span class="nv"> </span><span class="s">${{</span><span class="nv"> </span><span class="s">github.sha</span><span class="nv"> </span><span class="s">}}'</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-72"></a>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-73"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Enable Pull Request Automerge</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-74"></a>        <span class="nt">if</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">steps.cpr.outputs.pull-request-operation == 'created'</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-75"></a>        <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">peter-evans/enable-pull-request-automerge@v1</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-76"></a>        <span class="nt">with</span><span class="p">:</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-77"></a>          <span class="c1"># repo scope の PAT を作成し、</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-78"></a>          <span class="c1"># GitHub Actions の secrets に登録しておく</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-79"></a>          <span class="nt">token</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ secrets.PR_CHANGELOG_PAT }}</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-80"></a>          <span class="nt">pull-request-number</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ steps.cpr.outputs.pull-request-number }}</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-81"></a>          <span class="nt">merge-method</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">squash</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-82"></a>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-83"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Auto approve Pull Request</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-84"></a>        <span class="nt">if</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">steps.cpr.outputs.pull-request-operation == 'created'</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-85"></a>        <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">juliangruber/approve-pull-request-action@v1</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-86"></a>        <span class="nt">with</span><span class="p">:</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-87"></a>          <span class="nt">github-token</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ secrets.GITHUB_TOKEN }}</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-88"></a>          <span class="nt">number</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ steps.cpr.outputs.pull-request-number }}</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-89"></a>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-90"></a>  <span class="nt">deploy</span><span class="p">:</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-91"></a>    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Deploy</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-92"></a>    <span class="nt">runs-on</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-93"></a>    <span class="nt">needs</span><span class="p">:</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-94"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">changelog</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-95"></a>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-96"></a>    <span class="nt">steps</span><span class="p">:</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-97"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Checkout</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-98"></a>        <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">actions/checkout@v2</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-99"></a>        <span class="nt">with</span><span class="p">:</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-100"></a>          <span class="c1"># changelog job で タグを打ったコミットをチェックアウトする</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-101"></a>          <span class="c1"># とはいえ、「ワークフローをトリガーしたコミット == タグを打ったコミット」なので、</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-102"></a>          <span class="c1"># 正直付けなくて良い</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-103"></a>          <span class="nt">fetch-depth</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-104"></a>          <span class="nt">ref</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ needs.changelog.outputs.new_tag }}</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-105"></a>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-106"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Set tagged sha</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-107"></a>        <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">set-tag-sha</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-108"></a>        <span class="c1"># [確認用] チェックアウトしたブランチの最新の commit を取得</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-109"></a>        <span class="nt">run</span><span class="p">:</span> <span class="p p-Indicator">|</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-110"></a>          <span class="no">TAGGED_SHA=$(git log -1 --format='%H')</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-111"></a>          <span class="no">echo $TAGGED_SHA</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-112"></a>          <span class="no">echo "::set-output name=tag-sha::$TAGGED_SHA"</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-113"></a>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-114"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Echo github-ref</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-115"></a>        <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">echo "${{ github.ref }}"</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-116"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Echo github-sha</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-117"></a>        <span class="c1"># ワークフローをトリガーしたときの SHA</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-118"></a>        <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">echo "${{ github.sha }}"</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-119"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Echo tag-sha</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-120"></a>        <span class="c1"># チェックアウトしたブランチの最新の commit の SHA</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-121"></a>        <span class="c1"># == changelog job で tag を打った SHA</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-122"></a>        <span class="c1"># == github-sha</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-123"></a>        <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">echo "${{ steps.set-tag-sha.outputs.tag-sha }}"</span>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-124"></a>
-<a name="rest_code_a00abb0247aa45ba8f525b2c53ab0537-125"></a>      <span class="c1"># あとは deploy する (省略)</span>
+<pre class="code yaml"><a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-1"></a><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Deploy (Case3)</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-2"></a>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-3"></a><span class="nt">on</span><span class="p">:</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-4"></a>  <span class="nt">workflow_dispatch</span><span class="p">:</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-5"></a>    <span class="nt">inputs</span><span class="p">:</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-6"></a>      <span class="nt">custom_tag</span><span class="p">:</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-7"></a>        <span class="nt">description</span><span class="p">:</span> <span class="s">'メジャー/マイナーバージョンをインクリメントしたいときのみ指定してください</span><span class="nv"> </span><span class="s">(e.g.</span><span class="nv"> </span><span class="s">1.2.0)'</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-8"></a>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-9"></a><span class="nt">env</span><span class="p">:</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-10"></a>  <span class="nt">AWS_REGION</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ap-northeast-1</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-11"></a>  <span class="c1"># (以下省略)</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-12"></a>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-13"></a><span class="nt">defaults</span><span class="p">:</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-14"></a>  <span class="nt">run</span><span class="p">:</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-15"></a>    <span class="nt">shell</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">bash</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-16"></a>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-17"></a><span class="nt">jobs</span><span class="p">:</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-18"></a>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-19"></a>  <span class="nt">changelog</span><span class="p">:</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-20"></a>    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Update CHANGELOG and create new tag</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-21"></a>    <span class="nt">runs-on</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-22"></a>    <span class="nt">outputs</span><span class="p">:</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-23"></a>      <span class="c1"># changelog job の outputs として version を bump したタグ名設定</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-24"></a>      <span class="nt">new_tag</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ steps.create-tag.outputs.new_tag }}</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-25"></a>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-26"></a>    <span class="nt">steps</span><span class="p">:</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-27"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Checkout</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-28"></a>        <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">actions/checkout@v2</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-29"></a>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-30"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Build services</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-31"></a>        <span class="nt">run</span><span class="p">:</span> <span class="p p-Indicator">|</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-32"></a>          <span class="no">cp example.env .env</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-33"></a>          <span class="no">docker-compose build --parallel</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-34"></a>        <span class="nt">env</span><span class="p">:</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-35"></a>          <span class="nt">DOCKER_BUILDKIT</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-36"></a>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-37"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Update CHANGELOG</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-38"></a>        <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">docker-compose run -u 0 --rm djangoapp towncrier --yes</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-39"></a>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-40"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Stop and remove containers, networks and volumes</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-41"></a>        <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">docker-compose down -v</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-42"></a>        <span class="nt">if</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">always()</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-43"></a>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-44"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Bump version and push tag</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-45"></a>        <span class="c1"># changelog の PR が merge されるのをワークフロー中で待てないので、</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-46"></a>        <span class="c1"># あきらめて「ワークフローをトリガーしたコミット」にタグを打つ。</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-47"></a>        <span class="c1"># changelog のコミットは、「タグを打ったコミット」より後の別のコミットになる。</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-48"></a>        <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">create-tag</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-49"></a>        <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mathieudutour/github-tag-action@v5.6</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-50"></a>        <span class="c1"># main 以外のブランチで実行した場合は `v1.2.3-{branch_name}.0` のようなタグがつくため、</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-51"></a>        <span class="c1"># main ブランチの bump には影響しない。</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-52"></a>        <span class="c1"># ※ custom_tag に、 main ブランチのタグと同じ形式のタグ名を指定すると影響する</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-53"></a>        <span class="nt">with</span><span class="p">:</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-54"></a>          <span class="c1"># secrets.GITHUB_TOKEN は github.token と同義だそうです</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-55"></a>          <span class="nt">github_token</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ secrets.GITHUB_TOKEN }}</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-56"></a>          <span class="c1"># 手動トリガー時に custom_tag を受け取った場合は、</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-57"></a>          <span class="c1"># 受け取ったタグ名でタグを打つ</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-58"></a>          <span class="nt">custom_tag</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ github.event.inputs.custom_tag }}</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-59"></a>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-60"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Create Pull Request</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-61"></a>        <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cpr</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-62"></a>        <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">peter-evans/create-pull-request@v3</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-63"></a>        <span class="nt">env</span><span class="p">:</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-64"></a>          <span class="nt">TAG_MAME</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ steps.create-tag.outputs.new_tag }}</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-65"></a>        <span class="nt">with</span><span class="p">:</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-66"></a>          <span class="nt">token</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ secrets.PR_CHANGELOG_PAT }}</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-67"></a>          <span class="nt">branch</span><span class="p">:</span> <span class="s">'deploy/${{</span><span class="nv"> </span><span class="s">env.TAG_MAME</span><span class="nv"> </span><span class="s">}}'</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-68"></a>          <span class="nt">commit-message</span><span class="p">:</span> <span class="s">'Updated</span><span class="nv"> </span><span class="s">CHANGELOG</span><span class="nv"> </span><span class="s">${{</span><span class="nv"> </span><span class="s">env.TAG_MAME</span><span class="nv"> </span><span class="s">}}'</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-69"></a>          <span class="nt">title</span><span class="p">:</span> <span class="s">'Update</span><span class="nv"> </span><span class="s">CHANGELOG</span><span class="nv"> </span><span class="s">${{</span><span class="nv"> </span><span class="s">env.TAG_MAME</span><span class="nv"> </span><span class="s">}}'</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-70"></a>          <span class="c1"># どのコミットにタグを打ったかわからなくならないようにメモ↓</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-71"></a>          <span class="nt">body</span><span class="p">:</span> <span class="s">'Commit</span><span class="nv"> </span><span class="s">SHA:</span><span class="nv"> </span><span class="s">${{</span><span class="nv"> </span><span class="s">github.sha</span><span class="nv"> </span><span class="s">}}'</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-72"></a>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-73"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Enable Pull Request Automerge</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-74"></a>        <span class="nt">if</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">steps.cpr.outputs.pull-request-operation == 'created'</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-75"></a>        <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">peter-evans/enable-pull-request-automerge@v1</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-76"></a>        <span class="nt">with</span><span class="p">:</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-77"></a>          <span class="c1"># repo scope の PAT を作成し、</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-78"></a>          <span class="c1"># GitHub Actions の secrets に登録しておく</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-79"></a>          <span class="nt">token</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ secrets.PR_CHANGELOG_PAT }}</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-80"></a>          <span class="nt">pull-request-number</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ steps.cpr.outputs.pull-request-number }}</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-81"></a>          <span class="nt">merge-method</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">squash</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-82"></a>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-83"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Auto approve Pull Request</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-84"></a>        <span class="nt">if</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">steps.cpr.outputs.pull-request-operation == 'created'</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-85"></a>        <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">juliangruber/approve-pull-request-action@v1</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-86"></a>        <span class="nt">with</span><span class="p">:</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-87"></a>          <span class="nt">github-token</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ secrets.GITHUB_TOKEN }}</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-88"></a>          <span class="nt">number</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ steps.cpr.outputs.pull-request-number }}</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-89"></a>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-90"></a>  <span class="nt">deploy</span><span class="p">:</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-91"></a>    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Deploy</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-92"></a>    <span class="nt">runs-on</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-93"></a>    <span class="nt">needs</span><span class="p">:</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-94"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">changelog</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-95"></a>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-96"></a>    <span class="nt">steps</span><span class="p">:</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-97"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Checkout</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-98"></a>        <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">actions/checkout@v2</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-99"></a>        <span class="nt">with</span><span class="p">:</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-100"></a>          <span class="c1"># changelog job で タグを打ったコミットをチェックアウトする</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-101"></a>          <span class="c1"># とはいえ、「ワークフローをトリガーしたコミット == タグを打ったコミット」なので、</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-102"></a>          <span class="c1"># 正直付けなくて良い</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-103"></a>          <span class="nt">fetch-depth</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-104"></a>          <span class="nt">ref</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ needs.changelog.outputs.new_tag }}</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-105"></a>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-106"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Set tagged sha</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-107"></a>        <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">set-tag-sha</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-108"></a>        <span class="c1"># [確認用] チェックアウトしたブランチの最新の commit を取得</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-109"></a>        <span class="nt">run</span><span class="p">:</span> <span class="p p-Indicator">|</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-110"></a>          <span class="no">TAGGED_SHA=$(git log -1 --format='%H')</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-111"></a>          <span class="no">echo $TAGGED_SHA</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-112"></a>          <span class="no">echo "::set-output name=tag-sha::$TAGGED_SHA"</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-113"></a>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-114"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Echo github-ref</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-115"></a>        <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">echo "${{ github.ref }}"</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-116"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Echo github-sha</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-117"></a>        <span class="c1"># ワークフローをトリガーしたときの SHA</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-118"></a>        <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">echo "${{ github.sha }}"</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-119"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Echo tag-sha</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-120"></a>        <span class="c1"># チェックアウトしたブランチの最新の commit の SHA</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-121"></a>        <span class="c1"># == changelog job で tag を打った SHA</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-122"></a>        <span class="c1"># == github-sha</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-123"></a>        <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">echo "${{ steps.set-tag-sha.outputs.tag-sha }}"</span>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-124"></a>
+<a name="rest_code_ab9e856fc3c844ceb51171ddee8ede56-125"></a>      <span class="c1"># あとは deploy する (省略)</span>
 </pre>
 <div class="section" id="note">
 <h4><a class="toc-backref" href="#id31">Note</a></h4>
@@ -547,89 +547,91 @@ workflow は fail します (changelog の push に失敗する) 。</p>
 <li><p>changelog の PR の自動マージを有効化</p></li>
 <li><p>changelog を PR を自動 approve =&gt; Automerge される</p></li>
 </ol>
-<pre class="code yaml"><a name="rest_code_663abab788cd45598df3db00ed7e57a0-1"></a><span class="c1"># Branch protection rules が適用されているブランチであれば、</span>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-2"></a><span class="c1"># main 以外のブランチでも実行できます</span>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-3"></a>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-4"></a><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Deploy dev (Case4-1. changelog)</span>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-5"></a>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-6"></a><span class="nt">on</span><span class="p">:</span>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-7"></a>  <span class="nt">workflow_dispatch</span><span class="p">:</span>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-8"></a>    <span class="nt">inputs</span><span class="p">:</span>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-9"></a>      <span class="nt">custom_tag</span><span class="p">:</span>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-10"></a>        <span class="nt">description</span><span class="p">:</span> <span class="s">'メジャー/マイナーバージョンをインクリメントしたいときのみ指定してください</span><span class="nv"> </span><span class="s">(e.g.</span><span class="nv"> </span><span class="s">1.2.0)'</span>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-11"></a>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-12"></a><span class="nt">defaults</span><span class="p">:</span>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-13"></a>  <span class="nt">run</span><span class="p">:</span>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-14"></a>    <span class="nt">shell</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">bash</span>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-15"></a>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-16"></a><span class="nt">jobs</span><span class="p">:</span>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-17"></a>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-18"></a>  <span class="nt">changelog</span><span class="p">:</span>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-19"></a>    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Update CHANGELOG</span>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-20"></a>    <span class="nt">runs-on</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-21"></a>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-22"></a>    <span class="nt">steps</span><span class="p">:</span>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-23"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Checkout</span>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-24"></a>        <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">actions/checkout@v2</span>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-25"></a>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-26"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Build services</span>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-27"></a>        <span class="nt">run</span><span class="p">:</span> <span class="p p-Indicator">|</span>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-28"></a>          <span class="no">cp example.env .env</span>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-29"></a>          <span class="no">docker-compose build --parallel</span>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-30"></a>        <span class="nt">env</span><span class="p">:</span>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-31"></a>          <span class="nt">DOCKER_BUILDKIT</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-32"></a>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-33"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Update CHANGELOG</span>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-34"></a>        <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">docker-compose run -u 0 --rm djangoapp towncrier --yes</span>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-35"></a>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-36"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Stop and remove containers, networks and volumes</span>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-37"></a>        <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">docker-compose down -v</span>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-38"></a>        <span class="nt">if</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">always()</span>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-39"></a>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-40"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Bump tag version</span>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-41"></a>        <span class="c1"># bump up したタグ名を払い出す</span>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-42"></a>        <span class="c1"># main 以外のブランチで実行した場合は `v1.2.3-{branch_name}.0` のようなタグがつくため、</span>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-43"></a>        <span class="c1">#  main ブランチの bump には影響しない。</span>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-44"></a>        <span class="c1">#  ※ custom_tag に、 main ブランチのタグと同じ形式のタグ名を指定すると影響します</span>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-45"></a>        <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">bump-tag</span>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-46"></a>        <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mathieudutour/github-tag-action@v5.6</span>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-47"></a>        <span class="nt">with</span><span class="p">:</span>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-48"></a>          <span class="nt">github_token</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ secrets.GITHUB_TOKEN }}</span>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-49"></a>          <span class="nt">custom_tag</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ github.event.inputs.custom_tag }}</span>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-50"></a>          <span class="c1"># タグ打ちはまだしない</span>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-51"></a>          <span class="nt">dry_run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-52"></a>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-53"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Create Pull Request</span>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-54"></a>        <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cpr</span>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-55"></a>        <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">peter-evans/create-pull-request@v3</span>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-56"></a>        <span class="nt">env</span><span class="p">:</span>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-57"></a>          <span class="nt">TAG_MAME</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ steps.bump-tag.outputs.new_tag }}</span>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-58"></a>        <span class="nt">with</span><span class="p">:</span>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-59"></a>          <span class="c1"># repo scope の PAT を作成し、</span>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-60"></a>          <span class="c1"># GitHub Actions の secrets に登録しておく</span>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-61"></a>          <span class="nt">token</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ secrets.PR_CHANGELOG_PAT }}</span>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-62"></a>          <span class="nt">branch</span><span class="p">:</span> <span class="s">'deploy/${{</span><span class="nv"> </span><span class="s">env.TAG_MAME</span><span class="nv"> </span><span class="s">}}'</span>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-63"></a>          <span class="nt">commit-message</span><span class="p">:</span> <span class="s">'Updated</span><span class="nv"> </span><span class="s">CHANGELOG</span><span class="nv"> </span><span class="s">${{</span><span class="nv"> </span><span class="s">env.TAG_MAME</span><span class="nv"> </span><span class="s">}}'</span>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-64"></a>          <span class="nt">title</span><span class="p">:</span> <span class="s">'Update</span><span class="nv"> </span><span class="s">CHANGELOG</span><span class="nv"> </span><span class="s">${{</span><span class="nv"> </span><span class="s">env.TAG_MAME</span><span class="nv"> </span><span class="s">}}'</span>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-65"></a>          <span class="c1"># `deploy` label を付けておく</span>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-66"></a>          <span class="nt">labels</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">deploy, automerge</span>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-67"></a>          <span class="c1"># deploy workflow でタグ打ちするので、 next tag を body に書いておく</span>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-68"></a>          <span class="nt">body</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ env.TAG_MAME }}</span>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-69"></a>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-70"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Enable Pull Request Automerge</span>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-71"></a>        <span class="nt">if</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">steps.cpr.outputs.pull-request-operation == 'created'</span>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-72"></a>        <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">peter-evans/enable-pull-request-automerge@v1</span>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-73"></a>        <span class="nt">with</span><span class="p">:</span>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-74"></a>          <span class="nt">token</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ secrets.PR_CHANGELOG_PAT }}</span>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-75"></a>          <span class="nt">pull-request-number</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ steps.cpr.outputs.pull-request-number }}</span>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-76"></a>          <span class="nt">merge-method</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">squash</span>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-77"></a>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-78"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Auto approve Pull Request</span>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-79"></a>        <span class="nt">if</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">steps.cpr.outputs.pull-request-operation == 'created'</span>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-80"></a>        <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">juliangruber/approve-pull-request-action@v1</span>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-81"></a>        <span class="nt">with</span><span class="p">:</span>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-82"></a>          <span class="nt">github-token</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ secrets.GITHUB_TOKEN }}</span>
-<a name="rest_code_663abab788cd45598df3db00ed7e57a0-83"></a>          <span class="nt">number</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ steps.cpr.outputs.pull-request-number }}</span>
+<pre class="code yaml"><a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-1"></a><span class="c1"># Branch protection rules が適用されているブランチであれば、</span>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-2"></a><span class="c1"># main 以外のブランチでも実行できます</span>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-3"></a>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-4"></a><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Deploy dev (Case4-1. changelog)</span>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-5"></a>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-6"></a><span class="nt">on</span><span class="p">:</span>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-7"></a>  <span class="nt">workflow_dispatch</span><span class="p">:</span>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-8"></a>    <span class="nt">inputs</span><span class="p">:</span>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-9"></a>      <span class="nt">custom_tag</span><span class="p">:</span>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-10"></a>        <span class="nt">description</span><span class="p">:</span> <span class="s">'メジャー/マイナーバージョンをインクリメントしたいときのみ指定してください</span><span class="nv"> </span><span class="s">(e.g.</span><span class="nv"> </span><span class="s">1.2.0)'</span>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-11"></a>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-12"></a><span class="nt">defaults</span><span class="p">:</span>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-13"></a>  <span class="nt">run</span><span class="p">:</span>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-14"></a>    <span class="nt">shell</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">bash</span>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-15"></a>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-16"></a><span class="nt">jobs</span><span class="p">:</span>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-17"></a>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-18"></a>  <span class="nt">changelog</span><span class="p">:</span>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-19"></a>    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Update CHANGELOG</span>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-20"></a>    <span class="nt">runs-on</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-21"></a>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-22"></a>    <span class="nt">steps</span><span class="p">:</span>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-23"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Checkout</span>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-24"></a>        <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">actions/checkout@v2</span>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-25"></a>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-26"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Bump tag version</span>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-27"></a>        <span class="c1"># bump up したタグ名を払い出す</span>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-28"></a>        <span class="c1"># main 以外のブランチで実行した場合は `v1.2.3-{branch_name}.0` のようなタグがつくため、</span>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-29"></a>        <span class="c1">#  main ブランチの bump には影響しない。</span>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-30"></a>        <span class="c1">#  ※ custom_tag に、 main ブランチのタグと同じ形式のタグ名を指定すると影響します</span>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-31"></a>        <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">bump-tag</span>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-32"></a>        <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mathieudutour/github-tag-action@v5.6</span>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-33"></a>        <span class="nt">with</span><span class="p">:</span>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-34"></a>          <span class="nt">github_token</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ secrets.GITHUB_TOKEN }}</span>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-35"></a>          <span class="nt">custom_tag</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ github.event.inputs.custom_tag }}</span>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-36"></a>          <span class="c1"># タグ打ちはまだしない</span>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-37"></a>          <span class="nt">dry_run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-38"></a>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-39"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Build services</span>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-40"></a>        <span class="nt">run</span><span class="p">:</span> <span class="p p-Indicator">|</span>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-41"></a>          <span class="no">cp example.env .env</span>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-42"></a>          <span class="no">docker-compose build --parallel</span>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-43"></a>        <span class="nt">env</span><span class="p">:</span>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-44"></a>          <span class="nt">DOCKER_BUILDKIT</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-45"></a>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-46"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Update CHANGELOG</span>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-47"></a>        <span class="nt">env</span><span class="p">:</span>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-48"></a>          <span class="nt">TAG_MAME</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ steps.bump-tag.outputs.new_tag }}</span>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-49"></a>        <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">docker-compose run -u 0 --rm djangoapp towncrier --yes --version=${{ env.TAG_MAME }}</span>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-50"></a>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-51"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Stop and remove containers, networks and volumes</span>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-52"></a>        <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">docker-compose down -v</span>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-53"></a>        <span class="nt">if</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">always()</span>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-54"></a>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-55"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Create Pull Request</span>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-56"></a>        <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cpr</span>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-57"></a>        <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">peter-evans/create-pull-request@v3</span>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-58"></a>        <span class="nt">env</span><span class="p">:</span>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-59"></a>          <span class="nt">TAG_MAME</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ steps.bump-tag.outputs.new_tag }}</span>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-60"></a>        <span class="nt">with</span><span class="p">:</span>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-61"></a>          <span class="c1"># repo scope の PAT を作成し、</span>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-62"></a>          <span class="c1"># GitHub Actions の secrets に登録しておく</span>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-63"></a>          <span class="nt">token</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ secrets.PR_CHANGELOG_PAT }}</span>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-64"></a>          <span class="nt">branch</span><span class="p">:</span> <span class="s">'deploy/${{</span><span class="nv"> </span><span class="s">env.TAG_MAME</span><span class="nv"> </span><span class="s">}}'</span>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-65"></a>          <span class="nt">commit-message</span><span class="p">:</span> <span class="s">'Updated</span><span class="nv"> </span><span class="s">CHANGELOG</span><span class="nv"> </span><span class="s">${{</span><span class="nv"> </span><span class="s">env.TAG_MAME</span><span class="nv"> </span><span class="s">}}'</span>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-66"></a>          <span class="nt">title</span><span class="p">:</span> <span class="s">'Update</span><span class="nv"> </span><span class="s">CHANGELOG</span><span class="nv"> </span><span class="s">${{</span><span class="nv"> </span><span class="s">env.TAG_MAME</span><span class="nv"> </span><span class="s">}}'</span>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-67"></a>          <span class="c1"># `deploy` label を付けておく</span>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-68"></a>          <span class="nt">labels</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">deploy, automerge</span>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-69"></a>          <span class="c1"># deploy workflow でタグ打ちするので、 next tag を body に書いておく</span>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-70"></a>          <span class="nt">body</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ env.TAG_MAME }}</span>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-71"></a>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-72"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Enable Pull Request Automerge</span>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-73"></a>        <span class="nt">if</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">steps.cpr.outputs.pull-request-operation == 'created'</span>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-74"></a>        <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">peter-evans/enable-pull-request-automerge@v1</span>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-75"></a>        <span class="nt">with</span><span class="p">:</span>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-76"></a>          <span class="nt">token</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ secrets.PR_CHANGELOG_PAT }}</span>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-77"></a>          <span class="nt">pull-request-number</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ steps.cpr.outputs.pull-request-number }}</span>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-78"></a>          <span class="nt">merge-method</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">squash</span>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-79"></a>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-80"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Auto approve Pull Request</span>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-81"></a>        <span class="nt">if</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">steps.cpr.outputs.pull-request-operation == 'created'</span>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-82"></a>        <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">juliangruber/approve-pull-request-action@v1</span>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-83"></a>        <span class="nt">with</span><span class="p">:</span>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-84"></a>          <span class="nt">github-token</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ secrets.GITHUB_TOKEN }}</span>
+<a name="rest_code_a266cf56da964601bbeccc24c9dfdbcf-85"></a>          <span class="nt">number</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ steps.cpr.outputs.pull-request-number }}</span>
 </pre>
 </div>
 <div class="section" id="tag-deploy">
@@ -651,59 +653,59 @@ workflow は fail します (changelog の push に失敗する) 。</p>
 </li>
 <li><p>deploy</p></li>
 </ol>
-<pre class="code yaml"><a name="rest_code_8f3da937902f458db97ccecf9df34267-1"></a><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Deploy dev (Case4-2. deploy)</span>
-<a name="rest_code_8f3da937902f458db97ccecf9df34267-2"></a>
-<a name="rest_code_8f3da937902f458db97ccecf9df34267-3"></a><span class="nt">on</span><span class="p">:</span>
-<a name="rest_code_8f3da937902f458db97ccecf9df34267-4"></a>  <span class="nt">pull_request</span><span class="p">:</span>
-<a name="rest_code_8f3da937902f458db97ccecf9df34267-5"></a>    <span class="nt">types</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">closed</span><span class="p p-Indicator">]</span>
-<a name="rest_code_8f3da937902f458db97ccecf9df34267-6"></a>
-<a name="rest_code_8f3da937902f458db97ccecf9df34267-7"></a><span class="nt">env</span><span class="p">:</span>
-<a name="rest_code_8f3da937902f458db97ccecf9df34267-8"></a>  <span class="nt">AWS_REGION</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ap-northeast-1</span>
-<a name="rest_code_8f3da937902f458db97ccecf9df34267-9"></a>  <span class="c1"># (以下省略)</span>
-<a name="rest_code_8f3da937902f458db97ccecf9df34267-10"></a>
-<a name="rest_code_8f3da937902f458db97ccecf9df34267-11"></a><span class="nt">defaults</span><span class="p">:</span>
-<a name="rest_code_8f3da937902f458db97ccecf9df34267-12"></a>  <span class="nt">run</span><span class="p">:</span>
-<a name="rest_code_8f3da937902f458db97ccecf9df34267-13"></a>    <span class="nt">shell</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">bash</span>
-<a name="rest_code_8f3da937902f458db97ccecf9df34267-14"></a>
-<a name="rest_code_8f3da937902f458db97ccecf9df34267-15"></a><span class="nt">jobs</span><span class="p">:</span>
-<a name="rest_code_8f3da937902f458db97ccecf9df34267-16"></a>
-<a name="rest_code_8f3da937902f458db97ccecf9df34267-17"></a>  <span class="nt">deploy</span><span class="p">:</span>
-<a name="rest_code_8f3da937902f458db97ccecf9df34267-18"></a>    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Tag and Deploy</span>
-<a name="rest_code_8f3da937902f458db97ccecf9df34267-19"></a>    <span class="nt">runs-on</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
-<a name="rest_code_8f3da937902f458db97ccecf9df34267-20"></a>    <span class="c1"># PR が merge 済み、かつ、`deploy` label 付きの場合だけ実行</span>
-<a name="rest_code_8f3da937902f458db97ccecf9df34267-21"></a>    <span class="c1"># ほかのトピックブランチが merge -&gt; close されたときには、 Skip されるよ</span>
-<a name="rest_code_8f3da937902f458db97ccecf9df34267-22"></a>    <span class="nt">if</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">github.event.pull_request.merged == true &amp;&amp; contains(github.event.pull_request.labels.*.name, 'deploy')</span>
-<a name="rest_code_8f3da937902f458db97ccecf9df34267-23"></a>
-<a name="rest_code_8f3da937902f458db97ccecf9df34267-24"></a>    <span class="nt">steps</span><span class="p">:</span>
-<a name="rest_code_8f3da937902f458db97ccecf9df34267-25"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Checkout</span>
-<a name="rest_code_8f3da937902f458db97ccecf9df34267-26"></a>        <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">actions/checkout@v2</span>
-<a name="rest_code_8f3da937902f458db97ccecf9df34267-27"></a>        <span class="c1"># ワークフローをトリガーした PR の マージブランチの直近のマージコミット</span>
-<a name="rest_code_8f3da937902f458db97ccecf9df34267-28"></a>        <span class="c1"># がチェックアウトされる</span>
-<a name="rest_code_8f3da937902f458db97ccecf9df34267-29"></a>
-<a name="rest_code_8f3da937902f458db97ccecf9df34267-30"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Echo github-ref</span>
-<a name="rest_code_8f3da937902f458db97ccecf9df34267-31"></a>        <span class="c1"># ワークフローをトリガーした PR のマージブランチ</span>
-<a name="rest_code_8f3da937902f458db97ccecf9df34267-32"></a>        <span class="c1"># 例えば、PR のブランチが main から生えていたら、 `main` 、</span>
-<a name="rest_code_8f3da937902f458db97ccecf9df34267-33"></a>        <span class="c1">#  ブランチA から生えていたら `branchA`</span>
-<a name="rest_code_8f3da937902f458db97ccecf9df34267-34"></a>        <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">echo "${{ github.ref }}"</span>
-<a name="rest_code_8f3da937902f458db97ccecf9df34267-35"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Echo github-sha</span>
-<a name="rest_code_8f3da937902f458db97ccecf9df34267-36"></a>        <span class="c1"># ワークフローをトリガーした PR の マージブランチの直近のマージコミット</span>
-<a name="rest_code_8f3da937902f458db97ccecf9df34267-37"></a>        <span class="c1"># == changelog の commit</span>
-<a name="rest_code_8f3da937902f458db97ccecf9df34267-38"></a>        <span class="c1"># (タイミングによっては違っちゃうこともあるかもしれない、頻度は低いが可能性としてはありえそう)</span>
-<a name="rest_code_8f3da937902f458db97ccecf9df34267-39"></a>        <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">echo "${{ github.sha }}"</span>
-<a name="rest_code_8f3da937902f458db97ccecf9df34267-40"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Echo github-head-sha</span>
-<a name="rest_code_8f3da937902f458db97ccecf9df34267-41"></a>        <span class="c1"># PR のブランチで changelog を commit したときの commit</span>
-<a name="rest_code_8f3da937902f458db97ccecf9df34267-42"></a>        <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">echo "${{ github.event.pull_request.head.sha }}"</span>
-<a name="rest_code_8f3da937902f458db97ccecf9df34267-43"></a>
-<a name="rest_code_8f3da937902f458db97ccecf9df34267-44"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Push tag</span>
-<a name="rest_code_8f3da937902f458db97ccecf9df34267-45"></a>        <span class="nt">env</span><span class="p">:</span>
-<a name="rest_code_8f3da937902f458db97ccecf9df34267-46"></a>          <span class="c1"># ワークフローをトリガーした PR の body から取得した next tag</span>
-<a name="rest_code_8f3da937902f458db97ccecf9df34267-47"></a>          <span class="nt">TAG_MAME</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ github.event.pull_request.body }}</span>
-<a name="rest_code_8f3da937902f458db97ccecf9df34267-48"></a>          <span class="nt">COMMIT</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ github.sha }}</span>
-<a name="rest_code_8f3da937902f458db97ccecf9df34267-49"></a>        <span class="nt">run</span><span class="p">:</span> <span class="p p-Indicator">|</span>
-<a name="rest_code_8f3da937902f458db97ccecf9df34267-50"></a>          <span class="no">git tag $TAG_MAME $COMMIT</span>
-<a name="rest_code_8f3da937902f458db97ccecf9df34267-51"></a>          <span class="no">git push origin $TAG_MAME</span>
-<a name="rest_code_8f3da937902f458db97ccecf9df34267-52"></a>
-<a name="rest_code_8f3da937902f458db97ccecf9df34267-53"></a>      <span class="c1"># あとは deploy する (省略)</span>
+<pre class="code yaml"><a name="rest_code_c771bf5de39f4a87bc6361dc13a55013-1"></a><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Deploy dev (Case4-2. deploy)</span>
+<a name="rest_code_c771bf5de39f4a87bc6361dc13a55013-2"></a>
+<a name="rest_code_c771bf5de39f4a87bc6361dc13a55013-3"></a><span class="nt">on</span><span class="p">:</span>
+<a name="rest_code_c771bf5de39f4a87bc6361dc13a55013-4"></a>  <span class="nt">pull_request</span><span class="p">:</span>
+<a name="rest_code_c771bf5de39f4a87bc6361dc13a55013-5"></a>    <span class="nt">types</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">closed</span><span class="p p-Indicator">]</span>
+<a name="rest_code_c771bf5de39f4a87bc6361dc13a55013-6"></a>
+<a name="rest_code_c771bf5de39f4a87bc6361dc13a55013-7"></a><span class="nt">env</span><span class="p">:</span>
+<a name="rest_code_c771bf5de39f4a87bc6361dc13a55013-8"></a>  <span class="nt">AWS_REGION</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ap-northeast-1</span>
+<a name="rest_code_c771bf5de39f4a87bc6361dc13a55013-9"></a>  <span class="c1"># (以下省略)</span>
+<a name="rest_code_c771bf5de39f4a87bc6361dc13a55013-10"></a>
+<a name="rest_code_c771bf5de39f4a87bc6361dc13a55013-11"></a><span class="nt">defaults</span><span class="p">:</span>
+<a name="rest_code_c771bf5de39f4a87bc6361dc13a55013-12"></a>  <span class="nt">run</span><span class="p">:</span>
+<a name="rest_code_c771bf5de39f4a87bc6361dc13a55013-13"></a>    <span class="nt">shell</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">bash</span>
+<a name="rest_code_c771bf5de39f4a87bc6361dc13a55013-14"></a>
+<a name="rest_code_c771bf5de39f4a87bc6361dc13a55013-15"></a><span class="nt">jobs</span><span class="p">:</span>
+<a name="rest_code_c771bf5de39f4a87bc6361dc13a55013-16"></a>
+<a name="rest_code_c771bf5de39f4a87bc6361dc13a55013-17"></a>  <span class="nt">deploy</span><span class="p">:</span>
+<a name="rest_code_c771bf5de39f4a87bc6361dc13a55013-18"></a>    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Tag and Deploy</span>
+<a name="rest_code_c771bf5de39f4a87bc6361dc13a55013-19"></a>    <span class="nt">runs-on</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<a name="rest_code_c771bf5de39f4a87bc6361dc13a55013-20"></a>    <span class="c1"># PR が merge 済み、かつ、`deploy` label 付きの場合だけ実行</span>
+<a name="rest_code_c771bf5de39f4a87bc6361dc13a55013-21"></a>    <span class="c1"># ほかのトピックブランチが merge -&gt; close されたときには、 Skip されるよ</span>
+<a name="rest_code_c771bf5de39f4a87bc6361dc13a55013-22"></a>    <span class="nt">if</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">github.event.pull_request.merged == true &amp;&amp; contains(github.event.pull_request.labels.*.name, 'deploy')</span>
+<a name="rest_code_c771bf5de39f4a87bc6361dc13a55013-23"></a>
+<a name="rest_code_c771bf5de39f4a87bc6361dc13a55013-24"></a>    <span class="nt">steps</span><span class="p">:</span>
+<a name="rest_code_c771bf5de39f4a87bc6361dc13a55013-25"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Checkout</span>
+<a name="rest_code_c771bf5de39f4a87bc6361dc13a55013-26"></a>        <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">actions/checkout@v2</span>
+<a name="rest_code_c771bf5de39f4a87bc6361dc13a55013-27"></a>        <span class="c1"># ワークフローをトリガーした PR の マージブランチの直近のマージコミット</span>
+<a name="rest_code_c771bf5de39f4a87bc6361dc13a55013-28"></a>        <span class="c1"># がチェックアウトされる</span>
+<a name="rest_code_c771bf5de39f4a87bc6361dc13a55013-29"></a>
+<a name="rest_code_c771bf5de39f4a87bc6361dc13a55013-30"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Echo github-ref</span>
+<a name="rest_code_c771bf5de39f4a87bc6361dc13a55013-31"></a>        <span class="c1"># ワークフローをトリガーした PR のマージブランチ</span>
+<a name="rest_code_c771bf5de39f4a87bc6361dc13a55013-32"></a>        <span class="c1"># 例えば、PR のブランチが main から生えていたら、 `main` 、</span>
+<a name="rest_code_c771bf5de39f4a87bc6361dc13a55013-33"></a>        <span class="c1">#  ブランチA から生えていたら `branchA`</span>
+<a name="rest_code_c771bf5de39f4a87bc6361dc13a55013-34"></a>        <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">echo "${{ github.ref }}"</span>
+<a name="rest_code_c771bf5de39f4a87bc6361dc13a55013-35"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Echo github-sha</span>
+<a name="rest_code_c771bf5de39f4a87bc6361dc13a55013-36"></a>        <span class="c1"># ワークフローをトリガーした PR の マージブランチの直近のマージコミット</span>
+<a name="rest_code_c771bf5de39f4a87bc6361dc13a55013-37"></a>        <span class="c1"># == changelog の commit</span>
+<a name="rest_code_c771bf5de39f4a87bc6361dc13a55013-38"></a>        <span class="c1"># (タイミングによっては違っちゃうこともあるかもしれない、頻度は低いが可能性としてはありえそう)</span>
+<a name="rest_code_c771bf5de39f4a87bc6361dc13a55013-39"></a>        <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">echo "${{ github.sha }}"</span>
+<a name="rest_code_c771bf5de39f4a87bc6361dc13a55013-40"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Echo github-head-sha</span>
+<a name="rest_code_c771bf5de39f4a87bc6361dc13a55013-41"></a>        <span class="c1"># PR のブランチで changelog を commit したときの commit</span>
+<a name="rest_code_c771bf5de39f4a87bc6361dc13a55013-42"></a>        <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">echo "${{ github.event.pull_request.head.sha }}"</span>
+<a name="rest_code_c771bf5de39f4a87bc6361dc13a55013-43"></a>
+<a name="rest_code_c771bf5de39f4a87bc6361dc13a55013-44"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Push tag</span>
+<a name="rest_code_c771bf5de39f4a87bc6361dc13a55013-45"></a>        <span class="nt">env</span><span class="p">:</span>
+<a name="rest_code_c771bf5de39f4a87bc6361dc13a55013-46"></a>          <span class="c1"># ワークフローをトリガーした PR の body から取得した next tag</span>
+<a name="rest_code_c771bf5de39f4a87bc6361dc13a55013-47"></a>          <span class="nt">TAG_MAME</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ github.event.pull_request.body }}</span>
+<a name="rest_code_c771bf5de39f4a87bc6361dc13a55013-48"></a>          <span class="nt">COMMIT</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ github.sha }}</span>
+<a name="rest_code_c771bf5de39f4a87bc6361dc13a55013-49"></a>        <span class="nt">run</span><span class="p">:</span> <span class="p p-Indicator">|</span>
+<a name="rest_code_c771bf5de39f4a87bc6361dc13a55013-50"></a>          <span class="no">git tag $TAG_MAME $COMMIT</span>
+<a name="rest_code_c771bf5de39f4a87bc6361dc13a55013-51"></a>          <span class="no">git push origin $TAG_MAME</span>
+<a name="rest_code_c771bf5de39f4a87bc6361dc13a55013-52"></a>
+<a name="rest_code_c771bf5de39f4a87bc6361dc13a55013-53"></a>      <span class="c1"># あとは deploy する (省略)</span>
 </pre>
 </div>
 </div>
