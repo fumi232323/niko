@@ -1,4 +1,4 @@
-.. title: ECS Fargate: コンテナごとの平均CPU使用率とメモリ使用率を見たい
+.. title: ECS Fargate: コンテナごとの CPU使用率とメモリ使用率を見たい
 .. tags: aws
 .. date: 2021-10-10
 .. updated: 2021-10-10
