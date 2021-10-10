@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<title>React: 公式チュートリアルやってみた React のメモ/ふみのて</title>
+<link rel="shortcut icon" href="../../../assets/icons/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sawarabi+Mincho&amp;display=swap&amp;subset=japanese,latin-ext">
+<link href="https://fonts.googleapis.com/css2?family=Capriola&amp;family=Mirza&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Vollkorn:400,700">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+<link rel="stylesheet" href="../../../assets/css/style.css?20200720">
+</head>
+<body>
+    <div class="container">
+      <div class="header"><header class="item item-header"><h1>
+    <a href="../../../">
+      <img class="logo" src="../../../assets/images/inuu.png" alt="犬"></a>
+  </h1>
+  <iframe src="../../../tags/" class="tags"></iframe>
+</header></div>
+      <div class="main">
+<div class="article-content">
+  <main class="item item-article item-frontend"><div class="category">
+      <a href="../../../tags/frontend/">
+          frontend
+      </a>
+    </div>
+    <div class="title">React: 公式チュートリアルやってみた React のメモ</div>
+    <time class="date" datetime="2020-06-21 00:00:00+09:00">
+      2020-06-21 Sun
+    </time><time class="date" datetime="2020-06-21 00:00:00+09:00">
+        updated: 2020-06-21 Sun
+        
+      </time><div class="text">
+      <div>
+<details><summary>目次</summary><div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#id1" id="id3">リファレンス, 書籍</a></p></li>
+<li><p><a class="reference internal" href="#id2" id="id4">ふむ</a></p></li>
+<li><p><a class="reference internal" href="#memo" id="id5">コマンド memo</a></p></li>
+</ul>
+</div>
+</details><div class="section" id="id1">
+<h2><a class="toc-backref" href="#id3">リファレンス, 書籍</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ja.reactjs.org/tutorial/tutorial.html">https://ja.reactjs.org/tutorial/tutorial.html</a></p></li>
+<li><p><a class="reference external" href="https://ja.reactjs.org/docs/hello-world.html">https://ja.reactjs.org/docs/hello-world.html</a></p></li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2><a class="toc-backref" href="#id4">ふむ</a></h2>
+<ul class="simple">
+<li><p>インタラクティブな三目並べゲーム (tic-tac-toe) を作る</p></li>
+<li>
+<p><code class="docutils literal">Create React App</code>: <a class="reference external" href="https://ja.reactjs.org/docs/create-a-new-react-app.html#create-react-app">https://ja.reactjs.org/docs/create-a-new-react-app.html#create-react-app</a></p>
+<ul>
+<li><p>フロントエンドのビルドパイプラインを構築する</p></li>
+<li><p>バックエンドのロジックやデータベース接続は扱わない</p></li>
+<li><p>内部では Babel と webpack を利用している</p></li>
+</ul>
+</li>
+<li><p>コンポーネントは <code class="docutils literal">props</code> （“<code class="docutils literal">properties</code>” の略）と呼ばれるパラメータを受け取り、<code class="docutils literal">render</code> メソッドを通じて、表示するビューの階層構造を返します。</p></li>
+<li><p><code class="docutils literal">this.state</code> はそれが定義されているコンポーネント内でプライベートと見なすべきものです</p></li>
+<li><p>JavaScript のクラスでは、サブクラスのコンストラクタを定義する際は常に <code class="docutils literal">super</code> を呼ぶ必要があります。</p></li>
+<li><p><code class="docutils literal">constructor</code> を持つ React のクラスコンポーネントでは、すべてコンストラクタを <code class="docutils literal">super(props)</code> の呼び出しから始めるべきです。</p></li>
+<li><p><code class="docutils literal">state</code> を親コンポーネントにリフトアップ (lift up) することは React コンポーネントのリファクタリングでよくあることです</p></li>
+<li><p>React では、イベントを表す <code class="docutils literal">props</code> には <code class="docutils literal">on[Event]</code> という名前、イベントを処理するメソッドには <code class="docutils literal">handle[Event]</code> という名前を付けるのが慣習となっています。</p></li>
+<li><p>React における関数コンポーネントとは、<code class="docutils literal">render</code> メソッドだけを有して自分の <code class="docutils literal">state</code> を持たないコンポーネントを、よりシンプルに書くための方法です。React.Component を継承するクラスを定義する代わりに、<code class="docutils literal">props</code> を入力として受け取り表示すべき内容を返す関数を定義します。</p></li>
+<li><p>リストには <code class="docutils literal">key</code> が必要です</p></li>
+<li><p>「実を言うと class コンポーネントはもうあんまり使わないから state も使わないんだよなぁ。関数コンポーネントで書いて、状態はフックで管理するのが今どきのやり方らしい。」という情報を得た</p></li>
+</ul>
+</div>
+<div class="section" id="memo">
+<h2><a class="toc-backref" href="#id5">コマンド memo</a></h2>
+<pre class="code bash"><a name="rest_code_ca33713cbc6e42f8aa305bca54d0fa9d-1"></a><span class="c1"># https://nodejs.org/en/</span>
+<a name="rest_code_ca33713cbc6e42f8aa305bca54d0fa9d-2"></a><span class="c1"># Node.js のバージョンを確認する</span>
+<a name="rest_code_ca33713cbc6e42f8aa305bca54d0fa9d-3"></a>$ node --version
+<a name="rest_code_ca33713cbc6e42f8aa305bca54d0fa9d-4"></a>
+<a name="rest_code_ca33713cbc6e42f8aa305bca54d0fa9d-5"></a><span class="c1"># Create React App で新しいプロジェクトを作成する</span>
+<a name="rest_code_ca33713cbc6e42f8aa305bca54d0fa9d-6"></a><span class="c1"># npx: npm 5.2 から利用できるパッケージランナーツール</span>
+<a name="rest_code_ca33713cbc6e42f8aa305bca54d0fa9d-7"></a>$ npx create-react-app tic-tac-toe
+<a name="rest_code_ca33713cbc6e42f8aa305bca54d0fa9d-8"></a>
+<a name="rest_code_ca33713cbc6e42f8aa305bca54d0fa9d-9"></a><span class="c1"># アプリを起動</span>
+<a name="rest_code_ca33713cbc6e42f8aa305bca54d0fa9d-10"></a>$ <span class="nb">cd</span> tic-tac-toe
+<a name="rest_code_ca33713cbc6e42f8aa305bca54d0fa9d-11"></a>$ npm start
+</pre>
+</div>
+</div>
+    </div>
+  </main>
+</div>
+</div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<title>React: [読書メモ] React、Angular、Vue.js、React Nativeを使って学ぶ はじめてのフロントエンド開発 (props, state, Component)/ふみのて</title>
+<link rel="shortcut icon" href="../../../assets/icons/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sawarabi+Mincho&amp;display=swap&amp;subset=japanese,latin-ext">
+<link href="https://fonts.googleapis.com/css2?family=Capriola&amp;family=Mirza&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Vollkorn:400,700">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+<link rel="stylesheet" href="../../../assets/css/style.css?20200720">
+</head>
+<body>
+    <div class="container">
+      <div class="header"><header class="item item-header"><h1>
+    <a href="../../../">
+      <img class="logo" src="../../../assets/images/inuu.png" alt="犬"></a>
+  </h1>
+  <iframe src="../../../tags/" class="tags"></iframe>
+</header></div>
+      <div class="main">
+<div class="article-content">
+  <main class="item item-article item-frontend"><div class="category">
+      <a href="../../../tags/frontend/">
+          frontend
+      </a>
+    </div>
+    <div class="title">React: [読書メモ] React、Angular、Vue.js、React Nativeを使って学ぶ はじめてのフロントエンド開発 (props, state, Component)</div>
+    <time class="date" datetime="2020-05-24 00:00:00+09:00">
+      2020-05-24 Sun
+    </time><time class="date" datetime="2020-05-24 00:00:00+09:00">
+        updated: 2020-05-24 Sun
+        
+      </time><div class="text">
+      <div>
+<details><summary>目次</summary><div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#id1" id="id5">リファレンス, 書籍</a></p></li>
+<li>
+<p><a class="reference internal" href="#id2" id="id6">これが大事</a></p>
+<ul>
+<li><p><a class="reference internal" href="#component" id="id7">Component の構成要素</a></p></li>
+<li><p><a class="reference internal" href="#props-state" id="id8">props と state</a></p></li>
+<li><p><a class="reference internal" href="#id3" id="id9">Component ライフサイクル</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#id4" id="id10">その他</a></p></li>
+</ul>
+</div>
+</details><div class="section" id="id1">
+<h2><a class="toc-backref" href="#id5">リファレンス, 書籍</a></h2>
+<ul class="simple">
+<li><p>React、Angular、Vue.js、React Nativeを使って学ぶ はじめてのフロントエンド開発: <a class="reference external" href="https://gihyo.jp/book/2018/978-4-7741-9706-7">https://gihyo.jp/book/2018/978-4-7741-9706-7</a></p></li>
+<li><p><a class="reference external" href="https://reactjs.org/">https://reactjs.org/</a></p></li>
+<li><p><a class="reference external" href="https://ja.reactjs.org/">https://ja.reactjs.org/</a></p></li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2><a class="toc-backref" href="#id6">これが大事</a></h2>
+<ul class="simple">
+<li><p>props と state の役割と利用方法</p></li>
+<li><p>Component ライフサイクルの管理</p></li>
+</ul>
+<div class="section" id="component">
+<h3><a class="toc-backref" href="#id7">Component の構成要素</a></h3>
+<blockquote>
+<ul class="simple">
+<li>
+<p><code class="docutils literal">constructor()</code>: ECMAScript 2015 から利用できるようになったクラスのコンストラクタ</p>
+<ul>
+<li>
+<p>React の Component としては主に state の初期状態をセットするのに利用する</p>
+<ul>
+<li><p>state: Component のレンダリングに結びつく値を管理する状態</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><code class="docutils literal">handleInputChange()</code> ※名前は任意: ユーザの操作を Component の state に反映させる役割</p></li>
+<li><p><code class="docutils literal">componentDidMount()</code>: Component ライフサイクルに関するメソッド</p></li>
+<li>
+<p><code class="docutils literal">render()</code>: VirtualDOM（VDOM）のレンダリングに関する処理を行うメソッド。</p>
+<ul>
+<li><p>Reactは、標準では HTML のレンダリングのために JSX を使用する</p></li>
+</ul>
+</li>
+<li><p>Preview も Component のひとつ</p></li>
+<li><p>Class Component: React.Component を継承して定義する Component</p></li>
+<li><p>Functional Component: 関数として定義される Component</p></li>
+<li><p>React は Component を入れ子にしてアプリケーションを組み立てます</p></li>
+</ul>
+</blockquote>
+</div>
+<div class="section" id="props-state">
+<h3><a class="toc-backref" href="#id8">props と state</a></h3>
+<ul class="simple">
+<li>
+<p>props:</p>
+<ul>
+<li><p>Component に対する入力、親 Component から子 Component に渡される(降ろされる) もの</p></li>
+<li><p>props は読み込み専用、変更してはいけない</p></li>
+</ul>
+</li>
+<li>
+<p>state:</p>
+<ul>
+<li>
+<p>Component 自体が持つ「状態」</p>
+<ul>
+<li><p>ユーザが入力中のテキストや、チェックボックスがチェックされているかどうかの判定、データの読み込みが完了したかどうかの情報などが「状態」に該当する。</p></li>
+</ul>
+</li>
+<li><p>props とは異なり、 state は変更可能。</p></li>
+<li><p>React では state を変更することで、外部データやユーザの入力内容を Component に反映して行く</p></li>
+<li><p>state を変更する場合は、必ず <code class="docutils literal">this.setState()</code> を利用する</p></li>
+<li><p>React では、classのプロパティを自由に追加できることになっている。</p></li>
+<li>
+<p>プロパティとして管理するか state にするかは、 <code class="docutils literal">render()</code> の中で利用するかどうかで判断する</p>
+<ul>
+<li><p><code class="docutils literal">render()</code> の中で利用する場合: state  &lt;= fumi23: 外に出ていくやつ?</p></li>
+<li><p>そうでない場合: はプロパティとして管理する &lt;= fumi23: 中だけで使うやつ?</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h3><a class="toc-backref" href="#id9">Component ライフサイクル</a></h3>
+<p>ライフサイクル: 「 Component がマウントされたとき」や「 Component が props (読み取り専用のやつ) を受け取るとき」といった Component の状態の推移のこと</p>
+<ul>
+<li><p>ライフサイクルのわかりやすい図: <a class="reference external" href="https://reactjs.org/docs/react-component.html#the-component-lifecycle">https://reactjs.org/docs/react-component.html#the-component-lifecycle</a></p></li>
+<li>
+<p><code class="docutils literal">componentDidMount()</code>: Component がマウントされたときに一度だけ実行される</p>
+<ul class="simple">
+<li><p>DOM が存在していることを前提とする処理を記述する</p></li>
+<li><p>Bootstrap のような CSSフレームワークを利用する場合にしばしば必要となるHTML要素に対する初期化処理はここでやると良い</p></li>
+<li><p>イベントリスナーの定義</p></li>
+<li><p>外部から HTTP リクエストでデータを取得する処理の呼び出し</p></li>
+</ul>
+</li>
+<li>
+<p><code class="docutils literal">componentWillUnmount()</code>: Component がアンマウントされるときに実行される</p>
+<ul class="simple">
+<li><p>アンマウントはたとえば SPA においてページ遷移が発生した際に、レンダリング中の Component がレンダリング対象から外れた場合に発生する</p></li>
+<li><p>タイマーの解除</p></li>
+<li><p>非同期通信のキャンセル処理</p></li>
+<li><p>イベントリスナーの解除</p></li>
+</ul>
+</li>
+<li>
+<p><code class="docutils literal">componentWillReceiveProps()</code>: Component が props を受け取るとき</p>
+<ul>
+<li><p>マウントされた Component が新しい props を受け取るときに実行される</p></li>
+<li><p>「新しく受け取る」 props を引数に取る</p></li>
+<li>
+<p>現在の props の内容と、新しく受け取る props の内容を比較して処理を分岐できる</p>
+<pre class="code javascript"><a name="rest_code_485d6a8cb1c4436e890ea93fbcebc38f-1"></a><span class="c1">// 例</span>
+<a name="rest_code_485d6a8cb1c4436e890ea93fbcebc38f-2"></a><span class="kr">public</span> <span class="nx">componentWillReceiveProps</span><span class="p">(</span><span class="nx">nextProps</span><span class="p">)</span> <span class="p">{</span>
+<a name="rest_code_485d6a8cb1c4436e890ea93fbcebc38f-3"></a>  <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">hoge</span> <span class="o">!==</span> <span class="nx">nextProps</span><span class="p">.</span><span class="nx">hoge</span><span class="p">)</span> <span class="p">{</span>
+<a name="rest_code_485d6a8cb1c4436e890ea93fbcebc38f-4"></a>    <span class="c1">//props.hogeが変更された場合の処理</span>
+<a name="rest_code_485d6a8cb1c4436e890ea93fbcebc38f-5"></a>  <span class="p">}</span>
+<a name="rest_code_485d6a8cb1c4436e890ea93fbcebc38f-6"></a><span class="p">}</span>
+</pre>
+</li>
+</ul>
+</li>
+<li>
+<p><code class="docutils literal">componentDidUpdate()</code>: Component がアップデートされたとき (props や state が変化した場合) に実行される</p>
+<ul class="simple">
+<li><p>変更前の props と state を引数に取る</p></li>
+<li><p><code class="docutils literal">componentWillReceiveProps()</code> と同様、変更前と変更後の値を比較して処理を分岐できる</p></li>
+<li><p>初回マウント時には実行されない (初回は <code class="docutils literal">componentDidMount()</code>)</p></li>
+</ul>
+</li>
+<li>
+<p><code class="docutils literal">shouldComponentUpdate()</code>: Component のパフォーマンス改善に</p>
+<ul class="simple">
+<li><p>更新後の props と 更新後の state を引数に取る</p></li>
+<li><p>React の Component では、 props や state が変更された場合、再レンダリング = <code class="docutils literal">render()</code> の再実行が発生する</p></li>
+<li><p><code class="docutils literal">shouldComponentUpdate()</code> を利用すると、再レンダリングの有無を制御できます。</p></li>
+<li><p><code class="docutils literal">shouldComponentUpdate()</code> が true を戻した場合は再レンダリングが行われ、 false を戻した場合は再レンダリングが行われない。</p></li>
+<li><p>不必要な再レンダリングを抑制できる</p></li>
+</ul>
+</li>
+<li>
+<p><code class="docutils literal">componentDidCatch()</code>: 子（あるいは子以下の） Component で発生した例外を catch した場合に実行される</p>
+<ul class="simple">
+<li><p>Componentのいずれかの場所で例外が発生した場合にログを送信したり、エラーメッセージをレンダリングするといった共通処理を行うのに適したメソッド。</p></li>
+<li><p>公式例: <a class="reference external" href="https://reactjs.org/blog/2017/07/26/error-handling-in-react-16.html">https://reactjs.org/blog/2017/07/26/error-handling-in-react-16.html</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id4">
+<h2><a class="toc-backref" href="#id10">その他</a></h2>
+<ul class="simple">
+<li>
+<p>スターターキット (ボイラテンプレートツール)</p>
+<ul>
+<li><p>create-react-app</p></li>
+<li><p>react-starter-kit</p></li>
+<li><p>react-firebase-starter</p></li>
+</ul>
+</li>
+<li>
+<p>フルスタックフレームワークではないので、本格的なアプリケーションを実装する際はサードパーティパッケージと組み合わせて利用する</p>
+<ul>
+<li><p><a class="reference external" href="https://github.com/enaqx/awesome-react">https://github.com/enaqx/awesome-react</a></p></li>
+<li><p><a class="reference external" href="https://github.com/brillout/awesome-react-components">https://github.com/brillout/awesome-react-components</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+    </div>
+  </main>
+</div>
+</div>
+    </div>
+  </body>
+</html>

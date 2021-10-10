@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<title>Next.js: TypeScript/ふみのて</title>
+<link rel="shortcut icon" href="../../../../assets/icons/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sawarabi+Mincho&amp;display=swap&amp;subset=japanese,latin-ext">
+<link href="https://fonts.googleapis.com/css2?family=Capriola&amp;family=Mirza&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Vollkorn:400,700">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+<link rel="stylesheet" href="../../../../assets/css/style.css?20200720">
+</head>
+<body>
+    <div class="container">
+      <div class="header"><header class="item item-header"><h1>
+    <a href="../../../../">
+      <img class="logo" src="../../../../assets/images/inuu.png" alt="犬"></a>
+  </h1>
+  <iframe src="../../../../tags/" class="tags"></iframe>
+</header></div>
+      <div class="main">
+<div class="article-content">
+  <main class="item item-article item-frontend"><div class="category">
+      <a href="../../../../tags/frontend/">
+          frontend
+      </a>
+    </div>
+    <div class="title">Next.js: TypeScript</div>
+    <time class="date" datetime="2020-07-25 00:00:00+09:00">
+      2020-07-25 Sat
+    </time><time class="date" datetime="2020-07-25 00:00:00+09:00">
+        updated: 2020-07-25 Sat
+        
+      </time><div class="text">
+      <div>
+<details><summary>目次</summary><div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#id1" id="id2">リファレンス, 書籍</a></p></li>
+<li>
+<p><a class="reference internal" href="#typescript" id="id3">TypeScript</a></p>
+<ul>
+<li><p><a class="reference internal" href="#how-to-set-up-next-js-with-typescript" id="id4">How to set up Next.js with TypeScript</a></p></li>
+<li>
+<p><a class="reference internal" href="#next-js-specific-types" id="id5">Next.js Specific Types</a></p>
+<ul>
+<li><p><a class="reference internal" href="#static-generation-and-server-side-rendering" id="id6">Static Generation and Server-side Rendering</a></p></li>
+<li><p><a class="reference internal" href="#api-routes" id="id7">API Routes</a></p></li>
+<li><p><a class="reference internal" href="#custom-app" id="id8">Custom App</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</details><div class="section" id="id1">
+<h2><a class="toc-backref" href="#id2">リファレンス, 書籍</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://nextjs.org/learn/excel/typescript">https://nextjs.org/learn/excel/typescript</a></p></li>
+</ul>
+</div>
+<div class="section" id="typescript">
+<h2><a class="toc-backref" href="#id3">TypeScript</a></h2>
+<div class="section" id="how-to-set-up-next-js-with-typescript">
+<h3><a class="toc-backref" href="#id4">How to set up Next.js with TypeScript</a></h3>
+<ol class="arabic">
+<li><p>プロジェクトルートディレクトリ直下に <code class="docutils literal">tsconfig.json</code> を作る</p></li>
+<li>
+<p>TypeScript をインストールする</p>
+<blockquote>
+<pre class="code bash"><a name="rest_code_b1c74fa115ff4eb187ef706705efe273-1"></a>$ npm install --save-dev typescript @types/react @types/node
+</pre>
+</blockquote>
+</li>
+<li>
+<p>開発サーバーを再起動する</p>
+<blockquote>
+<pre class="code bash"><a name="rest_code_aca6a987e35d45db90a2b8bb5f2fdf93-1"></a>$ npm run dev
+</pre>
+</blockquote>
+</li>
+<li>
+<p>サーバー再起動後、 Next.js は次のことをしてくれるでしょう。</p>
+<ul class="simple">
+<li><p><code class="docutils literal">tsconfig.json</code> ファイルの中身を入れてくれる。このファイルは、自分でカスタマイズしても良し。</p></li>
+<li>
+<p><code class="docutils literal"><span class="pre">next-env.d.ts</span></code> ファイルを作ってくれる。このファイルは、触ってはいけません。</p>
+<ul>
+<li><p>このファイルは、Next.js types が確実に TypeScript compiler にピックアップされるようにします。</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p>これで、 Next.js アプリで TypeScript が使えるようになります!</p>
+</div>
+<div class="section" id="next-js-specific-types">
+<h3><a class="toc-backref" href="#id5">Next.js Specific Types</a></h3>
+<p>Next.js 固有のタイプが使えるよ。</p>
+<div class="section" id="static-generation-and-server-side-rendering">
+<h4><a class="toc-backref" href="#id6">Static Generation and Server-side Rendering</a></h4>
+<ul>
+<li>
+<p>TypeScript</p>
+<pre class="code typescript"><a name="rest_code_1ca8b977e86346f6a0f479d5da5e65f3-1"></a><span class="kr">import</span> <span class="p">{</span> <span class="nx">GetStaticProps</span><span class="p">,</span> <span class="nx">GetStaticPaths</span><span class="p">,</span> <span class="nx">GetServerSideProps</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">'next'</span>
+<a name="rest_code_1ca8b977e86346f6a0f479d5da5e65f3-2"></a>
+<a name="rest_code_1ca8b977e86346f6a0f479d5da5e65f3-3"></a><span class="kr">export</span> <span class="kr">const</span> <span class="nx">getStaticProps</span>: <span class="kt">GetStaticProps</span> <span class="o">=</span> <span class="nx">async</span> <span class="nx">context</span> <span class="o">=&gt;</span> <span class="p">{</span>
+<a name="rest_code_1ca8b977e86346f6a0f479d5da5e65f3-4"></a>  <span class="c1">// ...</span>
+<a name="rest_code_1ca8b977e86346f6a0f479d5da5e65f3-5"></a><span class="p">}</span>
+<a name="rest_code_1ca8b977e86346f6a0f479d5da5e65f3-6"></a>
+<a name="rest_code_1ca8b977e86346f6a0f479d5da5e65f3-7"></a><span class="kr">export</span> <span class="kr">const</span> <span class="nx">getStaticPaths</span>: <span class="kt">GetStaticPaths</span> <span class="o">=</span> <span class="nx">async</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+<a name="rest_code_1ca8b977e86346f6a0f479d5da5e65f3-8"></a>  <span class="c1">// ...</span>
+<a name="rest_code_1ca8b977e86346f6a0f479d5da5e65f3-9"></a><span class="p">}</span>
+<a name="rest_code_1ca8b977e86346f6a0f479d5da5e65f3-10"></a>
+<a name="rest_code_1ca8b977e86346f6a0f479d5da5e65f3-11"></a><span class="kr">export</span> <span class="kr">const</span> <span class="nx">getServerSideProps</span>: <span class="kt">GetServerSideProps</span> <span class="o">=</span> <span class="nx">async</span> <span class="nx">context</span> <span class="o">=&gt;</span> <span class="p">{</span>
+<a name="rest_code_1ca8b977e86346f6a0f479d5da5e65f3-12"></a>  <span class="c1">// ...</span>
+<a name="rest_code_1ca8b977e86346f6a0f479d5da5e65f3-13"></a><span class="p">}</span>
+</pre>
+</li>
+<li>
+<p>JavaScript</p>
+<pre class="code javascript"><a name="rest_code_ff5371dbe2d94a41aabe4d9711c3c55a-1"></a><span class="kr">export</span> <span class="nx">async</span> <span class="kd">function</span> <span class="nx">getStaticProps</span><span class="p">(</span><span class="nx">context</span><span class="p">)</span> <span class="p">{</span>
+<a name="rest_code_ff5371dbe2d94a41aabe4d9711c3c55a-2"></a>  <span class="c1">// ...</span>
+<a name="rest_code_ff5371dbe2d94a41aabe4d9711c3c55a-3"></a><span class="p">}</span>
+<a name="rest_code_ff5371dbe2d94a41aabe4d9711c3c55a-4"></a>
+<a name="rest_code_ff5371dbe2d94a41aabe4d9711c3c55a-5"></a><span class="kr">export</span> <span class="nx">async</span> <span class="kd">function</span> <span class="nx">getStaticPaths</span><span class="p">()</span> <span class="p">{</span>
+<a name="rest_code_ff5371dbe2d94a41aabe4d9711c3c55a-6"></a>  <span class="c1">// ...</span>
+<a name="rest_code_ff5371dbe2d94a41aabe4d9711c3c55a-7"></a><span class="p">}</span>
+<a name="rest_code_ff5371dbe2d94a41aabe4d9711c3c55a-8"></a>
+<a name="rest_code_ff5371dbe2d94a41aabe4d9711c3c55a-9"></a><span class="kr">export</span> <span class="nx">async</span> <span class="kd">function</span> <span class="nx">getServerSideProps</span><span class="p">(</span><span class="nx">context</span><span class="p">)</span> <span class="p">{</span>
+<a name="rest_code_ff5371dbe2d94a41aabe4d9711c3c55a-10"></a>  <span class="c1">// ...</span>
+<a name="rest_code_ff5371dbe2d94a41aabe4d9711c3c55a-11"></a><span class="p">}</span>
+</pre>
+</li>
+</ul>
+</div>
+<div class="section" id="api-routes">
+<h4><a class="toc-backref" href="#id7">API Routes</a></h4>
+<pre class="code typescript"><a name="rest_code_a7e3c5c3ffaf4847ad246a141343f9da-1"></a><span class="cm">/* TypeScript */</span>
+<a name="rest_code_a7e3c5c3ffaf4847ad246a141343f9da-2"></a><span class="kr">import</span> <span class="p">{</span> <span class="nx">NextApiRequest</span><span class="p">,</span> <span class="nx">NextApiResponse</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">'next'</span>
+<a name="rest_code_a7e3c5c3ffaf4847ad246a141343f9da-3"></a>
+<a name="rest_code_a7e3c5c3ffaf4847ad246a141343f9da-4"></a><span class="kr">export</span> <span class="k">default</span> <span class="p">(</span><span class="nx">req</span>: <span class="kt">NextApiRequest</span><span class="p">,</span> <span class="nx">res</span>: <span class="kt">NextApiResponse</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+<a name="rest_code_a7e3c5c3ffaf4847ad246a141343f9da-5"></a>  <span class="c1">// ...</span>
+<a name="rest_code_a7e3c5c3ffaf4847ad246a141343f9da-6"></a><span class="p">}</span>
+<a name="rest_code_a7e3c5c3ffaf4847ad246a141343f9da-7"></a>
+<a name="rest_code_a7e3c5c3ffaf4847ad246a141343f9da-8"></a><span class="cm">/* JavaScript */</span>
+<a name="rest_code_a7e3c5c3ffaf4847ad246a141343f9da-9"></a><span class="kr">export</span> <span class="k">default</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+<a name="rest_code_a7e3c5c3ffaf4847ad246a141343f9da-10"></a>  <span class="c1">// ...</span>
+<a name="rest_code_a7e3c5c3ffaf4847ad246a141343f9da-11"></a><span class="p">}</span>
+</pre>
+</div>
+<div class="section" id="custom-app">
+<h4><a class="toc-backref" href="#id8">Custom App</a></h4>
+<ul>
+<li>
+<p>TypeScript</p>
+<pre class="code typescript"><a name="rest_code_716155c29aa74ca3bc4e17e8934fe037-1"></a><span class="c1">// built-in type</span>
+<a name="rest_code_716155c29aa74ca3bc4e17e8934fe037-2"></a><span class="kr">import</span> <span class="p">{</span> <span class="nx">AppProps</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">'next/app'</span>
+<a name="rest_code_716155c29aa74ca3bc4e17e8934fe037-3"></a>
+<a name="rest_code_716155c29aa74ca3bc4e17e8934fe037-4"></a><span class="kd">function</span> <span class="nx">App</span><span class="p">({</span> <span class="nx">Component</span><span class="p">,</span> <span class="nx">pageProps</span> <span class="p">}</span><span class="o">:</span> <span class="nx">AppProps</span><span class="p">)</span> <span class="p">{</span>
+<a name="rest_code_716155c29aa74ca3bc4e17e8934fe037-5"></a>  <span class="k">return</span> <span class="o">&lt;</span><span class="nx">Component</span> <span class="p">{...</span><span class="nx">pageProps</span><span class="p">}</span> <span class="o">/&gt;</span>
+<a name="rest_code_716155c29aa74ca3bc4e17e8934fe037-6"></a><span class="p">}</span>
+<a name="rest_code_716155c29aa74ca3bc4e17e8934fe037-7"></a>
+<a name="rest_code_716155c29aa74ca3bc4e17e8934fe037-8"></a><span class="kr">export</span> <span class="k">default</span> <span class="nx">App</span>
+</pre>
+</li>
+<li>
+<p>JavaScript</p>
+<pre class="code javascript"><a name="rest_code_cc21459ed7c7420e9618efa35641868d-1"></a><span class="kr">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nx">App</span><span class="p">({</span> <span class="nx">Component</span><span class="p">,</span> <span class="nx">pageProps</span> <span class="p">})</span> <span class="p">{</span>
+<a name="rest_code_cc21459ed7c7420e9618efa35641868d-2"></a>  <span class="k">return</span> <span class="o">&lt;</span><span class="nx">Component</span> <span class="p">{...</span><span class="nx">pageProps</span><span class="p">}</span> <span class="o">/&gt;</span>
+<a name="rest_code_cc21459ed7c7420e9618efa35641868d-3"></a><span class="p">}</span>
+</pre>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+    </div>
+  </main>
+</div>
+</div>
+    </div>
+  </body>
+</html>

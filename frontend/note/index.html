@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<title>JavaScript: ECMAScript2015 とは TypeScript とは, 用語note/ふみのて</title>
+<link rel="shortcut icon" href="../../assets/icons/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sawarabi+Mincho&amp;display=swap&amp;subset=japanese,latin-ext">
+<link href="https://fonts.googleapis.com/css2?family=Capriola&amp;family=Mirza&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Vollkorn:400,700">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+<link rel="stylesheet" href="../../assets/css/style.css?20200720">
+</head>
+<body>
+    <div class="container">
+      <div class="header"><header class="item item-header"><h1>
+    <a href="../../">
+      <img class="logo" src="../../assets/images/inuu.png" alt="犬"></a>
+  </h1>
+  <iframe src="../../tags/" class="tags"></iframe>
+</header></div>
+      <div class="main">
+<div class="article-content">
+  <main class="item item-article item-frontend"><div class="category">
+      <a href="../../tags/frontend/">
+          frontend
+      </a>
+    </div>
+    <div class="title">JavaScript: ECMAScript2015 とは TypeScript とは, 用語note</div>
+    <time class="date" datetime="2020-05-06 00:00:00+09:00">
+      2020-05-06 Wed
+    </time><time class="date" datetime="2020-05-06 00:00:00+09:00">
+        updated: 2020-05-06 Wed
+        
+      </time><div class="text">
+      <div>
+<details><summary>目次</summary><div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#id1" id="id2">リファレンス, 書籍</a></p></li>
+<li>
+<p><a class="reference internal" href="#note" id="id3">note</a></p>
+<ul>
+<li><p><a class="reference internal" href="#ecmascript2015" id="id4">ECMAScript2015</a></p></li>
+<li><p><a class="reference internal" href="#typescript" id="id5">TypeScript</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#memo" id="id6">コマンド memo</a></p></li>
+<li><p><a class="reference internal" href="#vscode-memo" id="id7">VSCode memo</a></p></li>
+</ul>
+</div>
+</details><div class="section" id="id1">
+<h2><a class="toc-backref" href="#id2">リファレンス, 書籍</a></h2>
+<ul class="simple">
+<li><p>React、Angular、Vue.js、React Nativeを使って学ぶ はじめてのフロントエンド開発: <a class="reference external" href="https://gihyo.jp/book/2018/978-4-7741-9706-7">https://gihyo.jp/book/2018/978-4-7741-9706-7</a></p></li>
+<li><p><a class="reference external" href="https://developer.mozilla.org/ja/docs/Web/JavaScript">https://developer.mozilla.org/ja/docs/Web/JavaScript</a></p></li>
+<li><p><a class="reference external" href="https://www.typescriptlang.org/docs/home.html">https://www.typescriptlang.org/docs/home.html</a></p></li>
+<li><p><a class="reference external" href="https://docs.npmjs.com/">https://docs.npmjs.com/</a></p></li>
+<li><p><a class="reference external" href="https://reactjs.org/docs/getting-started.html">https://reactjs.org/docs/getting-started.html</a></p></li>
+</ul>
+</div>
+<div class="section" id="note">
+<h2><a class="toc-backref" href="#id3">note</a></h2>
+<ul class="simple">
+<li><p>TypeScript は言語 (JavaScript のスーパーセット)</p></li>
+<li><p>Vue, React, Angular はフレームワーク</p></li>
+<li><p>Next.js は React を使ったフレームワーク。 Nuxt.js は Vue を使ったフレームワーク。 Next のほうが先輩。</p></li>
+<li><p>Node.js はサーバーサイドで動く JavaScript 環境</p></li>
+<li>
+<p>npm (Node Package Manager): Node.js で作られたパッケージを管理するためのツール</p>
+<ul>
+<li><p>npm を使うとパッケージの共有やインストール、アップデートを簡単にできる</p></li>
+</ul>
+</li>
+<li>
+<p>package.json: ローカル開発環境にインストールする npm パッケージを管理するのに利用する</p>
+<ul>
+<li><p>package.json を利用すると npm パッケージの依存関係やバージョン管理、開発環境のセットアップが簡単にできる</p></li>
+<li><p>package.json から npm i できる、package.json を更新したら npm up でパッケージ更新もできる</p></li>
+</ul>
+</li>
+<li><p>package-lock.json: npm インストールしたパッケージ名や明確なバージョン情報が記載される</p></li>
+<li>
+<p>webpack: フロントエンドビルドツール, モジュールバンドラ</p>
+<ul>
+<li><p>複数の JavaScript ファイルや CSS などあらゆる static ファイルの依存関係を解決し１つのファイルにまとめてくれる</p></li>
+<li><p>リクエスト数を減らせるなどのメリットがある</p></li>
+<li><p>Entry: webpack がモジュールの依存関係を解析するためのエントリポイント、複数指定することもできる</p></li>
+<li><p>Output: バンドルされたファイルの出力先、絶対パスを指定する</p></li>
+<li><p>Loader: JavaScript 以外の static ファイルも同時にバンドルできる、トランスパイルできる</p></li>
+<li><p>Plugins: いろいろ</p></li>
+</ul>
+</li>
+<li><p>Babel: トランスコンパイラー (ECMAScript2015 以降のコードを ECMAScript5 に変換する)</p></li>
+<li><p>トランスパイル: あるプログラミング言語で書かれたコードをほかのプログラミング言語のコードに変換すること</p></li>
+<li><p>extract-text-webpack-plugin: スタイルシートを CSS ファイルに出力する Plugin</p></li>
+<li><p>ESLint: Linter</p></li>
+<li><p><code class="docutils literal">require</code>: CommonJS の仕様、Node.js 環境で動作する</p></li>
+<li><p><code class="docutils literal">import</code>:  ES2015 (ES6) の仕様、古いブラウザでは動かない</p></li>
+</ul>
+<div class="section" id="ecmascript2015">
+<h3><a class="toc-backref" href="#id4">ECMAScript2015</a></h3>
+<ul>
+<li><p>JavaScript は ECMA International という標準化団体が仕様を策定している</p></li>
+<li>
+<p>ECMAScript2015 == ECMAScript6</p>
+<ul class="simple">
+<li><p>2015年に策定された6番目の仕様</p></li>
+</ul>
+</li>
+<li><p>変数宣言: <code class="docutils literal">let</code> と <code class="docutils literal">const</code></p></li>
+<li><p>ブロックスコープ, テンプレートリテラル, デフォルト引数</p></li>
+<li>
+<p>アロー関数: アロー関数の場合は定義した場所の <code class="docutils literal">this</code> が参照される</p>
+<pre class="code javascript"><a name="rest_code_e8119df40173444a92736693b78c5e6e-1"></a><span class="c1">// アロー関数その１</span>
+<a name="rest_code_e8119df40173444a92736693b78c5e6e-2"></a><span class="kr">const</span> <span class="nx">add</span> <span class="o">=</span> <span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+<a name="rest_code_e8119df40173444a92736693b78c5e6e-3"></a>  <span class="nx">returna</span><span class="o">+</span><span class="nx">b</span><span class="p">;</span>
+<a name="rest_code_e8119df40173444a92736693b78c5e6e-4"></a><span class="p">}</span>
+</pre>
+<pre class="code javascript"><a name="rest_code_dd646dc27ec546aca540fba510db04d9-1"></a><span class="c1">// アロー関数その２</span>
+<a name="rest_code_dd646dc27ec546aca540fba510db04d9-2"></a><span class="kr">const</span> <span class="nx">add</span> <span class="o">=</span> <span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">;</span>
+</pre>
+</li>
+<li><p>class 定義, class の継承</p></li>
+<li><p>Promise: 非同期処理</p></li>
+<li><p>モジュール: モジュールとしてファイル分割できる。 <code class="docutils literal">export</code> 文。</p></li>
+</ul>
+</div>
+<div class="section" id="typescript">
+<h3><a class="toc-backref" href="#id5">TypeScript</a></h3>
+<ul>
+<li>
+<p>TypeScript: JavaScript のスーパーセット, 上位互換</p>
+<ul class="simple">
+<li><p>Microsoft によって開発された OSS の JavaScript ベースのプログラミング言語</p></li>
+<li><p>静的型付け, クラスベースのオブジェクト指向</p></li>
+</ul>
+</li>
+<li><p>tsc: TypeScript 付属のコンパイラツール, ECMAScript5 へ変換できるよ</p></li>
+<li><p>TypeScript の拡張子は <code class="docutils literal">.ts</code></p></li>
+<li>
+<p>型注釈（type annotation）</p>
+<ul class="simple">
+<li><p>型推論できるところは型推論に任せる</p></li>
+<li><p><code class="docutils literal">?</code>: オプショナル</p></li>
+<li><p>コールバック関数の型注釈と、アロー関数の定義が紛らわしい</p></li>
+</ul>
+</li>
+<li>
+<p>型変換</p>
+<ul class="simple">
+<li><p>JSX を使用することが確定している場合には、「変数 as 変換後の型」を使う</p></li>
+</ul>
+</li>
+<li><p>interface</p></li>
+<li>
+<p>アクセス修飾子 (<code class="docutils literal">public</code>、<code class="docutils literal">private</code>、<code class="docutils literal">protected</code>)</p>
+<ul class="simple">
+<li><p>デフォルトは <code class="docutils literal">public</code></p></li>
+</ul>
+</li>
+<li>
+<p>ジェネリクス</p>
+<pre class="code typescript"><a name="rest_code_53b00fef112b4b3f9440341c8cf2923b-1"></a><span class="kd">function</span> <span class="nx">identity</span><span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nx">arg</span>: <span class="kt">T</span><span class="p">)</span><span class="o">:</span> <span class="nx">T</span> <span class="p">{</span>
+<a name="rest_code_53b00fef112b4b3f9440341c8cf2923b-2"></a>  <span class="k">return</span> <span class="nx">arg</span><span class="p">;</span>
+<a name="rest_code_53b00fef112b4b3f9440341c8cf2923b-3"></a><span class="p">}</span>
+<a name="rest_code_53b00fef112b4b3f9440341c8cf2923b-4"></a>
+<a name="rest_code_53b00fef112b4b3f9440341c8cf2923b-5"></a><span class="c1">// こうとか</span>
+<a name="rest_code_53b00fef112b4b3f9440341c8cf2923b-6"></a><span class="kd">let</span> <span class="nx">output</span> <span class="o">=</span> <span class="nx">identity</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="p">(</span><span class="s2">"taro"</span><span class="p">);</span>
+<a name="rest_code_53b00fef112b4b3f9440341c8cf2923b-7"></a><span class="c1">// こうとか</span>
+<a name="rest_code_53b00fef112b4b3f9440341c8cf2923b-8"></a><span class="kd">let</span> <span class="nx">output</span> <span class="o">=</span> <span class="nx">identity</span><span class="o">&lt;</span><span class="kt">number</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</pre>
+</li>
+<li>
+<p>型定義ファイル: 型の定義を別ファイルにまとめておける</p>
+<ul class="simple">
+<li><p>拡張子は <code class="docutils literal">.d.ts</code></p></li>
+</ul>
+</li>
+<li>
+<p>デコレータ</p>
+<ul class="simple">
+<li><p>クラス、メソッド、アクセサ、プロパティやパラメータに付与できる</p></li>
+</ul>
+<pre class="code typescript"><a name="rest_code_afa3b166b11b4cbcbae04c323b088814-1"></a><span class="c1">// 使う時</span>
+<a name="rest_code_afa3b166b11b4cbcbae04c323b088814-2"></a><span class="kd">@sealed</span>
+<a name="rest_code_afa3b166b11b4cbcbae04c323b088814-3"></a><span class="kr">class</span> <span class="nx">Greeter</span> <span class="p">{</span>
+<a name="rest_code_afa3b166b11b4cbcbae04c323b088814-4"></a>  <span class="nx">greeting</span>: <span class="kt">string</span><span class="p">;</span>
+<a name="rest_code_afa3b166b11b4cbcbae04c323b088814-5"></a>  <span class="kr">constructor</span><span class="p">(</span><span class="nx">message</span>: <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
+<a name="rest_code_afa3b166b11b4cbcbae04c323b088814-6"></a>    <span class="k">this</span><span class="p">.</span><span class="nx">greeting</span> <span class="o">=</span> <span class="nx">message</span><span class="p">;</span>
+<a name="rest_code_afa3b166b11b4cbcbae04c323b088814-7"></a>  <span class="p">}</span>
+<a name="rest_code_afa3b166b11b4cbcbae04c323b088814-8"></a>  <span class="nx">greet() {</span>
+<a name="rest_code_afa3b166b11b4cbcbae04c323b088814-9"></a>    <span class="k">return</span> <span class="s2">"Hello, "</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">greeting</span><span class="p">;</span>
+<a name="rest_code_afa3b166b11b4cbcbae04c323b088814-10"></a>  <span class="p">}</span>
+<a name="rest_code_afa3b166b11b4cbcbae04c323b088814-11"></a><span class="p">}</span>
+<a name="rest_code_afa3b166b11b4cbcbae04c323b088814-12"></a>
+<a name="rest_code_afa3b166b11b4cbcbae04c323b088814-13"></a><span class="c1">// デコレーターの実体</span>
+<a name="rest_code_afa3b166b11b4cbcbae04c323b088814-14"></a><span class="kd">function</span> <span class="nx">sealed</span><span class="p">(</span><span class="kr">constructor</span><span class="o">:</span> <span class="nb">Function</span><span class="p">)</span> <span class="p">{</span>
+<a name="rest_code_afa3b166b11b4cbcbae04c323b088814-15"></a>  <span class="nb">Object</span><span class="p">.</span><span class="nx">seal</span><span class="p">(</span><span class="kr">constructor</span><span class="p">);</span>
+<a name="rest_code_afa3b166b11b4cbcbae04c323b088814-16"></a>  <span class="nb">Object</span><span class="p">.</span><span class="nx">seal</span><span class="p">(</span><span class="kr">constructor</span><span class="p">.</span><span class="nx">prototype</span><span class="p">);</span>
+<a name="rest_code_afa3b166b11b4cbcbae04c323b088814-17"></a><span class="p">}</span>
+</pre>
+</li>
+<li>
+<p>JSX: JavaScript 中に埋め込み可能な XML ライクな文法</p>
+<pre class="code typescript"><a name="rest_code_0968d356260b4eabba70fc0b1121d0cf-1"></a><span class="kd">function</span> <span class="nx">render</span><span class="p">(</span><span class="nx">nickname</span>: <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
+<a name="rest_code_0968d356260b4eabba70fc0b1121d0cf-2"></a>  <span class="c1">// React.createElement() は DOM を作成する関数</span>
+<a name="rest_code_0968d356260b4eabba70fc0b1121d0cf-3"></a>  <span class="k">return</span> <span class="nx">React</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">"div"</span><span class="p">,</span> <span class="p">{</span><span class="s2">"class"</span><span class="o">:</span> <span class="s2">"nickname"</span><span class="p">},</span> <span class="nx">nickname</span><span class="p">)</span>
+<a name="rest_code_0968d356260b4eabba70fc0b1121d0cf-4"></a><span class="p">}</span>
+<a name="rest_code_0968d356260b4eabba70fc0b1121d0cf-5"></a>
+<a name="rest_code_0968d356260b4eabba70fc0b1121d0cf-6"></a><span class="c1">// JSXではこのように書けるとのこと</span>
+<a name="rest_code_0968d356260b4eabba70fc0b1121d0cf-7"></a><span class="kd">function</span> <span class="nx">render</span><span class="p">(</span><span class="nx">nickname</span>: <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
+<a name="rest_code_0968d356260b4eabba70fc0b1121d0cf-8"></a>  <span class="k">return</span> <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="s2">"nickname"</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">nickname</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/div&gt;</span>
+<a name="rest_code_0968d356260b4eabba70fc0b1121d0cf-9"></a><span class="p">}</span>
+</pre>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="memo">
+<h2><a class="toc-backref" href="#id6">コマンド memo</a></h2>
+<pre class="code zsh"><a name="rest_code_cccc78b096a140479d7e9951bf4ae201-1"></a><span class="c1"># package.json ファイルが生成される</span>
+<a name="rest_code_cccc78b096a140479d7e9951bf4ae201-2"></a>$ npm init -y
+<a name="rest_code_cccc78b096a140479d7e9951bf4ae201-3"></a>
+<a name="rest_code_cccc78b096a140479d7e9951bf4ae201-4"></a><span class="c1"># パッケージをインストール</span>
+<a name="rest_code_cccc78b096a140479d7e9951bf4ae201-5"></a><span class="c1"># node_modules ディレクトリに指定したパッケージがインストールされる</span>
+<a name="rest_code_cccc78b096a140479d7e9951bf4ae201-6"></a><span class="c1"># package.json &gt; dependencies/devDependencies にインストールしたパッケージとバージョンが追記される</span>
+<a name="rest_code_cccc78b096a140479d7e9951bf4ae201-7"></a>$ npm i react react-dom
+<a name="rest_code_cccc78b096a140479d7e9951bf4ae201-8"></a><span class="c1"># -g : グローバルインストール (すべてのプロジェクトで利用できる)</span>
+<a name="rest_code_cccc78b096a140479d7e9951bf4ae201-9"></a>$ npm i -g react react-dom
+<a name="rest_code_cccc78b096a140479d7e9951bf4ae201-10"></a><span class="c1"># ビルドなど開発時だけに必要なパッケージは -D を利用してインストール</span>
+<a name="rest_code_cccc78b096a140479d7e9951bf4ae201-11"></a>npm i -D webpack webpack-cli
+<a name="rest_code_cccc78b096a140479d7e9951bf4ae201-12"></a><span class="c1"># アンインストール</span>
+<a name="rest_code_cccc78b096a140479d7e9951bf4ae201-13"></a>$ npm un react react-dom
+<a name="rest_code_cccc78b096a140479d7e9951bf4ae201-14"></a><span class="c1"># -D の省略しない形は --save-dev</span>
+<a name="rest_code_cccc78b096a140479d7e9951bf4ae201-15"></a>$ npm uninstall babel-preset-env --save-dev
+<a name="rest_code_cccc78b096a140479d7e9951bf4ae201-16"></a>
+<a name="rest_code_cccc78b096a140479d7e9951bf4ae201-17"></a><span class="c1"># webpack をインストール, CLI もインストール</span>
+<a name="rest_code_cccc78b096a140479d7e9951bf4ae201-18"></a>$ npm i -D webpack webpack-cli
+<a name="rest_code_cccc78b096a140479d7e9951bf4ae201-19"></a><span class="c1"># webpack でバンドラする</span>
+<a name="rest_code_cccc78b096a140479d7e9951bf4ae201-20"></a><span class="c1"># npx: ローカルにインストールした npm パッケージをパッケージ名を指定して実行できる</span>
+<a name="rest_code_cccc78b096a140479d7e9951bf4ae201-21"></a><span class="c1"># --mode development: 開発モード. ビルドが速く watch がサポートされている</span>
+<a name="rest_code_cccc78b096a140479d7e9951bf4ae201-22"></a>$ npx webpack --mode development
+<a name="rest_code_cccc78b096a140479d7e9951bf4ae201-23"></a>
+<a name="rest_code_cccc78b096a140479d7e9951bf4ae201-24"></a><span class="c1"># npm scripts コマンドのエイリアスが作れる</span>
+<a name="rest_code_cccc78b096a140479d7e9951bf4ae201-25"></a><span class="c1"># package.json の "scripts" フィールドにスクリプトを書いておく</span>
+<a name="rest_code_cccc78b096a140479d7e9951bf4ae201-26"></a>$ npm run build:dev
+<a name="rest_code_cccc78b096a140479d7e9951bf4ae201-27"></a>
+<a name="rest_code_cccc78b096a140479d7e9951bf4ae201-28"></a><span class="c1"># 今はこの書き方</span>
+<a name="rest_code_cccc78b096a140479d7e9951bf4ae201-29"></a>$ npm i -D babel-loader style-loader css-loader @babel/core @babel/preset-env @babel/preset-react
+<a name="rest_code_cccc78b096a140479d7e9951bf4ae201-30"></a>
+<a name="rest_code_cccc78b096a140479d7e9951bf4ae201-31"></a><span class="c1"># スタイルシートを CSS ファイルに出力する Plugin をインストール</span>
+<a name="rest_code_cccc78b096a140479d7e9951bf4ae201-32"></a>$ npm i -D extract-text-webpack-plugin@4.0.0beta.0
+<a name="rest_code_cccc78b096a140479d7e9951bf4ae201-33"></a>
+<a name="rest_code_cccc78b096a140479d7e9951bf4ae201-34"></a><span class="c1"># 開発用サーバーを立てる</span>
+<a name="rest_code_cccc78b096a140479d7e9951bf4ae201-35"></a>$ npm i -D webpack-dev-server@3.1.1
+<a name="rest_code_cccc78b096a140479d7e9951bf4ae201-36"></a><span class="c1"># 開発用サーバーを起動</span>
+<a name="rest_code_cccc78b096a140479d7e9951bf4ae201-37"></a>$ npx webpack-dev-server --mode development --hot --inline --open
+<a name="rest_code_cccc78b096a140479d7e9951bf4ae201-38"></a><span class="c1"># npm scripts 作っておくと、こう</span>
+<a name="rest_code_cccc78b096a140479d7e9951bf4ae201-39"></a><span class="c1"># Ctrl + C で停止</span>
+<a name="rest_code_cccc78b096a140479d7e9951bf4ae201-40"></a>$ npm start
+<a name="rest_code_cccc78b096a140479d7e9951bf4ae201-41"></a>
+<a name="rest_code_cccc78b096a140479d7e9951bf4ae201-42"></a><span class="c1"># ESLint をインストール</span>
+<a name="rest_code_cccc78b096a140479d7e9951bf4ae201-43"></a>$ npm i -D eslint@4.19.1
+<a name="rest_code_cccc78b096a140479d7e9951bf4ae201-44"></a>
+<a name="rest_code_cccc78b096a140479d7e9951bf4ae201-45"></a><span class="c1"># TypeScript をインストール</span>
+<a name="rest_code_cccc78b096a140479d7e9951bf4ae201-46"></a>$ sudo npm i -g typescript
+<a name="rest_code_cccc78b096a140479d7e9951bf4ae201-47"></a>
+<a name="rest_code_cccc78b096a140479d7e9951bf4ae201-48"></a><span class="c1"># tsc コマンドで ECMAScript5 に変換</span>
+<a name="rest_code_cccc78b096a140479d7e9951bf4ae201-49"></a><span class="c1"># -t: 変換する対象バージョン</span>
+<a name="rest_code_cccc78b096a140479d7e9951bf4ae201-50"></a>$ tsc -t ES5 hello.ts
+</pre>
+</div>
+<div class="section" id="vscode-memo">
+<h2><a class="toc-backref" href="#id7">VSCode memo</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal">F12</code>: 定義へ移動</p></li>
+<li><p><code class="docutils literal">option</code> + <code class="docutils literal">F12</code>: Peek ウィンドウ</p></li>
+<li>
+<p>Debugger for Chrome: VSCode の Chrome 拡張機能</p>
+<ul>
+<li><p>VSCode上でブレークポイントを使ってデバッグできる</p></li>
+</ul>
+</li>
+<li><p>React Developer Tools: Chrome 拡張機能</p></li>
+</ul>
+</div>
+</div>
+    </div>
+  </main>
+</div>
+</div>
+    </div>
+  </body>
+</html>
