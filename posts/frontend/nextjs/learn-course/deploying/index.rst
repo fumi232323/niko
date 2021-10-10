@@ -1,5 +1,5 @@
 .. title: Next.js: Deploying
-.. tags: javascript
+.. tags: frontend
 .. date: 2020-07-20
 .. slug: index
 .. status: published

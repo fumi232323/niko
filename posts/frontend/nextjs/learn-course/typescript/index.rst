@@ -1,5 +1,5 @@
 .. title: Next.js: TypeScript
-.. tags: javascript
+.. tags: frontend
 .. date: 2020-07-25
 .. slug: index
 .. status: published

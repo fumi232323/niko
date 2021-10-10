@@ -1,5 +1,5 @@
 .. title: React * Next.js * TypeScript で何か作ろう
-.. tags: javascript
+.. tags: frontend
 .. date: 2020-08-23
 .. slug: index
 .. status: published

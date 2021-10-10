@@ -1,5 +1,5 @@
 .. title: React: Hooks
-.. tags: javascript
+.. tags: frontend
 .. date: 2020-08-02
 .. slug: index
 .. status: published

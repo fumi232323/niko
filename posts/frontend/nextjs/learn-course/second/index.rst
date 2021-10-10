@@ -1,5 +1,5 @@
 .. title: Next.js: Pre-rendering, Data Fetching
-.. tags: javascript
+.. tags: frontend
 .. date: 2020-07-12
 .. slug: index
 .. status: published

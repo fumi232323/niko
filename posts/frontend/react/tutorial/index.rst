@@ -1,5 +1,5 @@
 .. title: React: 公式チュートリアルやってみた React のメモ
-.. tags: javascript
+.. tags: frontend
 .. date: 2020-06-21
 .. slug: index
 .. status: published

@@ -1,5 +1,5 @@
 .. title: JavaScript: ECMAScript2015 とは TypeScript とは, 用語note
-.. tags: javascript
+.. tags: frontend
 .. date: 2020-05-06
 .. slug: index
 .. status: published

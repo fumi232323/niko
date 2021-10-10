@@ -1,5 +1,5 @@
 .. title: Next.js: Dynamic Routes, API Routes
-.. tags: javascript
+.. tags: frontend
 .. date: 2020-07-19
 .. slug: index
 .. status: published

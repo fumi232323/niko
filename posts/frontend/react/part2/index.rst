@@ -1,5 +1,5 @@
 .. title: React: [読書メモ] React、Angular、Vue.js、React Nativeを使って学ぶ はじめてのフロントエンド開発 (その他)
-.. tags: javascript
+.. tags: frontend
 .. date: 2020-06-16
 .. slug: index
 .. status: published

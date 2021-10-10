@@ -1,6 +1,9 @@
 /* --------------------------------
  * index
  * -------------------------------- */
+
+date-category-color = #aaaaaa
+
 /* box中 */
 .item-m
   width 364px  /* item * 2 + 間の隙間4 */
@@ -17,7 +20,7 @@
 
 .title
   margin 15px 9px 10px  /* 下の margin は p 要素の line-height の分少なくする */
-  color #aaaaaa
+  color #1D6A96
   font-size   1.6rem
   letter-spacing 1px
   line-height 1.5
@@ -37,6 +40,12 @@
 .category {  /* 行間と間隔を指定 */
   margin: 10px 10px 5px;
   line-height: 1.5;
+  display inline-block
+  padding 1px 5px
+  border-radius 5px
+  color date-category-color             /* a 要素の中はリンクテキストとして文字色が変わってしまうので、文字色を指定しなおす。 */
+  transition all 0.3s       /* 0.3秒かけてスムーズに変わるように指定 */
+  box-shadow 0 0 8px -1px rgba(0, 0, 0, 0.3)  /* ボックスの周りに影を落とす */
 }
 .date {  /* 行間と間隔を指定 */
   display: block;
@@ -48,7 +57,7 @@
   margin: -8px -8px -11px;    /* ネガティブマージンを使って a 要素を .item と同じ大きさまで外側に広げる */
   padding: 8px 8px 11px;      /* 同じ幅の padding を持たせて a 要素と .item をぴったり重ねる */
   border-radius: inherit;     /* 親要素の値を引き継ぐ。どのCSSプロパティにも指定できる。 */
-  color: #777777;             /* a 要素の中はリンクテキストとして文字色が変わってしまうので、文字色を指定しなおす。 */
+  color: #aaaaaa;             /* a 要素の中はリンクテキストとして文字色が変わってしまうので、文字色を指定しなおす。 */
   transition: all 0.3s;       /* 0.3秒かけてスムーズに変わるように指定 */
 }
 .item > a:hover {

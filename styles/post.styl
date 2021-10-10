@@ -3,6 +3,7 @@
  * -------------------------------- */
 /* 本文だけフォントを変更 */
 text-fonts = 'Vollkorn', "Sawarabi Mincho", "Hiragino Kaku Gothic ProN", serif
+date-category-color = #aaaaaa
 
 /* article item の大きさを指定 */
 .item-article
@@ -19,7 +20,7 @@ text-fonts = 'Vollkorn', "Sawarabi Mincho", "Hiragino Kaku Gothic ProN", serif
   margin-right 20px
   display inline-block
   font-size 2rem
-  color #777777
+  color date-category-color
 }
 
 .category
@@ -29,13 +30,13 @@ text-fonts = 'Vollkorn', "Sawarabi Mincho", "Hiragino Kaku Gothic ProN", serif
     display inline-block
     padding 6px 10px 6px
     border-radius 5px
-    color #777777             /* a 要素の中はリンクテキストとして文字色が変わってしまうので、文字色を指定しなおす。 */
+    color date-category-color             /* a 要素の中はリンクテキストとして文字色が変わってしまうので、文字色を指定しなおす。 */
     transition all 0.3s       /* 0.3秒かけてスムーズに変わるように指定 */
     box-shadow 0 0 8px -1px rgba(0, 0, 0, 0.3)  /* ボックスの周りに影を落とす */
 
   > a:hover
     opacity 0.8  /* ハイライトのような効果 */
-    background #777777
+    background date-category-color
     color #FFFFFF
 
 /* --------------------------------
@@ -43,7 +44,7 @@ text-fonts = 'Vollkorn', "Sawarabi Mincho", "Hiragino Kaku Gothic ProN", serif
  * -------------------------------- */
 .title
   margin 20px 0 20px
-  color #aaaaaa
+  color #1D6A96
   font-size 4rem
   font-weight bold
   letter-spacing 1px

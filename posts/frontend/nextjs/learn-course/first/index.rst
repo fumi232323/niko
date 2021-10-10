@@ -1,5 +1,5 @@
 .. title: Next.js: Navigation, Styling
-.. tags: javascript
+.. tags: frontend
 .. date: 2020-07-05
 .. slug: index
 .. status: published

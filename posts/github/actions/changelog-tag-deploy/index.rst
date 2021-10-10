@@ -433,10 +433,13 @@ workflow は二本用意します
 
      * デフォルトは変えられます
 
-2. changelog を生成
-3. bump up したタグ名 (``next tag``) 払い出し
+2. bump up したタグ名 (``next tag``) 払い出し
 
    * タグ打ちはまだしない (``dry_run: true``)
+
+3. changelog を生成
+
+   * changelog の version にも ``next tag`` を指定
 
 4. changelog を PR
 

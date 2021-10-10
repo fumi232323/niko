@@ -1,5 +1,5 @@
 .. title: Firebase
-.. tags: javascript
+.. tags: frontend
 .. date: 2020-05-13
 .. slug: index
 .. status: published

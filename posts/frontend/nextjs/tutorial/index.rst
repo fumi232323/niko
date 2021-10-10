@@ -1,5 +1,5 @@
 .. title: Next.js TypeScript チュートリアル
-.. tags: javascript
+.. tags: frontend
 .. date: 2020-06-22
 .. updated: 2020-06-29
 .. slug: index
