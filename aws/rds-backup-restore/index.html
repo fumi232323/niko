@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<title>Amazon RDS のバックアップと復元/ふみのて</title>
+<link rel="shortcut icon" href="../../assets/icons/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sawarabi+Mincho&amp;display=swap&amp;subset=japanese,latin-ext">
+<link href="https://fonts.googleapis.com/css2?family=Capriola&amp;family=Mirza&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Vollkorn:400,700">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+<link rel="stylesheet" href="../../assets/css/style.css?20200720">
+</head>
+<body>
+    <div class="container">
+      <div class="header"><header class="item item-header"><h1>
+    <a href="../../">
+      <img class="logo" src="../../assets/images/inuu.png" alt="犬"></a>
+  </h1>
+  <iframe src="../../tags/" class="tags"></iframe>
+</header></div>
+      <div class="main">
+<div class="article-content">
+  <main class="item item-article item-aws"><div class="category">
+      <a href="../../tags/aws/">
+          aws
+      </a>
+    </div>
+    <div class="title">Amazon RDS のバックアップと復元</div>
+    <time class="date" datetime="2021-11-21 00:00:00+09:00">
+      2021-11-21 Sun
+    </time><time class="date" datetime="2021-11-21 00:00:00+09:00">
+        updated: 2021-11-21 Sun
+        
+      </time><div class="text">
+      <div>
+<details><summary>目次</summary><div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li>
+<p><a class="reference internal" href="#aws" id="id16">AWS ドキュメントメモ</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id1" id="id17">ドキュメント</a></p></li>
+<li><p><a class="reference internal" href="#id2" id="id18">概要</a></p></li>
+<li><p><a class="reference internal" href="#id3" id="id19">バックアップストレージ</a></p></li>
+<li><p><a class="reference internal" href="#id4" id="id20">バックアップの保存期間</a></p></li>
+<li><p><a class="reference internal" href="#db" id="id21">DB スナップショットの作成</a></p></li>
+<li><p><a class="reference internal" href="#id5" id="id22">DB スナップショットからの復元</a></p></li>
+<li><p><a class="reference internal" href="#db-instance" id="id23">特定の時点への DB instanceの復元</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#fumi23" id="id24">fumi23 の疑問と結論</a></p></li>
+<li>
+<p><a class="reference internal" href="#id6" id="id25">スナップショット取得 -&gt; リストア手順</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id9" id="id26">コマンド例</a></p></li>
+<li><p><a class="reference internal" href="#id10" id="id27">コマンドリファレンス</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+</details><div class="section" id="aws">
+<h2><a class="toc-backref" href="#id16">AWS ドキュメントメモ</a></h2>
+<div class="section" id="id1">
+<h3><a class="toc-backref" href="#id17">ドキュメント</a></h3>
+<p><a class="reference external" href="(https:/docs.aws.amazon.com/ja_jp/AmazonRDS/latest/UserGuide/CHAP_CommonTasks.BackupRestore.html)">Amazon RDS DB インスタンスのバックアップと復元</a></p>
+</div>
+<div class="section" id="id2">
+<h3><a class="toc-backref" href="#id18">概要</a></h3>
+<ul class="simple">
+<li>
+<p>DBインスタンス全体をバックアップする</p>
+<ul>
+<li><p>RDS は DB インスタンスのストレージボリュームのスナップショットを作成し、個々のデータベースだけではなく、DB インスタンス全体をバックアップします。</p></li>
+</ul>
+</li>
+<li><p>DB スナップショットを手動で作成して、DB インスタンスを手動でバックアップすることもできる</p></li>
+<li><p>DB インスタンスの最初のスナップショットには、フル DB インスタンスのデータが含まれる</p></li>
+<li><p>同じ DB インスタンスの後続のスナップショットは増分です。つまり、直近のスナップショット以降に変更されたデータのみが保存される</p></li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h3><a class="toc-backref" href="#id19">バックアップストレージ</a></h3>
+<ul class="simple">
+<li><p>リージョンあたり最大 100 個の手動スナップショットを作成できる</p></li>
+<li><p>1 つの AWS リージョンで保持できる自動バックアップの最大数は 40 個</p></li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h3><a class="toc-backref" href="#id20">バックアップの保存期間</a></h3>
+<ul class="simple">
+<li>
+<p>自動バックアップ:</p>
+<ul>
+<li><p>コンソールを使用して DB インスタンスを作成した場合、デフォルトのバックアップ保持期間は 7 日</p></li>
+<li><p>バックアップ保持期間は変更できる (0 ～ 35 日間)  ※ <code class="docutils literal">0</code> == 自動バックアップが無効</p></li>
+</ul>
+</li>
+<li>
+<p>手動スナップショット:</p>
+<ul>
+<li><p>スナップショットは期限切れになりません。</p></li>
+<li><p>自動バックアップとは異なり、手動スナップショットはバックアップ保持期間の影響を受けません。</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="db">
+<h3><a class="toc-backref" href="#id21">DB スナップショットの作成</a></h3>
+<ul class="simple">
+<li><p>Single-AZ DB インスタンスでこの DB スナップショットを作成すると、I/O が短時間中断します。この時間は、DB インスタンスのサイズやクラスによって異なり、数秒から数分。</p></li>
+<li><p>MariaDB、MySQL、Oracle、PostgreSQL の場合、バックアップはスタンバイから取得されるため、マルチ AZ 配置のバックアップ中プライマリで I/O アクティビティは中断しない。</p></li>
+<li>
+<p>=&gt; とのこと</p>
+<ul>
+<li><p>PostgreSQL DB インスタンスの場合、ログに記録されていないテーブルのデータはスナップショットから復元されないことがあります。詳細については、「<a class="reference external" href="https://docs.aws.amazon.com/ja_jp/AmazonRDS/latest/UserGuide/CHAP_BestPractices.html#CHAP_BestPractices.PostgreSQL">PostgreSQL を使用するためのベストプラクティス</a>」を参照してください。</p></li>
+</ul>
+</li>
+<li><p>AWS Management Console から簡単にぽちぽちできる</p></li>
+<li><p>AWS CLI のコマンドもシンプルそう</p></li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h3><a class="toc-backref" href="#id22">DB スナップショットからの復元</a></h3>
+<ul class="simple">
+<li><p>復元元の DB スナップショットの名前を指定してから、復元から作成された新しい DB インスタンスの名前を指定する。</p></li>
+<li><p>DB スナップショットから既存の DB インスタンスに復元することはできません。復元すると新しい DB インスタンスが作成されます。</p></li>
+<li>
+<p>パラメータグループ:</p>
+<ul>
+<li><p>復元された DB インスタンスを適切なパラメータグループと関連付けることができるように、作成する DB スナップショットのパラメータグループを保持することをお勧めします。DB インスタンスを復元するときにパラメータグループを指定できます。</p></li>
+</ul>
+</li>
+<li>
+<p>セキュリティグループ:</p>
+<ul>
+<li><p>AWS CLI を使用している場合、カスタムセキュリティグループを指定し、
+<code class="docutils literal"><span class="pre">restore-db-instance-from-db-snapshot</span></code> コマンドに <code class="docutils literal"><span class="pre">--vpc-security-group-ids</span></code> オプションを含めることにより、インスタンスに関連付けることができます。</p></li>
+<li><p>復元が完了し、新しい DB インスタンスが利用できるようになったらすぐに、復元の元となるスナップショットによって使用されているカスタムセキュリティグループを関連付けることができる。</p></li>
+<li><p>AWS CLI <code class="docutils literal"><span class="pre">modify-db-instance</span></code> コマンドを介して DB インスタンスを修正することで、これらの変更を適用する必要がある</p></li>
+</ul>
+</li>
+<li>
+<p>オプショングループ:</p>
+<ul>
+<li><p>DB インスタンスを復元すると、DB スナップショットに関連付けられたオプショングループは、作成後に復元された DB インスタンスと関連付けられる。</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://docs.aws.amazon.com/cli/latest/reference/rds/restore-db-instance-from-db-snapshot.html">restore-db-instance-from-db-snapshot</a> コマンドにだいぶオプションがあるので、たいがい間に合いそう</p></li>
+<li><p>DB 立ち上がるまで待てるやつもある: <a class="reference external" href="https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/wait/db-instance-available.html">db-instance-available</a></p></li>
+</ul>
+</div>
+<div class="section" id="db-instance">
+<h3><a class="toc-backref" href="#id23">特定の時点への DB instanceの復元</a></h3>
+<ul class="simple">
+<li><p>DB インスタンスを特定の時点に復元し、新しい DB インスタンス を作成できる。</p></li>
+<li><p>DB インスタンスを特定の時点に復元する場合、デフォルトの VPC セキュリティグループを選択するか、カスタム VPC セキュリティグループを DB インスタンスに適用できます。</p></li>
+<li><p>復元された DB インスタンスは、デフォルトの DB パラメータグループとオプショングループに自動的に関連付けられます。ただし、カスタムパラメータグループとオプショングループは、復元中に指定することで適用できます。</p></li>
+<li><p><a class="reference external" href="https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/restore-db-instance-to-point-in-time.html">restore-db-instance-to-point-in-time</a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="fumi23">
+<h2><a class="toc-backref" href="#id24">fumi23 の疑問と結論</a></h2>
+<ul>
+<li>
+<p>パスワードはどうなるのじゃ?</p>
+<p>=&gt; <code class="docutils literal">マスターユーザー名</code>, <code class="docutils literal">パスワード</code>, <code class="docutils literal">DB名</code> (そりゃそうだけれど) は、スナップショット取得元インスタンスと同じで復元された</p>
+<blockquote>
+<ul class="simple">
+<li><p>DB接続文字列に使うので気になった</p></li>
+</ul>
+</blockquote>
+</li>
+<li>
+<p>パラメータグループとセキュリティグループは、結局、いつくっつけられるの?</p>
+<ul class="simple">
+<li><p><code class="docutils literal"><span class="pre">restore-db-instance-from-db-snapshot</span></code> のオプションで指定するだけでよいの?</p></li>
+<li><p>それとも、 DB 上がってから <code class="docutils literal"><span class="pre">modify-db-instance</span></code> するの??</p></li>
+</ul>
+<p>=&gt; <code class="docutils literal"><span class="pre">restore-db-instance-from-db-snapshot</span></code> のオプションで指定するだけで OK</p>
+<blockquote>
+<ul class="simple">
+<li><p>指定したパラメータグループとセキュリティグループが関連づけられた状態で DB が復元される</p></li>
+<li><p>後から変更したいものは、復元した DB が立ち上がってから  <code class="docutils literal"><span class="pre">modify-db-instance</span></code> で変更できるよ、ということらしい</p></li>
+</ul>
+</blockquote>
+</li>
+<li>
+<p>エンドポイント変わっちゃうな.. (新しいインスタンス立ち上げなので)</p>
+<ul class="simple">
+<li><p>AWS Secrets Manager の value を AWS CLI で変更できる?</p></li>
+<li><p>CNAME しておくのが良いのか..? DNS 切り替えめんどう...</p></li>
+</ul>
+<p>=&gt; なんかできそう: <a class="reference external" href="https://docs.aws.amazon.com/ja_jp/secretsmanager/latest/userguide/manage_update-secret.html">https://docs.aws.amazon.com/ja_jp/secretsmanager/latest/userguide/manage_update-secret.html</a></p>
+</li>
+<li>
+<p>復元終わったら古いほう削除しないとだな (入れ替えたいので)</p>
+<ul>
+<li>
+<p>というか、↓とかできないかな、できないのかな</p>
+<ul class="simple">
+<li><p>あらかじめスナップショットを取得しておく ( <code class="docutils literal">devfumi23</code> から <code class="docutils literal"><span class="pre">devfumi23-s1</span></code>)</p></li>
+<li><p>古いほうをリネーム ( <code class="docutils literal">devfumi23</code> -&gt; <code class="docutils literal"><span class="pre">devfumi23-b1</span></code>)</p></li>
+<li><p>スナップショットから復元 ( <code class="docutils literal"><span class="pre">devfumi23-s1</span></code> から <code class="docutils literal">devfumi23</code>)</p></li>
+<li><p>古いほうを削除 (<code class="docutils literal"><span class="pre">devfumi23-b1</span></code> を削除)</p></li>
+</ul>
+<p>=&gt; できない。 DB識別子はさすがにリネームできない。</p>
+</li>
+</ul>
+<p>=&gt; DBインスタンスの削除はこちら: <a class="reference external" href="https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/delete-db-instance.html">delete-db-instance</a></p>
+<blockquote>
+<ul class="simple">
+<li><p>DBインスタンスとそのすべての自動バックアップが削除される</p></li>
+<li><p>手動スナップショットは削除されない</p></li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="id6">
+<h2><a class="toc-backref" href="#id25">スナップショット取得 -&gt; リストア手順</a></h2>
+<ol class="arabic simple">
+<li>
+<p>スナップショットを作成</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.aws.amazon.com/ja_jp/AmazonRDS/latest/UserGuide/USER_CreateSnapshot.html">DB スナップショットの作成</a> に書いてあるとおり</p></li>
+<li><p>AWS CLI コマンドのほうもオプションちょっとしかないので、手動でやるなら AWS Management Console からで良いかなーという感じだった</p></li>
+</ul>
+</li>
+<li>
+<p>スナップショットからの復元</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.aws.amazon.com/ja_jp/AmazonRDS/latest/UserGuide/USER_RestoreFromSnapshot.html">DB スナップショットからの復元</a> を見てやる</p></li>
+<li><p>こちらは指定できる or 指定すべきオプションが多い</p></li>
+<li><p>AWS Management Console からぽちぽちやると間違えそうなので、 AWS CLI が良さそう (文字でとっておけるし)</p></li>
+<li><p>何某かからもキックできるし</p></li>
+</ul>
+</li>
+</ol>
+<div class="section" id="id9">
+<h3><a class="toc-backref" href="#id26">コマンド例</a></h3>
+<ul>
+<li>
+<p>スナップショットからの復元</p>
+<pre class="code bash"><a name="rest_code_e671c71d1a8c413e8b01a2171114e514-1"></a><span class="c1"># サブネットグループ、セキュリティグループ、パラメーターグループ (とその他) を指定している</span>
+<a name="rest_code_e671c71d1a8c413e8b01a2171114e514-2"></a><span class="c1"># 指定しないと、それぞれデフォルトのものが関連付けられる</span>
+<a name="rest_code_e671c71d1a8c413e8b01a2171114e514-3"></a>$ aws --profile fumi23 rds restore-db-instance-from-db-snapshot <span class="se">\</span>
+<a name="rest_code_e671c71d1a8c413e8b01a2171114e514-4"></a>     --db-instance-identifier devfumi23-r1 <span class="se">\</span>
+<a name="rest_code_e671c71d1a8c413e8b01a2171114e514-5"></a>     --db-snapshot-identifier devfumi23-s1 <span class="se">\</span>
+<a name="rest_code_e671c71d1a8c413e8b01a2171114e514-6"></a>     --db-instance-class db.t2.micro <span class="se">\</span>
+<a name="rest_code_e671c71d1a8c413e8b01a2171114e514-7"></a>     --db-subnet-group-name dev-fumi23-db-subnet-gr-pv <span class="se">\</span>
+<a name="rest_code_e671c71d1a8c413e8b01a2171114e514-8"></a>     --multi-az <span class="se">\</span>
+<a name="rest_code_e671c71d1a8c413e8b01a2171114e514-9"></a>     --publicly-accessible <span class="se">\</span>
+<a name="rest_code_e671c71d1a8c413e8b01a2171114e514-10"></a>     --no-auto-minor-version-upgrade <span class="se">\</span>
+<a name="rest_code_e671c71d1a8c413e8b01a2171114e514-11"></a>     --vpc-security-group-ids sg-99999999999999999 <span class="se">\</span>
+<a name="rest_code_e671c71d1a8c413e8b01a2171114e514-12"></a>     --copy-tags-to-snapshot <span class="se">\</span>
+<a name="rest_code_e671c71d1a8c413e8b01a2171114e514-13"></a>     --enable-cloudwatch-logs-exports postgresql <span class="se">\</span>
+<a name="rest_code_e671c71d1a8c413e8b01a2171114e514-14"></a>     --db-parameter-group-name  devfumi23-postgres11 <span class="se">\</span>
+<a name="rest_code_e671c71d1a8c413e8b01a2171114e514-15"></a>     --no-deletion-protection
+</pre>
+</li>
+<li>
+<p>オプションに指定すべき値がよくわからないなあ... というときは、
+<a class="reference external" href="https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-instances.html">describe-db-instances</a>
+で、スナップショット取得元DBインスタンスの情報を取得してみるとだいたいわかる</p>
+<pre class="code bash"><a name="rest_code_8f11ac42680b420fbeb9036703b82593-1"></a><span class="c1"># 指定した DB インスタンスの情報を取得</span>
+<a name="rest_code_8f11ac42680b420fbeb9036703b82593-2"></a>$ aws --profile fumi23 rds describe-db-instances --db-instance-identifier devfumi23 &gt; describe-db-devfumi23.json
+</pre>
+</li>
+<li>
+<p>JSON or YAML 形式のスケルトンも取得できる。それを <code class="docutils literal"><span class="pre">--cli-input-json</span></code> or <code class="docutils literal"><span class="pre">--cli-input-yaml</span></code> に指定できる。</p>
+<pre class="code bash"><a name="rest_code_beb083c2ec504a65bb60050a68968dc7-1"></a><span class="c1"># スケルトンを YAML 形式で取得</span>
+<a name="rest_code_beb083c2ec504a65bb60050a68968dc7-2"></a>$ aws --profile fumi23 rds restore-db-instance-from-db-snapshot --generate-cli-skeleton yaml-input &gt; restore-db-skeleton.yaml
+<a name="rest_code_beb083c2ec504a65bb60050a68968dc7-3"></a><span class="c1"># スケルトンを JSON 形式で取得</span>
+<a name="rest_code_beb083c2ec504a65bb60050a68968dc7-4"></a>$ aws --profile fumi23 rds restore-db-instance-from-db-snapshot --generate-cli-skeleton &gt; restore-db-skeleton.json
+</pre>
+</li>
+</ul>
+</div>
+<div class="section" id="id10">
+<h3><a class="toc-backref" href="#id27">コマンドリファレンス</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-snapshot.html">create-db-snapshot</a></p></li>
+<li><p><a class="reference external" href="https://docs.aws.amazon.com/cli/latest/reference/rds/restore-db-instance-from-db-snapshot.html">restore-db-instance-from-db-snapshot</a></p></li>
+<li><p><a class="reference external" href="https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-instances.html">describe-db-instances</a></p></li>
+<li><p><a class="reference external" href="https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/restore-db-instance-to-point-in-time.html">restore-db-instance-to-point-in-time</a></p></li>
+<li><p><a class="reference external" href="https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/wait/db-instance-available.html">db-instance-available</a></p></li>
+<li><p><a class="reference external" href="https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/delete-db-instance.html">delete-db-instance</a></p></li>
+</ul>
+</div>
+</div>
+</div>
+    </div>
+  </main>
+</div>
+</div>
+    </div>
+  </body>
+</html>
