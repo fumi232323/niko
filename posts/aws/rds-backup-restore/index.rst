@@ -183,7 +183,7 @@ fumi23 の疑問と結論
          --vpc-security-group-ids sg-99999999999999999 \
          --copy-tags-to-snapshot \
          --enable-cloudwatch-logs-exports postgresql \
-         --db-parameter-group-name  devfumi23-postgres11 \
+         --db-parameter-group-name devfumi23-postgres11 \
          --no-deletion-protection
 
 
@@ -211,7 +211,7 @@ fumi23 の疑問と結論
 --------------------
 
 * `create-db-snapshot <https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-snapshot.html>`_
-* `restore-db-instance-from-db-snapshot <https://docs.aws.amazon.com/cli/latest/reference/rds/restore-db-instance-from-db-snapshot.html>`_
+* `restore-db-instance-from-db-snapshot <https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/restore-db-instance-from-db-snapshot.html>`_
 * `describe-db-instances <https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-instances.html>`_
 * `restore-db-instance-to-point-in-time <https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/restore-db-instance-to-point-in-time.html>`_
 * `db-instance-available <https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/wait/db-instance-available.html>`_
