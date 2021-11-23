@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ふみのて (Posts about aws)</title><link>https://32imuf.com/</link><description></description><atom:link href="https://32imuf.com/tags/aws.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2021 &lt;a href="mailto:fumi232323fumi2016@gmail.com"&gt;fumi23&lt;/a&gt; </copyright><lastBuildDate>Sun, 21 Nov 2021 14:34:22 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Amazon RDS のバックアップと復元</title><link>https://32imuf.com/aws/rds-backup-restore/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;details&gt;&lt;summary&gt;目次&lt;/summary&gt;&lt;div class="contents topic" id="contents"&gt;
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ふみのて (Posts about aws)</title><link>https://32imuf.com/</link><description></description><atom:link href="https://32imuf.com/tags/aws.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2021 &lt;a href="mailto:fumi232323fumi2016@gmail.com"&gt;fumi23&lt;/a&gt; </copyright><lastBuildDate>Tue, 23 Nov 2021 12:47:16 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>AWS IAM のセキュリティ (ドキュメントの場所)</title><link>https://32imuf.com/aws/iam-security-best-practices/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;details&gt;&lt;summary&gt;目次&lt;/summary&gt;&lt;div class="contents topic" id="contents"&gt;
+&lt;p class="topic-title first"&gt;Contents&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/aws/iam-security-best-practices/#id1" id="id3"&gt;ドキュメントの場所&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/details&gt;&lt;div class="section" id="id1"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/aws/iam-security-best-practices/#id3"&gt;ドキュメントの場所&lt;/a&gt;&lt;/h2&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://docs.aws.amazon.com/ja_jp/IAM/latest/UserGuide/best-practices.html"&gt;IAM でのセキュリティのベストプラクティス&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html"&gt;AWSアクセスキーを管理するためのベストプラクティス&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://docs.aws.amazon.com/ja_jp/IAM/latest/UserGuide/id_credentials_access-keys.html"&gt;IAM ユーザーのアクセスキーの管理&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://aws.amazon.com/jp/premiumsupport/knowledge-center/authenticate-mfa-cli/"&gt;MFA トークンを使用して、AWS CLI を通じて AWS リソースへのアクセスを認証するにはどうすればよいですか?&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://aws.amazon.com/jp/premiumsupport/knowledge-center/iam-assume-role-cli/"&gt;AWS CLI を使用して IAM ロールを引き受ける方法を教えてください。&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://dev.classmethod.jp/articles/iam-role-passrole-assumerole/"&gt;IAM ロールの PassRole と AssumeRole をもう二度と忘れないために絵を描いてみた&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://dev.classmethod.jp/articles/iam-role-and-assumerole/"&gt;IAMロール徹底理解 〜 AssumeRoleの正体&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;&lt;/div&gt;</description><category>aws</category><guid>https://32imuf.com/aws/iam-security-best-practices/</guid><pubDate>Mon, 22 Nov 2021 15:00:00 GMT</pubDate></item><item><title>Amazon RDS のバックアップと復元</title><link>https://32imuf.com/aws/rds-backup-restore/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;details&gt;&lt;summary&gt;目次&lt;/summary&gt;&lt;div class="contents topic" id="contents"&gt;
 &lt;p class="topic-title first"&gt;Contents&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/aws/rds-backup-restore/#aws" id="id16"&gt;AWS ドキュメントメモ&lt;/a&gt;&lt;/p&gt;
@@ -191,41 +208,46 @@
 &lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/aws/rds-backup-restore/#id26"&gt;コマンド例&lt;/a&gt;&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;スナップショットからの復元&lt;/p&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_e671c71d1a8c413e8b01a2171114e514-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# サブネットグループ、セキュリティグループ、パラメーターグループ (とその他) を指定している&lt;/span&gt;
-&lt;a name="rest_code_e671c71d1a8c413e8b01a2171114e514-2"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 指定しないと、それぞれデフォルトのものが関連付けられる&lt;/span&gt;
-&lt;a name="rest_code_e671c71d1a8c413e8b01a2171114e514-3"&gt;&lt;/a&gt;$ aws --profile fumi23 rds restore-db-instance-from-db-snapshot &lt;span class="se"&gt;\&lt;/span&gt;
-&lt;a name="rest_code_e671c71d1a8c413e8b01a2171114e514-4"&gt;&lt;/a&gt;     --db-instance-identifier devfumi23-r1 &lt;span class="se"&gt;\&lt;/span&gt;
-&lt;a name="rest_code_e671c71d1a8c413e8b01a2171114e514-5"&gt;&lt;/a&gt;     --db-snapshot-identifier devfumi23-s1 &lt;span class="se"&gt;\&lt;/span&gt;
-&lt;a name="rest_code_e671c71d1a8c413e8b01a2171114e514-6"&gt;&lt;/a&gt;     --db-instance-class db.t2.micro &lt;span class="se"&gt;\&lt;/span&gt;
-&lt;a name="rest_code_e671c71d1a8c413e8b01a2171114e514-7"&gt;&lt;/a&gt;     --db-subnet-group-name dev-fumi23-db-subnet-gr-pv &lt;span class="se"&gt;\&lt;/span&gt;
-&lt;a name="rest_code_e671c71d1a8c413e8b01a2171114e514-8"&gt;&lt;/a&gt;     --multi-az &lt;span class="se"&gt;\&lt;/span&gt;
-&lt;a name="rest_code_e671c71d1a8c413e8b01a2171114e514-9"&gt;&lt;/a&gt;     --publicly-accessible &lt;span class="se"&gt;\&lt;/span&gt;
-&lt;a name="rest_code_e671c71d1a8c413e8b01a2171114e514-10"&gt;&lt;/a&gt;     --no-auto-minor-version-upgrade &lt;span class="se"&gt;\&lt;/span&gt;
-&lt;a name="rest_code_e671c71d1a8c413e8b01a2171114e514-11"&gt;&lt;/a&gt;     --vpc-security-group-ids sg-99999999999999999 &lt;span class="se"&gt;\&lt;/span&gt;
-&lt;a name="rest_code_e671c71d1a8c413e8b01a2171114e514-12"&gt;&lt;/a&gt;     --copy-tags-to-snapshot &lt;span class="se"&gt;\&lt;/span&gt;
-&lt;a name="rest_code_e671c71d1a8c413e8b01a2171114e514-13"&gt;&lt;/a&gt;     --enable-cloudwatch-logs-exports postgresql &lt;span class="se"&gt;\&lt;/span&gt;
-&lt;a name="rest_code_e671c71d1a8c413e8b01a2171114e514-14"&gt;&lt;/a&gt;     --db-parameter-group-name  devfumi23-postgres11 &lt;span class="se"&gt;\&lt;/span&gt;
-&lt;a name="rest_code_e671c71d1a8c413e8b01a2171114e514-15"&gt;&lt;/a&gt;     --no-deletion-protection
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_561576a857b6452aa001421d2d844559-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# サブネットグループ、セキュリティグループ、パラメーターグループ (とその他) を指定している&lt;/span&gt;
+&lt;a name="rest_code_561576a857b6452aa001421d2d844559-2"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 指定しないと、それぞれデフォルトのものが関連付けられる&lt;/span&gt;
+&lt;a name="rest_code_561576a857b6452aa001421d2d844559-3"&gt;&lt;/a&gt;$ aws --profile fumi23 rds restore-db-instance-from-db-snapshot &lt;span class="se"&gt;\&lt;/span&gt;
+&lt;a name="rest_code_561576a857b6452aa001421d2d844559-4"&gt;&lt;/a&gt;     --db-instance-identifier devfumi23-r1 &lt;span class="se"&gt;\&lt;/span&gt;
+&lt;a name="rest_code_561576a857b6452aa001421d2d844559-5"&gt;&lt;/a&gt;     --db-snapshot-identifier devfumi23-s1 &lt;span class="se"&gt;\&lt;/span&gt;
+&lt;a name="rest_code_561576a857b6452aa001421d2d844559-6"&gt;&lt;/a&gt;     --db-instance-class db.t2.micro &lt;span class="se"&gt;\&lt;/span&gt;
+&lt;a name="rest_code_561576a857b6452aa001421d2d844559-7"&gt;&lt;/a&gt;     --db-subnet-group-name dev-fumi23-db-subnet-gr-pv &lt;span class="se"&gt;\&lt;/span&gt;
+&lt;a name="rest_code_561576a857b6452aa001421d2d844559-8"&gt;&lt;/a&gt;     --multi-az &lt;span class="se"&gt;\&lt;/span&gt;
+&lt;a name="rest_code_561576a857b6452aa001421d2d844559-9"&gt;&lt;/a&gt;     --publicly-accessible &lt;span class="se"&gt;\&lt;/span&gt;
+&lt;a name="rest_code_561576a857b6452aa001421d2d844559-10"&gt;&lt;/a&gt;     --no-auto-minor-version-upgrade &lt;span class="se"&gt;\&lt;/span&gt;
+&lt;a name="rest_code_561576a857b6452aa001421d2d844559-11"&gt;&lt;/a&gt;     --vpc-security-group-ids sg-99999999999999999 &lt;span class="se"&gt;\&lt;/span&gt;
+&lt;a name="rest_code_561576a857b6452aa001421d2d844559-12"&gt;&lt;/a&gt;     --copy-tags-to-snapshot &lt;span class="se"&gt;\&lt;/span&gt;
+&lt;a name="rest_code_561576a857b6452aa001421d2d844559-13"&gt;&lt;/a&gt;     --enable-cloudwatch-logs-exports postgresql &lt;span class="se"&gt;\&lt;/span&gt;
+&lt;a name="rest_code_561576a857b6452aa001421d2d844559-14"&gt;&lt;/a&gt;     --db-parameter-group-name devfumi23-postgres11 &lt;span class="se"&gt;\&lt;/span&gt;
+&lt;a name="rest_code_561576a857b6452aa001421d2d844559-15"&gt;&lt;/a&gt;     --no-deletion-protection
 &lt;/pre&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;オプションに指定すべき値がよくわからないなあ... というときは、
 &lt;a class="reference external" href="https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-instances.html"&gt;describe-db-instances&lt;/a&gt;
 で、スナップショット取得元DBインスタンスの情報を取得してみるとだいたいわかる&lt;/p&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_8f11ac42680b420fbeb9036703b82593-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 指定した DB インスタンスの情報を取得&lt;/span&gt;
-&lt;a name="rest_code_8f11ac42680b420fbeb9036703b82593-2"&gt;&lt;/a&gt;$ aws --profile fumi23 rds describe-db-instances --db-instance-identifier devfumi23 &amp;gt; describe-db-devfumi23.json
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_d9a17ea284f14ab3a3c484bc782fcd67-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# 指定した DB インスタンスの情報を取得&lt;/span&gt;
+&lt;a name="rest_code_d9a17ea284f14ab3a3c484bc782fcd67-2"&gt;&lt;/a&gt;$ aws --profile fumi23 rds describe-db-instances --db-instance-identifier devfumi23 &amp;gt; describe-db-devfumi23.json
 &lt;/pre&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;JSON or YAML 形式のスケルトンも取得できる。それを &lt;code class="docutils literal"&gt;&lt;span class="pre"&gt;--cli-input-json&lt;/span&gt;&lt;/code&gt; or &lt;code class="docutils literal"&gt;&lt;span class="pre"&gt;--cli-input-yaml&lt;/span&gt;&lt;/code&gt; に指定できる。&lt;/p&gt;
-&lt;pre class="code bash"&gt;&lt;a name="rest_code_beb083c2ec504a65bb60050a68968dc7-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# スケルトンを YAML 形式で取得&lt;/span&gt;
-&lt;a name="rest_code_beb083c2ec504a65bb60050a68968dc7-2"&gt;&lt;/a&gt;$ aws --profile fumi23 rds restore-db-instance-from-db-snapshot --generate-cli-skeleton yaml-input &amp;gt; restore-db-skeleton.yaml
-&lt;a name="rest_code_beb083c2ec504a65bb60050a68968dc7-3"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# スケルトンを JSON 形式で取得&lt;/span&gt;
-&lt;a name="rest_code_beb083c2ec504a65bb60050a68968dc7-4"&gt;&lt;/a&gt;$ aws --profile fumi23 rds restore-db-instance-from-db-snapshot --generate-cli-skeleton &amp;gt; restore-db-skeleton.json
+&lt;pre class="code bash"&gt;&lt;a name="rest_code_710592c1423241f7af92d2816dbccb98-1"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# スケルトンを YAML 形式で取得&lt;/span&gt;
+&lt;a name="rest_code_710592c1423241f7af92d2816dbccb98-2"&gt;&lt;/a&gt;$ aws --profile fumi23 rds restore-db-instance-from-db-snapshot --generate-cli-skeleton yaml-input &amp;gt; restore-db-skeleton.yaml
+&lt;a name="rest_code_710592c1423241f7af92d2816dbccb98-3"&gt;&lt;/a&gt;&lt;span class="c1"&gt;# スケルトンを JSON 形式で取得&lt;/span&gt;
+&lt;a name="rest_code_710592c1423241f7af92d2816dbccb98-4"&gt;&lt;/a&gt;$ aws --profile fumi23 rds restore-db-instance-from-db-snapshot --generate-cli-skeleton &amp;gt; restore-db-skeleton.json
 &lt;/pre&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id10"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/aws/rds-backup-restore/#id27"&gt;コマンドリファレンス&lt;/a&gt;&lt;/h3&gt;
-&lt;ul class="simple"&gt;
+&lt;ul&gt;
 &lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-snapshot.html"&gt;create-db-snapshot&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://docs.aws.amazon.com/cli/latest/reference/rds/restore-db-instance-from-db-snapshot.html"&gt;restore-db-instance-from-db-snapshot&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;span class="docutils literal"&gt;&amp;lt;string&amp;gt;&lt;/span&gt;, line 143); &lt;em&gt;&lt;a href="https://32imuf.com/aws/rds-backup-restore/#id11"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Duplicate explicit target name: "restore-db-instance-from-db-snapshot".&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/restore-db-instance-from-db-snapshot.html"&gt;restore-db-instance-from-db-snapshot&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-instances.html"&gt;describe-db-instances&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/restore-db-instance-to-point-in-time.html"&gt;restore-db-instance-to-point-in-time&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/wait/db-instance-available.html"&gt;db-instance-available&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
@@ -860,7 +882,7 @@ Sender Policy Framework (SPF) 認証はこれらのメッセージを正常に�
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;p&gt;Amazon SES は、ユーザー自身の E メールアドレスとドメインを使用して E メールを送受信するための、簡単で費用効率の高い方法を提供する E メールプラットフォームです。&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/div&gt;&lt;/div&gt;</description><category>aws</category><guid>https://32imuf.com/aws/iroiro/</guid><pubDate>Wed, 26 Jun 2019 15:00:00 GMT</pubDate></item><item><title>Amazon Aurora とはなんですか？</title><link>https://32imuf.com/aws/what-is-amazon-aurora/</link><dc:creator>fumi23</dc:creator><description>&lt;div class="section" id="amazon-aurora"&gt;
+&lt;/div&gt;&lt;/div&gt;</description><category>aws</category><guid>https://32imuf.com/aws/iroiro/</guid><pubDate>Wed, 26 Jun 2019 15:00:00 GMT</pubDate></item><item><title>Amazon Aurora とはなんですか？</title><link>https://32imuf.com/aws/aurora-what-is-amazon-aurora/</link><dc:creator>fumi23</dc:creator><description>&lt;div class="section" id="amazon-aurora"&gt;
 &lt;h2&gt;Amazon Aurora とは？&lt;/h2&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://aws.amazon.com/jp/rds/aurora/"&gt;Amazon Aurora&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
@@ -877,7 +899,7 @@ Sender Policy Framework (SPF) 認証はこれらのメッセージを正常に�
 &lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://www.infoq.com/jp/news/2018/09/aurora-mysql-serverless-ga"&gt;Amazon Aurora Serverless MySQLが一般提供に&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description><category>aws</category><guid>https://32imuf.com/aws/what-is-amazon-aurora/</guid><pubDate>Sat, 08 Dec 2018 15:00:00 GMT</pubDate></item><item><title>Redshift のメモ</title><link>https://32imuf.com/aws/redshift/note/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;div class="section" id="id1"&gt;
+&lt;/div&gt;</description><category>aws</category><guid>https://32imuf.com/aws/aurora-what-is-amazon-aurora/</guid><pubDate>Sat, 08 Dec 2018 15:00:00 GMT</pubDate></item><item><title>Redshift のメモ</title><link>https://32imuf.com/aws/redshift/note/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;div class="section" id="id1"&gt;
 &lt;h2&gt;データ分散&lt;/h2&gt;
 &lt;div class="section" id="diststyle"&gt;
 &lt;h3&gt;DISTSTYLE&lt;/h3&gt;

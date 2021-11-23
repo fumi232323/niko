@@ -245,46 +245,52 @@
 <ul>
 <li>
 <p>スナップショットからの復元</p>
-<pre class="code bash"><a name="rest_code_e671c71d1a8c413e8b01a2171114e514-1"></a><span class="c1"># サブネットグループ、セキュリティグループ、パラメーターグループ (とその他) を指定している</span>
-<a name="rest_code_e671c71d1a8c413e8b01a2171114e514-2"></a><span class="c1"># 指定しないと、それぞれデフォルトのものが関連付けられる</span>
-<a name="rest_code_e671c71d1a8c413e8b01a2171114e514-3"></a>$ aws --profile fumi23 rds restore-db-instance-from-db-snapshot <span class="se">\</span>
-<a name="rest_code_e671c71d1a8c413e8b01a2171114e514-4"></a>     --db-instance-identifier devfumi23-r1 <span class="se">\</span>
-<a name="rest_code_e671c71d1a8c413e8b01a2171114e514-5"></a>     --db-snapshot-identifier devfumi23-s1 <span class="se">\</span>
-<a name="rest_code_e671c71d1a8c413e8b01a2171114e514-6"></a>     --db-instance-class db.t2.micro <span class="se">\</span>
-<a name="rest_code_e671c71d1a8c413e8b01a2171114e514-7"></a>     --db-subnet-group-name dev-fumi23-db-subnet-gr-pv <span class="se">\</span>
-<a name="rest_code_e671c71d1a8c413e8b01a2171114e514-8"></a>     --multi-az <span class="se">\</span>
-<a name="rest_code_e671c71d1a8c413e8b01a2171114e514-9"></a>     --publicly-accessible <span class="se">\</span>
-<a name="rest_code_e671c71d1a8c413e8b01a2171114e514-10"></a>     --no-auto-minor-version-upgrade <span class="se">\</span>
-<a name="rest_code_e671c71d1a8c413e8b01a2171114e514-11"></a>     --vpc-security-group-ids sg-99999999999999999 <span class="se">\</span>
-<a name="rest_code_e671c71d1a8c413e8b01a2171114e514-12"></a>     --copy-tags-to-snapshot <span class="se">\</span>
-<a name="rest_code_e671c71d1a8c413e8b01a2171114e514-13"></a>     --enable-cloudwatch-logs-exports postgresql <span class="se">\</span>
-<a name="rest_code_e671c71d1a8c413e8b01a2171114e514-14"></a>     --db-parameter-group-name  devfumi23-postgres11 <span class="se">\</span>
-<a name="rest_code_e671c71d1a8c413e8b01a2171114e514-15"></a>     --no-deletion-protection
+<pre class="code bash"><a name="rest_code_561576a857b6452aa001421d2d844559-1"></a><span class="c1"># サブネットグループ、セキュリティグループ、パラメーターグループ (とその他) を指定している</span>
+<a name="rest_code_561576a857b6452aa001421d2d844559-2"></a><span class="c1"># 指定しないと、それぞれデフォルトのものが関連付けられる</span>
+<a name="rest_code_561576a857b6452aa001421d2d844559-3"></a>$ aws --profile fumi23 rds restore-db-instance-from-db-snapshot <span class="se">\</span>
+<a name="rest_code_561576a857b6452aa001421d2d844559-4"></a>     --db-instance-identifier devfumi23-r1 <span class="se">\</span>
+<a name="rest_code_561576a857b6452aa001421d2d844559-5"></a>     --db-snapshot-identifier devfumi23-s1 <span class="se">\</span>
+<a name="rest_code_561576a857b6452aa001421d2d844559-6"></a>     --db-instance-class db.t2.micro <span class="se">\</span>
+<a name="rest_code_561576a857b6452aa001421d2d844559-7"></a>     --db-subnet-group-name dev-fumi23-db-subnet-gr-pv <span class="se">\</span>
+<a name="rest_code_561576a857b6452aa001421d2d844559-8"></a>     --multi-az <span class="se">\</span>
+<a name="rest_code_561576a857b6452aa001421d2d844559-9"></a>     --publicly-accessible <span class="se">\</span>
+<a name="rest_code_561576a857b6452aa001421d2d844559-10"></a>     --no-auto-minor-version-upgrade <span class="se">\</span>
+<a name="rest_code_561576a857b6452aa001421d2d844559-11"></a>     --vpc-security-group-ids sg-99999999999999999 <span class="se">\</span>
+<a name="rest_code_561576a857b6452aa001421d2d844559-12"></a>     --copy-tags-to-snapshot <span class="se">\</span>
+<a name="rest_code_561576a857b6452aa001421d2d844559-13"></a>     --enable-cloudwatch-logs-exports postgresql <span class="se">\</span>
+<a name="rest_code_561576a857b6452aa001421d2d844559-14"></a>     --db-parameter-group-name devfumi23-postgres11 <span class="se">\</span>
+<a name="rest_code_561576a857b6452aa001421d2d844559-15"></a>     --no-deletion-protection
 </pre>
 </li>
 <li>
 <p>オプションに指定すべき値がよくわからないなあ... というときは、
 <a class="reference external" href="https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-instances.html">describe-db-instances</a>
 で、スナップショット取得元DBインスタンスの情報を取得してみるとだいたいわかる</p>
-<pre class="code bash"><a name="rest_code_8f11ac42680b420fbeb9036703b82593-1"></a><span class="c1"># 指定した DB インスタンスの情報を取得</span>
-<a name="rest_code_8f11ac42680b420fbeb9036703b82593-2"></a>$ aws --profile fumi23 rds describe-db-instances --db-instance-identifier devfumi23 &gt; describe-db-devfumi23.json
+<pre class="code bash"><a name="rest_code_d9a17ea284f14ab3a3c484bc782fcd67-1"></a><span class="c1"># 指定した DB インスタンスの情報を取得</span>
+<a name="rest_code_d9a17ea284f14ab3a3c484bc782fcd67-2"></a>$ aws --profile fumi23 rds describe-db-instances --db-instance-identifier devfumi23 &gt; describe-db-devfumi23.json
 </pre>
 </li>
 <li>
 <p>JSON or YAML 形式のスケルトンも取得できる。それを <code class="docutils literal"><span class="pre">--cli-input-json</span></code> or <code class="docutils literal"><span class="pre">--cli-input-yaml</span></code> に指定できる。</p>
-<pre class="code bash"><a name="rest_code_beb083c2ec504a65bb60050a68968dc7-1"></a><span class="c1"># スケルトンを YAML 形式で取得</span>
-<a name="rest_code_beb083c2ec504a65bb60050a68968dc7-2"></a>$ aws --profile fumi23 rds restore-db-instance-from-db-snapshot --generate-cli-skeleton yaml-input &gt; restore-db-skeleton.yaml
-<a name="rest_code_beb083c2ec504a65bb60050a68968dc7-3"></a><span class="c1"># スケルトンを JSON 形式で取得</span>
-<a name="rest_code_beb083c2ec504a65bb60050a68968dc7-4"></a>$ aws --profile fumi23 rds restore-db-instance-from-db-snapshot --generate-cli-skeleton &gt; restore-db-skeleton.json
+<pre class="code bash"><a name="rest_code_710592c1423241f7af92d2816dbccb98-1"></a><span class="c1"># スケルトンを YAML 形式で取得</span>
+<a name="rest_code_710592c1423241f7af92d2816dbccb98-2"></a>$ aws --profile fumi23 rds restore-db-instance-from-db-snapshot --generate-cli-skeleton yaml-input &gt; restore-db-skeleton.yaml
+<a name="rest_code_710592c1423241f7af92d2816dbccb98-3"></a><span class="c1"># スケルトンを JSON 形式で取得</span>
+<a name="rest_code_710592c1423241f7af92d2816dbccb98-4"></a>$ aws --profile fumi23 rds restore-db-instance-from-db-snapshot --generate-cli-skeleton &gt; restore-db-skeleton.json
 </pre>
 </li>
 </ul>
 </div>
 <div class="section" id="id10">
 <h3><a class="toc-backref" href="#id27">コマンドリファレンス</a></h3>
-<ul class="simple">
+<ul>
 <li><p><a class="reference external" href="https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-snapshot.html">create-db-snapshot</a></p></li>
-<li><p><a class="reference external" href="https://docs.aws.amazon.com/cli/latest/reference/rds/restore-db-instance-from-db-snapshot.html">restore-db-instance-from-db-snapshot</a></p></li>
+<li>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">&lt;string&gt;</span>, line 143); <em><a href="#id11">backlink</a></em></p>
+<p>Duplicate explicit target name: "restore-db-instance-from-db-snapshot".</p>
+</div>
+<p><a class="reference external" href="https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/restore-db-instance-from-db-snapshot.html">restore-db-instance-from-db-snapshot</a></p>
+</li>
 <li><p><a class="reference external" href="https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-instances.html">describe-db-instances</a></p></li>
 <li><p><a class="reference external" href="https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/restore-db-instance-to-point-in-time.html">restore-db-instance-to-point-in-time</a></p></li>
 <li><p><a class="reference external" href="https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/wait/db-instance-available.html">db-instance-available</a></p></li>
