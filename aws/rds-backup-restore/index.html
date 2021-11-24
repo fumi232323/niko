@@ -40,35 +40,35 @@
 <p class="topic-title first">Contents</p>
 <ul class="simple">
 <li>
-<p><a class="reference internal" href="#aws" id="id16">AWS ドキュメントメモ</a></p>
+<p><a class="reference internal" href="#aws" id="id18">AWS ドキュメントメモ</a></p>
 <ul>
-<li><p><a class="reference internal" href="#id1" id="id17">ドキュメント</a></p></li>
-<li><p><a class="reference internal" href="#id2" id="id18">概要</a></p></li>
-<li><p><a class="reference internal" href="#id3" id="id19">バックアップストレージ</a></p></li>
-<li><p><a class="reference internal" href="#id4" id="id20">バックアップの保存期間</a></p></li>
-<li><p><a class="reference internal" href="#db" id="id21">DB スナップショットの作成</a></p></li>
-<li><p><a class="reference internal" href="#id5" id="id22">DB スナップショットからの復元</a></p></li>
-<li><p><a class="reference internal" href="#db-instance" id="id23">特定の時点への DB instanceの復元</a></p></li>
+<li><p><a class="reference internal" href="#id1" id="id19">ドキュメント</a></p></li>
+<li><p><a class="reference internal" href="#id2" id="id20">概要</a></p></li>
+<li><p><a class="reference internal" href="#id3" id="id21">バックアップストレージ</a></p></li>
+<li><p><a class="reference internal" href="#id4" id="id22">バックアップの保存期間</a></p></li>
+<li><p><a class="reference internal" href="#db" id="id23">DB スナップショットの作成</a></p></li>
+<li><p><a class="reference internal" href="#id5" id="id24">DB スナップショットからの復元</a></p></li>
+<li><p><a class="reference internal" href="#db-instance" id="id25">特定の時点への DB instanceの復元</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#fumi23" id="id24">fumi23 の疑問と結論</a></p></li>
+<li><p><a class="reference internal" href="#fumi23" id="id26">fumi23 の疑問と結論</a></p></li>
 <li>
-<p><a class="reference internal" href="#id6" id="id25">スナップショット取得 -&gt; リストア手順</a></p>
+<p><a class="reference internal" href="#id7" id="id27">スナップショット取得 -&gt; リストア手順</a></p>
 <ul>
-<li><p><a class="reference internal" href="#id9" id="id26">コマンド例</a></p></li>
-<li><p><a class="reference internal" href="#id10" id="id27">コマンドリファレンス</a></p></li>
+<li><p><a class="reference internal" href="#id10" id="id28">コマンド例</a></p></li>
+<li><p><a class="reference internal" href="#id11" id="id29">コマンドリファレンス</a></p></li>
 </ul>
 </li>
 </ul>
 </div>
 </details><div class="section" id="aws">
-<h2><a class="toc-backref" href="#id16">AWS ドキュメントメモ</a></h2>
+<h2><a class="toc-backref" href="#id18">AWS ドキュメントメモ</a></h2>
 <div class="section" id="id1">
-<h3><a class="toc-backref" href="#id17">ドキュメント</a></h3>
+<h3><a class="toc-backref" href="#id19">ドキュメント</a></h3>
 <p><a class="reference external" href="(https:/docs.aws.amazon.com/ja_jp/AmazonRDS/latest/UserGuide/CHAP_CommonTasks.BackupRestore.html)">Amazon RDS DB インスタンスのバックアップと復元</a></p>
 </div>
 <div class="section" id="id2">
-<h3><a class="toc-backref" href="#id18">概要</a></h3>
+<h3><a class="toc-backref" href="#id20">概要</a></h3>
 <ul class="simple">
 <li>
 <p>DBインスタンス全体をバックアップする</p>
@@ -82,14 +82,14 @@
 </ul>
 </div>
 <div class="section" id="id3">
-<h3><a class="toc-backref" href="#id19">バックアップストレージ</a></h3>
+<h3><a class="toc-backref" href="#id21">バックアップストレージ</a></h3>
 <ul class="simple">
 <li><p>リージョンあたり最大 100 個の手動スナップショットを作成できる</p></li>
 <li><p>1 つの AWS リージョンで保持できる自動バックアップの最大数は 40 個</p></li>
 </ul>
 </div>
 <div class="section" id="id4">
-<h3><a class="toc-backref" href="#id20">バックアップの保存期間</a></h3>
+<h3><a class="toc-backref" href="#id22">バックアップの保存期間</a></h3>
 <ul class="simple">
 <li>
 <p>自動バックアップ:</p>
@@ -108,7 +108,7 @@
 </ul>
 </div>
 <div class="section" id="db">
-<h3><a class="toc-backref" href="#id21">DB スナップショットの作成</a></h3>
+<h3><a class="toc-backref" href="#id23">DB スナップショットの作成</a></h3>
 <ul class="simple">
 <li><p>Single-AZ DB インスタンスでこの DB スナップショットを作成すると、I/O が短時間中断します。この時間は、DB インスタンスのサイズやクラスによって異なり、数秒から数分。</p></li>
 <li><p>MariaDB、MySQL、Oracle、PostgreSQL の場合、バックアップはスタンバイから取得されるため、マルチ AZ 配置のバックアップ中プライマリで I/O アクティビティは中断しない。</p></li>
@@ -123,7 +123,7 @@
 </ul>
 </div>
 <div class="section" id="id5">
-<h3><a class="toc-backref" href="#id22">DB スナップショットからの復元</a></h3>
+<h3><a class="toc-backref" href="#id24">DB スナップショットからの復元</a></h3>
 <ul class="simple">
 <li><p>復元元の DB スナップショットの名前を指定してから、復元から作成された新しい DB インスタンスの名前を指定する。</p></li>
 <li><p>DB スナップショットから既存の DB インスタンスに復元することはできません。復元すると新しい DB インスタンスが作成されます。</p></li>
@@ -148,12 +148,12 @@
 <li><p>DB インスタンスを復元すると、DB スナップショットに関連付けられたオプショングループは、作成後に復元された DB インスタンスと関連付けられる。</p></li>
 </ul>
 </li>
-<li><p><a class="reference external" href="https://docs.aws.amazon.com/cli/latest/reference/rds/restore-db-instance-from-db-snapshot.html">restore-db-instance-from-db-snapshot</a> コマンドにだいぶオプションがあるので、たいがい間に合いそう</p></li>
+<li><p><a class="reference external" href="https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/restore-db-instance-from-db-snapshot.html">restore-db-instance-from-db-snapshot</a> コマンドにだいぶオプションがあるので、たいがい間に合いそう</p></li>
 <li><p>DB 立ち上がるまで待てるやつもある: <a class="reference external" href="https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/wait/db-instance-available.html">db-instance-available</a></p></li>
 </ul>
 </div>
 <div class="section" id="db-instance">
-<h3><a class="toc-backref" href="#id23">特定の時点への DB instanceの復元</a></h3>
+<h3><a class="toc-backref" href="#id25">特定の時点への DB instanceの復元</a></h3>
 <ul class="simple">
 <li><p>DB インスタンスを特定の時点に復元し、新しい DB インスタンス を作成できる。</p></li>
 <li><p>DB インスタンスを特定の時点に復元する場合、デフォルトの VPC セキュリティグループを選択するか、カスタム VPC セキュリティグループを DB インスタンスに適用できます。</p></li>
@@ -163,7 +163,7 @@
 </div>
 </div>
 <div class="section" id="fumi23">
-<h2><a class="toc-backref" href="#id24">fumi23 の疑問と結論</a></h2>
+<h2><a class="toc-backref" href="#id26">fumi23 の疑問と結論</a></h2>
 <ul>
 <li>
 <p>パスワードはどうなるのじゃ?</p>
@@ -207,7 +207,28 @@
 <li><p>スナップショットから復元 ( <code class="docutils literal"><span class="pre">devfumi23-s1</span></code> から <code class="docutils literal">devfumi23</code>)</p></li>
 <li><p>古いほうを削除 (<code class="docutils literal"><span class="pre">devfumi23-b1</span></code> を削除)</p></li>
 </ul>
-<p>=&gt; できない。 DB識別子はさすがにリネームできない。</p>
+<p>=&gt; できそう。</p>
+<blockquote>
+<ul>
+<li><p><a class="reference external" href="https://docs.aws.amazon.com/ja_jp/AmazonRDS/latest/UserGuide/USER_RenameInstance.html">DB インスタンスの名前を変更する</a></p></li>
+<li>
+<p><a class="reference external" href="https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/modify-db-instance.html">modify-db-instance</a> に
+<code class="docutils literal"><span class="pre">--new-db-instance-identifier</span> &lt;value&gt;</code> というオプションあり。</p>
+<pre class="code bash"><a name="rest_code_3494695da87f44c3bfdcad7f716ebd38-1"></a>$ aws --profile fumi23 rds modify-db-instance <span class="se">\</span>
+<a name="rest_code_3494695da87f44c3bfdcad7f716ebd38-2"></a>    --db-instance-identifier devfumi23 <span class="se">\</span>
+<a name="rest_code_3494695da87f44c3bfdcad7f716ebd38-3"></a>    --new-db-instance-identifier devfumi2323 <span class="se">\</span>
+<a name="rest_code_3494695da87f44c3bfdcad7f716ebd38-4"></a>    --apply-immediately  <span class="c1"># すぐに適用 (次のメンテナンスウィンドウ中に適用したい場合はこのオプションをつけない)</span>
+</pre>
+</li>
+<li>
+<p>=&gt; エンドポイントも変わった</p>
+<p></p>
+<div class="figure">
+<img alt="/images/aws/rds-backup-restore/rename-db-instance-identifier.png" src="../../images/aws/rds-backup-restore/rename-db-instance-identifier.png">
+</div>
+</li>
+</ul>
+</blockquote>
 </li>
 </ul>
 <p>=&gt; DBインスタンスの削除はこちら: <a class="reference external" href="https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/delete-db-instance.html">delete-db-instance</a></p>
@@ -220,8 +241,8 @@
 </li>
 </ul>
 </div>
-<div class="section" id="id6">
-<h2><a class="toc-backref" href="#id25">スナップショット取得 -&gt; リストア手順</a></h2>
+<div class="section" id="id7">
+<h2><a class="toc-backref" href="#id27">スナップショット取得 -&gt; リストア手順</a></h2>
 <ol class="arabic simple">
 <li>
 <p>スナップショットを作成</p>
@@ -240,60 +261,55 @@
 </ul>
 </li>
 </ol>
-<div class="section" id="id9">
-<h3><a class="toc-backref" href="#id26">コマンド例</a></h3>
+<div class="section" id="id10">
+<h3><a class="toc-backref" href="#id28">コマンド例</a></h3>
 <ul>
 <li>
 <p>スナップショットからの復元</p>
-<pre class="code bash"><a name="rest_code_561576a857b6452aa001421d2d844559-1"></a><span class="c1"># サブネットグループ、セキュリティグループ、パラメーターグループ (とその他) を指定している</span>
-<a name="rest_code_561576a857b6452aa001421d2d844559-2"></a><span class="c1"># 指定しないと、それぞれデフォルトのものが関連付けられる</span>
-<a name="rest_code_561576a857b6452aa001421d2d844559-3"></a>$ aws --profile fumi23 rds restore-db-instance-from-db-snapshot <span class="se">\</span>
-<a name="rest_code_561576a857b6452aa001421d2d844559-4"></a>     --db-instance-identifier devfumi23-r1 <span class="se">\</span>
-<a name="rest_code_561576a857b6452aa001421d2d844559-5"></a>     --db-snapshot-identifier devfumi23-s1 <span class="se">\</span>
-<a name="rest_code_561576a857b6452aa001421d2d844559-6"></a>     --db-instance-class db.t2.micro <span class="se">\</span>
-<a name="rest_code_561576a857b6452aa001421d2d844559-7"></a>     --db-subnet-group-name dev-fumi23-db-subnet-gr-pv <span class="se">\</span>
-<a name="rest_code_561576a857b6452aa001421d2d844559-8"></a>     --multi-az <span class="se">\</span>
-<a name="rest_code_561576a857b6452aa001421d2d844559-9"></a>     --publicly-accessible <span class="se">\</span>
-<a name="rest_code_561576a857b6452aa001421d2d844559-10"></a>     --no-auto-minor-version-upgrade <span class="se">\</span>
-<a name="rest_code_561576a857b6452aa001421d2d844559-11"></a>     --vpc-security-group-ids sg-99999999999999999 <span class="se">\</span>
-<a name="rest_code_561576a857b6452aa001421d2d844559-12"></a>     --copy-tags-to-snapshot <span class="se">\</span>
-<a name="rest_code_561576a857b6452aa001421d2d844559-13"></a>     --enable-cloudwatch-logs-exports postgresql <span class="se">\</span>
-<a name="rest_code_561576a857b6452aa001421d2d844559-14"></a>     --db-parameter-group-name devfumi23-postgres11 <span class="se">\</span>
-<a name="rest_code_561576a857b6452aa001421d2d844559-15"></a>     --no-deletion-protection
+<pre class="code bash"><a name="rest_code_2c6fba6f31d7493dbf04d460a1ffdfe0-1"></a><span class="c1"># サブネットグループ、セキュリティグループ、パラメーターグループ (とその他) を指定している</span>
+<a name="rest_code_2c6fba6f31d7493dbf04d460a1ffdfe0-2"></a><span class="c1"># 指定しないと、それぞれデフォルトのものが関連付けられる</span>
+<a name="rest_code_2c6fba6f31d7493dbf04d460a1ffdfe0-3"></a>$ aws --profile fumi23 rds restore-db-instance-from-db-snapshot <span class="se">\</span>
+<a name="rest_code_2c6fba6f31d7493dbf04d460a1ffdfe0-4"></a>     --db-instance-identifier devfumi23-r1 <span class="se">\</span>
+<a name="rest_code_2c6fba6f31d7493dbf04d460a1ffdfe0-5"></a>     --db-snapshot-identifier devfumi23-s1 <span class="se">\</span>
+<a name="rest_code_2c6fba6f31d7493dbf04d460a1ffdfe0-6"></a>     --db-instance-class db.t2.micro <span class="se">\</span>
+<a name="rest_code_2c6fba6f31d7493dbf04d460a1ffdfe0-7"></a>     --db-subnet-group-name dev-fumi23-db-subnet-gr-pv <span class="se">\</span>
+<a name="rest_code_2c6fba6f31d7493dbf04d460a1ffdfe0-8"></a>     --multi-az <span class="se">\</span>
+<a name="rest_code_2c6fba6f31d7493dbf04d460a1ffdfe0-9"></a>     --publicly-accessible <span class="se">\</span>
+<a name="rest_code_2c6fba6f31d7493dbf04d460a1ffdfe0-10"></a>     --no-auto-minor-version-upgrade <span class="se">\</span>
+<a name="rest_code_2c6fba6f31d7493dbf04d460a1ffdfe0-11"></a>     --vpc-security-group-ids sg-99999999999999999 <span class="se">\</span>
+<a name="rest_code_2c6fba6f31d7493dbf04d460a1ffdfe0-12"></a>     --copy-tags-to-snapshot <span class="se">\</span>
+<a name="rest_code_2c6fba6f31d7493dbf04d460a1ffdfe0-13"></a>     --enable-cloudwatch-logs-exports postgresql <span class="se">\</span>
+<a name="rest_code_2c6fba6f31d7493dbf04d460a1ffdfe0-14"></a>     --db-parameter-group-name devfumi23-postgres11 <span class="se">\</span>
+<a name="rest_code_2c6fba6f31d7493dbf04d460a1ffdfe0-15"></a>     --no-deletion-protection
 </pre>
 </li>
 <li>
 <p>オプションに指定すべき値がよくわからないなあ... というときは、
 <a class="reference external" href="https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-instances.html">describe-db-instances</a>
 で、スナップショット取得元DBインスタンスの情報を取得してみるとだいたいわかる</p>
-<pre class="code bash"><a name="rest_code_d9a17ea284f14ab3a3c484bc782fcd67-1"></a><span class="c1"># 指定した DB インスタンスの情報を取得</span>
-<a name="rest_code_d9a17ea284f14ab3a3c484bc782fcd67-2"></a>$ aws --profile fumi23 rds describe-db-instances --db-instance-identifier devfumi23 &gt; describe-db-devfumi23.json
+<pre class="code bash"><a name="rest_code_5dc6225f7fb14101bffb797c435d3b62-1"></a><span class="c1"># 指定した DB インスタンスの情報を取得</span>
+<a name="rest_code_5dc6225f7fb14101bffb797c435d3b62-2"></a>$ aws --profile fumi23 rds describe-db-instances --db-instance-identifier devfumi23 &gt; describe-db-devfumi23.json
 </pre>
 </li>
 <li>
 <p>JSON or YAML 形式のスケルトンも取得できる。それを <code class="docutils literal"><span class="pre">--cli-input-json</span></code> or <code class="docutils literal"><span class="pre">--cli-input-yaml</span></code> に指定できる。</p>
-<pre class="code bash"><a name="rest_code_710592c1423241f7af92d2816dbccb98-1"></a><span class="c1"># スケルトンを YAML 形式で取得</span>
-<a name="rest_code_710592c1423241f7af92d2816dbccb98-2"></a>$ aws --profile fumi23 rds restore-db-instance-from-db-snapshot --generate-cli-skeleton yaml-input &gt; restore-db-skeleton.yaml
-<a name="rest_code_710592c1423241f7af92d2816dbccb98-3"></a><span class="c1"># スケルトンを JSON 形式で取得</span>
-<a name="rest_code_710592c1423241f7af92d2816dbccb98-4"></a>$ aws --profile fumi23 rds restore-db-instance-from-db-snapshot --generate-cli-skeleton &gt; restore-db-skeleton.json
+<pre class="code bash"><a name="rest_code_df3e3de917d14482ba65eb665a8ff889-1"></a><span class="c1"># スケルトンを YAML 形式で取得</span>
+<a name="rest_code_df3e3de917d14482ba65eb665a8ff889-2"></a>$ aws --profile fumi23 rds restore-db-instance-from-db-snapshot --generate-cli-skeleton yaml-input &gt; restore-db-skeleton.yaml
+<a name="rest_code_df3e3de917d14482ba65eb665a8ff889-3"></a><span class="c1"># スケルトンを JSON 形式で取得</span>
+<a name="rest_code_df3e3de917d14482ba65eb665a8ff889-4"></a>$ aws --profile fumi23 rds restore-db-instance-from-db-snapshot --generate-cli-skeleton &gt; restore-db-skeleton.json
 </pre>
 </li>
 </ul>
 </div>
-<div class="section" id="id10">
-<h3><a class="toc-backref" href="#id27">コマンドリファレンス</a></h3>
-<ul>
+<div class="section" id="id11">
+<h3><a class="toc-backref" href="#id29">コマンドリファレンス</a></h3>
+<ul class="simple">
 <li><p><a class="reference external" href="https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-snapshot.html">create-db-snapshot</a></p></li>
-<li>
-<div class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">&lt;string&gt;</span>, line 143); <em><a href="#id11">backlink</a></em></p>
-<p>Duplicate explicit target name: "restore-db-instance-from-db-snapshot".</p>
-</div>
-<p><a class="reference external" href="https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/restore-db-instance-from-db-snapshot.html">restore-db-instance-from-db-snapshot</a></p>
-</li>
-<li><p><a class="reference external" href="https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-instances.html">describe-db-instances</a></p></li>
+<li><p><a class="reference external" href="https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/restore-db-instance-from-db-snapshot.html">restore-db-instance-from-db-snapshot</a></p></li>
 <li><p><a class="reference external" href="https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/restore-db-instance-to-point-in-time.html">restore-db-instance-to-point-in-time</a></p></li>
+<li><p><a class="reference external" href="https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-instances.html">describe-db-instances</a></p></li>
 <li><p><a class="reference external" href="https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/wait/db-instance-available.html">db-instance-available</a></p></li>
+<li><p><a class="reference external" href="https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/modify-db-instance.html">modify-db-instance</a></p></li>
 <li><p><a class="reference external" href="https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/delete-db-instance.html">delete-db-instance</a></p></li>
 </ul>
 </div>
