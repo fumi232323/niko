@@ -90,7 +90,7 @@ DB スナップショットからの復元
 
   * DB インスタンスを復元すると、DB スナップショットに関連付けられたオプショングループは、作成後に復元された DB インスタンスと関連付けられる。
 
-* `restore-db-instance-from-db-snapshot <https://docs.aws.amazon.com/cli/latest/reference/rds/restore-db-instance-from-db-snapshot.html>`_ コマンドにだいぶオプションがあるので、たいがい間に合いそう
+* `restore-db-instance-from-db-snapshot <https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/restore-db-instance-from-db-snapshot.html>`_ コマンドにだいぶオプションがあるので、たいがい間に合いそう
 * DB 立ち上がるまで待てるやつもある: `db-instance-available <https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/wait/db-instance-available.html>`_
 
 
@@ -138,7 +138,23 @@ fumi23 の疑問と結論
     * スナップショットから復元 ( ``devfumi23-s1`` から ``devfumi23``)
     * 古いほうを削除 (``devfumi23-b1`` を削除)
 
-    => できない。 DB識別子はさすがにリネームできない。
+    => できそう。
+
+      * `DB インスタンスの名前を変更する <https://docs.aws.amazon.com/ja_jp/AmazonRDS/latest/UserGuide/USER_RenameInstance.html>`_
+      * `modify-db-instance <https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/modify-db-instance.html>`_ に
+        ``--new-db-instance-identifier <value>`` というオプションあり。
+
+        .. code-block:: bash
+
+          $ aws --profile fumi23 rds modify-db-instance \
+              --db-instance-identifier devfumi23 \
+              --new-db-instance-identifier devfumi2323 \
+              --apply-immediately  # すぐに適用 (次のメンテナンスウィンドウ中に適用したい場合はこのオプションをつけない)
+
+      * => エンドポイントも変わった
+
+        {{% figure rename-db-instance-identifier.png %}}
+
 
   => DBインスタンスの削除はこちら: `delete-db-instance <https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/delete-db-instance.html>`_
 
@@ -212,7 +228,8 @@ fumi23 の疑問と結論
 
 * `create-db-snapshot <https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-snapshot.html>`_
 * `restore-db-instance-from-db-snapshot <https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/restore-db-instance-from-db-snapshot.html>`_
-* `describe-db-instances <https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-instances.html>`_
 * `restore-db-instance-to-point-in-time <https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/restore-db-instance-to-point-in-time.html>`_
+* `describe-db-instances <https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-instances.html>`_
 * `db-instance-available <https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/wait/db-instance-available.html>`_
+* `modify-db-instance <https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/modify-db-instance.html>`_
 * `delete-db-instance <https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/delete-db-instance.html>`_
