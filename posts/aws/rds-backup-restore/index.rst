@@ -1,7 +1,7 @@
 .. title: Amazon RDS のバックアップと復元
 .. tags: aws
 .. date: 2021-11-21
-.. updated: 2021-11-21
+.. updated: 2021-11-25
 .. slug: index
 .. status: published
 
@@ -20,8 +20,8 @@
 AWS ドキュメントメモ
 =====================
 
-ドキュメント
-------------
+AWS ユーザーガイド
+------------------
 
 `Amazon RDS DB インスタンスのバックアップと復元 <(https://docs.aws.amazon.com/ja_jp/AmazonRDS/latest/UserGuide/CHAP_CommonTasks.BackupRestore.html)>`_
 
@@ -140,7 +140,7 @@ fumi23 の疑問と結論
 
     => できそう。
 
-      * `DB インスタンスの名前を変更する <https://docs.aws.amazon.com/ja_jp/AmazonRDS/latest/UserGuide/USER_RenameInstance.html>`_
+      * `AWS ユーザーガイド: DB インスタンスの名前を変更する <https://docs.aws.amazon.com/ja_jp/AmazonRDS/latest/UserGuide/USER_RenameInstance.html>`_
       * `modify-db-instance <https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/modify-db-instance.html>`_ に
         ``--new-db-instance-identifier <value>`` というオプションあり。
 
@@ -167,13 +167,13 @@ fumi23 の疑問と結論
 
 1. スナップショットを作成
 
-   * `DB スナップショットの作成 <https://docs.aws.amazon.com/ja_jp/AmazonRDS/latest/UserGuide/USER_CreateSnapshot.html>`_ に書いてあるとおり
+   * `AWS ユーザーガイド: DB スナップショットの作成 <https://docs.aws.amazon.com/ja_jp/AmazonRDS/latest/UserGuide/USER_CreateSnapshot.html>`_ に書いてあるとおり
    * AWS CLI コマンドのほうもオプションちょっとしかないので、手動でやるなら AWS Management Console からで良いかなーという感じだった
 
 
 2. スナップショットからの復元
 
-   * `DB スナップショットからの復元 <https://docs.aws.amazon.com/ja_jp/AmazonRDS/latest/UserGuide/USER_RestoreFromSnapshot.html>`_ を見てやる
+   * `AWS ユーザーガイド: DB スナップショットからの復元 <https://docs.aws.amazon.com/ja_jp/AmazonRDS/latest/UserGuide/USER_RestoreFromSnapshot.html>`_ を見てやる
    * こちらは指定できる or 指定すべきオプションが多い
    * AWS Management Console からぽちぽちやると間違えそうなので、 AWS CLI が良さそう (文字でとっておけるし)
    * 何某かからもキックできるし
@@ -223,8 +223,8 @@ fumi23 の疑問と結論
     $ aws --profile fumi23 rds restore-db-instance-from-db-snapshot --generate-cli-skeleton > restore-db-skeleton.json
 
 
-コマンドリファレンス
---------------------
+AWS CLI Command Reference
+--------------------------
 
 * `create-db-snapshot <https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-snapshot.html>`_
 * `restore-db-instance-from-db-snapshot <https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/restore-db-instance-from-db-snapshot.html>`_

@@ -1,7 +1,7 @@
 .. title: ECS Fargate: コンテナごとの CPU使用率とメモリ使用率を見たい
 .. tags: aws
 .. date: 2021-10-10
-.. updated: 2021-10-10
+.. updated: 2021-11-25
 .. slug: index
 .. status: published
 
@@ -68,13 +68,14 @@ CloudWatch Logs Insights でクエリを投げて見る
 参考ページ
 -----------
 * `CloudWatch Logs Insights でコンテナ単位のCPU・メモリ使用量などを確認する <https://dev.classmethod.jp/articles/ways-to-check-fargate-cpu-usage/>`_
-* AWS: `Fargate で Amazon ECS タスクの高いメモリ使用率をモニタリングする方法を教えてください。 <https://aws.amazon.com/jp/premiumsupport/knowledge-center/ecs-tasks-fargate-memory-utilization/>`_
-* AWS: `AmazonECS用のAmazonCloudWatch ContainerInsightsの紹介 <https://aws.amazon.com/jp/blogs/mt/introducing-container-insights-for-amazon-ecs/>`_
+* `ECSやEKSのメトリクスを一括取得するContainer Insightsが一般公開！既存ECSクラスタも追加設定可能に！ <https://dev.classmethod.jp/articles/container-insights-ga/>`_
+* AWS ナレッジセンター: `Fargate で Amazon ECS タスクの高いメモリ使用率をモニタリングする方法を教えてください。 <https://aws.amazon.com/jp/premiumsupport/knowledge-center/ecs-tasks-fargate-memory-utilization/>`_
+* AWS ブログ: `AmazonECS用のAmazonCloudWatch ContainerInsightsの紹介 <https://aws.amazon.com/jp/blogs/mt/introducing-container-insights-for-amazon-ecs/>`_
 
   * 調整のしかたとか載っていておもしろそうだった
 
-* AWS: `AmazonECSがCPUおよびメモリリソースを管理する方法 <https://aws.amazon.com/jp/blogs/containers/how-amazon-ecs-manages-cpu-and-memory-resources/>`_
-* AWS: `既存の Amazon ECS クラスターでの Container Insights のセットアップ <https://docs.aws.amazon.com/ja_jp/AmazonCloudWatch/latest/monitoring/deploy-container-insights-ECS-cluster.html#deploy-container-insights-ECS-existing>`_
+* AWS ブログ: `AmazonECSがCPUおよびメモリリソースを管理する方法 <https://aws.amazon.com/jp/blogs/containers/how-amazon-ecs-manages-cpu-and-memory-resources/>`_
+* AWS ユーザーガイド: `既存の Amazon ECS クラスターでの Container Insights のセットアップ <https://docs.aws.amazon.com/ja_jp/AmazonCloudWatch/latest/monitoring/deploy-container-insights-ECS-cluster.html#deploy-container-insights-ECS-existing>`_
 
   * 新規作成時であれば、Management Console で有効化できる
 
