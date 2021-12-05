@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<title>Amazon RDS for PostgreSQL から Aurora PostgreSQL への移行/ふみのて</title>
+<link rel="shortcut icon" href="../../assets/icons/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sawarabi+Mincho&amp;display=swap&amp;subset=japanese,latin-ext">
+<link href="https://fonts.googleapis.com/css2?family=Capriola&amp;family=Mirza&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Vollkorn:400,700">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+<link rel="stylesheet" href="../../assets/css/style.css?20200720">
+</head>
+<body>
+    <div class="container">
+      <div class="header"><header class="item item-header"><h1>
+    <a href="../../">
+      <img class="logo" src="../../assets/images/inuu.png" alt="犬"></a>
+  </h1>
+  <iframe src="../../tags/" class="tags"></iframe>
+</header></div>
+      <div class="main">
+<div class="article-content">
+  <main class="item item-article item-aws"><div class="category">
+      <a href="../../tags/aws/">
+          aws
+      </a>
+    </div>
+    <div class="title">Amazon RDS for PostgreSQL から Aurora PostgreSQL への移行</div>
+    <time class="date" datetime="2021-12-05 00:00:00+09:00">
+      2021-12-05 Sun
+    </time><time class="date" datetime="2021-12-05 00:00:00+09:00">
+        updated: 2021-12-05 Sun
+        
+      </time><div class="text">
+      <div>
+<details><summary>目次</summary><div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li>
+<p><a class="reference internal" href="#aws" id="id9">AWS ドキュメントメモ</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id1" id="id10">AWS ユーザーガイド</a></p></li>
+<li><p><a class="reference internal" href="#id2" id="id11">概要</a></p></li>
+</ul>
+</li>
+<li>
+<p><a class="reference internal" href="#id4" id="id12">移行手順 覚書き</a></p>
+<ul>
+<li>
+<p><a class="reference internal" href="#rds-for-postgresql-db" id="id13">1. スナップショットを使用して RDS for PostgreSQL DB インスタンスを移行する</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id5" id="id14">1. パラメータグループを作っておく</a></p></li>
+<li>
+<p><a class="reference internal" href="#db" id="id15">2. DB インスタンスを移行する</a></p>
+<ul>
+<li><p><a class="reference internal" href="#aws-management-console" id="id16">AWS Management Console からぽちぽちする</a></p></li>
+<li><p><a class="reference internal" href="#id7" id="id17">結果イメージ</a></p></li>
+<li><p><a class="reference internal" href="#id8" id="id18">AWS Management Console の、「スナップショットの移行」が非活性の場合</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#aurora-rds-for-postgresql-db-aurora-postgresql-db" id="id19">2. Aurora リードレプリカを使用して RDS for PostgreSQL DB インスタンスから Aurora PostgreSQL DB クラスターにデータを移行する</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+</details><div class="section" id="aws">
+<h2><a class="toc-backref" href="#id9">AWS ドキュメントメモ</a></h2>
+<div class="section" id="id1">
+<h3><a class="toc-backref" href="#id10">AWS ユーザーガイド</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.aws.amazon.com/ja_jp/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Migrating.html">PostgreSQL と互換性がある Amazon Aurora にデータを移行する</a></p></li>
+<li><p><a class="reference external" href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.20180305.html">Amazon Aurora PostgreSQL のエンジンのバージョン</a></p></li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h3><a class="toc-backref" href="#id11">概要</a></h3>
+<ul class="simple">
+<li>
+<p>方法は3つある</p>
+<ol class="arabic simple">
+<li>
+<p>スナップショットを使用して RDS for PostgreSQL DB インスタンスを移行する</p>
+<ul>
+<li><p>データは、RDS for PostgreSQL DB スナップショットから Aurora PostgreSQL DB クラスターに直接移行できます。</p></li>
+<li><p>作成された Aurora PostgreSQL DB クラスターには、元の RDS for PostgreSQL DB インスタンスのデータが格納されます。</p></li>
+<li><p>AWS Management Console から移行すると、中身 (データ) を移すだけじゃなく、外身 (DBクラスターと DBインスタンス) もいっしょに作ることができる</p></li>
+<li><p>AWS CLI だと 外身 (DBクラスター, DB インスタンス) =&gt; <strong>TODO: ちょっと確認</strong></p></li>
+</ul>
+</li>
+<li><p>Aurora リードレプリカを使用して RDS for PostgreSQL DB インスタンスを移行する</p></li>
+<li><p>S3 データを Aurora PostgreSQL にインポートする</p></li>
+</ol>
+</li>
+<li>
+<p>早いうちに、マイナーバージョンの自動アップグレードを無効にしておくべし</p>
+<ul>
+<li><p>近い将来 RDS for PostgreSQL DB インスタンスを Aurora PostgreSQL DB クラスターに移行する予定がある場合は、
+移行計画フェーズの早い段階で DB インスタンスのマイナーバージョンの自動アップグレードを無効にすることを強くお勧めします。
+RDS for PostgreSQL バージョンが Aurora PostgreSQL でサポートされていない場合、Aurora PostgreSQL への移行が遅れる可能性があります。
+Aurora PostgreSQL バージョンについては、 <a class="reference external" href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.20180305.html">Amazon Aurora PostgreSQL のエンジンのバージョン</a>
+を参照してください。</p></li>
+<li>
+<p>移行元の RDS for PostgreSQL のバージョンが、 Aurora PostgreSQL でサポートされていないバージョンの場合、 AWS Management Console の当該メニューが非活性になって、使えない</p>
+<ul>
+<li><p>「スナップショットの移行」「Aurora リードレプリカの作成」メニューが非活性になっているときは、サポート外バージョンであろう</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id4">
+<h2><a class="toc-backref" href="#id12">移行手順 覚書き</a></h2>
+<div class="section" id="rds-for-postgresql-db">
+<h3><a class="toc-backref" href="#id13">1. スナップショットを使用して RDS for PostgreSQL DB インスタンスを移行する</a></h3>
+<div class="section" id="id5">
+<h4><a class="toc-backref" href="#id14">1. パラメータグループを作っておく</a></h4>
+<p>Aurora の場合、パラメータグループが 2種類ある</p>
+<ul class="simple">
+<li><p>DB クラスターパラメータグループ: <code class="docutils literal">timezone</code>, <code class="docutils literal">lc_monetary</code>, <code class="docutils literal">lc_numeric</code>, <code class="docutils literal">lc_time</code> はこちら (<code class="docutils literal">lc_messages</code> もあった)</p></li>
+<li><p>DB パラメータグループ: <code class="docutils literal">lc_messages</code> はこちら</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>参考ドキュメント:</p>
+<ul class="simple">
+<li><p>AWS ユーザーガイド: <a class="reference external" href="https://docs.aws.amazon.com/ja_jp/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Reference.html">Amazon Aurora PostgreSQL のリファレンス</a></p></li>
+<li><p>AWS ナレッジセンター: <a class="reference external" href="https://aws.amazon.com/jp/premiumsupport/knowledge-center/aurora-mysql-change-timezone/">Amazon Aurora DB クラスターのタイムゾーンを変更するにはどうすればよいですか?</a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="db">
+<h4><a class="toc-backref" href="#id15">2. DB インスタンスを移行する</a></h4>
+<div class="section" id="aws-management-console">
+<h5><a class="toc-backref" href="#id16">AWS Management Console からぽちぽちする</a></h5>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.aws.amazon.com/ja_jp/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Migrating.html#AuroraPostgreSQL.Migrating.RDSPostgreSQL.Replica">AWS ユーザーガイド: RDS for PostgreSQL DB インスタンスの スナップショットを Aurora PostgreSQL DB クラスターに移行する</a> の通りでとくに迷うところはない</p></li>
+<li>
+<p>「DB インスタンス識別子」は、以下に使われる</p>
+<ul>
+<li>
+<p>DB 識別子 (DB クラスター名)</p>
+<ul>
+<li><p><code class="docutils literal">{ここで入力した DB <span class="pre">識別子}-cluster</span></code> という名前の DB クラスターが作成された (e.g. <code class="docutils literal"><span class="pre">devfumi23-a1-cluster</span></code>)</p></li>
+<li>
+<p>エントポイント名はこんな感じ</p>
+<ul>
+<li><p>ライターインスタンス: <code class="docutils literal"><span class="pre">devfumi23-a1-cluster.cluster-xxxxxxxxxxxx.ap-northeast-1.rds.amazonaws.com</span></code></p></li>
+<li><p>リーダーインスタンス: <code class="docutils literal"><span class="pre">devfumi23-a1-cluster.cluster-ro-xxxxxxxxxxxx.ap-northeast-1.rds.amazonaws.com</span></code></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>DB インスタンス名</p>
+<ul>
+<li><p><code class="docutils literal">{ここで入力した DB 識別子}</code> という名前の DB インスタンスが作成された (e.g. <code class="docutils literal"><span class="pre">devfumi23-a1</span></code>)</p></li>
+<li><p>エンドポイント名はこんな感じ: <code class="docutils literal"><span class="pre">devfumi23-a1.cbagdidnvhla.ap-northeast-1.rds.amazonaws.com</span></code></p></li>
+<li><p>※リーダーインスタンスもあったらどういう名前になるかはわからない</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>「暗号を有効化」は、このタイミングでないとできない (あとから変更できない) ので注意</p>
+<ul>
+<li><p>移行元スナップショットが 「暗号化: 有効でない」であっても、移行先にはここで「暗号を有効化」にできる</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id7">
+<h5><a class="toc-backref" href="#id17">結果イメージ</a></h5>
+<p></p>
+<div class="figure">
+<img alt="/images/aws/aurora-rds-postgresql-migrating/devfumi23-a1-cluster.png" src="../../images/aws/aurora-rds-postgresql-migrating/devfumi23-a1-cluster.png">
+</div>
+<ul>
+<li>
+<p>DB クラスターはすぐできあがったが、DBインスタンスの作成はだいぶ時間かかる</p>
+<ul class="simple">
+<li><p>スナップショットは、Djangoチュートリアルその2くらいの状態でレコードもほとんどなかったんだけれど、3時間くらいかかった気がする。</p></li>
+</ul>
+</li>
+<li><p>ぽちぽち中に指定できた <code class="docutils literal">DB クラスターパラメータグループ</code>, <code class="docutils literal">DB パラメータグループ</code>, <code class="docutils literal">VPC セキュリティグループ</code>, <code class="docutils literal">サブネットグループ</code> などなどもちゃんとくっついた</p></li>
+<li><p><code class="docutils literal">マスターユーザー名</code>, <code class="docutils literal">マスターパスワード</code>, <code class="docutils literal">DB名</code> はスナップショットから引き継がれた</p></li>
+<li>
+<p>移行元スナップショットが 「マルチ AZ: なし」の場合、「ライターインスタンス」のみが作成される</p>
+<ul>
+<li>
+<p>=&gt; あとから「リーダーインスタンス」を追加する場合は、「データベース」 &gt; 「当該クラスター」 &gt; 「アクション」 &gt; 「リーダーの追加」でできる</p>
+<ul>
+<li><p>「DB インスタンス識別子」は好きにつけられた</p></li>
+<li><p>その他新しく DBインスタンス作るときと同じ感じのものがだいたいは指定できる感じだった</p></li>
+<li><p>リーダーの追加は、何時間もかからなかった。すぐできた。</p></li>
+<li>
+<p>「リーダーインスタンス」追加後の様子</p>
+<p></p>
+<div class="figure">
+<img alt="/images/aws/aurora-rds-postgresql-migrating/devfumi23-a1-cluster-ro.png" src="../../images/aws/aurora-rds-postgresql-migrating/devfumi23-a1-cluster-ro.png">
+</div>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>エンドポイント: Aurora にはクラスターのエンドポイントと、DB インスタンスのエンドポイントがある</p>
+<ul class="simple">
+<li><p>どっちからでも RDS と同じように DB 接続できる</p></li>
+<li>
+<p>ライター・リーダー両方ある場合:</p>
+<ul>
+<li>
+<p>クラスターのエンドポイント:</p>
+<ul>
+<li><p>ライターインスタンス: 書き込み・読み取り両方可</p></li>
+<li>
+<p>リーダーインスタンス: 読み取りのみ</p>
+<ul>
+<li><p>試しに UPDATE かけてみたら、 <cite>[25006] ERROR: cannot execute UPDATE in a read-only transaction</cite></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>インスタンスのエンドポイント: クラスターのエンドポイントと同様に</p>
+<ul>
+<li><p>ライターインスタンス: 書き込み・読み取り両方可</p></li>
+<li><p>リーダーインスタンス: 読み取りのみ</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>ライター しかない場合:</p>
+<ul>
+<li>
+<p>クラスターのエンドポイント:</p>
+<ul>
+<li><p>ライターインスタンス: 書き込み・読み取り両方可</p></li>
+<li><p>リーダーインスタンス: 書き込み・読み取り両方可</p></li>
+</ul>
+</li>
+<li>
+<p>インスタンスのエンドポイント:</p>
+<ul>
+<li><p>ライターインスタンス: 書き込み・読み取り両方可</p></li>
+<li><p>リーダーインスタンス: -</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><a class="reference external" href="https://docs.aws.amazon.com/ja_jp/AmazonRDS/latest/AuroraUserGuide/Aurora.Connecting.html#Aurora.Connecting.AuroraPostgreSQL">AWS ユーザーガイド: Amazon Aurora DB クラスターへの接続</a></p>
+<ul class="simple">
+<li>
+<p>クラスターエンドポイント: DB クラスターのプライマリインスタンスに接続</p>
+<ul>
+<li><p>クラスターエンドポイントを使用して、読み取りと書き込みの両方のオペレーションを実行できる</p></li>
+<li><p>クラスターエンドポイントは常にプライマリインスタンスをポイントします。</p></li>
+<li><p>プライマリインスタンスが失敗し、置き換えられると、クラスターエンドポイントは新しいプライマリインスタンスをポイントします。</p></li>
+</ul>
+</li>
+<li>
+<p>DB インスタンスエンドポイント: クラスターの特定の DB インスタンスに直接接続できる</p>
+<ul>
+<li><p>それぞれ、クラスターエンドポイントとは別に一意のエンドポイントを持つ</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id8">
+<h5><a class="toc-backref" href="#id18">AWS Management Console の、「スナップショットの移行」が非活性の場合</a></h5>
+<p>AWS CLI の <code class="docutils literal"><span class="pre">restore-db-cluster-from-snapshot</span></code> を使って移行できるもよう</p>
+<ul class="simple">
+<li><p>と思ったら、 <code class="docutils literal"><span class="pre">restore-db-cluster-from-snapshot</span></code> はクラスターしか作ってくれないらしい (中の DBインスタンスは移行してくれないらしい)</p></li>
+<li><p>だから、AWS のガイドにも AWS CLI の例が載っていなかったのかも...??</p></li>
+</ul>
+<p>=&gt; 一応やってみたが、たしかに DBインスタンスは復元されない</p>
+<ul>
+<li><p>試したバージョン: PostgreSQL 11.12、Aurora PostgreSQL リリース 3.6</p></li>
+<li>
+<p>コマンド例</p>
+<pre class="code bash"><a name="rest_code_39b133f6fbe94f13a5b3177b811957a2-1"></a><span class="c1"># RDS のスナップショットから Aurora DB クラスター を復元</span>
+<a name="rest_code_39b133f6fbe94f13a5b3177b811957a2-2"></a>$ aws rds restore-db-cluster-from-snapshot <span class="se">\</span>
+<a name="rest_code_39b133f6fbe94f13a5b3177b811957a2-3"></a>   --db-cluster-identifier devfumi23-a1-c <span class="se">\</span>
+<a name="rest_code_39b133f6fbe94f13a5b3177b811957a2-4"></a>   --snapshot-identifier arn:aws:rds:ap-northeast-1:xxxxxxxxxxxx:snapshot:devfumi23-s1 <span class="se">\</span>
+<a name="rest_code_39b133f6fbe94f13a5b3177b811957a2-5"></a>   --engine aurora-postgresql <span class="se">\</span>
+<a name="rest_code_39b133f6fbe94f13a5b3177b811957a2-6"></a>   --engine-version <span class="m">11</span>.12 <span class="se">\</span>
+<a name="rest_code_39b133f6fbe94f13a5b3177b811957a2-7"></a>   --db-subnet-group-name dev-fumi23-db-subnet-gr-pv <span class="se">\</span>
+<a name="rest_code_39b133f6fbe94f13a5b3177b811957a2-8"></a>   --vpc-security-group-ids sg-xxxxxxxxxxxxxxxxx <span class="se">\</span>
+<a name="rest_code_39b133f6fbe94f13a5b3177b811957a2-9"></a>   --enable-cloudwatch-logs-exports postgresql <span class="se">\</span>
+<a name="rest_code_39b133f6fbe94f13a5b3177b811957a2-10"></a>   --db-cluster-parameter-group-name devfumi23-aurora-postgres11-c <span class="se">\</span>
+<a name="rest_code_39b133f6fbe94f13a5b3177b811957a2-11"></a>   --no-deletion-protection <span class="se">\</span>
+<a name="rest_code_39b133f6fbe94f13a5b3177b811957a2-12"></a>   --copy-tags-to-snapshot
+</pre>
+</li>
+<li>
+<p>結果イメージ</p>
+<p></p>
+<div class="figure">
+<img alt="/images/aws/aurora-rds-postgresql-migrating/devfumi23-a1-c.png" src="../../images/aws/aurora-rds-postgresql-migrating/devfumi23-a1-c.png">
+</div>
+<ul class="simple">
+<li><p>エンドポイントは払い出された</p></li>
+<li><p>DB クラスターのパラメータグループもちゃんとくっついた</p></li>
+<li><p><code class="docutils literal">マスターユーザー名</code>, <code class="docutils literal">マスターパスワード</code> はスナップショットから引き継がれたもよう</p></li>
+<li>
+<p><strong>TODO: create-db-instance もやってみよ...</strong></p>
+<ul>
+<li><p>もしかして、クラスターはスナップショットから作るので、 create-db-instance すると中身が出来上がったりして.....??</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>[参考ドキュメント]</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://dev.classmethod.jp/articles/tsnote-migrate-from-rds-for-postgresql-to-aurora/">RDS for PostgreSQL から Aurora PostgreSQL へのスナップショットやAurora リードレプリカを利用した移行がマネジメントコンソールから行えない場合の対処方法</a></p></li>
+<li><p>AWS CLI Command Reference: <a class="reference external" href="https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/restore-db-cluster-from-snapshot.html">restore-db-cluster-from-snapshot</a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="aurora-rds-for-postgresql-db-aurora-postgresql-db">
+<h3><a class="toc-backref" href="#id19">2. Aurora リードレプリカを使用して RDS for PostgreSQL DB インスタンスから Aurora PostgreSQL DB クラスターにデータを移行する</a></h3>
+<p><strong>TODO: 今度やってみる</strong></p>
+</div>
+</div>
+</div>
+    </div>
+  </main>
+</div>
+</div>
+    </div>
+  </body>
+</html>
