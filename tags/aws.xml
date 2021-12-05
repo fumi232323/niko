@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ふみのて (Posts about aws)</title><link>https://32imuf.com/</link><description></description><atom:link href="https://32imuf.com/tags/aws.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2021 &lt;a href="mailto:fumi232323fumi2016@gmail.com"&gt;fumi23&lt;/a&gt; </copyright><lastBuildDate>Sun, 05 Dec 2021 08:11:52 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Amazon RDS for PostgreSQL から Aurora PostgreSQL への移行</title><link>https://32imuf.com/aws/aurora-rds-postgresql-migrating/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;details&gt;&lt;summary&gt;目次&lt;/summary&gt;&lt;div class="contents topic" id="contents"&gt;
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ふみのて (Posts about aws)</title><link>https://32imuf.com/</link><description></description><atom:link href="https://32imuf.com/tags/aws.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2021 &lt;a href="mailto:fumi232323fumi2016@gmail.com"&gt;fumi23&lt;/a&gt; </copyright><lastBuildDate>Sun, 05 Dec 2021 13:48:30 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Amazon RDS for PostgreSQL から Aurora PostgreSQL への移行</title><link>https://32imuf.com/aws/aurora-rds-postgresql-migrating/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;details&gt;&lt;summary&gt;目次&lt;/summary&gt;&lt;div class="contents topic" id="contents"&gt;
 &lt;p class="topic-title first"&gt;Contents&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/aws/aurora-rds-postgresql-migrating/#aws" id="id9"&gt;AWS ドキュメントメモ&lt;/a&gt;&lt;/p&gt;
@@ -268,20 +268,20 @@ Aurora PostgreSQL バージョンについては、 &lt;a class="reference exter
 &lt;h3&gt;&lt;a class="toc-backref" href="https://32imuf.com/aws/aurora-rds-postgresql-migrating/#id19"&gt;2. Aurora リードレプリカを使用して RDS for PostgreSQL DB インスタンスから Aurora PostgreSQL DB クラスターにデータを移行する&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;TODO: 今度やってみる&lt;/strong&gt;&lt;/p&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;/div&gt;</description><category>aws</category><guid>https://32imuf.com/aws/aurora-rds-postgresql-migrating/</guid><pubDate>Sat, 04 Dec 2021 15:00:00 GMT</pubDate></item><item><title>AWS IAM のセキュリティ (ドキュメントの場所)</title><link>https://32imuf.com/aws/iam-security-best-practices/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;details&gt;&lt;summary&gt;目次&lt;/summary&gt;&lt;div class="contents topic" id="contents"&gt;
+&lt;/div&gt;&lt;/div&gt;</description><category>aws</category><guid>https://32imuf.com/aws/aurora-rds-postgresql-migrating/</guid><pubDate>Sat, 04 Dec 2021 15:00:00 GMT</pubDate></item><item><title>AWS IAM のセキュリティ (ドキュメント・参考ページの場所)</title><link>https://32imuf.com/aws/iam-security-best-practices/</link><dc:creator>fumi23</dc:creator><description>&lt;div&gt;&lt;details&gt;&lt;summary&gt;目次&lt;/summary&gt;&lt;div class="contents topic" id="contents"&gt;
 &lt;p class="topic-title first"&gt;Contents&lt;/p&gt;
 &lt;ul class="simple"&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/aws/iam-security-best-practices/#id1" id="id3"&gt;ドキュメントの場所&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="reference internal" href="https://32imuf.com/aws/iam-security-best-practices/#id1" id="id3"&gt;ドキュメントの場所・参考ページの場所&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;/details&gt;&lt;div class="section" id="id1"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/aws/iam-security-best-practices/#id3"&gt;ドキュメントの場所&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="https://32imuf.com/aws/iam-security-best-practices/#id3"&gt;ドキュメントの場所・参考ページの場所&lt;/a&gt;&lt;/h2&gt;
 &lt;ul class="simple"&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://docs.aws.amazon.com/ja_jp/IAM/latest/UserGuide/best-practices.html"&gt;IAM でのセキュリティのベストプラクティス&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html"&gt;AWSアクセスキーを管理するためのベストプラクティス&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://docs.aws.amazon.com/ja_jp/IAM/latest/UserGuide/id_credentials_access-keys.html"&gt;IAM ユーザーのアクセスキーの管理&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://aws.amazon.com/jp/premiumsupport/knowledge-center/authenticate-mfa-cli/"&gt;MFA トークンを使用して、AWS CLI を通じて AWS リソースへのアクセスを認証するにはどうすればよいですか?&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://aws.amazon.com/jp/premiumsupport/knowledge-center/iam-assume-role-cli/"&gt;AWS CLI を使用して IAM ロールを引き受ける方法を教えてください。&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;AWS ユーザーガイド: &lt;a class="reference external" href="https://docs.aws.amazon.com/ja_jp/IAM/latest/UserGuide/best-practices.html"&gt;IAM でのセキュリティのベストプラクティス&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;AWS 全般のリファレンス: &lt;a class="reference external" href="https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html"&gt;AWSアクセスキーを管理するためのベストプラクティス&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;AWS ユーザーガイド: &lt;a class="reference external" href="https://docs.aws.amazon.com/ja_jp/IAM/latest/UserGuide/id_credentials_access-keys.html"&gt;IAM ユーザーのアクセスキーの管理&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;AWS ナレッジセンター: &lt;a class="reference external" href="https://aws.amazon.com/jp/premiumsupport/knowledge-center/authenticate-mfa-cli/"&gt;MFA トークンを使用して、AWS CLI を通じて AWS リソースへのアクセスを認証するにはどうすればよいですか?&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;AWS ナレッジセンター: &lt;a class="reference external" href="https://aws.amazon.com/jp/premiumsupport/knowledge-center/iam-assume-role-cli/"&gt;AWS CLI を使用して IAM ロールを引き受ける方法を教えてください。&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://dev.classmethod.jp/articles/iam-role-passrole-assumerole/"&gt;IAM ロールの PassRole と AssumeRole をもう二度と忘れないために絵を描いてみた&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;a class="reference external" href="https://dev.classmethod.jp/articles/iam-role-and-assumerole/"&gt;IAMロール徹底理解 〜 AssumeRoleの正体&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
